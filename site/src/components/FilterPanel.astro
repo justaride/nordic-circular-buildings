@@ -1,0 +1,242 @@
+---
+// Filter options
+const countries = [
+  { code: 'NO', name: 'Norway', count: 22 },
+  { code: 'SE', name: 'Sweden', count: 0 },
+  { code: 'DK', name: 'Denmark', count: 0 },
+  { code: 'FI', name: 'Finland', count: 0 },
+  { code: 'IS', name: 'Iceland', count: 0 },
+];
+
+const statuses = [
+  { value: 'completed', label: 'Completed' },
+  { value: 'under_construction', label: 'Under Construction' },
+  { value: 'planned', label: 'Planned' },
+  { value: 'operational', label: 'Operational' },
+];
+
+const buildingTypes = [
+  { value: 'office', label: 'Office' },
+  { value: 'school', label: 'School' },
+  { value: 'housing', label: 'Housing' },
+  { value: 'sports_facility', label: 'Sports Facility' },
+  { value: 'healthcare', label: 'Healthcare' },
+  { value: 'mixed_use', label: 'Mixed Use' },
+  { value: 'infrastructure', label: 'Infrastructure' },
+  { value: 'workshop', label: 'Workshop' },
+  { value: 'government', label: 'Government' },
+];
+
+const strategies = [
+  { value: 'material_reuse', label: 'Material Reuse' },
+  { value: 'adaptive_reuse', label: 'Adaptive Reuse' },
+  { value: 'design_for_disassembly', label: 'Design for Disassembly' },
+  { value: 'upcycling', label: 'Upcycling' },
+  { value: 'recycled_content', label: 'Recycled Content' },
+  { value: 'low_carbon_materials', label: 'Low Carbon Materials' },
+];
+---
+
+<aside class="bg-white rounded-xl border border-nordic-100 p-4 sticky top-20 custom-scrollbar overflow-y-auto max-h-[calc(100vh-6rem)]">
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="font-semibold text-gray-900">Filters</h2>
+    <button
+      id="clear-filters"
+      class="text-sm text-nordic-600 hover:text-nordic-700 font-medium"
+    >
+      Clear all
+    </button>
+  </div>
+
+  <!-- Country Filter -->
+  <div class="mb-6">
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Country</h3>
+    <div class="space-y-2">
+      {countries.map((country) => (
+        <label class={`flex items-center gap-2 cursor-pointer ${country.count === 0 ? 'opacity-50' : ''}`}>
+          <input
+            type="checkbox"
+            name="country"
+            value={country.code}
+            checked={country.count > 0}
+            disabled={country.count === 0}
+            class="filter-checkbox w-4 h-4 rounded border-gray-300 text-nordic-500 focus:ring-nordic-500"
+          />
+          <span class="text-sm text-gray-600">{country.name}</span>
+          <span class="text-xs text-gray-400 ml-auto">{country.count}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <!-- Status Filter -->
+  <div class="mb-6">
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Status</h3>
+    <div class="space-y-2">
+      {statuses.map((status) => (
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            name="status"
+            value={status.value}
+            class="filter-checkbox w-4 h-4 rounded border-gray-300 text-nordic-500 focus:ring-nordic-500"
+          />
+          <span class="text-sm text-gray-600">{status.label}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <!-- Building Type Filter -->
+  <div class="mb-6">
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Building Type</h3>
+    <div class="space-y-2">
+      {buildingTypes.map((type) => (
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            name="building_type"
+            value={type.value}
+            class="filter-checkbox w-4 h-4 rounded border-gray-300 text-nordic-500 focus:ring-nordic-500"
+          />
+          <span class="text-sm text-gray-600">{type.label}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <!-- Year Range Filter -->
+  <div class="mb-6">
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Year Completed</h3>
+    <div class="flex items-center gap-2">
+      <input
+        type="number"
+        id="year-min"
+        placeholder="2020"
+        min="2020"
+        max="2030"
+        class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-nordic-500 focus:border-nordic-500"
+      />
+      <span class="text-gray-400">–</span>
+      <input
+        type="number"
+        id="year-max"
+        placeholder="2027"
+        min="2020"
+        max="2030"
+        class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-nordic-500 focus:border-nordic-500"
+      />
+    </div>
+  </div>
+
+  <!-- Circular Strategy Filter -->
+  <div class="mb-6">
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Circular Strategy</h3>
+    <div class="space-y-2">
+      {strategies.map((strategy) => (
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            name="strategy"
+            value={strategy.value}
+            class="filter-checkbox w-4 h-4 rounded border-gray-300 text-nordic-500 focus:ring-nordic-500"
+          />
+          <span class="text-sm text-gray-600">{strategy.label}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <!-- Circularity Rate Slider -->
+  <div class="mb-4">
+    <h3 class="text-sm font-medium text-gray-700 mb-2">
+      Min Circularity Rate: <span id="circularity-value" class="text-nordic-600">0%</span>
+    </h3>
+    <input
+      type="range"
+      id="circularity-range"
+      min="0"
+      max="100"
+      value="0"
+      class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-nordic-500"
+    />
+  </div>
+</aside>
+
+<script>
+  // Filter state management
+  const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+  const yearMinInput = document.getElementById('year-min') as HTMLInputElement;
+  const yearMaxInput = document.getElementById('year-max') as HTMLInputElement;
+  const circularityRange = document.getElementById('circularity-range') as HTMLInputElement;
+  const circularityValue = document.getElementById('circularity-value');
+  const clearFiltersBtn = document.getElementById('clear-filters');
+
+  function getActiveFilters() {
+    const filters: Record<string, string[]> = {
+      country: [],
+      status: [],
+      building_type: [],
+      strategy: [],
+    };
+
+    filterCheckboxes.forEach((checkbox) => {
+      const input = checkbox as HTMLInputElement;
+      if (input.checked && !input.disabled) {
+        const name = input.name;
+        if (filters[name]) {
+          filters[name].push(input.value);
+        }
+      }
+    });
+
+    return {
+      ...filters,
+      yearMin: yearMinInput?.value ? parseInt(yearMinInput.value) : null,
+      yearMax: yearMaxInput?.value ? parseInt(yearMaxInput.value) : null,
+      minCircularity: circularityRange ? parseInt(circularityRange.value) : 0,
+    };
+  }
+
+  function emitFilterChange() {
+    const filters = getActiveFilters();
+    window.dispatchEvent(new CustomEvent('filterChange', { detail: filters }));
+  }
+
+  // Event listeners
+  filterCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', emitFilterChange);
+  });
+
+  yearMinInput?.addEventListener('change', emitFilterChange);
+  yearMaxInput?.addEventListener('change', emitFilterChange);
+
+  circularityRange?.addEventListener('input', () => {
+    if (circularityValue) {
+      circularityValue.textContent = `${circularityRange.value}%`;
+    }
+  });
+
+  circularityRange?.addEventListener('change', emitFilterChange);
+
+  clearFiltersBtn?.addEventListener('click', () => {
+    filterCheckboxes.forEach((checkbox) => {
+      const input = checkbox as HTMLInputElement;
+      if (!input.disabled) {
+        input.checked = input.name === 'country' && input.value === 'NO'; // Keep Norway checked by default
+      }
+    });
+
+    if (yearMinInput) yearMinInput.value = '';
+    if (yearMaxInput) yearMaxInput.value = '';
+    if (circularityRange) {
+      circularityRange.value = '0';
+      if (circularityValue) circularityValue.textContent = '0%';
+    }
+
+    emitFilterChange();
+  });
+
+  // Initial emit
+  emitFilterChange();
+</script>

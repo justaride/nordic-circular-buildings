@@ -1,0 +1,133 @@
+---
+// Leaflet Map Component
+---
+
+<div class="bg-white rounded-xl border border-nordic-100 overflow-hidden">
+  <div class="p-4 border-b border-nordic-50">
+    <h2 class="font-semibold text-gray-900">Project Locations</h2>
+  </div>
+  <div id="map" class="h-80 w-full"></div>
+</div>
+
+<script>
+  // Initialize map when DOM is ready
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Wait for Leaflet to load
+    if (typeof L === 'undefined') {
+      console.error('Leaflet not loaded');
+      return;
+    }
+
+    // Initialize map centered on Nordic region
+    const map = L.map('map').setView([62, 10], 4);
+
+    // Add tile layer (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Custom marker icon
+    const nordicIcon = L.divIcon({
+      className: 'custom-marker',
+      html: `<div style="background-color: #3da882; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+      iconSize: [16, 16],
+      iconAnchor: [8, 8],
+    });
+
+    // Load project data
+    try {
+      const response = await fetch('/data/norway.json');
+      const data = await response.json();
+
+      // Store markers for filtering
+      const markers: L.Marker[] = [];
+
+      // Add markers for each project
+      data.projects.forEach((project: any) => {
+        if (project.location?.coordinates) {
+          const { lat, lng } = project.location.coordinates;
+
+          const marker = L.marker([lat, lng], { icon: nordicIcon })
+            .bindPopup(`
+              <div style="min-width: 200px;">
+                <strong style="font-size: 14px;">${project.name}</strong>
+                <p style="color: #666; margin: 4px 0;">${project.location.city}</p>
+                <p style="font-size: 12px; margin: 4px 0;">${project.building_type.replace('_', ' ')}</p>
+                ${project.metrics?.circularity_rate?.value
+                  ? `<p style="color: #228b66; font-weight: bold;">${project.metrics.circularity_rate.value}% circularity</p>`
+                  : ''}
+                <a href="/project/${project.id}" style="color: #2d7fc0; font-size: 12px;">View details →</a>
+              </div>
+            `)
+            .addTo(map);
+
+          // Store project data on marker for filtering
+          (marker as any).projectData = project;
+          markers.push(marker);
+        }
+      });
+
+      // Listen for filter changes to update map
+      window.addEventListener('filterChange', ((e: CustomEvent) => {
+        const filters = e.detail;
+
+        markers.forEach((marker) => {
+          const project = (marker as any).projectData;
+          let visible = true;
+
+          // Check country filter
+          if (filters.country.length > 0 && !filters.country.includes(project.country)) {
+            visible = false;
+          }
+
+          // Check status filter
+          if (filters.status.length > 0 && !filters.status.includes(project.status)) {
+            visible = false;
+          }
+
+          // Check building type filter
+          if (filters.building_type.length > 0 && !filters.building_type.includes(project.building_type)) {
+            visible = false;
+          }
+
+          // Check strategy filter
+          if (filters.strategy.length > 0) {
+            const hasStrategy = filters.strategy.some((s: string) =>
+              project.primary_strategies?.includes(s)
+            );
+            if (!hasStrategy) visible = false;
+          }
+
+          // Check circularity filter
+          if (filters.minCircularity > 0) {
+            const rate = project.metrics?.circularity_rate?.value || 0;
+            if (rate < filters.minCircularity) visible = false;
+          }
+
+          // Toggle marker visibility
+          if (visible) {
+            marker.addTo(map);
+          } else {
+            marker.remove();
+          }
+        });
+      }) as EventListener);
+
+      // Fit bounds to markers
+      if (markers.length > 0) {
+        const group = L.featureGroup(markers);
+        map.fitBounds(group.getBounds().pad(0.1));
+      }
+    } catch (error) {
+      console.error('Error loading project data:', error);
+    }
+  });
+</script>
+
+<style>
+  .custom-marker {
+    background: transparent;
+    border: none;
+  }
+</style>

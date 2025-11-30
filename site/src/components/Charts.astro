@@ -1,0 +1,196 @@
+---
+// Charts Component using Chart.js
+---
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+  <!-- Projects by Type -->
+  <div class="bg-white rounded-xl border border-nordic-100 p-4">
+    <h3 class="font-semibold text-gray-900 mb-4">Projects by Building Type</h3>
+    <canvas id="chart-by-type" height="200"></canvas>
+  </div>
+
+  <!-- Projects by Status -->
+  <div class="bg-white rounded-xl border border-nordic-100 p-4">
+    <h3 class="font-semibold text-gray-900 mb-4">Projects by Status</h3>
+    <canvas id="chart-by-status" height="200"></canvas>
+  </div>
+
+  <!-- Projects by Year -->
+  <div class="bg-white rounded-xl border border-nordic-100 p-4">
+    <h3 class="font-semibold text-gray-900 mb-4">Projects by Year</h3>
+    <canvas id="chart-by-year" height="200"></canvas>
+  </div>
+
+  <!-- Circularity Distribution -->
+  <div class="bg-white rounded-xl border border-nordic-100 p-4">
+    <h3 class="font-semibold text-gray-900 mb-4">Circularity Rate Distribution</h3>
+    <canvas id="chart-circularity" height="200"></canvas>
+  </div>
+</div>
+
+<script>
+  // Initialize charts when DOM is ready
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Check if Chart.js is loaded
+    if (typeof Chart === 'undefined') {
+      console.error('Chart.js not loaded');
+      return;
+    }
+
+    // Load project data
+    try {
+      const response = await fetch('/data/norway.json');
+      const data = await response.json();
+      const projects = data.projects;
+
+      // Nordic theme colors
+      const nordicColors = {
+        green: '#228b66',
+        greenLight: '#6bc4a6',
+        blue: '#2d7fc0',
+        blueLight: '#7bb9e3',
+        gray: '#78716c',
+      };
+
+      // Count projects by building type
+      const typeCount: Record<string, number> = {};
+      projects.forEach((p: any) => {
+        const type = p.building_type || 'unknown';
+        typeCount[type] = (typeCount[type] || 0) + 1;
+      });
+
+      // Chart: Projects by Type
+      new Chart(document.getElementById('chart-by-type') as HTMLCanvasElement, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(typeCount).map((t) => t.replace('_', ' ')),
+          datasets: [{
+            data: Object.values(typeCount),
+            backgroundColor: nordicColors.green,
+            borderRadius: 4,
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+          },
+          scales: {
+            y: { beginAtZero: true, ticks: { stepSize: 1 } },
+          },
+        },
+      });
+
+      // Count projects by status
+      const statusCount: Record<string, number> = {};
+      projects.forEach((p: any) => {
+        const status = p.status || 'unknown';
+        statusCount[status] = (statusCount[status] || 0) + 1;
+      });
+
+      // Chart: Projects by Status
+      new Chart(document.getElementById('chart-by-status') as HTMLCanvasElement, {
+        type: 'doughnut',
+        data: {
+          labels: Object.keys(statusCount).map((s) => s.replace('_', ' ')),
+          datasets: [{
+            data: Object.values(statusCount),
+            backgroundColor: [nordicColors.green, nordicColors.blue, nordicColors.greenLight, nordicColors.blueLight],
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'right' },
+          },
+        },
+      });
+
+      // Count projects by year
+      const yearCount: Record<string, number> = {};
+      projects.forEach((p: any) => {
+        let year = p.year_completed;
+        if (typeof year === 'string') {
+          // Extract year from strings like "2025 (planned)"
+          const match = year.match(/\d{4}/);
+          year = match ? match[0] : 'TBD';
+        }
+        yearCount[year] = (yearCount[year] || 0) + 1;
+      });
+
+      // Sort years
+      const sortedYears = Object.keys(yearCount).sort();
+
+      // Chart: Projects by Year
+      new Chart(document.getElementById('chart-by-year') as HTMLCanvasElement, {
+        type: 'bar',
+        data: {
+          labels: sortedYears,
+          datasets: [{
+            data: sortedYears.map((y) => yearCount[y]),
+            backgroundColor: nordicColors.blue,
+            borderRadius: 4,
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+          },
+          scales: {
+            y: { beginAtZero: true, ticks: { stepSize: 1 } },
+          },
+        },
+      });
+
+      // Circularity distribution
+      const circularityBuckets: Record<string, number> = {
+        '0-25%': 0,
+        '26-50%': 0,
+        '51-75%': 0,
+        '76-100%': 0,
+        'Not reported': 0,
+      };
+
+      projects.forEach((p: any) => {
+        const rate = p.metrics?.circularity_rate?.value;
+        if (rate === undefined || rate === null) {
+          circularityBuckets['Not reported']++;
+        } else if (rate <= 25) {
+          circularityBuckets['0-25%']++;
+        } else if (rate <= 50) {
+          circularityBuckets['26-50%']++;
+        } else if (rate <= 75) {
+          circularityBuckets['51-75%']++;
+        } else {
+          circularityBuckets['76-100%']++;
+        }
+      });
+
+      // Chart: Circularity Distribution
+      new Chart(document.getElementById('chart-circularity') as HTMLCanvasElement, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(circularityBuckets),
+          datasets: [{
+            data: Object.values(circularityBuckets),
+            backgroundColor: [nordicColors.gray, nordicColors.greenLight, nordicColors.green, nordicColors.blue, '#d6d3d1'],
+            borderRadius: 4,
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+          },
+          scales: {
+            y: { beginAtZero: true, ticks: { stepSize: 1 } },
+          },
+        },
+      });
+
+    } catch (error) {
+      console.error('Error loading project data:', error);
+    }
+  });
+</script>

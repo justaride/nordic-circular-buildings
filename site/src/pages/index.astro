@@ -1,0 +1,344 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import FilterPanel from '../components/FilterPanel.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Stats from '../components/Stats.astro';
+import Map from '../components/Map.astro';
+import Charts from '../components/Charts.astro';
+
+// Load project data
+import norwayData from '../../public/data/norway.json';
+
+const projects = norwayData.projects;
+
+// Calculate stats
+const totalProjects = projects.length;
+const completedProjects = projects.filter((p: any) => p.status === 'completed' || p.status === 'operational').length;
+
+// CO2 reduction range
+const co2Values = projects
+  .map((p: any) => p.metrics?.co2_reduction?.value)
+  .filter((v: any) => v !== undefined && v !== null);
+const totalCO2Saved = co2Values.length > 0
+  ? `${Math.min(...co2Values)}–${Math.max(...co2Values)}%`
+  : 'N/A';
+
+// Circularity range
+const circularityValues = projects
+  .map((p: any) => p.metrics?.circularity_rate?.value)
+  .filter((v: any) => v !== undefined && v !== null);
+const avgCircularity = circularityValues.length > 0
+  ? `${Math.min(...circularityValues)}–${Math.max(...circularityValues)}%`
+  : 'N/A';
+---
+
+<Layout title="Dashboard">
+  <div class="flex gap-6">
+    <!-- Sidebar Filters -->
+    <div class="hidden lg:block w-72 flex-shrink-0">
+      <FilterPanel />
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 min-w-0">
+      <!-- Search Bar -->
+      <div class="mb-6">
+        <SearchBar />
+      </div>
+
+      <!-- Stats -->
+      <Stats
+        totalProjects={totalProjects}
+        completedProjects={completedProjects}
+        totalCO2Saved={totalCO2Saved}
+        avgCircularity={avgCircularity}
+      />
+
+      <!-- Map -->
+      <div class="mb-6">
+        <Map />
+      </div>
+
+      <!-- Charts -->
+      <Charts />
+
+      <!-- Project Grid -->
+      <div class="mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl font-semibold text-gray-900">
+            Projects <span id="projects-count" class="text-gray-400 font-normal">({totalProjects})</span>
+          </h2>
+          <div class="flex items-center gap-2">
+            <button id="compare-btn" class="hidden px-4 py-2 bg-fjord-500 text-white rounded-lg text-sm font-medium hover:bg-fjord-600 transition-colors">
+              Compare Selected
+            </button>
+            <select id="sort-select" class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-nordic-500">
+              <option value="name">Sort by Name</option>
+              <option value="year">Sort by Year</option>
+              <option value="circularity">Sort by Circularity</option>
+              <option value="status">Sort by Status</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          {projects.map((project: any) => (
+            <div class="project-item" data-project={JSON.stringify(project)}>
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
+
+        <div id="no-results" class="hidden text-center py-12 text-gray-500">
+          <svg class="mx-auto h-12 w-12 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p class="text-lg font-medium">No projects match your filters</p>
+          <p class="text-sm">Try adjusting your search or filter criteria</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Filter Button -->
+  <button
+    id="mobile-filter-btn"
+    class="lg:hidden fixed bottom-6 right-6 w-14 h-14 bg-nordic-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-nordic-600 transition-colors z-40"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+    </svg>
+  </button>
+
+  <!-- Mobile Filter Drawer -->
+  <div id="mobile-filter-drawer" class="lg:hidden fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/50" id="drawer-backdrop"></div>
+    <div class="absolute right-0 top-0 h-full w-80 bg-white shadow-xl overflow-y-auto transform translate-x-full transition-transform duration-300" id="drawer-content">
+      <div class="p-4 border-b border-gray-100 flex items-center justify-between">
+        <h2 class="font-semibold text-gray-900">Filters</h2>
+        <button id="close-drawer" class="p-2 hover:bg-gray-100 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="p-4">
+        <!-- Mobile filters will be cloned here -->
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Project filtering and sorting logic
+  const projectGrid = document.getElementById('project-grid');
+  const projectItems = document.querySelectorAll('.project-item');
+  const projectsCount = document.getElementById('projects-count');
+  const noResults = document.getElementById('no-results');
+  const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
+  const compareBtn = document.getElementById('compare-btn');
+
+  let currentSearch = '';
+  let currentFilters: any = {};
+  let selectedProjects: string[] = [];
+
+  // Filter projects based on search and filters
+  function filterProjects() {
+    let visibleCount = 0;
+
+    projectItems.forEach((item) => {
+      const project = JSON.parse(item.getAttribute('data-project') || '{}');
+      let visible = true;
+
+      // Search filter
+      if (currentSearch) {
+        const searchText = [
+          project.name,
+          project.location?.city,
+          project.building_type,
+          project.description,
+          ...(project.materials_used || []),
+        ].join(' ').toLowerCase();
+
+        if (!searchText.includes(currentSearch)) {
+          visible = false;
+        }
+      }
+
+      // Country filter
+      if (currentFilters.country?.length > 0 && !currentFilters.country.includes(project.country)) {
+        visible = false;
+      }
+
+      // Status filter
+      if (currentFilters.status?.length > 0 && !currentFilters.status.includes(project.status)) {
+        visible = false;
+      }
+
+      // Building type filter
+      if (currentFilters.building_type?.length > 0 && !currentFilters.building_type.includes(project.building_type)) {
+        visible = false;
+      }
+
+      // Strategy filter
+      if (currentFilters.strategy?.length > 0) {
+        const hasStrategy = currentFilters.strategy.some((s: string) =>
+          project.primary_strategies?.includes(s)
+        );
+        if (!hasStrategy) visible = false;
+      }
+
+      // Year filter
+      if (currentFilters.yearMin || currentFilters.yearMax) {
+        let year = project.year_completed;
+        if (typeof year === 'string') {
+          const match = year.match(/\d{4}/);
+          year = match ? parseInt(match[0]) : null;
+        }
+        if (year) {
+          if (currentFilters.yearMin && year < currentFilters.yearMin) visible = false;
+          if (currentFilters.yearMax && year > currentFilters.yearMax) visible = false;
+        }
+      }
+
+      // Circularity filter
+      if (currentFilters.minCircularity > 0) {
+        const rate = project.metrics?.circularity_rate?.value || 0;
+        if (rate < currentFilters.minCircularity) visible = false;
+      }
+
+      // Toggle visibility
+      if (visible) {
+        (item as HTMLElement).style.display = '';
+        visibleCount++;
+      } else {
+        (item as HTMLElement).style.display = 'none';
+      }
+    });
+
+    // Update count
+    if (projectsCount) {
+      projectsCount.textContent = `(${visibleCount})`;
+    }
+
+    // Show/hide no results message
+    if (noResults && projectGrid) {
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+        projectGrid.classList.add('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        projectGrid.classList.remove('hidden');
+      }
+    }
+
+    // Emit results count for search bar
+    window.dispatchEvent(new CustomEvent('filterResults', { detail: { count: visibleCount } }));
+  }
+
+  // Sort projects
+  function sortProjects(sortBy: string) {
+    const items = Array.from(projectItems);
+
+    items.sort((a, b) => {
+      const projectA = JSON.parse(a.getAttribute('data-project') || '{}');
+      const projectB = JSON.parse(b.getAttribute('data-project') || '{}');
+
+      switch (sortBy) {
+        case 'name':
+          return projectA.name.localeCompare(projectB.name);
+        case 'year':
+          const yearA = typeof projectA.year_completed === 'string'
+            ? parseInt(projectA.year_completed.match(/\d{4}/)?.[0] || '0')
+            : projectA.year_completed || 0;
+          const yearB = typeof projectB.year_completed === 'string'
+            ? parseInt(projectB.year_completed.match(/\d{4}/)?.[0] || '0')
+            : projectB.year_completed || 0;
+          return yearB - yearA;
+        case 'circularity':
+          const circA = projectA.metrics?.circularity_rate?.value || 0;
+          const circB = projectB.metrics?.circularity_rate?.value || 0;
+          return circB - circA;
+        case 'status':
+          return projectA.status.localeCompare(projectB.status);
+        default:
+          return 0;
+      }
+    });
+
+    // Reorder DOM
+    items.forEach((item) => projectGrid?.appendChild(item));
+  }
+
+  // Listen for search events
+  window.addEventListener('search', ((e: CustomEvent) => {
+    currentSearch = e.detail.query;
+    filterProjects();
+  }) as EventListener);
+
+  // Listen for filter events
+  window.addEventListener('filterChange', ((e: CustomEvent) => {
+    currentFilters = e.detail;
+    filterProjects();
+  }) as EventListener);
+
+  // Sort change
+  sortSelect?.addEventListener('change', () => {
+    sortProjects(sortSelect.value);
+  });
+
+  // Comparison feature
+  document.addEventListener('change', (e) => {
+    const target = e.target as HTMLInputElement;
+    if (target.classList.contains('compare-checkbox')) {
+      const projectId = target.value;
+      if (target.checked) {
+        selectedProjects.push(projectId);
+      } else {
+        selectedProjects = selectedProjects.filter((id) => id !== projectId);
+      }
+
+      // Show/hide compare button
+      if (compareBtn) {
+        if (selectedProjects.length >= 2) {
+          compareBtn.classList.remove('hidden');
+          compareBtn.textContent = `Compare ${selectedProjects.length} Projects`;
+        } else {
+          compareBtn.classList.add('hidden');
+        }
+      }
+    }
+  });
+
+  compareBtn?.addEventListener('click', () => {
+    if (selectedProjects.length >= 2) {
+      window.location.href = `/compare?ids=${selectedProjects.join(',')}`;
+    }
+  });
+
+  // Mobile filter drawer
+  const mobileFilterBtn = document.getElementById('mobile-filter-btn');
+  const mobileFilterDrawer = document.getElementById('mobile-filter-drawer');
+  const drawerBackdrop = document.getElementById('drawer-backdrop');
+  const drawerContent = document.getElementById('drawer-content');
+  const closeDrawer = document.getElementById('close-drawer');
+
+  function openDrawer() {
+    mobileFilterDrawer?.classList.remove('hidden');
+    setTimeout(() => {
+      drawerContent?.classList.remove('translate-x-full');
+    }, 10);
+  }
+
+  function closeDrawerFn() {
+    drawerContent?.classList.add('translate-x-full');
+    setTimeout(() => {
+      mobileFilterDrawer?.classList.add('hidden');
+    }, 300);
+  }
+
+  mobileFilterBtn?.addEventListener('click', openDrawer);
+  drawerBackdrop?.addEventListener('click', closeDrawerFn);
+  closeDrawer?.addEventListener('click', closeDrawerFn);
+</script>

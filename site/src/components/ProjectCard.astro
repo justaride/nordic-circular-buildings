@@ -1,0 +1,133 @@
+---
+interface Props {
+  project: {
+    id: string;
+    name: string;
+    location: {
+      city: string;
+      address?: string;
+    };
+    status: string;
+    year_completed: number | string;
+    building_type: string;
+    size_sqm?: number;
+    circularity_qualification: string;
+    primary_strategies: string[];
+    metrics?: {
+      circularity_rate?: { value: number };
+      co2_reduction?: { percent: number };
+    };
+    certifications?: Array<{ name: string; level?: string }>;
+  };
+}
+
+const { project } = Astro.props;
+
+// Status badge colors
+const statusColors: Record<string, string> = {
+  'completed': 'bg-nordic-100 text-nordic-700',
+  'under_construction': 'bg-amber-100 text-amber-700',
+  'planned': 'bg-fjord-100 text-fjord-700',
+  'operational': 'bg-nordic-100 text-nordic-700',
+};
+
+// Building type icons
+const buildingIcons: Record<string, string> = {
+  'office': '🏢',
+  'school': '🏫',
+  'housing': '🏠',
+  'sports_facility': '🏟️',
+  'healthcare': '🏥',
+  'mixed_use': '🏙️',
+  'infrastructure': '🏗️',
+  'workshop': '🔧',
+  'government': '🏛️',
+  'cultural': '🎭',
+};
+
+const statusLabel = project.status.replace('_', ' ');
+const icon = buildingIcons[project.building_type] || '🏢';
+const circularity = project.metrics?.circularity_rate?.value;
+const co2 = project.metrics?.co2_reduction?.percent;
+---
+
+<article class="bg-white rounded-xl border border-nordic-100 overflow-hidden card-hover" data-project-id={project.id}>
+  <!-- Header -->
+  <div class="p-4 border-b border-nordic-50">
+    <div class="flex items-start justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">{icon}</span>
+        <div>
+          <h3 class="font-semibold text-gray-900 line-clamp-1">{project.name}</h3>
+          <p class="text-sm text-gray-500">{project.location.city}</p>
+        </div>
+      </div>
+      <span class={`px-2 py-1 text-xs font-medium rounded-full capitalize ${statusColors[project.status] || 'bg-gray-100 text-gray-700'}`}>
+        {statusLabel}
+      </span>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-3">
+    <!-- Metrics -->
+    <div class="flex gap-4">
+      {circularity && (
+        <div class="flex-1">
+          <div class="text-2xl font-bold text-nordic-600">{circularity}%</div>
+          <div class="text-xs text-gray-500">Circularity</div>
+        </div>
+      )}
+      {co2 && (
+        <div class="flex-1">
+          <div class="text-2xl font-bold text-fjord-600">{co2}%</div>
+          <div class="text-xs text-gray-500">CO₂ Reduction</div>
+        </div>
+      )}
+      {!circularity && !co2 && (
+        <div class="flex-1 text-sm text-gray-400 italic">Metrics pending</div>
+      )}
+    </div>
+
+    <!-- Qualification snippet -->
+    <p class="text-sm text-gray-600 line-clamp-2">
+      {project.circularity_qualification}
+    </p>
+
+    <!-- Strategies -->
+    <div class="flex flex-wrap gap-1">
+      {project.primary_strategies.slice(0, 3).map((strategy: string) => (
+        <span class="px-2 py-0.5 text-xs bg-stone-100 text-stone-600 rounded">
+          {strategy.replace('_', ' ')}
+        </span>
+      ))}
+    </div>
+
+    <!-- Footer -->
+    <div class="flex items-center justify-between pt-2 border-t border-stone-100">
+      <div class="text-sm text-gray-500">
+        {typeof project.year_completed === 'number' ? project.year_completed : project.year_completed}
+        {project.size_sqm && <span class="ml-2">• {project.size_sqm.toLocaleString()} m²</span>}
+      </div>
+      <a
+        href={`/project/${project.id}`}
+        class="text-sm font-medium text-nordic-600 hover:text-nordic-700 transition-colors"
+      >
+        View details →
+      </a>
+    </div>
+  </div>
+
+  <!-- Compare checkbox -->
+  <div class="px-4 py-2 bg-stone-50 border-t border-stone-100">
+    <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-600">
+      <input
+        type="checkbox"
+        class="compare-checkbox w-4 h-4 rounded border-gray-300 text-nordic-500 focus:ring-nordic-500"
+        data-project-id={project.id}
+        data-project-name={project.name}
+      />
+      Add to compare
+    </label>
+  </div>
+</article>

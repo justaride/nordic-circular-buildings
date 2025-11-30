@@ -1,0 +1,283 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import norwayData from '../../../public/data/norway.json';
+
+export function getStaticPaths() {
+  return norwayData.projects.map((project: any) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: any;
+}
+
+const { project } = Astro.props;
+
+// Status badge colors
+const statusColors: Record<string, string> = {
+  completed: 'bg-nordic-100 text-nordic-700',
+  operational: 'bg-nordic-100 text-nordic-700',
+  under_construction: 'bg-amber-100 text-amber-700',
+  planned: 'bg-fjord-100 text-fjord-700',
+};
+
+// Strategy labels
+const strategyLabels: Record<string, string> = {
+  material_reuse: 'Material Reuse',
+  adaptive_reuse: 'Adaptive Reuse',
+  design_for_disassembly: 'Design for Disassembly',
+  upcycling: 'Upcycling',
+  recycled_content: 'Recycled Content',
+  low_carbon_materials: 'Low Carbon Materials',
+};
+---
+
+<Layout title={project.name}>
+  <div class="max-w-5xl mx-auto">
+    <!-- Back Navigation -->
+    <a href="/" class="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 mb-6 transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to Dashboard
+    </a>
+
+    <!-- Header -->
+    <div class="bg-white rounded-xl border border-nordic-100 p-6 mb-6">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">{project.name}</h1>
+          <p class="text-gray-500 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            {project.location?.city}, {project.location?.region}
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class={`px-3 py-1 rounded-full text-sm font-medium ${statusColors[project.status] || 'bg-gray-100 text-gray-700'}`}>
+            {project.status?.replace('_', ' ')}
+          </span>
+          <span class="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700">
+            {project.building_type?.replace('_', ' ')}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Main Content -->
+      <div class="lg:col-span-2 space-y-6">
+        <!-- Description -->
+        <div class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">About This Project</h2>
+          <p class="text-gray-600 leading-relaxed">{project.description}</p>
+        </div>
+
+        <!-- Circular Strategies -->
+        <div class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Circular Strategies</h2>
+          <div class="flex flex-wrap gap-2">
+            {project.primary_strategies?.map((strategy: string) => (
+              <span class="px-3 py-2 bg-nordic-50 text-nordic-700 rounded-lg text-sm font-medium">
+                {strategyLabels[strategy] || strategy.replace('_', ' ')}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Materials Used -->
+        {project.materials_used && project.materials_used.length > 0 && (
+          <div class="bg-white rounded-xl border border-nordic-100 p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Materials Used</h2>
+            <div class="flex flex-wrap gap-2">
+              {project.materials_used.map((material: string) => (
+                <span class="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm">
+                  {material}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Material Details -->
+        {project.material_details && (
+          <div class="bg-white rounded-xl border border-nordic-100 p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Material Details</h2>
+            <div class="space-y-4">
+              {project.material_details.map((detail: any) => (
+                <div class="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                  <div class="flex items-center justify-between mb-2">
+                    <h3 class="font-medium text-gray-900">{detail.material}</h3>
+                    {detail.percentage && (
+                      <span class="text-sm text-nordic-600 font-medium">{detail.percentage}%</span>
+                    )}
+                  </div>
+                  <p class="text-sm text-gray-500">{detail.source || detail.description}</p>
+                  {detail.quantity && (
+                    <p class="text-sm text-gray-400 mt-1">Quantity: {detail.quantity}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Map -->
+        {project.location?.coordinates && (
+          <div class="bg-white rounded-xl border border-nordic-100 overflow-hidden">
+            <div class="p-4 border-b border-nordic-50">
+              <h2 class="font-semibold text-gray-900">Location</h2>
+            </div>
+            <div id="project-map" class="h-64 w-full"></div>
+          </div>
+        )}
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        <!-- Key Metrics -->
+        <div class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Key Metrics</h2>
+          <div class="space-y-4">
+            {project.metrics?.circularity_rate && (
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-sm text-gray-500">Circularity Rate</span>
+                  <span class="font-semibold text-nordic-600">{project.metrics.circularity_rate.value}%</span>
+                </div>
+                <div class="w-full bg-gray-100 rounded-full h-2">
+                  <div class="bg-nordic-500 h-2 rounded-full" style={`width: ${project.metrics.circularity_rate.value}%`}></div>
+                </div>
+              </div>
+            )}
+
+            {project.metrics?.co2_reduction && (
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-sm text-gray-500">CO₂ Reduction</span>
+                  <span class="font-semibold text-fjord-600">{project.metrics.co2_reduction.value}%</span>
+                </div>
+                <div class="w-full bg-gray-100 rounded-full h-2">
+                  <div class="bg-fjord-500 h-2 rounded-full" style={`width: ${project.metrics.co2_reduction.value}%`}></div>
+                </div>
+              </div>
+            )}
+
+            {project.metrics?.reused_materials && (
+              <div class="pt-2 border-t border-gray-100">
+                <span class="text-sm text-gray-500">Reused Materials</span>
+                <p class="font-semibold text-gray-900">{project.metrics.reused_materials.value}{project.metrics.reused_materials.unit}</p>
+              </div>
+            )}
+
+            {project.gross_area && (
+              <div class="pt-2 border-t border-gray-100">
+                <span class="text-sm text-gray-500">Gross Area</span>
+                <p class="font-semibold text-gray-900">{project.gross_area.toLocaleString()} m²</p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <!-- Project Details -->
+        <div class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Project Details</h2>
+          <dl class="space-y-3">
+            {project.year_completed && (
+              <div>
+                <dt class="text-sm text-gray-500">Year Completed</dt>
+                <dd class="font-medium text-gray-900">{project.year_completed}</dd>
+              </div>
+            )}
+            {project.developer && (
+              <div>
+                <dt class="text-sm text-gray-500">Developer</dt>
+                <dd class="font-medium text-gray-900">{project.developer}</dd>
+              </div>
+            )}
+            {project.architect && (
+              <div>
+                <dt class="text-sm text-gray-500">Architect</dt>
+                <dd class="font-medium text-gray-900">{project.architect}</dd>
+              </div>
+            )}
+            {project.contractor && (
+              <div>
+                <dt class="text-sm text-gray-500">Contractor</dt>
+                <dd class="font-medium text-gray-900">{project.contractor}</dd>
+              </div>
+            )}
+          </dl>
+        </div>
+
+        <!-- Certifications -->
+        {project.certifications && project.certifications.length > 0 && (
+          <div class="bg-white rounded-xl border border-nordic-100 p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Certifications</h2>
+            <div class="space-y-2">
+              {project.certifications.map((cert: string) => (
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-nordic-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-gray-700">{cert}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Sources -->
+        {project.sources && project.sources.length > 0 && (
+          <div class="bg-white rounded-xl border border-nordic-100 p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Sources</h2>
+            <ul class="space-y-2">
+              {project.sources.map((source: any) => (
+                <li>
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-fjord-600 hover:text-fjord-700 text-sm flex items-center gap-1"
+                  >
+                    {source.name || source.type || 'Source'}
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script define:vars={{ coordinates: project.location?.coordinates }}>
+  // Initialize project map
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof L === 'undefined' || !coordinates) return;
+
+    const map = L.map('project-map').setView([coordinates.lat, coordinates.lng], 14);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18,
+    }).addTo(map);
+
+    const nordicIcon = L.divIcon({
+      className: 'custom-marker',
+      html: '<div style="background-color: #3da882; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.4);"></div>',
+      iconSize: [22, 22],
+      iconAnchor: [11, 11],
+    });
+
+    L.marker([coordinates.lat, coordinates.lng], { icon: nordicIcon }).addTo(map);
+  });
+</script>

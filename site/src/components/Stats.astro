@@ -1,0 +1,32 @@
+---
+interface Props {
+  totalProjects: number;
+  completedProjects: number;
+  totalCO2Saved: string;
+  avgCircularity: string;
+}
+
+const { totalProjects, completedProjects, totalCO2Saved, avgCircularity } = Astro.props;
+---
+
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+  <div class="bg-white rounded-xl border border-nordic-100 p-4">
+    <div class="text-3xl font-bold text-nordic-600">{totalProjects}</div>
+    <div class="text-sm text-gray-500">Total Projects</div>
+  </div>
+
+  <div class="bg-white rounded-xl border border-nordic-100 p-4">
+    <div class="text-3xl font-bold text-fjord-600">{completedProjects}</div>
+    <div class="text-sm text-gray-500">Completed</div>
+  </div>
+
+  <div class="bg-white rounded-xl border border-nordic-100 p-4">
+    <div class="text-3xl font-bold text-nordic-600">{totalCO2Saved}</div>
+    <div class="text-sm text-gray-500">CO₂ Reduction Range</div>
+  </div>
+
+  <div class="bg-white rounded-xl border border-nordic-100 p-4">
+    <div class="text-3xl font-bold text-fjord-600">{avgCircularity}</div>
+    <div class="text-sm text-gray-500">Circularity Range</div>
+  </div>
+</div>
