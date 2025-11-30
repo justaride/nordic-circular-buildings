@@ -21,15 +21,15 @@
 
 <script>
   // Search functionality
-  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const searchInput = document.getElementById('search-input');
   const resultsCount = document.getElementById('search-results-count');
 
-  let debounceTimer: ReturnType<typeof setTimeout>;
+  let debounceTimer;
 
   searchInput?.addEventListener('input', (e) => {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
-      const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      const query = e.target.value.toLowerCase().trim();
 
       // Dispatch custom event for filtering
       window.dispatchEvent(new CustomEvent('search', { detail: { query } }));
@@ -37,10 +37,10 @@
   });
 
   // Listen for filter results to update count
-  window.addEventListener('filterResults', ((e: CustomEvent) => {
+  window.addEventListener('filterResults', (e) => {
     if (resultsCount) {
       const count = e.detail.count;
       resultsCount.textContent = count > 0 ? `${count} projects` : '';
     }
-  }) as EventListener);
+  });
 </script>

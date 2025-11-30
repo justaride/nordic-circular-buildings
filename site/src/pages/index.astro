@@ -138,12 +138,12 @@ const baseUrl = import.meta.env.BASE_URL;
   const projectItems = document.querySelectorAll('.project-item');
   const projectsCount = document.getElementById('projects-count');
   const noResults = document.getElementById('no-results');
-  const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
+  const sortSelect = document.getElementById('sort-select');
   const compareBtn = document.getElementById('compare-btn');
 
   let currentSearch = '';
-  let currentFilters: any = {};
-  let selectedProjects: string[] = [];
+  let currentFilters = {};
+  let selectedProjects = [];
 
   // Filter projects based on search and filters
   function filterProjects() {
@@ -185,7 +185,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
       // Strategy filter
       if (currentFilters.strategy?.length > 0) {
-        const hasStrategy = currentFilters.strategy.some((s: string) =>
+        const hasStrategy = currentFilters.strategy.some((s) =>
           project.primary_strategies?.includes(s)
         );
         if (!hasStrategy) visible = false;
@@ -212,10 +212,10 @@ const baseUrl = import.meta.env.BASE_URL;
 
       // Toggle visibility
       if (visible) {
-        (item as HTMLElement).style.display = '';
+        item.style.display = '';
         visibleCount++;
       } else {
-        (item as HTMLElement).style.display = 'none';
+        item.style.display = 'none';
       }
     });
 
@@ -240,7 +240,7 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   // Sort projects
-  function sortProjects(sortBy: string) {
+  function sortProjects(sortBy) {
     const items = Array.from(projectItems);
 
     items.sort((a, b) => {
@@ -274,16 +274,16 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   // Listen for search events
-  window.addEventListener('search', ((e: CustomEvent) => {
+  window.addEventListener('search', (e) => {
     currentSearch = e.detail.query;
     filterProjects();
-  }) as EventListener);
+  });
 
   // Listen for filter events
-  window.addEventListener('filterChange', ((e: CustomEvent) => {
+  window.addEventListener('filterChange', (e) => {
     currentFilters = e.detail;
     filterProjects();
-  }) as EventListener);
+  });
 
   // Sort change
   sortSelect?.addEventListener('change', () => {
@@ -292,7 +292,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
   // Comparison feature
   document.addEventListener('change', (e) => {
-    const target = e.target as HTMLInputElement;
+    const target = e.target;
     if (target.classList.contains('compare-checkbox')) {
       const projectId = target.value;
       if (target.checked) {

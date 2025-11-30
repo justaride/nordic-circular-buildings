@@ -166,14 +166,14 @@ const strategies = [
 <script>
   // Filter state management
   const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
-  const yearMinInput = document.getElementById('year-min') as HTMLInputElement;
-  const yearMaxInput = document.getElementById('year-max') as HTMLInputElement;
-  const circularityRange = document.getElementById('circularity-range') as HTMLInputElement;
+  const yearMinInput = document.getElementById('year-min');
+  const yearMaxInput = document.getElementById('year-max');
+  const circularityRange = document.getElementById('circularity-range');
   const circularityValue = document.getElementById('circularity-value');
   const clearFiltersBtn = document.getElementById('clear-filters');
 
   function getActiveFilters() {
-    const filters: Record<string, string[]> = {
+    const filters = {
       country: [],
       status: [],
       building_type: [],
@@ -181,11 +181,10 @@ const strategies = [
     };
 
     filterCheckboxes.forEach((checkbox) => {
-      const input = checkbox as HTMLInputElement;
-      if (input.checked && !input.disabled) {
-        const name = input.name;
+      if (checkbox.checked && !checkbox.disabled) {
+        const name = checkbox.name;
         if (filters[name]) {
-          filters[name].push(input.value);
+          filters[name].push(checkbox.value);
         }
       }
     });
@@ -221,9 +220,8 @@ const strategies = [
 
   clearFiltersBtn?.addEventListener('click', () => {
     filterCheckboxes.forEach((checkbox) => {
-      const input = checkbox as HTMLInputElement;
-      if (!input.disabled) {
-        input.checked = input.name === 'country' && input.value === 'NO'; // Keep Norway checked by default
+      if (!checkbox.disabled) {
+        checkbox.checked = checkbox.name === 'country' && checkbox.value === 'NO'; // Keep Norway checked by default
       }
     });
 
