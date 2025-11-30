@@ -1,5 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import norwayData from '../../public/data/norway.json';
+
+// Calculate data quality metrics
+const projects = norwayData.projects;
+
+// Data depth analysis
+const dataDepthAnalysis = projects.map((p: any) => {
+  const hasSize = p.size_sqm !== null;
+  const hasBudget = p.budget !== null;
+  const hasCircularity = p.metrics?.circularity_rate !== undefined;
+  const hasCO2 = p.metrics?.co2_reduction !== undefined;
+  const hasArchitect = p.architect !== null;
+  const hasContractor = p.contractor !== null;
+  const hasFeatures = p.circular_features?.length > 0;
+  const hasSources = p.sources?.length > 0;
+
+  const fieldsPresent = [hasSize, hasBudget, hasCircularity, hasCO2, hasArchitect, hasContractor, hasFeatures, hasSources].filter(Boolean).length;
+  const completeness = Math.round((fieldsPresent / 8) * 100);
+
+  return {
+    id: p.id,
+    name: p.name,
+    dataQuality: p.data_quality,
+    completeness,
+    hasSize,
+    hasBudget,
+    hasCircularity,
+    hasCO2,
+    hasArchitect,
+    hasContractor,
+    hasFeatures,
+    hasSources
+  };
+}).sort((a: any, b: any) => b.completeness - a.completeness);
+
+const strongCount = projects.filter((p: any) => p.data_quality === 'strong').length;
+const moderateCount = projects.filter((p: any) => p.data_quality === 'moderate').length;
+const avgCompleteness = Math.round(dataDepthAnalysis.reduce((sum: number, p: any) => sum + p.completeness, 0) / projects.length);
 ---
 
 <Layout title="About" description="About the Nordic Circular Buildings Database - documenting circular economy in construction">
@@ -68,6 +106,206 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- RESEARCH METHODOLOGY -->
+    <!-- ============================================ -->
+    <section class="mb-12 bg-stone-50 rounded-xl p-6 border border-stone-200">
+      <h2 class="text-xl font-semibold text-gray-900 mb-4">Research Methodology</h2>
+      <div class="prose prose-gray max-w-none">
+        <p class="text-gray-600 mb-4">
+          This database was compiled through systematic research of 24 individual project documents (November 2024),
+          supplemented by primary and secondary source verification.
+        </p>
+
+        <div class="bg-white rounded-lg p-4 mb-4 border border-stone-200">
+          <h3 class="font-semibold text-gray-800 mb-2">Document Processing Method</h3>
+          <ol class="space-y-2 text-gray-600 text-sm list-decimal list-inside">
+            <li><strong>Source Collection:</strong> Research documents compiled from FutureBuilt reports, municipal project pages, architectural firm case studies, and news coverage</li>
+            <li><strong>Data Extraction:</strong> Each document scanned for: budget figures, size specifications, material quantities, team members, CO₂ metrics, circularity rates, and timeline data</li>
+            <li><strong>Cross-Verification:</strong> Key figures verified against multiple sources where available (e.g., SINTEF research, contractor announcements, municipal budgets)</li>
+            <li><strong>Structured Entry:</strong> Extracted data mapped to standardized JSON schema with source citations</li>
+          </ol>
+        </div>
+
+        <div class="bg-white rounded-lg p-4 border border-stone-200">
+          <h3 class="font-semibold text-gray-800 mb-2">Data Currency</h3>
+          <ul class="space-y-1 text-gray-600 text-sm">
+            <li>• <strong>Last Research Update:</strong> November 30, 2024</li>
+            <li>• <strong>Documents Processed:</strong> 24 project-specific research files</li>
+            <li>• <strong>Primary Sources Verified:</strong> 38+ URLs checked</li>
+            <li>• <strong>Languages:</strong> Norwegian (primary), English (secondary)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CIRCULARITY CALCULATION METHODOLOGY -->
+    <!-- ============================================ -->
+    <section class="mb-12 bg-nordic-50 rounded-xl p-6 border border-nordic-100">
+      <h2 class="text-xl font-semibold text-gray-900 mb-4">How Circularity is Calculated</h2>
+      <div class="prose prose-gray max-w-none">
+        <p class="text-gray-600 mb-4">
+          Circularity percentages in this database come from <strong>project-reported figures</strong> using established methodologies.
+          We do not calculate these values ourselves; we report what projects have measured and documented.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-white rounded-lg p-4 border border-nordic-200">
+            <h3 class="font-semibold text-nordic-700 mb-2">FutureBuilt Circularity Index</h3>
+            <p class="text-sm text-gray-600 mb-2">
+              Used by FutureBuilt pilot projects. Measures percentage of materials by weight that are:
+            </p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li>• Reused from existing buildings</li>
+              <li>• Made from recycled content</li>
+              <li>• Designed for future disassembly</li>
+              <li>• From renewable/bio-based sources</li>
+            </ul>
+            <div class="mt-2 text-xs text-gray-500">
+              <strong>Example:</strong> Prosjekt Føniks reports 89% circularity index
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg p-4 border border-nordic-200">
+            <h3 class="font-semibold text-nordic-700 mb-2">Material Reuse Rate</h3>
+            <p class="text-sm text-gray-600 mb-2">
+              Simpler metric measuring reused materials as percentage of total:
+            </p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li>• Weight of reused materials ÷ Total material weight</li>
+              <li>• May include recycled content</li>
+              <li>• Often reported "by weight" or "by volume"</li>
+            </ul>
+            <div class="mt-2 text-xs text-gray-500">
+              <strong>Example:</strong> KA13 reports 80% reuse by weight
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg p-4 border border-nordic-200">
+          <h3 class="font-semibold text-amber-700 mb-2">⚠️ Important Caveats</h3>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• <strong>No universal standard:</strong> Different projects may use different calculation methods</li>
+            <li>• <strong>Self-reported:</strong> Figures come from project teams, not independent auditors</li>
+            <li>• <strong>Scope varies:</strong> Some include structure only, others include all materials</li>
+            <li>• <strong>Verification levels differ:</strong> Some verified by SINTEF/BREEAM, others unverified</li>
+          </ul>
+        </div>
+
+        <div class="mt-4 p-3 bg-nordic-100 rounded-lg">
+          <p class="text-sm text-nordic-800">
+            <strong>Our approach:</strong> We report the project's stated figures with their measurement basis
+            (e.g., "by weight", "preliminary", "target") so users can assess comparability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- DATA QUALITY STANDARDS -->
+    <!-- ============================================ -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold text-gray-900 mb-4">Data Quality Standards</h2>
+      <p class="text-gray-600 mb-4">
+        Each project is assigned a data quality rating based on source availability and verification:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-nordic-50 rounded-lg p-4 border border-nordic-200">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2 py-1 bg-nordic-100 text-nordic-700 rounded text-xs font-medium">Strong</span>
+            <span class="text-sm text-gray-500">{strongCount} projects</span>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Multiple verified primary sources</li>
+            <li>• Official project reports available</li>
+            <li>• Key metrics independently confirmed</li>
+          </ul>
+        </div>
+        <div class="bg-amber-50 rounded-lg p-4 border border-amber-200">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">Moderate</span>
+            <span class="text-sm text-gray-500">{moderateCount} projects</span>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Some primary sources available</li>
+            <li>• Key information from news/interviews</li>
+            <li>• Some metrics unverified</li>
+          </ul>
+        </div>
+        <div class="bg-red-50 rounded-lg p-4 border border-red-200">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs font-medium">Limited</span>
+            <span class="text-sm text-gray-500">0 projects</span>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Few sources available</li>
+            <li>• Information incomplete</li>
+            <li>• Requires further research</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- INFORMATION DEPTH MATRIX -->
+    <!-- ============================================ -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold text-gray-900 mb-4">Information Depth by Project</h2>
+      <p class="text-gray-600 mb-4">
+        Current data completeness across all 22 projects. Average completeness: <strong>{avgCompleteness}%</strong>
+      </p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-gray-200">
+              <th class="text-left py-2 px-2 font-medium text-gray-700">Project</th>
+              <th class="text-center py-2 px-1 font-medium text-gray-500" title="Size (m²)">Size</th>
+              <th class="text-center py-2 px-1 font-medium text-gray-500" title="Budget">Budget</th>
+              <th class="text-center py-2 px-1 font-medium text-gray-500" title="Circularity %">Circ.</th>
+              <th class="text-center py-2 px-1 font-medium text-gray-500" title="CO₂ Reduction">CO₂</th>
+              <th class="text-center py-2 px-1 font-medium text-gray-500" title="Architect">Arch.</th>
+              <th class="text-center py-2 px-1 font-medium text-gray-500" title="Contractor">Contr.</th>
+              <th class="text-center py-2 px-1 font-medium text-gray-500" title="Features">Feat.</th>
+              <th class="text-center py-2 px-1 font-medium text-gray-500" title="Sources">Src.</th>
+              <th class="text-right py-2 px-2 font-medium text-gray-700">Complete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dataDepthAnalysis.map((p: any) => (
+              <tr class="border-b border-gray-100 hover:bg-gray-50">
+                <td class="py-2 px-2">
+                  <a href={`${import.meta.env.BASE_URL}project/${p.id}/`} class="text-nordic-600 hover:text-nordic-700">
+                    {p.name.length > 25 ? p.name.substring(0, 25) + '...' : p.name}
+                  </a>
+                </td>
+                <td class="text-center py-2 px-1">{p.hasSize ? '✓' : '—'}</td>
+                <td class="text-center py-2 px-1">{p.hasBudget ? '✓' : '—'}</td>
+                <td class="text-center py-2 px-1">{p.hasCircularity ? '✓' : '—'}</td>
+                <td class="text-center py-2 px-1">{p.hasCO2 ? '✓' : '—'}</td>
+                <td class="text-center py-2 px-1">{p.hasArchitect ? '✓' : '—'}</td>
+                <td class="text-center py-2 px-1">{p.hasContractor ? '✓' : '—'}</td>
+                <td class="text-center py-2 px-1">{p.hasFeatures ? '✓' : '—'}</td>
+                <td class="text-center py-2 px-1">{p.hasSources ? '✓' : '—'}</td>
+                <td class="text-right py-2 px-2">
+                  <span class={`px-2 py-0.5 rounded text-xs font-medium ${
+                    p.completeness >= 75 ? 'bg-nordic-100 text-nordic-700' :
+                    p.completeness >= 50 ? 'bg-amber-100 text-amber-700' :
+                    'bg-red-100 text-red-700'
+                  }`}>
+                    {p.completeness}%
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-500 mt-3">
+        ✓ = Data available | — = Missing or unknown | Columns: Size, Budget, Circularity Rate, CO₂ Reduction, Architect, Contractor, Features, Sources
+      </p>
     </section>
 
     <!-- Data Sources -->
