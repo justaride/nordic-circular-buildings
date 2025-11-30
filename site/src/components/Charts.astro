@@ -1,5 +1,6 @@
 ---
 // Charts Component using Chart.js
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -28,7 +29,7 @@
   </div>
 </div>
 
-<script>
+<script define:vars={{ baseUrl }}>
   // Initialize charts when DOM is ready
   document.addEventListener('DOMContentLoaded', async () => {
     // Check if Chart.js is loaded
@@ -39,7 +40,7 @@
 
     // Load project data
     try {
-      const response = await fetch('/data/norway.json');
+      const response = await fetch(baseUrl + '/data/norway.json');
       const data = await response.json();
       const projects = data.projects;
 
@@ -53,14 +54,14 @@
       };
 
       // Count projects by building type
-      const typeCount: Record<string, number> = {};
-      projects.forEach((p: any) => {
+      const typeCount = {};
+      projects.forEach((p) => {
         const type = p.building_type || 'unknown';
         typeCount[type] = (typeCount[type] || 0) + 1;
       });
 
       // Chart: Projects by Type
-      new Chart(document.getElementById('chart-by-type') as HTMLCanvasElement, {
+      new Chart(document.getElementById('chart-by-type'), {
         type: 'bar',
         data: {
           labels: Object.keys(typeCount).map((t) => t.replace('_', ' ')),
@@ -82,14 +83,14 @@
       });
 
       // Count projects by status
-      const statusCount: Record<string, number> = {};
-      projects.forEach((p: any) => {
+      const statusCount = {};
+      projects.forEach((p) => {
         const status = p.status || 'unknown';
         statusCount[status] = (statusCount[status] || 0) + 1;
       });
 
       // Chart: Projects by Status
-      new Chart(document.getElementById('chart-by-status') as HTMLCanvasElement, {
+      new Chart(document.getElementById('chart-by-status'), {
         type: 'doughnut',
         data: {
           labels: Object.keys(statusCount).map((s) => s.replace('_', ' ')),
@@ -107,8 +108,8 @@
       });
 
       // Count projects by year
-      const yearCount: Record<string, number> = {};
-      projects.forEach((p: any) => {
+      const yearCount = {};
+      projects.forEach((p) => {
         let year = p.year_completed;
         if (typeof year === 'string') {
           // Extract year from strings like "2025 (planned)"
@@ -122,7 +123,7 @@
       const sortedYears = Object.keys(yearCount).sort();
 
       // Chart: Projects by Year
-      new Chart(document.getElementById('chart-by-year') as HTMLCanvasElement, {
+      new Chart(document.getElementById('chart-by-year'), {
         type: 'bar',
         data: {
           labels: sortedYears,
@@ -144,7 +145,7 @@
       });
 
       // Circularity distribution
-      const circularityBuckets: Record<string, number> = {
+      const circularityBuckets = {
         '0-25%': 0,
         '26-50%': 0,
         '51-75%': 0,
@@ -152,7 +153,7 @@
         'Not reported': 0,
       };
 
-      projects.forEach((p: any) => {
+      projects.forEach((p) => {
         const rate = p.metrics?.circularity_rate?.value;
         if (rate === undefined || rate === null) {
           circularityBuckets['Not reported']++;
@@ -168,7 +169,7 @@
       });
 
       // Chart: Circularity Distribution
-      new Chart(document.getElementById('chart-circularity') as HTMLCanvasElement, {
+      new Chart(document.getElementById('chart-circularity'), {
         type: 'bar',
         data: {
           labels: Object.keys(circularityBuckets),

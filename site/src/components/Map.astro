@@ -63,10 +63,10 @@ const baseUrl = import.meta.env.BASE_URL;
       const data = await response.json();
 
       // Store markers for filtering
-      const markers: L.Marker[] = [];
+      const markers = [];
 
       // Add markers for each project
-      data.projects.forEach((project: any) => {
+      data.projects.forEach((project) => {
         if (project.location?.coordinates) {
           const { lat, lng } = project.location.coordinates;
 
@@ -85,17 +85,17 @@ const baseUrl = import.meta.env.BASE_URL;
             .addTo(map);
 
           // Store project data on marker for filtering
-          (marker as any).projectData = project;
+          marker.projectData = project;
           markers.push(marker);
         }
       });
 
       // Listen for filter changes to update map
-      window.addEventListener('filterChange', ((e: CustomEvent) => {
+      window.addEventListener('filterChange', ((e) => {
         const filters = e.detail;
 
         markers.forEach((marker) => {
-          const project = (marker as any).projectData;
+          const project = marker.projectData;
           let visible = true;
 
           // Check country filter
@@ -115,7 +115,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
           // Check strategy filter
           if (filters.strategy.length > 0) {
-            const hasStrategy = filters.strategy.some((s: string) =>
+            const hasStrategy = filters.strategy.some((s) =>
               project.primary_strategies?.includes(s)
             );
             if (!hasStrategy) visible = false;
@@ -134,7 +134,7 @@ const baseUrl = import.meta.env.BASE_URL;
             marker.remove();
           }
         });
-      }) as EventListener);
+      });
 
       // Fit bounds to markers
       if (markers.length > 0) {
