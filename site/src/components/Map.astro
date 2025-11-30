@@ -6,8 +6,14 @@ const baseUrl = import.meta.env.BASE_URL;
 <div class="bg-white rounded-xl border border-nordic-100 overflow-hidden">
   <div class="p-4 border-b border-nordic-50">
     <h2 class="font-semibold text-gray-900">Project Locations</h2>
+    <div class="flex flex-wrap gap-4 mt-2 text-xs text-gray-500">
+      <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> Completed</span>
+      <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Under Construction</span>
+      <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Planned</span>
+      <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span> Operational</span>
+    </div>
   </div>
-  <div id="map" class="h-80 w-full"></div>
+  <div id="map" class="h-96 w-full"></div>
 </div>
 
 <script define:vars={{ baseUrl }}>
@@ -28,17 +34,28 @@ const baseUrl = import.meta.env.BASE_URL;
       maxZoom: 18,
     }).addTo(map);
 
-    // Custom marker icon
-    const nordicIcon = L.divIcon({
-      className: 'custom-marker',
-      html: `<div style="background-color: #3da882; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
-      iconSize: [16, 16],
-      iconAnchor: [8, 8],
-    });
+    // Status-based colors
+    const statusColors = {
+      completed: '#0d9488',      // teal
+      under_construction: '#f59e0b', // amber
+      planned: '#a855f7',        // purple
+      operational: '#22c55e'     // green
+    };
+
+    // Create marker icon based on status
+    function createIcon(status) {
+      const color = statusColors[status] || '#6b7280';
+      return L.divIcon({
+        className: 'custom-marker',
+        html: `<div style="background-color: ${color}; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+      });
+    }
 
     // Load project data
     try {
-      const response = await fetch('/data/norway.json');
+      const response = await fetch(`${baseUrl}data/norway.json`);
       const data = await response.json();
 
       // Store markers for filtering
@@ -49,7 +66,7 @@ const baseUrl = import.meta.env.BASE_URL;
         if (project.location?.coordinates) {
           const { lat, lng } = project.location.coordinates;
 
-          const marker = L.marker([lat, lng], { icon: nordicIcon })
+          const marker = L.marker([lat, lng], { icon: createIcon(project.status) })
             .bindPopup(`
               <div style="min-width: 200px;">
                 <strong style="font-size: 14px;">${project.name}</strong>

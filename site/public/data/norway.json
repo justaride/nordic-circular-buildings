@@ -356,7 +356,7 @@
         "city": "Oslo",
         "municipality": "Oslo",
         "address": "Lørenveien",
-        "coordinates": {"lat": 59.9320, "lng": 10.8000}
+        "coordinates": {"lat": 59.9303, "lng": 10.7991}
       },
       "status": "under_construction",
       "year_completed": "2025 (planned)",
@@ -551,7 +551,7 @@
         "city": "Oslo",
         "municipality": "Oslo",
         "address": "Norsk Folkemuseum, Bygdøy",
-        "coordinates": {"lat": 59.9020, "lng": 10.6850}
+        "coordinates": {"lat": 59.9067, "lng": 10.6855}
       },
       "status": "completed",
       "year_completed": 2024,
@@ -682,7 +682,7 @@
         "city": "Bergen",
         "municipality": "Bergen",
         "address": "Nøstegaten 72-74, Nøstet",
-        "coordinates": {"lat": 60.3890, "lng": 5.3130}
+        "coordinates": {"lat": 60.3935, "lng": 5.3116}
       },
       "status": "planned",
       "year_completed": "2027 (planned)",
@@ -1083,7 +1083,7 @@
         "city": "Trondheim",
         "municipality": "Trondheim",
         "address": "Bratsbergvegen 18",
-        "coordinates": {"lat": 63.4100, "lng": 10.4100}
+        "coordinates": {"lat": 63.3987, "lng": 10.4073}
       },
       "status": "completed",
       "year_completed": 2024,
@@ -1138,7 +1138,7 @@
         "city": "Oslo",
         "municipality": "Oslo",
         "address": "Stovner Senter",
-        "coordinates": {"lat": 59.9620, "lng": 10.9230}
+        "coordinates": {"lat": 59.9572, "lng": 10.9205}
       },
       "status": "under_construction",
       "year_completed": null,
