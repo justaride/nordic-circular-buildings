@@ -58,7 +58,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 ${project.metrics?.circularity_rate?.value
                   ? `<p style="color: #228b66; font-weight: bold;">${project.metrics.circularity_rate.value}% circularity</p>`
                   : ''}
-                <a href="${baseUrl}project/${project.id}" style="color: #2d7fc0; font-size: 12px;">View details →</a>
+                <a href="${baseUrl}/project/${project.id}" style="color: #2d7fc0; font-size: 12px;">View details →</a>
               </div>
             `)
             .addTo(map);
