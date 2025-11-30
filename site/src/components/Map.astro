@@ -18,7 +18,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
 <script define:vars={{ baseUrl }}>
   // Wait for Leaflet to be available
-  function initMap() {
+  async function initMap() {
     if (typeof L === 'undefined') {
       // Leaflet not loaded yet, wait and retry
       setTimeout(initMap, 100);
