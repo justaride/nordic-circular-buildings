@@ -1,7 +1,7 @@
 {
   "country": "NO",
   "country_name": "Norway",
-  "last_updated": "2024-11-29",
+  "last_updated": "2024-11-30",
   "total_projects": 22,
   "summary": {
     "geographic_distribution": {
@@ -45,8 +45,8 @@
       "status": "completed",
       "year_completed": 2021,
       "building_type": "office",
-      "size_sqm": 4101,
-      "budget": null,
+      "size_sqm": 4300,
+      "budget": {"amount": 304000000, "currency": "NOK"},
       "client": "Entra ASA",
       "architect": "Mad Oslo AS",
       "contractor": "Haandverkerne AS (NCC subsidiary)",
@@ -89,7 +89,7 @@
       ],
       "metrics": {
         "circularity_rate": {"value": 80, "unit": "percent", "measurement": "by_weight", "verified": true},
-        "co2_reduction": {"percent": 70, "comparison_basis": "vs_conventional"},
+        "co2_reduction": {"percent": 70, "absolute_tonnes_saved": {"min": 1100, "max": 1500}, "comparison_basis": "vs_conventional"},
         "donor_buildings_count": 25
       },
       "certifications": [
@@ -114,7 +114,7 @@
       "data_quality": "strong",
       "verification_status": "verified",
       "notes": "Norway's breakthrough reuse project. Produced 116-page experience report documenting challenges and solutions. QR codes throughout building for material traceability. FutureBuilt organized 4-5 workshops during 2018-2019 to develop quality control procedures.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_skur38",
@@ -174,6 +174,7 @@
         "structure_preservation": "100% of 1915 concrete structure"
       },
       "certifications": [{"name": "BREEAM-NOR", "level": "Excellent"}],
+      "heritage_status": "Gul-listet (Yellow-listed)",
       "programs": [{"name": "FutureBuilt 2.0", "designation": "First pilot project"}],
       "other_stakeholders": [
         {"role": "facade_system", "name": "Protekno", "contribution": "Isokalk system"},
@@ -189,7 +190,7 @@
       "data_quality": "strong",
       "verification_status": "verified",
       "notes": "Possibly first building from 1915 to achieve BREEAM-NOR Excellent. Heritage-protected yellow-listed warehouse. Samspillsentreprise (collaboration contract) enabled adaptive problem-solving. 160 workplaces.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_eikeli",
@@ -228,7 +229,8 @@
       ],
       "metrics": {
         "co2_reduction": {"absolute_tonnes": 26.5, "comparison_basis": "Equivalent to driving Oslo-Copenhagen 265 times"},
-        "waste_diverted": {"tonnes": 106}
+        "waste_diverted": {"tonnes": 106},
+        "bricks_reused": {"value": 40000, "unit": "units", "description": "CE-certified reclaimed brick"}
       },
       "certifications": [
         {"name": "BREEAM", "level": "Excellent"},
@@ -236,6 +238,10 @@
       ],
       "programs": [{"name": "FutureBuilt", "designation": "Forbildeprosjekt"}],
       "construction_site": {"fossil_free": true},
+      "energy_systems": {
+        "solar_panels": {"area_sqm": 1400, "description": "Rooftop solar installation"},
+        "battery_storage": {"capacity_kwh": 24, "type": "Saltwater battery", "note": "Reduces lithium dependency"}
+      },
       "other_stakeholders": [
         {"role": "brick_supplier", "name": "HØINE AS"}
       ],
@@ -246,7 +252,7 @@
       "data_quality": "strong",
       "verification_status": "verified",
       "notes": "First fossil-free construction site for large building in Norway. Flow batteries for energy storage reduce lithium dependency. Proved CE-certified reclaimed brick viable at scale. Reuse saves 100x more emissions than producing new brick.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_nedre_sem",
@@ -262,7 +268,7 @@
       "year_completed": 2024,
       "building_type": "mixed_use",
       "size_sqm": 2190,
-      "budget": {"amount": 104000000, "currency": "NOK", "excludes_vat": true},
+      "budget": {"amount": 154000000, "currency": "NOK", "excludes_vat": true},
       "client": "Asker kommune",
       "architect": "Holar Arkitekter",
       "contractor": "Veidekke Entreprenør",
@@ -313,7 +319,9 @@
         }
       ],
       "metrics": {
-        "circularity_rate": {"value": 50, "unit": "percent", "verified": true}
+        "circularity_rate": {"value": 48, "unit": "percent", "verified": true},
+        "co2_intensity": {"value": 318, "unit": "kg_CO2_per_sqm"},
+        "total_materials": {"value": 470, "unit": "tonnes"}
       },
       "certifications": [],
       "programs": [
@@ -337,7 +345,7 @@
       "data_quality": "strong",
       "verification_status": "verified",
       "notes": "Houses carpentry workshop, commercial kitchen, farm shop, 6 care apartments. 41 total users (10 staff, 10 residents, 21 work center participants). Original 1887 barn carefully dismantled winter 2022-2023 with every material catalogued. FutureBuilt pilot for plastic-free building criteria. Opened June 2024.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_loren",
@@ -400,7 +408,7 @@
       "data_quality": "strong",
       "verification_status": "partially_verified",
       "notes": "2,500 m² multi-purpose hall + 6,000 m² outdoor activity park. Global first: ship steel structural reuse. Hall partially below grade with activities on roof. Focus on physical activity for girls and youth with disabilities. Features volleyball, badminton, basketball, dance studios, strength training, equipment lending.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_treklang",
@@ -413,10 +421,13 @@
         "coordinates": {"lat": 59.8960, "lng": 10.6180}
       },
       "status": "completed",
-      "year_completed": "2022-2023",
+      "year_completed": 2023,
       "building_type": "mixed_use",
       "size_sqm": 37000,
       "budget": {"amount": 1700000000, "currency": "NOK", "excludes_vat": false},
+      "energy_systems": {
+        "solar_panels": {"area_sqm": 2600, "description": "Several thousand m² rooftop solar installation"}
+      },
       "client": "Bærum kommune",
       "architect": ["Arkitektgruppen Lille Frøen", "Arkitema Architects"],
       "contractor": "Veidekke Entreprenør",
@@ -459,7 +470,7 @@
       "data_quality": "moderate",
       "verification_status": "partially_verified",
       "notes": "Integrated three functions: 15,000 m² school + 14,000 m² nursing home + 8,000 m² kindergarten. Name 'Treklang' means 'three-chord' - inspired by timber facades on all three buildings. Several thousand m² solar panels. Future-focused approach: today's reversible construction becomes tomorrow's donor building inventory.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_ruselokka",
@@ -529,7 +540,7 @@
       "data_quality": "moderate",
       "verification_status": "verified",
       "notes": "Queen Sonja inaugurated. Capacity: 690 students. Value lies in establishing systematic testing protocols and honest documentation of what works and what doesn't. 700 m² solar panels. Rooftop terrace with greenhouse. Testing revealed facade brick lacked compressive strength for load-bearing - important lesson for future projects.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_tradlab_tre",
@@ -544,8 +555,8 @@
       "status": "completed",
       "year_completed": 2024,
       "building_type": "workshop",
-      "size_sqm": null,
-      "budget": {"amount": 2100000, "currency": "NOK", "note": "Planning grant from Sparebankstiftelsen"},
+      "size_sqm": 448,
+      "budget": {"amount": 25000000, "currency": "NOK", "note": "Total project cost; planning grant of 2.1M NOK from Sparebankstiftelsen"},
       "client": "Norsk Folkemuseum",
       "architect": "Olav Vidvei",
       "contractor": null,
@@ -595,7 +606,7 @@
       "data_quality": "strong",
       "verification_status": "verified",
       "notes": "Janus-faced design: modern facade toward Festplassen, traditional toward Østlandstunet. Ground floor carpenter workshops, second floor 'spikkotek' (children's carpentry library). Tests whether traditional techniques inherently embody circular principles. Embodies architect's philosophy of 'staying with the trouble'. Completed December 2024.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_ressurssentral",
@@ -611,6 +622,8 @@
       "year_completed": 2023,
       "building_type": "infrastructure",
       "size_sqm": 7000,
+      "size_breakdown": {"indoor_sqm": 4500, "outdoor_sqm": 2500},
+      "designation": "Europe's largest construction material reuse hub",
       "budget": null,
       "client": "Sirkulær Ressurssentral AS (100% owned by Foreningen Pådriv Oslo)",
       "architect": null,
@@ -636,7 +649,11 @@
         }
       ],
       "metrics": {
-        "example_diversion": {"tonnes": 62, "description": "Stig school to Løren project"}
+        "example_diversion": {"tonnes": 62, "description": "Stig school to Løren project"},
+        "total_materials_reused": {"value": 2850, "unit": "tonnes", "description": "Cumulative throughput"},
+        "co2_saved": {"value": 1600, "unit": "tonnes", "description": "Cumulative CO₂ savings"},
+        "annual_turnover": {"value": 8000000, "unit": "NOK", "note": "Annual; cumulative ~20M NOK by 2025"},
+        "revenue_breakdown": {"material_sales_percent": 60, "other_services_percent": 40}
       },
       "awards": ["Oslo Miljøpris 2023 'Year's Green Company' (Resirqel)"],
       "strategic_partners": ["Statsbygg", "Oslobygg KF", "OBOS", "Mustad Eiendom", "Höegh Eiendom", "Entra", "Bane NOR Eiendom"],
@@ -654,7 +671,7 @@
       "data_quality": "strong",
       "verification_status": "verified",
       "notes": "Opened March 14, 2023. Non-profit (ideelt) structure emphasizes mission over profit. Solves chronic 'time mismatch' problem. National Knowledge Arena gathers 30+ industry actors for workshops on contracts, documentation, BREEAM, residential reuse.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_nostebukten",
@@ -713,7 +730,7 @@
       "data_quality": "strong",
       "verification_status": "partially_verified",
       "notes": "96 apartments plus maritime kindergarten and common garden. Establishes Bergen's FutureBuilt program (launched 2023). Ship-to-shore concept: donor and recipient are same site. District-scale circularity: materials serve both on-site and nearby projects. Residents can 'literally live within materials from site's history'.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_grensen9b",
@@ -801,7 +818,7 @@
       "data_quality": "strong",
       "verification_status": "verified",
       "notes": "Original 1978 office building. Diverse material sources: schools, fire stations, museums, metro system. Technical systems reuse (ventilation ducts) expands scope beyond architectural finishes. 74.9% of new materials prepared for future reuse (DfD).",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_oslo_legevakt",
@@ -815,12 +832,13 @@
       },
       "status": "completed",
       "year_completed": 2023,
+      "completion_date": "2023-05-02",
       "building_type": "healthcare",
-      "size_sqm": 26000,
-      "budget": null,
-      "client": "Oslo kommune",
+      "size_sqm": 27000,
+      "budget": {"amount": 3000000000, "currency": "NOK", "range": {"min": 2800000000, "max": 3250000000}},
+      "client": "Oslobygg KF",
       "architect": "Nordic Office of Architecture",
-      "contractor": null,
+      "contractor": "Skanska Norge AS",
       "circularity_qualification": "Large healthcare facility incorporating 27 hollow-core slabs from Regjeringskvartalet, heritage stones, and upcycled Carra marble as reception floor.",
       "primary_strategies": ["material_reuse", "upcycling"],
       "circular_features": [
@@ -829,7 +847,8 @@
           "material_type": "concrete",
           "description": "27 hollow-core concrete slabs from Government Quarter demolition - representing ~10% of climate gas emissions from materials in new buildings",
           "donor_source": {"name": "Regjeringskvartalet", "location": "Oslo", "type": "demolition"},
-          "quantity": {"value": 27, "unit": "units", "description": "hollow-core slabs"}
+          "quantity": {"value": 27, "unit": "units", "description": "hollow-core slabs", "area_sqm": 330, "weight_tonnes": 200},
+          "metrics": {"co2_reduction_percent": 90, "comparison_basis": "vs_new_hollow_core_slabs"}
         },
         {
           "category": "material_reuse",
@@ -840,8 +859,8 @@
         {
           "category": "upcycling",
           "material_type": "stone",
-          "description": "Otherwise-discarded Carra marble repurposed as unique reception floor - high-visibility architectural feature",
-          "donor_source": {"type": "waste_stream"}
+          "description": "Terrazzo floor in reception with stone from Nasjonalmuseet and Carrara marble - high-visibility architectural feature",
+          "donor_source": {"name": "Nasjonalmuseet + Carrara marble waste", "type": "waste_stream"}
         },
         {
           "category": "material_reuse",
@@ -861,7 +880,7 @@
       "data_quality": "moderate",
       "verification_status": "partially_verified",
       "notes": "Major healthcare facility proving material reuse viable in highly regulated building types. Delivered 'godt innenfor budsjett' (well within budget). Samspillsentreprise enabled flexibility. Continues pattern of salvage from Regjeringskvartalet (like KA13).",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_sophies_minde",
@@ -874,12 +893,12 @@
         "coordinates": {"lat": 59.9300, "lng": 10.7850}
       },
       "status": "under_construction",
-      "year_completed": null,
+      "year_completed": "2026 (H1)",
       "building_type": "healthcare",
-      "size_sqm": 13000,
-      "budget": null,
+      "size_sqm": 13200,
+      "budget": {"amount": 1500000000, "currency": "NOK", "range": {"min": 1100000000, "max": 1850000000}},
       "client": "Oslobygg KF",
-      "architect": null,
+      "architect": "Enerhaugen Arkitektkontor AS",
       "contractor": "Vedal Entreprenør",
       "circularity_qualification": "Advanced structural reuse through SINTEF research collaboration testing brick and beam recertification methodologies, with 8,000 bricks dismantled and tested.",
       "primary_strategies": ["material_reuse"],
@@ -887,9 +906,10 @@
         {
           "category": "material_reuse",
           "material_type": "brick",
-          "description": "8,000 bricks dismantled from load-bearing and non-load-bearing walls, tested by SINTEF for structural capacity",
+          "description": "8,000-10,000 bricks dismantled from load-bearing and non-load-bearing walls, tested by SINTEF for structural capacity",
           "donor_source": {"name": "Existing hospital buildings", "type": "preservation"},
-          "quantity": {"value": 8000, "unit": "units"}
+          "quantity": {"value": 10000, "unit": "units", "range": {"min": 8000, "max": 10000}},
+          "research_findings": {"tested_capacity": "~100 tonnes/m²", "finding": "70% higher capacity than assumed", "organization": "SINTEF"}
         },
         {
           "category": "material_reuse",
@@ -934,7 +954,7 @@
       "data_quality": "strong",
       "verification_status": "partially_verified",
       "notes": "Research significance: SINTEF collaboration addresses knowledge gap about historic brick structural performance. Methodology applicable to other heritage buildings. Combines heritage preservation with circular economy. Emission-free construction site.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_hasle_tre",
@@ -992,7 +1012,7 @@
       "data_quality": "moderate",
       "verification_status": "verified",
       "notes": "'Ombruk versjon 2.0' - designing today's building to be tomorrow's material bank. First Norwegian project designed specifically for future material reuse at building scale. Timber primary material (ideal for multi-lifecycle use). Digital passport ensures future disassembly teams have complete component information.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_construction_city",
@@ -1048,7 +1068,7 @@
       "data_quality": "moderate",
       "verification_status": "verified",
       "notes": "Construction industry hub with 140+ tenant companies. Demonstrates furniture circularity rather than building material reuse. 'En ny standard for møblering av næringsbygg' (new standard for furnishing commercial buildings). High-visibility demonstration to industry professionals.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_nidarvoll_sunnland",
@@ -1103,7 +1123,7 @@
       "data_quality": "moderate",
       "verification_status": "verified",
       "notes": "Trondheim's municipal warehouse system demonstrates scaled infrastructure for inter-project material transfer (similar to Oslo's Sirkulær Ressurssentral). Students participated in building shelters - hands-on circular economy education. NTNU research partnership brings academic rigor.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_stovner_bad",
@@ -1118,8 +1138,8 @@
       "status": "under_construction",
       "year_completed": null,
       "building_type": "sports_facility",
-      "size_sqm": null,
-      "budget": null,
+      "size_sqm": 8600,
+      "budget": {"amount": 1100000000, "currency": "NOK", "range": {"min": 800000000, "max": 1370000000}},
       "client": "Oslobygg KF",
       "architect": null,
       "contractor": null,
@@ -1135,7 +1155,7 @@
         }
       ],
       "metrics": {
-        "co2_reduction": {"percent": 90, "comparison_basis": "vs_new_steel"}
+        "co2_reduction": {"percent": 92, "comparison_basis": "vs_new_steel", "description": "Ship steel upcycling vs new production"}
       },
       "other_stakeholders": [
         {"role": "methodology", "name": "Nordic Circles", "contribution": "Ship steel upcycling methodology"}
@@ -1148,7 +1168,7 @@
       "data_quality": "moderate",
       "verification_status": "partially_verified",
       "notes": "Public procurement as 'venture client' - Oslobygg tender created first large-scale customer enabling Nordic Circles methodology commercialization. Ship hull steel meets extremely high structural standards (ocean stresses). This pilot enabled later above-ground ship steel use at Løren.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_voldslokka",
@@ -1161,9 +1181,10 @@
         "coordinates": {"lat": 59.9350, "lng": 10.7550}
       },
       "status": "under_construction",
-      "year_completed": null,
+      "year_completed": "Q1 2029",
       "building_type": "sports_facility",
-      "size_sqm": null,
+      "size_sqm": 4400,
+      "size_note": "Footprint area",
       "budget": null,
       "client": "Oslobygg KF",
       "architect": null,
@@ -1187,7 +1208,7 @@
       "data_quality": "moderate",
       "verification_status": "partially_verified",
       "notes": "Part of Oslobygg's 'venture client' approach piloting circular solutions across 2.7M m² portfolio. When facility needs reconfiguration in 20-30 years, steel components can be relocated rather than scrapped. Component examples: gelendere (railings), amfier (amphitheaters), trapper (stairs).",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_ka23",
@@ -1261,7 +1282,7 @@
       "data_quality": "moderate",
       "verification_status": "verified",
       "notes": "Former Norwegian Employers' Association headquarters. 8-story building. Heritage + circularity synergy: protection didn't prevent reuse, it enhanced it. Early ombrukskartlegging (reuse survey) during design phase enabled design around available salvaged materials. Digital documentation provides material passport for future renovations.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_foniks",
@@ -1274,10 +1295,10 @@
         "coordinates": {"lat": 60.3850, "lng": 5.3100}
       },
       "status": "under_construction",
-      "year_completed": "2025-2026 (planned)",
+      "year_completed": "Summer 2026",
       "building_type": "office",
-      "size_sqm": 2200,
-      "budget": null,
+      "size_sqm": 2000,
+      "budget": {"amount": 70000000, "currency": "NOK"},
       "client": "Frydenbø Eiendom",
       "architect": "Artec AS",
       "contractor": null,
@@ -1287,8 +1308,9 @@
         {
           "category": "upcycling",
           "material_type": "concrete",
-          "description": "Concrete floor cutouts from new atrium transformed into elevator shaft walls - closed-loop on-site upcycling",
-          "donor_source": {"name": "Same building", "type": "on_site_transformation"}
+          "description": "Concrete floor cutouts (1×2m sections, ~1 tonne each) from new atrium transformed into elevator shaft walls - closed-loop on-site upcycling",
+          "donor_source": {"name": "Same building", "type": "on_site_transformation"},
+          "quantity": {"dimensions": "1×2m per section", "weight_per_unit": "~1 tonne"}
         },
         {
           "category": "material_reuse",
@@ -1311,8 +1333,10 @@
         {
           "category": "material_reuse",
           "material_type": "glass",
-          "description": "High-quality windows from Oslo office demolition, reconditioning for Bergen building",
-          "donor_source": {"name": "Office demolition", "location": "Oslo", "type": "demolition"}
+          "description": "40 high-quality windows from Oslo office demolition, shipped by train to Bergen",
+          "donor_source": {"name": "Oslo office demolitions (20 windows from 2022)", "location": "Oslo", "type": "demolition"},
+          "quantity": {"value": 40, "unit": "units"},
+          "logistics": {"transport": "Train from Oslo to Bergen"}
         },
         {
           "category": "material_reuse",
@@ -1347,7 +1371,7 @@
       "data_quality": "strong",
       "verification_status": "partially_verified",
       "notes": "Original 1969 8-story Frydenbø headquarters. 'Phoenix' project described as potential 'world record in reuse'. Team describes sourcing as 'giant Tetris puzzle'. Knowledge-sharing video series created. DNB provided green financing validating bankability of extreme reuse. Bergen kommune facilitated quick approvals.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_hoyblokken",
@@ -1362,8 +1386,8 @@
       "status": "under_construction",
       "year_completed": null,
       "building_type": "government",
-      "size_sqm": null,
-      "budget": null,
+      "size_sqm": 15000,
+      "budget": {"amount": 1400000000, "currency": "NOK"},
       "client": "Statsbygg",
       "architect": null,
       "contractor": null,
@@ -1376,11 +1400,13 @@
           "material_type": "concrete",
           "description": "15-story concrete and steel structure preserved from 1958 building - 'Rive to etasjer, rehabilitere 15 etasjer' (demolish 2 floors, rehabilitate 15 floors)",
           "donor_source": {"name": "Høyblokken (H-Block)", "type": "preservation"},
-          "quantity": {"description": "15 floors of concrete/steel superstructure"}
+          "quantity": {"description": "15 floors of concrete/steel superstructure", "concrete_volume_m3": 50000}
         }
       ],
       "metrics": {
-        "structural_preservation": "15 of 17 floors preserved"
+        "structural_preservation": "15 of 17 floors preserved",
+        "material_reuse_rate": {"value": 97, "unit": "percent"},
+        "concrete_preserved": {"value": 50000, "unit": "m3"}
       },
       "new_functions": ["22. julisenteret (22 July Center memorial)", "Government offices"],
       "sources": [
@@ -1389,7 +1415,7 @@
       "data_quality": "moderate",
       "verification_status": "partially_verified",
       "notes": "Iconic 1958 brutalist building damaged in 2011 terror attack. Erling Viksjø design. Decision to preserve rather than demolish has cultural, memorial, and material dimensions. Preserves thousands of tonnes of high-carbon materials. Memorial function (22 July Center) integrated into rehabilitated structure. Phase 1 started winter 2021.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     },
     {
       "id": "NO_lilleborg",
@@ -1428,7 +1454,7 @@
       "data_quality": "moderate",
       "verification_status": "partially_verified",
       "notes": "Total rehabilitation of heritage school complex. 'Mål om gjenbruk og ombruk' (goal of reuse) stated but specifics not documented. 'Ny og moderne skole innenfor den ærverdige og gamle fasaden' (new modern school within venerable old facade). Part of Oslo's larger school development program.",
-      "last_updated": "2024-11-29"
+      "last_updated": "2024-11-30"
     }
   ],
   "regulatory_milestones": [
