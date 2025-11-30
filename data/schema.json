@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Nordic Circular Building Project",
+  "type": "object",
+  "required": ["id", "name", "country", "location", "year_completed", "building_type", "size_sqm", "client", "architect", "contractor", "circular_features", "metrics", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier (country-code_project-slug)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Official project name"
+    },
+    "country": {
+      "type": "string",
+      "enum": ["NO", "SE", "DK", "FI", "IS"]
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string" },
+        "municipality": { "type": "string" },
+        "address": { "type": ["string", "null"] },
+        "coordinates": {
+          "type": ["object", "null"],
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          }
+        }
+      },
+      "required": ["city"]
+    },
+    "year_completed": {
+      "type": ["integer", "string"],
+      "description": "Year completed or expected (can be range like '2022-2023' or 'planned 2027')"
+    },
+    "building_type": {
+      "type": "string",
+      "enum": ["office", "school", "housing", "sports_facility", "care_facility", "mixed_use", "cultural", "infrastructure", "workshop"]
+    },
+    "size_sqm": {
+      "type": ["number", "null"],
+      "description": "Total floor area in square meters"
+    },
+    "budget": {
+      "type": ["object", "null"],
+      "properties": {
+        "amount": { "type": "number" },
+        "currency": { "type": "string", "default": "NOK" },
+        "excludes_mva": { "type": "boolean" }
+      }
+    },
+    "client": {
+      "type": "string",
+      "description": "Building owner/developer/client"
+    },
+    "architect": {
+      "type": ["string", "array"],
+      "description": "Architecture firm(s)"
+    },
+    "contractor": {
+      "type": ["string", "null"],
+      "description": "Main contractor"
+    },
+    "other_stakeholders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": { "type": "string" },
+          "name": { "type": "string" }
+        }
+      }
+    },
+    "circular_features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": ["material_reuse", "design_for_disassembly", "recycled_content", "adaptive_reuse", "low_carbon_materials", "traditional_techniques", "other"]
+          },
+          "description": { "type": "string" },
+          "donor_source": { "type": ["string", "null"] },
+          "quantity": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "circularity_rate": {
+          "type": ["number", "null"],
+          "description": "Percentage of materials reused/recycled"
+        },
+        "co2_reduction_percent": {
+          "type": ["number", "null"],
+          "description": "CO2 reduction vs conventional construction"
+        },
+        "co2_saved_tonnes": {
+          "type": ["number", "null"],
+          "description": "Absolute CO2 savings in tonnes"
+        },
+        "waste_diverted_tonnes": {
+          "type": ["number", "null"],
+          "description": "Materials diverted from landfill in tonnes"
+        },
+        "ghg_reduction_target": {
+          "type": ["number", "null"],
+          "description": "Target GHG reduction percentage"
+        }
+      }
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "level": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "programs": {
+      "type": "array",
+      "description": "Programs/initiatives the project is part of",
+      "items": { "type": "string" }
+    },
+    "energy_standard": {
+      "type": ["string", "null"],
+      "description": "Energy certification (Passivhus, Plusshus, etc.)"
+    },
+    "construction_site": {
+      "type": ["object", "null"],
+      "properties": {
+        "fossil_free": { "type": "boolean" },
+        "emission_free_percentage": { "type": ["number", "null"] }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "name": { "type": "string" },
+          "url": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "data_status": {
+      "type": "string",
+      "enum": ["verified", "partially_verified", "needs_verification", "pending"]
+    },
+    "data_gaps": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of missing or unverified data points"
+    },
+    "notes": {
+      "type": ["string", "null"]
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}
