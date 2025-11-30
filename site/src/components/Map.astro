@@ -3,17 +3,16 @@
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<div class="bg-white rounded-xl border border-nordic-100 overflow-hidden">
-  <div class="p-4 border-b border-nordic-50">
-    <h2 class="font-semibold text-gray-900">Project Locations</h2>
-    <div class="flex flex-wrap gap-4 mt-2 text-xs text-gray-500">
-      <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> Completed</span>
-      <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Under Construction</span>
-      <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Planned</span>
-      <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span> Operational</span>
+<div class="bg-white rounded-2xl overflow-hidden card-hover">
+  <div class="p-4 flex items-center justify-between">
+    <h2 class="text-xs font-medium text-gray-400 uppercase tracking-wide">Locations</h2>
+    <div class="flex items-center gap-4 text-xs text-gray-400">
+      <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-teal-500"></span> Completed</span>
+      <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span> In Progress</span>
+      <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-violet-400"></span> Planned</span>
     </div>
   </div>
-  <div id="map" class="h-96 w-full"></div>
+  <div id="map" class="h-80 w-full"></div>
 </div>
 
 <script define:vars={{ baseUrl }}>
@@ -39,12 +38,12 @@ const baseUrl = import.meta.env.BASE_URL;
       maxZoom: 19,
     }).addTo(map);
 
-    // Status-based colors
+    // Status-based colors (muted, Apple-inspired)
     const statusColors = {
-      completed: '#0d9488',      // teal
-      under_construction: '#f59e0b', // amber
-      planned: '#a855f7',        // purple
-      operational: '#22c55e'     // green
+      completed: '#14b8a6',      // teal
+      under_construction: '#fbbf24', // amber
+      planned: '#a78bfa',        // violet
+      operational: '#14b8a6'     // teal (same as completed)
     };
 
     // Create marker icon based on status

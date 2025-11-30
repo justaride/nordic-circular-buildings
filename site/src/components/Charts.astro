@@ -3,29 +3,29 @@
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
   <!-- Projects by Type -->
-  <div class="bg-white rounded-xl border border-nordic-100 p-4">
-    <h3 class="font-semibold text-gray-900 mb-4">Projects by Building Type</h3>
-    <canvas id="chart-by-type" height="200"></canvas>
+  <div class="bg-white rounded-2xl p-4 card-hover">
+    <h3 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">By Type</h3>
+    <canvas id="chart-by-type" height="140"></canvas>
   </div>
 
   <!-- Projects by Status -->
-  <div class="bg-white rounded-xl border border-nordic-100 p-4">
-    <h3 class="font-semibold text-gray-900 mb-4">Projects by Status</h3>
-    <canvas id="chart-by-status" height="200"></canvas>
+  <div class="bg-white rounded-2xl p-4 card-hover">
+    <h3 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">By Status</h3>
+    <canvas id="chart-by-status" height="140"></canvas>
   </div>
 
   <!-- Projects by Year -->
-  <div class="bg-white rounded-xl border border-nordic-100 p-4">
-    <h3 class="font-semibold text-gray-900 mb-4">Projects by Year</h3>
-    <canvas id="chart-by-year" height="200"></canvas>
+  <div class="bg-white rounded-2xl p-4 card-hover">
+    <h3 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">By Year</h3>
+    <canvas id="chart-by-year" height="140"></canvas>
   </div>
 
   <!-- Circularity Distribution -->
-  <div class="bg-white rounded-xl border border-nordic-100 p-4">
-    <h3 class="font-semibold text-gray-900 mb-4">Circularity Rate Distribution</h3>
-    <canvas id="chart-circularity" height="200"></canvas>
+  <div class="bg-white rounded-2xl p-4 card-hover">
+    <h3 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">Circularity</h3>
+    <canvas id="chart-circularity" height="140"></canvas>
   </div>
 </div>
 
@@ -44,13 +44,13 @@ const baseUrl = import.meta.env.BASE_URL;
       const data = await response.json();
       const projects = data.projects;
 
-      // Nordic theme colors
+      // Apple-inspired muted colors
       const nordicColors = {
-        green: '#228b66',
-        greenLight: '#6bc4a6',
-        blue: '#2d7fc0',
-        blueLight: '#7bb9e3',
-        gray: '#78716c',
+        green: '#3d9973',
+        greenLight: '#8fcdb3',
+        blue: '#4a93c4',
+        blueLight: '#a3cae4',
+        gray: '#8e8e93',
       };
 
       // Count projects by building type

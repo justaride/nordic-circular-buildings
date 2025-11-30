@@ -1,37 +1,42 @@
 @import "tailwindcss";
 
-/* Nordic Theme - Custom colors */
+/* Nordic Theme - Custom colors (muted, Apple-inspired) */
 @theme {
-  --color-nordic-50: #f0f9f6;
-  --color-nordic-100: #d4efe5;
-  --color-nordic-200: #a8dfcc;
-  --color-nordic-300: #6bc4a6;
-  --color-nordic-400: #3da882;
-  --color-nordic-500: #228b66;
-  --color-nordic-600: #1a7052;
-  --color-nordic-700: #155a42;
-  --color-nordic-800: #124736;
-  --color-nordic-900: #0f3a2d;
+  --color-nordic-50: #f5faf8;
+  --color-nordic-100: #e8f4ef;
+  --color-nordic-200: #c8e6d8;
+  --color-nordic-300: #8fcdb3;
+  --color-nordic-400: #5bb38d;
+  --color-nordic-500: #3d9973;
+  --color-nordic-600: #2f7a5c;
+  --color-nordic-700: #27624a;
+  --color-nordic-800: #224f3d;
+  --color-nordic-900: #1d4133;
 
-  --color-fjord-50: #f0f7fc;
-  --color-fjord-100: #d9ebf7;
-  --color-fjord-200: #b3d7ef;
-  --color-fjord-300: #7bb9e3;
-  --color-fjord-400: #4a9bd4;
-  --color-fjord-500: #2d7fc0;
-  --color-fjord-600: #2366a0;
-  --color-fjord-700: #1d5282;
-  --color-fjord-800: #1a4469;
-  --color-fjord-900: #173857;
+  --color-fjord-50: #f5f9fc;
+  --color-fjord-100: #e8f1f8;
+  --color-fjord-200: #cde2f0;
+  --color-fjord-300: #a3cae4;
+  --color-fjord-400: #72aed4;
+  --color-fjord-500: #4a93c4;
+  --color-fjord-600: #3a77a6;
+  --color-fjord-700: #316087;
+  --color-fjord-800: #2c506e;
+  --color-fjord-900: #28445c;
 }
 
-/* Base styles */
+/* Base styles - Apple-inspired */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  background: #fafafa;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
 }
 
 /* Custom scrollbar for filter panels */
@@ -58,12 +63,43 @@ body {
   z-index: 0;
 }
 
-/* Animation for cards */
+/* Apple-style cards */
 .card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Apple-style glass effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Subtle borders */
+.subtle-border {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Apple-style focus states */
+input:focus, select:focus, button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(61, 153, 115, 0.15);
+}
+
+/* Refined typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Apple-style stats numbers */
+.stat-number {
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  font-weight: 500;
 }
