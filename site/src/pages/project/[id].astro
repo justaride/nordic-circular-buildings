@@ -31,11 +31,71 @@ const strategyLabels: Record<string, string> = {
   upcycling: 'Upcycling',
   recycled_content: 'Recycled Content',
   low_carbon_materials: 'Low Carbon Materials',
+  traditional_techniques: 'Traditional Techniques',
+  material_banking: 'Material Banking',
+  infrastructure: 'Infrastructure',
+};
+
+// Data quality indicator
+const dataQualityColors: Record<string, string> = {
+  strong: 'bg-nordic-100 text-nordic-700',
+  moderate: 'bg-amber-100 text-amber-700',
+  limited: 'bg-red-100 text-red-700',
+};
+
+// Helper to check if field exists and has data
+const hasData = (field: any) => {
+  if (field === null || field === undefined) return false;
+  if (typeof field === 'string') return field.trim().length > 0;
+  if (Array.isArray(field)) return field.length > 0;
+  if (typeof field === 'object') return Object.keys(field).length > 0;
+  return true;
+};
+
+// Calculate data completeness
+const requiredFields = [
+  { key: 'name', label: 'Project Name', value: project.name },
+  { key: 'location', label: 'Location', value: project.location?.city },
+  { key: 'status', label: 'Status', value: project.status },
+  { key: 'year_completed', label: 'Year Completed', value: project.year_completed },
+  { key: 'building_type', label: 'Building Type', value: project.building_type },
+  { key: 'size_sqm', label: 'Size (m²)', value: project.size_sqm },
+  { key: 'budget', label: 'Budget', value: project.budget },
+  { key: 'client', label: 'Client/Owner', value: project.client },
+  { key: 'architect', label: 'Architect', value: project.architect },
+  { key: 'contractor', label: 'Contractor', value: project.contractor },
+  { key: 'circularity_qualification', label: 'Circularity Summary', value: project.circularity_qualification },
+  { key: 'primary_strategies', label: 'Circular Strategies', value: project.primary_strategies },
+  { key: 'circular_features', label: 'Circular Features', value: project.circular_features },
+  { key: 'metrics.circularity_rate', label: 'Circularity Rate', value: project.metrics?.circularity_rate },
+  { key: 'metrics.co2_reduction', label: 'CO₂ Reduction', value: project.metrics?.co2_reduction },
+  { key: 'certifications', label: 'Certifications', value: project.certifications },
+  { key: 'awards', label: 'Awards', value: project.awards },
+  { key: 'sources', label: 'Sources', value: project.sources },
+  { key: 'notes', label: 'Additional Notes', value: project.notes },
+];
+
+const presentFields = requiredFields.filter(f => hasData(f.value));
+const missingFields = requiredFields.filter(f => !hasData(f.value));
+const completenessPercent = Math.round((presentFields.length / requiredFields.length) * 100);
+
+// Format budget
+const formatBudget = (budget: any) => {
+  if (!budget) return null;
+  const amount = budget.amount?.toLocaleString() || 'Unknown';
+  const currency = budget.currency || 'NOK';
+  return `${amount} ${currency}`;
+};
+
+// Get certification display
+const getCertifications = (certs: any[]) => {
+  if (!certs || certs.length === 0) return [];
+  return certs.map(c => typeof c === 'string' ? c : `${c.name}${c.level ? ` (${c.level})` : ''}`);
 };
 ---
 
 <Layout title={project.name}>
-  <div class="max-w-5xl mx-auto">
+  <div class="max-w-6xl mx-auto">
     <!-- Back Navigation -->
     <a href={import.meta.env.BASE_URL} class="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 mb-6 transition-colors">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -44,216 +104,397 @@ const strategyLabels: Record<string, string> = {
       Back to Dashboard
     </a>
 
-    <!-- Header -->
-    <div class="bg-white rounded-xl border border-nordic-100 p-6 mb-6">
-      <div class="flex flex-wrap items-start justify-between gap-4">
+    <!-- ============================================ -->
+    <!-- SECTION 1: PROJECT HEADER -->
+    <!-- ============================================ -->
+    <section class="bg-white rounded-xl border border-nordic-100 p-6 mb-6">
+      <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
         <div>
-          <h1 class="text-3xl font-bold text-gray-900 mb-2">{project.name}</h1>
-          <p class="text-gray-500 flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            {project.location?.city}, {project.location?.region}
-          </p>
+          <div class="flex items-center gap-3 mb-2">
+            <h1 class="text-3xl font-bold text-gray-900">{project.name}</h1>
+            <span class={`px-3 py-1 rounded-full text-sm font-medium ${statusColors[project.status] || 'bg-gray-100 text-gray-700'}`}>
+              {project.status?.replace('_', ' ')}
+            </span>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 text-gray-500">
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              </svg>
+              {project.location?.city}, {project.location?.municipality || 'Norway'}
+            </span>
+            {project.location?.address && (
+              <span class="text-sm">{project.location.address}</span>
+            )}
+          </div>
         </div>
-        <div class="flex flex-wrap gap-2">
-          <span class={`px-3 py-1 rounded-full text-sm font-medium ${statusColors[project.status] || 'bg-gray-100 text-gray-700'}`}>
-            {project.status?.replace('_', ' ')}
-          </span>
-          <span class="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700">
+        <div class="flex flex-col items-end gap-2">
+          <span class="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700 capitalize">
             {project.building_type?.replace('_', ' ')}
+          </span>
+          <span class={`px-2 py-1 rounded text-xs font-medium ${dataQualityColors[project.data_quality] || 'bg-gray-100 text-gray-600'}`}>
+            Data: {project.data_quality || 'unknown'}
           </span>
         </div>
       </div>
-    </div>
+
+      <!-- Data Completeness Bar -->
+      <div class="mt-4 pt-4 border-t border-gray-100">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm text-gray-500">Data Completeness</span>
+          <span class="text-sm font-medium text-gray-700">{completenessPercent}% ({presentFields.length}/{requiredFields.length} fields)</span>
+        </div>
+        <div class="w-full bg-gray-100 rounded-full h-2">
+          <div
+            class={`h-2 rounded-full ${completenessPercent >= 70 ? 'bg-nordic-500' : completenessPercent >= 50 ? 'bg-amber-500' : 'bg-red-400'}`}
+            style={`width: ${completenessPercent}%`}
+          ></div>
+        </div>
+      </div>
+    </section>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <!-- Main Content -->
+      <!-- Main Content Column -->
       <div class="lg:col-span-2 space-y-6">
-        <!-- Description -->
-        <div class="bg-white rounded-xl border border-nordic-100 p-6">
-          <h2 class="text-lg font-semibold text-gray-900 mb-4">About This Project</h2>
-          <p class="text-gray-600 leading-relaxed">{project.description}</p>
-        </div>
 
-        <!-- Circular Strategies -->
-        <div class="bg-white rounded-xl border border-nordic-100 p-6">
-          <h2 class="text-lg font-semibold text-gray-900 mb-4">Circular Strategies</h2>
-          <div class="flex flex-wrap gap-2">
-            {project.primary_strategies?.map((strategy: string) => (
-              <span class="px-3 py-2 bg-nordic-50 text-nordic-700 rounded-lg text-sm font-medium">
-                {strategyLabels[strategy] || strategy.replace('_', ' ')}
-              </span>
-            ))}
+        <!-- ============================================ -->
+        <!-- SECTION 2: CIRCULARITY SUMMARY -->
+        <!-- ============================================ -->
+        <section class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 bg-nordic-500 text-white rounded-full flex items-center justify-center text-sm">1</span>
+            Circularity Summary
+          </h2>
+          {hasData(project.circularity_qualification) ? (
+            <p class="text-gray-700 leading-relaxed text-lg">{project.circularity_qualification}</p>
+          ) : (
+            <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <p class="text-amber-700 text-sm">Missing: Circularity qualification statement</p>
+            </div>
+          )}
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3: KEY METRICS -->
+        <!-- ============================================ -->
+        <section class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 bg-nordic-500 text-white rounded-full flex items-center justify-center text-sm">2</span>
+            Key Metrics
+          </h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Circularity Rate -->
+            <div class="bg-nordic-50 rounded-lg p-4">
+              <div class="text-sm text-gray-500 mb-1">Circularity Rate</div>
+              {hasData(project.metrics?.circularity_rate) ? (
+                <div class="text-2xl font-bold text-nordic-600">{project.metrics.circularity_rate.value}%</div>
+              ) : (
+                <div class="text-lg text-gray-400">—</div>
+              )}
+            </div>
+            <!-- CO2 Reduction -->
+            <div class="bg-fjord-50 rounded-lg p-4">
+              <div class="text-sm text-gray-500 mb-1">CO₂ Reduction</div>
+              {hasData(project.metrics?.co2_reduction) ? (
+                <div class="text-2xl font-bold text-fjord-600">
+                  {project.metrics.co2_reduction.percent || project.metrics.co2_reduction.value || project.metrics.co2_reduction.absolute_tonnes}
+                  {project.metrics.co2_reduction.percent || project.metrics.co2_reduction.value ? '%' : 't'}
+                </div>
+              ) : (
+                <div class="text-lg text-gray-400">—</div>
+              )}
+            </div>
+            <!-- Size -->
+            <div class="bg-gray-50 rounded-lg p-4">
+              <div class="text-sm text-gray-500 mb-1">Size</div>
+              {hasData(project.size_sqm) ? (
+                <div class="text-2xl font-bold text-gray-700">{project.size_sqm.toLocaleString()}<span class="text-sm font-normal">m²</span></div>
+              ) : (
+                <div class="text-lg text-gray-400">—</div>
+              )}
+            </div>
+            <!-- Budget -->
+            <div class="bg-gray-50 rounded-lg p-4">
+              <div class="text-sm text-gray-500 mb-1">Budget</div>
+              {hasData(project.budget) ? (
+                <div class="text-lg font-bold text-gray-700">{formatBudget(project.budget)}</div>
+              ) : (
+                <div class="text-lg text-gray-400">—</div>
+              )}
+            </div>
           </div>
-        </div>
+        </section>
 
-        <!-- Materials Used -->
-        {project.materials_used && project.materials_used.length > 0 && (
-          <div class="bg-white rounded-xl border border-nordic-100 p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Materials Used</h2>
+        <!-- ============================================ -->
+        <!-- SECTION 4: CIRCULAR STRATEGIES -->
+        <!-- ============================================ -->
+        <section class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 bg-nordic-500 text-white rounded-full flex items-center justify-center text-sm">3</span>
+            Circular Strategies Applied
+          </h2>
+          {hasData(project.primary_strategies) ? (
             <div class="flex flex-wrap gap-2">
-              {project.materials_used.map((material: string) => (
-                <span class="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm">
-                  {material}
+              {project.primary_strategies.map((strategy: string) => (
+                <span class="px-4 py-2 bg-nordic-50 text-nordic-700 rounded-lg font-medium">
+                  {strategyLabels[strategy] || strategy.replace('_', ' ')}
                 </span>
               ))}
             </div>
-          </div>
-        )}
+          ) : (
+            <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <p class="text-amber-700 text-sm">Missing: Primary circular strategies</p>
+            </div>
+          )}
+        </section>
 
-        <!-- Material Details -->
-        {project.material_details && (
-          <div class="bg-white rounded-xl border border-nordic-100 p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Material Details</h2>
+        <!-- ============================================ -->
+        <!-- SECTION 5: CIRCULAR FEATURES (Detailed) -->
+        <!-- ============================================ -->
+        <section class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 bg-nordic-500 text-white rounded-full flex items-center justify-center text-sm">4</span>
+            Circular Features & Material Flows
+          </h2>
+          {hasData(project.circular_features) ? (
             <div class="space-y-4">
-              {project.material_details.map((detail: any) => (
-                <div class="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
-                  <div class="flex items-center justify-between mb-2">
-                    <h3 class="font-medium text-gray-900">{detail.material}</h3>
-                    {detail.percentage && (
-                      <span class="text-sm text-nordic-600 font-medium">{detail.percentage}%</span>
+              {project.circular_features.map((feature: any, index: number) => (
+                <div class="border border-gray-100 rounded-lg p-4 hover:border-nordic-200 transition-colors">
+                  <div class="flex items-start justify-between gap-4 mb-2">
+                    <div>
+                      <span class="inline-block px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs font-medium mb-2">
+                        {feature.category?.replace('_', ' ') || 'Feature'}
+                      </span>
+                      {feature.material_type && (
+                        <span class="inline-block px-2 py-1 bg-nordic-50 text-nordic-600 rounded text-xs font-medium mb-2 ml-2">
+                          {feature.material_type}
+                        </span>
+                      )}
+                    </div>
+                    {feature.quantity && (
+                      <span class="text-sm font-medium text-nordic-600">
+                        {feature.quantity.value} {feature.quantity.unit}
+                      </span>
                     )}
                   </div>
-                  <p class="text-sm text-gray-500">{detail.source || detail.description}</p>
-                  {detail.quantity && (
-                    <p class="text-sm text-gray-400 mt-1">Quantity: {detail.quantity}</p>
+                  <p class="text-gray-700">{feature.description}</p>
+                  {feature.donor_source && (
+                    <div class="mt-2 text-sm text-gray-500">
+                      <span class="font-medium">Source:</span> {feature.donor_source.name || 'Unknown'}
+                      {feature.donor_source.location && ` (${feature.donor_source.location})`}
+                      {feature.donor_source.type && ` - ${feature.donor_source.type}`}
+                    </div>
+                  )}
+                  {feature.processing && (
+                    <div class="mt-1 text-sm text-gray-500">
+                      <span class="font-medium">Processing:</span> {feature.processing}
+                    </div>
                   )}
                 </div>
               ))}
             </div>
-          </div>
-        )}
+          ) : (
+            <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <p class="text-amber-700 text-sm">Missing: Detailed circular features and material flows</p>
+            </div>
+          )}
+        </section>
 
-        <!-- Map -->
+        <!-- ============================================ -->
+        <!-- SECTION 6: PROJECT NOTES & CONTEXT -->
+        <!-- ============================================ -->
+        <section class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 bg-nordic-500 text-white rounded-full flex items-center justify-center text-sm">5</span>
+            Additional Context & Notes
+          </h2>
+          {hasData(project.notes) ? (
+            <p class="text-gray-700 leading-relaxed">{project.notes}</p>
+          ) : (
+            <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <p class="text-amber-700 text-sm">Missing: Additional context and lessons learned</p>
+            </div>
+          )}
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 7: LOCATION MAP -->
+        <!-- ============================================ -->
         {project.location?.coordinates && (
-          <div class="bg-white rounded-xl border border-nordic-100 overflow-hidden">
+          <section class="bg-white rounded-xl border border-nordic-100 overflow-hidden">
             <div class="p-4 border-b border-nordic-50">
-              <h2 class="font-semibold text-gray-900">Location</h2>
+              <h2 class="font-semibold text-gray-900 flex items-center gap-2">
+                <span class="w-6 h-6 bg-nordic-500 text-white rounded-full flex items-center justify-center text-sm">6</span>
+                Location
+              </h2>
             </div>
             <div id="project-map" class="h-64 w-full"></div>
-          </div>
+          </section>
         )}
       </div>
 
-      <!-- Sidebar -->
+      <!-- Sidebar Column -->
       <div class="space-y-6">
-        <!-- Key Metrics -->
-        <div class="bg-white rounded-xl border border-nordic-100 p-6">
-          <h2 class="text-lg font-semibold text-gray-900 mb-4">Key Metrics</h2>
-          <div class="space-y-4">
-            {project.metrics?.circularity_rate && (
-              <div>
-                <div class="flex items-center justify-between mb-1">
-                  <span class="text-sm text-gray-500">Circularity Rate</span>
-                  <span class="font-semibold text-nordic-600">{project.metrics.circularity_rate.value}%</span>
-                </div>
-                <div class="w-full bg-gray-100 rounded-full h-2">
-                  <div class="bg-nordic-500 h-2 rounded-full" style={`width: ${project.metrics.circularity_rate.value}%`}></div>
-                </div>
-              </div>
-            )}
 
-            {project.metrics?.co2_reduction && (
-              <div>
-                <div class="flex items-center justify-between mb-1">
-                  <span class="text-sm text-gray-500">CO₂ Reduction</span>
-                  <span class="font-semibold text-fjord-600">{project.metrics.co2_reduction.value}%</span>
-                </div>
-                <div class="w-full bg-gray-100 rounded-full h-2">
-                  <div class="bg-fjord-500 h-2 rounded-full" style={`width: ${project.metrics.co2_reduction.value}%`}></div>
-                </div>
-              </div>
-            )}
-
-            {project.metrics?.reused_materials && (
-              <div class="pt-2 border-t border-gray-100">
-                <span class="text-sm text-gray-500">Reused Materials</span>
-                <p class="font-semibold text-gray-900">{project.metrics.reused_materials.value}{project.metrics.reused_materials.unit}</p>
-              </div>
-            )}
-
-            {project.gross_area && (
-              <div class="pt-2 border-t border-gray-100">
-                <span class="text-sm text-gray-500">Gross Area</span>
-                <p class="font-semibold text-gray-900">{project.gross_area.toLocaleString()} m²</p>
-              </div>
-            )}
-          </div>
-        </div>
-
-        <!-- Project Details -->
-        <div class="bg-white rounded-xl border border-nordic-100 p-6">
+        <!-- ============================================ -->
+        <!-- SIDEBAR: PROJECT DETAILS -->
+        <!-- ============================================ -->
+        <section class="bg-white rounded-xl border border-nordic-100 p-6">
           <h2 class="text-lg font-semibold text-gray-900 mb-4">Project Details</h2>
           <dl class="space-y-3">
-            {project.year_completed && (
-              <div>
-                <dt class="text-sm text-gray-500">Year Completed</dt>
-                <dd class="font-medium text-gray-900">{project.year_completed}</dd>
-              </div>
-            )}
-            {project.developer && (
-              <div>
-                <dt class="text-sm text-gray-500">Developer</dt>
-                <dd class="font-medium text-gray-900">{project.developer}</dd>
-              </div>
-            )}
-            {project.architect && (
-              <div>
-                <dt class="text-sm text-gray-500">Architect</dt>
-                <dd class="font-medium text-gray-900">{project.architect}</dd>
-              </div>
-            )}
-            {project.contractor && (
-              <div>
-                <dt class="text-sm text-gray-500">Contractor</dt>
-                <dd class="font-medium text-gray-900">{project.contractor}</dd>
+            <div class="flex justify-between">
+              <dt class="text-sm text-gray-500">Year</dt>
+              <dd class="font-medium text-gray-900">{project.year_completed || '—'}</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="text-sm text-gray-500">Client</dt>
+              <dd class="font-medium text-gray-900 text-right">{project.client || '—'}</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="text-sm text-gray-500">Architect</dt>
+              <dd class="font-medium text-gray-900 text-right">
+                {Array.isArray(project.architect) ? project.architect.join(', ') : project.architect || '—'}
+              </dd>
+            </div>
+            <div class="flex justify-between">
+              <dt class="text-sm text-gray-500">Contractor</dt>
+              <dd class="font-medium text-gray-900 text-right">{project.contractor || '—'}</dd>
+            </div>
+            {project.energy_standard && (
+              <div class="flex justify-between">
+                <dt class="text-sm text-gray-500">Energy Standard</dt>
+                <dd class="font-medium text-gray-900 text-right">{project.energy_standard}</dd>
               </div>
             )}
           </dl>
-        </div>
+        </section>
 
-        <!-- Certifications -->
-        {project.certifications && project.certifications.length > 0 && (
-          <div class="bg-white rounded-xl border border-nordic-100 p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Certifications</h2>
-            <div class="space-y-2">
-              {project.certifications.map((cert: string) => (
+        <!-- ============================================ -->
+        <!-- SIDEBAR: CERTIFICATIONS & AWARDS -->
+        <!-- ============================================ -->
+        <section class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Certifications & Awards</h2>
+          {hasData(project.certifications) || hasData(project.awards) ? (
+            <div class="space-y-3">
+              {getCertifications(project.certifications).map((cert: string) => (
                 <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-nordic-500" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-nordic-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                   </svg>
-                  <span class="text-gray-700">{cert}</span>
+                  <span class="text-gray-700 text-sm">{cert}</span>
+                </div>
+              ))}
+              {project.awards?.map((award: string) => (
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-amber-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <span class="text-gray-700 text-sm">{award}</span>
                 </div>
               ))}
             </div>
-          </div>
+          ) : (
+            <p class="text-gray-400 text-sm">No certifications or awards recorded</p>
+          )}
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SIDEBAR: PROGRAMS -->
+        <!-- ============================================ -->
+        {hasData(project.programs) && (
+          <section class="bg-white rounded-xl border border-nordic-100 p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Programs</h2>
+            <div class="space-y-2">
+              {project.programs.map((prog: any) => (
+                <div class="px-3 py-2 bg-fjord-50 rounded-lg">
+                  <div class="font-medium text-fjord-700">{prog.name}</div>
+                  {prog.designation && <div class="text-sm text-fjord-600">{prog.designation}</div>}
+                </div>
+              ))}
+            </div>
+          </section>
         )}
 
-        <!-- Sources -->
-        {project.sources && project.sources.length > 0 && (
-          <div class="bg-white rounded-xl border border-nordic-100 p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Sources</h2>
+        <!-- ============================================ -->
+        <!-- SIDEBAR: OTHER STAKEHOLDERS -->
+        <!-- ============================================ -->
+        {hasData(project.other_stakeholders) && (
+          <section class="bg-white rounded-xl border border-nordic-100 p-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Key Stakeholders</h2>
+            <div class="space-y-3">
+              {project.other_stakeholders.map((stakeholder: any) => (
+                <div class="text-sm">
+                  <div class="text-gray-500 capitalize">{stakeholder.role?.replace('_', ' ')}</div>
+                  <div class="font-medium text-gray-900">
+                    {stakeholder.name}
+                    {stakeholder.organization && <span class="text-gray-500"> ({stakeholder.organization})</span>}
+                  </div>
+                  {stakeholder.contribution && <div class="text-gray-500 text-xs">{stakeholder.contribution}</div>}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <!-- ============================================ -->
+        <!-- SIDEBAR: SOURCES -->
+        <!-- ============================================ -->
+        <section class="bg-white rounded-xl border border-nordic-100 p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Sources & References</h2>
+          {hasData(project.sources) ? (
             <ul class="space-y-2">
               {project.sources.map((source: any) => (
-                <li>
-                  <a
-                    href={source.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-fjord-600 hover:text-fjord-700 text-sm flex items-center gap-1"
-                  >
-                    {source.name || source.type || 'Source'}
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
+                <li class="text-sm">
+                  {source.url ? (
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-fjord-600 hover:text-fjord-700 flex items-start gap-1"
+                    >
+                      <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      <span>{source.name || source.type || 'Source'}</span>
+                    </a>
+                  ) : (
+                    <span class="text-gray-500">{source.name || source.type || 'Source'} (no URL)</span>
+                  )}
                 </li>
               ))}
             </ul>
-          </div>
+          ) : (
+            <p class="text-gray-400 text-sm">No sources recorded</p>
+          )}
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SIDEBAR: MISSING DATA -->
+        <!-- ============================================ -->
+        {missingFields.length > 0 && (
+          <section class="bg-amber-50 rounded-xl border border-amber-200 p-6">
+            <h2 class="text-lg font-semibold text-amber-800 mb-4">Missing Data</h2>
+            <ul class="space-y-1">
+              {missingFields.map((field) => (
+                <li class="text-sm text-amber-700 flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  {field.label}
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
+
+        <!-- ============================================ -->
+        <!-- SIDEBAR: LAST UPDATED -->
+        <!-- ============================================ -->
+        <div class="text-xs text-gray-400 text-center">
+          Last updated: {project.last_updated || 'Unknown'}
+          <br />
+          Verification: {project.verification_status || 'Not verified'}
+        </div>
       </div>
     </div>
   </div>
