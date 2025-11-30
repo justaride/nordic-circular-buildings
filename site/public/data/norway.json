@@ -228,7 +228,7 @@
         }
       ],
       "metrics": {
-        "co2_reduction": {"absolute_tonnes": 26.5, "comparison_basis": "Equivalent to driving Oslo-Copenhagen 265 times"},
+        "co2_reduction": {"absolute_tonnes": 26.5, "percent": 50, "comparison_basis": "vs_conventional", "note": "Equivalent to driving Oslo-Copenhagen 265 times"},
         "waste_diverted": {"tonnes": 106},
         "bricks_reused": {"value": 40000, "unit": "units", "description": "CE-certified reclaimed brick"}
       },
@@ -320,6 +320,7 @@
       ],
       "metrics": {
         "circularity_rate": {"value": 48, "unit": "percent", "verified": true},
+        "co2_reduction": {"percent": 50, "comparison_basis": "vs_FutureBuilt_reference", "target_achieved": true},
         "co2_intensity": {"value": 318, "unit": "kg_CO2_per_sqm"},
         "total_materials": {"value": 470, "unit": "tonnes"}
       },
@@ -486,7 +487,7 @@
       "year_completed": 2021,
       "building_type": "school",
       "size_sqm": 10300,
-      "budget": null,
+      "budget": {"amount": 370000000, "currency": "NOK"},
       "client": "Undervisningsbygg Oslo KF",
       "architect": "GASA AS",
       "contractor": "Veidekke Entreprenør",
@@ -745,8 +746,9 @@
       "status": "completed",
       "year_completed": 2025,
       "building_type": "office",
-      "size_sqm": null,
+      "size_sqm": 3000,
       "budget": null,
+      "energy_reduction": {"percent": 54, "description": "Reduced building energy needs by 54%"},
       "client": "Oslo Pensjonsforsikring (OPF) and Pensjonskassen for helseforetakene (PKH)",
       "architect": "MAD Arkitekter",
       "contractor": "Sane Entreprenør / Magna Construction Management",
@@ -967,13 +969,13 @@
         "coordinates": {"lat": 59.9280, "lng": 10.7950}
       },
       "status": "completed",
-      "year_completed": 2022,
+      "year_completed": 2023,
       "building_type": "office",
-      "size_sqm": 3000,
-      "budget": null,
+      "size_sqm": 2655,
+      "budget": {"amount": 106000000, "currency": "NOK", "excludes_vat": true},
       "client": "Höegh Eiendom & AF Eiendom",
-      "architect": "OsloTre",
-      "contractor": null,
+      "architect": "OsloTre (Jørgen Tycho)",
+      "contractor": "Seltor Gruppen AS",
       "circularity_qualification": "Comprehensive Design for Disassembly where entire building designed from inception to be dismantled and reused, with reversible bolted connections, minimal adhesives, and digital material passport.",
       "primary_strategies": ["design_for_disassembly"],
       "circular_features": [
@@ -1000,9 +1002,12 @@
         }
       ],
       "metrics": {
-        "future_reuse_potential": "Entire building designed for disassembly and reuse"
+        "future_reuse_potential": "Entire building designed for disassembly and reuse",
+        "co2_reduction": {"percent": 60, "comparison_basis": "vs_reference_building"},
+        "steel_reduction": {"percent": 80, "description": "80% less steel than conventional building"}
       },
-      "awards": ["Årets Trebygg 2022 (Timber Building of the Year)"],
+      "certifications": [{"name": "BREEAM-NOR", "level": "Excellent"}],
+      "awards": ["Årets Trebygg 2022 (Timber Building of the Year)", "DOGA-merket 2023"],
       "sources": [
         {"type": "primary", "name": "EnergiAktuelt", "url": "https://www.energiaktuelt.no/satser-paa-demonterbare-bygg-i-tre.6524610-575505.html"},
         {"type": "primary", "name": "Sinusmagasinet", "url": "https://www.sinusmagasinet.no/nyheter/satser-pa-demonterbare-bygg-i-tre"},
@@ -1077,17 +1082,17 @@
       "location": {
         "city": "Trondheim",
         "municipality": "Trondheim",
-        "address": "Nidarvollveien / Sunnlandveien",
+        "address": "Bratsbergvegen 18",
         "coordinates": {"lat": 63.4100, "lng": 10.4100}
       },
       "status": "completed",
       "year_completed": 2024,
       "building_type": "school",
-      "size_sqm": null,
-      "budget": null,
+      "size_sqm": 18000,
+      "budget": {"amount": 781000000, "currency": "NOK", "excludes_vat": true, "note": "Trondheim's largest contract ever"},
       "client": "Trondheim kommune",
-      "architect": null,
-      "contractor": "Skanska",
+      "architect": ["Henning Larsen Arkitekter", "Rolvung & Brøndsted Arkitekter"],
+      "contractor": "Skanska Norge AS",
       "circularity_qualification": "Municipal warehouse system enabling inter-school material transfer, with three shelters built from 100% reused materials and documented material flows from multiple demolished schools.",
       "primary_strategies": ["material_reuse", "material_banking"],
       "circular_features": [
@@ -1267,9 +1272,10 @@
         }
       ],
       "metrics": {
-        "circularity_rate": {"value": 50, "unit": "percent", "measurement": "by_weight", "status": "target met or exceeded"}
+        "circularity_rate": {"value": 50, "unit": "percent", "measurement": "by_weight", "status": "target met or exceeded"},
+        "co2_reduction": {"percent": 66, "comparison_basis": "vs_reference_building", "note": "Exceeded 50% target"}
       },
-      "certifications": [],
+      "certifications": [{"name": "BREEAM in-use", "level": "Excellent", "status": "target"}],
       "programs": [{"name": "FutureBuilt", "designation": "Showcase project"}],
       "other_stakeholders": [
         {"role": "sustainability_lead", "name": "Jennifer Lamson", "organization": "Höegh Eiendom"}
@@ -1389,8 +1395,8 @@
       "size_sqm": 15000,
       "budget": {"amount": 1400000000, "currency": "NOK"},
       "client": "Statsbygg",
-      "architect": null,
-      "contractor": null,
+      "architect": "Team Urbis (Nordic – Office of Architecture, Rambøll, SLA, Bjørbekk & Lindheim, Asplan Viak, COWI, Aas-Jakobsen)",
+      "contractor": "Skanska Norge AS",
       "original_architect": "Erling Viksjø (1958)",
       "circularity_qualification": "Macro-structural adaptive reuse where decision to rehabilitate 15 floors of the 1958 H-Block (rather than full demolition) preserves thousands of tonnes of concrete and steel.",
       "primary_strategies": ["adaptive_reuse"],
@@ -1408,6 +1414,8 @@
         "material_reuse_rate": {"value": 97, "unit": "percent"},
         "concrete_preserved": {"value": 50000, "unit": "m3"}
       },
+      "certifications": [{"name": "BREEAM-NOR", "level": "Excellent", "status": "target"}],
+      "construction_site": {"fossil_free": true},
       "new_functions": ["22. julisenteret (22 July Center memorial)", "Government offices"],
       "sources": [
         {"type": "primary", "name": "Statsbygg project page", "url": "https://www.statsbygg.no/prosjekter-og-eiendommer/nytt-regjeringskvartal"}
@@ -1424,17 +1432,18 @@
       "location": {
         "city": "Oslo",
         "municipality": "Oslo",
-        "address": "Lilleborgveien 5",
+        "address": "Torshovgata 9",
         "coordinates": {"lat": 59.9400, "lng": 10.7700}
       },
       "status": "under_construction",
-      "year_completed": null,
+      "year_completed": "2027 (planned)",
       "building_type": "school",
-      "size_sqm": null,
-      "budget": null,
+      "size_sqm": 8600,
+      "budget": {"amount": 368000000, "currency": "NOK", "excludes_vat": true},
       "client": "Oslobygg KF",
-      "architect": null,
-      "contractor": "Backe Stor-Oslo",
+      "architect": "Futhark Arkitekter AS",
+      "contractor": "Backe Stor-Oslo AS",
+      "construction_timeline": {"start": "2024-08", "duration_months": 27},
       "circularity_qualification": "Facade retention strategy preserving Yellow-listed heritage facades (1898-1917) while building modern school inside.",
       "primary_strategies": ["adaptive_reuse"],
       "circular_features": [
