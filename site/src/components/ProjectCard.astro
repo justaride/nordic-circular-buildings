@@ -110,7 +110,7 @@ const co2 = project.metrics?.co2_reduction?.percent;
         {project.size_sqm && <span class="ml-2">• {project.size_sqm.toLocaleString()} m²</span>}
       </div>
       <a
-        href={`/project/${project.id}`}
+        href={`${import.meta.env.BASE_URL}project/${project.id}`}
         class="text-sm font-medium text-nordic-600 hover:text-nordic-700 transition-colors"
       >
         View details →

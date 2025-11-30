@@ -1,5 +1,6 @@
 ---
 // Leaflet Map Component
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <div class="bg-white rounded-xl border border-nordic-100 overflow-hidden">
@@ -9,7 +10,7 @@
   <div id="map" class="h-80 w-full"></div>
 </div>
 
-<script>
+<script define:vars={{ baseUrl }}>
   // Initialize map when DOM is ready
   document.addEventListener('DOMContentLoaded', async () => {
     // Wait for Leaflet to load
@@ -57,7 +58,7 @@
                 ${project.metrics?.circularity_rate?.value
                   ? `<p style="color: #228b66; font-weight: bold;">${project.metrics.circularity_rate.value}% circularity</p>`
                   : ''}
-                <a href="/project/${project.id}" style="color: #2d7fc0; font-size: 12px;">View details →</a>
+                <a href="${baseUrl}project/${project.id}" style="color: #2d7fc0; font-size: 12px;">View details →</a>
               </div>
             `)
             .addTo(map);
