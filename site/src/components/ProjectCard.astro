@@ -13,9 +13,23 @@ interface Props {
     size_sqm?: number;
     circularity_qualification: string;
     primary_strategies: string[];
+    project_type?: string | {
+      primary: string;
+      preservation_percent?: number;
+      description?: string;
+    };
+    project_type_simple?: string;
+    is_public_sector?: boolean;
     metrics?: {
       circularity_rate?: { value: number };
       co2_reduction?: { percent: number };
+    };
+    cbc_assessment?: {
+      primary_pathway?: string;
+      total_score?: {
+        final_score: number;
+        grade: string;
+      };
     };
     certifications?: Array<{ name: string; level?: string }>;
   };
@@ -23,12 +37,46 @@ interface Props {
 
 const { project } = Astro.props;
 
+// Get project type (handle both string and object formats)
+const projectTypePrimary = typeof project.project_type === 'object'
+  ? project.project_type?.primary
+  : project.project_type;
+const preservationPercent = typeof project.project_type === 'object'
+  ? project.project_type?.preservation_percent
+  : null;
+
 // Status badge colors
 const statusColors: Record<string, string> = {
   'completed': 'bg-nordic-100 text-nordic-700',
   'under_construction': 'bg-amber-100 text-amber-700',
   'planned': 'bg-fjord-100 text-fjord-700',
   'operational': 'bg-nordic-100 text-nordic-700',
+};
+
+// Project type badge colors
+const projectTypeColors: Record<string, string> = {
+  'new_build': 'bg-fjord-100 text-fjord-700',
+  'transformation': 'bg-nordic-100 text-nordic-700',
+  'renovation': 'bg-amber-100 text-amber-700',
+  'extension': 'bg-purple-100 text-purple-700',
+  'hybrid': 'bg-teal-100 text-teal-700',
+};
+
+const projectTypeLabels: Record<string, string> = {
+  'new_build': 'New Build',
+  'transformation': 'Transformation',
+  'renovation': 'Renovation',
+  'extension': 'Extension',
+  'hybrid': 'Hybrid',
+};
+
+// CBC Grade colors
+const cbcGradeColors: Record<string, string> = {
+  'A': 'bg-green-100 text-green-700 border-green-200',
+  'B': 'bg-lime-100 text-lime-700 border-lime-200',
+  'C': 'bg-yellow-100 text-yellow-700 border-yellow-200',
+  'D': 'bg-orange-100 text-orange-700 border-orange-200',
+  'E': 'bg-red-100 text-red-700 border-red-200',
 };
 
 // Building type labels (clean, no emojis - Apple style)
@@ -43,12 +91,20 @@ const buildingLabels: Record<string, string> = {
   'workshop': 'Workshop',
   'government': 'Government',
   'cultural': 'Cultural',
+  'media_facility': 'Media',
 };
 
 const statusLabel = project.status.replace('_', ' ');
 const typeLabel = buildingLabels[project.building_type] || project.building_type.replace('_', ' ');
 const circularity = project.metrics?.circularity_rate?.value;
 const co2 = project.metrics?.co2_reduction?.percent;
+const projectTypeLabel = projectTypePrimary ? projectTypeLabels[projectTypePrimary] : null;
+const projectTypeColor = projectTypePrimary ? projectTypeColors[projectTypePrimary] : '';
+
+// CBC Assessment
+const cbcGrade = project.cbc_assessment?.total_score?.grade;
+const cbcScore = project.cbc_assessment?.total_score?.final_score;
+const cbcGradeColor = cbcGrade ? cbcGradeColors[cbcGrade] : '';
 ---
 
 <article class="bg-white rounded-2xl overflow-hidden card-hover group" data-project-id={project.id}>
@@ -60,6 +116,14 @@ const co2 = project.metrics?.co2_reduction?.percent;
           <span class="text-xs font-medium text-gray-400 uppercase tracking-wide">{typeLabel}</span>
           <span class="text-gray-200">•</span>
           <span class="text-xs text-gray-400">{project.location.city}</span>
+          {projectTypeLabel && (
+            <>
+              <span class="text-gray-200">•</span>
+              <span class={`px-1.5 py-0.5 text-[10px] font-medium rounded ${projectTypeColor}`}>
+                {projectTypeLabel}
+              </span>
+            </>
+          )}
         </div>
         <h3 class="font-semibold text-gray-900 line-clamp-1 group-hover:text-nordic-600 transition-colors">{project.name}</h3>
       </div>
@@ -70,6 +134,15 @@ const co2 = project.metrics?.co2_reduction?.percent;
 
     <!-- Metrics -->
     <div class="flex gap-6 mb-3">
+      {cbcGrade && (
+        <div>
+          <div class={`inline-flex items-center gap-1 px-2 py-0.5 rounded-lg border ${cbcGradeColor}`}>
+            <span class="text-lg font-bold">{cbcGrade}</span>
+            <span class="text-xs opacity-75">{cbcScore?.toFixed(0)}</span>
+          </div>
+          <div class="text-xs text-gray-400 mt-0.5">CBC Grade</div>
+        </div>
+      )}
       {circularity && (
         <div>
           <div class="text-xl font-semibold text-gray-900 stat-number">{circularity}%</div>
@@ -82,7 +155,7 @@ const co2 = project.metrics?.co2_reduction?.percent;
           <div class="text-xs text-gray-400">CO₂ Saved</div>
         </div>
       )}
-      {!circularity && !co2 && (
+      {!circularity && !co2 && !cbcGrade && (
         <div class="text-sm text-gray-300">Metrics pending</div>
       )}
     </div>

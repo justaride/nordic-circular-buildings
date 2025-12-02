@@ -30,6 +30,137 @@ const baseUrl = import.meta.env.BASE_URL;
 </div>
 
 <script define:vars={{ baseUrl }}>
+  // Store chart instances and all projects for filtering
+  let chartByType, chartByStatus, chartByYear, chartCircularity;
+  let allProjects = [];
+
+  // Apple-inspired muted colors
+  const nordicColors = {
+    green: '#3d9973',
+    greenLight: '#8fcdb3',
+    blue: '#4a93c4',
+    blueLight: '#a3cae4',
+    gray: '#8e8e93',
+  };
+
+  // Helper to check if project matches filters
+  function matchesFilters(project, filters) {
+    if (filters.country?.length > 0 && !filters.country.includes(project.country)) {
+      return false;
+    }
+    if (filters.project_type?.length > 0 && !filters.project_type.includes(project.project_type)) {
+      return false;
+    }
+    if (filters.status?.length > 0 && !filters.status.includes(project.status)) {
+      return false;
+    }
+    if (filters.building_type?.length > 0 && !filters.building_type.includes(project.building_type)) {
+      return false;
+    }
+    if (filters.strategy?.length > 0) {
+      const hasStrategy = filters.strategy.some((s) =>
+        project.primary_strategies?.includes(s)
+      );
+      if (!hasStrategy) return false;
+    }
+    if (filters.yearMin || filters.yearMax) {
+      let year = project.year_completed;
+      if (typeof year === 'string') {
+        const match = year.match(/\d{4}/);
+        year = match ? parseInt(match[0]) : null;
+      }
+      if (year) {
+        if (filters.yearMin && year < filters.yearMin) return false;
+        if (filters.yearMax && year > filters.yearMax) return false;
+      }
+    }
+    if (filters.minCircularity > 0) {
+      const rate = project.metrics?.circularity_rate?.value || 0;
+      if (rate < filters.minCircularity) return false;
+    }
+    if (filters.hasCircularity) {
+      const rate = project.metrics?.circularity_rate?.value;
+      if (rate === undefined || rate === null) return false;
+    }
+    return true;
+  }
+
+  // Update charts with filtered data
+  function updateCharts(projects) {
+    // Count projects by building type
+    const typeCount = {};
+    projects.forEach((p) => {
+      const type = p.building_type || 'unknown';
+      typeCount[type] = (typeCount[type] || 0) + 1;
+    });
+
+    // Count projects by status
+    const statusCount = {};
+    projects.forEach((p) => {
+      const status = p.status || 'unknown';
+      statusCount[status] = (statusCount[status] || 0) + 1;
+    });
+
+    // Count projects by year
+    const yearCount = {};
+    projects.forEach((p) => {
+      let year = p.year_completed;
+      if (typeof year === 'string') {
+        const match = year.match(/\d{4}/);
+        year = match ? match[0] : 'TBD';
+      }
+      yearCount[year] = (yearCount[year] || 0) + 1;
+    });
+    const sortedYears = Object.keys(yearCount).sort();
+
+    // Circularity distribution
+    const circularityBuckets = {
+      '0-25%': 0,
+      '26-50%': 0,
+      '51-75%': 0,
+      '76-100%': 0,
+      'Not reported': 0,
+    };
+    projects.forEach((p) => {
+      const rate = p.metrics?.circularity_rate?.value;
+      if (rate === undefined || rate === null) {
+        circularityBuckets['Not reported']++;
+      } else if (rate <= 25) {
+        circularityBuckets['0-25%']++;
+      } else if (rate <= 50) {
+        circularityBuckets['26-50%']++;
+      } else if (rate <= 75) {
+        circularityBuckets['51-75%']++;
+      } else {
+        circularityBuckets['76-100%']++;
+      }
+    });
+
+    // Update charts
+    if (chartByType) {
+      chartByType.data.labels = Object.keys(typeCount).map((t) => t.replace('_', ' '));
+      chartByType.data.datasets[0].data = Object.values(typeCount);
+      chartByType.update();
+    }
+
+    if (chartByStatus) {
+      chartByStatus.data.labels = Object.keys(statusCount).map((s) => s.replace('_', ' '));
+      chartByStatus.data.datasets[0].data = Object.values(statusCount);
+      chartByStatus.update();
+    }
+
+    if (chartByYear) {
+      chartByYear.data.labels = sortedYears;
+      chartByYear.data.datasets[0].data = sortedYears.map((y) => yearCount[y]);
+      chartByYear.update();
+    }
+
+    if (chartCircularity) {
+      chartCircularity.data.datasets[0].data = Object.values(circularityBuckets);
+      chartCircularity.update();
+    }
+  }
+
   // Initialize charts when DOM is ready
   document.addEventListener('DOMContentLoaded', async () => {
     // Check if Chart.js is loaded
@@ -42,26 +173,17 @@ const baseUrl = import.meta.env.BASE_URL;
     try {
       const response = await fetch(baseUrl + '/data/norway.json');
       const data = await response.json();
-      const projects = data.projects;
+      allProjects = data.projects;
 
-      // Apple-inspired muted colors
-      const nordicColors = {
-        green: '#3d9973',
-        greenLight: '#8fcdb3',
-        blue: '#4a93c4',
-        blueLight: '#a3cae4',
-        gray: '#8e8e93',
-      };
-
-      // Count projects by building type
+      // Initial counts
       const typeCount = {};
-      projects.forEach((p) => {
+      allProjects.forEach((p) => {
         const type = p.building_type || 'unknown';
         typeCount[type] = (typeCount[type] || 0) + 1;
       });
 
       // Chart: Projects by Type
-      new Chart(document.getElementById('chart-by-type'), {
+      chartByType = new Chart(document.getElementById('chart-by-type'), {
         type: 'bar',
         data: {
           labels: Object.keys(typeCount).map((t) => t.replace('_', ' ')),
@@ -84,13 +206,13 @@ const baseUrl = import.meta.env.BASE_URL;
 
       // Count projects by status
       const statusCount = {};
-      projects.forEach((p) => {
+      allProjects.forEach((p) => {
         const status = p.status || 'unknown';
         statusCount[status] = (statusCount[status] || 0) + 1;
       });
 
       // Chart: Projects by Status
-      new Chart(document.getElementById('chart-by-status'), {
+      chartByStatus = new Chart(document.getElementById('chart-by-status'), {
         type: 'doughnut',
         data: {
           labels: Object.keys(statusCount).map((s) => s.replace('_', ' ')),
@@ -109,21 +231,18 @@ const baseUrl = import.meta.env.BASE_URL;
 
       // Count projects by year
       const yearCount = {};
-      projects.forEach((p) => {
+      allProjects.forEach((p) => {
         let year = p.year_completed;
         if (typeof year === 'string') {
-          // Extract year from strings like "2025 (planned)"
           const match = year.match(/\d{4}/);
           year = match ? match[0] : 'TBD';
         }
         yearCount[year] = (yearCount[year] || 0) + 1;
       });
-
-      // Sort years
       const sortedYears = Object.keys(yearCount).sort();
 
       // Chart: Projects by Year
-      new Chart(document.getElementById('chart-by-year'), {
+      chartByYear = new Chart(document.getElementById('chart-by-year'), {
         type: 'bar',
         data: {
           labels: sortedYears,
@@ -153,7 +272,7 @@ const baseUrl = import.meta.env.BASE_URL;
         'Not reported': 0,
       };
 
-      projects.forEach((p) => {
+      allProjects.forEach((p) => {
         const rate = p.metrics?.circularity_rate?.value;
         if (rate === undefined || rate === null) {
           circularityBuckets['Not reported']++;
@@ -169,7 +288,7 @@ const baseUrl = import.meta.env.BASE_URL;
       });
 
       // Chart: Circularity Distribution
-      new Chart(document.getElementById('chart-circularity'), {
+      chartCircularity = new Chart(document.getElementById('chart-circularity'), {
         type: 'bar',
         data: {
           labels: Object.keys(circularityBuckets),
@@ -188,6 +307,13 @@ const baseUrl = import.meta.env.BASE_URL;
             y: { beginAtZero: true, ticks: { stepSize: 1 } },
           },
         },
+      });
+
+      // Listen for filter changes
+      window.addEventListener('filterChange', (e) => {
+        const filters = e.detail;
+        const visibleProjects = allProjects.filter(p => matchesFilters(p, filters));
+        updateCharts(visibleProjects);
       });
 
     } catch (error) {

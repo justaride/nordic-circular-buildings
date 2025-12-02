@@ -1,0 +1,271 @@
+---
+import Layout from '../layouts/Layout.astro';
+import norwayData from '../../public/data/norway.json';
+
+const projects = norwayData.projects;
+
+// Extract all unique suppliers
+const suppliersMap = new Map();
+projects.forEach((project: any) => {
+  project.circular_features?.forEach((feature: any) => {
+    if (feature.supplier?.name) {
+      const key = feature.supplier.name;
+      if (!suppliersMap.has(key)) {
+        suppliersMap.set(key, {
+          name: feature.supplier.name,
+          country: feature.supplier.country || 'NO',
+          role: feature.supplier.role || 'supplier',
+          projects: [],
+          materials: new Set(),
+        });
+      }
+      const supplier = suppliersMap.get(key);
+      if (!supplier.projects.includes(project.name)) {
+        supplier.projects.push(project.name);
+      }
+      if (feature.material_type) {
+        supplier.materials.add(feature.material_type);
+      }
+    }
+  });
+});
+const suppliers = Array.from(suppliersMap.values()).map(s => ({
+  ...s,
+  materials: Array.from(s.materials)
+}));
+
+// Extract all unique clients/owners
+const clientsMap = new Map();
+projects.forEach((project: any) => {
+  if (project.client) {
+    const key = project.client;
+    if (!clientsMap.has(key)) {
+      clientsMap.set(key, {
+        name: project.client,
+        isPublicSector: project.is_public_sector,
+        projects: [],
+        locations: new Set(),
+      });
+    }
+    const client = clientsMap.get(key);
+    client.projects.push(project.name);
+    if (project.location?.city) {
+      client.locations.add(project.location.city);
+    }
+  }
+});
+const clients = Array.from(clientsMap.values()).map(c => ({
+  ...c,
+  locations: Array.from(c.locations)
+}));
+
+// Extract all architects
+const architectsMap = new Map();
+projects.forEach((project: any) => {
+  const architects = Array.isArray(project.architect) ? project.architect : [project.architect];
+  architects.forEach((arch: string) => {
+    if (arch) {
+      if (!architectsMap.has(arch)) {
+        architectsMap.set(arch, {
+          name: arch,
+          projects: [],
+        });
+      }
+      architectsMap.get(arch).projects.push(project.name);
+    }
+  });
+});
+const architects = Array.from(architectsMap.values());
+
+// Export data as JSON
+const exportData = {
+  generated: new Date().toISOString(),
+  suppliers,
+  clients,
+  architects,
+  summary: {
+    total_suppliers: suppliers.length,
+    total_clients: clients.length,
+    total_architects: architects.length,
+    public_sector_clients: clients.filter(c => c.isPublicSector).length,
+  }
+};
+---
+
+<Layout title="Stakeholders">
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <a href={import.meta.env.BASE_URL} class="inline-flex items-center gap-1.5 text-gray-400 hover:text-gray-600 mb-4 text-sm transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Dashboard
+      </a>
+      <h1 class="text-2xl font-semibold text-gray-900 mb-2">Stakeholder Directory</h1>
+      <p class="text-gray-500">Extracted stakeholders from {projects.length} circular building projects</p>
+    </div>
+
+    <!-- Export Buttons -->
+    <div class="bg-white rounded-2xl p-6 mb-6 card-hover">
+      <h2 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">Export Data</h2>
+      <div class="flex flex-wrap gap-3">
+        <button
+          id="export-json"
+          class="px-4 py-2 bg-nordic-500 text-white rounded-lg text-sm font-medium hover:bg-nordic-600 transition-colors"
+        >
+          Export All (JSON)
+        </button>
+        <button
+          id="export-suppliers-csv"
+          class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors"
+        >
+          Suppliers (CSV)
+        </button>
+        <button
+          id="export-clients-csv"
+          class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors"
+        >
+          Clients (CSV)
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white rounded-2xl p-5 card-hover">
+        <div class="text-2xl font-semibold text-gray-900 stat-number">{suppliers.length}</div>
+        <div class="text-xs text-gray-400">Suppliers</div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 card-hover">
+        <div class="text-2xl font-semibold text-gray-900 stat-number">{clients.length}</div>
+        <div class="text-xs text-gray-400">Clients/Owners</div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 card-hover">
+        <div class="text-2xl font-semibold text-gray-900 stat-number">{architects.length}</div>
+        <div class="text-xs text-gray-400">Architects</div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 card-hover">
+        <div class="text-2xl font-semibold text-gray-900 stat-number">{clients.filter(c => c.isPublicSector).length}</div>
+        <div class="text-xs text-gray-400">Public Sector</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Suppliers -->
+      <section class="bg-white rounded-2xl p-6 card-hover">
+        <h2 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">Circular Material Suppliers</h2>
+        {suppliers.length > 0 ? (
+          <div class="space-y-3">
+            {suppliers.map((supplier) => (
+              <div class="p-4 bg-gray-50/50 rounded-xl">
+                <div class="flex items-start justify-between gap-2 mb-1">
+                  <div class="font-medium text-gray-900">{supplier.name}</div>
+                  <span class="px-2 py-0.5 bg-nordic-100 text-nordic-700 rounded text-xs">{supplier.country}</span>
+                </div>
+                <div class="text-xs text-gray-400 capitalize mb-2">{supplier.role}</div>
+                {supplier.materials.length > 0 && (
+                  <div class="flex flex-wrap gap-1 mb-2">
+                    {supplier.materials.map((mat: string) => (
+                      <span class="px-1.5 py-0.5 bg-gray-100 text-gray-500 rounded text-xs">{mat}</span>
+                    ))}
+                  </div>
+                )}
+                <div class="text-xs text-gray-400">
+                  {supplier.projects.length} project{supplier.projects.length !== 1 ? 's' : ''}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p class="text-gray-300 text-sm italic">No suppliers documented yet</p>
+        )}
+      </section>
+
+      <!-- Clients -->
+      <section class="bg-white rounded-2xl p-6 card-hover">
+        <h2 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">Property Owners / Clients</h2>
+        <div class="space-y-3">
+          {clients.map((client) => (
+            <div class="p-4 bg-gray-50/50 rounded-xl">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <div class="font-medium text-gray-900">{client.name}</div>
+                {client.isPublicSector && (
+                  <span class="px-2 py-0.5 bg-fjord-100 text-fjord-700 rounded text-xs">Public</span>
+                )}
+              </div>
+              <div class="text-xs text-gray-400 mb-1">
+                {client.locations.join(', ')}
+              </div>
+              <div class="text-xs text-gray-400">
+                {client.projects.length} project{client.projects.length !== 1 ? 's' : ''}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    <!-- Architects -->
+    <section class="bg-white rounded-2xl p-6 mt-6 card-hover">
+      <h2 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">Architects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        {architects.map((arch) => (
+          <div class="p-4 bg-gray-50/50 rounded-xl">
+            <div class="font-medium text-gray-900 mb-1">{arch.name}</div>
+            <div class="text-xs text-gray-400">
+              {arch.projects.length} project{arch.projects.length !== 1 ? 's' : ''}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script define:vars={{ exportData }}>
+  // Export functions
+  function downloadFile(content, filename, type) {
+    const blob = new Blob([content], { type });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // JSON export
+  document.getElementById('export-json')?.addEventListener('click', () => {
+    downloadFile(JSON.stringify(exportData, null, 2), 'circular-buildings-stakeholders.json', 'application/json');
+  });
+
+  // Suppliers CSV
+  document.getElementById('export-suppliers-csv')?.addEventListener('click', () => {
+    const headers = ['Name', 'Country', 'Role', 'Materials', 'Projects'];
+    const rows = exportData.suppliers.map(s => [
+      s.name,
+      s.country,
+      s.role,
+      s.materials.join('; '),
+      s.projects.join('; ')
+    ]);
+    const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+    downloadFile(csv, 'circular-buildings-suppliers.csv', 'text/csv');
+  });
+
+  // Clients CSV
+  document.getElementById('export-clients-csv')?.addEventListener('click', () => {
+    const headers = ['Name', 'Public Sector', 'Locations', 'Projects'];
+    const rows = exportData.clients.map(c => [
+      c.name,
+      c.isPublicSector ? 'Yes' : 'No',
+      c.locations.join('; '),
+      c.projects.join('; ')
+    ]);
+    const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+    downloadFile(csv, 'circular-buildings-clients.csv', 'text/csv');
+  });
+</script>

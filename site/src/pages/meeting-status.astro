@@ -1,0 +1,884 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Meeting feedback items with status
+const feedbackItems = [
+  // SCOPE CLARIFICATION
+  {
+    category: "Scope Clarification",
+    items: [
+      { id: "1.1", feedback: "Clarify this is MATERIAL circularity", source: "Transcript + PDF p1", status: "done", implementation: "Added scope_notes field; Updated PROJECT.md scope section" },
+      { id: "1.2", feedback: "TradLab TRE is out of scope (not public building)", source: "PDF p1", status: "done", implementation: "Flagged with scope_notes.is_primary_scope: false" },
+      { id: "1.3", feedback: "Sirkulær Ressurssentral is out of scope (infrastructure)", source: "PDF p1", status: "done", implementation: "Flagged with scope_notes.is_primary_scope: false" },
+      { id: "1.4", feedback: "Other circularity types: mention but not focus", source: "Transcript", status: "done", implementation: "Documented in PROJECT.md and ITERATION_2_PLAN.md" },
+    ]
+  },
+  // PRIORITIZATION & SORTING
+  {
+    category: "Prioritization & Sorting",
+    items: [
+      { id: "2.1", feedback: "Prioritize projects WITH circularity %", source: "Transcript + PDF p1", status: "done", implementation: "Default sort changed to circularity (highest first)" },
+      { id: "2.2", feedback: "Sort projects with circularity info first", source: "PDF p1", status: "done", implementation: "Projects with circularity_rate appear first in list" },
+      { id: "2.3", feedback: "Select 6-7 priority projects for deep-dive", source: "Transcript", status: "done", implementation: "6 Tier 1 projects enhanced: KA13, Grensen 9B, Føniks, Løren, Eikeli, Nedre Sem" },
+      { id: "2.4", feedback: "Prioritize material VARIETY", source: "Transcript", status: "done", implementation: "Tier 1 covers: concrete, steel-metro, ship-steel, brick, mixed materials" },
+    ]
+  },
+  // DATA DEPTH
+  {
+    category: "Data Depth Requirements",
+    items: [
+      { id: "3.1", feedback: "Quantify circularity by material", source: "Transcript + PDF p2", status: "done", implementation: "Added circularity_rate.breakdown with material-level contribution %" },
+      { id: "3.2", feedback: "Material quantities (tonnes, m², units)", source: "Transcript + PDF p2", status: "done", implementation: "Enhanced quantity data for Tier 1 projects" },
+      { id: "3.3", feedback: "Material donor sources documentation", source: "Transcript", status: "done", implementation: "donor_source objects added with name, location, type" },
+      { id: "3.4", feedback: "Cost comparisons (circular vs conventional)", source: "Transcript", status: "partial", implementation: "Schema supports cost_comparison; data not yet available" },
+      { id: "3.5", feedback: "Supplier documentation", source: "Transcript", status: "done", implementation: "Added supplier field to 9 circular_features; /stakeholders page created" },
+    ]
+  },
+  // NARRATIVE
+  {
+    category: "Narrative & Qualitative Data",
+    items: [
+      { id: "4.1", feedback: "X-factor: What was the driver/motivation?", source: "Transcript + PDF p2", status: "done", implementation: "Added narrative.driver to 6 Tier 1 projects" },
+      { id: "4.2", feedback: "Lessons learned", source: "Transcript + PDF p2", status: "done", implementation: "Added narrative.lessons_learned to 6 Tier 1 projects" },
+      { id: "4.3", feedback: "Challenges faced", source: "Transcript", status: "done", implementation: "Added narrative.challenges array to 6 Tier 1 projects" },
+    ]
+  },
+  // CATEGORIZATION
+  {
+    category: "Project Categorization",
+    items: [
+      { id: "5.1", feedback: "Transformation vs New Build categorization", source: "Transcript + PDF p2-3", status: "done", implementation: "Added project_type: 9 transformation, 14 new_build" },
+      { id: "5.2", feedback: "Visual badge for project type", source: "Implied", status: "done", implementation: "Blue 'New Build' / Green 'Transformation' badges on cards" },
+      { id: "5.3", feedback: "Public sector identification", source: "Transcript", status: "done", implementation: "Added is_public_sector: 16 public, 7 private" },
+    ]
+  },
+  // UI/UX
+  {
+    category: "UI/UX Requirements",
+    items: [
+      { id: "6.1", feedback: "Project links on each project", source: "Transcript + PDF p3", status: "done", implementation: "Added project_url to all 23 projects" },
+      { id: "6.2", feedback: "Clear 'Read more' links", source: "Transcript", status: "done", implementation: "External link + 'Read more about this project' on detail pages" },
+    ]
+  },
+  // EXPORT
+  {
+    category: "Data Extraction & Export",
+    items: [
+      { id: "7.1", feedback: "Extract all suppliers of circular solutions", source: "Transcript + PDF p3", status: "done", implementation: "/stakeholders page with suppliers + JSON/CSV export" },
+      { id: "7.2", feedback: "Extract all property owners/clients", source: "Transcript + PDF p3", status: "done", implementation: "/stakeholders page with clients + JSON/CSV export" },
+      { id: "7.3", feedback: "Data for Nordic Circle Construction map", source: "Transcript", status: "done", implementation: "Export functionality enables integration" },
+    ]
+  },
+  // NEW PROJECT
+  {
+    category: "New Project Research",
+    items: [
+      { id: "8.1", feedback: "Add NRK Bygget as new project", source: "Transcript + PDF p3", status: "done", implementation: "Project #23 added - 'Sirkulær' concept, 50,000 m², FutureBuilt" },
+    ]
+  },
+  // CORRECTIONS
+  {
+    category: "Data Corrections",
+    items: [
+      { id: "9.1", feedback: "HØINE AS is Norwegian (sources brick FROM Denmark)", source: "Transcript + PDF p2", status: "done", implementation: "Corrected: supplier.country = 'NO', brick origin = Denmark" },
+    ]
+  },
+];
+
+// Calculate stats
+const allItems = feedbackItems.flatMap(cat => cat.items);
+const doneCount = allItems.filter(i => i.status === 'done').length;
+const partialCount = allItems.filter(i => i.status === 'partial').length;
+const pendingCount = allItems.filter(i => i.status === 'pending').length;
+const totalCount = allItems.length;
+const completionRate = Math.round((doneCount / totalCount) * 100);
+
+// Key quotes from meeting
+const keyQuotes = [
+  {
+    quote: "Dette er materialsirkularitet. I tillegg så har det jo transformasjon... Bruke arealene bedre... Design for disassembly... Så det er mange typer sirkularitet.",
+    topic: "Scope Definition",
+    implementation: "PROJECT.md now clearly states scope is MATERIAL circularity"
+  },
+  {
+    quote: "Prioritere de som har en beregning av gradet sirkularitet... er det også mer kvantifiserbart? Hvis det er murstein, hvis det er stål... hvor mye var det?",
+    topic: "Prioritization",
+    implementation: "Default sort by circularity; 6 projects have material-level breakdown"
+  },
+  {
+    quote: "Hva var driveren? Hva var motivasjonen? ...hva var lessons learned? De to tingene er kjempeviktige å forstå.",
+    topic: "X-Factor",
+    implementation: "All Tier 1 projects have narrative.driver and narrative.lessons_learned"
+  },
+  {
+    quote: "Høyne... de har kjøpt mursteinen fra Danmark, men Høyne er norsk.",
+    topic: "HØINE AS Correction",
+    implementation: "Fixed: supplier.country = 'NO', brick origin = Denmark"
+  },
+  {
+    quote: "Det må være en kategori. Transformation project eller new built project.",
+    topic: "Categorization",
+    implementation: "project_type field + visual badges on all project cards"
+  },
+  {
+    quote: "En tydelig lenke. Hvis du vil lese mer.",
+    topic: "Project Links",
+    implementation: "project_url on all 23 projects + 'Read more' links"
+  },
+  {
+    quote: "Alle leverandørene av sirkulære løsninger, alle property owners... de ønsker jeg inn og bare kunne ta ut og putte inn i kartet.",
+    topic: "Stakeholder Extraction",
+    implementation: "/stakeholders page with JSON/CSV export"
+  },
+  {
+    quote: "Se om vi finner noe på NRK. For der har de ambisjoner.",
+    topic: "NRK Bygget",
+    implementation: "Added as Project #23 with 'Sirkulær' winning concept"
+  },
+];
+
+// GAP ANALYSIS DATA
+const gapAnalysis = {
+  summary: {
+    total: 23,
+    withNarrative: 6,
+    withBreakdown: 4,
+    withSuppliers: 7,
+    withCircularityRate: 6
+  },
+  projectsNeedingNarrative: [
+    { name: "Skur 38", type: "transformation", public: true, priority: "high" },
+    { name: "KA23", type: "transformation", public: false, priority: "high" },
+    { name: "Nøstebukten Brygge", type: "new_build", public: false, priority: "high" },
+    { name: "Oslo Legevakt", type: "new_build", public: true, priority: "medium" },
+    { name: "Sophies Minde", type: "transformation", public: true, priority: "medium" },
+    { name: "Høyblokken", type: "transformation", public: true, priority: "medium" },
+    { name: "Ruseløkka skole", type: "new_build", public: true, priority: "medium" },
+    { name: "Treklang / Oksenøya", type: "new_build", public: true, priority: "low" },
+    { name: "Stovner Bad", type: "new_build", public: true, priority: "low" },
+    { name: "Voldsløkka", type: "new_build", public: true, priority: "low" },
+    { name: "Nidarvoll/Sunnland", type: "new_build", public: true, priority: "low" },
+    { name: "Lilleborg skole", type: "transformation", public: true, priority: "low" },
+    { name: "NRK Bygget", type: "new_build", public: true, priority: "low" },
+    { name: "HasleTre", type: "new_build", public: false, priority: "low" },
+    { name: "Construction City", type: "new_build", public: false, priority: "low" },
+    { name: "TradLab TRE", type: "new_build", public: true, priority: "out_of_scope" },
+    { name: "Ressurssentral", type: "new_build", public: false, priority: "out_of_scope" },
+  ],
+  projectsNeedingBreakdown: [
+    { name: "Nøstebukten Brygge", rate: 70, hasBreakdown: false },
+    { name: "KA23", rate: 50, hasBreakdown: false },
+  ],
+  projectsMissingQuantities: [
+    { name: "Grensen 9B", missing: 7, total: 8, materials: "steel, timber, fixtures, concrete" },
+    { name: "Føniks", missing: 7, total: 7, materials: "concrete, fixtures, glass, steel" },
+    { name: "KA23", missing: 6, total: 6, materials: "concrete, timber, glass, steel, stone" },
+    { name: "Nedre Sem", missing: 6, total: 7, materials: "stone, brick, timber, insulation" },
+    { name: "HasleTre", missing: 5, total: 5, materials: "not specified" },
+    { name: "Skur 38", missing: 4, total: 5, materials: "timber, fixtures, concrete, insulation" },
+    { name: "Sophies Minde", missing: 4, total: 5, materials: "steel, stone, fixtures" },
+  ]
+};
+
+// RESEARCH PROMPTS
+const researchPrompts = {
+  narrative: [
+    {
+      title: "Driver & Motivation Research",
+      prompt: `Research the circular building project "[PROJECT NAME]" in [CITY], Norway.
+
+I need to understand:
+1. What was the PRIMARY DRIVER for choosing circular/reuse materials?
+   - Was it cost savings?
+   - Environmental targets (climate budget, CO2 reduction)?
+   - Client mandate or policy requirement?
+   - Innovation/pilot project goals?
+   - BREEAM/certification requirements?
+
+2. Who championed this decision internally?
+   - Was it the client, architect, or contractor?
+   - Were there specific individuals who drove the circular approach?
+
+3. What external factors influenced the decision?
+   - Municipal policies or incentives?
+   - FutureBuilt program requirements?
+   - Market availability of reused materials?
+
+Search in Norwegian using terms: "[PROJECT NAME]" sirkulær motivasjon, bærekraft, ombruk, gjenbruk, klimabudsjett
+
+Sources to check:
+- FutureBuilt.no project page
+- Client's sustainability reports
+- Architect portfolio
+- Industry publications (Byggfakta, Arkitektur)
+- SINTEF reports`,
+      forProjects: ["Skur 38", "KA23", "Nøstebukten Brygge", "Oslo Legevakt"]
+    },
+    {
+      title: "Lessons Learned Research",
+      prompt: `Research lessons learned from "[PROJECT NAME]" circular building project in Norway.
+
+I need documented insights on:
+1. What WORKED WELL?
+   - Material sourcing strategies that succeeded
+   - Procurement approaches that saved time/cost
+   - Quality assurance methods that were effective
+   - Collaboration models that facilitated reuse
+
+2. What was CHALLENGING?
+   - Material certification barriers
+   - Logistics and timing issues
+   - Cost overruns or unexpected expenses
+   - Quality concerns with reused materials
+   - Regulatory hurdles
+
+3. What would they DO DIFFERENTLY?
+   - Process improvements suggested
+   - Earlier engagement recommendations
+   - Different material choices
+
+4. QUANTIFIED OUTCOMES if available:
+   - Actual vs planned circularity %
+   - Cost comparison circular vs new
+   - Time impact on project schedule
+
+Search terms: "[PROJECT NAME]" erfaringsrapport, lessons learned, evaluering, utfordringer, suksesskriterier
+
+Look for:
+- FutureBuilt experience reports (erfaringsrapporter)
+- Post-occupancy evaluations
+- Conference presentations by project team
+- Academic papers citing the project`,
+      forProjects: ["Skur 38", "Sophies Minde", "Høyblokken", "KA23"]
+    }
+  ],
+  quantities: [
+    {
+      title: "Material Quantity Research",
+      prompt: `Research specific material quantities for "[PROJECT NAME]" circular building project.
+
+For each reused material, I need:
+1. QUANTITY with units:
+   - Tonnes (for heavy materials: concrete, steel, stone)
+   - Square meters (for surfaces: brick, glass, timber cladding)
+   - Units/pieces (for fixtures: doors, windows, radiators)
+   - Linear meters (for structural timber, steel beams)
+
+2. DONOR SOURCE details:
+   - Name of donor building/project
+   - Location
+   - Type (demolition, renovation, surplus)
+   - Distance from project site
+
+3. PROCESSING required:
+   - Testing/certification performed
+   - Refurbishment needed
+   - Modifications made
+
+SPECIFIC MATERIALS TO FIND for [PROJECT NAME]:
+[LIST MATERIALS FROM GAP ANALYSIS]
+
+Search terms: "[PROJECT NAME]" [MATERIAL] tonn, mengde, kilo, m2, antall, fra [DONOR]
+
+Sources:
+- Environmental product declarations (EPD)
+- BREEAM documentation
+- FutureBuilt material passports
+- Contractor project reports
+- Resirqel/Ombygg material logs`,
+      forProjects: ["Grensen 9B", "Føniks", "Nedre Sem", "Skur 38"]
+    }
+  ],
+  costComparison: [
+    {
+      title: "Cost Comparison Research",
+      prompt: `Research cost data for circular materials in "[PROJECT NAME]" building project.
+
+I need comparative cost information:
+1. CIRCULAR MATERIAL COSTS:
+   - Purchase price of reused materials
+   - Testing/certification costs
+   - Logistics/transport costs
+   - Additional labor for installation
+   - Storage costs if applicable
+
+2. CONVENTIONAL ALTERNATIVE COSTS:
+   - What would equivalent new materials cost?
+   - Standard installation costs
+
+3. TOTAL COST COMPARISON:
+   - Was circular approach more expensive, cheaper, or cost-neutral?
+   - By what percentage?
+   - Hidden costs or savings discovered?
+
+4. VALUE BEYOND COST:
+   - Marketing/PR value
+   - Certification points (BREEAM)
+   - Client satisfaction
+   - Risk factors
+
+Search terms: "[PROJECT NAME]" kostnad, pris, økonomi, sammenligning, innsparing, merkostnad, sirkulær økonomi
+
+Look for:
+- Business case documentation
+- Client interviews in media
+- FutureBuilt cost reports
+- DOGA award documentation (often mentions economics)
+- Entra/Aspelin Ramm annual reports`,
+      forProjects: ["KA13", "Grensen 9B", "Føniks", "Eikeli"]
+    }
+  ],
+  suppliers: [
+    {
+      title: "Supplier Identification Research",
+      prompt: `Research suppliers of circular/reused materials for "[PROJECT NAME]" in Norway.
+
+For each material category, identify:
+1. SUPPLIER NAME:
+   - Company that provided/processed reused materials
+   - Their role (supplier, processor, validator, logistics)
+   - Location (city, country)
+
+2. SUPPLIER DETAILS:
+   - Do they specialize in circular materials?
+   - What other projects have they supplied?
+   - Contact information if available
+
+3. SUPPLY CHAIN:
+   - Who sourced the materials originally?
+   - Who processed/certified them?
+   - Who handled logistics?
+
+MATERIAL CATEGORIES TO RESEARCH:
+- Concrete (hollow-core, elements)
+- Steel (structural, railings, ship steel)
+- Brick (reclaimed, CE-certified)
+- Timber (structural, cladding, interior)
+- Stone (facade, flooring)
+- Fixtures (doors, windows, radiators)
+
+Known Norwegian circular suppliers to check:
+- HØINE AS (brick)
+- Resirqel (validation)
+- Ombygg (marketplace)
+- Loopfront (platform)
+- AF Offshore Decom (ship steel)
+- SINTEF (testing)
+
+Search: "[PROJECT NAME]" leverandør, [MATERIAL] leverandør, ombruk leverandør Norge`,
+      forProjects: ["Grensen 9B", "KA23", "Sophies Minde", "Oslo Legevakt"]
+    }
+  ]
+};
+
+// RESEARCH SOURCES
+const researchSources = [
+  { name: "FutureBuilt", url: "https://www.futurebuilt.no", type: "Program", priority: "Primary" },
+  { name: "Entra Erfaringsrapporter", url: "https://www.entra.no", type: "Client", priority: "Primary" },
+  { name: "SINTEF Byggforsk", url: "https://www.sintef.no", type: "Research", priority: "Primary" },
+  { name: "Arkitektur N", url: "https://www.arkitektur.no", type: "Media", priority: "Secondary" },
+  { name: "Byggfakta", url: "https://byggfaktanyheter.no", type: "Media", priority: "Secondary" },
+  { name: "DOGA", url: "https://doga.no", type: "Awards", priority: "Secondary" },
+  { name: "Ombygg", url: "https://ombygg.no", type: "Platform", priority: "Secondary" },
+  { name: "Loopfront", url: "https://loopfront.com", type: "Platform", priority: "Secondary" },
+  { name: "Ressurssentral", url: "https://ressurssentral.no", type: "Platform", priority: "Secondary" },
+];
+---
+
+<Layout title="Meeting Status & Research Plan" description="Implementation status and research plan for Nordic Circular Buildings">
+  <div class="bg-gray-50/50 min-h-screen">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 py-12">
+
+      <!-- Header -->
+      <div class="mb-10">
+        <a href={import.meta.env.BASE_URL} class="text-nordic-600 hover:text-nordic-700 text-sm font-medium mb-4 inline-flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Back to Dashboard
+        </a>
+        <h1 class="text-3xl font-semibold text-gray-900 mt-4">Meeting Status & Research Plan</h1>
+        <p class="text-gray-500 mt-2">Implementation status from Jan Thomas feedback + Gap analysis + Research prompts for Iteration 3</p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex gap-2 mb-8 border-b border-gray-200 pb-4">
+        <a href="#status" class="px-4 py-2 bg-nordic-50 text-nordic-700 rounded-lg text-sm font-medium">Meeting Status</a>
+        <a href="#gaps" class="px-4 py-2 bg-gray-100 text-gray-600 hover:bg-gray-200 rounded-lg text-sm font-medium">Gap Analysis</a>
+        <a href="#research" class="px-4 py-2 bg-gray-100 text-gray-600 hover:bg-gray-200 rounded-lg text-sm font-medium">Research Plan</a>
+        <a href="#prompts" class="px-4 py-2 bg-gray-100 text-gray-600 hover:bg-gray-200 rounded-lg text-sm font-medium">AI Prompts</a>
+      </div>
+
+      <!-- SECTION 1: MEETING STATUS -->
+      <section id="status" class="mb-16">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
+          <span class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </span>
+          Meeting Implementation Status
+        </h2>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="text-3xl font-semibold text-gray-900">{totalCount}</div>
+            <div class="text-sm text-gray-500 mt-1">Total Items</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="text-3xl font-semibold text-green-600">{doneCount}</div>
+            <div class="text-sm text-gray-500 mt-1">Completed</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="text-3xl font-semibold text-amber-500">{partialCount}</div>
+            <div class="text-sm text-gray-500 mt-1">Partial</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="text-3xl font-semibold text-nordic-600">{completionRate}%</div>
+            <div class="text-sm text-gray-500 mt-1">Complete</div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-sm font-medium text-gray-700">Overall Progress</span>
+            <span class="text-sm text-gray-500">{doneCount} of {totalCount} items</span>
+          </div>
+          <div class="w-full bg-gray-100 rounded-full h-3">
+            <div class="bg-gradient-to-r from-nordic-500 to-nordic-600 h-3 rounded-full transition-all duration-500" style={`width: ${completionRate}%`}></div>
+          </div>
+        </div>
+
+        <!-- Feedback Categories (Collapsed) -->
+        <details class="bg-white rounded-2xl shadow-sm border border-gray-100 mb-6">
+          <summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:bg-gray-50">
+            View All {totalCount} Feedback Items →
+          </summary>
+          <div class="border-t border-gray-100">
+            {feedbackItems.map((category) => (
+              <div class="border-b border-gray-50 last:border-b-0">
+                <div class="px-6 py-3 bg-gray-50/50">
+                  <span class="font-medium text-gray-700">{category.category}</span>
+                </div>
+                {category.items.map((item) => (
+                  <div class="px-6 py-3 flex items-center gap-3 text-sm">
+                    {item.status === 'done' && <span class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center"><svg class="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></span>}
+                    {item.status === 'partial' && <span class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center"><svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01"/></svg></span>}
+                    <span class="text-gray-600">{item.feedback}</span>
+                    <span class="ml-auto text-gray-400 text-xs">{item.status}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </details>
+      </section>
+
+      <!-- SECTION 2: GAP ANALYSIS -->
+      <section id="gaps" class="mb-16">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
+          <span class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </span>
+          Data Gap Analysis
+        </h2>
+
+        <!-- Gap Summary Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-semibold text-gray-900">{gapAnalysis.summary.withNarrative}</span>
+              <span class="text-lg text-gray-400">/ 23</span>
+            </div>
+            <div class="text-sm text-gray-500 mt-1">Have Narrative</div>
+            <div class="mt-2 w-full bg-gray-100 rounded-full h-1.5">
+              <div class="bg-green-500 h-1.5 rounded-full" style={`width: ${(6/23)*100}%`}></div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-semibold text-gray-900">{gapAnalysis.summary.withBreakdown}</span>
+              <span class="text-lg text-gray-400">/ 6</span>
+            </div>
+            <div class="text-sm text-gray-500 mt-1">Have Breakdown</div>
+            <div class="mt-2 w-full bg-gray-100 rounded-full h-1.5">
+              <div class="bg-green-500 h-1.5 rounded-full" style={`width: ${(4/6)*100}%`}></div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-semibold text-gray-900">{gapAnalysis.summary.withSuppliers}</span>
+              <span class="text-lg text-gray-400">/ 23</span>
+            </div>
+            <div class="text-sm text-gray-500 mt-1">Have Suppliers</div>
+            <div class="mt-2 w-full bg-gray-100 rounded-full h-1.5">
+              <div class="bg-amber-500 h-1.5 rounded-full" style={`width: ${(7/23)*100}%`}></div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-semibold text-gray-900">0</span>
+              <span class="text-lg text-gray-400">/ 23</span>
+            </div>
+            <div class="text-sm text-gray-500 mt-1">Have Cost Data</div>
+            <div class="mt-2 w-full bg-gray-100 rounded-full h-1.5">
+              <div class="bg-red-500 h-1.5 rounded-full" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Needing Narrative -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 mb-6 overflow-hidden">
+          <div class="px-6 py-4 bg-amber-50 border-b border-amber-100">
+            <h3 class="font-semibold text-amber-900">17 Projects Missing Narrative (Driver + Lessons Learned)</h3>
+          </div>
+          <div class="divide-y divide-gray-50">
+            {gapAnalysis.projectsNeedingNarrative.map((p) => (
+              <div class="px-6 py-3 flex items-center gap-4">
+                <span class={`px-2 py-0.5 text-xs font-medium rounded ${p.priority === 'high' ? 'bg-red-100 text-red-700' : p.priority === 'medium' ? 'bg-amber-100 text-amber-700' : p.priority === 'out_of_scope' ? 'bg-gray-100 text-gray-500' : 'bg-gray-100 text-gray-600'}`}>
+                  {p.priority === 'out_of_scope' ? 'Out of scope' : p.priority}
+                </span>
+                <span class="font-medium text-gray-900">{p.name}</span>
+                <span class={`ml-auto px-2 py-0.5 text-xs rounded ${p.type === 'transformation' ? 'bg-green-50 text-green-700' : 'bg-blue-50 text-blue-700'}`}>
+                  {p.type}
+                </span>
+                {p.public && <span class="text-xs text-gray-400">Public</span>}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Projects Missing Quantities -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div class="px-6 py-4 bg-red-50 border-b border-red-100">
+            <h3 class="font-semibold text-red-900">Projects with Missing Material Quantities</h3>
+          </div>
+          <div class="divide-y divide-gray-50">
+            {gapAnalysis.projectsMissingQuantities.map((p) => (
+              <div class="px-6 py-3">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-medium text-gray-900">{p.name}</span>
+                  <span class="text-sm text-red-600">{p.missing} of {p.total} features missing qty</span>
+                </div>
+                <p class="text-xs text-gray-500">Materials: {p.materials}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: RESEARCH PLAN -->
+      <section id="research" class="mb-16">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
+          <span class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+            </svg>
+          </span>
+          Research Plan for Iteration 3
+        </h2>
+
+        <!-- Priority Order -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-6">
+          <h3 class="font-semibold text-gray-900 mb-4">Research Priority Order</h3>
+          <ol class="space-y-4">
+            <li class="flex gap-4">
+              <span class="w-8 h-8 bg-red-100 text-red-700 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</span>
+              <div>
+                <span class="font-medium text-gray-900">High-value projects with circularity % but no breakdown</span>
+                <p class="text-sm text-gray-500 mt-1">Nøstebukten (70%), KA23 (50%) - Add material-level breakdown</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="w-8 h-8 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
+              <div>
+                <span class="font-medium text-gray-900">Public transformation projects missing narrative</span>
+                <p class="text-sm text-gray-500 mt-1">Skur 38, Sophies Minde, Høyblokken, Lilleborg - Rich documentation likely exists</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="w-8 h-8 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+              <div>
+                <span class="font-medium text-gray-900">Fill quantity gaps for existing Tier 1 projects</span>
+                <p class="text-sm text-gray-500 mt-1">Grensen 9B (7 gaps), Føniks (7 gaps), Nedre Sem (6 gaps)</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="w-8 h-8 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+              <div>
+                <span class="font-medium text-gray-900">Supplier identification for all projects</span>
+                <p class="text-sm text-gray-500 mt-1">Only 7/23 have supplier data - critical for stakeholder mapping</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="w-8 h-8 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">5</span>
+              <div>
+                <span class="font-medium text-gray-900">Cost comparison data (stretch goal)</span>
+                <p class="text-sm text-gray-500 mt-1">0/23 have cost data - check Entra erfaringsrapporter, DOGA documentation</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Research Sources -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div class="px-6 py-4 bg-gray-50 border-b border-gray-100">
+            <h3 class="font-semibold text-gray-900">Primary Research Sources</h3>
+          </div>
+          <div class="divide-y divide-gray-50">
+            {researchSources.map((source) => (
+              <div class="px-6 py-3 flex items-center gap-4">
+                <span class={`px-2 py-0.5 text-xs font-medium rounded ${source.priority === 'Primary' ? 'bg-nordic-100 text-nordic-700' : 'bg-gray-100 text-gray-600'}`}>
+                  {source.priority}
+                </span>
+                <a href={source.url} target="_blank" rel="noopener" class="font-medium text-nordic-600 hover:text-nordic-700">{source.name}</a>
+                <span class="text-sm text-gray-400">{source.type}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: AI RESEARCH PROMPTS -->
+      <section id="prompts" class="mb-16">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
+          <span class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </span>
+          AI Research Prompts
+        </h2>
+        <p class="text-gray-500 mb-6">Copy these prompts to use with AI assistants (Claude, ChatGPT, Perplexity) for deep research on specific projects.</p>
+
+        <!-- Narrative Prompts -->
+        <div class="space-y-6">
+          {researchPrompts.narrative.map((prompt, i) => (
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <div class="px-6 py-4 bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-semibold text-purple-900">{prompt.title}</h3>
+                  <span class="text-xs text-purple-600">For: {prompt.forProjects.join(", ")}</span>
+                </div>
+              </div>
+              <div class="p-6">
+                <pre class="bg-gray-900 text-gray-100 p-4 rounded-xl text-xs overflow-x-auto whitespace-pre-wrap font-mono">{prompt.prompt}</pre>
+                <button
+                  class="mt-4 px-4 py-2 bg-purple-100 text-purple-700 rounded-lg text-sm font-medium hover:bg-purple-200 transition-colors copy-btn"
+                  data-prompt={prompt.prompt}
+                >
+                  Copy Prompt
+                </button>
+              </div>
+            </div>
+          ))}
+
+          {researchPrompts.quantities.map((prompt, i) => (
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <div class="px-6 py-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-100">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-semibold text-amber-900">{prompt.title}</h3>
+                  <span class="text-xs text-amber-600">For: {prompt.forProjects.join(", ")}</span>
+                </div>
+              </div>
+              <div class="p-6">
+                <pre class="bg-gray-900 text-gray-100 p-4 rounded-xl text-xs overflow-x-auto whitespace-pre-wrap font-mono">{prompt.prompt}</pre>
+                <button
+                  class="mt-4 px-4 py-2 bg-amber-100 text-amber-700 rounded-lg text-sm font-medium hover:bg-amber-200 transition-colors copy-btn"
+                  data-prompt={prompt.prompt}
+                >
+                  Copy Prompt
+                </button>
+              </div>
+            </div>
+          ))}
+
+          {researchPrompts.costComparison.map((prompt, i) => (
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <div class="px-6 py-4 bg-gradient-to-r from-green-50 to-emerald-50 border-b border-green-100">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-semibold text-green-900">{prompt.title}</h3>
+                  <span class="text-xs text-green-600">For: {prompt.forProjects.join(", ")}</span>
+                </div>
+              </div>
+              <div class="p-6">
+                <pre class="bg-gray-900 text-gray-100 p-4 rounded-xl text-xs overflow-x-auto whitespace-pre-wrap font-mono">{prompt.prompt}</pre>
+                <button
+                  class="mt-4 px-4 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-medium hover:bg-green-200 transition-colors copy-btn"
+                  data-prompt={prompt.prompt}
+                >
+                  Copy Prompt
+                </button>
+              </div>
+            </div>
+          ))}
+
+          {researchPrompts.suppliers.map((prompt, i) => (
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <div class="px-6 py-4 bg-gradient-to-r from-blue-50 to-cyan-50 border-b border-blue-100">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-semibold text-blue-900">{prompt.title}</h3>
+                  <span class="text-xs text-blue-600">For: {prompt.forProjects.join(", ")}</span>
+                </div>
+              </div>
+              <div class="p-6">
+                <pre class="bg-gray-900 text-gray-100 p-4 rounded-xl text-xs overflow-x-auto whitespace-pre-wrap font-mono">{prompt.prompt}</pre>
+                <button
+                  class="mt-4 px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors copy-btn"
+                  data-prompt={prompt.prompt}
+                >
+                  Copy Prompt
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Quick Reference: Project-Specific Research -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-6">Quick Reference: What Each Project Needs</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <table class="w-full text-sm">
+            <thead class="bg-gray-50 border-b border-gray-100">
+              <tr>
+                <th class="px-4 py-3 text-left font-semibold text-gray-900">Project</th>
+                <th class="px-4 py-3 text-center font-semibold text-gray-900">Narrative</th>
+                <th class="px-4 py-3 text-center font-semibold text-gray-900">Breakdown</th>
+                <th class="px-4 py-3 text-center font-semibold text-gray-900">Quantities</th>
+                <th class="px-4 py-3 text-center font-semibold text-gray-900">Suppliers</th>
+                <th class="px-4 py-3 text-center font-semibold text-gray-900">Cost</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-50">
+              <tr class="bg-green-50/30">
+                <td class="px-4 py-2 font-medium">KA13</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-amber-500">3 gaps</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr class="bg-green-50/30">
+                <td class="px-4 py-2 font-medium">Grensen 9B</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-500">7 gaps</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr class="bg-green-50/30">
+                <td class="px-4 py-2 font-medium">Føniks</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-500">7 gaps</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr class="bg-green-50/30">
+                <td class="px-4 py-2 font-medium">Løren</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr class="bg-green-50/30">
+                <td class="px-4 py-2 font-medium">Eikeli</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-amber-500">1 gap</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr class="bg-green-50/30">
+                <td class="px-4 py-2 font-medium">Nedre Sem</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-500">6 gaps</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 font-medium">Skur 38</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-500">4 gaps</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 font-medium">KA23</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-500">6 gaps</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 font-medium">Nøstebukten</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-amber-500">1 gap</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 font-medium">Oslo Legevakt</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-500">3 gaps</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 font-medium">Sophies Minde</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-500">4 gaps</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 font-medium">Høyblokken</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-green-600">✓</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+                <td class="px-4 py-2 text-center text-red-400">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <div class="mt-10 pt-6 border-t border-gray-200 text-center text-sm text-gray-400">
+        Meeting Status & Research Plan • Generated 2024-12-02 • Iteration 2 Complete • Ready for Iteration 3
+      </div>
+
+    </div>
+  </div>
+
+  <script is:inline>
+    // Copy prompt functionality
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const prompt = this.dataset.prompt;
+        navigator.clipboard.writeText(prompt).then(() => {
+          const original = this.textContent;
+          this.textContent = 'Copied!';
+          this.classList.add('bg-green-200', 'text-green-800');
+          setTimeout(() => {
+            this.textContent = original;
+            this.classList.remove('bg-green-200', 'text-green-800');
+          }, 2000);
+        });
+      });
+    });
+  </script>
+</Layout>

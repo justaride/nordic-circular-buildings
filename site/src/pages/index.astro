@@ -76,10 +76,11 @@ const baseUrl = import.meta.env.BASE_URL;
               Compare Selected
             </button>
             <select id="sort-select" class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-nordic-500">
-              <option value="name">Sort by Name</option>
-              <option value="year">Sort by Year</option>
-              <option value="circularity">Sort by Circularity</option>
-              <option value="status">Sort by Status</option>
+              <option value="cbc_grade">CBC Grade (A→E)</option>
+              <option value="circularity">Circularity (highest)</option>
+              <option value="year">Year (newest)</option>
+              <option value="name">Name (A-Z)</option>
+              <option value="status">Status</option>
             </select>
           </div>
         </div>
@@ -173,6 +174,34 @@ const baseUrl = import.meta.env.BASE_URL;
         visible = false;
       }
 
+      // Project type filter (handle both string and object formats)
+      if (currentFilters.project_type?.length > 0) {
+        const projectTypePrimary = typeof project.project_type === 'object'
+          ? project.project_type?.primary
+          : project.project_type;
+        if (!currentFilters.project_type.includes(projectTypePrimary)) {
+          visible = false;
+        }
+      }
+
+      // CBC Pathway filter
+      if (currentFilters.cbc_pathway?.length > 0) {
+        const primaryPathway = project.cbc_assessment?.primary_pathway;
+        const secondaryPathways = project.cbc_assessment?.secondary_pathways || [];
+        const hasPathway = currentFilters.cbc_pathway.some((p) =>
+          p === primaryPathway || secondaryPathways.includes(p)
+        );
+        if (!hasPathway) visible = false;
+      }
+
+      // CBC Grade filter
+      if (currentFilters.cbc_grade?.length > 0) {
+        const grade = project.cbc_assessment?.total_score?.grade;
+        if (!grade || !currentFilters.cbc_grade.includes(grade)) {
+          visible = false;
+        }
+      }
+
       // Status filter
       if (currentFilters.status?.length > 0 && !currentFilters.status.includes(project.status)) {
         visible = false;
@@ -210,6 +239,12 @@ const baseUrl = import.meta.env.BASE_URL;
         if (rate < currentFilters.minCircularity) visible = false;
       }
 
+      // Has circularity filter
+      if (currentFilters.hasCircularity) {
+        const rate = project.metrics?.circularity_rate?.value;
+        if (rate === undefined || rate === null) visible = false;
+      }
+
       // Toggle visibility
       if (visible) {
         item.style.display = '';
@@ -222,6 +257,70 @@ const baseUrl = import.meta.env.BASE_URL;
     // Update count
     if (projectsCount) {
       projectsCount.textContent = `(${visibleCount})`;
+    }
+
+    // Update stats
+    const statVisible = document.getElementById('stat-visible');
+    const statTotalWrapper = document.getElementById('stat-total-wrapper');
+    const statCompleted = document.getElementById('stat-completed');
+    const statCo2 = document.getElementById('stat-co2');
+    const statCircularity = document.getElementById('stat-circularity');
+
+    if (statVisible) {
+      statVisible.textContent = visibleCount.toString();
+    }
+
+    // Show "X of Y" when filtered
+    if (statTotalWrapper) {
+      if (visibleCount < projectItems.length) {
+        statTotalWrapper.classList.remove('hidden');
+      } else {
+        statTotalWrapper.classList.add('hidden');
+      }
+    }
+
+    // Calculate stats for visible projects
+    let completedCount = 0;
+    const co2Values = [];
+    const circularityValues = [];
+
+    projectItems.forEach((item) => {
+      if (item.style.display !== 'none') {
+        const project = JSON.parse(item.getAttribute('data-project') || '{}');
+        if (project.status === 'completed' || project.status === 'operational') {
+          completedCount++;
+        }
+        if (project.metrics?.co2_reduction?.percent) {
+          co2Values.push(project.metrics.co2_reduction.percent);
+        }
+        if (project.metrics?.circularity_rate?.value) {
+          circularityValues.push(project.metrics.circularity_rate.value);
+        }
+      }
+    });
+
+    if (statCompleted) {
+      statCompleted.textContent = completedCount.toString();
+    }
+
+    if (statCo2) {
+      if (co2Values.length > 0) {
+        const min = Math.min(...co2Values);
+        const max = Math.max(...co2Values);
+        statCo2.textContent = min === max ? `${min}%` : `${min}–${max}%`;
+      } else {
+        statCo2.textContent = 'N/A';
+      }
+    }
+
+    if (statCircularity) {
+      if (circularityValues.length > 0) {
+        const min = Math.min(...circularityValues);
+        const max = Math.max(...circularityValues);
+        statCircularity.textContent = min === max ? `${min}%` : `${min}–${max}%`;
+      } else {
+        statCircularity.textContent = 'N/A';
+      }
     }
 
     // Show/hide no results message
@@ -243,11 +342,24 @@ const baseUrl = import.meta.env.BASE_URL;
   function sortProjects(sortBy) {
     const items = Array.from(projectItems);
 
+    // Grade order for sorting (A=1, B=2, etc., no grade=99)
+    const gradeOrder = { 'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5 };
+
     items.sort((a, b) => {
       const projectA = JSON.parse(a.getAttribute('data-project') || '{}');
       const projectB = JSON.parse(b.getAttribute('data-project') || '{}');
 
       switch (sortBy) {
+        case 'cbc_grade':
+          const gradeA = projectA.cbc_assessment?.total_score?.grade;
+          const gradeB = projectB.cbc_assessment?.total_score?.grade;
+          const orderA = gradeA ? gradeOrder[gradeA] : 99;
+          const orderB = gradeB ? gradeOrder[gradeB] : 99;
+          if (orderA !== orderB) return orderA - orderB;
+          // Secondary sort by score within same grade
+          const scoreA = projectA.cbc_assessment?.total_score?.final_score || 0;
+          const scoreB = projectB.cbc_assessment?.total_score?.final_score || 0;
+          return scoreB - scoreA;
         case 'name':
           return projectA.name.localeCompare(projectB.name);
         case 'year':
@@ -289,6 +401,9 @@ const baseUrl = import.meta.env.BASE_URL;
   sortSelect?.addEventListener('change', () => {
     sortProjects(sortSelect.value);
   });
+
+  // Initial sort by CBC grade (default)
+  sortProjects('cbc_grade');
 
   // Comparison feature
   document.addEventListener('change', (e) => {

@@ -1,8 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Nordic Circular Building Project",
+  "description": "Schema for documenting material circularity in public building projects",
   "type": "object",
-  "required": ["id", "name", "country", "location", "year_completed", "building_type", "size_sqm", "client", "architect", "contractor", "circular_features", "metrics", "status"],
+  "required": ["id", "name", "country", "location", "year_completed", "building_type", "client", "architect", "circular_features", "metrics", "status", "is_public_sector"],
   "properties": {
     "id": {
       "type": "string",
@@ -15,6 +16,42 @@
     "country": {
       "type": "string",
       "enum": ["NO", "SE", "DK", "FI", "IS"]
+    },
+    "project_type": {
+      "type": "object",
+      "description": "Project classification based on CBC Four Circular Building Pathways framework",
+      "properties": {
+        "primary": {
+          "type": "string",
+          "enum": ["renovation", "transformation", "extension", "hybrid", "new_build"],
+          "description": "Primary project type: renovation (same function, upgraded), transformation (new function), extension (vertical/horizontal addition), hybrid (new + preserved elements), new_build (entirely new)"
+        },
+        "preservation_percent": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage of existing structure preserved (0 for new_build, 100 for full renovation)"
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": "Brief description of the project type specifics"
+        }
+      },
+      "required": ["primary"]
+    },
+    "project_type_simple": {
+      "type": "string",
+      "enum": ["new_build", "transformation"],
+      "description": "DEPRECATED: Simple project type for backwards compatibility. Use project_type.primary instead."
+    },
+    "is_public_sector": {
+      "type": "boolean",
+      "description": "True if client/owner is public sector (kommune, fylke, state, public agency)"
+    },
+    "project_url": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "Primary project page URL for 'Read more' link"
     },
     "location": {
       "type": "object",
@@ -32,13 +69,18 @@
       },
       "required": ["city"]
     },
+    "status": {
+      "type": "string",
+      "enum": ["completed", "under_construction", "planned", "operational"],
+      "description": "Current project status"
+    },
     "year_completed": {
       "type": ["integer", "string"],
       "description": "Year completed or expected (can be range like '2022-2023' or 'planned 2027')"
     },
     "building_type": {
       "type": "string",
-      "enum": ["office", "school", "housing", "sports_facility", "care_facility", "mixed_use", "cultural", "infrastructure", "workshop"]
+      "enum": ["office", "school", "housing", "sports_facility", "care_facility", "healthcare", "mixed_use", "cultural", "infrastructure", "workshop", "government", "media_facility"]
     },
     "size_sqm": {
       "type": ["number", "null"],
@@ -49,7 +91,7 @@
       "properties": {
         "amount": { "type": "number" },
         "currency": { "type": "string", "default": "NOK" },
-        "excludes_mva": { "type": "boolean" }
+        "excludes_vat": { "type": "boolean" }
       }
     },
     "client": {
@@ -70,22 +112,84 @@
         "type": "object",
         "properties": {
           "role": { "type": "string" },
-          "name": { "type": "string" }
+          "name": { "type": "string" },
+          "organization": { "type": "string" },
+          "contribution": { "type": "string" }
         }
       }
     },
     "circular_features": {
       "type": "array",
+      "description": "Documented circular material strategies and implementations",
       "items": {
         "type": "object",
         "properties": {
           "category": {
             "type": "string",
-            "enum": ["material_reuse", "design_for_disassembly", "recycled_content", "adaptive_reuse", "low_carbon_materials", "traditional_techniques", "other"]
+            "enum": ["material_reuse", "design_for_disassembly", "recycled_content", "adaptive_reuse", "low_carbon_materials", "traditional_techniques", "upcycling", "material_banking", "infrastructure", "other"]
+          },
+          "material_type": {
+            "type": ["string", "null"],
+            "enum": ["concrete", "brick", "steel", "timber", "stone", "glass", "insulation", "fixtures", "furniture", "other", null],
+            "description": "Type of material involved"
           },
           "description": { "type": "string" },
-          "donor_source": { "type": ["string", "null"] },
-          "quantity": { "type": ["string", "null"] }
+          "donor_source": {
+            "type": ["object", "null"],
+            "properties": {
+              "name": { "type": "string", "description": "Name of donor building/source" },
+              "location": { "type": "string" },
+              "type": {
+                "type": "string",
+                "enum": ["demolition", "surplus", "preservation", "transfer", "decommissioning", "industrial_waste", "renovation", "on_site", "international", "sustainable_harvest", "manufacturing_waste", "office_relocations"]
+              }
+            }
+          },
+          "quantity": {
+            "type": ["object", "null"],
+            "properties": {
+              "value": { "type": "number" },
+              "unit": { "type": "string", "enum": ["tonnes", "m2", "m3", "units", "percent", "kg"] },
+              "description": { "type": "string" }
+            }
+          },
+          "supplier": {
+            "type": ["object", "null"],
+            "description": "Supplier or processor of circular material",
+            "properties": {
+              "name": { "type": "string" },
+              "country": { "type": "string" },
+              "role": {
+                "type": "string",
+                "enum": ["supplier", "processor", "logistics", "validator", "methodology"]
+              }
+            }
+          },
+          "processing": {
+            "type": ["string", "null"],
+            "description": "How the material was processed/prepared for reuse"
+          },
+          "cost_comparison": {
+            "type": ["object", "null"],
+            "description": "Cost comparison between circular and conventional approach",
+            "properties": {
+              "circular_cost": { "type": "number" },
+              "conventional_cost": { "type": "number" },
+              "currency": { "type": "string", "default": "NOK" },
+              "savings_percent": { "type": "number" },
+              "notes": { "type": "string" }
+            }
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": { "type": "string" },
+                "url": { "type": ["string", "null"] }
+              }
+            }
+          }
         }
       }
     },
@@ -93,24 +197,190 @@
       "type": "object",
       "properties": {
         "circularity_rate": {
-          "type": ["number", "null"],
-          "description": "Percentage of materials reused/recycled"
+          "type": ["object", "null"],
+          "properties": {
+            "value": { "type": "number", "description": "Percentage value" },
+            "unit": { "type": "string", "default": "percent" },
+            "measurement": { "type": "string", "enum": ["by_weight", "by_volume", "by_cost", "target"] },
+            "verified": { "type": "boolean" },
+            "breakdown": {
+              "type": "array",
+              "description": "Material-level contribution to circularity rate",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "material": { "type": "string" },
+                  "contribution_percent": { "type": "number" }
+                }
+              }
+            }
+          }
         },
-        "co2_reduction_percent": {
-          "type": ["number", "null"],
-          "description": "CO2 reduction vs conventional construction"
+        "co2_reduction": {
+          "type": ["object", "null"],
+          "properties": {
+            "percent": { "type": "number" },
+            "absolute_tonnes": { "type": "number" },
+            "comparison_basis": { "type": "string" }
+          }
         },
-        "co2_saved_tonnes": {
-          "type": ["number", "null"],
-          "description": "Absolute CO2 savings in tonnes"
-        },
-        "waste_diverted_tonnes": {
-          "type": ["number", "null"],
-          "description": "Materials diverted from landfill in tonnes"
+        "waste_diverted": {
+          "type": ["object", "null"],
+          "properties": {
+            "tonnes": { "type": "number" },
+            "description": { "type": "string" }
+          }
         },
         "ghg_reduction_target": {
-          "type": ["number", "null"],
-          "description": "Target GHG reduction percentage"
+          "type": ["object", "null"],
+          "properties": {
+            "percent": { "type": "number" },
+            "comparison_basis": { "type": "string" }
+          }
+        },
+        "cost_savings": {
+          "type": ["object", "null"],
+          "properties": {
+            "amount": { "type": "number" },
+            "currency": { "type": "string", "default": "NOK" },
+            "comparison": { "type": "string" }
+          }
+        }
+      }
+    },
+    "cbc_assessment": {
+      "type": ["object", "null"],
+      "description": "Circularity assessment based on Circular Buildings Coalition Four Pathways framework (2024)",
+      "properties": {
+        "pathway_scores": {
+          "type": "object",
+          "description": "Normalized scores (0-100) for each CBC pathway",
+          "properties": {
+            "build_nothing_new": {
+              "type": "object",
+              "description": "Score for avoiding new construction through renovation, transformation, or reuse of existing buildings",
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                "interventions": {
+                  "type": "object",
+                  "properties": {
+                    "structure_preservation": { "type": ["number", "null"], "description": "Points for preserving existing structure (0-15)" },
+                    "functional_transformation": { "type": ["number", "null"], "description": "Points for changing building function (0-10)" },
+                    "lifespan_extension": { "type": ["number", "null"], "description": "Points for extending building lifespan (0-10)" }
+                  }
+                },
+                "notes": { "type": ["string", "null"] }
+              }
+            },
+            "build_for_longterm": {
+              "type": "object",
+              "description": "Score for designing for durability, adaptability, and future disassembly",
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                "interventions": {
+                  "type": "object",
+                  "properties": {
+                    "design_for_disassembly": { "type": ["number", "null"], "description": "Points for DfD features - mechanical connections, layered design, standardized dimensions (0-12)" },
+                    "material_passport": { "type": ["number", "null"], "description": "Points for documentation - BIM, QR codes, disassembly instructions (0-8)" },
+                    "flexibility": { "type": ["number", "null"], "description": "Points for adaptable design - movable walls, service overcapacity (0-5)" }
+                  }
+                },
+                "notes": { "type": ["string", "null"] }
+              }
+            },
+            "build_efficiently": {
+              "type": "object",
+              "description": "Score for material efficiency, space optimization, and construction efficiency",
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                "interventions": {
+                  "type": "object",
+                  "properties": {
+                    "space_efficiency": { "type": ["number", "null"], "description": "Points for shared functions, reduced m²/user (0-8)" },
+                    "material_efficiency": { "type": ["number", "null"], "description": "Points for optimized construction, prefab, lightweight (0-7)" },
+                    "vertical_extension": { "type": ["number", "null"], "description": "Points for building on existing structures (0-10)" }
+                  }
+                },
+                "notes": { "type": ["string", "null"] }
+              }
+            },
+            "build_with_right_materials": {
+              "type": "object",
+              "description": "Score for material reuse, recycled content, biobased materials, and carbon storage",
+              "properties": {
+                "score": { "type": "number", "minimum": 0, "maximum": 100 },
+                "interventions": {
+                  "type": "object",
+                  "properties": {
+                    "structural_reuse": { "type": ["number", "null"], "description": "Points for reusing structural elements - concrete, steel, timber (0-12)" },
+                    "non_structural_reuse": { "type": ["number", "null"], "description": "Points for reusing facades, fixtures, furniture (0-8)" },
+                    "reuse_quantity_bonus": { "type": ["number", "null"], "description": "Bonus points for high reuse rates >30% (0-3)" },
+                    "recycled_content": { "type": ["number", "null"], "description": "Points for recycled materials in new elements (0-5)" },
+                    "biobased_construction": { "type": ["number", "null"], "description": "Points for biobased structural and non-structural materials (0-10)" },
+                    "carbon_storage": { "type": ["number", "null"], "description": "Points for documented biogenic carbon storage (0-3)" }
+                  }
+                },
+                "notes": { "type": ["string", "null"] }
+              }
+            }
+          }
+        },
+        "primary_pathway": {
+          "type": "string",
+          "enum": ["build_nothing_new", "build_for_longterm", "build_efficiently", "build_with_right_materials"],
+          "description": "The dominant CBC pathway for this project"
+        },
+        "secondary_pathways": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["build_nothing_new", "build_for_longterm", "build_efficiently", "build_with_right_materials"]
+          },
+          "description": "Additional significant CBC pathways"
+        },
+        "total_score": {
+          "type": "object",
+          "properties": {
+            "raw_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Weighted average of pathway scores based on project type"
+            },
+            "quality_multiplier": {
+              "type": "number",
+              "minimum": 0.8,
+              "maximum": 1.3,
+              "description": "Multiplier based on documentation quality: 1.3 (third-party verified), 1.2 (quantified), 1.1 (documented), 1.0 (claimed), 0.8 (target only)"
+            },
+            "final_score": {
+              "type": "number",
+              "description": "raw_score × quality_multiplier"
+            },
+            "grade": {
+              "type": "string",
+              "enum": ["A", "B", "C", "D", "E"],
+              "description": "Letter grade: A (80+), B (60-79), C (40-59), D (20-39), E (<20)"
+            }
+          }
+        },
+        "assessment_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of CBC assessment"
+        },
+        "assessed_by": {
+          "type": ["string", "null"],
+          "description": "Person or organization that performed the assessment"
+        },
+        "methodology_version": {
+          "type": "string",
+          "default": "CBC-2024-v1",
+          "description": "Version of the assessment methodology"
+        },
+        "notes": {
+          "type": ["string", "null"],
+          "description": "Additional notes about the assessment"
         }
       }
     },
@@ -120,13 +390,25 @@
         "type": "object",
         "properties": {
           "name": { "type": "string" },
-          "level": { "type": ["string", "null"] }
+          "level": { "type": ["string", "null"] },
+          "year": { "type": "integer" },
+          "status": { "type": "string", "enum": ["achieved", "target", "in_progress"] }
         }
       }
     },
     "programs": {
       "type": "array",
       "description": "Programs/initiatives the project is part of",
+      "items": {
+        "type": ["string", "object"],
+        "properties": {
+          "name": { "type": "string" },
+          "designation": { "type": "string" }
+        }
+      }
+    },
+    "awards": {
+      "type": "array",
       "items": { "type": "string" }
     },
     "energy_standard": {
@@ -137,7 +419,34 @@
       "type": ["object", "null"],
       "properties": {
         "fossil_free": { "type": "boolean" },
-        "emission_free_percentage": { "type": ["number", "null"] }
+        "emission_free_percentage": { "type": ["number", "null"] },
+        "note": { "type": "string" }
+      }
+    },
+    "narrative": {
+      "type": ["object", "null"],
+      "description": "Story behind the project - motivation and learnings",
+      "properties": {
+        "driver": { "type": "string", "description": "What was the motivation for pursuing circularity?" },
+        "lessons_learned": { "type": "string", "description": "Key takeaways and what worked/didn't work" },
+        "challenges": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Key challenges faced"
+        }
+      }
+    },
+    "scope_notes": {
+      "type": ["object", "null"],
+      "description": "Notes about project scope relevance",
+      "properties": {
+        "in_scope": { "type": "boolean" },
+        "category": {
+          "type": "string",
+          "enum": ["core", "demonstration", "enabling_infrastructure", "secondary"],
+          "description": "How central this project is to material circularity scope"
+        },
+        "notes": { "type": "string" }
       }
     },
     "sources": {
@@ -145,13 +454,20 @@
       "items": {
         "type": "object",
         "properties": {
-          "type": { "type": "string" },
+          "type": { "type": "string", "enum": ["primary", "secondary"] },
           "name": { "type": "string" },
-          "url": { "type": ["string", "null"] }
+          "organization": { "type": "string" },
+          "url": { "type": ["string", "null"] },
+          "date": { "type": "string" }
         }
       }
     },
-    "data_status": {
+    "data_quality": {
+      "type": "string",
+      "enum": ["strong", "moderate", "weak"],
+      "description": "Overall data quality assessment"
+    },
+    "verification_status": {
       "type": "string",
       "enum": ["verified", "partially_verified", "needs_verification", "pending"]
     },

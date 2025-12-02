@@ -99,32 +99,56 @@ const baseUrl = import.meta.env.BASE_URL;
           let visible = true;
 
           // Check country filter
-          if (filters.country.length > 0 && !filters.country.includes(project.country)) {
+          if (filters.country?.length > 0 && !filters.country.includes(project.country)) {
+            visible = false;
+          }
+
+          // Check project type filter
+          if (filters.project_type?.length > 0 && !filters.project_type.includes(project.project_type)) {
             visible = false;
           }
 
           // Check status filter
-          if (filters.status.length > 0 && !filters.status.includes(project.status)) {
+          if (filters.status?.length > 0 && !filters.status.includes(project.status)) {
             visible = false;
           }
 
           // Check building type filter
-          if (filters.building_type.length > 0 && !filters.building_type.includes(project.building_type)) {
+          if (filters.building_type?.length > 0 && !filters.building_type.includes(project.building_type)) {
             visible = false;
           }
 
           // Check strategy filter
-          if (filters.strategy.length > 0) {
+          if (filters.strategy?.length > 0) {
             const hasStrategy = filters.strategy.some((s) =>
               project.primary_strategies?.includes(s)
             );
             if (!hasStrategy) visible = false;
           }
 
+          // Check year filter
+          if (filters.yearMin || filters.yearMax) {
+            let year = project.year_completed;
+            if (typeof year === 'string') {
+              const match = year.match(/\d{4}/);
+              year = match ? parseInt(match[0]) : null;
+            }
+            if (year) {
+              if (filters.yearMin && year < filters.yearMin) visible = false;
+              if (filters.yearMax && year > filters.yearMax) visible = false;
+            }
+          }
+
           // Check circularity filter
           if (filters.minCircularity > 0) {
             const rate = project.metrics?.circularity_rate?.value || 0;
             if (rate < filters.minCircularity) visible = false;
+          }
+
+          // Check hasCircularity filter
+          if (filters.hasCircularity) {
+            const rate = project.metrics?.circularity_rate?.value;
+            if (rate === undefined || rate === null) visible = false;
           }
 
           // Toggle marker visibility

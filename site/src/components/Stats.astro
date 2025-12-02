@@ -12,21 +12,24 @@ const { totalProjects, completedProjects, totalCO2Saved, avgCircularity } = Astr
 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
   <div class="bg-white rounded-2xl p-5 card-hover">
     <div class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">Projects</div>
-    <div class="text-2xl font-semibold text-gray-900 stat-number">{totalProjects}</div>
+    <div class="text-2xl font-semibold text-gray-900 stat-number">
+      <span id="stat-visible">{totalProjects}</span>
+      <span id="stat-total-wrapper" class="text-sm text-gray-400 font-normal hidden"> of {totalProjects}</span>
+    </div>
   </div>
 
   <div class="bg-white rounded-2xl p-5 card-hover">
     <div class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">Completed</div>
-    <div class="text-2xl font-semibold text-gray-900 stat-number">{completedProjects}</div>
+    <div id="stat-completed" class="text-2xl font-semibold text-gray-900 stat-number">{completedProjects}</div>
   </div>
 
   <div class="bg-white rounded-2xl p-5 card-hover">
     <div class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">CO₂ Reduction</div>
-    <div class="text-2xl font-semibold text-nordic-600 stat-number">{totalCO2Saved}</div>
+    <div id="stat-co2" class="text-2xl font-semibold text-nordic-600 stat-number">{totalCO2Saved}</div>
   </div>
 
   <div class="bg-white rounded-2xl p-5 card-hover">
     <div class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">Circularity</div>
-    <div class="text-2xl font-semibold text-nordic-600 stat-number">{avgCircularity}</div>
+    <div id="stat-circularity" class="text-2xl font-semibold text-nordic-600 stat-number">{avgCircularity}</div>
   </div>
 </div>

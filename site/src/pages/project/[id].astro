@@ -36,6 +36,51 @@ const strategyLabels: Record<string, string> = {
   infrastructure: 'Infrastructure',
 };
 
+// Project type labels
+const projectTypeLabels: Record<string, string> = {
+  new_build: 'New Build',
+  transformation: 'Transformation',
+  renovation: 'Renovation',
+  extension: 'Extension',
+  hybrid: 'Hybrid',
+};
+
+const projectTypeColors: Record<string, string> = {
+  new_build: 'bg-fjord-100 text-fjord-700',
+  transformation: 'bg-nordic-100 text-nordic-700',
+  renovation: 'bg-amber-100 text-amber-700',
+  extension: 'bg-purple-100 text-purple-700',
+  hybrid: 'bg-teal-100 text-teal-700',
+};
+
+// CBC Grade colors
+const cbcGradeColors: Record<string, string> = {
+  'A': 'bg-green-100 text-green-700 border-green-200',
+  'B': 'bg-lime-100 text-lime-700 border-lime-200',
+  'C': 'bg-yellow-100 text-yellow-700 border-yellow-200',
+  'D': 'bg-orange-100 text-orange-700 border-orange-200',
+  'E': 'bg-red-100 text-red-700 border-red-200',
+};
+
+// CBC Pathway labels
+const pathwayLabels: Record<string, string> = {
+  build_nothing_new: 'Build Nothing New',
+  build_for_longterm: 'Build for Long-term',
+  build_efficiently: 'Build Efficiently',
+  build_with_right_materials: 'Build with Right Materials',
+};
+
+// Get project type (handle both string and object formats)
+const projectTypePrimary = typeof project.project_type === 'object'
+  ? project.project_type?.primary
+  : project.project_type;
+const preservationPercent = typeof project.project_type === 'object'
+  ? project.project_type?.preservation_percent
+  : null;
+const projectTypeDescription = typeof project.project_type === 'object'
+  ? project.project_type?.description
+  : null;
+
 // Data quality indicator (subtle)
 const dataQualityColors: Record<string, string> = {
   strong: 'bg-teal-50 text-teal-600',
@@ -110,12 +155,32 @@ const getCertifications = (certs: any[]) => {
     <section class="bg-white rounded-2xl p-8 mb-6 card-hover">
       <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
         <div>
-          <div class="flex items-center gap-2 mb-3">
+          <div class="flex items-center gap-2 mb-3 flex-wrap">
             <span class="text-xs font-medium text-gray-400 uppercase tracking-wide">{project.building_type?.replace('_', ' ')}</span>
             <span class="text-gray-200">•</span>
             <span class={`px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${statusColors[project.status] || 'bg-gray-100 text-gray-600'}`}>
               {project.status?.replace('_', ' ')}
             </span>
+            {projectTypePrimary && (
+              <>
+                <span class="text-gray-200">•</span>
+                <span class={`px-2 py-0.5 rounded text-xs font-medium ${projectTypeColors[projectTypePrimary] || 'bg-gray-100 text-gray-600'}`}>
+                  {projectTypeLabels[projectTypePrimary] || projectTypePrimary}
+                </span>
+              </>
+            )}
+            {preservationPercent !== null && preservationPercent > 0 && (
+              <>
+                <span class="text-gray-200">•</span>
+                <span class="text-xs text-gray-400">{preservationPercent}% preserved</span>
+              </>
+            )}
+            {project.is_public_sector && (
+              <>
+                <span class="text-gray-200">•</span>
+                <span class="text-xs text-gray-400">Public Sector</span>
+              </>
+            )}
           </div>
           <h1 class="text-2xl font-semibold text-gray-900 mb-2">{project.name}</h1>
           <div class="flex flex-wrap items-center gap-3 text-sm text-gray-400">
@@ -161,6 +226,22 @@ const getCertifications = (certs: any[]) => {
             <p class="text-gray-600 leading-relaxed">{project.circularity_qualification}</p>
           ) : (
             <p class="text-gray-300 text-sm italic">Circularity summary pending</p>
+          )}
+
+          {project.project_url && (
+            <div class="mt-4 pt-4 border-t border-gray-100">
+              <a
+                href={project.project_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm font-medium text-nordic-600 hover:text-nordic-700 transition-colors"
+              >
+                Read more about this project
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
           )}
         </section>
 
@@ -217,6 +298,141 @@ const getCertifications = (certs: any[]) => {
         </section>
 
         <!-- ============================================ -->
+        <!-- SECTION 3A: CBC ASSESSMENT (if available) -->
+        <!-- ============================================ -->
+        {project.cbc_assessment && (
+          <section class="bg-white rounded-2xl p-6 card-hover">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xs font-medium text-gray-400 uppercase tracking-wide">CBC Assessment</h2>
+              <span class="text-xs text-gray-300">Four Circular Pathways</span>
+            </div>
+
+            <!-- Grade and Score -->
+            <div class="flex items-center gap-6 mb-6">
+              {project.cbc_assessment.total_score && (
+                <div class="flex items-center gap-3">
+                  <div class={`inline-flex items-center justify-center w-16 h-16 rounded-xl border-2 ${cbcGradeColors[project.cbc_assessment.total_score.grade] || 'bg-gray-100'}`}>
+                    <span class="text-3xl font-bold">{project.cbc_assessment.total_score.grade}</span>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-semibold text-gray-900">{project.cbc_assessment.total_score.final_score?.toFixed(1)}</div>
+                    <div class="text-xs text-gray-400">Final Score</div>
+                  </div>
+                </div>
+              )}
+              {project.cbc_assessment.primary_pathway && (
+                <div>
+                  <div class="text-sm font-medium text-gray-700">{pathwayLabels[project.cbc_assessment.primary_pathway]}</div>
+                  <div class="text-xs text-gray-400">Primary Pathway</div>
+                </div>
+              )}
+            </div>
+
+            <!-- Pathway Scores -->
+            {project.cbc_assessment.pathway_scores && (
+              <div class="space-y-4">
+                <h3 class="text-xs text-gray-400 uppercase tracking-wide">Pathway Scores</h3>
+                {Object.entries(project.cbc_assessment.pathway_scores).map(([key, pathway]: [string, any]) => (
+                  <div class="p-3 bg-gray-50/50 rounded-xl">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-sm font-medium text-gray-700">{pathwayLabels[key] || key}</span>
+                      <span class="text-sm font-semibold text-gray-900">{pathway.score}/100</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-1.5 mb-2">
+                      <div
+                        class={`h-1.5 rounded-full ${pathway.score >= 80 ? 'bg-green-400' : pathway.score >= 60 ? 'bg-lime-400' : pathway.score >= 40 ? 'bg-yellow-400' : 'bg-gray-300'}`}
+                        style={`width: ${pathway.score}%`}
+                      ></div>
+                    </div>
+                    {pathway.notes && (
+                      <p class="text-xs text-gray-500">{pathway.notes}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <!-- Methodology Note -->
+            <div class="mt-4 pt-4 border-t border-gray-100">
+              <div class="flex items-center justify-between text-xs text-gray-400">
+                <span>Methodology: {project.cbc_assessment.methodology_version || 'CBC-2024-v1'}</span>
+                {project.cbc_assessment.assessment_date && (
+                  <span>Assessed: {project.cbc_assessment.assessment_date}</span>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <!-- ============================================ -->
+        <!-- SECTION 3B: CIRCULARITY BREAKDOWN (if available) -->
+        <!-- ============================================ -->
+        {project.metrics?.circularity_rate?.breakdown && (
+          <section class="bg-white rounded-2xl p-6 card-hover">
+            <h2 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">Material Contribution to Circularity</h2>
+            <div class="space-y-3">
+              {project.metrics.circularity_rate.breakdown.map((item: any) => (
+                <div class="flex items-center gap-3">
+                  <div class="w-24 text-sm text-gray-500 capitalize">{item.material}</div>
+                  <div class="flex-1 bg-gray-100 rounded-full h-2">
+                    <div
+                      class="h-2 rounded-full bg-nordic-400"
+                      style={`width: ${item.contribution_percent}%`}
+                    ></div>
+                  </div>
+                  <div class="w-12 text-sm text-gray-600 text-right">{item.contribution_percent}%</div>
+                </div>
+              ))}
+            </div>
+            {project.metrics.circularity_rate.breakdown[0]?.notes && (
+              <div class="mt-4 pt-4 border-t border-gray-100">
+                <h3 class="text-xs text-gray-400 mb-2">Details</h3>
+                <ul class="space-y-1">
+                  {project.metrics.circularity_rate.breakdown.filter((b: any) => b.notes).map((item: any) => (
+                    <li class="text-xs text-gray-500">
+                      <span class="capitalize font-medium">{item.material}:</span> {item.notes}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </section>
+        )}
+
+        <!-- ============================================ -->
+        <!-- SECTION 3C: NARRATIVE (Driver & Lessons) -->
+        <!-- ============================================ -->
+        {project.narrative && (
+          <section class="bg-white rounded-2xl p-6 card-hover">
+            <h2 class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">Story</h2>
+            {project.narrative.driver && (
+              <div class="mb-4">
+                <h3 class="text-sm font-medium text-gray-700 mb-1">Why Circular?</h3>
+                <p class="text-sm text-gray-500">{project.narrative.driver}</p>
+              </div>
+            )}
+            {project.narrative.lessons_learned && (
+              <div class="mb-4">
+                <h3 class="text-sm font-medium text-gray-700 mb-1">Lessons Learned</h3>
+                <p class="text-sm text-gray-500">{project.narrative.lessons_learned}</p>
+              </div>
+            )}
+            {project.narrative.challenges && project.narrative.challenges.length > 0 && (
+              <div>
+                <h3 class="text-sm font-medium text-gray-700 mb-2">Key Challenges</h3>
+                <div class="flex flex-wrap gap-1.5">
+                  {project.narrative.challenges.map((challenge: string) => (
+                    <span class="px-2 py-1 bg-amber-50 text-amber-700 rounded text-xs capitalize">
+                      {challenge.replace(/_/g, ' ')}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+        )}
+
+        <!-- ============================================ -->
         <!-- SECTION 4: CIRCULAR STRATEGIES -->
         <!-- ============================================ -->
         <section class="bg-white rounded-2xl p-6 card-hover">
@@ -263,6 +479,13 @@ const getCertifications = (certs: any[]) => {
                     <div class="mt-2 text-xs text-gray-400">
                       Source: {feature.donor_source.name || 'Unknown'}
                       {feature.donor_source.location && ` (${feature.donor_source.location})`}
+                    </div>
+                  )}
+                  {feature.supplier && (
+                    <div class="mt-1 text-xs text-gray-400">
+                      Supplier: {feature.supplier.name}
+                      {feature.supplier.country && ` (${feature.supplier.country})`}
+                      {feature.supplier.role && <span class="text-gray-300"> • {feature.supplier.role}</span>}
                     </div>
                   )}
                 </div>
