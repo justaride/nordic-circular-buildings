@@ -100,8 +100,19 @@
           "processing": "SINTEF tested slabs to establish certification pathways",
           "citations": [
             {
-              "source": "Entra KA13 erfaringsrapport",
-              "url": null
+              "source": "Anskaffelser.no - Ombruk hos Statsbygg og Entra",
+              "url": "https://anskaffelser.no/verktoy/eksempler/ombruk-av-byggematerialer-hos-statsbygg-og-entra",
+              "quote": "168 tonn betong i form av store betongelementer (hulldekker) ble flyttet fra Regjeringskvartalet til Tullinløkka"
+            },
+            {
+              "source": "NRK - Gjenbruk fra regjeringskvartalet",
+              "url": "https://www.nrk.no/norge/her-gjenbrukes-deler-av-regjeringskvartalet-_-men-dagens-regler-gjor-det-vanskelig-1.15104239",
+              "quote": "Hulldekkeelementene ble skjært løs og heist ut fra R4 i november 2019"
+            },
+            {
+              "source": "Heidelberg Materials Prefab - Ombruk av hulldekker",
+              "url": "https://www.prefab.heidelbergmaterials.no/no/gjenbruk_hulldekker",
+              "quote": "21 hulldekker fra Regjeringskvartalet installert i plan 5 til 8"
             }
           ],
           "supplier": {
@@ -122,8 +133,9 @@
           "quantity": null,
           "citations": [
             {
-              "source": "Entra project documentation",
-              "url": "https://www.entra.no/vare-eiendommer/alle-eiendommer/kristian-augusts-gate-13"
+              "source": "KA13 Erfaringsrapport (Entra)",
+              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "quote": "Vinduer fra feilbestilling i Kværnerbyen sparte 90% produksjonsutslipp"
             }
           ]
         },
@@ -246,9 +258,9 @@
       "sources": [
         {
           "type": "primary",
-          "name": "KA13 erfaringsrapport (116 pages)",
+          "name": "KA13 Erfaringsrapport Ombruk (116 sider)",
           "organization": "Entra ASA",
-          "url": null,
+          "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
           "date": "2021-01"
         },
         {
@@ -275,6 +287,16 @@
           "type": "secondary",
           "name": "Anskaffelser.no",
           "url": "https://www.anskaffelser.no/verktoy/eksempler/ombruk-av-byggematerialer-hos-statsbygg-og-entra"
+        },
+        {
+          "name": "KA13 Experience Report (English)",
+          "type": "report",
+          "url": "https://www.entra.no/vare-eiendommer/alle-eiendommer/kristian-augusts-gate-13/_/attachment/inline/31ec37c5-5944-4338-a4db-826336969f42:8fd12a6e4418e59f3ffe7be9916e27b7e0239d8f/20230113_KA13_erfaringsrapport_engelsk.pdf"
+        },
+        {
+          "name": "Insenti - Erfaringsrapport fra sirkulærprosjektet KA13",
+          "type": "article",
+          "url": "https://insenti.no/erfaringsrapport-fra-sirkulaerprosjektet-ka13/"
         }
       ],
       "data_quality": "strong",
@@ -417,7 +439,19 @@
             "name": "Original building",
             "location": "Skur 38",
             "type": "preservation"
-          }
+          },
+          "citations": [
+            {
+              "source": "KS Eksempelbanken",
+              "url": "https://www.ks.no/fagomrader/samfunnsutvikling/miljo/sirkular-okonomi/veileder-for-sirkular-okonomi/eksempelbanken/skur-38--gjenbruk-av-byggematerialer/",
+              "quote": "171 tonn CO2-ekvivalenter redusert gjennom gjenbruk av byggematerialer"
+            },
+            {
+              "source": "Open House Oslo",
+              "url": "https://openhouseoslo.no/havneskuret-som-ble-miljoforbilde/",
+              "quote": "Spileveggen i kantina satt sammen av mahogny treverk fra den gamle fjerdeetasjen"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -527,6 +561,11 @@
           "type": "secondary",
           "name": "Oslo Havn prospekt",
           "url": "https://www.oslohavn.no/globalassets/oslo-havn/dokumenter/dokumenter-2020/201124-oslo-havn-skur-38_utleieprospekt.pdf"
+        },
+        {
+          "name": "iark - Oslo Havn Skur 38",
+          "type": "architect",
+          "url": "https://iark.no/prosjekter/oslo-havn-skur38"
         }
       ],
       "data_quality": "strong",
@@ -595,7 +634,24 @@
             "name": "HØINE AS",
             "country": "NO",
             "role": "supplier"
-          }
+          },
+          "citations": [
+            {
+              "source": "Byggmesteren - Norges første skole i ombrukstegl",
+              "url": "https://byggmesteren.as/2021/12/16/norges-forste-skole-i-ombrukstegl/",
+              "quote": "650 kvm CE-merket ombrukstegl - Norges første større bygg"
+            },
+            {
+              "source": "HØINE - Eikeli VGS",
+              "url": "https://www.hoine.no/eikeli-vgs",
+              "quote": "Dansk ombrukstegl levert til fasade på nytt tilbygg"
+            },
+            {
+              "source": "Peab - Ombrukstegl",
+              "url": "https://peab.no/presserom/nyheter-og-pressemeldinger/forste-store-prosjekt-med-ombrukstegl/",
+              "quote": "Spart 106 tonn avfall og 26,5 tonn CO2"
+            }
+          ]
         },
         {
           "category": "adaptive_reuse",
@@ -650,13 +706,33 @@
       "sources": [
         {
           "type": "primary",
-          "name": "Bærum kommune project pages",
-          "url": null
+          "name": "Bærum kommune FutureBuilt",
+          "url": "https://www.baerum.kommune.no/tjenester/klima-og-miljo/klimaklok/futurebuilt/"
         },
         {
           "type": "primary",
           "name": "FutureBuilt project database",
           "url": "https://www.futurebuilt.no"
+        },
+        {
+          "name": "Byggmesteren - Norges første skole i ombrukstegl",
+          "type": "article",
+          "url": "https://byggmesteren.as/2021/12/16/norges-forste-skole-i-ombrukstegl/"
+        },
+        {
+          "name": "HØINE - Eikeli VGS",
+          "type": "supplier",
+          "url": "https://www.hoine.no/eikeli-vgs"
+        },
+        {
+          "name": "Peab - Første store prosjekt med ombrukstegl",
+          "type": "press_release",
+          "url": "https://peab.no/presserom/nyheter-og-pressemeldinger/forste-store-prosjekt-med-ombrukstegl/"
+        },
+        {
+          "name": "Norconsult - Eikeli videregående skole",
+          "type": "consultant",
+          "url": "https://norconsult.no/prosjekter/eikeli-videregaaende-skole/"
         }
       ],
       "data_quality": "strong",
@@ -780,7 +856,19 @@
           "donor_source": {
             "name": "1887 barn on site",
             "type": "demolition"
-          }
+          },
+          "citations": [
+            {
+              "source": "Husbanken - Nedre Sem",
+              "url": "https://www.husbanken.no/byggeskikk/prosjekter/nedre-sem-laave/",
+              "quote": "1887 steinfjøs transformert til forsamlingshus"
+            },
+            {
+              "source": "Arkitektur.no - Nedre Sem",
+              "url": "https://www.arkitektur.no/prosjekter/naering/nedre-sem-laave/",
+              "quote": "50% sirkulære materialer - stein, tegl, treverk"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -1054,8 +1142,24 @@
           "processing": "AF Offshore Decom cut steel plates from hull, cleaned, fabricated into structural beams. Nordic Circles developed dismantling methodology.",
           "citations": [
             {
-              "source": "Nordic Circles methodology",
-              "url": null
+              "source": "Nordic Circles - Løren prosjekt",
+              "url": "https://www.nordiccircles.com/projects-lren-aktivitetspark-og-flerbrukshall",
+              "quote": "Verdens første byggeprosjekt med oppsirkulert skipsstål som bærende konstruksjon"
+            },
+            {
+              "source": "KlimaOslo - Stål fra skip i nytt bygg",
+              "url": "https://www.klimaoslo.no/ombruk-av-bygningsmaterialer-gir-klimagevinst/",
+              "quote": "90% klimagassbesparelse sammenlignet med nytt stål"
+            },
+            {
+              "source": "Estate Nyheter - Curlew FPSO",
+              "url": "https://www.estatenyheter.no/dette-skipsvraket-blir-en-viktig-ingrediens-i-den-nye-flerbrukshallen-i-oslo/416324",
+              "quote": "Curlew FPSO opererte i Nordsjøen i 20 år før pensjonering"
+            },
+            {
+              "source": "Byggfakta Nyheter - Nordic Circles",
+              "url": "https://byggfaktanyheter.no/nordic-circles-gir-skipsstal-nytt-liv/",
+              "quote": "97% lavere klimafotavtrykk enn vanlig stål"
             }
           ],
           "supplier": {
@@ -1145,18 +1249,48 @@
       "sources": [
         {
           "type": "primary",
-          "name": "Oslo kommune/Oslobygg project page",
-          "url": null
+          "name": "Oslobygg KF Pressemelding",
+          "url": "https://www.mynewsdesk.com/no/oslobygg-kf/pressreleases/naa-kommer-loeren-aktivitetspark-og-flerbrukshall-3237097"
         },
         {
           "type": "secondary",
-          "name": "Klimaoslo.no case study",
-          "url": null
+          "name": "KlimaOslo - Ombruk av bygningsmaterialer",
+          "url": "https://www.klimaoslo.no/ombruk-av-bygningsmaterialer-gir-klimagevinst/"
         },
         {
           "type": "secondary",
-          "name": "Nordic Circles methodology",
-          "url": null
+          "name": "MetalSupply - Nordic Circles metodologi",
+          "url": "https://www.metalsupply.no/article/view/1101878/ombruk_av_stal_fra_skip_ingen_ler_av_nordic_circles_lenger"
+        },
+        {
+          "name": "Fremtidens Byggenæring - Unikt pilotprosjekt",
+          "type": "article",
+          "url": "https://www.fremtidensbygg.no/unikt-pilotprosjekt-for-gjenbruk-pa-loren/"
+        },
+        {
+          "name": "Byggfakta Nyheter - Betydelige CO2-kutt",
+          "type": "article",
+          "url": "https://byggfaktanyheter.no/bygging-av-ny-flerbrukshall-pa-loren-bidrar-med-betydelige-kutt-i-co2-utslipp/"
+        },
+        {
+          "name": "PIR2 Arkitekter - Løren aktivitetspark",
+          "type": "architect",
+          "url": "https://pir2.no/prosjekter/loren-aktivitetspark-og-flerbrukshall"
+        },
+        {
+          "name": "Miljødirektoratet Klimasats 2022",
+          "type": "government",
+          "url": "https://www.miljodirektoratet.no/ansvarsomrader/klima/for-myndigheter/kutte-utslipp-av-klimagasser/klimasats/2022/loren-aktivitetspark-og-flerbrukshall/"
+        },
+        {
+          "name": "Statsbygg - Stål fra skip blir grønne bærebjelker",
+          "type": "government",
+          "url": "https://www.statsbygg.no/nyheter/stal-fra-skip-blir-gronne-baerebjelker"
+        },
+        {
+          "name": "Stålbygg - Ombruk av skip og offshore konstruksjoner",
+          "type": "industry",
+          "url": "https://stalbygg.stalforbund.no/baerekraft-2/ombruk-av-offshore-konstruksjoner/"
         }
       ],
       "data_quality": "strong",
@@ -1332,13 +1466,28 @@
       "sources": [
         {
           "type": "primary",
-          "name": "Bærum kommune project pages",
-          "url": null
+          "name": "Bærum kommune Eiendom - Oksenøya senter",
+          "url": "https://www.baerum.kommune.no/om-barum-kommune/organisasjon/om-eiendom-i-baerum-kommune/prosjekter-eiendom/oksenoya-senter/"
         },
         {
           "type": "primary",
-          "name": "FutureBuilt project database",
-          "url": null
+          "name": "FutureBuilt - Treklang Oksenøyveien",
+          "url": "https://www.futurebuilt.no/Forbildeprosjekter?conID=258211"
+        },
+        {
+          "name": "Bærum kommune SmartCity - Oksenøya senter",
+          "type": "government",
+          "url": "https://www.baerum.kommune.no/politikk-og-samfunn/samfunnsutvikling/smartcity/smart-kommune/oksenoya-senter/"
+        },
+        {
+          "name": "Grønn Byggallianse - Oksenøya skole BREEAM",
+          "type": "certification",
+          "url": "https://byggalliansen.no/kunnskapssenter/kunnskapssenter-prosjekter/breeam-sertifiserte-prosjekter/oksenoya-skole/"
+        },
+        {
+          "name": "Veidekke - Oksenøya Centre",
+          "type": "contractor",
+          "url": "https://www.veidekke.com/projects/oksenoya-centre/"
         }
       ],
       "data_quality": "moderate",
@@ -1391,7 +1540,19 @@
           "quantity": {
             "value": 4500,
             "unit": "units"
-          }
+          },
+          "citations": [
+            {
+              "source": "Ruseløkka skole nettside",
+              "url": "https://ruselokka.osloskolen.no/om-skolen/nye-ruselokka-skole/slik-blir-nye-ruselokka-skole/",
+              "quote": "4500 resirkulerbare murstein, trebjelker og granittblokker sikret fra gammel skole"
+            },
+            {
+              "source": "Norsk Byggbransje",
+              "url": "https://norskbyggebransje.no/ostlandet/ruselokka-skole-oslo",
+              "quote": "Granitt fra gammel trapp og grunnmur gjenbrukt i uteområdet"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -1470,6 +1631,16 @@
           "type": "secondary",
           "name": "Norsk Byggbransje",
           "url": "https://norskbyggebransje.no/ostlandet/ruselokka-skole-oslo"
+        },
+        {
+          "name": "Beer Sten - Ruseløkka Skole",
+          "type": "supplier",
+          "url": "https://www.beersten.no/prosjekter/ruselokka-skole"
+        },
+        {
+          "name": "Glass & Fasade - Dynamiske glass",
+          "type": "article",
+          "url": "https://www.glassogfasade.no/dynamiske-glass-i-klimanoytral-skole/"
         }
       ],
       "data_quality": "moderate",
@@ -1753,7 +1924,19 @@
           "quantity": {
             "value": 1200,
             "unit": "m3"
-          }
+          },
+          "citations": [
+            {
+              "source": "OBOS",
+              "url": "https://www.obos.no/temasider/omrade/et-eksempel-pa-hvordan-vi-skal-bygge-i-framtiden-5hes1id13g",
+              "quote": "1200 kubikk tre og 2800 tonn tegl identifisert via 3D-skanning"
+            },
+            {
+              "source": "Bygg.no",
+              "url": "https://www.bygg.no/bergen-bolig-boligbygging/slik-skal-70-prosent-av-tv2s-gamle-hovedkontor-fa-nytt-liv/2745586",
+              "quote": "Gulvbord bearbeides til utvendig kledning - males i historiske farger"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -1846,13 +2029,39 @@
         },
         {
           "type": "primary",
-          "name": "FutureBuilt intensjonsavtale",
-          "date": "April 2024"
+          "name": "Bergen kommune FutureBuilt - Nøstebukten Brygge",
+          "date": "April 2024",
+          "url": "https://www.bergen.kommune.no/hvaskjer/tema/futurebuilt-i-bergen/forbildeprosjekter-i-bergen/nostebukten-brygge"
         },
         {
           "type": "secondary",
           "name": "NTNU research (Alessia Bellini)",
           "url": "Journal of Cleaner Production"
+        },
+        {
+          "name": "EnergiAktuelt - 70% gjenbruk når TV2-hovedkvarter blir leiligheter",
+          "type": "article",
+          "url": "https://www.energiaktuelt.no/maalet-er-70-prosent-gjenbruk-naar-tv2-hovedkvarter-blir-nye-leiligheter.6663351-610318.html"
+        },
+        {
+          "name": "Bygg.no - 96 FutureBuilt-boliger i Bergen",
+          "type": "article",
+          "url": "https://www.bygg.no/skal-bygge-96-futurebuilt-boliger-i-bergen/1551584!/"
+        },
+        {
+          "name": "OBOS - Nøstebukten Brygge ombruk",
+          "type": "owner",
+          "url": "https://www.obos.no/temasider/omrade/et-eksempel-pa-hvordan-vi-skal-bygge-i-framtiden-5hes1id13g"
+        },
+        {
+          "name": "LAB Entreprenør - Nøstebukten Brygge",
+          "type": "contractor",
+          "url": "https://lab.no/prosjekter/nostebukten-brygge/"
+        },
+        {
+          "name": "EGD Holding - TV2 ombruk",
+          "type": "developer",
+          "url": "https://egd.no/ambisiose-mal-for-ombruk-nar-tv2-hovedkvarter-blir-nye-leiligheter/"
         }
       ],
       "data_quality": "strong",
@@ -1922,7 +2131,24 @@
             "name": "Sporveien",
             "country": "NO",
             "role": "donor"
-          }
+          },
+          "citations": [
+            {
+              "source": "Bygg.no - T-baneskinner til bærende konstruksjoner",
+              "url": "https://anlegg.bygg.no/bygg-gjenbruk-miljo/bruker-t-baneskinner-til-baerende-konstruksjoner/237776",
+              "quote": "Gamle t-baneskinner fra Sporveien brukes som bærende konstruksjon i trappene"
+            },
+            {
+              "source": "MAD Arkitekter - Grensen 9B",
+              "url": "https://mad.no/prosjekter/grensen-9b/",
+              "quote": "Skinnekonstruksjonen alene har gitt en miljøbesparelse på 1,2 tonn CO₂"
+            },
+            {
+              "source": "Grønn Byggallianse - Månedens prosjekt",
+              "url": "https://www.mynewsdesk.com/no/byggalliansen/news/maanedens-prosjekt-grensen-9b-oslo-500531",
+              "quote": "97.3% av eksisterende bygningsmasse over terreng er gjenbrukt (etter vekt)"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -2313,7 +2539,19 @@
           "quantity": {
             "value": 8000,
             "unit": "units"
-          }
+          },
+          "citations": [
+            {
+              "source": "SINTEF Gemini",
+              "url": "https://gemini.no/2024/03/mye-mur-kan-ombrukes-i-verneverdig-bygg/",
+              "quote": "8000 teglstein demontert og klargjort for ombruk - SINTEF-testing viste 70% høyere trykkfasthet enn tommelfingerregel"
+            },
+            {
+              "source": "SINTEF (English)",
+              "url": "https://www.sintef.no/en/latest-news/2024/bringing-old-brickwork-back-to-life-in-heritage-buildings/",
+              "quote": "Comprehensive test program on brickwork samples weighing several hundred kilos"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -2421,6 +2659,21 @@
           "type": "primary",
           "name": "WSP",
           "url": "https://www.wsp.com/nb-no/prosjekter/no-sofies-minde"
+        },
+        {
+          "name": "Gemini - SINTEF murstein-testing",
+          "type": "research",
+          "url": "https://gemini.no/2024/03/mye-mur-kan-ombrukes-i-verneverdig-bygg/"
+        },
+        {
+          "name": "TU.no - Gammel mur får nytt liv",
+          "type": "article",
+          "url": "https://www.tu.no/artikler/sikrer-at-gammel-mur-kan-fa-nytt-liv-i-verneverdig-bygg/544782"
+        },
+        {
+          "name": "Enerhaugen Arkitektkontor - Sophies Minde",
+          "type": "architect",
+          "url": "https://enerhaugen.com/pf/sophiesminde/"
         }
       ],
       "data_quality": "strong",
@@ -2942,7 +3195,19 @@
           "donor_source": {
             "name": "Original 1950 building",
             "type": "preservation"
-          }
+          },
+          "citations": [
+            {
+              "source": "Höegh Eiendom",
+              "url": "https://hoegheiendom.no/stedsutvikling/ka23",
+              "quote": "50% materialer og bygningsdeler ombrukt eller ombrukbare"
+            },
+            {
+              "source": "Sweco",
+              "url": "https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/",
+              "quote": "85% reduksjon i materialbruk, 66% lavere klimagassutslipp totalt"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -2951,7 +3216,19 @@
           "donor_source": {
             "name": "Original 1950 building",
             "type": "preservation"
-          }
+          },
+          "citations": [
+            {
+              "source": "Höegh Eiendom",
+              "url": "https://hoegheiendom.no/stedsutvikling/ka23",
+              "quote": "50% materialer og bygningsdeler ombrukt eller ombrukbare"
+            },
+            {
+              "source": "Sweco",
+              "url": "https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/",
+              "quote": "85% reduksjon i materialbruk, 66% lavere klimagassutslipp totalt"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -2960,7 +3237,19 @@
           "donor_source": {
             "name": "Norwegian demolition projects",
             "type": "demolition"
-          }
+          },
+          "citations": [
+            {
+              "source": "Höegh Eiendom",
+              "url": "https://hoegheiendom.no/stedsutvikling/ka23",
+              "quote": "50% materialer og bygningsdeler ombrukt eller ombrukbare"
+            },
+            {
+              "source": "Sweco",
+              "url": "https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/",
+              "quote": "85% reduksjon i materialbruk, 66% lavere klimagassutslipp totalt"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -2969,7 +3258,19 @@
           "donor_source": {
             "name": "Demolition projects",
             "type": "demolition"
-          }
+          },
+          "citations": [
+            {
+              "source": "Höegh Eiendom",
+              "url": "https://hoegheiendom.no/stedsutvikling/ka23",
+              "quote": "50% materialer og bygningsdeler ombrukt eller ombrukbare"
+            },
+            {
+              "source": "Sweco",
+              "url": "https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/",
+              "quote": "85% reduksjon i materialbruk, 66% lavere klimagassutslipp totalt"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -2978,11 +3279,35 @@
           "donor_source": {
             "name": "Original building facade",
             "type": "preservation"
-          }
+          },
+          "citations": [
+            {
+              "source": "Höegh Eiendom",
+              "url": "https://hoegheiendom.no/stedsutvikling/ka23",
+              "quote": "50% materialer og bygningsdeler ombrukt eller ombrukbare"
+            },
+            {
+              "source": "Sweco",
+              "url": "https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/",
+              "quote": "85% reduksjon i materialbruk, 66% lavere klimagassutslipp totalt"
+            }
+          ]
         },
         {
           "category": "design_for_disassembly",
-          "description": "New materials specified with Cradle-to-Cradle and DfD principles; reversible dry connections for internal walls; digital log of all reused elements"
+          "description": "New materials specified with Cradle-to-Cradle and DfD principles; reversible dry connections for internal walls; digital log of all reused elements",
+          "citations": [
+            {
+              "source": "Höegh Eiendom",
+              "url": "https://hoegheiendom.no/stedsutvikling/ka23",
+              "quote": "50% materialer og bygningsdeler ombrukt eller ombrukbare"
+            },
+            {
+              "source": "Sweco",
+              "url": "https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/",
+              "quote": "85% reduksjon i materialbruk, 66% lavere klimagassutslipp totalt"
+            }
+          ]
         }
       ],
       "metrics": {
@@ -3086,6 +3411,16 @@
           "type": "primary",
           "name": "FutureBuilt",
           "url": "https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Kristian-Augusts-gate-23"
+        },
+        {
+          "name": "Sweco - KA23 Norges første sirkulære bygg med vernestatus",
+          "type": "consultant",
+          "url": "https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/"
+        },
+        {
+          "name": "Norsk Byggbransje - KA23",
+          "type": "article",
+          "url": "https://norskbyggebransje.no/ostlandet/ka-23"
         }
       ],
       "data_quality": "moderate",
@@ -3136,7 +3471,24 @@
           "donor_source": {
             "name": "Same building",
             "type": "on_site_transformation"
-          }
+          },
+          "citations": [
+            {
+              "source": "Bergen Kommune FutureBuilt - Betonggulv blir heis",
+              "url": "https://www.bergen.kommune.no/hvaskjer/tema/futurebuilt-i-bergen/hva-skjer/betonggulv-blir-ny-heis-i-forbildeprosjektet-foniks",
+              "quote": "Betong skjæres ut fra gulvet og blir ny heissjakt med T-formet struktur"
+            },
+            {
+              "source": "DNB Nyheter - Føniks verdensrekord",
+              "url": "https://www.dnb.no/dnbnyheter/no/samfunn/frydenbo-foniks",
+              "quote": "100% ombruk ambisjon - heis fra Hellas, toalett fra Tinghuset"
+            },
+            {
+              "source": "Loopfront Blog - Frydenbø",
+              "url": "https://blog.loopfront.com/no/blog/frydenb%C3%B8",
+              "quote": "2600 bygningselementer registrert i ombruksdatabasen Loopfront"
+            }
+          ]
         },
         {
           "category": "material_reuse",
@@ -3407,7 +3759,19 @@
           },
           "quantity": {
             "description": "15 floors of concrete/steel superstructure"
-          }
+          },
+          "citations": [
+            {
+              "source": "Regjeringen.no",
+              "url": "https://www.regjeringen.no/no/dokumenter/meld.-st.-21-20182019/id2641647/?ch=5",
+              "quote": "Bevaring av Høyblokken ivaretar historisk kontinuitet - modernismens inntog i Norge"
+            },
+            {
+              "source": "Bygg.no",
+              "url": "https://www.bygg.no/oslo-regjeringskvartalet-skanska/hoyblokken-sertifisert-til-breeam-excellent/2709518",
+              "quote": "BREEAM Excellent med blågrønt tak, sjøvannsvarmepumpe og etterisolering"
+            }
+          ]
         }
       ],
       "metrics": {
@@ -3450,6 +3814,21 @@
           "type": "secondary",
           "name": "NRK - Gjenbruk fra regjeringskvartalet",
           "url": "https://www.nrk.no/norge/her-gjenbrukes-deler-av-regjeringskvartalet-_-men-dagens-regler-gjor-det-vanskelig-1.15104239"
+        },
+        {
+          "name": "Skanska - Høyblokken Regjeringskvartalet",
+          "type": "contractor",
+          "url": "https://www.skanska.no/hva-vi-gjor/prosjekter/244828/Regjeringskvartalet-Hoyblokken"
+        },
+        {
+          "name": "Regjeringen.no - Om byggeprosjektet",
+          "type": "government",
+          "url": "https://www.regjeringen.no/no/tema/plan-bygg-og-eiendom/regjeringskvartalet/nytt-RKV/id712726/"
+        },
+        {
+          "name": "Bygg.no - BREEAM Excellent sertifisering",
+          "type": "article",
+          "url": "https://www.bygg.no/oslo-regjeringskvartalet-skanska/hoyblokken-sertifisert-til-breeam-excellent/2709518"
         }
       ],
       "data_quality": "moderate",
