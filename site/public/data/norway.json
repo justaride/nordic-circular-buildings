@@ -210,9 +210,10 @@
           "material_type": "glass",
           "description": "Windows from mistaken bulk order saved 90% production emissions",
           "donor_source": {
-            "name": "Kværnerbyen",
+            "name": "Turbinveien 15, Kværnerbyen",
             "location": "Oslo",
-            "type": "surplus"
+            "type": "surplus/misorder",
+            "details": "28 vinduer feilprosjektert i boligprosjekt (manglet åpningsmulighet), demontert 2014, lagret hos Resirqel i 2 år"
           },
           "environmental_impact": {
             "co2_savings_percent": 90
@@ -220,12 +221,12 @@
           "citations": [
             {
               "source": "KA13 Erfaringsrapport",
-              "section": "4.4 Vinduer",
-              "pages": "68",
+              "section": "2.4 Vinduer i tilbygg",
+              "pages": "16-18",
               "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=68",
-              "quote": "Vinduer fra feilbestilling i Kværnerbyen",
-              "data_points": ["90% CO2 savings", "From surplus order"]
+              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=16",
+              "quote": "28 stk. vinduer fra Turbinveien 15, montert i etasjene 5, 6, 7 og 8",
+              "data_points": ["28 windows from Turbinveien 15", "2 from Nordregate 20-22", "Via Resirqel"]
             }
           ]
         },
