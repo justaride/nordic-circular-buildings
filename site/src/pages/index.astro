@@ -36,6 +36,114 @@ const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Dashboard">
+  <!-- Hero Introduction Section -->
+  <div class="mb-8 bg-gradient-to-br from-nordic-50 via-white to-fjord-50 rounded-2xl border border-nordic-100 overflow-hidden">
+    <div class="p-6 md:p-8">
+      <div class="flex flex-col lg:flex-row gap-6">
+        <!-- Main intro -->
+        <div class="flex-1">
+          <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+            Nordic Circular Buildings Database
+          </h1>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            A research platform documenting <strong>material circularity</strong> in public building projects across the Nordic region.
+            Explore verified case studies of buildings that reuse concrete, steel, timber, and other materials from demolition and renovation projects.
+          </p>
+
+          <!-- What you can do -->
+          <div class="grid sm:grid-cols-2 gap-3 mb-4">
+            <div class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-nordic-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <span class="text-sm text-gray-600"><strong>Search & Filter</strong> by project type, material strategy, CBC pathway, or location</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-nordic-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              <span class="text-sm text-gray-600"><strong>Compare projects</strong> side-by-side on circularity metrics and material flows</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-nordic-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <span class="text-sm text-gray-600"><strong>Identify stakeholders</strong> — suppliers, architects, and reuse coordinators</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-nordic-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="text-sm text-gray-600"><strong>Export data</strong> for research via the <a href="/nordic-circular-buildings/stakeholders" class="text-nordic-600 hover:underline">Stakeholders page</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Quality Panel -->
+        <div class="lg:w-80 bg-white/70 rounded-xl p-4 border border-gray-100">
+          <h3 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <svg class="w-5 h-5 text-fjord-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Data Quality & Methodology
+          </h3>
+          <div class="space-y-2 text-sm text-gray-600">
+            <div class="flex items-start gap-2">
+              <span class="w-2 h-2 rounded-full bg-green-500 mt-1.5 flex-shrink-0"></span>
+              <span><strong>Circularity %</strong> = reused materials by weight (verified via project reports)</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 mt-1.5 flex-shrink-0"></span>
+              <span><strong>CBC Grade</strong> = Circular Buildings Coalition 4-pathway assessment (A–E scale)</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-500 mt-1.5 flex-shrink-0"></span>
+              <span><strong>Sources</strong> = Primary (official reports) + secondary (news, interviews)</span>
+            </div>
+            <div class="pt-2 border-t border-gray-100">
+              <span class="text-xs text-gray-500">
+                24 projects documented • 117 sources cited • Last updated: Dec 2025
+              </span>
+            </div>
+          </div>
+          <a href="/nordic-circular-buildings/data-gaps" class="mt-3 inline-flex items-center gap-1 text-sm text-nordic-600 hover:text-nordic-700 font-medium">
+            View data completeness report
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Collapsible methodology details -->
+      <details class="mt-4 group">
+        <summary class="cursor-pointer text-sm font-medium text-nordic-600 hover:text-nordic-700 flex items-center gap-1">
+          <svg class="w-4 h-4 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          How is circularity qualified? Learn more about the methodology
+        </summary>
+        <div class="mt-3 p-4 bg-white/50 rounded-lg text-sm text-gray-600 space-y-3">
+          <div>
+            <strong class="text-gray-900">Material Circularity Focus:</strong> This database tracks physical material reuse — concrete slabs, steel beams, brick, timber, windows, and fixtures recovered from donor buildings and integrated into new construction. We document quantities (tonnes, m²), donor sources, and processing methods.
+          </div>
+          <div>
+            <strong class="text-gray-900">CBC Four Pathways:</strong> Projects are assessed using the Circular Buildings Coalition framework:
+            <span class="inline-flex flex-wrap gap-1 mt-1">
+              <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded text-xs">Build Nothing New</span>
+              <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs">Build for Long-term</span>
+              <span class="px-2 py-0.5 bg-purple-100 text-purple-700 rounded text-xs">Build Efficiently</span>
+              <span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-xs">Build with Right Materials</span>
+            </span>
+          </div>
+          <div>
+            <strong class="text-gray-900">Data Tiers:</strong> Tier 1 projects have deep-dive documentation (budgets, material breakdowns, stakeholder interviews). Tier 2/3 projects have standard documentation from public sources. All data is cited with URLs.
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
   <div class="flex gap-6">
     <!-- Sidebar Filters -->
     <div class="hidden lg:block w-72 flex-shrink-0">
