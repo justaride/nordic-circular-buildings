@@ -97,9 +97,9 @@ A comprehensive research platform documenting **material circularity in public b
 **Priority 5: Cost comparison (stretch goal)**
 - [ ] 0/23 projects have cost comparison data
 
-### Phase 4: Iteration 4 - CBC Scoring Framework (Current)
+### Phase 4: Iteration 4 - CBC Scoring Framework ✅ (2025-12-02)
 
-**NEW: CBC Four Pathways Assessment Framework**
+**CBC Four Pathways Assessment Framework**
 
 Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (2024) document, we've implemented a comprehensive scoring methodology:
 
@@ -112,26 +112,48 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 **Implementation Status:**
 - [x] Schema updated with `cbc_assessment` object
 - [x] `project_type` enhanced with 5 categories + preservation %
-- [ ] Migrate existing 23 projects to new format
-- [ ] Add CBC scores to Tier 1 projects
-- [ ] Update UI with pathway filtering
+- [x] Migrated 23 projects to new format
+- [x] Added CBC scores to 6 Tier 1 projects (4x Grade A, 2x Grade B)
+- [x] Updated UI with pathway filtering and CBC badges
 
-**Priority 1: CBC Assessment for Tier 1 Projects**
-- [ ] KA13 (transformation, 80% circularity)
-- [ ] Grensen 9B (transformation, 97.3% circularity)
-- [ ] Føniks (transformation, 89% circularity)
-- [ ] Løren (new_build, ship steel reuse)
-- [ ] Eikeli (new_build, CE-certified brick)
-- [ ] Nedre Sem (transformation, 50% circularity)
+**CBC Scores Implemented:**
+- [x] KA13 - Grade A (89.1)
+- [x] Grensen 9B - Grade A (91.5)
+- [x] Føniks - Grade A (87.2)
+- [x] Løren - Grade A (82.4)
+- [x] Eikeli - Grade B (74.8)
+- [x] Nedre Sem - Grade B (78.3)
 
-**Priority 2: Add narrative to remaining 11 projects**
-- [ ] Treklang, Ruseløkka, TradLab TRE, Ressurssentral
-- [ ] Oslo Legevakt, HasleTre, Construction City
-- [ ] Nidarvoll/Sunnland, Stovner Bad, Voldsløkka, NRK
+### Phase 5: Iteration 5 - Gap Closure ✅ (2025-12-03)
 
-**Priority 3: Identify suppliers for 13 projects**
+**Completed:**
+- [x] ALL 23 projects now have narrative (driver, lessons_learned, challenges)
+- [x] 6 Tier 1 projects have cost data with key insights
+- [x] Scope verification completed (TradLab TRE & Sirkulær Ressurssentral flagged as secondary)
+- [x] 117 sources (100% with URLs), 43 citations
+- [x] /data-gaps analysis page created with full information availability assessment
 
-**Priority 4: Cost comparison research**
+**Cost Data Added:**
+- KA13: 304 MNOK total investment, proving feasibility
+- Grensen 9B: "Knekt koden for lønnsom ombruk" - same cost as conventional
+- Føniks: Windows 1,400 NOK/m² vs 4,000 NOK/m² new (65% savings)
+- Løren: 301.6 MNOK, 97% lower climate footprint on ship steel
+- Eikeli: Reused brick now competitive with new quality brick
+- Nedre Sem: 104 MNOK contract (Veidekke)
+
+**Scope Decisions:**
+- TradLab TRE → Secondary (museum demonstration project)
+- Sirkulær Ressurssentral → Secondary (enabling infrastructure)
+- HasleTre → Primary (DfD focus, DOGA Award 2023)
+- Construction City → Primary (50% material reuse target)
+
+### Phase 6: Document Analysis (Current)
+
+**Priority: Analyze fetched_files documents**
+- [ ] Ruseløkka skole documents (3 PDFs)
+- [ ] Bærum kommune årsrapporter (2 PDFs)
+- [ ] Other relevant PDFs
+- [ ] Extract data to enhance Tier 2/3 projects
 
 ### Phase 5: Nordic Expansion (Future)
 - [ ] Process Sweden research
@@ -189,25 +211,26 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 
 ---
 
-## Current Data Status (2025-12-02)
+## Current Data Status (2025-12-03)
 
-### Norway: 23 Projects
+### Norway: 24 Projects
 
 | Metric | Current | Target | Progress |
 |--------|---------|--------|----------|
-| Total projects | 23 | 25-30 | 77% |
+| Total projects | **24** | 25-30 | **80%** |
 | With circularity % | 6 | 15+ | 40% |
-| With narrative | **12** | 23 | **52%** |
+| With narrative | **24** | 24 | **100%** ✅ |
 | With material breakdown | **6** | 10+ | **60%** |
-| With supplier data | **10** | 23 | **43%** |
-| With cost comparison | 0 | 5+ | 0% |
+| With supplier data | **10** | 24 | **42%** |
+| With cost comparison | **7** | 5+ | **140%** ✅ |
+| With budget data | **12** | 15+ | **80%** |
 
 ### Data Completeness by Project Type
 
 | Type | Count | With Narrative | With Breakdown |
 |------|-------|----------------|----------------|
-| Transformation | 9 | **10** | 6 |
-| New Build | 14 | 2 | 0 |
+| Transformation | 9 | **9** ✅ | 6 |
+| New Build | 15 | **15** ✅ | 0 |
 
 ### Tier 1 Projects (Deep-Dive Complete)
 
@@ -233,10 +256,12 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 
 ### Tier 2 Projects (Standard Documentation)
 
-Remaining 11 projects have basic documentation but need:
-- Narrative (driver, lessons learned)
-- Material quantities where missing
-- Supplier identification
+All 23 projects now have complete narrative (driver, lessons_learned, challenges).
+
+Remaining data needs:
+- Material quantities for 17 projects
+- Supplier identification for 13 projects
+- CBC assessment for 17 projects
 
 ---
 
@@ -370,4 +395,4 @@ Public Circular Buildings/
 
 ---
 
-*Last updated: 2025-12-02*
+*Last updated: 2025-12-03*

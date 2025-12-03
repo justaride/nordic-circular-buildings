@@ -2,10 +2,10 @@
   "country": "NO",
   "country_name": "Norway",
   "last_updated": "2025-12-03",
-  "total_projects": 23,
+  "total_projects": 24,
   "summary": {
     "geographic_distribution": {
-      "Oslo": 17,
+      "Oslo": 18,
       "Bærum": 2,
       "Asker": 1,
       "Bergen": 2,
@@ -14,19 +14,19 @@
     "by_status": {
       "completed": 14,
       "under_construction": 6,
-      "planned": 2,
+      "planned": 3,
       "operational": 1
     },
     "by_strategy": {
-      "material_reuse": 18,
+      "material_reuse": 19,
       "adaptive_reuse": 10,
       "upcycling": 6,
-      "design_for_disassembly": 4,
+      "design_for_disassembly": 5,
       "infrastructure": 1
     },
     "aggregate_metrics": {
       "reuse_rate_range": "50-97.3%",
-      "co2_reduction_range": "70-93%"
+      "co2_reduction_range": "60-97%"
     },
     "key_programs": [
       "FutureBuilt",
@@ -35,18 +35,18 @@
     ],
     "by_project_type": {
       "transformation": 9,
-      "new_build": 14
+      "new_build": 15
     },
     "by_sector": {
       "public": 16,
-      "private": 7
+      "private": 8
     },
     "by_project_type_detailed": {
       "renovation": 2,
       "transformation": 7,
       "extension": 0,
       "hybrid": 1,
-      "new_build": 13
+      "new_build": 14
     }
   },
   "projects": [
@@ -57,7 +57,7 @@
       "project_type": {
         "primary": "transformation",
         "preservation_percent": 85,
-        "description": "1960s office building transformed to modern workplace with 80% material reuse"
+        "description": "1950s office building transformed to modern workplace with 80% material reuse"
       },
       "is_public_sector": false,
       "project_url": "https://www.entra.no/vare-eiendommer/alle-eiendommer/kristian-augusts-gate-13",
@@ -78,6 +78,8 @@
       "client": "Entra ASA",
       "architect": "Mad Oslo AS",
       "contractor": "Haandverkerne AS (NCC subsidiary)",
+      "energy_class": "C",
+      "original_build_year": 1958,
       "circularity_qualification": "Norway's first major building to achieve 80% material reuse by weight, sourcing materials from over 25 donor buildings across Oslo including structural concrete from Regjeringskvartalet.",
       "primary_strategies": [
         "material_reuse"
@@ -222,6 +224,10 @@
       },
       "certifications": [
         {
+          "name": "BREEAM In-Use Excellent",
+          "year": 2021
+        },
+        {
           "name": "DOGA Hedersmerke",
           "year": 2021
         },
@@ -237,6 +243,7 @@
         }
       ],
       "awards": [
+        "BREEAM In-Use Excellent",
         "DOGA Hedersmerke",
         "Statens pris for byggkvalitet"
       ],
@@ -385,7 +392,7 @@
       "project_type": {
         "primary": "transformation",
         "preservation_percent": 90,
-        "description": "1915 warehouse transformed to cultural venue preserving historic structure"
+        "description": "1915 warehouse transformed to Oslo Havn headquarters preserving Norway's first reinforced concrete building"
       },
       "is_public_sector": true,
       "project_url": "https://hmark.no/projects/skur-38/",
@@ -402,14 +409,21 @@
       "year_completed": 2022,
       "building_type": "office",
       "size_sqm": 4000,
+      "landscape_sqm": 2800,
+      "workstations": 130,
       "budget": {
         "amount": 152000000,
         "currency": "NOK",
-        "excludes_vat": false
+        "excludes_vat": false,
+        "klimasats_grant": 1454000
       },
       "client": "Oslo Havn KF",
       "architect": "Hille Melbye Arkitekter",
+      "interior_architect": "IARK",
+      "landscape_architect": "Bjørbekk & Lindheim",
       "contractor": "Varden Entreprenør",
+      "original_build_year": 1915,
+      "energy_class": "B",
       "circularity_qualification": "Rehabilitation of one of Norway's first reinforced concrete buildings from 1915 into modern headquarters, preserving entire concrete structure and achieving BREEAM-NOR Excellent.",
       "primary_strategies": [
         "adaptive_reuse",
@@ -2752,14 +2766,14 @@
       "project_type": {
         "primary": "new_build",
         "preservation_percent": 0,
-        "description": "Timber office building with circular principles"
+        "description": "World's first office building designed for complete disassembly"
       },
       "is_public_sector": false,
-      "project_url": "https://www.greenbuilt.no/hasle-tre-oslo-ombruk-2-0/",
+      "project_url": "https://oslotre.no/project/hasle-tre/",
       "location": {
         "city": "Oslo",
         "municipality": "Oslo",
-        "address": "Hasleveien 28",
+        "address": "Haslevangen 18",
         "coordinates": {
           "lat": 59.928,
           "lng": 10.795
@@ -2769,10 +2783,14 @@
       "year_completed": 2022,
       "building_type": "office",
       "size_sqm": 3000,
-      "budget": null,
+      "floors": 4,
+      "budget": 118000000,
+      "construction_time_months": 9,
       "client": "Höegh Eiendom & AF Eiendom",
-      "architect": "OsloTre",
+      "architect": "Oslotre",
+      "structural_engineer": "Oslotre & Nystruktur",
       "contractor": null,
+      "tenant": "Redd Barna (Save the Children)",
       "circularity_qualification": "Comprehensive Design for Disassembly where entire building designed from inception to be dismantled and reused, with reversible bolted connections, minimal adhesives, and digital material passport.",
       "primary_strategies": [
         "design_for_disassembly"
@@ -2801,10 +2819,30 @@
         }
       ],
       "metrics": {
-        "future_reuse_potential": "Entire building designed for disassembly and reuse"
+        "future_reuse_potential": "Entire building designed for disassembly and reuse",
+        "ghg_reduction": {
+          "percent": 60,
+          "comparison_basis": "vs_reference_building"
+        },
+        "steel_reduction": {
+          "percent": 80,
+          "note": "Wood-to-wood joints replace steel connectors"
+        },
+        "timber_volume": {
+          "clt_m3": 474,
+          "glulam_m3": 108
+        }
       },
+      "certifications": [
+        {
+          "name": "BREEAM Excellent",
+          "year": 2022
+        }
+      ],
       "awards": [
-        "Årets Trebygg 2022 (Timber Building of the Year)"
+        "Årets Trebygg 2022 (Timber Building of the Year)",
+        "Construction Industry Climate Prize 2023 (Oslotre)",
+        "Oslo City Architecture Prize 2023 - Finalist (2nd place)"
       ],
       "scope_notes": {
         "is_primary_scope": true,
@@ -2855,10 +2893,10 @@
       "project_type": {
         "primary": "new_build",
         "preservation_percent": 0,
-        "description": "Construction industry hub with furniture reuse focus"
+        "description": "103,000 m² construction industry hub with wood focus and material reuse"
       },
       "is_public_sector": false,
-      "project_url": "https://constructioncity.no/artikler/construction-city/materialer-og-mobler-uten-fremtid-far-en-ny-sjanse-i-construction-city/",
+      "project_url": "https://linkarkitektur.com/en/project/construction-city",
       "location": {
         "city": "Oslo",
         "municipality": "Oslo",
@@ -2869,15 +2907,14 @@
         }
       },
       "status": "completed",
-      "year_completed": 2025,
+      "year_completed": 2024,
       "building_type": "office",
       "size_sqm": 103000,
+      "workplaces": 4500,
       "budget": null,
       "client": "Construction City Eiendom",
-      "architect": [
-        "IARK",
-        "Metropolis Arkitektur"
-      ],
+      "architect": "LINK Arkitektur",
+      "interior_architect": "IARK",
       "contractor": null,
       "circularity_qualification": "90% reuse rate for all furniture and equipment in common areas through systematic procurement involving 32 furniture manufacturers, demonstrating furniture circularity at unprecedented scale.",
       "primary_strategies": [
@@ -3192,6 +3229,111 @@
       }
     },
     {
+      "id": "NO_stovner_torg",
+      "name": "Stovner Torg",
+      "country": "NO",
+      "project_type": {
+        "primary": "new_build",
+        "preservation_percent": 0,
+        "description": "Norway's first and largest circular new-build housing with 20,000+ m² reused hollow-core slabs"
+      },
+      "is_public_sector": false,
+      "project_url": "https://mad.no/her-kommer-norges-mest-sirkulaere-boliger/",
+      "location": {
+        "city": "Oslo",
+        "municipality": "Oslo",
+        "address": "Stovner Torg, between Åsta Hansteens vei and Fossumveien",
+        "coordinates": {
+          "lat": 59.962,
+          "lng": 10.925
+        }
+      },
+      "status": "planned",
+      "year_completed": 2028,
+      "sales_start": "Autumn 2025",
+      "building_type": "residential",
+      "units": 278,
+      "building_count": 11,
+      "budget": null,
+      "client": "Scandinavian Property Group (SPG) & Ineo Eiendom",
+      "architect": "Mad Arkitekter",
+      "contractor": null,
+      "circularity_qualification": "Norway's largest circular housing development with 278 apartments using over 20,000 m² reused hollow-core concrete slabs and steel profiles from demolition projects.",
+      "primary_strategies": [
+        "material_reuse",
+        "design_for_disassembly"
+      ],
+      "circular_features": [
+        {
+          "category": "material_reuse",
+          "material_type": "concrete",
+          "description": "Over 20,000 m² of hollow-core slabs (hulldekker) reused from demolition projects for floors in new apartments",
+          "donor_source": {
+            "name": "Demolition projects",
+            "type": "demolition"
+          }
+        },
+        {
+          "category": "material_reuse",
+          "material_type": "steel",
+          "description": "Reused steel profiles integrated into new construction",
+          "donor_source": {
+            "name": "Demolition projects",
+            "type": "demolition"
+          }
+        },
+        {
+          "category": "design_for_disassembly",
+          "description": "Building components designed for future reusability - easy to replace parts and maintain building"
+        }
+      ],
+      "metrics": {
+        "reused_hulldekker": {
+          "value": 20000,
+          "unit": "m²",
+          "note": "Plus steel profiles"
+        }
+      },
+      "certifications": [],
+      "programs": [
+        {
+          "name": "FutureBuilt",
+          "designation": "Forbildeprosjekt"
+        }
+      ],
+      "scope_notes": {
+        "in_scope": true,
+        "category": "core",
+        "notes": "Major breakthrough for circular economy in Norwegian residential sector"
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "name": "Mad Arkitekter",
+          "url": "https://mad.no/her-kommer-norges-mest-sirkulaere-boliger/"
+        },
+        {
+          "type": "primary",
+          "name": "FutureBuilt",
+          "url": "https://www.futurebuilt.no/Forbildeprosjekter"
+        }
+      ],
+      "data_quality": "moderate",
+      "verification_status": "partially_verified",
+      "notes": "Breakthrough project for circular residential construction. 11 individual townhouses with varying heights, materials and colors. Located adjacent to new Stovner Bad. Rooftop solar panels on remaining roof area after shared terraces.",
+      "last_updated": "2025-12-03",
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "SPG and Ineo Eiendom saw opportunity to create Norway's first large-scale circular housing development, proving reused materials can be used in residential buildings at scale.",
+        "lessons_learned": "FutureBuilt criteria for circular buildings can be applied to new residential construction, not just commercial/public projects.",
+        "challenges": [
+          "Sourcing sufficient quantities of matching hulldekker",
+          "Certification of reused structural elements for residential use",
+          "Market acceptance for homes built with reused materials"
+        ]
+      }
+    },
+    {
       "id": "NO_voldslokka",
       "name": "Voldsløkka Idrettspark",
       "country": "NO",
@@ -3285,11 +3427,17 @@
       "year_completed": 2022,
       "building_type": "office",
       "size_sqm": 8730,
-      "budget": null,
+      "budget": {
+        "amount_range": "187-220 MNOK",
+        "note": "Including changes during construction"
+      },
+      "original_build_year": 1951,
+      "original_architect": "Bjercke & Eliassen",
       "client": "Höegh Eiendom",
       "architect": "Arcasa Arkitekter",
       "contractor": "Seltor AS",
-      "circularity_qualification": "Norway's first circular retrofit of heritage-protected building, achieving 50% material reuse while preserving 1950 Solvåg granite facade and mid-century teak interiors.",
+      "consultants": ["Multiconsult"],
+      "circularity_qualification": "Norway's first circular retrofit of heritage-protected building, achieving 50% material reuse while preserving 1951 Solvåg granite facade and mid-century teak interiors.",
       "primary_strategies": [
         "adaptive_reuse",
         "material_reuse",
@@ -3959,7 +4107,7 @@
       "project_type": {
         "primary": "renovation",
         "preservation_percent": 90,
-        "description": "1898-1917 school complex renovated preserving historic character"
+        "description": "1898-1917 school complex (5 buildings) renovated preserving Yellow-listed heritage facades"
       },
       "is_public_sector": true,
       "project_url": "https://www.fremtidensbygg.no/backe-stor-oslo-totalrehabiliterer-lilleborg-skole/",
@@ -3973,13 +4121,18 @@
         }
       },
       "status": "under_construction",
-      "year_completed": null,
+      "year_completed": 2026,
+      "construction_start": "August 2025",
       "building_type": "school",
-      "size_sqm": null,
-      "budget": null,
+      "size_sqm": 8600,
+      "building_count": 5,
+      "budget": 368000000,
+      "budget_note": "excl. VAT",
       "client": "Oslobygg KF",
-      "architect": null,
+      "architect": "FuthArk Arkiteter AS",
       "contractor": "Backe Stor-Oslo",
+      "project_manager_client": "Christian Prinsdal Einerkjær",
+      "project_manager_contractor": "Bjørn Vesteng",
       "circularity_qualification": "Facade retention strategy preserving Yellow-listed heritage facades (1898-1917) while building modern school inside.",
       "primary_strategies": [
         "adaptive_reuse"
