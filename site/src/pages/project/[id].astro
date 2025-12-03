@@ -522,15 +522,48 @@ const getCertifications = (certs: any[]) => {
 
                   {feature.donor_source && (
                     <div class="mt-2 text-xs text-gray-400">
-                      Source: {feature.donor_source.name || 'Unknown'}
+                      <span class="font-medium text-gray-500">Donor:</span> {feature.donor_source.name || 'Unknown'}
                       {feature.donor_source.location && ` (${feature.donor_source.location})`}
                     </div>
                   )}
                   {feature.supplier && (
                     <div class="mt-1 text-xs text-gray-400">
-                      Supplier: {feature.supplier.name}
+                      <span class="font-medium text-gray-500">Processor:</span> {feature.supplier.name}
                       {feature.supplier.country && ` (${feature.supplier.country})`}
-                      {feature.supplier.role && <span class="text-gray-300"> • {feature.supplier.role}</span>}
+                    </div>
+                  )}
+
+                  {/* Citations Section - Primary source documentation */}
+                  {feature.citations && feature.citations.length > 0 && (
+                    <div class="mt-3 pt-3 border-t border-gray-100">
+                      <div class="flex flex-wrap gap-2">
+                        {feature.citations.map((citation: any) => (
+                          <a
+                            href={citation.page_url || citation.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="group inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg transition-colors"
+                            title={citation.quote ? `"${citation.quote}"` : `View source: ${citation.source}`}
+                          >
+                            <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <span class="text-xs font-medium text-blue-700">
+                              {citation.source}
+                              {citation.pages && <span class="text-blue-500"> s. {citation.pages}</span>}
+                            </span>
+                            <svg class="w-3 h-3 text-blue-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </a>
+                        ))}
+                      </div>
+                      {/* Show quote on hover/expand */}
+                      {feature.citations[0]?.quote && (
+                        <div class="mt-2 text-xs text-gray-400 italic">
+                          "{feature.citations[0].quote}"
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

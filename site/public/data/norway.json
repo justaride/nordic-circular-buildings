@@ -115,9 +115,13 @@
           },
           "citations": [
             {
-              "source": "KA13 Erfaringsrapport side 54-58",
+              "source": "KA13 Erfaringsrapport",
+              "section": "4.2 Stålkonstruksjoner",
+              "pages": "54-58",
               "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "quote": "Ca. 70% av stålkonstruksjonene i KA13 er ombruksstål"
+              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=54",
+              "quote": "Ca. 70% av stålkonstruksjonene i KA13 er ombruksstål",
+              "data_points": ["45t installed", "57t procured", "5 donor sources", "100 kr/kg cost"]
             }
           ],
           "supplier": {
@@ -154,12 +158,17 @@
           },
           "citations": [
             {
-              "source": "KA13 Erfaringsrapport side 63-67",
+              "source": "KA13 Erfaringsrapport",
+              "section": "4.3 Hulldekker",
+              "pages": "63-67",
               "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "quote": "21 stk. hulldekker av typen HD265, med mål ca 6,5 x 1,2 m"
+              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=63",
+              "quote": "21 stk. hulldekker av typen HD265, med mål ca 6,5 x 1,2 m",
+              "data_points": ["21 slabs", "HD265 type", "96 tonnes", "R4 donor building"]
             },
             {
-              "source": "Heidelberg Materials Prefab - Ombruk av hulldekker",
+              "source": "Heidelberg Materials Prefab",
+              "section": "Ombruk av hulldekker",
               "url": "https://www.prefab.heidelbergmaterials.no/no/gjenbruk_hulldekker",
               "quote": "21 hulldekker fra Regjeringskvartalet installert i plan 5 til 8"
             }
@@ -187,8 +196,12 @@
           },
           "citations": [
             {
-              "source": "KA13 Erfaringsrapport side 69",
-              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf"
+              "source": "KA13 Erfaringsrapport",
+              "section": "4.5 Sanitærutstyr (tabell)",
+              "pages": "69",
+              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=69",
+              "data_points": ["116 items", "7 donor buildings", "Full inventory table"]
             }
           ]
         },
@@ -206,9 +219,13 @@
           },
           "citations": [
             {
-              "source": "KA13 Erfaringsrapport (Entra)",
+              "source": "KA13 Erfaringsrapport",
+              "section": "4.4 Vinduer",
+              "pages": "68",
               "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "quote": "Vinduer fra feilbestilling i Kværnerbyen sparte 90% produksjonsutslipp"
+              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=68",
+              "quote": "Vinduer fra feilbestilling i Kværnerbyen",
+              "data_points": ["90% CO2 savings", "From surplus order"]
             }
           ]
         },
@@ -224,8 +241,13 @@
           "processing": "Stokke Stål: dismantling, cleaning, modification, sandblasting, new paint, new railing",
           "citations": [
             {
-              "source": "KA13 Erfaringsrapport side 67",
-              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf"
+              "source": "KA13 Erfaringsrapport",
+              "section": "4.6 Intern trapp",
+              "pages": "67",
+              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=67",
+              "quote": "To ståltrapper med ulike bredder vurdert - den ene passet i bredden men var litt for kort",
+              "data_points": ["From St. Olavsplass 5", "Extended with 4 steps", "New railing"]
             }
           ]
         },
@@ -240,8 +262,10 @@
           },
           "citations": [
             {
-              "source": "KA13 erfaringsrapport",
-              "url": null
+              "source": "DOGA Hedersmerke",
+              "section": "KA13 prosjektbeskrivelse",
+              "url": "https://doga.no/aktiviteter/dogas-priser/doga-merket-design-arkitektur/vinnere-av-doga-merket/kristian-augusts-gate-13/",
+              "quote": "Terrassedekkene er i naturstein fra en rehabilitert fasade på Skøyen"
             }
           ]
         }
