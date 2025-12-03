@@ -10,7 +10,7 @@ This database catalogs circular building projects across the Nordic region (Norw
 
 | Country | Projects | Status |
 |---------|----------|--------|
-| Norway | 22 | Complete with source verification |
+| Norway | 24 | Complete with source verification |
 | Sweden | - | Pending research |
 | Denmark | - | Pending research |
 | Finland | - | Pending research |
@@ -18,16 +18,17 @@ This database catalogs circular building projects across the Nordic region (Norw
 
 ## Norway Highlights
 
-- **22 documented projects** across Oslo, Bærum, Asker, Bergen, and Trondheim
+- **24 documented projects** across Oslo, Bærum, Asker, Bergen, and Trondheim
 - **Reuse rates**: 50-97% by weight
-- **CO2 reductions**: 70-93% vs conventional construction
+- **CO2 reductions**: 70-97% vs conventional construction
 - **Key programs**: FutureBuilt, BREEAM-NOR, EU CCRI
+- **1 Flagship case study** with full material documentation (KA13)
 
 ### Notable Projects
 
 | Project | Year | Key Achievement |
 |---------|------|-----------------|
-| KA13 | 2021 | 80% material reuse, 168t concrete from Regjeringskvartalet |
+| KA13 | 2021 | 80% reuse, 45t steel (97% CO2), 96t hulldekker (89% CO2) - FLAGSHIP |
 | Grensen 9B | 2025 | 97.3% reuse, metro rails as staircase |
 | Føniks | 2026 | 89% circularity index, near-100% target |
 | Løren | 2025 | World's first ship steel structure |
@@ -37,11 +38,14 @@ This database catalogs circular building projects across the Nordic region (Norw
 ```
 data/
 ├── schema.json              # JSON schema definition
-└── projects/
-    ├── norway.json          # 22 projects with full detail
-    ├── norway_sources.md    # Source citations
-    ├── norway_data_gaps.md  # Data quality notes
-    └── norway_source_verification.md
+├── projects/
+│   ├── norway.json          # 24 projects with full detail
+│   ├── norway_sources.md    # Source citations
+│   └── norway_data_gaps.md  # Data quality notes
+├── case-studies/
+│   └── ka13_flagship.json   # Deep-dive flagship case (v2.0)
+docs/
+└── ROADMAP.md               # Project roadmap and planned features
 ```
 
 ## Project Schema
@@ -61,21 +65,26 @@ Each project includes:
 4. **Design for Disassembly** - Future material recovery
 5. **Material Banking** - Storage/redistribution infrastructure
 
-## Planned Features
+## Live Site
 
-- [ ] Interactive map visualization
-- [ ] Filtering and search interface
-- [ ] Project comparison tools
-- [ ] CO2 savings charts
-- [ ] REST API for external access
+**https://justaride.github.io/nordic-circular-buildings/**
 
-## Tech Stack (Planned)
+## Tech Stack
 
-- Framework: Next.js or Astro
+- Framework: Astro
 - Styling: Tailwind CSS
-- Maps: Mapbox/Leaflet
-- Charts: D3.js
-- Deployment: Vercel
+- Maps: Leaflet + CartoDB
+- Deployment: GitHub Pages
+
+## Flagship Case Studies
+
+Deep-dive documentation with full material traceability:
+
+| Project | Data Source | Key Metrics |
+|---------|-------------|-------------|
+| KA13 | 116-page Erfaringsrapport | Steel: 45t (97% CO2), Hulldekker: 96t (89% CO2), 116 sanitary items |
+
+See `data/case-studies/` and `docs/ROADMAP.md` for methodology.
 
 ## Contributing
 
@@ -90,4 +99,4 @@ Research data. See individual source citations for original content attribution.
 
 ---
 
-*Last updated: 2024-11-29*
+*Last updated: 2024-12-03*
