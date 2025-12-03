@@ -1,0 +1,874 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Load project data
+const response = await fetch(new URL('/data/norway.json', Astro.url.origin).href).catch(() => null);
+let data = { projects: [] };
+try {
+  const fs = await import('fs');
+  const path = await import('path');
+  const dataPath = path.default.join(process.cwd(), 'public/data/norway.json');
+  data = JSON.parse(fs.default.readFileSync(dataPath, 'utf8'));
+} catch (e) {
+  console.error('Error loading data:', e);
+}
+
+// Analyze gaps per project
+const projectAnalysis = data.projects.map(p => {
+  const gaps = [];
+  const available = [];
+
+  // Cost data
+  if (p.metrics?.cost_notes || p.budget) {
+    available.push({ field: 'cost_data', label: 'Kostnadsdata' });
+  } else {
+    gaps.push({ field: 'cost_data', label: 'Kostnadsdata', importance: 'HIGH' });
+  }
+
+  // Material breakdown
+  if (p.metrics?.circularity_rate?.breakdown) {
+    available.push({ field: 'breakdown', label: 'Materialfordeling' });
+  } else {
+    gaps.push({ field: 'breakdown', label: 'Materialfordeling', importance: 'HIGH' });
+  }
+
+  // CBC Assessment
+  if (p.cbc_assessment) {
+    available.push({ field: 'cbc', label: 'CBC Vurdering' });
+  } else {
+    gaps.push({ field: 'cbc', label: 'CBC Vurdering', importance: 'MEDIUM' });
+  }
+
+  // Supplier
+  const hasSupplier = p.circular_features?.some(f => f.supplier);
+  if (hasSupplier) {
+    available.push({ field: 'supplier', label: 'Leverandør' });
+  } else {
+    gaps.push({ field: 'supplier', label: 'Leverandør', importance: 'MEDIUM' });
+  }
+
+  // Quantity
+  const hasQuantity = p.circular_features?.some(f => f.quantity?.value);
+  if (hasQuantity) {
+    available.push({ field: 'quantity', label: 'Mengdedata' });
+  } else {
+    gaps.push({ field: 'quantity', label: 'Mengdedata', importance: 'HIGH' });
+  }
+
+  // Donor source
+  const hasDonor = p.circular_features?.some(f => f.donor_source?.name);
+  if (hasDonor) {
+    available.push({ field: 'donor', label: 'Donorkilde' });
+  } else {
+    gaps.push({ field: 'donor', label: 'Donorkilde', importance: 'HIGH' });
+  }
+
+  // CO2
+  if (p.metrics?.co2_reduction?.percent) {
+    available.push({ field: 'co2', label: 'CO2-reduksjon' });
+  } else {
+    gaps.push({ field: 'co2', label: 'CO2-reduksjon', importance: 'MEDIUM' });
+  }
+
+  // Determine tier
+  let tier = 3;
+  const hasCBC = !!p.cbc_assessment;
+  const hasBreakdown = !!p.metrics?.circularity_rate?.breakdown;
+  const hasCost = !!p.metrics?.cost_notes;
+  const hasNarrative = !!p.narrative;
+
+  if (hasCBC && hasBreakdown && hasCost && hasNarrative) tier = 1;
+  else if (hasNarrative && (hasCBC || hasBreakdown || hasCost)) tier = 2;
+
+  return {
+    id: p.id,
+    name: p.name,
+    status: p.status,
+    tier,
+    gaps,
+    available,
+    sourcesCount: p.sources?.length || 0,
+    isSecondaryScope: p.scope_notes?.is_primary_scope === false
+  };
+});
+
+// Summary stats
+const tier1 = projectAnalysis.filter(p => p.tier === 1);
+const tier2 = projectAnalysis.filter(p => p.tier === 2);
+const tier3 = projectAnalysis.filter(p => p.tier === 3);
+
+// Data availability by category
+const categories = [
+  { key: 'cost_data', label: 'Kostnadsdata', available: data.projects.filter(p => p.metrics?.cost_notes || p.budget).length },
+  { key: 'breakdown', label: 'Materialfordeling', available: data.projects.filter(p => p.metrics?.circularity_rate?.breakdown).length },
+  { key: 'cbc', label: 'CBC Vurdering', available: data.projects.filter(p => p.cbc_assessment).length },
+  { key: 'supplier', label: 'Leverandør', available: data.projects.filter(p => p.circular_features?.some(f => f.supplier)).length },
+  { key: 'quantity', label: 'Mengdedata', available: data.projects.filter(p => p.circular_features?.some(f => f.quantity?.value)).length },
+  { key: 'donor', label: 'Donorkilde', available: data.projects.filter(p => p.circular_features?.some(f => f.donor_source?.name)).length },
+  { key: 'co2', label: 'CO2-reduksjon', available: data.projects.filter(p => p.metrics?.co2_reduction?.percent).length },
+  { key: 'narrative', label: 'Narrativ', available: data.projects.filter(p => p.narrative).length },
+];
+
+// Key sources catalog
+const keySources = [
+  {
+    category: "Primærrapporter",
+    sources: [
+      { name: "KA13 Erfaringsrapport (116 sider)", url: "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf", type: "PDF", coverage: "KA13 - full kostnads- og prosessdokumentasjon" },
+      { name: "KA13 English Report", url: "https://www.entra.no/vare-eiendommer/alle-eiendommer/kristian-augusts-gate-13/_/attachment/inline/31ec37c5-5944-4338-a4db-826336969f42:8fd12a6e4418e59f3ffe7be9916e27b7e0239d8f/20230113_KA13_erfaringsrapport_engelsk.pdf", type: "PDF", coverage: "KA13 - engelsk versjon" },
+      { name: "Statsbygg Bærekraftsrapport 2023", url: "https://dok.statsbygg.no/wp-content/uploads/2024/03/Baerekraftsrapport-2023.pdf", type: "PDF", coverage: "Årlig oversikt over statlige byggeprosjekter" },
+    ]
+  },
+  {
+    category: "Programmer og Rammeverk",
+    sources: [
+      { name: "FutureBuilt Forbildeprosjekter", url: "https://www.futurebuilt.no/Forbildeprosjekter", type: "Database", coverage: "Alle FutureBuilt-prosjekter med kvalitetskriterier" },
+      { name: "FutureBuilt Kvalitetskriterier", url: "https://www.futurebuilt.no/FutureBuilt-kvalitetskriterier", type: "PDF-samling", coverage: "Sirkulær, ZERO, nZEB kriterier" },
+      { name: "BREEAM-NOR Sertifiserte", url: "https://byggalliansen.no/kunnskapssenter/kunnskapssenter-prosjekter/breeam-sertifiserte-prosjekter/", type: "Database", coverage: "Alle BREEAM-sertifiserte bygg i Norge" },
+    ]
+  },
+  {
+    category: "Veiledere og Metodikk",
+    sources: [
+      { name: "SINTEF Ombruk Veileder", url: "https://sintef.brage.unit.no/sintef-xmlui/handle/11250/2993098", type: "Rapport", coverage: "Dokumentasjon av ytelser for ombruk" },
+      { name: "SINTEF Anbefalinger Ombruk", url: "https://sintef.brage.unit.no/sintef-xmlui/handle/11250/2365072", type: "Rapport", coverage: "Praktiske anbefalinger" },
+      { name: "Grønn Byggallianse Ombrukskartlegging", url: "https://www.mynewsdesk.com/no/byggalliansen/pressreleases/ny-veileder-fra-groenn-byggallianse-og-statsbygg-ombrukskartlegging-og-bestilling-slik-gjoer-du-det-3121172", type: "Veileder", coverage: "Bestilling og gjennomføring av ombrukskartlegging" },
+      { name: "Grønn Materialguide v3.0", url: "https://static1.squarespace.com/static/52cdc4c7e4b09cbb654e79fc/t/5f5f2fe363c71e3d426bf367/1600073709915/Gr%C3%B8nn+Materialguide+v3.pdf", type: "PDF", coverage: "Miljøriktige materialvalg" },
+    ]
+  },
+  {
+    category: "Digitale Plattformer",
+    sources: [
+      { name: "Loopfront", url: "https://www.loopfront.com/", type: "Plattform", coverage: "Ombrukskartlegging og materialpass" },
+      { name: "Madaster Norge", url: "https://madaster.no/", type: "Plattform", coverage: "Materialpass, sirkularitetsindeks, restverdi" },
+      { name: "Ombygg/Resirqel", url: "https://www.resirqel.no/", type: "Tjeneste", coverage: "Ombrukskartlegging og validering" },
+    ]
+  },
+  {
+    category: "Leverandører - Sirkulære Materialer",
+    sources: [
+      { name: "HØINE AS", url: "https://www.hoine.no/", type: "Leverandør", coverage: "CE-merket ombrukstegl" },
+      { name: "Nordic Circles", url: "https://www.nordiccircles.com/", type: "Leverandør", coverage: "Oppsirkulert skipsstål" },
+      { name: "Sirkulær Ressurssentral", url: "https://www.ressurssentral.no/", type: "Markedsplass", coverage: "Ombruksmaterialer på Økern" },
+    ]
+  }
+];
+
+// Data availability assessment
+const dataAvailability = {
+  available: [
+    { dataType: "Prosjektnavn og lokasjon", availability: "100%", source: "Offentlig tilgjengelig" },
+    { dataType: "Bygningstype og størrelse", availability: "95%", source: "FutureBuilt, Bygg.no, kommunale planer" },
+    { dataType: "Sirkulære strategier (beskrivelse)", availability: "100%", source: "Prosjektomtaler og pressemeldinger" },
+    { dataType: "Arkitekt og byggherre", availability: "100%", source: "Offentlig tilgjengelig" },
+    { dataType: "FutureBuilt-status", availability: "100%", source: "futurebuilt.no" },
+    { dataType: "Narrativ (driver/lessons)", availability: "100%", source: "Intervjuer, erfaringsrapporter, artikler" },
+  ],
+  partiallyAvailable: [
+    { dataType: "Sirkularitetsgrad (%)", availability: "35%", source: "Kun publisert for flaggskip-prosjekter", challenge: "Ikke standardisert beregningsmetode" },
+    { dataType: "CO2-reduksjon", availability: "50%", source: "Klimagassregnskap der tilgjengelig", challenge: "Varierende referansebygg" },
+    { dataType: "Materialfordeling (breakdown)", availability: "26%", source: "Detaljerte prosjektrapporter", challenge: "Krever tilgang til interne dokumenter" },
+    { dataType: "Donorkilder", availability: "83%", source: "Prosjektomtaler", challenge: "Ofte nevnt men ikke systematisert" },
+    { dataType: "Mengdedata (tonn/m²)", availability: "57%", source: "Erfaringsrapporter, pressemeldinger", challenge: "Ikke alltid publisert" },
+  ],
+  limitedAvailable: [
+    { dataType: "Kostnadssammenligning", availability: "26%", source: "Sjelden publisert", challenge: "Kommersielt sensitiv informasjon", recommendation: "Krever direkte kontakt med prosjekteier eller detaljerte erfaringsrapporter som KA13" },
+    { dataType: "Leverandørdata", availability: "35%", source: "Spredt i artikler og pressemeldinger", challenge: "Ikke systematisk dokumentert", recommendation: "Kontakte entreprenører eller bruke Loopfront/Madaster" },
+    { dataType: "Bevaringsprosent", availability: "43%", source: "Må beregnes fra prosjektbeskrivelser", challenge: "Sjelden eksplisitt oppgitt", recommendation: "Arkitekter eller BREEAM-dokumentasjon" },
+    { dataType: "CBC Assessment score", availability: "26%", source: "Må beregnes manuelt", challenge: "Nytt rammeverk (2024)", recommendation: "Kan beregnes fra eksisterende data" },
+  ],
+  notAvailable: [
+    { dataType: "Fullstendig kostnadsregnskap", challenge: "Kommersielt konfidensiell", recommendation: "Kun tilgjengelig gjennom NDA eller publiserte erfaringsrapporter" },
+    { dataType: "Detaljerte BIM-modeller", challenge: "Prosjekteierskap", recommendation: "Madaster-registrering kan gi tilgang til materialpass" },
+    { dataType: "Anbuds- og kontraktsdetaljer", challenge: "Forretningshemmeligheter", recommendation: "Offentlige prosjekter: Doffin for anbudsinfo" },
+    { dataType: "Intern prosjektevaluering", challenge: "Interne dokumenter", recommendation: "Forespørsel til prosjekteier om erfaringsdeling" },
+  ]
+};
+
+// Recommendations per project tier
+const recommendations = {
+  tier3: [
+    "Søk etter FutureBuilt prosjektside for detaljert informasjon",
+    "Sjekk BREEAM-sertifiseringsdokumentasjon",
+    "Kontakt arkitekt eller byggherre for narrativ",
+    "Søk i Loopfront/Madaster for materialpass"
+  ],
+  general: [
+    "Prioriter prosjekter med publiserte erfaringsrapporter (som KA13)",
+    "Bruk Klimasats-databasen for støttede prosjekter",
+    "Sjekk Grønn Byggallianse case studies",
+    "Kontakt Nordic Circles for skipsstål-prosjekter"
+  ]
+};
+---
+
+<Layout title="Dataanalyse og Informasjonsgap | Nordic Circular Buildings">
+  <main class="container">
+    <div class="header-section">
+      <h1>Dataanalyse og Informasjonsgap</h1>
+      <p class="subtitle">Fullstendig analyse av tilgjengelig informasjon og kilder for prosjektdatabasen</p>
+      <p class="meta">Generert: {new Date().toLocaleDateString('nb-NO')} | 23 prosjekter analysert</p>
+    </div>
+
+    <!-- Summary Stats -->
+    <section class="summary-section">
+      <h2>Sammendrag</h2>
+      <div class="stats-grid">
+        <div class="stat-card tier1">
+          <div class="stat-value">{tier1.length}</div>
+          <div class="stat-label">Tier 1</div>
+          <div class="stat-desc">Fullstendig dokumentert</div>
+        </div>
+        <div class="stat-card tier2">
+          <div class="stat-value">{tier2.length}</div>
+          <div class="stat-label">Tier 2</div>
+          <div class="stat-desc">God dekning</div>
+        </div>
+        <div class="stat-card tier3">
+          <div class="stat-value">{tier3.length}</div>
+          <div class="stat-label">Tier 3</div>
+          <div class="stat-desc">Grunnleggende data</div>
+        </div>
+        <div class="stat-card completeness">
+          <div class="stat-value">{Math.round((tier1.length * 100 + tier2.length * 70 + tier3.length * 40) / 23)}%</div>
+          <div class="stat-label">Gjennomsnitt</div>
+          <div class="stat-desc">Datakomplethet</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Categories -->
+    <section class="categories-section">
+      <h2>Datatilgjengelighet per kategori</h2>
+      <div class="categories-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Datakategori</th>
+              <th>Tilgjengelig</th>
+              <th>Mangler</th>
+              <th>Dekningsgrad</th>
+            </tr>
+          </thead>
+          <tbody>
+            {categories.map(cat => (
+              <tr>
+                <td>{cat.label}</td>
+                <td class="available">{cat.available}</td>
+                <td class="missing">{23 - cat.available}</td>
+                <td>
+                  <div class="progress-bar">
+                    <div class="progress" style={`width: ${Math.round(cat.available / 23 * 100)}%`}></div>
+                    <span>{Math.round(cat.available / 23 * 100)}%</span>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Data Availability Assessment -->
+    <section class="availability-section">
+      <h2>Vurdering av informasjonstilgjengelighet</h2>
+
+      <div class="availability-category available">
+        <h3>Fullt tilgjengelig (offentlige kilder)</h3>
+        <table>
+          <thead>
+            <tr><th>Datatype</th><th>Tilgjengelighet</th><th>Kilde</th></tr>
+          </thead>
+          <tbody>
+            {dataAvailability.available.map(item => (
+              <tr>
+                <td>{item.dataType}</td>
+                <td><span class="badge green">{item.availability}</span></td>
+                <td>{item.source}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="availability-category partial">
+        <h3>Delvis tilgjengelig (krever research)</h3>
+        <table>
+          <thead>
+            <tr><th>Datatype</th><th>Tilgjengelighet</th><th>Kilde</th><th>Utfordring</th></tr>
+          </thead>
+          <tbody>
+            {dataAvailability.partiallyAvailable.map(item => (
+              <tr>
+                <td>{item.dataType}</td>
+                <td><span class="badge yellow">{item.availability}</span></td>
+                <td>{item.source}</td>
+                <td class="challenge">{item.challenge}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="availability-category limited">
+        <h3>Begrenset tilgjengelig (krever spesiell innsats)</h3>
+        <table>
+          <thead>
+            <tr><th>Datatype</th><th>Tilgjengelighet</th><th>Utfordring</th><th>Anbefaling</th></tr>
+          </thead>
+          <tbody>
+            {dataAvailability.limitedAvailable.map(item => (
+              <tr>
+                <td>{item.dataType}</td>
+                <td><span class="badge orange">{item.availability}</span></td>
+                <td class="challenge">{item.challenge}</td>
+                <td class="recommendation">{item.recommendation}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="availability-category not-available">
+        <h3>Ikke offentlig tilgjengelig</h3>
+        <table>
+          <thead>
+            <tr><th>Datatype</th><th>Utfordring</th><th>Mulig tilnærming</th></tr>
+          </thead>
+          <tbody>
+            {dataAvailability.notAvailable.map(item => (
+              <tr>
+                <td>{item.dataType}</td>
+                <td class="challenge">{item.challenge}</td>
+                <td class="recommendation">{item.recommendation}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Key Sources Catalog -->
+    <section class="sources-section">
+      <h2>Nøkkelkilder og Dokumentasjon</h2>
+
+      {keySources.map(category => (
+        <div class="source-category">
+          <h3>{category.category}</h3>
+          <div class="sources-grid">
+            {category.sources.map(source => (
+              <div class="source-card">
+                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  <div class="source-name">{source.name}</div>
+                  <div class="source-type">{source.type}</div>
+                </a>
+                <div class="source-coverage">{source.coverage}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- Project-by-Project Analysis -->
+    <section class="projects-section">
+      <h2>Prosjekt-for-prosjekt analyse</h2>
+
+      <div class="tier-group">
+        <h3>Tier 1 - Fullstendig dokumentert ({tier1.length} prosjekter)</h3>
+        <p class="tier-desc">Har: CBC-vurdering, materialfordeling, kostnadsdata, narrativ</p>
+        <div class="projects-list">
+          {tier1.map(p => (
+            <div class="project-row complete">
+              <div class="project-name">
+                <a href={`/project/${p.id}`}>{p.name}</a>
+                {p.isSecondaryScope && <span class="secondary-badge">Sekundær scope</span>}
+              </div>
+              <div class="project-sources">{p.sourcesCount} kilder</div>
+              <div class="project-status">{p.available.length}/{p.available.length + p.gaps.length} datapunkter</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="tier-group">
+        <h3>Tier 2 - God dekning ({tier2.length} prosjekter)</h3>
+        <p class="tier-desc">Har narrativ + noe av: CBC, materialfordeling, eller kostnadsdata</p>
+        <div class="projects-list">
+          {tier2.map(p => (
+            <div class="project-row partial">
+              <div class="project-name">
+                <a href={`/project/${p.id}`}>{p.name}</a>
+                {p.isSecondaryScope && <span class="secondary-badge">Sekundær scope</span>}
+              </div>
+              <div class="project-gaps">
+                Mangler: {p.gaps.filter(g => g.importance === 'HIGH').map(g => g.label).join(', ')}
+              </div>
+              <div class="project-sources">{p.sourcesCount} kilder</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="tier-group">
+        <h3>Tier 3 - Grunnleggende data ({tier3.length} prosjekter)</h3>
+        <p class="tier-desc">Har grunnleggende prosjektinfo, mangler dybdedata</p>
+        <div class="projects-list">
+          {tier3.map(p => (
+            <div class="project-row incomplete">
+              <div class="project-name">
+                <a href={`/project/${p.id}`}>{p.name}</a>
+                {p.isSecondaryScope && <span class="secondary-badge">Sekundær scope</span>}
+              </div>
+              <div class="project-gaps">
+                Mangler: {p.gaps.filter(g => g.importance === 'HIGH').map(g => g.label).join(', ')}
+              </div>
+              <div class="project-sources">{p.sourcesCount} kilder</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section class="recommendations-section">
+      <h2>Anbefalinger for videre arbeid</h2>
+
+      <div class="rec-card priority">
+        <h3>Prioritet 1: Kostnadsdata</h3>
+        <p>Kun 6/23 prosjekter har kostnadsdata. Dette var et hovedpunkt fra Jan Thomas-møtet.</p>
+        <ul>
+          <li>Last ned og analyser KA13 erfaringsrapport (116 sider) for metodikk</li>
+          <li>Kontakt Grensen 9B-teamet (MAD/OPF) - har dokumentert "lønnsom ombruk"</li>
+          <li>Søk i Klimasats-søknader for prosjektstøtte og budsjetter</li>
+          <li>Be om erfaringsrapporter fra FutureBuilt forbildeprosjekter</li>
+        </ul>
+      </div>
+
+      <div class="rec-card">
+        <h3>Prioritet 2: CBC Assessment</h3>
+        <p>Kun 6/23 prosjekter har CBC-vurdering. Kan beregnes fra eksisterende data.</p>
+        <ul>
+          <li>Bruk CBC Four Pathways metodikk (2024 rapport)</li>
+          <li>Beregn preservation_percent fra prosjektbeskrivelser</li>
+          <li>Vurder DfD-aspekter fra arkitektdokumentasjon</li>
+          <li>Score materialombruk fra circular_features</li>
+        </ul>
+      </div>
+
+      <div class="rec-card">
+        <h3>Prioritet 3: Materialfordeling</h3>
+        <p>Kun 6/23 har detaljert materialfordeling.</p>
+        <ul>
+          <li>Søk i BREEAM-dokumentasjon for materialoversikt</li>
+          <li>Kontakt arkitekter for klimagassberegninger</li>
+          <li>Sjekk Madaster for registrerte bygninger</li>
+          <li>Analyser erfaringsrapporter der tilgjengelig</li>
+        </ul>
+      </div>
+
+      <div class="rec-card info">
+        <h3>Generelle anbefalinger</h3>
+        <ul>
+          {recommendations.general.map(rec => <li>{rec}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="conclusion-section">
+      <h2>Konklusjon</h2>
+      <div class="conclusion-content">
+        <p><strong>Informasjonstilgjengelighet varierer betydelig.</strong> Grunnleggende prosjektinformasjon (navn, lokasjon, type, arkitekt) er 100% tilgjengelig fra offentlige kilder. Narrativ data (driver, lessons learned) kan samles fra intervjuer og artikler.</p>
+
+        <p><strong>De mest utfordrende datapunktene er:</strong></p>
+        <ul>
+          <li><strong>Kostnadsdata:</strong> Sjelden publisert, kommersielt sensitiv. Kun tilgjengelig gjennom detaljerte erfaringsrapporter (som KA13) eller direkte kontakt med prosjekteier.</li>
+          <li><strong>Materialfordeling:</strong> Krever tilgang til klimagassberegninger eller BREEAM-dokumentasjon.</li>
+          <li><strong>Bevaringsprosent:</strong> Må ofte beregnes fra beskrivelser, sjelden eksplisitt oppgitt.</li>
+        </ul>
+
+        <p><strong>Beste strategi:</strong> Fokuser på prosjekter med publiserte erfaringsrapporter. KA13 (Entra), Grensen 9B (MAD/OPF), og Føniks (Frydenbø) har vært mest åpne om å dele data. Offentlige prosjekter (kommune/stat) har ofte mer tilgjengelig dokumentasjon gjennom Klimasats, FutureBuilt, eller offentlige rapporter.</p>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p>Denne analysen er del av Nordic Circular Buildings prosjektet.</p>
+      <p>Sist oppdatert: {new Date().toLocaleDateString('nb-NO')}</p>
+      <nav class="footer-nav">
+        <a href="/">← Tilbake til prosjekter</a>
+        <a href="/meeting-status">Møtestatus</a>
+        <a href="/stakeholders">Stakeholders</a>
+      </nav>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .header-section {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1d1d1f;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: #6e6e73;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    font-size: 0.875rem;
+    color: #86868b;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1d1d1f;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1d1d1f;
+  }
+
+  section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .stat-card.tier1 { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); }
+  .stat-card.tier2 { background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); }
+  .stat-card.tier3 { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%); }
+  .stat-card.completeness { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); }
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1d1d1f;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1d1d1f;
+  }
+
+  .stat-desc {
+    font-size: 0.75rem;
+    color: #6e6e73;
+    margin-top: 0.25rem;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+
+  th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  th {
+    font-weight: 600;
+    color: #6e6e73;
+    font-size: 0.875rem;
+    background: #f5f5f7;
+  }
+
+  td.available { color: #34c759; font-weight: 600; }
+  td.missing { color: #ff3b30; }
+  td.challenge { color: #86868b; font-size: 0.875rem; }
+  td.recommendation { color: #007aff; font-size: 0.875rem; }
+
+  /* Progress Bar */
+  .progress-bar {
+    background: #e5e5e5;
+    border-radius: 4px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-bar .progress {
+    background: linear-gradient(90deg, #34c759 0%, #30d158 100%);
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  .progress-bar span {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .badge.green { background: #d4edda; color: #155724; }
+  .badge.yellow { background: #fff3cd; color: #856404; }
+  .badge.orange { background: #ffe5d0; color: #8a4a1c; }
+  .badge.red { background: #f8d7da; color: #721c24; }
+
+  /* Availability Categories */
+  .availability-category {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .availability-category.available { background: #f0fff4; border: 1px solid #c6f6d5; }
+  .availability-category.partial { background: #fffbeb; border: 1px solid #fef3c7; }
+  .availability-category.limited { background: #fff7ed; border: 1px solid #fed7aa; }
+  .availability-category.not-available { background: #fef2f2; border: 1px solid #fecaca; }
+
+  /* Sources */
+  .source-category {
+    margin-bottom: 2rem;
+  }
+
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .source-card {
+    background: #f5f5f7;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .source-card:hover {
+    background: #e8e8ed;
+  }
+
+  .source-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .source-name {
+    font-weight: 600;
+    color: #007aff;
+    margin-bottom: 0.25rem;
+  }
+
+  .source-type {
+    font-size: 0.75rem;
+    color: #6e6e73;
+    margin-bottom: 0.5rem;
+  }
+
+  .source-coverage {
+    font-size: 0.875rem;
+    color: #1d1d1f;
+  }
+
+  /* Projects List */
+  .tier-group {
+    margin-bottom: 2rem;
+  }
+
+  .tier-desc {
+    color: #6e6e73;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .project-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: #f5f5f7;
+    border-radius: 8px;
+    align-items: center;
+  }
+
+  .project-row.complete { border-left: 3px solid #34c759; }
+  .project-row.partial { border-left: 3px solid #ff9500; }
+  .project-row.incomplete { border-left: 3px solid #ff3b30; }
+
+  .project-name a {
+    color: #007aff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .secondary-badge {
+    font-size: 0.625rem;
+    background: #e5e5e5;
+    color: #6e6e73;
+    padding: 0.125rem 0.375rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+  }
+
+  .project-gaps {
+    font-size: 0.75rem;
+    color: #ff3b30;
+  }
+
+  .project-sources {
+    font-size: 0.75rem;
+    color: #6e6e73;
+  }
+
+  .project-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #34c759;
+  }
+
+  /* Recommendations */
+  .rec-card {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .rec-card.priority {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 1px solid #ffb74d;
+  }
+
+  .rec-card.info {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  }
+
+  .rec-card h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .rec-card p {
+    color: #6e6e73;
+    margin-bottom: 1rem;
+  }
+
+  .rec-card ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .rec-card li {
+    margin-bottom: 0.5rem;
+    color: #1d1d1f;
+  }
+
+  /* Conclusion */
+  .conclusion-content {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .conclusion-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .conclusion-content ul {
+    margin-bottom: 1rem;
+  }
+
+  .conclusion-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Footer */
+  .page-footer {
+    text-align: center;
+    color: #6e6e73;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .footer-nav a {
+    color: #007aff;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-row {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .sources-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
