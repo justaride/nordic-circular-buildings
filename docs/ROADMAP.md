@@ -29,12 +29,32 @@ The most documented circular building in Norway. Serves as template for all othe
 | Windows (30 stk) | 2.4 Vinduer i tilbygg | 16-18 | "28 stk. vinduer fra Turbinveien 15" |
 | Sanitary (116 stk) | 5.2 Sanitærutstyr | 69 | Full inventory table |
 
-#### Priority 2-5: Secondary Deep Cases
-Apply KA13 template to:
-- KA23 (Kristian Augusts gate 23)
-- Prosjekt Føniks (Bergen)
-- Oksenøya Senter
-- Vollebekk torg
+#### Priority 2: KA23 (Kristian Augusts gate 23) - Strong Case ✅ COMPLETE
+Norway's first circular building with heritage protection status.
+
+**Achieved:**
+- ✅ CO2 metrics (85% materials, 66% total)
+- ✅ Stakeholder mapping (Höegh, Seltor, Arcasa, Dentsu)
+- ✅ Retained materials inventory (12 categories)
+- ✅ Timeline and budget data
+- ✅ Lessons learned documented
+- ⚠️ **No erfaringsrapport identified** - contact Höegh Eiendom
+
+**Key Data:**
+| Metric | Value | Source |
+|--------|-------|--------|
+| CO2 reduction (materials) | 85% | Sweco |
+| CO2 reduction (total) | 66% | Dentsu |
+| Area | 8,730 m² | Seltor |
+| Contract value | 187-220 MNOK | Seltor |
+| Completion | November 2021 | Multiple |
+
+#### Priority 3-5: Pending Deep Cases
+**Needs erfaringsrapport search:**
+- Prosjekt Føniks (Bergen) - 89% sirkularitet, ferdig 2026
+- Løren aktivitetspark - skipsstål, ferdig 2025
+- Nedre Sem låve - 470t ombruk, ferdig 2024
+- Oksenøya Senter / Treklang
 
 ---
 
@@ -116,9 +136,17 @@ Apply KA13 template to:
 
 | Tier | Criteria | Current Count |
 |------|----------|---------------|
-| **Flagship** | Full material inventory, costs, verified citations | 1 (KA13) |
-| **Strong** | Verified metrics, multiple sources | 10+ projects |
+| **Flagship** | Full material inventory, costs, verified citations, erfaringsrapport | 1 (KA13) |
+| **Strong** | CO2 metrics, stakeholders, materials inventory, multiple sources | 1 (KA23) |
+| **Tier 2** | Basic metrics, some sources, needs report | 4 (Føniks, Løren, Nedre Sem, Skur 38) |
 | **Moderate** | Basic info, partial verification | Remaining |
+
+### Case Study Files
+```
+data/case-studies/
+├── ka13_flagship.json    # Flagship - 116-page report verified
+└── ka23_strong.json      # Strong - multiple sources, no report
+```
 
 ---
 
@@ -205,7 +233,9 @@ site/public/
 | **Phase 1** | KA13 flagship case study | ✅ Complete |
 | **Phase 1b** | Citation verification & PDF hosting | ✅ Complete |
 | **Phase 1c** | Cost & CO2 visualization | ✅ Complete |
-| **Phase 2** | 4-5 additional deep cases | 🔄 Next |
+| **Phase 2a** | KA23 Strong case study | ✅ Complete |
+| **Phase 2b** | Report search for Tier 2 projects | 🔄 In Progress |
+| **Phase 2c** | Additional deep cases (pending reports) | Next |
 | **Phase 3** | Enablers/value chain page | Planned |
 | **Phase 4** | Material flow visualization | Planned |
 | **Phase 5** | Nordic expansion (Sweden) | Future |

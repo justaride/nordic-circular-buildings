@@ -163,12 +163,36 @@
 
 ---
 
-### 19. Kristian Augusts gate 23 (KA23)
+### 19. Kristian Augusts gate 23 (KA23) ✅ STRONG CASE STUDY
+
+**Case Study File:** `data/case-studies/ka23_strong.json`
+
+**Key Metrics (2025-12-03):**
+| Metric | Value | Source |
+|--------|-------|--------|
+| CO2 reduction (materials) | 85% | Sweco |
+| CO2 reduction (total) | 66% | Dentsu |
+| Area | 8,730 m² | Seltor |
+| Contract value | 187-220 MNOK | Seltor |
+| Completion | November 2021 | Multiple |
+| Heritage status | First circular building with protection | Höegh |
 
 **Primary Sources:**
-1. Byggmesteren. "Gjenbruker halvparten av materialer og bygningsdeler". January 2020. https://byggmesteren.as/2020/01/22/gjenbruker-halvparten-av-materialer-og-bygningsdeler/
-2. Seltor. "Kristian Augustsgate 23 Oslo". https://seltor.no/en/prosjekter/kristian-augustsgate-23-oslo/
-3. FutureBuilt. "Kristian Augusts gate 23". https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Kristian-Augusts-gate-23
+1. Höegh Eiendom. "Vår ombruksreise til et fullskala sirkulært bygg med vernestatus". https://hoegheiendom.no/tema/var-ombruksreise-til-et-fullskala-sirkulaert-bygg-med-vernestatus
+2. Sweco. "KA23 – Norges første sirkulære bygg med vernestatus". https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/
+3. Dentsu. "Prosessen gjennom forbildeprosjektet Kristian Augusts gate 23". https://www.dentsu.com/no/no/prosessen-gjennom-forbildeprosjektet-kristian-augusts-gate-23
+4. Seltor. "Kristian Augustsgate 23 Oslo". https://seltor.no/en/prosjekter/kristian-augustsgate-23-oslo/
+5. FutureBuilt. "Kristian Augusts gate 23". https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Kristian-Augusts-gate-23
+6. Byggmesteren. "Gjenbruker halvparten av materialer og bygningsdeler". January 2020. https://byggmesteren.as/2020/01/22/gjenbruker-halvparten-av-materialer-og-bygningsdeler/
+
+**Stakeholder URLs:**
+- Client: Höegh Eiendom AS - https://hoegheiendom.no
+- Architect (rehab): Arcasa Arkitekter
+- Interior: DI (Design & Interiør)
+- Contractor: Seltor AS - https://seltor.no
+- Program: FutureBuilt - https://www.futurebuilt.no
+
+**⚠️ Missing: Erfaringsrapport** - No comprehensive report identified. Contact Jennifer Lamson at Höegh Eiendom for potential internal documentation.
 
 ---
 
