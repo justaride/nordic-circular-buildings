@@ -787,6 +787,7 @@
       "author": "Anne Sigrid Nordby (Asplan Viak)",
       "contributors": ["Randi Lunke (Insenti)", "Rune Andersen (Insenti)", "NTNU studenter", "Oslo Met studenter"],
       "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+      "local_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
       "english_version": "https://www.entra.no/vare-eiendommer/alle-eiendommer/kristian-augusts-gate-13/_/attachment/inline/31ec37c5-5944-4338-a4db-826336969f42:8fd12a6e4418e59f3ffe7be9916e27b7e0239d8f/20230113_KA13_erfaringsrapport_engelsk.pdf",
       "contents": [
         "Praktisk gjennomføring",
@@ -800,6 +801,52 @@
     "material_traceability": {
       "method": "QR-koder i bygget",
       "purpose": "Spore materialoprinnelse for fremtidig demontering og ombruk"
+    },
+    "verified_citations": {
+      "verification_date": "2025-12-03",
+      "verification_method": "Manual PDF page-by-page review",
+      "citations": [
+        {
+          "material": "Steel",
+          "section": "4.2 Stålkonstruksjoner",
+          "pages": "54-58",
+          "verified": true,
+          "quote": "Ca. 70% av stålkonstruksjonene i KA13 er ombruksstål",
+          "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=54"
+        },
+        {
+          "material": "Hulldekker",
+          "section": "4.6 Hulldekker",
+          "pages": "63-67",
+          "verified": true,
+          "quote": "21 stk. hulldekker (type HD265), anskaffet fra Regjeringskvartalet R4",
+          "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=63"
+        },
+        {
+          "material": "Intern trapp",
+          "section": "4.7 Intern Trapp fra 8 til 9 etg.",
+          "pages": "67",
+          "verified": true,
+          "quote": "Ståltrapp mellom 8. og 9. etg. er anskaffet fra St. Olavsplass 5 (Entra)",
+          "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=67"
+        },
+        {
+          "material": "Vinduer",
+          "section": "2.4 Vinduer i tilbygg",
+          "pages": "16-18",
+          "verified": true,
+          "quote": "28 stk. vinduer fra Turbinveien 15, montert i etasjene 5, 6, 7 og 8",
+          "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=16"
+        },
+        {
+          "material": "Sanitærutstyr",
+          "section": "5.2 Sanitærutstyr",
+          "pages": "69",
+          "verified": true,
+          "quote": "Full inventarliste med 116 enheter fra 7 donorbygg",
+          "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=69"
+        }
+      ]
     }
   },
 

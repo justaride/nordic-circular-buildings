@@ -6,17 +6,28 @@
 
 **Objective**: Create comprehensive, inspirational case studies focused on **materiality** - the practical details of how circular construction actually works.
 
-#### Priority 1: KA13 (Kristian Augusts gate 13) - Flagship Case
-The most documented circular building in Norway. Will serve as template for all other case studies.
+#### Priority 1: KA13 (Kristian Augusts gate 13) - Flagship Case ✅ COMPLETE
+The most documented circular building in Norway. Serves as template for all other case studies.
 
-**Target information depth:**
-- Material sources (exact donor buildings/projects)
-- Quantities (tonnes, m², pieces)
-- Certification process (DNV, SINTEF, etc.)
-- Cost comparisons (reused vs new)
-- Logistics and storage solutions
-- Technical testing and documentation
-- Lessons learned and challenges
+**Achieved:**
+- ✅ Material sources (exact donor buildings/projects)
+- ✅ Quantities (tonnes, m², pieces)
+- ✅ Certification process (SINTEF testing documented)
+- ✅ Cost comparisons (reused vs new)
+- ✅ Logistics and storage solutions
+- ✅ Technical testing and documentation
+- ✅ Lessons learned and challenges
+- ✅ **Verified page-level citations** (all 5 materials verified against PDF)
+- ✅ **Self-hosted PDF** for reliable citation links
+
+**Verified Material Citations:**
+| Material | Section | Pages | Quote |
+|----------|---------|-------|-------|
+| Steel (45t) | 4.2 Stålkonstruksjoner | 54-58 | "Ca. 70% av stålkonstruksjonene i KA13 er ombruksstål" |
+| Hulldekker (96t) | 4.6 Hulldekker | 63-67 | "21 stk. hulldekker (type HD265)" |
+| Staircase | 4.7 Intern Trapp | 67 | "Ståltrapp mellom 8. og 9. etg." |
+| Windows (30 stk) | 2.4 Vinduer i tilbygg | 16-18 | "28 stk. vinduer fra Turbinveien 15" |
+| Sanitary (116 stk) | 5.2 Sanitærutstyr | 69 | Full inventory table |
 
 #### Priority 2-5: Secondary Deep Cases
 Apply KA13 template to:
@@ -24,6 +35,28 @@ Apply KA13 template to:
 - Prosjekt Føniks (Bergen)
 - Oksenøya Senter
 - Vollebekk torg
+
+---
+
+## Completed Features
+
+### A. Citation Traceability System ✅
+- Self-hosted PDF documents on GitHub Pages
+- Page-level anchors (`#page=54`) for direct navigation
+- Verified quotes from source documents
+- Section references matching document structure
+
+### B. Material Flow Visualization ✅
+- Cost comparison boxes (amber) showing reused vs new prices
+- CO2 savings bars (teal) with percentage and tonnes saved
+- Summary "CO2 Savings by Material" chart
+- Donor source details with processing information
+
+### C. Project Detail Pages ✅
+- Full material inventory with quantities
+- Source traceability with clickable citations
+- Cost/benefit display
+- Environmental impact visualization
 
 ---
 
@@ -62,49 +95,29 @@ Apply KA13 template to:
    - Circular procurement advisors
 ```
 
-**Data model addition:**
-```json
-{
-  "enablers": [
-    {
-      "id": "sirkular_ressurssentral",
-      "name": "Sirkulær Ressurssentral",
-      "type": "material_bank",
-      "services": ["storage", "inventory", "matching"],
-      "location": "Oslo",
-      "url": "https://ressurssentral.no",
-      "projects_supplied": ["NO_ka13", "NO_ka23", ...],
-      "key_people": [...],
-      "business_model": "..."
-    }
-  ]
-}
-```
+### B. Sankey Material Flow Diagram (Priority: Medium)
 
-### B. Material Flow Visualization (Priority: Medium)
-
-**Sankey diagram showing:**
+**Visualization showing:**
 - Donor buildings → Material banks → Recipient projects
 - Material types and quantities
 - Geographic flow
 
-### C. Flagship Case Study Pages (Priority: High)
+### C. Additional Flagship Cases (Priority: High)
 
-**Enhanced project pages for top 5-6 cases:**
-- Full material inventory table
-- Source traceability
-- Photo documentation
-- Cost/benefit analysis
-- Replicability assessment
+**Apply KA13 methodology to:**
+- Verify all citations against source documents
+- Host relevant PDFs locally
+- Add cost comparison data
+- Include CO2 savings per material
 
 ---
 
 ## Data Quality Tiers
 
-| Tier | Criteria | Target |
-|------|----------|--------|
-| **Flagship** | Full material inventory, costs, certification docs | 5-6 projects |
-| **Strong** | Verified metrics, multiple sources | 15+ projects |
+| Tier | Criteria | Current Count |
+|------|----------|---------------|
+| **Flagship** | Full material inventory, costs, verified citations | 1 (KA13) |
+| **Strong** | Verified metrics, multiple sources | 10+ projects |
 | **Moderate** | Basic info, partial verification | Remaining |
 
 ---
@@ -139,6 +152,11 @@ Apply KA13 template to:
    - Transportation distances
    - Handling requirements
 
+6. **Citation Verification** ✅ NEW
+   - PDF page numbers verified against source
+   - Quotes extracted from original text
+   - Self-hosted documents for reliability
+
 ---
 
 ## Technical Implementation Notes
@@ -148,9 +166,9 @@ Apply KA13 template to:
 src/pages/
 ├── index.astro              # Overview with stats
 ├── projects/
-│   └── [id].astro           # Project detail pages
+│   └── [id].astro           # Project detail pages (enhanced)
 ├── enablers/
-│   ├── index.astro          # Value chain overview
+│   ├── index.astro          # Value chain overview (planned)
 │   └── [id].astro           # Individual enabler pages
 ├── case-studies/
 │   └── [id].astro           # Deep-dive flagship cases
@@ -167,19 +185,27 @@ data/
 ├── enablers/
 │   └── norway.json          # Value chain actors
 ├── case-studies/
-│   └── ka13.json            # Detailed flagship data
+│   └── ka13_flagship.json   # Detailed flagship data (v2.0)
 ├── materials/
 │   └── flows.json           # Material flow data
+
+site/public/
+├── data/
+│   └── norway.json          # Site data source
+└── docs/
+    └── ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf  # Source PDF (15MB)
 ```
 
 ---
 
-## Timeline
+## Progress Timeline
 
 | Phase | Focus | Status |
 |-------|-------|--------|
-| **Phase 1** | KA13 flagship case study | 🔄 In Progress |
-| **Phase 2** | 4-5 additional deep cases | Pending |
+| **Phase 1** | KA13 flagship case study | ✅ Complete |
+| **Phase 1b** | Citation verification & PDF hosting | ✅ Complete |
+| **Phase 1c** | Cost & CO2 visualization | ✅ Complete |
+| **Phase 2** | 4-5 additional deep cases | 🔄 Next |
 | **Phase 3** | Enablers/value chain page | Planned |
 | **Phase 4** | Material flow visualization | Planned |
 | **Phase 5** | Nordic expansion (Sweden) | Future |
@@ -187,4 +213,4 @@ data/
 ---
 
 *Document created: 2024-12-03*
-*Last updated: 2024-12-03*
+*Last updated: 2025-12-03*

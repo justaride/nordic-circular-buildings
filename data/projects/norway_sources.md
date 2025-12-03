@@ -35,17 +35,29 @@
 
 ## Project-Specific Citations
 
-### 1. Kristian Augusts gate 13 (KA13)
+### 1. Kristian Augusts gate 13 (KA13) ✅ FLAGSHIP - VERIFIED
 
-**Primary Sources:**
+**Primary Source (116-page PDF) - Hosted locally:**
+- **Local URL:** `/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf`
+- **Original URL:** https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf
+
+**Verified Page-Level Citations (2025-12-03):**
+| Material | Section | Pages | Verified |
+|----------|---------|-------|----------|
+| Steel (45t) | 4.2 Stålkonstruksjoner | 54-58 | ✅ |
+| Hulldekker (96t) | 4.6 Hulldekker | 63-67 | ✅ |
+| Staircase | 4.7 Intern Trapp | 67 | ✅ |
+| Windows (30 stk) | 2.4 Vinduer i tilbygg | 16-18 | ✅ |
+| Sanitary (116 stk) | 5.2 Sanitærutstyr | 69 | ✅ |
+
+**Additional Sources:**
 1. Entra ASA. "KA13 – Norges første fullskala ombruksbygg". https://www.entra.no/vare-eiendommer/alle-eiendommer/kristian-augusts-gate-13
-2. Entra ASA. "Reuse and transformation - Findings report KA13". January 2021. [116-page PDF]
-3. DOGA. "Et landemerke for fremtidens sirkulære byggebransje". https://doga.no/aktiviteter/dogas-priser/doga-merket-design-arkitektur/vinnere-av-doga-merket/kristian-augusts-gate-13/
-4. KS.no. "Gjenbruk i restaurering – FutureBuilt". https://www.ks.no/fagomrader/samfunnsutvikling/miljo/sirkular-okonomi/veileder-for-sirkular-okonomi/eksempelbanken/gjenbruk-i-restaurering--futurebuilt/
-5. Klimapartnere.no. "Norges mest ambisiøse ombruksbygg". https://www.klimapartnere.no/losninger/norges-mest-ambisiose-ombruksbygg/
-6. SINTEF. "Sirkulære bygg – KA13 erfaringer". December 2020. https://www.sintef.no/contentassets/1becbafed6af4a6f8deceb770f57ac9f/201217_rebus_sirkulare_bygg_ka13_erlend.pdf
-7. Bygg.no. "I dette ombruksbygget viser QR-koder hvor de gamle byggematerialene kommer fra". 2021.
-8. Anskaffelser.no. "Ombruk av byggematerialer hos Statsbygg og Entra". https://www.anskaffelser.no/verktoy/eksempler/ombruk-av-byggematerialer-hos-statsbygg-og-entra
+2. DOGA. "Et landemerke for fremtidens sirkulære byggebransje". https://doga.no/aktiviteter/dogas-priser/doga-merket-design-arkitektur/vinnere-av-doga-merket/kristian-augusts-gate-13/
+3. KS.no. "Gjenbruk i restaurering – FutureBuilt". https://www.ks.no/fagomrader/samfunnsutvikling/miljo/sirkular-okonomi/veileder-for-sirkular-okonomi/eksempelbanken/gjenbruk-i-restaurering--futurebuilt/
+4. Klimapartnere.no. "Norges mest ambisiøse ombruksbygg". https://www.klimapartnere.no/losninger/norges-mest-ambisiose-ombruksbygg/
+5. SINTEF. "Sirkulære bygg – KA13 erfaringer". December 2020. https://www.sintef.no/contentassets/1becbafed6af4a6f8deceb770f57ac9f/201217_rebus_sirkulare_bygg_ka13_erlend.pdf
+6. Bygg.no. "I dette ombruksbygget viser QR-koder hvor de gamle byggematerialene kommer fra". 2021.
+7. Anskaffelser.no. "Ombruk av byggematerialer hos Statsbygg og Entra". https://www.anskaffelser.no/verktoy/eksempler/ombruk-av-byggematerialer-hos-statsbygg-og-entra
 
 **Stakeholder URLs:**
 - Client: Entra ASA - https://www.entra.no

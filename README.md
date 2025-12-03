@@ -10,7 +10,7 @@ This database catalogs circular building projects across the Nordic region (Norw
 
 | Country | Projects | Status |
 |---------|----------|--------|
-| Norway | 24 | Complete with source verification |
+| Norway | 24 | Complete with verified source citations |
 | Sweden | - | Pending research |
 | Denmark | - | Pending research |
 | Finland | - | Pending research |
@@ -22,7 +22,7 @@ This database catalogs circular building projects across the Nordic region (Norw
 - **Reuse rates**: 50-97% by weight
 - **CO2 reductions**: 70-97% vs conventional construction
 - **Key programs**: FutureBuilt, BREEAM-NOR, EU CCRI
-- **1 Flagship case study** with full material documentation (KA13)
+- **1 Flagship case study** with full material documentation and verified citations (KA13)
 
 ### Notable Projects
 
@@ -46,6 +46,9 @@ data/
 │   └── ka13_flagship.json   # Deep-dive flagship case (v2.0)
 docs/
 └── ROADMAP.md               # Project roadmap and planned features
+site/
+└── public/docs/             # Source PDFs for direct citation links
+    └── ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf
 ```
 
 ## Project Schema
@@ -55,7 +58,25 @@ Each project includes:
 - Circular features with donor sources
 - Quantified metrics (CO2, waste, reuse rates)
 - Certifications and program affiliations
-- Source citations with verification status
+- **Verified source citations with page-level PDF links**
+
+## Citation Traceability
+
+All material data includes traceable citations:
+- Direct links to source PDFs hosted on the site
+- Page-level anchors (e.g., `#page=54`) for immediate verification
+- Original quotes from source documents
+- Section references matching document structure
+
+### Verified Citations (KA13)
+
+| Material | Section | Pages | Verified |
+|----------|---------|-------|----------|
+| Steel (45t) | 4.2 Stålkonstruksjoner | 54-58 | ✅ |
+| Hulldekker (96t) | 4.6 Hulldekker | 63-67 | ✅ |
+| Staircase | 4.7 Intern Trapp | 67 | ✅ |
+| Windows (30 stk) | 2.4 Vinduer i tilbygg | 16-18 | ✅ |
+| Sanitary (116 stk) | 5.2 Sanitærutstyr | 69 | ✅ |
 
 ## Circular Strategy Categories
 
@@ -69,20 +90,28 @@ Each project includes:
 
 **https://justaride.github.io/nordic-circular-buildings/**
 
+### Features
+- Interactive map with all 24 projects
+- Project detail pages with material flow visualization
+- Cost comparison data (reused vs new materials)
+- CO2 savings bar charts per material
+- Clickable source citations with PDF page links
+
 ## Tech Stack
 
 - Framework: Astro
 - Styling: Tailwind CSS
 - Maps: Leaflet + CartoDB
 - Deployment: GitHub Pages
+- Source Documents: Self-hosted PDFs with page anchors
 
 ## Flagship Case Studies
 
 Deep-dive documentation with full material traceability:
 
-| Project | Data Source | Key Metrics |
-|---------|-------------|-------------|
-| KA13 | 116-page Erfaringsrapport | Steel: 45t (97% CO2), Hulldekker: 96t (89% CO2), 116 sanitary items |
+| Project | Data Source | Key Metrics | Citation Status |
+|---------|-------------|-------------|-----------------|
+| KA13 | 116-page Erfaringsrapport (hosted locally) | Steel: 45t (97% CO2), Hulldekker: 96t (89% CO2), 116 sanitary items | ✅ All verified |
 
 See `data/case-studies/` and `docs/ROADMAP.md` for methodology.
 
@@ -99,4 +128,4 @@ Research data. See individual source citations for original content attribution.
 
 ---
 
-*Last updated: 2024-12-03*
+*Last updated: 2025-12-03*
