@@ -118,8 +118,8 @@
               "source": "KA13 Erfaringsrapport",
               "section": "4.2 Stålkonstruksjoner",
               "pages": "54-58",
-              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=54",
+              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=54",
               "quote": "Ca. 70% av stålkonstruksjonene i KA13 er ombruksstål",
               "data_points": ["45t installed", "57t procured", "5 donor sources", "100 kr/kg cost"]
             }
@@ -161,8 +161,8 @@
               "source": "KA13 Erfaringsrapport",
               "section": "4.3 Hulldekker",
               "pages": "63-67",
-              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=63",
+              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=63",
               "quote": "21 stk. hulldekker av typen HD265, med mål ca 6,5 x 1,2 m",
               "data_points": ["21 slabs", "HD265 type", "96 tonnes", "R4 donor building"]
             },
@@ -199,8 +199,8 @@
               "source": "KA13 Erfaringsrapport",
               "section": "4.5 Sanitærutstyr (tabell)",
               "pages": "69",
-              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=69",
+              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=69",
               "data_points": ["116 items", "7 donor buildings", "Full inventory table"]
             }
           ]
@@ -222,8 +222,8 @@
               "source": "KA13 Erfaringsrapport",
               "section": "4.4 Vinduer",
               "pages": "68",
-              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=68",
+              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=68",
               "quote": "Vinduer fra feilbestilling i Kværnerbyen",
               "data_points": ["90% CO2 savings", "From surplus order"]
             }
@@ -244,8 +244,8 @@
               "source": "KA13 Erfaringsrapport",
               "section": "4.6 Intern trapp",
               "pages": "67",
-              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=67",
+              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=67",
               "quote": "To ståltrapper med ulike bredder vurdert - den ene passet i bredden men var litt for kort",
               "data_points": ["From St. Olavsplass 5", "Extended with 4 steps", "New railing"]
             }
@@ -375,7 +375,7 @@
           "type": "primary",
           "name": "KA13 Erfaringsrapport Ombruk (116 sider)",
           "organization": "Entra ASA",
-          "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+          "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
           "date": "2021-01"
         },
         {
