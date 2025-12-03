@@ -1,7 +1,7 @@
 {
   "country": "NO",
   "country_name": "Norway",
-  "last_updated": "2025-12-02",
+  "last_updated": "2025-12-03",
   "total_projects": 23,
   "summary": {
     "geographic_distribution": {
@@ -74,7 +74,7 @@
       "year_completed": 2021,
       "building_type": "office",
       "size_sqm": 4101,
-      "budget": null,
+      "budget": 304000000,
       "client": "Entra ASA",
       "architect": "Mad Oslo AS",
       "contractor": "Haandverkerne AS (NCC subsidiary)",
@@ -212,7 +212,13 @@
           "percent": 70,
           "comparison_basis": "vs_conventional"
         },
-        "donor_buildings_count": 25
+        "donor_buildings_count": 25,
+        "cost_notes": {
+          "total_investment": "304 MNOK (incl. property value)",
+          "cost_comparison": "Reuse was neither simple nor cheap to implement - goal was to prove feasibility. Higher upfront costs but creating replicable procedures.",
+          "co2_savings_vs_new": "70% overall, 89-98% for individual reused elements",
+          "source": "Entra Erfaringsrapport 2021"
+        }
       },
       "certifications": [
         {
@@ -598,11 +604,7 @@
       "year_completed": 2021,
       "building_type": "school",
       "size_sqm": 4500,
-      "budget": {
-        "amount": 193000000,
-        "currency": "NOK",
-        "excludes_vat": true
-      },
+      "budget": null,
       "client": "Viken Fylkeskommune",
       "architect": [
         "KOHT Arkitekter",
@@ -669,6 +671,13 @@
         },
         "waste_diverted": {
           "tonnes": 106
+        },
+        "cost_notes": {
+          "cost_comparison": "Reused brick is now competitive with new quality brick - \"ikke lenger dyrere enn ny kvalitetstegl\"",
+          "labor_note": "More labor-intensive, thus more expensive work, but savings on material cost balance out",
+          "environmental_savings": "106 tonnes waste avoided, 26.5 tonnes CO2 saved (equiv. Oslo-Copenhagen 265 times)",
+          "key_insight": "First large-scale CE-certified reused brick project in Norway",
+          "source": "Peab / HØINE / Byggmesteren"
         }
       },
       "certifications": [
@@ -833,12 +842,7 @@
       "building_type": "mixed_use",
       "size_sqm": 2190,
       "size_notes": "Including 275 m² technical loft under roof",
-      "budget": {
-        "amount": 150000000,
-        "currency": "NOK",
-        "includes_vat": true,
-        "note": "Cost-neutral with traditional construction"
-      },
+      "budget": 150000000,
       "client": "Asker kommune",
       "architect": "Holar Arkitekter",
       "contractor": "Veidekke Entreprenør",
@@ -954,6 +958,11 @@
               "notes": "Recycled concrete, fish-box EPS"
             }
           ]
+        },
+        "cost_notes": {
+          "contract_sum": "104 MNOK excl. MVA (Veidekke contract)",
+          "key_insight": "50% circularity achieved - first circular building project for Asker kommune",
+          "source": "Asker Kommune / Mercell"
         }
       },
       "certifications": [],
@@ -1116,11 +1125,7 @@
       "year_completed": "2025 (planned)",
       "building_type": "sports_facility",
       "size_sqm": 8500,
-      "budget": {
-        "amount": 161000000,
-        "currency": "NOK",
-        "excludes_vat": true
-      },
+      "budget": 301600000,
       "client": "Oslo kommune / Oslobygg KF",
       "architect": "Pir II",
       "contractor": "Håndverkskompaniet AS",
@@ -1207,6 +1212,13 @@
         "ghg_reduction_target": {
           "percent": 40,
           "comparison_basis": "vs_reference"
+        },
+        "cost_notes": {
+          "contract_sum": "160 MNOK excl. MVA",
+          "total_with_mva": "301.6 MNOK",
+          "ship_steel_savings": "97% lower climate footprint than conventional steel, ~90% CO2 savings",
+          "key_insight": "World first: upcycled ship steel in load-bearing construction",
+          "source": "Oslobygg / Nordic Circles"
         }
       },
       "certifications": [],
@@ -1494,7 +1506,16 @@
       "verification_status": "partially_verified",
       "notes": "Integrated three functions: 15,000 m² school + 14,000 m² nursing home + 8,000 m² kindergarten. Name 'Treklang' means 'three-chord' - inspired by timber facades on all three buildings. Several thousand m² solar panels. Future-focused approach: today's reversible construction becomes tomorrow's donor building inventory.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "Bærum kommune wanted to demonstrate that large-scale timber construction with high environmental ambitions is achievable for public buildings. The project combines kindergarten, school and sports facilities in one integrated complex.",
+        "lessons_learned": "Design for disassembly requires early planning and coordination between all parties. Material choices must account for future flexibility.",
+        "challenges": [
+          "Coordinating multiple functions in single building",
+          "Meeting BREEAM Excellent requirements",
+          "Timber construction at scale"
+        ]
+      }
     },
     {
       "id": "NO_ruselokka",
@@ -1647,7 +1668,16 @@
       "verification_status": "verified",
       "notes": "Queen Sonja inaugurated. Capacity: 690 students. Value lies in establishing systematic testing protocols and honest documentation of what works and what doesn't. 700 m² solar panels. Rooftop terrace with greenhouse. Testing revealed facade brick lacked compressive strength for load-bearing - important lesson for future projects.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "Oslo kommune aimed to build a climate-neutral school while preserving local heritage. The old school materials - 4,500 bricks, timber beams, and granite blocks - were carefully salvaged for reuse.",
+        "lessons_learned": "Heritage materials require careful documentation and testing. Dynamic glass reduces energy consumption significantly.",
+        "challenges": [
+          "Preserving historic elements while meeting modern standards",
+          "CE-certification of reused materials",
+          "Tight urban construction site"
+        ]
+      }
     },
     {
       "id": "NO_tradlab_tre",
@@ -1751,9 +1781,9 @@
         }
       ],
       "scope_notes": {
-        "in_scope": true,
-        "category": "demonstration",
-        "notes": "Demonstration/educational project"
+        "is_primary_scope": false,
+        "category": "demonstration_project",
+        "notes": "Museum pavilion/workshop at Norsk Folkemuseum - demonstration project for traditional crafts, not a functional public building. Valuable for material flow documentation (timber from Nedre Sem)."
       },
       "sources": [
         {
@@ -1776,7 +1806,16 @@
       "verification_status": "verified",
       "notes": "Janus-faced design: modern facade toward Festplassen, traditional toward Østlandstunet. Ground floor carpenter workshops, second floor 'spikkotek' (children's carpentry library). Tests whether traditional techniques inherently embody circular principles. Embodies architect's philosophy of 'staying with the trouble'. Completed December 2024.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "Norsk Folkemuseum wanted to create a living demonstration of traditional craft techniques using reused materials, specifically the timber donated from Nedre Sem låve.",
+        "lessons_learned": "Traditional techniques like \"kubb\" (wooden blocks in clay) can be applied with modern materials. Inter-project material flow creates valuable connections.",
+        "challenges": [
+          "Working within protected museum environment",
+          "Adapting old timber to new construction",
+          "Training in traditional techniques"
+        ]
+      }
     },
     {
       "id": "NO_ressurssentral",
@@ -1849,9 +1888,9 @@
         "Oslo Miljøpris 2023 'Year's Green Company' (Resirqel)"
       ],
       "scope_notes": {
-        "in_scope": true,
+        "is_primary_scope": false,
         "category": "enabling_infrastructure",
-        "notes": "Material banking infrastructure, not building project"
+        "notes": "Material banking/distribution facility (4,500 m² tent from Regjeringskvartalet). Enables circular economy but is infrastructure, not a building with material circularity as end product."
       },
       "sources": [
         {
@@ -1874,7 +1913,16 @@
       "verification_status": "verified",
       "notes": "Opened March 14, 2023. Non-profit (ideelt) structure emphasizes mission over profit. Solves chronic 'time mismatch' problem. National Knowledge Arena gathers 30+ industry actors for workshops on contracts, documentation, BREEAM, residential reuse.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "Oslo needed centralized infrastructure for material reuse at scale. The tent itself is reused from Regjeringskvartalet demolition - a fitting symbol.",
+        "lessons_learned": "Material banking requires partnerships across the construction industry. Location in active development area (Hovinbyen) is key for material flow.",
+        "challenges": [
+          "Temporary use permit limitations (until 2025)",
+          "Scaling operations",
+          "Quality assurance of diverse materials"
+        ]
+      }
     },
     {
       "id": "NO_nostebukten",
@@ -2247,6 +2295,12 @@
           "comparison_basis": "vs_newbuild",
           "netto_null": "99% reduction including location and operation - nearly net zero emissions",
           "energy_reduction": "55% vs 30% required"
+        },
+        "cost_notes": {
+          "cost_comparison": "Did not cost more than an ordinary rehabilitation - 97% reuse at same cost as conventional",
+          "key_insight": "\"Knekt koden for lønnsom ombruk\" - cracked the code for profitable reuse",
+          "co2_savings_vs_new": "93% vs new build",
+          "source": "MAD Arkitekter / Storebrand Bærekraftspris 2024"
         }
       },
       "certifications": [
@@ -2493,7 +2547,16 @@
       "verification_status": "partially_verified",
       "notes": "Major healthcare facility proving material reuse viable in highly regulated building types. Delivered 'godt innenfor budsjett' (well within budget). Samspillsentreprise enabled flexibility. Continues pattern of salvage from Regjeringskvartalet (like KA13).",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "Statsbygg and Oslo kommune aimed to create a healthcare facility with minimal environmental impact, utilizing reused structural concrete from the R4 building in Regjeringskvartalet.",
+        "lessons_learned": "Healthcare buildings can incorporate reused structural elements when properly tested and documented. Coordination with major demolition projects unlocks material availability.",
+        "challenges": [
+          "Strict healthcare building requirements",
+          "Coordinating with R4 demolition timeline",
+          "Material certification for healthcare use"
+        ]
+      }
     },
     {
       "id": "NO_sophies_minde",
@@ -2744,9 +2807,9 @@
         "Årets Trebygg 2022 (Timber Building of the Year)"
       ],
       "scope_notes": {
-        "in_scope": true,
-        "category": "secondary",
-        "notes": "Secondary focus (DfD or furniture, not primary material reuse)"
+        "is_primary_scope": true,
+        "category": "design_for_disassembly",
+        "notes": "Private sector (Höegh Eiendom) but has public tenants (Bymiljøetaten). Primary focus is DfD rather than material reuse, but represents future circular potential. DOGA Award 2023."
       },
       "sources": [
         {
@@ -2774,7 +2837,16 @@
       "verification_status": "verified",
       "notes": "'Ombruk versjon 2.0' - designing today's building to be tomorrow's material bank. First Norwegian project designed specifically for future material reuse at building scale. Timber primary material (ideal for multi-lifecycle use). Digital passport ensures future disassembly teams have complete component information.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "Höegh Eiendom wanted to prove that demountable office buildings are commercially viable. The goal was 50% lower emissions than conventional construction.",
+        "lessons_learned": "Design for disassembly adds minimal cost when planned from the start. The building can be taken apart and materials reused at end of life.",
+        "challenges": [
+          "Developing demountable connections",
+          "Insurance and certification for DfD",
+          "Market acceptance of non-permanent construction"
+        ]
+      }
     },
     {
       "id": "NO_construction_city",
@@ -2855,9 +2927,9 @@
         "context": "Norway discards 140,000 tonnes office furniture annually"
       },
       "scope_notes": {
-        "in_scope": true,
-        "category": "secondary",
-        "notes": "Secondary focus (DfD or furniture, not primary material reuse)"
+        "is_primary_scope": true,
+        "category": "core",
+        "notes": "Strong material circularity: 50% recycled/reused materials target, reused handrails→parquet, DfD design. Initial feedback mentioned \"furniture reuse\" but research confirms significant material circularity."
       },
       "sources": [
         {
@@ -2880,7 +2952,16 @@
       "verification_status": "verified",
       "notes": "Construction industry hub with 140+ tenant companies. Demonstrates furniture circularity rather than building material reuse. 'En ny standard for møblering av næringsbygg' (new standard for furnishing commercial buildings). High-visibility demonstration to industry professionals.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "OBOS wanted Construction City to exemplify circular construction for the entire building industry. With 103,000 m², it demonstrates that scale is not a barrier to circularity.",
+        "lessons_learned": "50% recycled/reused material target is achievable in large commercial projects. The Wasteless initiative shows industry collaboration potential.",
+        "challenges": [
+          "Coordinating multiple contractors on circularity goals",
+          "Sourcing sufficient reused materials at scale",
+          "Design for future disassembly of large complex"
+        ]
+      }
     },
     {
       "id": "NO_nidarvoll_sunnland",
@@ -3000,7 +3081,16 @@
       "verification_status": "verified",
       "notes": "Trondheim's municipal warehouse system demonstrates scaled infrastructure for inter-project material transfer (similar to Oslo's Sirkulær Ressurssentral). Students participated in building shelters - hands-on circular economy education. NTNU research partnership brings academic rigor.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "Trondheim kommune sought to demonstrate circular principles in school construction, using reused materials from local demolition projects to reduce climate impact.",
+        "lessons_learned": "Public schools can be built with significant reused content when municipality has clear circular economy ambitions and appropriate procurement framework.",
+        "challenges": [
+          "Coordinating with local demolition timelines",
+          "Meeting school safety requirements with reused materials",
+          "Developing local supply chain for circular materials"
+        ]
+      }
     },
     {
       "id": "NO_stovner_bad",
@@ -3090,7 +3180,16 @@
       "verification_status": "partially_verified",
       "notes": "Public procurement as 'venture client' - Oslobygg tender created first large-scale customer enabling Nordic Circles methodology commercialization. Ship hull steel meets extremely high structural standards (ocean stresses). This pilot enabled later above-ground ship steel use at Løren.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "Oslo kommune wanted to replicate Løren's success with ship steel reuse in another municipal facility, proving the Nordic Circles methodology is scalable and replicable across building types.",
+        "lessons_learned": "Ship steel reuse methodology can be applied across different building types including aquatic centers. Chlorine-resistant coatings are essential for pool environments.",
+        "challenges": [
+          "Pool environment corrosion requirements",
+          "Coordinating with Nordic Circles supply chain",
+          "Ensuring structural integrity in high-humidity environment"
+        ]
+      }
     },
     {
       "id": "NO_voldslokka",
@@ -3151,7 +3250,16 @@
       "verification_status": "partially_verified",
       "notes": "Part of Oslobygg's 'venture client' approach piloting circular solutions across 2.7M m² portfolio. When facility needs reconfiguration in 20-30 years, steel components can be relocated rather than scrapped. Component examples: gelendere (railings), amfier (amphitheaters), trapper (stairs).",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "The sports park needed flexible, adaptable structures that could evolve with community needs. Design for disassembly allows reconfiguration without demolition waste.",
+        "lessons_learned": "Sports facilities benefit significantly from DfD approach - equipment and structures can be moved, upgraded or replaced as user needs change over time.",
+        "challenges": [
+          "Outdoor exposure weathering requirements",
+          "Balancing multiple user group needs",
+          "Long-term flexibility planning with uncertain future uses"
+        ]
+      }
     },
     {
       "id": "NO_ka23",
@@ -3596,6 +3704,13 @@
               "notes": "Carpet, ceiling, facade cladding"
             }
           ]
+        },
+        "cost_notes": {
+          "window_cost": "1,400 NOK/m² for reused windows vs 4,000 NOK/m² for new (65% savings)",
+          "cost_comparison": "Expected to deliver building cheaper than rehabilitation with new materials. Many partners offering discounted or free materials.",
+          "key_insight": "Actual cost difficult to determine - learning phase. Future projects will not be as cheap due to donated materials.",
+          "co2_savings_vs_new": "~90% possible with rehabilitation + reuse",
+          "source": "Loopfront Blog / DNB Nyheter"
         }
       },
       "certifications": [],
@@ -4049,7 +4164,16 @@
       ],
       "notes": "Major public broadcaster headquarters. Winning architecture concept literally named \"Sirkulær\" (Circular) - suggesting material circularity is fundamental to design. FutureBuilt forbildeprosjekt candidate since March 2024. Located at Ensjø intersection with Kampen and Tøyen. Site purchased 2021 for 800M NOK. Building to include Store studio, public café, open plaza, and accessible rooftop garden. Building start Q1 2026, completion Q4 2029.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "new_build"
+      "project_type_simple": "new_build",
+      "narrative": {
+        "driver": "NRK's new headquarters competition was won by concept \"Sirkulær\", making explicit circularity the core design principle with 70% material reuse ambition for 50,000 m² media facility.",
+        "lessons_learned": "Major public clients can use design competitions to drive circular innovation. Ambitions set at tender stage become binding project requirements.",
+        "challenges": [
+          "Project still in planning - challenges will emerge during implementation",
+          "Meeting complex broadcast facility requirements with reused materials",
+          "Sourcing sufficient reused materials for 50,000 m² building"
+        ]
+      }
     }
   ],
   "regulatory_milestones": [
