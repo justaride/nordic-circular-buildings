@@ -1,0 +1,915 @@
+{
+  "case_study_id": "KA13_FLAGSHIP",
+  "project_id": "NO_ka13",
+  "name": "Kristian Augusts gate 13 (KA13)",
+  "subtitle": "Norges første fullskala ombruksbygg",
+  "case_study_version": "2.0",
+  "last_updated": "2024-12-03",
+  "data_source": "KA13 Erfaringsrapport Ombruk Rev.1 (116 sider, 20.01.2021)",
+
+  "executive_summary": {
+    "headline": "80% materialombruk i kontorrehabilitering - Norges gjennombruddsprosjekt for sirkulær bygging",
+    "key_achievements": [
+      "80% ombruksrate etter vekt",
+      "70% reduksjon i klimagassutslipp totalt",
+      "186 tonn CO2-eq total besparelse",
+      "89-98% CO2-besparelse for enkeltmaterialer",
+      "Materialer fra 25+ donorbygg",
+      "96 tonn betong (21 hulldekker) fra Regjeringskvartalet R4",
+      "45 tonn ombrukt stål (70% av total stålkonstruksjon)",
+      "Førte til ny Norsk Standard NS 3682 for hulldekkeombruk"
+    ],
+    "why_flagship": "KA13 var det første prosjektet i Norge som systematisk beviste at storskala ombruk av byggematerialer er teknisk, juridisk og økonomisk gjennomførbart. Erfaringsrapporten på 116 sider har blitt referansedokument for hele bransjen."
+  },
+
+  "project_basics": {
+    "location": {
+      "address": "Kristian Augusts gate 13",
+      "area": "Tullinløkka",
+      "city": "Oslo",
+      "coordinates": {"lat": 59.9163, "lng": 10.739}
+    },
+    "timeline": {
+      "original_construction": 1958,
+      "feasibility_study": "2018",
+      "material_procurement_start": "2018",
+      "construction_start": "Høst 2019",
+      "hulldekker_extracted": "November 2019",
+      "completion": "Vår 2021",
+      "duration_months": 18
+    },
+    "size": {
+      "total_sqm": 4300,
+      "existing_building_sqm": 3500,
+      "new_extension_sqm": 750,
+      "floors": 9
+    },
+    "budget": {
+      "total_investment_mnok": 304,
+      "note": "Inkludert verdien av eiendommen som utvikles",
+      "cost_assessment": "Entras pilot for ombruk med KA13 har verken vært enkelt eller billig å gjennomføre. Målet med KA13 er å vise at gjenbruk er mulig – og kan lønne seg."
+    }
+  },
+
+  "stakeholders": {
+    "byggherreorganisasjon": {
+      "byggherre": {"name": "Entra ASA", "type": "Børsnotert eiendomsselskap"},
+      "prosjektleder_byggherre": {"name": "Entra v/ Håvar Haugen Espelid", "role": "Senior prosjektleder"},
+      "prosjekt_prosjekteringsgruppeledelse": {"name": "Insenti AS", "key_people": [
+        {"name": "Rune Andersen", "role": "Prosjektleder"},
+        {"name": "Randi Lunke", "role": "Miljø- og ombrukskoordinator"}
+      ]},
+      "arkitekt": {"name": "MAD Arkitekter AS", "role": "Hovedarkitekt"},
+      "interiorarkitekt": {"name": "Scenario Interiørarkitekter MNIL AS", "role": "Interiør for leietaker"},
+      "landskapsarkitekt": {"name": "Asplan Viak AS", "role": "Landskapsarkitekt"},
+      "ombruksradgiver": {"name": "Asplan Viak AS", "key_person": "Anne Sigrid Nordby", "role": "Ombrukskartlegging og -rådgiving"},
+      "miljoradgiver": {"name": "Asplan Viak AS", "role": "Miljørådgiving"},
+      "brannradgiver": {"name": "Firesafe Consulting AS", "role": "Brannrådgiving"},
+      "akustikkradgiver": {"name": "Brekke & Strand Akustikk AS", "role": "Akustikkrådgiving"},
+      "rib": {"name": "Rambøll Norge AS", "role": "Rådgivende ingeniør bygg"},
+      "riv": {"name": "Norconsult AS", "role": "Rådgivende ingeniør VVS"},
+      "rie": {"name": "ECT AS", "role": "Rådgivende ingeniør elektro"},
+      "bygningsfysikk": {"name": "Rambøll Norge AS", "role": "Bygningsfysikk"},
+      "juridisk_radgiver": {"name": "Kluge Advokatfirma", "role": "Juridisk rådgivning - byggevareforordningen"}
+    },
+    "entreprenorer": {
+      "bygningsentreprenor": {"name": "Haandverkerne AS (NCC datterselskap)", "role": "Hovedentreprenør bygg"},
+      "ror_og_sprinkling": {"name": "Oslo Akershus Rørleggerbedrift AS", "role": "VVS-entreprenør"},
+      "elektro": {"name": "Bravida Norge AS", "role": "Elektroentreprenør"},
+      "ventilasjon": {"name": "Energima AS", "role": "Ventilasjonsntreprenør"},
+      "kjoleanlegg": {"name": "Caverion Norge AS", "role": "Kjøleentreprenør"},
+      "sd_anlegg": {"name": "GK Norge AS", "role": "SD-anlegg"},
+      "alu_glass": {"name": "Skjæveland Glass AS", "role": "Aluminium og glass"},
+      "tak": {"name": "Norsk Tagdekke AS", "role": "Takentreprenør"},
+      "rive_stal": {"name": "Øst-Riv AS", "role": "Riveentreprenør og stålanskaffelse"},
+      "stalentreprenor": {"name": "Stokke Stål AS", "role": "Stålarbeider, testing og bearbeiding"},
+      "hulldekkeleverandor": {"name": "Veidekke ASA", "role": "Demontering hulldekker fra R4"}
+    },
+    "testing_certification": {
+      "name": "SINTEF",
+      "role": "Testing og sertifisering av ombrukte materialer",
+      "tests_performed": ["Trykktesting betong", "Karbonatisering", "Kloridinnhold", "Strekk og støtmotstand stål"],
+      "chemical_analysis": {"name": "Mantena AS", "role": "OES-spektrometer analyse av stål"}
+    },
+    "reuse_partners": {
+      "ombruksentreprenor": {"name": "Resirqel", "role": "Formidler av brukte byggevarer, rådgiver"},
+      "rehub": {"name": "Rehub", "role": "Bistand til å finne brukte byggevarer"}
+    },
+    "tenant": {
+      "name": "Spaces (Regus)",
+      "type": "Internasjonalt coworking-selskap"
+    },
+    "program": {
+      "name": "FutureBuilt",
+      "designation": "Forbildeprosjekt",
+      "role": "Serie arbeidsmøter våren 2019 for å utvikle KS-prosedyrer med Stålforbundet, Kontrollrådet for betong og SINTEF"
+    },
+    "report_authors": [
+      {"name": "Anne Sigrid Nordby", "organization": "Asplan Viak", "role": "Hovedforfatter"},
+      {"name": "Randi Lunke", "organization": "Insenti", "role": "Bidragsyter"},
+      {"name": "Rune Andersen", "organization": "Insenti", "role": "Bidragsyter"}
+    ]
+  },
+
+  "material_inventory": {
+    "overview": {
+      "total_reuse_rate_percent": 80,
+      "measurement_basis": "by_weight",
+      "donor_buildings_count": 25,
+      "material_categories_reused": 6
+    },
+
+    "materials": [
+      {
+        "id": "M1_STALKONSTRUKSJONER",
+        "category": "structural",
+        "material_type": "steel",
+        "norwegian_name": "Stålkonstruksjoner",
+        "english_name": "Steel structures",
+        "bygningsdelsnummer": "222 Søyler + 223 Bjelker",
+        "description": "Bærende stålkonstruksjon - søyler, bjelker, hatteprofiler. Ca. 70% av stålkonstruksjonene i KA13 er ombruksstål.",
+        "quantity": {
+          "total_procured_tonnes": 57,
+          "total_installed_tonnes": 45,
+          "total_steel_in_project_tonnes": 64,
+          "reuse_percentage": 70,
+          "profile_types": ["Kald- og varmformede hullprofiler", "I-bjelker", "H-bjelker", "HSQ-bjelker", "Vinkler"]
+        },
+        "donor_sources": [
+          {
+            "source": "Karl Johansgate 23",
+            "contractor": "Øst-Riv",
+            "quantity_tonnes": 3,
+            "description": "Demontering av provisorisk stål for bæring"
+          },
+          {
+            "source": "Dronning Maudsgate 1-3",
+            "contractor": "Øst-Riv",
+            "quantity_tonnes": 7,
+            "description": "Demontering av toppetasje"
+          },
+          {
+            "source": "Stena stål gjenvinning",
+            "via": "Stokke Stål",
+            "quantity_tonnes": 4,
+            "breakdown": "3 tonn hullprofiler, 1 tonn vinkler",
+            "description": "Overskuddsmaterial levert til gjenvinning, tidligere formål ukjent"
+          },
+          {
+            "source": "Agility Group (offshore-installasjoner)",
+            "via": "Stokke Stål",
+            "quantity_tonnes": 22,
+            "breakdown": "18 tonn hullprofiler, 4 tonn bjelker og vinkler",
+            "description": "Overskudd fra offshore-produksjon som normalt sendes til gjenvinning"
+          },
+          {
+            "source": "Stokke Stål restlager",
+            "quantity_tonnes": 23,
+            "breakdown": "17 tonn hullprofiler, 6 tonn bjelker og vinkler",
+            "projects": ["Stemplingsstål fra Grans i Sandefjord", "Midlertidig stål fra Dronning Mauds gate", "Midlertidig stål fra Oksenøye Fornebu", "Midlertidig stål fra tidligere prosjekter"]
+          }
+        ],
+        "processing": {
+          "location": "Stokke Stål AS, Vestfold",
+          "steps": [
+            "Sortering basert på opprinnelse og egenskaper i testgrupper",
+            "Sporingssystem med individuelle referansenummer",
+            "UCI-hardhetsmåling for å bekrefte batch-homogenitet",
+            "Kjemisk sammensetning undersøkt med bærbart OES-spektrometer",
+            "Inndeling i 13 testgrupper/batcher",
+            "Destruktiv testing av strekk og støtmotstand hos SINTEF Oslo",
+            "Sandblåsing (ca. 70 timer totalt) med gjenvinnbart blåsemiddel",
+            "Priming",
+            "Ekstra skjøting for å oppnå riktig lengde"
+          ],
+          "extra_storage": "Leid ekstra areal (jorde fra bonde i nærheten) for sortering av stål i batcher",
+          "new_components": "Alle endeplater, fotplater, klakker anskaffet som nytt - vanskelig å finne brukt og dyrt å tilpasse"
+        },
+        "certification": {
+          "testing_procedure": "Utformet av Stokke Stål i samarbeid med PRO Development",
+          "assistance": "Norsk Stålforbund - kunnskap om krav og gjeldende standarder",
+          "hardness_testing": "Stokke Stål - UCI-hardhetsmåler",
+          "chemical_analysis": "Mantena AS - bærbart OES-spektrometer",
+          "destructive_testing": {
+            "lab": "SINTEF Oslo",
+            "test_method": "Kappet bit på ca. 30 cm per batch sendt til testing",
+            "tests": ["Strekkmotstand", "Støtmotstand"]
+          },
+          "ce_marking": "Stokke Stål CE-merker stålet og utsteder ytelseserklæring når montasje er utført",
+          "standard": "NS EN 1090-2"
+        },
+        "environmental_impact": {
+          "co2_savings_percent": 97,
+          "co2_savings_tonnes": 110,
+          "new_emission": "2.5 kg CO2-eq/kg",
+          "reused_emission": "0.07 kg CO2-eq/kg",
+          "main_emission_source": "Bearbeiding (kapping og sandblåsing) utgjør 67% av utslippene ved ombruk",
+          "source": "Høydahl og Walter, NTNU Masteroppgave 2020"
+        },
+        "cost": {
+          "initial_estimate": "86 kr/kg (studentoppgave OsloMet)",
+          "final_cost": "ca. 100 kr/kg",
+          "new_steel_price": "67 kr/kg",
+          "cost_difference_percent": "+49% dyrere enn nytt",
+          "cost_includes": ["Søk etter ombruksstål", "Innkjøp", "Demontering", "Scanning/testing", "Bearbeiding", "Mellomlagring", "Transport", "Montering"],
+          "not_included": "Tid til prosjektering (RIB) og prosjektledelse",
+          "extra_design_time": "Estimert dobbelt så lang som for tilsvarende prosjekt med valgfrie profiler",
+          "source": "Jødal, Hansveen og Hall, OsloMet Bachelor oppgave 2020"
+        },
+        "lessons_learned": [
+          "Tilgang til brukt stål er primær utfordring - krevende å finne riktige dimensjoner",
+          "Kommunikasjon med prosjekterende rundt tilgang til profiler og fleksibilitet er avgjørende",
+          "Ombruk krever forsiktig demontering og håndtering - mer tid ved riving",
+          "Testprosedyrer med begrenset antall destruktive tester reduserer kostnader vesentlig",
+          "NS EN 1090-2 kan brukes ved resertifisering av brukt stål",
+          "Bolting framfor sveising kan kreve større høyde - konflikt med etasjehøyde og lysinnslipp"
+        ],
+        "design_adaptations": {
+          "issue": "Opprinnelig planlagt I- eller H-profiler under betongdekke, men høyden stjal lys fra vinduer",
+          "solution": "Brukt hatteprofiler som ligger i samme horisontale sjikt som hulldekkene",
+          "bolting": "Kun prosjektert for bakveggen i akse A som ikke har vinduer"
+        }
+      },
+      {
+        "id": "M2_HULLDEKKER",
+        "category": "structural",
+        "material_type": "concrete",
+        "norwegian_name": "Hulldekker",
+        "english_name": "Hollow core slabs",
+        "bygningsdelsnummer": "224 Bærende dekker",
+        "description": "Prefabrikkerte betongelementer for etasjeskillere",
+        "quantity": {
+          "count": 21,
+          "type": "HD265",
+          "dimensions": "6.5m x 1.2m",
+          "total_area_sqm": 160,
+          "weight_tonnes": 96,
+          "installation_floors": "Plan 5-7 (kun tre etasjer pga. pelkapasitet)"
+        },
+        "donor_source": {
+          "building_name": "R4-bygget",
+          "location": "Regjeringskvartalet, Oslo",
+          "owner": "Statsbygg",
+          "demolition_reason": "Planlagt riving",
+          "original_construction_year": "1980-tallet",
+          "extraction_date": "November 2019",
+          "miljosanering": "Miljøsaneringsrapporten for R4 dokumenterer at hulldekkene ikke inneholder miljøgifter"
+        },
+        "processing": {
+          "demontering": {
+            "contractor": "Veidekke ASA",
+            "method": "Kappet på innsiden av oppleggsbjelkene, fugestøp skjært opp",
+            "equipment": "Egne løfteåk produsert (standard klype ikke mulig pga. påstøp)",
+            "lifting": "Boret hull for øyebolter, festet til stålprofil (UPE) under"
+          },
+          "transport_processing": {
+            "contractor": "Øst-Riv",
+            "interim_storage": "Lager på Follestad",
+            "preparation": ["Rensk av fugestøp", "Kapping til riktig lengde"]
+          },
+          "mounting": "Tradisjonell innfesting på hatteprofiler mot fasade og H-bjelker mot andre sider, fugestøp mellom elementer"
+        },
+        "certification": {
+          "visual_inspection": "RIB og prosjektleder",
+          "slitting": "Ett dekkeelement slisset for å måle dekketykkelse, tverrsnittet til spenntau og overdekninger",
+          "testing_body": "SINTEF Oslo",
+          "tests_performed": ["Karbonatisering", "Kloridinnhold"],
+          "result": "God nok betongkvalitet bekreftet, tilstrekkelig kapasitet",
+          "ce_marking": "Konklusjonen var at ettersom det ikke finnes harmonisert standard for ombruk av byggevarer, kan det heller ikke være krav til CE og DoP",
+          "standard_reference": "Førte senere til utvikling av NS 3682"
+        },
+        "design_limitations": {
+          "issue": "Påstøpen medførte ekstra vekt - peler hadde ikke kapasitet til mer last",
+          "result": "Besluttet å bruke elementer i kun tre etasjer (plan 5-7) isteden for planlagt",
+          "side_effect": "Påstøpen medførte reduserte etasjehøyder ift. opprinnelig plan"
+        },
+        "environmental_impact": {
+          "co2_savings_percent": 89,
+          "co2_savings_tonnes": 10.9,
+          "new_emission": "124.9 kg CO2-eq/tonn",
+          "reused_emission": "13.9 kg CO2-eq/tonn",
+          "main_emission_source": "Transport står for opp mot 90% av utslippene ved ombruk",
+          "break_even_distance_km": 890,
+          "source": "Høydahl og Walter, NTNU Masteroppgave 2020"
+        },
+        "cost": {
+          "cost_vs_new": "5-6 ganger ny pris for hulldekker",
+          "cost_components": [
+            "1. Demontering ved Veidekke (prosedyre, rigg/drift, kontroll, avstivinger, stemplinger, boring, saging, heising)",
+            "2. Testing ved SINTEF",
+            "3. Transport, kapping, bearbeiding, rensing, klargjøring og montering ved Øst-Riv",
+            "4. Ekstra prosjektering (RIB) og administrasjon (Insenti)"
+          ],
+          "note": "Pilotprosjekt med mye planlegging før utførelse. Ekstra tid til RIB-prosjektering og prosjektledelse. Store generelle kostnader fordelt på lite antall elementer."
+        },
+        "lessons_learned": [
+          "Demontering krever nøye planlegging for stabilitet i donorbygget",
+          "Må avsettes plass for mellomlagring for bearbeiding og klargjøring",
+          "KS-prosedyrer må utarbeides i tett samarbeid med prosjekterende, utførende, leverandører og eksterne materialeksperter"
+        ]
+      },
+      {
+        "id": "M2_VINDUER",
+        "category": "facade",
+        "material_type": "glass",
+        "norwegian_name": "Vinduer",
+        "english_name": "Windows",
+        "description": "Vinduer fra feilbestilling",
+        "quantity": {
+          "count": null,
+          "note": "Ikke spesifisert antall"
+        },
+        "donor_source": {
+          "building_name": "Kværnerbyen",
+          "location": "Oslo",
+          "type": "Overskuddsvare/feilbestilling",
+          "sourced_via": "Resirqel"
+        },
+        "processing": {
+          "steps": [
+            "U-verdi vurdering",
+            "Installert kun der termiske egenskaper ikke kompromitterer romkvalitet"
+          ]
+        },
+        "environmental_impact": {
+          "co2_savings_percent": 90,
+          "comparison_basis": "vs nye vinduer",
+          "source": "KA13 Erfaringsrapport"
+        },
+        "citations": [
+          {
+            "source": "KA13 Erfaringsrapport",
+            "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+            "quote": "Vinduer fra feilbestilling i Kværnerbyen sparte 90% produksjonsutslipp"
+          },
+          {
+            "source": "Loopfront Blog",
+            "url": "https://blog.loopfront.com/blog/re-use-in-practice",
+            "quote": "Re-used windows from Kvaernerbyen (obtained via Resirqel)"
+          }
+        ]
+      },
+      {
+        "id": "M3_STAL_REKKVERK",
+        "category": "interior",
+        "material_type": "steel",
+        "norwegian_name": "Stålrekkverk/gitterplater",
+        "english_name": "Steel railings/grating",
+        "description": "Gitterplater omgjort til rekkverk for atriumtrapp",
+        "donor_source": {
+          "building_name": "Tøyenbadet",
+          "location": "Oslo",
+          "type": "Riving"
+        },
+        "environmental_impact": {
+          "co2_savings_percent": 91,
+          "new_material_emission": "2.8 kg CO2-eq per kg",
+          "reused_material_emission": "0.24 kg CO2-eq per kg",
+          "source": "Anskaffelser.no"
+        },
+        "citations": [
+          {
+            "source": "Anskaffelser.no",
+            "url": "https://anskaffelser.no/verktoy/eksempler/ombruk-av-byggematerialer-hos-statsbygg-og-entra",
+            "quote": "Nytt stål er beregnet til å ha et utslipp på 2,8 kg CO2-eq per kg stål, mens ombrukt kun har et utslipp på 0,24 kg CO2-eq. Det utgjør en reduksjon på 91 prosent."
+          }
+        ]
+      },
+      {
+        "id": "M4_NATURSTEIN",
+        "category": "exterior",
+        "material_type": "stone",
+        "norwegian_name": "Naturstein terrassedekke",
+        "english_name": "Natural stone terrace decking",
+        "description": "Fasadestein omgjort til terrassedekke",
+        "donor_source": {
+          "building_name": "Fasaderehabilitering på Skøyen",
+          "location": "Oslo",
+          "type": "Rehabilitering"
+        },
+        "citations": [
+          {
+            "source": "DOGA",
+            "url": "https://doga.no/aktiviteter/dogas-priser/doga-merket-design-arkitektur/vinnere-av-doga-merket/kristian-augusts-gate-13/",
+            "quote": "Terrassedekkene er i naturstein fra en rehabilitert fasade på Skøyen"
+          }
+        ]
+      },
+      {
+        "id": "M5_FASADEPLATER",
+        "category": "facade",
+        "material_type": "cladding",
+        "norwegian_name": "Fasadeplater",
+        "english_name": "Facade panels",
+        "description": "Fasadeplater fra renoveringsprosjekter",
+        "donor_source": {
+          "locations": ["Trondheim", "Oslo"],
+          "type": "Renoveringsprosjekter"
+        },
+        "new_supplier": {
+          "name": "Steni Colour",
+          "role": "Ny fasadekledning der ombruk ikke var mulig"
+        },
+        "citations": [
+          {
+            "source": "DOGA",
+            "url": "https://doga.no/aktiviteter/dogas-priser/doga-merket-design-arkitektur/vinnere-av-doga-merket/kristian-augusts-gate-13/",
+            "quote": "Fasadeplater fra renoveringsprosjekter i Trondheim og Oslo"
+          }
+        ]
+      },
+      {
+        "id": "M6_SANITAERUTSTYR",
+        "category": "interior",
+        "material_type": "sanitary",
+        "norwegian_name": "Sanitærutstyr",
+        "english_name": "Sanitary fixtures",
+        "bygningsdelsnummer": "315",
+        "description": "Komplett sanitærutstyr fra flere donorbygg",
+        "items": [
+          {"type": "Servantbatterier", "quantity": 15, "source": "Lambertseter sykehjem"},
+          {"type": "Servantbatteri HC-vask", "quantity": 7, "sources": ["Universitetsgata 2", "Tøyenbadet"]},
+          {"type": "Kjøkkenarmaturer", "quantity": 8, "source": "Lambertseter sykehjem"},
+          {"type": "Servanter", "quantity": 34, "sources": ["DEG 8", "Universitetsgata 2"]},
+          {"type": "Servant HC", "quantity": 8, "sources": ["Universitetsgata 2", "Tøyenbadet"]},
+          {"type": "Toalett", "quantity": 14, "sources": ["Refstad skole", "Universitetsgata 2", "Tøyenbadet"]},
+          {"type": "HC-toalett", "quantity": 10, "sources": ["Universitetsgata 2", "Tordenskiolds gate 12", "Tøyenbadet", "DEG 8", "Refstad skole"]},
+          {"type": "Armstøtter HC-toalett", "quantity": 9, "sources": ["Refstad skole", "Tordenskiolds gate 12", "Universitetsgata 2", "Tøyenbadet"]},
+          {"type": "Utslagsvasker", "quantity": 8, "sources": ["Refstad skole", "Resirqel"]},
+          {"type": "Batteri til utslagsvask", "quantity": 3, "source": "Tordenskiolds gate 12"}
+        ],
+        "donor_buildings": [
+          "Lambertseter sykehjem",
+          "Universitetsgata 2",
+          "Tøyenbadet",
+          "DEG 8",
+          "Refstad skole",
+          "Tordenskiolds gate 12",
+          "Resirqel (lager)"
+        ]
+      },
+      {
+        "id": "M7_INTERN_TRAPP",
+        "category": "interior",
+        "material_type": "steel",
+        "norwegian_name": "Intern trapp 8-9 etg",
+        "english_name": "Internal staircase floors 8-9",
+        "description": "Ståltrapp fra Entra-portefølje, modifisert og installert",
+        "donor_source": {
+          "building_name": "St. Olavsplass 5",
+          "owner": "Entra",
+          "note": "To ståltrapper med ulike bredder vurdert - den ene passet i bredden men var litt for kort"
+        },
+        "processing": {
+          "contractor": "Stokke Stål",
+          "steps": ["Demontering", "Frakt til Stokke", "Rensing", "Omgjøring", "Sandblåsing", "Lakkering i ny farge", "Skjøtt med fire trinn i toppen", "Nytt rekkverk laget"]
+        },
+        "cost": {
+          "note": "Relativt dyr løsning - mer modifisering enn først antatt"
+        },
+        "lessons_learned": ["Fullt mulig med ombruk av ståltrapper, men modifiseringsbehov må vurderes nøye"]
+      },
+      {
+        "id": "M7_STALBJELKER",
+        "category": "structural",
+        "material_type": "steel",
+        "norwegian_name": "Stålbjelker",
+        "english_name": "Steel beams",
+        "description": "Lastbærende stålkomponenter",
+        "donor_source": {
+          "locations": "Diverse prosjekter i Oslo",
+          "type": "Riving"
+        },
+        "certification": {
+          "testing_body": "SINTEF",
+          "note": "Analysert og dokumentert"
+        },
+        "citations": [
+          {
+            "source": "Anskaffelser.no",
+            "url": "https://anskaffelser.no/verktoy/eksempler/ombruk-av-byggematerialer-hos-statsbygg-og-entra",
+            "quote": "I tillegg til hulldekkelementer er det ombrukt vinduer, dører og lastbærende stålkomponenter"
+          }
+        ]
+      },
+      {
+        "id": "M8_INTERNT_OMBRUK",
+        "category": "interior",
+        "material_type": "various",
+        "norwegian_name": "Internt ombruk fra eksisterende bygg",
+        "english_name": "Internal reuse from existing building",
+        "description": "Radiatorer, dører, veggkledning, møbler fra originalbygget",
+        "donor_source": {
+          "building_name": "KA13 originalbygg (1958)",
+          "type": "Bevaring/internt ombruk"
+        },
+        "citations": [
+          {
+            "source": "DOGA",
+            "url": "https://doga.no/aktiviteter/dogas-priser/doga-merket-design-arkitektur/vinnere-av-doga-merket/kristian-augusts-gate-13/",
+            "quote": "Gamle radiatorer, dører, veggkledning og til og med møbler er reddet fra det originale bygget"
+          }
+        ]
+      },
+      {
+        "id": "M9_TAKPLATER",
+        "category": "interior",
+        "material_type": "ceiling",
+        "norwegian_name": "Takplater/himlingsplater",
+        "english_name": "Ceiling tiles",
+        "description": "Gamle takplater brukt til lydisolering mellom etasjer",
+        "donor_source": {
+          "type": "Diverse kilder",
+          "note": "Gamle, ikke-resirkulerbare materialer gjenbrukt"
+        },
+        "citations": [
+          {
+            "source": "Loopfront Blog",
+            "url": "https://blog.loopfront.com/blog/re-use-in-practice",
+            "quote": "Ceiling tiles (old, non-recyclable materials used for sound insulation between floors)"
+          }
+        ]
+      },
+      {
+        "id": "M10_TEGL",
+        "category": "interior",
+        "material_type": "brick",
+        "norwegian_name": "Teglsteinsvegg",
+        "english_name": "Brick wall",
+        "description": "Dekorativ teglvegg fra flere bygg",
+        "donor_source": {
+          "type": "Flere donorbygg",
+          "note": "Tegl fra ulike kilder satt sammen"
+        },
+        "citations": [
+          {
+            "source": "Loopfront Blog",
+            "url": "https://blog.loopfront.com/blog/re-use-in-practice",
+            "quote": "Brick wall composed of bricks from multiple buildings"
+          }
+        ]
+      }
+    ]
+  },
+
+  "environmental_metrics": {
+    "overall": {
+      "ghg_reduction_percent": 70,
+      "comparison_basis": "vs konvensjonelt nybygg",
+      "scope": "Både rehabilitering og nybygg",
+      "main_driver": "Bevaring av eksisterende bygningskropp og bæresystemer"
+    },
+    "by_material": [
+      {
+        "material": "Stål (generelt)",
+        "co2_savings_percent": 91,
+        "new_emission": "2.8 kg CO2-eq/kg",
+        "reused_emission": "0.24 kg CO2-eq/kg"
+      },
+      {
+        "material": "Vinduer",
+        "co2_savings_percent": 90
+      },
+      {
+        "material": "Betong (hulldekker)",
+        "co2_savings_percent": "Over 90%"
+      },
+      {
+        "material": "Flere materialgrupper",
+        "co2_savings_percent": "89-98%"
+      }
+    ]
+  },
+
+  "certification_and_standards": {
+    "project_certifications": [
+      {
+        "name": "BREEAM In-Use",
+        "level": "Excellent",
+        "year": 2021
+      }
+    ],
+    "awards": [
+      {
+        "name": "DOGA Hedersmerke",
+        "year": 2021,
+        "category": "Design og arkitektur"
+      },
+      {
+        "name": "Statens pris for byggkvalitet",
+        "year": 2021,
+        "jury_note": "Innovative designløsninger innen materialombruk med gode detaljer og estetisk sammenheng"
+      }
+    ],
+    "programs": [
+      {
+        "name": "FutureBuilt",
+        "designation": "Forbildeprosjekt",
+        "achievement": "Første bygg som oppfylte FutureBuilt-kriterier for sirkulære bygg"
+      }
+    ],
+    "standards_developed": {
+      "name": "NS 3682",
+      "title": "Norsk Standard for hulldekker av betong til ombruk",
+      "published": "Februar 2022",
+      "connection_to_ka13": "Erfaringene fra KA13 var direkte input til utviklingen av standarden",
+      "developed_by": "Standard Norge komité SN/K 7 med representanter fra NTNU, Kontrollrådet, Contiga, Arcon Project, Skanska, Spenncon"
+    }
+  },
+
+  "legal_regulatory": {
+    "main_challenges": [
+      {
+        "issue": "Byggevareforordningen (EU CPR)",
+        "description": "CE-merking og ytelseserklæring krav umulig å oppfylle for ombrukte materialer",
+        "resolution": "Brukte unntak for materialer produsert før 2014 - krevde dokumentasjon på samsvar med TEK97"
+      },
+      {
+        "issue": "TEK17 konstruksjonssikkerhet",
+        "description": "Funksjonskrav § 10-2 måtte dokumenteres for ombrukte bærende elementer",
+        "resolution": "SINTEF-testing og RIB-beregninger"
+      },
+      {
+        "issue": "Dokumentasjonskrav",
+        "description": "Ombrukte materialer må være like sikre som nye",
+        "resolution": "Utviklet egne prosedyrer for testing og dokumentasjon"
+      }
+    ],
+    "legal_advisor": "Kluge Advokatfirma",
+    "key_insight": "Det finnes ikke harmonisert standard for ombruk av byggevarer. Dermed ikke krav til CE og DoP, men byggevarene må dokumentere krav iht. byggereglene."
+  },
+
+  "logistics_and_process": {
+    "material_sourcing": {
+      "approach": "Aktiv søking via nettverk, digitale plattformer, og direkte kontakt med rivningsprosjekter",
+      "lead_time": "12+ måneder for å sikre tilgjengelige materialer",
+      "sourcing_partners": ["Resirqel", "Statsbygg", "Diverse rivningsprosjekter"]
+    },
+    "storage": {
+      "challenge": "Begrenset plass på byggeplassen",
+      "solution": "Eksternt mellomlagringsanlegg utenfor Oslo for hulldekker",
+      "management": "Kontinuerlig materialadministrasjon gjennom prosjektperioden"
+    },
+    "processing": {
+      "hulldekker": "Tilpasning til korrekte dimensjoner, nye festeforbindelser",
+      "general": "Tilpasning, justering og rengjøring før bruk"
+    },
+    "design_adaptation": {
+      "principle": "Design må tilpasses tilgjengelige materialers dokumenterte egenskaper",
+      "implication": "Krever ukonvensjonell tenkning fra arkitekter, ingeniører, entreprenører og leietakere"
+    }
+  },
+
+  "economics": {
+    "total_investment": {
+      "amount_mnok": 304,
+      "includes": "Eiendomsverdi"
+    },
+    "cost_assessment": {
+      "verdict": "Verken enkelt eller billig",
+      "purpose": "Vise at gjenbruk er mulig – og kan lønne seg",
+      "long_term_value": "Tids- og økonomiske kostnader brukes til å lage rutiner og erfaringer for fremtidige prosjekter"
+    },
+    "material_costs": {
+      "hulldekker": {
+        "acquisition": "Selger sparer deponiavgift - potensielt gratis/lavkost",
+        "processing": "Ikke oppgitt",
+        "testing": "Ikke oppgitt"
+      },
+      "general": "Detaljerte materialpriser ikke offentlig tilgjengelig"
+    },
+    "value_proposition": {
+      "environmental": "70% GHG-reduksjon, 89-98% for enkeltmaterialer",
+      "societal": "Skaper lokale arbeidsplasser, nye kompetanseområder",
+      "replicability": "116-siders erfaringsrapport skaper grunnlag for standardisering"
+    },
+    "doga_jury_statement": "Prosjektet er 'economically feasible, yes, even profitable'"
+  },
+
+  "lessons_learned": {
+    "organisering_av_prosjekt": {
+      "kontraktsform": "Hovedentreprise/delt entreprise med ca. 15 entreprenører. Tettere dialog med utførende enn totalentreprise - fordel når mye blir til underveis.",
+      "lagerfasiliteter": {
+        "utfordring": "Lite tilgjengelig lager- og riggareal i KA13 - alle ombrukselementer måtte lagres eksternt",
+        "løsninger_brukt": ["Kjelleren til naboprosjektet U2", "Lagerlokale på Vollebekk fabrikker"],
+        "læring": "Måtte flytte ut av lokaler før elementer var klare - unødvendig tidsbruk og kostnader til flytteprosesser"
+      },
+      "merking_og_kontroll": "Ved demontering bør det prioriteres å beskytte og merke elementene godt. Merkingen bør reflekteres i oversikter over planlagte ombrukselementer.",
+      "håndverkerkompetanse": "Viktig at håndverkerne kan bidra til å finne kreative løsninger. Gi de handlingsrom til å utføre håndverk uten at det må gjennom arkitekt og rådgivere når det ikke er nødvendig."
+    },
+    "prosess_og_tidsplan": {
+      "hovedutfordring": "Prosjektering, administrasjon og utførelse mer tidkrevende og dermed kostnadsdrivende med ombruk",
+      "årsaker": [
+        "Brukte elementer kan ikke bestilles etter mål eller med angitte egenskaper",
+        "Elementer kan komme inn i prosjektet på et sent tidspunkt",
+        "Flere vurderinger hos prosjekterende enn normalt nødvendig",
+        "Tvinges til å gjøre beslutninger om kvalitet, pris og omfang svært raskt"
+      ],
+      "konstruksjonselementer": "Å realisere ombruk av stål, hulldekker og tegl krevde mye ekstra tid - nye rutiner for KS og undersøke regelverk",
+      "innkjøpsstrategi": "Innkjøp utført tett opp mot kritisk linje for å gi ekstra tid til søk etter ombruksprodukter"
+    },
+    "informasjonshåndtering": {
+      "verktøy_brukt": "Excel-skjemaer for oversikt over ombrukselementer, løpende oppdatert",
+      "savnet": "Eget IT-verktøy for å håndtere store mengder informasjon om alternative brukte elementer",
+      "parallelt_utviklet": "Entra og Asplan Viak utviklet databaseverktøy for ombrukskartlegging - testet i U2 og St. Olavsplass 5",
+      "markedsplass": "Da prosjektet startet eksisterte ingen sentral markedsplass for brukte byggevarer - avhengig av kontaktnett og direkte kontakt med rive/rehabiliteringsprosjekter",
+      "ombrukskoordinator": "Insenti ved miljø- og ombrukskoordinator ble 'navet' for oversikt og føring av lister"
+    },
+    "kvalitetssikring_og_dokumentasjon": {
+      "regelverk": [
+        {"lov": "TEK", "krav": "Dokumentasjon for produkter til byggverk - uklart hva som er minimumskrav"},
+        {"lov": "Miljøkartlegging", "krav": "Helse- og miljøfarlige stoffer skal ut av kretsløpet iht. TEK kap. 9-7"},
+        {"lov": "Byggevareforordningen (BVF/DOK)", "krav": "Innrettet mot nye produkter, ikke tilpasset brukte byggevarer. Intern ombruk rammes ikke."}
+      ],
+      "tilsyn_pbe": {
+        "tidspunkt": "April 2020",
+        "omfang": "Varsel om tilsyn med produktdokumentasjon for vinduer, dører, glassfelt og isolasjon",
+        "resultat": "Tilsynet ble lukket - ikke funnet vesentlig avvik",
+        "læring": "God støtte i juridisk bistand (Kluge) for å tolke regelverket"
+      },
+      "hovedutfordring": "Avhender av brukte byggevarer får ansvar tilsvarende produsent av nye byggevarer - praktisk svært vanskelig å etterleve"
+    },
+    "vvs_erfaringer": {
+      "utfordringer": [
+        "Vanskelig å motivere håndverkere til å jobbe med gamle rør",
+        "Arbeidstempoet gikk ned - ukurante størrelser og lengder, mye ekstra skjøting",
+        "Ventilasjonskanaler skitne og bulkete - lav motivasjon",
+        "Rør kappet i mindre biter for transport i heis - tar tid å skjøte igjen"
+      ],
+      "suksesser": ["Kjølebafler fungerte bra - kostbare komponenter, motiverende", "Radiatorer fungerte bra"],
+      "læring": "Fagfolk bør demontere utstyr, ikke vanlig riveentreprenører. Mer kostbart men bedre totalløsning."
+    },
+    "success_factors": [
+      "Grundig planlegging - materialkartlegging og leverandørkoordinering",
+      "Forståelse av regulatorisk landskap",
+      "Sterke partnerskap med entreprenører og leietakere",
+      "Tidlig involvering av ombruksrådgivere",
+      "FutureBuilt arbeidsmøter for å utvikle prosedyrer",
+      "Omstillingsprosess fra tradisjonell prosjektering til å tenke ombruk - se muligheter ikke begrensninger",
+      "Ombrukskoordinator som sentral rolle for anskaffelser og dokumentasjon"
+    ],
+    "challenges_encountered": [
+      "Juridisk avklaring tok lang tid",
+      "Manglende standardiserte systemer for ombruksprosesser",
+      "Begrenset lagringskapasitet på byggeplass",
+      "Behov for improvisasjon gjennom utførelsen",
+      "Byggeplanendringer underveis",
+      "Uforutsigbar pris for anskaffelse, logistikk, dokumentasjon, bearbeiding og montering",
+      "Fremdriftsplanlegging krevende - ombrukte elementer kom sent inn"
+    ],
+    "key_insights": [
+      "Anskaffelse må starte tidlig (12+ måneder)",
+      "SINTEF-testing etablerte sertifiseringsprosedyrer",
+      "QR-koder muliggjør materialsporing",
+      "Sirkulær bygging kan være lønnsomt",
+      "Ombruk krever flere aktører på markedet for å opprettholde fremdrift",
+      "Elementer som kan brukes 'slik de er' (f.eks. vinduer) er mindre tidkrevende enn elementer som krever bearbeidelse",
+      "Ved ombruk må man tilpasse bygget til produktet istedenfor omvendt"
+    ],
+    "anbefalinger_regelverk": {
+      "problemstilling": "Selv om materialene er teknisk sett gode nok, oppfyller de ikke byggevareforordningens krav for omsetting på lovlig vis",
+      "konsekvens": "Byggeiere som river og ønsker å la andre benytte brukte materialer kvier seg for å gi bort",
+      "paradoks": "Mange nye byggevarer kommer heller ikke med dokumentasjon som er nødvendig dersom produktet skal ombrukes",
+      "oppfordring": "Nødvendig at myndighetene tar grep for regelendringer eller finner tolkningsrom som er mer i tråd med tolkningen i andre EU-land"
+    },
+    "future_implications": [
+      "Entra: Ombruk og sirkulærøkonomi viktig del av alle fremtidige prosjekter",
+      "Bransjen: Må bli enklere å gjennomføre enn i KA13",
+      "Regulering: Erfaringer har støttet arbeid med regelverksendringer",
+      "Kompetansen rundt sirkulære løsninger må bli større i hele bransjen - prosjekterende, utførende og leverandører"
+    ]
+  },
+
+  "documentation": {
+    "primary_report": {
+      "title": "KA13 Erfaringsrapport Ombruk",
+      "pages": 116,
+      "author": "Anne Sigrid Nordby (Asplan Viak)",
+      "contributors": ["Randi Lunke (Insenti)", "Rune Andersen (Insenti)", "NTNU studenter", "Oslo Met studenter"],
+      "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+      "english_version": "https://www.entra.no/vare-eiendommer/alle-eiendommer/kristian-augusts-gate-13/_/attachment/inline/31ec37c5-5944-4338-a4db-826336969f42:8fd12a6e4418e59f3ffe7be9916e27b7e0239d8f/20230113_KA13_erfaringsrapport_engelsk.pdf",
+      "contents": [
+        "Praktisk gjennomføring",
+        "Kontraktsformer",
+        "Dokumentasjon",
+        "Testing",
+        "Kostnader",
+        "Miljøpåvirkninger"
+      ]
+    },
+    "material_traceability": {
+      "method": "QR-koder i bygget",
+      "purpose": "Spore materialoprinnelse for fremtidig demontering og ombruk"
+    }
+  },
+
+  "sources": [
+    {
+      "type": "primary",
+      "name": "KA13 Erfaringsrapport Ombruk (116 sider)",
+      "organization": "Entra ASA",
+      "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf"
+    },
+    {
+      "type": "primary",
+      "name": "Anskaffelser.no - Ombruk hos Statsbygg og Entra",
+      "url": "https://anskaffelser.no/verktoy/eksempler/ombruk-av-byggematerialer-hos-statsbygg-og-entra"
+    },
+    {
+      "type": "primary",
+      "name": "DOGA - Vinnere av DOGA-merket",
+      "url": "https://doga.no/aktiviteter/dogas-priser/doga-merket-design-arkitektur/vinnere-av-doga-merket/kristian-augusts-gate-13/"
+    },
+    {
+      "type": "primary",
+      "name": "Insenti - Erfaringsrapport fra sirkulærprosjektet KA13",
+      "url": "https://insenti.no/erfaringsrapport-fra-sirkulaerprosjektet-ka13/"
+    },
+    {
+      "type": "primary",
+      "name": "NCC - Ombruksbygget KA13",
+      "url": "https://www.ncc.no/vare-prosjekter/ka13-oslo/"
+    },
+    {
+      "type": "primary",
+      "name": "Resirqel - KA13 prosjekt",
+      "url": "https://www.resirqel.no/prosjekter/ka13"
+    },
+    {
+      "type": "primary",
+      "name": "DiBK - Statens pris for byggkvalitet 2021",
+      "url": "https://www.dibk.no/statens-pris-for-byggkvalitet/nominerte-2021/kristian-augusts-gate-13"
+    },
+    {
+      "type": "secondary",
+      "name": "Bygg.no - Brukte materialer bremseklosser",
+      "url": "http://www.bygg.no/article/1413876"
+    },
+    {
+      "type": "secondary",
+      "name": "Fremtidens Byggenæring - Samlet tråder",
+      "url": "https://www.fremtidensbygg.no/samlet-trader-i-norges-forste-ombruksprosjekt/"
+    },
+    {
+      "type": "secondary",
+      "name": "Loopfront Blog - Re-use in practice",
+      "url": "https://blog.loopfront.com/blog/re-use-in-practice"
+    },
+    {
+      "type": "secondary",
+      "name": "Greenbuilt - KA13 Oslo Ombruk",
+      "url": "https://www.greenbuilt.no/kristian-augustsgate-13-oslo-ombruk/"
+    },
+    {
+      "type": "standard",
+      "name": "NS 3682 - Norsk Standard for hulldekker av betong til ombruk",
+      "url": "https://standard.no/fagomrader/bygg-anlegg-og-eiendom/byggevarer/norsk-standard-for-hulldekker-av-betong-til-ombruk--ns-3682/"
+    }
+  ],
+
+  "data_gaps": {
+    "now_documented": [
+      "Stålkonstruksjon: 57 tonn anskaffet, 45 tonn installert, 5 donorkilder med mengder",
+      "Hulldekker: 21 stk HD265, 6.5m x 1.2m, 96 tonn, fra R4",
+      "Kostnader stål: 100 kr/kg vs 67 kr/kg nytt (+49%)",
+      "Kostnader hulldekker: 5-6x ny pris",
+      "CO2-besparelse stål: 97% (110 tonn CO2-eq)",
+      "CO2-besparelse hulldekker: 89% (10.9 tonn CO2-eq)",
+      "Sanitærutstyr: 116 enheter fra 7 donorbygg",
+      "Komplett stakeholder-liste fra erfaringsrapporten",
+      "Detaljerte læringspunkter for organisering, prosess, KS og VVS"
+    ],
+    "remaining_gaps": [
+      "Eksakte mengder og kostnader for vinduer, fasadeplater, dører",
+      "Detaljerte SINTEF-testresultater (kun oppsummering tilgjengelig)",
+      "Transportavstander og detaljerte logistikkostnader",
+      "Forsikringskostnader og -betingelser",
+      "FDV-dokumentasjon og BIM-modell detaljer"
+    ],
+    "potential_sources": [
+      "Engelsk versjon av erfaringsrapporten (2023)",
+      "FutureBuilt prosjektdokumentasjon fra arbeidsmøter 2019",
+      "NTNU Masteroppgave (Høydahl og Walter 2020)",
+      "OsloMet Bacheloroppgave (Jødal, Hansveen og Hall 2020)",
+      "Direkte kontakt med Entra/Insenti for sensitiv kostnadsinformasjon"
+    ],
+    "data_quality_assessment": "FLAGSHIP - Fullstendig materialinventar, kostnadsdata, sertifiseringsprosedyrer og læringspunkter dokumentert fra primærkilde (116-siders erfaringsrapport)"
+  },
+
+  "replicability_assessment": {
+    "transferable_elements": [
+      "SINTEF-testprosedyrer for betong",
+      "Juridisk rammeverk for pre-2014 materialer",
+      "Ombrukskoordinator-rolle (Insenti-modell)",
+      "QR-kode sporbarhetssystem",
+      "FutureBuilt arbeidsmøte-metodikk"
+    ],
+    "context_dependent": [
+      "Tilgang til donorbygg med passende materialer",
+      "Geografisk nærhet til materialkilder",
+      "Kompetente ombruksaktører på markedet",
+      "Prosjektleders erfaring og vilje til improvisasjon"
+    ],
+    "scalability": "NS 3682 standarden gjør hulldekkeombruk replikerbart på nasjonal skala"
+  }
+}

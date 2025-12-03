@@ -1436,6 +1436,16 @@
       ],
       "circular_features": [
         {
+          "category": "reused_materials",
+          "material_type": "concrete",
+          "description": "3 hollow-core concrete slabs reused from Regjeringskvartalet (government quarter demolition)",
+          "quantity": {
+            "value": 3,
+            "unit": "slabs"
+          },
+          "source_building": "Regjeringskvartalet"
+        },
+        {
           "category": "design_for_disassembly",
           "description": "Demountable steel and concrete connections throughout bearing system - elements can be disconnected and relocated",
           "quantity": {
@@ -1454,27 +1464,62 @@
         {
           "category": "low_carbon_materials",
           "material_type": "concrete",
-          "description": "All concrete meets low-carbon class A standards"
+          "description": "Low-carbon hollow-core decks (lavkarbon hulldekker) and CEM III B concrete throughout",
+          "specifications": "CEM III B sement, lavkarbon klasse A"
         },
         {
           "category": "low_carbon_materials",
           "material_type": "timber",
           "description": "Prefabricated massive timber elements for nursing home and kindergarten, enabling future reconfiguration"
+        },
+        {
+          "category": "renewable_energy",
+          "description": "Solar panels producing 111,000 kWh/year, seawater heat pumps for local district heating/cooling",
+          "quantity": {
+            "value": 111000,
+            "unit": "kWh/år"
+          }
         }
       ],
       "metrics": {
-        "ghg_reduction_target": {
-          "percent": 50,
+        "ghg_total": {
+          "value": 28.0,
+          "unit": "kg CO2-ekv/m²/år",
+          "reduction_percent": 51.9,
+          "comparison_basis": "vs_reference",
+          "reference_value": 58.2,
+          "calculation_tool": "OneClickLCA",
+          "calculation_standard": "NS 3720"
+        },
+        "ghg_materials": {
+          "value": 4.99,
+          "unit": "kg CO2-ekv/m²/år",
+          "reduction_percent": 23,
+          "reference_value": 6.49
+        },
+        "ghg_energy": {
+          "value": 4.4,
+          "unit": "kg CO2-ekv/m²/år",
+          "reduction_percent": 74,
+          "reference_value": 16.9
+        },
+        "ghg_transport": {
+          "reduction_percent": 46.5,
           "comparison_basis": "vs_reference"
         },
         "recycled_steel_content": {
           "percent": 55
+        },
+        "solar_production": {
+          "value": 111000,
+          "unit": "kWh/år"
         }
       },
       "certifications": [
         {
           "name": "BREEAM-NOR",
-          "level": "Outstanding"
+          "level": "Outstanding",
+          "score": "86.3%"
         }
       ],
       "programs": [
@@ -1483,7 +1528,7 @@
           "designation": "Forbildeprosjekt"
         }
       ],
-      "energy_standard": "Passivhus",
+      "energy_standard": "Near Zero Energy Building (nZEB)",
       "scope_notes": {
         "in_scope": true,
         "category": "core",
@@ -1514,12 +1559,18 @@
           "name": "Veidekke - Oksenøya Centre",
           "type": "contractor",
           "url": "https://www.veidekke.com/projects/oksenoya-centre/"
+        },
+        {
+          "name": "Klimagassrapport Oksenøya skole (Asplan Viak/OneClickLCA)",
+          "type": "technical_report",
+          "url": "local:klimagassrapport_oksenoya_skole.pdf",
+          "notes": "Detailed GHG calculations per NS 3720, includes breakdown by materials, energy, transport"
         }
       ],
-      "data_quality": "moderate",
-      "verification_status": "partially_verified",
-      "notes": "Integrated three functions: 15,000 m² school + 14,000 m² nursing home + 8,000 m² kindergarten. Name 'Treklang' means 'three-chord' - inspired by timber facades on all three buildings. Several thousand m² solar panels. Future-focused approach: today's reversible construction becomes tomorrow's donor building inventory.",
-      "last_updated": "2024-12-02",
+      "data_quality": "strong",
+      "verification_status": "verified",
+      "notes": "Integrated three functions: 12,950 m² school (BRA) + 14,000 m² nursing home + 8,000 m² kindergarten = 32,000 m² total complex. Name 'Treklang' means 'three-chord' - inspired by timber facades on all three buildings. 51.9% total GHG reduction vs reference. 3 hollow-core slabs reused from Regjeringskvartalet. Solar panels produce 111,000 kWh/year. Seawater heat pumps for local district heating/cooling. Future-focused approach: today's reversible construction becomes tomorrow's donor building inventory.",
+      "last_updated": "2024-12-03",
       "project_type_simple": "new_build",
       "narrative": {
         "driver": "Bærum kommune wanted to demonstrate that large-scale timber construction with high environmental ambitions is achievable for public buildings. The project combines kindergarten, school and sports facilities in one integrated complex.",
@@ -2871,10 +2922,10 @@
           "url": "https://www.nystruktur.no/prosjekter/hasle-tre/"
         }
       ],
-      "data_quality": "moderate",
+      "data_quality": "strong",
       "verification_status": "verified",
-      "notes": "'Ombruk versjon 2.0' - designing today's building to be tomorrow's material bank. First Norwegian project designed specifically for future material reuse at building scale. Timber primary material (ideal for multi-lifecycle use). Digital passport ensures future disassembly teams have complete component information.",
-      "last_updated": "2024-12-02",
+      "notes": "'Ombruk versjon 2.0' - World's first office building designed for complete disassembly and future material reuse at building scale. 4-story, 3,000 m² building with reversible bolted connections, minimal adhesives, and digital material passport. BREEAM Excellent certified. 60% GHG reduction vs reference. 474 m³ CLT + 108 m³ glulam. Winner of Årets Trebygg 2022 and Construction Industry Climate Prize 2023. Timber primary material (ideal for multi-lifecycle use). Tenant: Redd Barna.",
+      "last_updated": "2024-12-03",
       "project_type_simple": "new_build",
       "narrative": {
         "driver": "Höegh Eiendom wanted to prove that demountable office buildings are commercially viable. The goal was 50% lower emissions than conventional construction.",
@@ -3608,14 +3659,35 @@
           "material_reduction_note": "85% reduction in material emissions alone"
         }
       },
+      "preserved_components": {
+        "description": "Comprehensive preservation of 1950 building elements",
+        "elements": [
+          "Foundations (fundament)",
+          "Load-bearing structures (bærende konstruksjoner)",
+          "Exterior walls (yttervegger)",
+          "Window frames with original teak (vinduskarmer)",
+          "Floor decks (dekker)",
+          "Structural system (bæresystem)",
+          "Stairwells (trapperom)",
+          "Elevator shafts (heissjakter)",
+          "Parts of interior walls (deler av innervegger)",
+          "Some technical equipment (deler av teknisk utstyr)"
+        ],
+        "heritage_features": [
+          "8th floor entirely original with teak and marble walls",
+          "Solvåg stone facade plates",
+          "Original teak window frames throughout"
+        ]
+      },
       "narrative": {
-        "driver": "Höegh Eiendom sought to preserve the building's distinctive character for both environmental and architectural reasons. The heritage-protected Solvåg granite facade and mid-century teak interiors represented irreplaceable cultural value. The project marked the beginning of their broader circular economy commitment.",
-        "lessons_learned": "After KA23, Höegh Eiendom shifted their entire culture toward comprehensive circular thinking. They established partnerships with Sirkulær Ressurssentral and adopted Loopfront digital platform for tracking surplus materials across their portfolio. Heritage protection enhanced rather than hindered circularity - it forced preservation of valuable materials.",
+        "driver": "Höegh Eiendom purchased the 1950 building (original headquarters for Norsk Arbeidsgiverforening, designed by Bjercke & Eliassen) in fall 2019. They sought to preserve its distinctive character for both environmental and architectural reasons. The heritage-protected Solvåg granite facade and mid-century teak interiors represented irreplaceable cultural value.",
+        "lessons_learned": "After KA23, Höegh Eiendom became strategic partner for Sirkulær Ressurssentral and adopted Loopfront as digital reuse platform across their portfolio. Heritage protection enhanced rather than hindered circularity - it forced preservation of valuable materials. The project was restored according to FutureBuilt criteria for circular buildings.",
         "challenges": [
           "poor_original_space_efficiency",
           "thick_interior_walls_reducing_flexibility",
           "regulatory_documentation_requirements",
-          "certification_of_reused_materials"
+          "certification_of_reused_materials",
+          "facade protected under planning and building act required careful handling"
         ]
       },
       "certifications": [],
@@ -3679,10 +3751,10 @@
           "url": "https://norskbyggebransje.no/ostlandet/ka-23"
         }
       ],
-      "data_quality": "moderate",
+      "data_quality": "strong",
       "verification_status": "verified",
-      "notes": "Former Norwegian Employers' Association headquarters. 8-story building. Heritage + circularity synergy: protection didn't prevent reuse, it enhanced it. Early ombrukskartlegging (reuse survey) during design phase enabled design around available salvaged materials. Digital documentation provides material passport for future renovations.",
-      "last_updated": "2024-12-02",
+      "notes": "Norway's first circular building with heritage protection status. Former headquarters for Norsk Arbeidsgiverforening (Norwegian Employers' Association), built 1950, designed by Bjercke & Eliassen. Steel and concrete structure with Solvåg stone facade plates. 8th floor entirely preserved with original teak and marble walls. Höegh Eiendom purchased in fall 2019 and restored according to FutureBuilt criteria. Uses Loopfront as digital reuse platform. Höegh became strategic partner for Sirkulær Ressurssentral. Heritage protection enhanced rather than hindered circularity.",
+      "last_updated": "2024-12-03",
       "project_type_simple": "transformation"
     },
     {
@@ -4094,10 +4166,16 @@
           "url": "https://www.bygg.no/oslo-regjeringskvartalet-skanska/hoyblokken-sertifisert-til-breeam-excellent/2709518"
         }
       ],
-      "data_quality": "moderate",
-      "verification_status": "partially_verified",
-      "notes": "Iconic 1958 brutalist building damaged in 2011 terror attack. Erling Viksjø design with unique naturbetong technique. Decision to preserve rather than demolish has cultural, memorial, and material dimensions. Preserves thousands of tonnes of high-carbon materials. Memorial function (22 July Center) integrated into rehabilitated structure. Phase 1 started winter 2021. Materials from R4 building donated to circular projects.",
-      "last_updated": "2024-12-02",
+      "data_quality": "strong",
+      "verification_status": "verified",
+      "certifications": [
+        {
+          "name": "BREEAM-NOR",
+          "level": "Excellent"
+        }
+      ],
+      "notes": "Iconic 1958 brutalist 17-story tower (Høyblokken/H-Block) designed by Erling Viksjø with unique 'naturbetong' technique. Damaged in 22 July 2011 terror attack. Decision to preserve rather than demolish preserves cultural heritage, memorial significance, and thousands of tonnes of embodied carbon. 15 of 17 floors rehabilitated. BREEAM Excellent certified with blue-green roof and seawater heat pump. 22 July Center integrated into structure. Materials from demolished R4 building donated to circular projects including KA13. Client: Statsbygg. Contractor: Skanska.",
+      "last_updated": "2024-12-03",
       "project_type_simple": "transformation"
     },
     {
@@ -4325,6 +4403,148 @@
           "Project still in planning - challenges will emerge during implementation",
           "Meeting complex broadcast facility requirements with reused materials",
           "Sourcing sufficient reused materials for 50,000 m² building"
+        ]
+      }
+    },
+    {
+      "id": "NO_vollebekk_torg",
+      "name": "Vollebekk torg",
+      "country": "NO",
+      "project_type": {
+        "primary": "new_build",
+        "preservation_percent": 0,
+        "description": "Urban plaza with extensive reused materials - Norway's most circular urban space"
+      },
+      "is_public_sector": false,
+      "project_url": "https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Vollebekk-torg",
+      "location": {
+        "city": "Oslo",
+        "municipality": "Oslo",
+        "address": "Vollebekk, Bjerke",
+        "coordinates": {
+          "lat": 59.943,
+          "lng": 10.817
+        }
+      },
+      "status": "completed",
+      "year_completed": "2023",
+      "building_type": "infrastructure",
+      "size_sqm": null,
+      "budget": null,
+      "client": "OBOS Nye Hjem",
+      "architect": null,
+      "landscape_architect": "SOLA landskapsarkitekter",
+      "contractor": null,
+      "circularity_qualification": "Norway's most circular urban space. Reused natural stone from 8 different projects, crushed brick as playground surface (fallunderlag), vertically placed roof tiles, scaffolding planks, and recycled ceramics in concrete tables. Materials stored at Resirqel's Ombygg tent at Økern before installation.",
+      "primary_strategies": [
+        "material_reuse",
+        "recycled_content"
+      ],
+      "circular_features": [
+        {
+          "category": "reused_materials",
+          "material_type": "natural_stone",
+          "description": "Reused natural stone (naturstein) collected from 8 different donor projects across Oslo",
+          "quantity": {
+            "description": "Multiple sources including demolished buildings and infrastructure"
+          }
+        },
+        {
+          "category": "reused_materials",
+          "material_type": "brick",
+          "description": "Crushed brick used as playground fall protection surface (fallunderlag)",
+          "quantity": {
+            "description": "Repurposed from demolished buildings"
+          }
+        },
+        {
+          "category": "reused_materials",
+          "material_type": "roof_tiles",
+          "description": "Reclaimed roof tiles (takstein) placed vertically as decorative/functional elements",
+          "quantity": {
+            "description": "Collected from building demolitions"
+          }
+        },
+        {
+          "category": "reused_materials",
+          "material_type": "timber",
+          "description": "Scaffolding planks (stillas-planker) reused as wooden elements",
+          "quantity": {
+            "description": "From construction sites"
+          }
+        },
+        {
+          "category": "recycled_content",
+          "material_type": "ceramics",
+          "description": "Recycled ceramics cast into custom concrete tables and furniture",
+          "quantity": {
+            "description": "Ceramics from various sources integrated into bespoke concrete pieces"
+          }
+        }
+      ],
+      "metrics": {},
+      "certifications": [],
+      "programs": [
+        {
+          "name": "FutureBuilt",
+          "designation": "Forbildeprosjekt"
+        }
+      ],
+      "awards": [
+        {
+          "name": "Oslo Arkitekturpris",
+          "year": 2024,
+          "category": "Urban space"
+        },
+        {
+          "name": "Landskapsarkitekturprisen",
+          "year": 2024,
+          "category": "Best landscape architecture project"
+        }
+      ],
+      "energy_standard": null,
+      "other_stakeholders": [
+        {
+          "role": "reuse_consultant",
+          "name": "Resirqel",
+          "contact": "Taale Kjøs"
+        },
+        {
+          "role": "landscape_architect_lead",
+          "name": "Ashley Conn",
+          "organization": "SOLA landskapsarkitekter"
+        }
+      ],
+      "scope_notes": {
+        "in_scope": true,
+        "category": "infrastructure",
+        "notes": "Landscape/urban space project demonstrating circular principles in public realm. While not a building, represents important expansion of circular practices beyond buildings."
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "name": "FutureBuilt - Vollebekk torg",
+          "url": "https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Vollebekk-torg"
+        },
+        {
+          "type": "technical_report",
+          "name": "Vollebekk torg sirkulært byrom PDF",
+          "url": "local:vollebekk_torg_sirkular.pdf",
+          "notes": "Detailed documentation of reuse materials and circular approach"
+        }
+      ],
+      "data_quality": "strong",
+      "verification_status": "verified",
+      "notes": "Won both Oslo Architecture Prize and Landscape Architecture Prize 2024. Called 'Norway's most circular urban space'. Materials sourced from 8 different projects and stored at Resirqel's 'Ombygg' reuse tent at Økern (established 2023). Demonstrates how circular principles can extend beyond buildings to urban infrastructure. Key people: Ashley Conn (SOLA) led landscape design, Taale Kjøs (Resirqel) managed material sourcing.",
+      "last_updated": "2024-12-03",
+      "project_type_simple": "infrastructure",
+      "narrative": {
+        "driver": "OBOS Nye Hjem sought to create a public space that demonstrates circular material principles, working with landscape architects SOLA and reuse specialists Resirqel to source materials from multiple demolition projects.",
+        "lessons_learned": "Urban spaces and infrastructure can apply same circular principles as buildings. Material storage infrastructure (Ombygg tent) was essential for coordinating materials from multiple sources.",
+        "challenges": [
+          "Coordinating material collection from 8 different donor projects",
+          "Storing and sorting materials before installation",
+          "Integrating diverse reused materials into cohesive design"
         ]
       }
     }

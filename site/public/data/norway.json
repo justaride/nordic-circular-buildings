@@ -87,29 +87,76 @@
       "circular_features": [
         {
           "category": "material_reuse",
+          "material_type": "steel",
+          "description": "45 tonnes reused steel (70% of total) - columns, beams, hat profiles from 5 donor sources. Tested with OES spectrometer and SINTEF destructive testing.",
+          "donor_source": {
+            "name": "Multiple sources",
+            "location": "Oslo/Østlandet",
+            "type": "demolition/surplus",
+            "details": "Karl Johansgate 23 (3t), Dronning Maudsgate 1-3 (7t), Stena stål (4t), Agility Group offshore (22t), Stokke Stål restlager (23t)"
+          },
+          "quantity": {
+            "value": 45,
+            "unit": "tonnes",
+            "description": "45 tonnes installed of 57 tonnes procured (70% of total 64t steel in project)"
+          },
+          "processing": "Stokke Stål: sorting by origin, UCI hardness testing, OES chemical analysis by Mantena AS, 13 test batches, SINTEF destructive testing, sandblasting (70 hours), priming",
+          "cost_comparison": {
+            "reused_cost": "100 kr/kg",
+            "new_cost": "67 kr/kg",
+            "difference": "+49% more expensive than new",
+            "note": "Includes search, purchase, dismantling, testing, processing, storage, transport, installation"
+          },
+          "environmental_impact": {
+            "co2_savings_percent": 97,
+            "co2_savings_tonnes": 110,
+            "new_emission": "2.5 kg CO2-eq/kg",
+            "reused_emission": "0.07 kg CO2-eq/kg"
+          },
+          "citations": [
+            {
+              "source": "KA13 Erfaringsrapport side 54-58",
+              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "quote": "Ca. 70% av stålkonstruksjonene i KA13 er ombruksstål"
+            }
+          ],
+          "supplier": {
+            "name": "Stokke Stål AS",
+            "country": "NO",
+            "role": "processor_certifier"
+          }
+        },
+        {
+          "category": "material_reuse",
           "material_type": "concrete",
-          "description": "21 hollow-core concrete slabs reused as floor dividers - Norway's first structural concrete reuse at scale",
+          "description": "21 hollow-core slabs (HD265, 6.5m x 1.2m) reused as floor dividers in floors 5-7. Norway's first structural concrete reuse at scale.",
           "donor_source": {
             "name": "Regjeringskvartalet R4 building",
             "location": "Oslo",
             "type": "demolition"
           },
           "quantity": {
-            "value": 168,
+            "value": 96,
             "unit": "tonnes",
-            "description": "21 hollow-core slabs"
+            "description": "21 hollow-core slabs HD265, 6.5m x 1.2m, ca. 160 m²"
           },
-          "processing": "SINTEF tested slabs to establish certification pathways",
+          "processing": "Veidekke dismantling with custom lifting yokes, Øst-Riv transport/storage at Follestad, SINTEF carbonation and chloride testing",
+          "cost_comparison": {
+            "vs_new": "5-6x price of new hollow-core slabs",
+            "note": "Pilot project with high planning overhead. Cost includes dismantling, testing, transport, processing, extra design time."
+          },
+          "environmental_impact": {
+            "co2_savings_percent": 89,
+            "co2_savings_tonnes": 10.9,
+            "new_emission": "124.9 kg CO2-eq/tonne",
+            "reused_emission": "13.9 kg CO2-eq/tonne",
+            "transport_note": "Transport accounts for 90% of reuse emissions. Break-even distance: 890 km"
+          },
           "citations": [
             {
-              "source": "Anskaffelser.no - Ombruk hos Statsbygg og Entra",
-              "url": "https://anskaffelser.no/verktoy/eksempler/ombruk-av-byggematerialer-hos-statsbygg-og-entra",
-              "quote": "168 tonn betong i form av store betongelementer (hulldekker) ble flyttet fra Regjeringskvartalet til Tullinløkka"
-            },
-            {
-              "source": "NRK - Gjenbruk fra regjeringskvartalet",
-              "url": "https://www.nrk.no/norge/her-gjenbrukes-deler-av-regjeringskvartalet-_-men-dagens-regler-gjor-det-vanskelig-1.15104239",
-              "quote": "Hulldekkeelementene ble skjært løs og heist ut fra R4 i november 2019"
+              "source": "KA13 Erfaringsrapport side 63-67",
+              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "quote": "21 stk. hulldekker av typen HD265, med mål ca 6,5 x 1,2 m"
             },
             {
               "source": "Heidelberg Materials Prefab - Ombruk av hulldekker",
@@ -125,6 +172,28 @@
         },
         {
           "category": "material_reuse",
+          "material_type": "sanitary",
+          "description": "116 sanitary fixtures from 7 donor buildings including sinks, toilets, faucets",
+          "donor_source": {
+            "name": "Multiple sources",
+            "location": "Oslo",
+            "type": "renovation/demolition",
+            "details": "Lambertseter sykehjem, Universitetsgata 2, Tøyenbadet, DEG 8, Refstad skole, Tordenskiolds gate 12"
+          },
+          "quantity": {
+            "value": 116,
+            "unit": "items",
+            "description": "34 sinks, 24 toilets, 23 faucets, 17 HC fixtures, 18 other"
+          },
+          "citations": [
+            {
+              "source": "KA13 Erfaringsrapport side 69",
+              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf"
+            }
+          ]
+        },
+        {
+          "category": "material_reuse",
           "material_type": "glass",
           "description": "Windows from mistaken bulk order saved 90% production emissions",
           "donor_source": {
@@ -132,7 +201,9 @@
             "location": "Oslo",
             "type": "surplus"
           },
-          "quantity": null,
+          "environmental_impact": {
+            "co2_savings_percent": 90
+          },
           "citations": [
             {
               "source": "KA13 Erfaringsrapport (Entra)",
@@ -144,17 +215,17 @@
         {
           "category": "material_reuse",
           "material_type": "steel",
-          "description": "Railings repurposed as atrium stairs",
+          "description": "Internal staircase 8-9th floor from St. Olavsplass 5, extended with 4 steps, sandblasted and repainted",
           "donor_source": {
-            "name": "Tøyenbadet swimming pool",
+            "name": "St. Olavsplass 5",
             "location": "Oslo",
-            "type": "demolition"
+            "type": "Entra portfolio"
           },
-          "quantity": null,
+          "processing": "Stokke Stål: dismantling, cleaning, modification, sandblasting, new paint, new railing",
           "citations": [
             {
-              "source": "KA13 erfaringsrapport",
-              "url": null
+              "source": "KA13 Erfaringsrapport side 67",
+              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf"
             }
           ]
         },
@@ -167,7 +238,6 @@
             "location": "Oslo",
             "type": "renovation"
           },
-          "quantity": null,
           "citations": [
             {
               "source": "KA13 erfaringsrapport",
@@ -184,42 +254,50 @@
           "verified": true,
           "breakdown": [
             {
+              "material": "steel",
+              "contribution_percent": 35,
+              "notes": "45t reused of 64t total (70%), 97% CO2 savings, 110t CO2-eq saved"
+            },
+            {
               "material": "concrete",
-              "contribution_percent": 45,
-              "notes": "168t hollow-core from R4"
+              "contribution_percent": 30,
+              "notes": "96t hollow-core HD265 from R4, 89% CO2 savings, 10.9t CO2-eq saved"
             },
             {
               "material": "glass",
-              "contribution_percent": 20,
-              "notes": "Windows from Kværnerbyen surplus"
-            },
-            {
-              "material": "steel",
               "contribution_percent": 15,
-              "notes": "Railings from Tøyenbadet"
+              "notes": "Windows from Kværnerbyen surplus, 90% CO2 savings"
             },
             {
-              "material": "stone",
+              "material": "sanitary",
               "contribution_percent": 10,
-              "notes": "Facade stone from Skøyen"
+              "notes": "116 fixtures from 7 donor buildings"
             },
             {
               "material": "fixtures",
               "contribution_percent": 10,
-              "notes": "Doors, radiators, furniture"
+              "notes": "Doors, radiators, staircase, stone"
             }
           ]
         },
         "co2_reduction": {
           "percent": 70,
-          "comparison_basis": "vs_conventional"
+          "absolute_tonnes": 186,
+          "comparison_basis": "vs_conventional",
+          "by_material": [
+            {"material": "steel", "savings_percent": 97, "savings_tonnes": 110},
+            {"material": "concrete", "savings_percent": 89, "savings_tonnes": 10.9},
+            {"material": "windows", "savings_percent": 90}
+          ]
         },
         "donor_buildings_count": 25,
         "cost_notes": {
           "total_investment": "304 MNOK (incl. property value)",
-          "cost_comparison": "Reuse was neither simple nor cheap to implement - goal was to prove feasibility. Higher upfront costs but creating replicable procedures.",
-          "co2_savings_vs_new": "70% overall, 89-98% for individual reused elements",
-          "source": "Entra Erfaringsrapport 2021"
+          "steel_cost": "100 kr/kg reused vs 67 kr/kg new (+49%)",
+          "hulldekker_cost": "5-6x price of new",
+          "cost_comparison": "Reuse was neither simple nor cheap - pilot project overhead. Steel and hollow-core were more expensive, but created replicable procedures and massive CO2 savings.",
+          "co2_savings_vs_new": "70% overall, 89-97% for individual reused elements",
+          "source": "Entra Erfaringsrapport 2021 (116 pages)"
         }
       },
       "certifications": [
@@ -1436,6 +1514,16 @@
       ],
       "circular_features": [
         {
+          "category": "reused_materials",
+          "material_type": "concrete",
+          "description": "3 hollow-core concrete slabs reused from Regjeringskvartalet (government quarter demolition)",
+          "quantity": {
+            "value": 3,
+            "unit": "slabs"
+          },
+          "source_building": "Regjeringskvartalet"
+        },
+        {
           "category": "design_for_disassembly",
           "description": "Demountable steel and concrete connections throughout bearing system - elements can be disconnected and relocated",
           "quantity": {
@@ -1454,27 +1542,62 @@
         {
           "category": "low_carbon_materials",
           "material_type": "concrete",
-          "description": "All concrete meets low-carbon class A standards"
+          "description": "Low-carbon hollow-core decks (lavkarbon hulldekker) and CEM III B concrete throughout",
+          "specifications": "CEM III B sement, lavkarbon klasse A"
         },
         {
           "category": "low_carbon_materials",
           "material_type": "timber",
           "description": "Prefabricated massive timber elements for nursing home and kindergarten, enabling future reconfiguration"
+        },
+        {
+          "category": "renewable_energy",
+          "description": "Solar panels producing 111,000 kWh/year, seawater heat pumps for local district heating/cooling",
+          "quantity": {
+            "value": 111000,
+            "unit": "kWh/år"
+          }
         }
       ],
       "metrics": {
-        "ghg_reduction_target": {
-          "percent": 50,
+        "ghg_total": {
+          "value": 28.0,
+          "unit": "kg CO2-ekv/m²/år",
+          "reduction_percent": 51.9,
+          "comparison_basis": "vs_reference",
+          "reference_value": 58.2,
+          "calculation_tool": "OneClickLCA",
+          "calculation_standard": "NS 3720"
+        },
+        "ghg_materials": {
+          "value": 4.99,
+          "unit": "kg CO2-ekv/m²/år",
+          "reduction_percent": 23,
+          "reference_value": 6.49
+        },
+        "ghg_energy": {
+          "value": 4.4,
+          "unit": "kg CO2-ekv/m²/år",
+          "reduction_percent": 74,
+          "reference_value": 16.9
+        },
+        "ghg_transport": {
+          "reduction_percent": 46.5,
           "comparison_basis": "vs_reference"
         },
         "recycled_steel_content": {
           "percent": 55
+        },
+        "solar_production": {
+          "value": 111000,
+          "unit": "kWh/år"
         }
       },
       "certifications": [
         {
           "name": "BREEAM-NOR",
-          "level": "Outstanding"
+          "level": "Outstanding",
+          "score": "86.3%"
         }
       ],
       "programs": [
@@ -1483,7 +1606,7 @@
           "designation": "Forbildeprosjekt"
         }
       ],
-      "energy_standard": "Passivhus",
+      "energy_standard": "Near Zero Energy Building (nZEB)",
       "scope_notes": {
         "in_scope": true,
         "category": "core",
@@ -1514,12 +1637,18 @@
           "name": "Veidekke - Oksenøya Centre",
           "type": "contractor",
           "url": "https://www.veidekke.com/projects/oksenoya-centre/"
+        },
+        {
+          "name": "Klimagassrapport Oksenøya skole (Asplan Viak/OneClickLCA)",
+          "type": "technical_report",
+          "url": "local:klimagassrapport_oksenoya_skole.pdf",
+          "notes": "Detailed GHG calculations per NS 3720, includes breakdown by materials, energy, transport"
         }
       ],
-      "data_quality": "moderate",
-      "verification_status": "partially_verified",
-      "notes": "Integrated three functions: 15,000 m² school + 14,000 m² nursing home + 8,000 m² kindergarten. Name 'Treklang' means 'three-chord' - inspired by timber facades on all three buildings. Several thousand m² solar panels. Future-focused approach: today's reversible construction becomes tomorrow's donor building inventory.",
-      "last_updated": "2024-12-02",
+      "data_quality": "strong",
+      "verification_status": "verified",
+      "notes": "Integrated three functions: 12,950 m² school (BRA) + 14,000 m² nursing home + 8,000 m² kindergarten = 32,000 m² total complex. Name 'Treklang' means 'three-chord' - inspired by timber facades on all three buildings. 51.9% total GHG reduction vs reference. 3 hollow-core slabs reused from Regjeringskvartalet. Solar panels produce 111,000 kWh/year. Seawater heat pumps for local district heating/cooling. Future-focused approach: today's reversible construction becomes tomorrow's donor building inventory.",
+      "last_updated": "2024-12-03",
       "project_type_simple": "new_build",
       "narrative": {
         "driver": "Bærum kommune wanted to demonstrate that large-scale timber construction with high environmental ambitions is achievable for public buildings. The project combines kindergarten, school and sports facilities in one integrated complex.",
@@ -2871,10 +3000,10 @@
           "url": "https://www.nystruktur.no/prosjekter/hasle-tre/"
         }
       ],
-      "data_quality": "moderate",
+      "data_quality": "strong",
       "verification_status": "verified",
-      "notes": "'Ombruk versjon 2.0' - designing today's building to be tomorrow's material bank. First Norwegian project designed specifically for future material reuse at building scale. Timber primary material (ideal for multi-lifecycle use). Digital passport ensures future disassembly teams have complete component information.",
-      "last_updated": "2024-12-02",
+      "notes": "'Ombruk versjon 2.0' - World's first office building designed for complete disassembly and future material reuse at building scale. 4-story, 3,000 m² building with reversible bolted connections, minimal adhesives, and digital material passport. BREEAM Excellent certified. 60% GHG reduction vs reference. 474 m³ CLT + 108 m³ glulam. Winner of Årets Trebygg 2022 and Construction Industry Climate Prize 2023. Timber primary material (ideal for multi-lifecycle use). Tenant: Redd Barna.",
+      "last_updated": "2024-12-03",
       "project_type_simple": "new_build",
       "narrative": {
         "driver": "Höegh Eiendom wanted to prove that demountable office buildings are commercially viable. The goal was 50% lower emissions than conventional construction.",
@@ -3608,14 +3737,35 @@
           "material_reduction_note": "85% reduction in material emissions alone"
         }
       },
+      "preserved_components": {
+        "description": "Comprehensive preservation of 1950 building elements",
+        "elements": [
+          "Foundations (fundament)",
+          "Load-bearing structures (bærende konstruksjoner)",
+          "Exterior walls (yttervegger)",
+          "Window frames with original teak (vinduskarmer)",
+          "Floor decks (dekker)",
+          "Structural system (bæresystem)",
+          "Stairwells (trapperom)",
+          "Elevator shafts (heissjakter)",
+          "Parts of interior walls (deler av innervegger)",
+          "Some technical equipment (deler av teknisk utstyr)"
+        ],
+        "heritage_features": [
+          "8th floor entirely original with teak and marble walls",
+          "Solvåg stone facade plates",
+          "Original teak window frames throughout"
+        ]
+      },
       "narrative": {
-        "driver": "Höegh Eiendom sought to preserve the building's distinctive character for both environmental and architectural reasons. The heritage-protected Solvåg granite facade and mid-century teak interiors represented irreplaceable cultural value. The project marked the beginning of their broader circular economy commitment.",
-        "lessons_learned": "After KA23, Höegh Eiendom shifted their entire culture toward comprehensive circular thinking. They established partnerships with Sirkulær Ressurssentral and adopted Loopfront digital platform for tracking surplus materials across their portfolio. Heritage protection enhanced rather than hindered circularity - it forced preservation of valuable materials.",
+        "driver": "Höegh Eiendom purchased the 1950 building (original headquarters for Norsk Arbeidsgiverforening, designed by Bjercke & Eliassen) in fall 2019. They sought to preserve its distinctive character for both environmental and architectural reasons. The heritage-protected Solvåg granite facade and mid-century teak interiors represented irreplaceable cultural value.",
+        "lessons_learned": "After KA23, Höegh Eiendom became strategic partner for Sirkulær Ressurssentral and adopted Loopfront as digital reuse platform across their portfolio. Heritage protection enhanced rather than hindered circularity - it forced preservation of valuable materials. The project was restored according to FutureBuilt criteria for circular buildings.",
         "challenges": [
           "poor_original_space_efficiency",
           "thick_interior_walls_reducing_flexibility",
           "regulatory_documentation_requirements",
-          "certification_of_reused_materials"
+          "certification_of_reused_materials",
+          "facade protected under planning and building act required careful handling"
         ]
       },
       "certifications": [],
@@ -3679,10 +3829,10 @@
           "url": "https://norskbyggebransje.no/ostlandet/ka-23"
         }
       ],
-      "data_quality": "moderate",
+      "data_quality": "strong",
       "verification_status": "verified",
-      "notes": "Former Norwegian Employers' Association headquarters. 8-story building. Heritage + circularity synergy: protection didn't prevent reuse, it enhanced it. Early ombrukskartlegging (reuse survey) during design phase enabled design around available salvaged materials. Digital documentation provides material passport for future renovations.",
-      "last_updated": "2024-12-02",
+      "notes": "Norway's first circular building with heritage protection status. Former headquarters for Norsk Arbeidsgiverforening (Norwegian Employers' Association), built 1950, designed by Bjercke & Eliassen. Steel and concrete structure with Solvåg stone facade plates. 8th floor entirely preserved with original teak and marble walls. Höegh Eiendom purchased in fall 2019 and restored according to FutureBuilt criteria. Uses Loopfront as digital reuse platform. Höegh became strategic partner for Sirkulær Ressurssentral. Heritage protection enhanced rather than hindered circularity.",
+      "last_updated": "2024-12-03",
       "project_type_simple": "transformation"
     },
     {
@@ -4094,10 +4244,16 @@
           "url": "https://www.bygg.no/oslo-regjeringskvartalet-skanska/hoyblokken-sertifisert-til-breeam-excellent/2709518"
         }
       ],
-      "data_quality": "moderate",
-      "verification_status": "partially_verified",
-      "notes": "Iconic 1958 brutalist building damaged in 2011 terror attack. Erling Viksjø design with unique naturbetong technique. Decision to preserve rather than demolish has cultural, memorial, and material dimensions. Preserves thousands of tonnes of high-carbon materials. Memorial function (22 July Center) integrated into rehabilitated structure. Phase 1 started winter 2021. Materials from R4 building donated to circular projects.",
-      "last_updated": "2024-12-02",
+      "data_quality": "strong",
+      "verification_status": "verified",
+      "certifications": [
+        {
+          "name": "BREEAM-NOR",
+          "level": "Excellent"
+        }
+      ],
+      "notes": "Iconic 1958 brutalist 17-story tower (Høyblokken/H-Block) designed by Erling Viksjø with unique 'naturbetong' technique. Damaged in 22 July 2011 terror attack. Decision to preserve rather than demolish preserves cultural heritage, memorial significance, and thousands of tonnes of embodied carbon. 15 of 17 floors rehabilitated. BREEAM Excellent certified with blue-green roof and seawater heat pump. 22 July Center integrated into structure. Materials from demolished R4 building donated to circular projects including KA13. Client: Statsbygg. Contractor: Skanska.",
+      "last_updated": "2024-12-03",
       "project_type_simple": "transformation"
     },
     {
@@ -4325,6 +4481,148 @@
           "Project still in planning - challenges will emerge during implementation",
           "Meeting complex broadcast facility requirements with reused materials",
           "Sourcing sufficient reused materials for 50,000 m² building"
+        ]
+      }
+    },
+    {
+      "id": "NO_vollebekk_torg",
+      "name": "Vollebekk torg",
+      "country": "NO",
+      "project_type": {
+        "primary": "new_build",
+        "preservation_percent": 0,
+        "description": "Urban plaza with extensive reused materials - Norway's most circular urban space"
+      },
+      "is_public_sector": false,
+      "project_url": "https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Vollebekk-torg",
+      "location": {
+        "city": "Oslo",
+        "municipality": "Oslo",
+        "address": "Vollebekk, Bjerke",
+        "coordinates": {
+          "lat": 59.943,
+          "lng": 10.817
+        }
+      },
+      "status": "completed",
+      "year_completed": "2023",
+      "building_type": "infrastructure",
+      "size_sqm": null,
+      "budget": null,
+      "client": "OBOS Nye Hjem",
+      "architect": null,
+      "landscape_architect": "SOLA landskapsarkitekter",
+      "contractor": null,
+      "circularity_qualification": "Norway's most circular urban space. Reused natural stone from 8 different projects, crushed brick as playground surface (fallunderlag), vertically placed roof tiles, scaffolding planks, and recycled ceramics in concrete tables. Materials stored at Resirqel's Ombygg tent at Økern before installation.",
+      "primary_strategies": [
+        "material_reuse",
+        "recycled_content"
+      ],
+      "circular_features": [
+        {
+          "category": "reused_materials",
+          "material_type": "natural_stone",
+          "description": "Reused natural stone (naturstein) collected from 8 different donor projects across Oslo",
+          "quantity": {
+            "description": "Multiple sources including demolished buildings and infrastructure"
+          }
+        },
+        {
+          "category": "reused_materials",
+          "material_type": "brick",
+          "description": "Crushed brick used as playground fall protection surface (fallunderlag)",
+          "quantity": {
+            "description": "Repurposed from demolished buildings"
+          }
+        },
+        {
+          "category": "reused_materials",
+          "material_type": "roof_tiles",
+          "description": "Reclaimed roof tiles (takstein) placed vertically as decorative/functional elements",
+          "quantity": {
+            "description": "Collected from building demolitions"
+          }
+        },
+        {
+          "category": "reused_materials",
+          "material_type": "timber",
+          "description": "Scaffolding planks (stillas-planker) reused as wooden elements",
+          "quantity": {
+            "description": "From construction sites"
+          }
+        },
+        {
+          "category": "recycled_content",
+          "material_type": "ceramics",
+          "description": "Recycled ceramics cast into custom concrete tables and furniture",
+          "quantity": {
+            "description": "Ceramics from various sources integrated into bespoke concrete pieces"
+          }
+        }
+      ],
+      "metrics": {},
+      "certifications": [],
+      "programs": [
+        {
+          "name": "FutureBuilt",
+          "designation": "Forbildeprosjekt"
+        }
+      ],
+      "awards": [
+        {
+          "name": "Oslo Arkitekturpris",
+          "year": 2024,
+          "category": "Urban space"
+        },
+        {
+          "name": "Landskapsarkitekturprisen",
+          "year": 2024,
+          "category": "Best landscape architecture project"
+        }
+      ],
+      "energy_standard": null,
+      "other_stakeholders": [
+        {
+          "role": "reuse_consultant",
+          "name": "Resirqel",
+          "contact": "Taale Kjøs"
+        },
+        {
+          "role": "landscape_architect_lead",
+          "name": "Ashley Conn",
+          "organization": "SOLA landskapsarkitekter"
+        }
+      ],
+      "scope_notes": {
+        "in_scope": true,
+        "category": "infrastructure",
+        "notes": "Landscape/urban space project demonstrating circular principles in public realm. While not a building, represents important expansion of circular practices beyond buildings."
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "name": "FutureBuilt - Vollebekk torg",
+          "url": "https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Vollebekk-torg"
+        },
+        {
+          "type": "technical_report",
+          "name": "Vollebekk torg sirkulært byrom PDF",
+          "url": "local:vollebekk_torg_sirkular.pdf",
+          "notes": "Detailed documentation of reuse materials and circular approach"
+        }
+      ],
+      "data_quality": "strong",
+      "verification_status": "verified",
+      "notes": "Won both Oslo Architecture Prize and Landscape Architecture Prize 2024. Called 'Norway's most circular urban space'. Materials sourced from 8 different projects and stored at Resirqel's 'Ombygg' reuse tent at Økern (established 2023). Demonstrates how circular principles can extend beyond buildings to urban infrastructure. Key people: Ashley Conn (SOLA) led landscape design, Taale Kjøs (Resirqel) managed material sourcing.",
+      "last_updated": "2024-12-03",
+      "project_type_simple": "infrastructure",
+      "narrative": {
+        "driver": "OBOS Nye Hjem sought to create a public space that demonstrates circular material principles, working with landscape architects SOLA and reuse specialists Resirqel to source materials from multiple demolition projects.",
+        "lessons_learned": "Urban spaces and infrastructure can apply same circular principles as buildings. Material storage infrastructure (Ombygg tent) was essential for coordinating materials from multiple sources.",
+        "challenges": [
+          "Coordinating material collection from 8 different donor projects",
+          "Storing and sorting materials before installation",
+          "Integrating diverse reused materials into cohesive design"
         ]
       }
     }
