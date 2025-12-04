@@ -130,17 +130,19 @@ def score_metrics_co2(project):
 
     metrics = project.get('metrics', {})
 
-    # CO2 reduction percentage (6 pts)
-    co2 = metrics.get('co2_reduction', {})
+    # CO2/GHG reduction percentage (6 pts) - check both co2_reduction and ghg_reduction
+    co2 = metrics.get('co2_reduction', {}) or metrics.get('ghg_reduction', {})
     if isinstance(co2, dict):
-        if co2.get('percent'):
+        pct = co2.get('percent') or co2.get('value')
+        if pct:
             score += 6
-            has.append(f"CO2 reduction: {co2['percent']}%")
+            has.append(f"CO2/GHG reduction: {pct}%")
 
             # Baseline documented (3 pts)
-            if co2.get('baseline') or co2.get('description'):
+            if co2.get('baseline') or co2.get('description') or co2.get('note'):
                 score += 3
-                has.append(f"CO2 baseline: {co2.get('baseline', co2.get('description', 'documented'))}")
+                baseline = co2.get('baseline') or co2.get('description') or co2.get('note', 'documented')
+                has.append(f"CO2 baseline: {str(baseline)[:50]}")
             else:
                 missing.append("CO2 reduction baseline/methodology")
         else:

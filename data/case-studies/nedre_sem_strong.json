@@ -4,11 +4,10 @@
   "name": "Nedre Sem Låve",
   "subtitle": "Sirkulært nybygg med historisk låve som materialbank",
   "case_study_version": "3.0",
-  "case_study_tier": "STRONG",
+  "case_study_tier": "TIER_1",
   "last_updated": "2025-12-04",
   "data_source": "Veidekke Sirkularitetsrapport (2023) + Context AS Klimagassrapport (2024) + Veidekke Betongrapport (2023) + Context AS Plastkriterier (2025)",
-  "data_quality_note": "Comprehensive documentation with SI-index, FutureBuilt ZERO calculations, detailed concrete CO2 analysis, full material inventory, and FutureBuilt plastic reduction pilot data.",
-
+  "data_quality_note": "Data completeness: 59/100 (Grade C). 24 data points documented, 8 gaps identified.",
   "executive_summary": {
     "project_type": "Nybygg med ombruk fra eksisterende låve",
     "completion_year": 2024,
@@ -16,8 +15,16 @@
     "total_bta_m2": 2564,
     "heated_bra_m2": 2127,
     "building_parts": {
-      "work_center": {"bta_m2": 1445, "heated_bra_m2": 1283, "classification": "Skolebygg"},
-      "housing": {"bta_m2": 1119, "heated_bra_m2": 844, "classification": "Boligblokk"}
+      "work_center": {
+        "bta_m2": 1445,
+        "heated_bra_m2": 1283,
+        "classification": "Skolebygg"
+      },
+      "housing": {
+        "bta_m2": 1119,
+        "heated_bra_m2": 844,
+        "classification": "Boligblokk"
+      }
     },
     "users": {
       "total": 41,
@@ -48,9 +55,9 @@
       "Biobasert dampsperre (99.7% sukkerrør) fra Bewi",
       "GU-X-plater istedenfor plastbasert vindsperre",
       "Osmo hardvoksolje (plastfritt) til massivtre"
-    ]
+    ],
+    "why_tier": "Completeness score 59/100 (Grade C). 8 gaps identified. To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse"
   },
-
   "circularity_metrics": {
     "si_index": {
       "value": 48,
@@ -186,7 +193,6 @@
       }
     ]
   },
-
   "plastic_reduction": {
     "summary": {
       "total_reduction_percent": 52.9,
@@ -358,23 +364,72 @@
       "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-plastkriterier-2025.pdf"
     }
   },
-
   "material_inventory": {
     "from_demolished_barn": {
       "timber": {
         "total_m3": 123.62,
         "total_kg": 57294,
         "items": [
-          {"name": "Takstoler", "m3": 28.8, "kg": 13680, "planned_use": "Søyler i nytt bygg + pergola + dekorative elementer"},
-          {"name": "Takbord/taktro", "m3": 14, "kg": 6650, "planned_use": "Lekter og sløyfer, museer for vernede bygninger"},
-          {"name": "Bjelker 3. etasje", "m3": 1.62, "kg": 770, "planned_use": "Ny bærekonstruksjon"},
-          {"name": "Bjelker 2. etasje", "m3": 8.8, "kg": 4180, "planned_use": "Ny bærekonstruksjon"},
-          {"name": "Bjelker 1. etasje", "m3": 17.66, "kg": 8390, "planned_use": "Ny bærekonstruksjon hvis mulig"},
-          {"name": "Søyler", "m3": 4.34, "kg": 2059, "planned_use": "Ny bærekonstruksjon"},
-          {"name": "Gulvbord 3. etasje", "m3": 5.4, "kg": 2565, "planned_use": "Dekorativt element eller gulv, 60x120mm med not/fjær"},
-          {"name": "Gulvbord 2. etasje", "m3": 8.75, "kg": 4156, "planned_use": "Sløyfer og lekter"},
-          {"name": "Gulvbord 1. etasje", "m3": 20, "kg": 9500, "planned_use": "Usikkert pga tjære, mulig spesialavfall"},
-          {"name": "Kledning", "m3": 11.25, "kg": 5344, "planned_use": "Kledning på nytt bygg, høvles"}
+          {
+            "name": "Takstoler",
+            "m3": 28.8,
+            "kg": 13680,
+            "planned_use": "Søyler i nytt bygg + pergola + dekorative elementer"
+          },
+          {
+            "name": "Takbord/taktro",
+            "m3": 14,
+            "kg": 6650,
+            "planned_use": "Lekter og sløyfer, museer for vernede bygninger"
+          },
+          {
+            "name": "Bjelker 3. etasje",
+            "m3": 1.62,
+            "kg": 770,
+            "planned_use": "Ny bærekonstruksjon"
+          },
+          {
+            "name": "Bjelker 2. etasje",
+            "m3": 8.8,
+            "kg": 4180,
+            "planned_use": "Ny bærekonstruksjon"
+          },
+          {
+            "name": "Bjelker 1. etasje",
+            "m3": 17.66,
+            "kg": 8390,
+            "planned_use": "Ny bærekonstruksjon hvis mulig"
+          },
+          {
+            "name": "Søyler",
+            "m3": 4.34,
+            "kg": 2059,
+            "planned_use": "Ny bærekonstruksjon"
+          },
+          {
+            "name": "Gulvbord 3. etasje",
+            "m3": 5.4,
+            "kg": 2565,
+            "planned_use": "Dekorativt element eller gulv, 60x120mm med not/fjær"
+          },
+          {
+            "name": "Gulvbord 2. etasje",
+            "m3": 8.75,
+            "kg": 4156,
+            "planned_use": "Sløyfer og lekter"
+          },
+          {
+            "name": "Gulvbord 1. etasje",
+            "m3": 20,
+            "kg": 9500,
+            "planned_use": "Usikkert pga tjære, mulig spesialavfall"
+          },
+          {
+            "name": "Kledning",
+            "m3": 11.25,
+            "kg": 5344,
+            "planned_use": "Kledning på nytt bygg, høvles"
+          }
         ],
         "certification": "Treteknisk institutt for styrke-klassifisering",
         "source": "Sirkularitetsrapport side 2-4"
@@ -411,22 +466,100 @@
           "source": "Betongrapport side 13"
         },
         "by_element": [
-          {"element": "Stripefundament", "m3": 58.5, "class": "Lavkarbon A", "co2_factor": 200, "saved_kg": 1754},
-          {"element": "Punktfundament", "m3": 10.8, "class": "Lavkarbon A", "co2_factor": 200, "saved_kg": 324},
-          {"element": "Dekke heis", "m3": 2.1, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 346},
-          {"element": "Dekke over plan U", "m3": 33.8, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 5693},
-          {"element": "Gulv på grunn", "m3": 102.5, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 17298},
-          {"element": "Stripeopplegg massivtre", "m3": 2.4, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 398},
-          {"element": "Vegger plan U - yttervegger", "m3": 137.7, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 23232},
-          {"element": "Vegger plan U - grube", "m3": 5.6, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 950},
-          {"element": "Vegger plan U - innervegger", "m3": 11.1, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 1873},
-          {"element": "Vegger plan U - heisgrube", "m3": 4.06, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 685},
-          {"element": "Vegger plan 1 - låvebru", "m3": 4.05, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 684},
-          {"element": "Søyler tek-rom", "m3": 0.5, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 91}
+          {
+            "element": "Stripefundament",
+            "m3": 58.5,
+            "class": "Lavkarbon A",
+            "co2_factor": 200,
+            "saved_kg": 1754
+          },
+          {
+            "element": "Punktfundament",
+            "m3": 10.8,
+            "class": "Lavkarbon A",
+            "co2_factor": 200,
+            "saved_kg": 324
+          },
+          {
+            "element": "Dekke heis",
+            "m3": 2.1,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 346
+          },
+          {
+            "element": "Dekke over plan U",
+            "m3": 33.8,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 5693
+          },
+          {
+            "element": "Gulv på grunn",
+            "m3": 102.5,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 17298
+          },
+          {
+            "element": "Stripeopplegg massivtre",
+            "m3": 2.4,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 398
+          },
+          {
+            "element": "Vegger plan U - yttervegger",
+            "m3": 137.7,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 23232
+          },
+          {
+            "element": "Vegger plan U - grube",
+            "m3": 5.6,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 950
+          },
+          {
+            "element": "Vegger plan U - innervegger",
+            "m3": 11.1,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 1873
+          },
+          {
+            "element": "Vegger plan U - heisgrube",
+            "m3": 4.06,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 685
+          },
+          {
+            "element": "Vegger plan 1 - låvebru",
+            "m3": 4.05,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 684
+          },
+          {
+            "element": "Søyler tek-rom",
+            "m3": 0.5,
+            "class": "Ekstrem",
+            "co2_factor": 111.3,
+            "saved_kg": 91
+          }
         ],
         "certification_process": {
           "testing_body": "Unicon lab + prøvestøp Ulven",
-          "properties_tested": ["Trykkfasthet fck", "Elastisitetsmodul Ecm", "Strekkfasthet", "Uttørkingssvinntøyning", "Autogen svinntøyning"],
+          "properties_tested": [
+            "Trykkfasthet fck",
+            "Elastisitetsmodul Ecm",
+            "Strekkfasthet",
+            "Uttørkingssvinntøyning",
+            "Autogen svinntøyning"
+          ],
           "ce_marking": "Tilslaget CE-merket ihht NS-EN 12620",
           "aggregate_type": "Type AN (>99% mineralsk renhet)"
         },
@@ -457,7 +590,6 @@
       }
     }
   },
-
   "hazardous_materials": {
     "identified": [
       "Betongdekke med oljesøl",
@@ -471,7 +603,6 @@
     ],
     "handling": "Leveres til godkjent mottak"
   },
-
   "design_for_disassembly": {
     "structural_system": {
       "type": "Massivtre",
@@ -494,7 +625,6 @@
       "pipes": "MA-rør i muffesystem med klammer"
     }
   },
-
   "adaptability": {
     "constraints": "Vernet kulturlandskap - nytt bygg må duplisere gammelt i høyde/bredde/lengde/uttrykk",
     "floor_heights": {
@@ -509,7 +639,6 @@
       "Radiatorer muliggjør endring av varmekurser uten pigging"
     ]
   },
-
   "external_material_flows": {
     "to_external": [
       {
@@ -541,7 +670,6 @@
       }
     ]
   },
-
   "energy_system": {
     "solar_panels": {
       "area_m2": 480,
@@ -566,7 +694,6 @@
     },
     "source": "Klimagassrapport side 9-10"
   },
-
   "stakeholders": {
     "client": {
       "name": "Asker kommune",
@@ -574,7 +701,12 @@
     },
     "contractor": {
       "name": "Veidekke Entreprenør AS",
-      "contacts": ["Daniel Banka", "Håvard Kirkebøen", "Tor Flesseberg", "Alf Egil Mathisen"],
+      "contacts": [
+        "Daniel Banka",
+        "Håvard Kirkebøen",
+        "Tor Flesseberg",
+        "Alf Egil Mathisen"
+      ],
       "role": "Totalentreprenør, sirkularitetsrapport og betongrapport"
     },
     "architect": {
@@ -582,7 +714,11 @@
     },
     "climate_consultant": {
       "name": "Context AS",
-      "contacts": ["Emily Smith", "Rolf Hagen", "Sunniva Tellsgård"],
+      "contacts": [
+        "Emily Smith",
+        "Rolf Hagen",
+        "Sunniva Tellsgård"
+      ],
       "role": "Klimagassberegninger (OneClick LCA, Reduzer)"
     },
     "concrete_supplier": {
@@ -594,14 +730,29 @@
       "role": "Resirkulert tilslag fra Follobaneprosjektet"
     },
     "certification_partners": [
-      {"name": "SINTEF", "role": "Teglstein-testing"},
-      {"name": "Treteknisk institutt", "role": "Treverk-klassifisering"},
-      {"name": "Bewi", "role": "Resirkulert EPS utvikling"}
+      {
+        "name": "SINTEF",
+        "role": "Teglstein-testing"
+      },
+      {
+        "name": "Treteknisk institutt",
+        "role": "Treverk-klassifisering"
+      },
+      {
+        "name": "Bewi",
+        "role": "Resirkulert EPS utvikling"
+      }
     ],
     "program": {
       "name": "FutureBuilt",
       "status": "Forbildeprosjekt",
-      "criteria": ["ZERO", "ZERO-T", "NZEB", "Plastbruk (pilot)", "Sirkulære bygg (pilot)"],
+      "criteria": [
+        "ZERO",
+        "ZERO-T",
+        "NZEB",
+        "Plastbruk (pilot)",
+        "Sirkulære bygg (pilot)"
+      ],
       "plastic_pilot": {
         "status": "Første pilotprosjekt for FutureBuilt plastkriterier",
         "report_date": "2025-03-13"
@@ -612,7 +763,6 @@
       "status": "Pilot"
     }
   },
-
   "lessons_learned": [
     {
       "category": "Demontering",
@@ -660,7 +810,6 @@
       "source": "Betongrapport kapittel 6.6"
     }
   ],
-
   "sources": [
     {
       "type": "primary_report",
@@ -680,7 +829,10 @@
       "pages": 17,
       "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-klimagass-2024.pdf",
       "content": "FutureBuilt ZERO beregninger, energi, transport, NS 3720",
-      "tools_used": ["OneClick LCA (rev 1)", "Reduzer (rev 2)"]
+      "tools_used": [
+        "OneClick LCA (rev 1)",
+        "Reduzer (rev 2)"
+      ]
     },
     {
       "type": "technical_report",
@@ -702,10 +854,64 @@
       "significance": "Første pilotprosjekt for FutureBuilt plastkriterier i Norge"
     }
   ],
-
   "data_gaps": [
     "Kostnad for ombruk vs nytt ikke dokumentert offentlig",
     "Faktisk ombruksprosent etter ferdigstillelse vs prosjektert",
     "Driftserfaringer etter 2 år (Fase 3 rapport kommer)"
-  ]
+  ],
+  "data_completeness": {
+    "score": 59,
+    "grade": "C",
+    "category_scores": {
+      "basic_info": 8,
+      "stakeholders": 8,
+      "metrics_co2": 0,
+      "metrics_circularity": 11,
+      "material_inventory": 9,
+      "cost_data": 3,
+      "sources_primary": 7,
+      "certifications": 3,
+      "narrative": 5,
+      "donor_sources": 5
+    },
+    "has": [
+      "Project name: Nedre Sem låve",
+      "City: Asker",
+      "Coordinates: 59.838, 10.4345",
+      "Status: completed",
+      "Year: 2024",
+      "Size: 2190 m²",
+      "Client: Asker kommune",
+      "Architect: Holar Arkitekter",
+      "Contractor: Veidekke Entreprenør",
+      "Circularity rate: 50%",
+      "1 materials with quantities (units/items)",
+      "7 circular features documented",
+      "Material types: brick, concrete, fixtures, insulation, stone, timber",
+      "1 material with source citation",
+      "Budget: 150000000",
+      "4 primary sources",
+      "Total 6 sources documented",
+      "FutureBuilt Pilot",
+      "Energy: Near-zero energy",
+      "Project driver/motivation documented",
+      "Lessons learned documented",
+      "4 challenges documented",
+      "Donor sources: 1887 barn on site, 1890 barn (unsuitable for bearing loads), Fish box waste stream",
+      "Donor types: industrial_waste, transfer, demolition"
+    ],
+    "missing": [
+      "Technical consultants documented",
+      "CO2 reduction percentage",
+      "CO2 intensity (kg CO2/m²/year)",
+      "Material weights in kg/tonnes",
+      "Material quantities (values with units)",
+      "Cost savings/comparison data",
+      "Detailed cost breakdown",
+      "Technical report/klimagassregnskap"
+    ],
+    "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+    "synced_from_project": true,
+    "sync_date": "2025-12-04"
+  }
 }

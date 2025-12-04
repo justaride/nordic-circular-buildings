@@ -7,8 +7,7 @@
   "case_study_tier": "TIER_1",
   "last_updated": "2025-12-04",
   "data_source": "Klimagassrapporter som prosjektert (Multiconsult/Bærum kommune)",
-  "data_quality_note": "Klimagassrapporter for skole, barnehage og BBS. Detaljer om materialombruk og sirkulære strategier trenger ytterligere dokumentasjon.",
-
+  "data_quality_note": "Data completeness: 59/100 (Grade C). 25 data points documented, 8 gaps identified.",
   "executive_summary": {
     "headline": "Samlokalisert skole, barnehage og idrettshall med omfattende klimafokus og ombruk av eksisterende bygningsmasse",
     "key_achievements": [
@@ -21,16 +20,19 @@
       "Passivhusstandard på alle bygg",
       "BREEAM-NOR Excellent sertifisering"
     ],
-    "why_tier_1": "Klimagassrapporter dokumenterer betydelig CO2-reduksjon. Mangler detaljert ombruksdokumentasjon for høyere tier."
+    "why_tier_1": "Klimagassrapporter dokumenterer betydelig CO2-reduksjon. Mangler detaljert ombruksdokumentasjon for høyere tier.",
+    "why_tier": "Completeness score 59/100 (Grade C). 8 gaps identified. To reach Grade B: Obtain klimagassregnskap/LCA report; Document material origin/donor buildings"
   },
-
   "project_basics": {
     "location": {
       "address": "Oksenøyveien",
       "area": "Fornebu/Oksenøya",
       "city": "Bærum",
       "municipality": "Bærum kommune",
-      "coordinates": {"lat": 59.8950, "lng": 10.6150}
+      "coordinates": {
+        "lat": 59.895,
+        "lng": 10.615
+      }
     },
     "timeline": {
       "project_start": 2019,
@@ -45,9 +47,12 @@
         "bbs_sqm": 4500
       }
     },
-    "building_type": ["Skole", "Barnehage", "Idrettshall/Svømmehall"]
+    "building_type": [
+      "Skole",
+      "Barnehage",
+      "Idrettshall/Svømmehall"
+    ]
   },
-
   "stakeholders": {
     "byggherre": {
       "name": "Bærum kommune",
@@ -62,7 +67,6 @@
       "designation": "Forbildeprosjekt"
     }
   },
-
   "environmental_metrics": {
     "climate_reports": {
       "skole": {
@@ -90,11 +94,15 @@
       "performed_by": "Multiconsult"
     }
   },
-
   "material_strategies": {
     "overview": {
       "strategy": "Massivtre og lavkarbonbetong",
-      "focus_areas": ["Massivtre konstruksjon", "Lavkarbonbetong", "Resirkulert armering", "Lokale materialer"]
+      "focus_areas": [
+        "Massivtre konstruksjon",
+        "Lavkarbonbetong",
+        "Resirkulert armering",
+        "Lokale materialer"
+      ]
     },
     "key_materials": [
       {
@@ -110,7 +118,6 @@
     ],
     "note": "Detaljert ombrukskartlegging ikke tilgjengelig i gjennomgåtte dokumenter"
   },
-
   "energy_measures": {
     "energy_standard": "Passivhus",
     "measures": [
@@ -121,7 +128,6 @@
       "Solceller (planlagt)"
     ]
   },
-
   "certification_and_standards": {
     "programs": [
       {
@@ -134,7 +140,6 @@
       "target": "Excellent"
     }
   },
-
   "documentation": {
     "climate_reports": [
       {
@@ -160,7 +165,6 @@
       }
     ]
   },
-
   "data_gaps": {
     "missing_information": [
       "Detaljert materialinventar med mengder",
@@ -170,5 +174,61 @@
       "Design for disassembly dokumentasjon"
     ],
     "upgrade_potential": "Med fullstendig erfaringsrapport og ombruksdokumentasjon kan case study oppgraderes til FLAGSHIP tier"
+  },
+  "data_completeness": {
+    "score": 59,
+    "grade": "C",
+    "category_scores": {
+      "basic_info": 8,
+      "stakeholders": 10,
+      "metrics_co2": 0,
+      "metrics_circularity": 7,
+      "material_inventory": 11,
+      "cost_data": 3,
+      "sources_primary": 10,
+      "certifications": 5,
+      "narrative": 5,
+      "donor_sources": 0
+    },
+    "has": [
+      "Project name: Treklang / Oksenøya Senter",
+      "City: Bærum",
+      "Coordinates: 59.896, 10.618",
+      "Status: completed",
+      "Year: 2022-2023",
+      "Size: 37000 m²",
+      "Client: Bærum kommune",
+      "Architect: ['Arkitektgruppen Lille Frøen', 'Arkitema Architects']",
+      "Contractor: Veidekke Entreprenør",
+      "1 consultant/technical sources",
+      "Material quantities documented (partial)",
+      "4 materials with quantities (units/items)",
+      "6 circular features documented",
+      "Material types: concrete, steel, timber",
+      "3 materials with quantified amounts",
+      "Budget: 1700000000 NOK",
+      "2 primary sources",
+      "Technical reports: Klimagassrapport Oksenøya skol",
+      "Total 6 sources documented",
+      "BREEAM Outstanding",
+      "FutureBuilt Forbildeprosjekt",
+      "Energy: Near Zero Energy Building (nZE",
+      "Project driver/motivation documented",
+      "Lessons learned documented",
+      "3 challenges documented"
+    ],
+    "missing": [
+      "CO2 reduction percentage",
+      "CO2 intensity (kg CO2/m²/year)",
+      "Overall circularity/reuse rate percentage",
+      "Material weights in kg/tonnes",
+      "Source citations for materials",
+      "Cost savings/comparison data",
+      "Detailed cost breakdown",
+      "Material donor sources"
+    ],
+    "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document material origin/donor buildings",
+    "synced_from_project": true,
+    "sync_date": "2025-12-04"
   }
 }

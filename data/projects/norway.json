@@ -409,7 +409,7 @@
           "Client: Entra ASA",
           "Architect: Mad Oslo AS",
           "Contractor: Haandverkerne AS (NCC subsidiary)",
-          "CO2 reduction: 70%",
+          "CO2/GHG reduction: 70%",
           "Circularity rate: 80%",
           "1 materials with weight data (kg/tonnes)",
           "4 circular features documented",
@@ -425,8 +425,8 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "4 challenges documented",
-          "Donor sources: Skøyen facade renovation, Kværnerbyen, Regjeringskvartalet R4 building",
-          "Donor types: demolition, renovation, surplus"
+          "Donor sources: Tøyenbadet swimming pool, Regjeringskvartalet R4 building, Skøyen facade renovation",
+          "Donor types: renovation, surplus, demolition"
         ],
         "missing": [
           "Technical consultants documented",
@@ -1027,7 +1027,7 @@
           "Lessons learned documented",
           "4 challenges documented",
           "2 material(s) with donor source",
-          "Donor types: demolition, preservation"
+          "Donor types: preservation, demolition"
         ],
         "missing": [
           "CO2 reduction percentage",
@@ -1363,8 +1363,8 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "4 challenges documented",
-          "Donor sources: Fish box waste stream, 1887 barn on site, 1890 barn (unsuitable for bearing loads)",
-          "Donor types: demolition, industrial_waste, transfer"
+          "Donor sources: 1887 barn on site, 1890 barn (unsuitable for bearing loads), Fish box waste stream",
+          "Donor types: industrial_waste, transfer, demolition"
         ],
         "missing": [
           "Technical consultants documented",
@@ -1682,7 +1682,7 @@
           "Client: Oslo kommune / Oslobygg KF",
           "Architect: Pir II",
           "Contractor: Håndverkskompaniet AS",
-          "CO2 reduction: 90%",
+          "CO2/GHG reduction: 90%",
           "CO2 baseline: Ship steel vs new production",
           "Material quantities documented (partial)",
           "1 materials with weight data (kg/tonnes)",
@@ -2314,7 +2314,7 @@
           "Client: Undervisningsbygg Oslo KF",
           "Architect: GASA AS",
           "Contractor: Veidekke Entreprenør",
-          "CO2 reduction: 61%",
+          "CO2/GHG reduction: 61%",
           "CO2 baseline: NS3720 reference building",
           "CO2 intensity: 11.06 kg/m²/year",
           "Material quantities documented (partial)",
@@ -2514,8 +2514,8 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "3 challenges documented",
-          "Donor sources: Nedre Sem låve (1890 barn), Nordmarka forest + Vikingtidsmuseet construction plot, Nedre Sem låve",
-          "Donor types: transfer, sustainable_harvest"
+          "Donor sources: Nedre Sem låve (1890 barn), Nedre Sem låve, Nordmarka forest + Vikingtidsmuseet construction plot",
+          "Donor types: sustainable_harvest, transfer"
         ],
         "missing": [
           "Building size (m²)",
@@ -3335,7 +3335,7 @@
           "Client: Oslo Pensjonsforsikring (OPF) and Pensjonskassen for helseforetakene (PKH)",
           "Architect: MAD Arkitekter",
           "Contractor: Sane Entreprenør / Magna Construction Management",
-          "CO2 reduction: 93%",
+          "CO2/GHG reduction: 93%",
           "Circularity rate: 97.3%",
           "2 materials with quantities (units/items)",
           "8 circular features documented",
@@ -3348,8 +3348,8 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "4 challenges documented",
-          "Donor sources: Sporveien (Oslo public transport), Original building, Spjelkavik ungdomsskole, Kongsvinger brannstasjon",
-          "Donor types: demolition, decommissioned, on-site, preservation, surplus"
+          "Donor sources: Munchmuseet (MUNCH museum), Building's own modifications, Spjelkavik ungdomsskole, Kongsvinger brannstasjon",
+          "Donor types: surplus, demolition, preservation, on-site, decommissioned"
         ],
         "missing": [
           "Technical consultants documented",
@@ -3560,8 +3560,8 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "3 challenges documented",
-          "Donor sources: Vika Terrasse, Nasjonalmuseet, unknown",
-          "Donor types: demolition, waste_stream"
+          "Donor sources: Vika Terrasse, unknown, Nasjonalmuseet",
+          "Donor types: waste_stream, demolition"
         ],
         "missing": [
           "Contractor/entreprenør",
@@ -3845,7 +3845,7 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "4 challenges documented",
-          "Donor sources: Existing hospital facilities, unknown, Existing hospital buildings",
+          "Donor sources: unknown, Existing hospital buildings, Existing hospital facilities",
           "Donor types: preservation"
         ],
         "missing": [
@@ -4040,12 +4040,12 @@
         "notes": "World's first office building designed for complete disassembly - DOGA Award 2023"
       },
       "data_completeness": {
-        "score": 36,
-        "grade": "D",
+        "score": 42,
+        "grade": "C",
         "category_scores": {
           "basic_info": 8,
           "stakeholders": 6,
-          "metrics_co2": 0,
+          "metrics_co2": 6,
           "metrics_circularity": 0,
           "material_inventory": 5,
           "cost_data": 3,
@@ -4063,6 +4063,7 @@
           "Size: 3000 m²",
           "Client: Höegh Eiendom & AF Eiendom",
           "Architect: Oslotre",
+          "CO2/GHG reduction: 60%",
           "5 circular features documented",
           "Budget: 118000000",
           "3 primary sources",
@@ -4075,7 +4076,7 @@
         "missing": [
           "Contractor/entreprenør",
           "Technical consultants documented",
-          "CO2 reduction percentage",
+          "CO2 reduction baseline/methodology",
           "CO2 intensity (kg CO2/m²/year)",
           "Circularity/reuse rate",
           "Quantified material data",
@@ -4087,7 +4088,7 @@
           "Technical report/klimagassregnskap",
           "Material donor sources"
         ],
-        "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
+        "upgrade_path": "To reach Grade B: Document reuse/circularity percentage; Document material origin/donor buildings",
         "calculated_date": "2025-12-04"
       }
     },
@@ -4284,7 +4285,7 @@
           "Lessons learned documented",
           "3 challenges documented",
           "2 material(s) with donor source",
-          "Donor types: office_relocations, manufacturing_waste"
+          "Donor types: manufacturing_waste, office_relocations"
         ],
         "missing": [
           "Contractor/entreprenør",
@@ -4505,7 +4506,7 @@
           "Lessons learned documented",
           "3 challenges documented",
           "2 material(s) with donor source",
-          "Donor types: demolition, municipal_warehouse"
+          "Donor types: municipal_warehouse, demolition"
         ],
         "missing": [
           "Building size (m²)",
@@ -4685,7 +4686,7 @@
           "Coordinates: 59.962, 10.923",
           "Status: under_construction",
           "Client: Oslobygg KF",
-          "CO2 reduction: 90%",
+          "CO2/GHG reduction: 90%",
           "1 circular feature(s) documented",
           "2 primary sources",
           "Total 3 sources documented",
@@ -5435,12 +5436,12 @@
         "notes": "Norway's first circular heritage-protected building - 83% internal reuse"
       },
       "data_completeness": {
-        "score": 59,
-        "grade": "C",
+        "score": 68,
+        "grade": "B",
         "category_scores": {
           "basic_info": 8,
           "stakeholders": 10,
-          "metrics_co2": 0,
+          "metrics_co2": 9,
           "metrics_circularity": 8,
           "material_inventory": 11,
           "cost_data": 3,
@@ -5460,6 +5461,8 @@
           "Architect: Arcasa Arkitekter",
           "Contractor: Seltor AS",
           "1 consultant/technical sources",
+          "CO2/GHG reduction: 55%",
+          "CO2 baseline: 55% reduction vs reference building (target was 50",
           "Circularity rate: 50%",
           "6 circular features documented",
           "Material types: concrete, glass, steel, stone, timber",
@@ -5471,11 +5474,10 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "5 challenges documented",
-          "Donor sources: Original 1950 building, Demolition projects, Original building facade",
-          "Donor types: demolition, preservation"
+          "Donor sources: Original 1950 building, Original building facade, Demolition projects",
+          "Donor types: preservation, demolition"
         ],
         "missing": [
-          "CO2 reduction percentage",
           "CO2 intensity (kg CO2/m²/year)",
           "Quantified material data",
           "Material quantities (values with units)",
@@ -5483,7 +5485,7 @@
           "Detailed cost breakdown",
           "Technical report/klimagassregnskap"
         ],
-        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "upgrade_path": "To reach Grade A: Document cost savings from reuse",
         "calculated_date": "2025-12-04"
       }
     },
@@ -5814,8 +5816,8 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "4 challenges documented",
-          "Donor sources: Same building, Bergen Courthouse + Mårdalen, Elevator test tower",
-          "Donor types: demolition, international, renovation, on_site_transformation"
+          "Donor sources: Deconstructed warehouse, Bergen Courthouse + Mårdalen, Same building",
+          "Donor types: international, on_site_transformation, renovation, demolition"
         ],
         "missing": [
           "Contractor/entreprenør",

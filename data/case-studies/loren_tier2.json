@@ -4,11 +4,10 @@
   "name": "Løren aktivitetspark og flerbrukshall",
   "subtitle": "Pilotprosjekt for ombruk av betongfasadeelementer",
   "case_study_version": "1.0",
-  "case_study_tier": "TIER2",
-  "last_updated": "2025-12-03",
+  "case_study_tier": "TIER_2",
+  "last_updated": "2025-12-04",
   "data_source": "Klimasats Sluttrapport + Delrapport (Miljødirektoratet 2022-2025)",
-  "data_quality_note": "Official government funding reports with verified costs and CO2 calculations. Limited material inventory detail.",
-
+  "data_quality_note": "Data completeness: 61/100 (Grade B). 27 data points documented, 6 gaps identified.",
   "executive_summary": {
     "project_type": "Nybygg flerbrukshall med ombrukte fasadeelementer",
     "completion_year": 2025,
@@ -25,9 +24,9 @@
       "Mellomlager hos Ombygg på Økern",
       "Produktdokument delt med Standard Norge",
       "Ombruksløsning som hovedløsning med opsjonspris for nytt"
-    ]
+    ],
+    "why_tier": "Completeness score 61/100 (Grade B). Good documentation level. Upgrade path: To reach Grade A: Document cost savings from reuse; Add material weights (kg/tonnes)"
   },
-
   "circularity_metrics": {
     "co2_reduction": {
       "total_kg_co2_eq": 4620,
@@ -39,7 +38,6 @@
       "note": "For Oslobygg KF, dobbelt for Oslo kommune totalt"
     }
   },
-
   "material_inventory": {
     "reused_materials": [
       {
@@ -74,7 +72,6 @@
       "original_plan": "Bruk som belegningssteiner i utearealer"
     }
   },
-
   "process_documentation": {
     "phases": [
       {
@@ -113,22 +110,35 @@
       }
     ]
   },
-
   "costs": {
     "total_reuse_cost_nok": 974700,
     "breakdown": [
-      {"item": "Rivning, demontering og utskjæring av betongpanel", "cost_nok": 445694},
-      {"item": "Testing og sertifisering av betongpanel", "cost_nok": 151156},
-      {"item": "Intern timebruk", "cost_nok": 60000},
-      {"item": "Grovbearbeidelse av betong", "cost_nok": 317850}
+      {
+        "item": "Rivning, demontering og utskjæring av betongpanel",
+        "cost_nok": 445694
+      },
+      {
+        "item": "Testing og sertifisering av betongpanel",
+        "cost_nok": 151156
+      },
+      {
+        "item": "Intern timebruk",
+        "cost_nok": 60000
+      },
+      {
+        "item": "Grovbearbeidelse av betong",
+        "cost_nok": 317850
+      }
     ],
     "internal_hours": 100,
     "funding": {
       "klimasats_requested_nok": 900000,
-      "other_sources": ["Enova", "Oslobygg KF innovasjonsmidler"]
+      "other_sources": [
+        "Enova",
+        "Oslobygg KF innovasjonsmidler"
+      ]
     }
   },
-
   "stakeholders": {
     "client": {
       "name": "Oslobygg KF",
@@ -157,7 +167,6 @@
       "material": "Betongfasadeelementer"
     }
   },
-
   "lessons_learned": [
     {
       "category": "Finansiering",
@@ -190,7 +199,6 @@
       "recommendation": "Behov for forenklede sertifiseringsprosesser for ombruk"
     }
   ],
-
   "future_applications": {
     "planned_projects": [
       {
@@ -201,7 +209,6 @@
     ],
     "estimated_scale": "500 m² fasadeelementer neste 3 år"
   },
-
   "sources": [
     {
       "type": "primary_report",
@@ -222,11 +229,66 @@
       "local_pdf": "/nordic-circular-buildings/docs/loren-klimasats-delrapport-2023.pdf"
     }
   ],
-
   "data_gaps": [
     "Detaljert materialinventar mangler (kun m² oppgitt)",
     "Totalprosjektkostnad ikke oppgitt",
     "Sirkularitetsindeks ikke beregnet",
     "Skipsstål-komponenten fra Curlew FPSO ikke dokumentert i disse rapportene"
-  ]
+  ],
+  "data_completeness": {
+    "score": 61,
+    "grade": "B",
+    "category_scores": {
+      "basic_info": 8,
+      "stakeholders": 8,
+      "metrics_co2": 9,
+      "metrics_circularity": 11,
+      "material_inventory": 6,
+      "cost_data": 3,
+      "sources_primary": 5,
+      "certifications": 3,
+      "narrative": 5,
+      "donor_sources": 3
+    },
+    "has": [
+      "Project name: Løren aktivitetspark og flerbrukshall",
+      "City: Oslo",
+      "Coordinates: 59.932, 10.8",
+      "Status: under_construction",
+      "Year: 2025 (planned)",
+      "Size: 8500 m²",
+      "Client: Oslo kommune / Oslobygg KF",
+      "Architect: Pir II",
+      "Contractor: Håndverkskompaniet AS",
+      "CO2/GHG reduction: 90%",
+      "CO2 baseline: Ship steel vs new production",
+      "Material quantities documented (partial)",
+      "1 materials with weight data (kg/tonnes)",
+      "2 circular feature(s) documented",
+      "Material types: concrete, steel",
+      "2 material(s) with quantified amounts",
+      "1 material with source citation",
+      "Budget: 301600000",
+      "1 primary source",
+      "Total 9 sources documented",
+      "FutureBuilt",
+      "Energy: Passivhus, Energy class A",
+      "Project driver/motivation documented",
+      "Lessons learned documented",
+      "4 challenges documented",
+      "2 material(s) with donor source",
+      "Donor types: decommissioning, demolition"
+    ],
+    "missing": [
+      "Technical consultants documented",
+      "CO2 intensity (kg CO2/m²/year)",
+      "Overall circularity/reuse rate percentage",
+      "Cost savings/comparison data",
+      "Detailed cost breakdown",
+      "Technical report/klimagassregnskap"
+    ],
+    "upgrade_path": "To reach Grade A: Document cost savings from reuse; Add material weights (kg/tonnes)",
+    "synced_from_project": true,
+    "sync_date": "2025-12-04"
+  }
 }

@@ -4,11 +4,10 @@
   "name": "Skur 38",
   "subtitle": "Oslo Havns hovedkontor - rehabilitering med sirkulære prinsipper",
   "case_study_version": "1.0",
-  "case_study_tier": "TIER2",
+  "case_study_tier": "TIER_1",
   "last_updated": "2025-12-04",
   "data_source": "FutureBuilt Rapportering Sirkulære prinsipper (34 sider + vedlegg), Oslo Havn 24.09.2021",
-  "data_quality_note": "Comprehensive FutureBuilt report with detailed material inventory, cost breakdown, process documentation and CO2 calculations. Project completed 2022.",
-
+  "data_quality_note": "Data completeness: 58/100 (Grade C). 25 data points documented, 8 gaps identified.",
   "executive_summary": {
     "project_type": "Rehabilitering av verneverdig lagerbygg til moderne kontorbygg",
     "original_construction": 1915,
@@ -28,9 +27,9 @@
       "existing_structure_retained_percent": 50,
       "reused_components_percent": 10,
       "note": "Mål: minst 50% eksisterende konstruksjoner bevart, minst 10% tilførte komponenter ombrukt"
-    }
+    },
+    "why_tier": "Completeness score 58/100 (Grade C). 8 gaps identified. To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse"
   },
-
   "circularity_metrics": {
     "co2_savings": {
       "total_kg_co2_eq": 166952,
@@ -72,7 +71,6 @@
       "klimasats_phase2": "Tilsagn mottatt juni/juli 2021"
     }
   },
-
   "material_inventory": {
     "from_skur38_internal": [
       {
@@ -498,7 +496,6 @@
       }
     ]
   },
-
   "process_documentation": {
     "phases": [
       {
@@ -522,7 +519,12 @@
           "Demontering utført av Alt i Prosjekt (AIP), Wickstrøm (elektro), Profilteam (dører/glass)",
           "Pakking og transport til fjellhallen"
         ],
-        "contractors": ["Alt i Prosjekt (AIP)", "Wickstrøm", "Profilteam", "Boss i Follo"]
+        "contractors": [
+          "Alt i Prosjekt (AIP)",
+          "Wickstrøm",
+          "Profilteam",
+          "Boss i Follo"
+        ]
       },
       {
         "phase": 3,
@@ -566,7 +568,6 @@
       }
     }
   },
-
   "stakeholders": {
     "client": {
       "name": "Oslo Havn KF",
@@ -589,14 +590,22 @@
       "name": "Bollinger + Grohmann Ingeniører AS",
       "address": "Filipstadveien 5, 0250 Oslo"
     },
-    "demolition_contractors": ["Alt i Prosjekt (AIP)", "Boss i Follo", "Wickstrøm", "Profilteam"],
-    "report_authors": ["Siri Breivik", "Silje Molid", "Michael Lommertz"],
+    "demolition_contractors": [
+      "Alt i Prosjekt (AIP)",
+      "Boss i Follo",
+      "Wickstrøm",
+      "Profilteam"
+    ],
+    "report_authors": [
+      "Siri Breivik",
+      "Silje Molid",
+      "Michael Lommertz"
+    ],
     "heritage": {
       "status": "Byantikvarens gule liste + Oslo Havns Maritim kulturminneplan",
       "approach": "Synliggjøre byggets historie som opprinnelig lagerbygg"
     }
   },
-
   "lessons_learned": [
     {
       "category": "Planlegging",
@@ -649,7 +658,6 @@
       "recommendation": "Gaver faller utenfor kjøpsloven, men TEK-krav må hensyntas"
     }
   ],
-
   "architect_lessons": [
     {
       "phase": "Kartlegging",
@@ -672,13 +680,16 @@
       "recommendation": "Tett samarbeid og samtidig prosjektering nødvendig"
     }
   ],
-
   "sources": [
     {
       "type": "primary_report",
       "title": "Rapportering til FutureBuilt - Sirkulære prinsipper - Rehabilitering Skur 38",
       "author": "Oslo Havn / Bollinger + Grohmann",
-      "authors_named": ["Siri Breivik", "Silje Molid", "Michael Lommertz"],
+      "authors_named": [
+        "Siri Breivik",
+        "Silje Molid",
+        "Michael Lommertz"
+      ],
       "date": "2021-09-24",
       "pages": 34,
       "local_pdf": "/nordic-circular-buildings/docs/skur38-futurebuilt-ombruk-2022.pdf"
@@ -696,11 +707,66 @@
       "total_co2_kg": 166952
     }
   ],
-
   "data_gaps": [
     "Endelig sirkularitetsindeks ikke oppgitt",
     "Faktisk ombruksprosent vs mål (10%) ikke bekreftet",
     "Oppdaterte tall etter ferdigstillelse mangler",
     "CO2-beregning per materialtype basert på generiske EPD-er"
-  ]
+  ],
+  "data_completeness": {
+    "score": 58,
+    "grade": "C",
+    "category_scores": {
+      "basic_info": 8,
+      "stakeholders": 8,
+      "metrics_co2": 0,
+      "metrics_circularity": 7,
+      "material_inventory": 11,
+      "cost_data": 3,
+      "sources_primary": 7,
+      "certifications": 4,
+      "narrative": 5,
+      "donor_sources": 5
+    },
+    "has": [
+      "Project name: Skur 38",
+      "City: Oslo",
+      "Coordinates: 59.9039, 10.7394",
+      "Status: completed",
+      "Year: 2022",
+      "Size: 4000 m²",
+      "Client: Oslo Havn KF",
+      "Architect: Hille Melbye Arkitekter",
+      "Contractor: Varden Entreprenør",
+      "Material quantities documented (partial)",
+      "1 materials with quantities (units/items)",
+      "5 circular features documented",
+      "Material types: concrete, fixtures, insulation, timber",
+      "1 material(s) with quantified amounts",
+      "1 material with source citation",
+      "Budget: 152000000 NOK",
+      "3 primary sources",
+      "Total 6 sources documented",
+      "BREEAM Excellent",
+      "FutureBuilt First pilot project",
+      "Project driver/motivation documented",
+      "Lessons learned documented",
+      "5 challenges documented",
+      "Donor sources: Original building, Original 1915 structure",
+      "Donor types: preservation"
+    ],
+    "missing": [
+      "Technical consultants documented",
+      "CO2 reduction percentage",
+      "CO2 intensity (kg CO2/m²/year)",
+      "Overall circularity/reuse rate percentage",
+      "Material weights in kg/tonnes",
+      "Cost savings/comparison data",
+      "Detailed cost breakdown",
+      "Technical report/klimagassregnskap"
+    ],
+    "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+    "synced_from_project": true,
+    "sync_date": "2025-12-04"
+  }
 }
