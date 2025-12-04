@@ -1,0 +1,384 @@
+---
+import Layout from '../layouts/Layout.astro';
+import flowsData from '../../../data/flows/norway.json';
+
+const nodes = flowsData.nodes;
+const links = flowsData.links;
+const summary = flowsData.summary;
+
+// Group nodes by type for legend
+const donorNodes = nodes.filter(n => n.type === 'donor');
+const bankNodes = nodes.filter(n => n.type === 'material_bank');
+const recipientNodes = nodes.filter(n => n.type === 'recipient');
+
+// Calculate stats per recipient
+const recipientStats = recipientNodes.map(r => {
+  const inflows = links.filter(l => l.target === r.id);
+  const totalTonnes = inflows.reduce((sum, l) => sum + (l.quantity_tonnes || 0), 0);
+  const totalCO2 = inflows.reduce((sum, l) => sum + (l.co2_saved_kg || 0), 0);
+  const sourceCount = new Set(inflows.map(l => l.source)).size;
+  return {
+    ...r,
+    inflows: inflows.length,
+    totalTonnes,
+    totalCO2,
+    sourceCount
+  };
+}).sort((a, b) => b.inflows - a.inflows);
+---
+
+<Layout title="Material Flows" description="Visualization of material transfers between buildings in Norway's circular construction network">
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <a href={import.meta.env.BASE_URL} class="inline-flex items-center gap-1.5 text-gray-400 hover:text-gray-600 mb-4 text-sm transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Dashboard
+      </a>
+      <h1 class="text-2xl font-semibold text-gray-900 mb-2">Material Flow Network</h1>
+      <p class="text-gray-500 max-w-3xl">
+        Visualization of documented material transfers between donor buildings, material banks,
+        and circular construction projects in Norway. Each flow represents verified material
+        movement with source documentation.
+      </p>
+    </div>
+
+    <!-- Summary Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+      <div class="bg-white rounded-2xl p-5 border border-gray-100">
+        <div class="text-2xl font-semibold text-gray-900">{summary.total_flows}</div>
+        <div class="text-xs text-gray-400">Material Transfers</div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 border border-gray-100">
+        <div class="text-2xl font-semibold text-amber-600">{summary.donor_buildings}</div>
+        <div class="text-xs text-gray-400">Donor Buildings</div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 border border-gray-100">
+        <div class="text-2xl font-semibold text-blue-600">{summary.material_banks}</div>
+        <div class="text-xs text-gray-400">Material Banks</div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 border border-gray-100">
+        <div class="text-2xl font-semibold text-emerald-600">{summary.recipient_projects}</div>
+        <div class="text-xs text-gray-400">Recipient Projects</div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 border border-gray-100">
+        <div class="text-2xl font-semibold text-nordic-600">{summary.total_tonnes_transferred}t</div>
+        <div class="text-xs text-gray-400">Materials Transferred</div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="flex flex-wrap gap-6 mb-6 text-sm">
+      <div class="flex items-center gap-2">
+        <div class="w-4 h-4 rounded bg-amber-400"></div>
+        <span class="text-gray-600">Donor Buildings ({donorNodes.length})</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="w-4 h-4 rounded bg-blue-400"></div>
+        <span class="text-gray-600">Material Banks ({bankNodes.length})</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="w-4 h-4 rounded bg-emerald-500"></div>
+        <span class="text-gray-600">Recipient Projects ({recipientNodes.length})</span>
+      </div>
+    </div>
+
+    <!-- Sankey Diagram Container -->
+    <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
+      <div class="px-6 py-4 border-b border-gray-100">
+        <h2 class="text-lg font-semibold text-gray-900">Material Flow Diagram</h2>
+        <p class="text-sm text-gray-500">Hover over flows to see material details. Click nodes for project info.</p>
+      </div>
+      <div id="sankey-container" class="p-4" style="min-height: 600px;">
+        <div id="sankey-diagram"></div>
+      </div>
+    </div>
+
+    <!-- Flow Details by Recipient -->
+    <section class="mb-8">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Inflows by Project</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {recipientStats.map(project => (
+          <a
+            href={project.project_id ? `${import.meta.env.BASE_URL}/case-studies/${project.project_id}` : '#'}
+            class="bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg transition-shadow"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-semibold text-gray-900">{project.name}</h3>
+                <p class="text-xs text-gray-400">{project.city} • {project.year_completed}</p>
+              </div>
+              <span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-xs font-medium">
+                {project.inflows} flows
+              </span>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-center">
+              <div class="bg-gray-50 rounded-lg p-2">
+                <div class="text-lg font-semibold text-gray-900">{project.sourceCount}</div>
+                <div class="text-xs text-gray-400">Sources</div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-2">
+                <div class="text-lg font-semibold text-nordic-600">{project.totalTonnes > 0 ? `${project.totalTonnes}t` : '-'}</div>
+                <div class="text-xs text-gray-400">Weight</div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-2">
+                <div class="text-lg font-semibold text-emerald-600">{project.totalCO2 > 0 ? `${(project.totalCO2/1000).toFixed(1)}t` : '-'}</div>
+                <div class="text-xs text-gray-400">CO2 Saved</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- All Flows Table -->
+    <section class="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-100">
+        <h2 class="text-lg font-semibold text-gray-900">All Documented Transfers</h2>
+        <p class="text-sm text-gray-500">{links.length} verified material transfers</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">From</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">To</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Material</th>
+              <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">Quantity</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Source</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {links.slice(0, 20).map(link => {
+              const sourceNode = nodes.find(n => n.id === link.source);
+              const targetNode = nodes.find(n => n.id === link.target);
+              const quantity = link.quantity_tonnes
+                ? `${link.quantity_tonnes}t`
+                : link.quantity_kg
+                  ? `${link.quantity_kg} kg`
+                  : link.quantity_m2
+                    ? `${link.quantity_m2} m²`
+                    : link.quantity_units
+                      ? `${link.quantity_units} ${link.unit_type || 'stk'}`
+                      : '-';
+              return (
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-3">
+                    <div class="flex items-center gap-2">
+                      <div class={`w-2 h-2 rounded-full ${sourceNode?.type === 'donor' ? 'bg-amber-400' : 'bg-blue-400'}`}></div>
+                      <span class="text-sm text-gray-900">{sourceNode?.name || link.source}</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-3">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                      <span class="text-sm text-gray-900">{targetNode?.name || link.target}</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-3 text-sm text-gray-600">{link.material}</td>
+                  <td class="px-6 py-3 text-sm text-gray-900 text-right font-medium">{quantity}</td>
+                  <td class="px-6 py-3 text-xs text-gray-400">{link.source_doc}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        {links.length > 20 && (
+          <div class="px-6 py-3 bg-gray-50 text-sm text-gray-500 text-center">
+            Showing 20 of {links.length} transfers
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Methodology Note -->
+    <div class="mt-8 bg-gray-50 rounded-2xl p-6 text-sm text-gray-600">
+      <h3 class="font-semibold text-gray-900 mb-2">Data Sources</h3>
+      <p>
+        Material flows are documented from official erfaringsrapporter, FutureBuilt project reports,
+        Klimasats documentation, and verified project presentations. Each transfer includes source
+        documentation with page references where available.
+      </p>
+      <p class="mt-2">
+        <a href={`${import.meta.env.BASE_URL}/methodology`} class="text-nordic-600 hover:text-nordic-700 font-medium">
+          View full methodology →
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <!-- D3.js and Sankey Plugin -->
+  <script is:inline src="https://d3js.org/d3.v7.min.js"></script>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+
+  <script is:inline define:vars={{ nodes, links }}>
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('sankey-diagram');
+      const containerWidth = container.parentElement.clientWidth - 32;
+      const width = Math.max(containerWidth, 800);
+      const height = 600;
+      const margin = { top: 20, right: 150, bottom: 20, left: 150 };
+
+      // Create SVG
+      const svg = d3.select('#sankey-diagram')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('viewBox', [0, 0, width, height])
+        .attr('style', 'max-width: 100%; height: auto;');
+
+      // Color scale
+      const color = d3.scaleOrdinal()
+        .domain(['donor', 'material_bank', 'recipient'])
+        .range(['#fbbf24', '#60a5fa', '#10b981']);
+
+      // Process data for Sankey
+      const nodeMap = new Map(nodes.map((n, i) => [n.id, i]));
+
+      const sankeyNodes = nodes.map(n => ({
+        ...n,
+        name: n.name
+      }));
+
+      const sankeyLinks = links
+        .filter(l => nodeMap.has(l.source) && nodeMap.has(l.target))
+        .map(l => ({
+          source: nodeMap.get(l.source),
+          target: nodeMap.get(l.target),
+          value: l.quantity_tonnes || l.quantity_kg/1000 || 1,
+          material: l.material,
+          quantity_tonnes: l.quantity_tonnes,
+          quantity_units: l.quantity_units,
+          unit_type: l.unit_type,
+          co2_saved_kg: l.co2_saved_kg
+        }));
+
+      // Create Sankey generator
+      const sankey = d3.sankey()
+        .nodeId(d => d.id)
+        .nodeWidth(20)
+        .nodePadding(15)
+        .nodeSort(null)
+        .extent([[margin.left, margin.top], [width - margin.right, height - margin.bottom]]);
+
+      // Generate layout
+      const { nodes: layoutNodes, links: layoutLinks } = sankey({
+        nodes: sankeyNodes.map(d => ({ ...d })),
+        links: sankeyLinks.map(d => ({ ...d }))
+      });
+
+      // Draw links
+      const link = svg.append('g')
+        .attr('fill', 'none')
+        .selectAll('g')
+        .data(layoutLinks)
+        .join('g')
+        .attr('class', 'link-group')
+        .style('mix-blend-mode', 'multiply');
+
+      link.append('path')
+        .attr('d', d3.sankeyLinkHorizontal())
+        .attr('stroke', d => {
+          const sourceNode = layoutNodes[d.source.index];
+          return color(sourceNode.type);
+        })
+        .attr('stroke-width', d => Math.max(1, d.width))
+        .attr('stroke-opacity', 0.4)
+        .on('mouseover', function(event, d) {
+          d3.select(this).attr('stroke-opacity', 0.7);
+          showTooltip(event, d);
+        })
+        .on('mouseout', function() {
+          d3.select(this).attr('stroke-opacity', 0.4);
+          hideTooltip();
+        });
+
+      // Draw nodes
+      const node = svg.append('g')
+        .selectAll('g')
+        .data(layoutNodes)
+        .join('g')
+        .attr('class', 'node-group');
+
+      node.append('rect')
+        .attr('x', d => d.x0)
+        .attr('y', d => d.y0)
+        .attr('height', d => Math.max(1, d.y1 - d.y0))
+        .attr('width', d => d.x1 - d.x0)
+        .attr('fill', d => color(d.type))
+        .attr('rx', 3)
+        .attr('opacity', 0.9)
+        .style('cursor', 'pointer')
+        .on('click', function(event, d) {
+          if (d.project_id) {
+            window.location.href = `/nordic-circular-buildings/case-studies/${d.project_id}`;
+          }
+        });
+
+      // Add labels
+      node.append('text')
+        .attr('x', d => d.x0 < width / 2 ? d.x0 - 6 : d.x1 + 6)
+        .attr('y', d => (d.y1 + d.y0) / 2)
+        .attr('dy', '0.35em')
+        .attr('text-anchor', d => d.x0 < width / 2 ? 'end' : 'start')
+        .attr('font-size', '11px')
+        .attr('fill', '#374151')
+        .text(d => d.name.length > 20 ? d.name.substring(0, 18) + '...' : d.name);
+
+      // Tooltip
+      const tooltip = d3.select('body')
+        .append('div')
+        .attr('class', 'sankey-tooltip')
+        .style('position', 'absolute')
+        .style('visibility', 'hidden')
+        .style('background', 'white')
+        .style('border', '1px solid #e5e7eb')
+        .style('border-radius', '8px')
+        .style('padding', '12px')
+        .style('box-shadow', '0 4px 6px -1px rgb(0 0 0 / 0.1)')
+        .style('font-size', '13px')
+        .style('max-width', '250px')
+        .style('z-index', '1000');
+
+      function showTooltip(event, d) {
+        const sourceNode = layoutNodes[d.source.index];
+        const targetNode = layoutNodes[d.target.index];
+
+        let content = `
+          <div style="font-weight: 600; margin-bottom: 4px;">${d.material}</div>
+          <div style="color: #6b7280; margin-bottom: 8px;">
+            ${sourceNode.name} → ${targetNode.name}
+          </div>
+        `;
+
+        if (d.quantity_tonnes) {
+          content += `<div><strong>${d.quantity_tonnes}t</strong> transferred</div>`;
+        } else if (d.quantity_units) {
+          content += `<div><strong>${d.quantity_units} ${d.unit_type || 'stk'}</strong></div>`;
+        }
+
+        if (d.co2_saved_kg) {
+          content += `<div style="color: #10b981; margin-top: 4px;">${(d.co2_saved_kg/1000).toFixed(1)}t CO2 saved</div>`;
+        }
+
+        tooltip
+          .html(content)
+          .style('visibility', 'visible')
+          .style('left', (event.pageX + 10) + 'px')
+          .style('top', (event.pageY - 10) + 'px');
+      }
+
+      function hideTooltip() {
+        tooltip.style('visibility', 'hidden');
+      }
+    });
+  </script>
+</Layout>
+
+<style>
+  .sankey-tooltip {
+    pointer-events: none;
+  }
+</style>

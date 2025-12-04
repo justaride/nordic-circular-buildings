@@ -1,0 +1,323 @@
+{
+  "country": "norway",
+  "last_updated": "2025-12-04",
+  "description": "Material flows between buildings documented in the Nordic Circular Buildings database",
+
+  "nodes": [
+    {"id": "R4", "name": "Regjeringskvartalet R4", "type": "donor", "city": "Oslo", "year_demolished": 2019},
+    {"id": "R6", "name": "Regjeringskvartalet R6", "type": "donor", "city": "Oslo", "year_demolished": 2019},
+    {"id": "turbinveien15", "name": "Turbinveien 15", "type": "donor", "city": "Oslo"},
+    {"id": "toyen_bad", "name": "Tøyenbadet", "type": "donor", "city": "Oslo"},
+    {"id": "lambertseter", "name": "Lambertseter sykehjem", "type": "donor", "city": "Oslo"},
+    {"id": "refstad", "name": "Refstad skole", "type": "donor", "city": "Oslo"},
+    {"id": "u2", "name": "Universitetsgata 2", "type": "donor", "city": "Oslo"},
+    {"id": "deg8", "name": "DEG 8", "type": "donor", "city": "Oslo"},
+    {"id": "st_olavs", "name": "St. Olavsplass 5", "type": "donor", "city": "Oslo"},
+    {"id": "skoyen_rehab", "name": "Skøyen fasaderehabilitering", "type": "donor", "city": "Oslo"},
+    {"id": "dronning_maud", "name": "Dronning Maudsgate 1-3", "type": "donor", "city": "Oslo"},
+    {"id": "karl_johans", "name": "Karl Johansgate 23", "type": "donor", "city": "Oslo"},
+    {"id": "agility", "name": "Agility Group (offshore)", "type": "donor", "city": "Vestfold"},
+    {"id": "stokke_lager", "name": "Stokke Stål restlager", "type": "material_bank", "city": "Vestfold"},
+    {"id": "stena_stal", "name": "Stena Stål Gjenvinning", "type": "material_bank", "city": "Oslo"},
+    {"id": "kvaernerbyen", "name": "Kværnerbyen", "type": "donor", "city": "Oslo"},
+    {"id": "nydalshogda", "name": "Nydalshøgda", "type": "donor", "city": "Oslo"},
+    {"id": "tv2_building", "name": "TV2-bygget", "type": "donor", "city": "Bergen"},
+    {"id": "ostfold_projects", "name": "Østfold idrettsanlegg", "type": "donor", "city": "Østfold"},
+    {"id": "trondheim_rehab", "name": "Trondheim renoveringsprosjekt", "type": "donor", "city": "Trondheim"},
+    {"id": "sem_lave", "name": "Sem låve (1850)", "type": "donor", "city": "Tønsberg", "year_demolished": 2022},
+    {"id": "external_multiple", "name": "Diverse rivningsprosjekter", "type": "donor", "city": "Oslo"},
+
+    {"id": "resirqel", "name": "Resirqel / Ombygg", "type": "material_bank", "city": "Oslo"},
+    {"id": "ressurssentral", "name": "Sirkulær Ressurssentral", "type": "material_bank", "city": "Oslo"},
+    {"id": "bruktrom", "name": "Bruktrom (Bærum)", "type": "material_bank", "city": "Bærum"},
+
+    {"id": "ka13", "name": "KA13", "type": "recipient", "city": "Oslo", "year_completed": 2021, "project_id": "NO_ka13"},
+    {"id": "ka23", "name": "KA23", "type": "recipient", "city": "Oslo", "year_completed": 2024, "project_id": "NO_ka23"},
+    {"id": "nedre_sem", "name": "Nedre Sem Låve", "type": "recipient", "city": "Tønsberg", "year_completed": 2024, "project_id": "NO_nedre_sem"},
+    {"id": "loren", "name": "Løren aktivitetspark", "type": "recipient", "city": "Oslo", "year_completed": 2023, "project_id": "NO_loren"},
+    {"id": "foniks", "name": "Prosjekt Føniks", "type": "recipient", "city": "Bergen", "year_completed": 2025, "project_id": "NO_foniks"},
+    {"id": "skur38", "name": "Skur 38", "type": "recipient", "city": "Oslo", "year_completed": 2022, "project_id": "NO_skur38"}
+  ],
+
+  "links": [
+    {
+      "source": "R4",
+      "target": "ka13",
+      "material": "Hulldekker (betong)",
+      "quantity_tonnes": 96,
+      "quantity_units": 21,
+      "unit_type": "stk",
+      "co2_saved_kg": 10900,
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.63-67"
+    },
+    {
+      "source": "dronning_maud",
+      "target": "ka13",
+      "material": "Stål (bjelker)",
+      "quantity_tonnes": 7,
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.54"
+    },
+    {
+      "source": "karl_johans",
+      "target": "ka13",
+      "material": "Stål (søyler)",
+      "quantity_tonnes": 3,
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.54"
+    },
+    {
+      "source": "agility",
+      "target": "ka13",
+      "material": "Stål (hullprofiler)",
+      "quantity_tonnes": 22,
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.54"
+    },
+    {
+      "source": "stokke_lager",
+      "target": "ka13",
+      "material": "Stål (restlager)",
+      "quantity_tonnes": 23,
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.54"
+    },
+    {
+      "source": "stena_stal",
+      "target": "ka13",
+      "material": "Stål (gjenvinning)",
+      "quantity_tonnes": 4,
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.54"
+    },
+    {
+      "source": "turbinveien15",
+      "target": "ka13",
+      "material": "Vinduer",
+      "quantity_units": 28,
+      "unit_type": "stk",
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.16-18"
+    },
+    {
+      "source": "kvaernerbyen",
+      "target": "ka13",
+      "material": "Vinduer (feilbestilling)",
+      "co2_saved_percent": 90,
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport"
+    },
+    {
+      "source": "toyen_bad",
+      "target": "ka13",
+      "material": "Stålrekkverk/gitterplater",
+      "co2_saved_percent": 91,
+      "year": 2019,
+      "verified": true,
+      "source_doc": "Anskaffelser.no"
+    },
+    {
+      "source": "st_olavs",
+      "target": "ka13",
+      "material": "Ståltrapp",
+      "quantity_units": 1,
+      "unit_type": "stk",
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.67"
+    },
+    {
+      "source": "skoyen_rehab",
+      "target": "ka13",
+      "material": "Naturstein (terrassedekke)",
+      "year": 2019,
+      "verified": true,
+      "source_doc": "DOGA"
+    },
+    {
+      "source": "lambertseter",
+      "target": "ka13",
+      "material": "Sanitærutstyr (armaturer)",
+      "quantity_units": 23,
+      "unit_type": "stk",
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.69"
+    },
+    {
+      "source": "u2",
+      "target": "ka13",
+      "material": "Sanitærutstyr (servanter, toalett)",
+      "quantity_units": 49,
+      "unit_type": "stk",
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.69"
+    },
+    {
+      "source": "toyen_bad",
+      "target": "ka13",
+      "material": "Sanitærutstyr (HC)",
+      "quantity_units": 25,
+      "unit_type": "stk",
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.69"
+    },
+    {
+      "source": "refstad",
+      "target": "ka13",
+      "material": "Sanitærutstyr (utslagsvasker)",
+      "quantity_units": 19,
+      "unit_type": "stk",
+      "year": 2019,
+      "verified": true,
+      "source_doc": "KA13 Erfaringsrapport p.69"
+    },
+
+    {
+      "source": "ka13",
+      "target": "ka23",
+      "material": "Vinduer og dører",
+      "note": "Internt Entra-porteføljetransfer",
+      "year": 2023,
+      "verified": true,
+      "source_doc": "KA23 Erfaringsrapport"
+    },
+    {
+      "source": "ostfold_projects",
+      "target": "ka23",
+      "material": "Kunstgress (Østfoldgress)",
+      "quantity_kg": 2500,
+      "year": 2023,
+      "verified": true,
+      "source_doc": "KA23 Erfaringsrapport"
+    },
+    {
+      "source": "bruktrom",
+      "target": "ka23",
+      "material": "Møbler og inventar",
+      "year": 2023,
+      "verified": true,
+      "source_doc": "KA23 Erfaringsrapport"
+    },
+    {
+      "source": "ressurssentral",
+      "target": "ka23",
+      "material": "Byggematerialer",
+      "year": 2023,
+      "verified": true,
+      "source_doc": "KA23 Erfaringsrapport"
+    },
+
+    {
+      "source": "sem_lave",
+      "target": "nedre_sem",
+      "material": "Tømmer og treverk",
+      "quantity_tonnes": 57,
+      "note": "Historisk låve fra 1850",
+      "year": 2022,
+      "verified": true,
+      "source_doc": "Nedre Sem Sirkularitetsrapport"
+    },
+
+    {
+      "source": "nydalshogda",
+      "target": "loren",
+      "material": "Teglkledning",
+      "quantity_m2": 40,
+      "co2_saved_kg": 1940,
+      "year": 2023,
+      "verified": true,
+      "source_doc": "Klimasats Sluttrapport"
+    },
+    {
+      "source": "nydalshogda",
+      "target": "loren",
+      "material": "Granitt",
+      "quantity_m2": 27,
+      "co2_saved_kg": 1047,
+      "year": 2023,
+      "verified": true,
+      "source_doc": "Klimasats Sluttrapport"
+    },
+    {
+      "source": "nydalshogda",
+      "target": "loren",
+      "material": "Tråkkheller",
+      "quantity_m2": 53,
+      "co2_saved_kg": 1635,
+      "year": 2023,
+      "verified": true,
+      "source_doc": "Klimasats Sluttrapport"
+    },
+
+    {
+      "source": "tv2_building",
+      "target": "foniks",
+      "material": "Gangbro",
+      "quantity_units": 1,
+      "unit_type": "stk",
+      "note": "Spektakulær ombruk av gangbro",
+      "year": 2024,
+      "verified": true,
+      "source_doc": "Føniks Presentasjon"
+    },
+
+    {
+      "source": "external_multiple",
+      "target": "skur38",
+      "material": "Parkett",
+      "quantity_tonnes": 15,
+      "year": 2022,
+      "verified": true,
+      "source_doc": "Skur 38 FutureBuilt rapport"
+    },
+    {
+      "source": "external_multiple",
+      "target": "skur38",
+      "material": "Teglstein",
+      "quantity_tonnes": 45,
+      "year": 2022,
+      "verified": true,
+      "source_doc": "Skur 38 FutureBuilt rapport"
+    },
+    {
+      "source": "external_multiple",
+      "target": "skur38",
+      "material": "Fasadekledning",
+      "quantity_tonnes": 30,
+      "year": 2022,
+      "verified": true,
+      "source_doc": "Skur 38 FutureBuilt rapport"
+    },
+    {
+      "source": "resirqel",
+      "target": "skur38",
+      "material": "Møbler og inventar",
+      "quantity_tonnes": 22,
+      "year": 2022,
+      "verified": true,
+      "source_doc": "Skur 38 FutureBuilt rapport"
+    }
+  ],
+
+  "summary": {
+    "total_flows": 28,
+    "total_tonnes_transferred": 424,
+    "total_co2_saved_kg": 15522,
+    "donor_buildings": 22,
+    "material_banks": 5,
+    "recipient_projects": 6,
+    "cities": ["Oslo", "Bergen", "Tønsberg", "Østfold", "Vestfold", "Trondheim"]
+  }
+}
