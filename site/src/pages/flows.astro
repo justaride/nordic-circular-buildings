@@ -215,39 +215,49 @@ const recipientStats = recipientNodes.map(r => {
 
   <script is:inline define:vars={{ nodes, links }}>
     document.addEventListener('DOMContentLoaded', function() {
-      const container = document.getElementById('sankey-diagram');
-      const containerWidth = container.parentElement.clientWidth - 32;
-      const width = Math.max(containerWidth, 800);
-      const height = 600;
-      const margin = { top: 20, right: 150, bottom: 20, left: 150 };
+      try {
+        const container = document.getElementById('sankey-diagram');
+        if (!container) {
+          console.error('Sankey container not found');
+          return;
+        }
 
-      // Create SVG
-      const svg = d3.select('#sankey-diagram')
-        .append('svg')
-        .attr('width', width)
-        .attr('height', height)
-        .attr('viewBox', [0, 0, width, height])
-        .attr('style', 'max-width: 100%; height: auto;');
+        const containerWidth = container.parentElement.clientWidth - 32;
+        const width = Math.max(containerWidth, 900);
+        const height = 650;
+        const margin = { top: 20, right: 180, bottom: 20, left: 180 };
 
-      // Color scale
-      const color = d3.scaleOrdinal()
-        .domain(['donor', 'material_bank', 'recipient'])
-        .range(['#fbbf24', '#60a5fa', '#10b981']);
+        // Create SVG
+        const svg = d3.select('#sankey-diagram')
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height)
+          .attr('viewBox', [0, 0, width, height])
+          .attr('style', 'max-width: 100%; height: auto;');
 
-      // Process data for Sankey
-      const nodeMap = new Map(nodes.map((n, i) => [n.id, i]));
+        // Color scale
+        const color = d3.scaleOrdinal()
+          .domain(['donor', 'material_bank', 'recipient'])
+          .range(['#fbbf24', '#60a5fa', '#10b981']);
 
-      const sankeyNodes = nodes.map(n => ({
-        ...n,
-        name: n.name
-      }));
+        // Process data for Sankey - use string IDs
+        const nodeIds = new Set(nodes.map(n => n.id));
 
-      const sankeyLinks = links
-        .filter(l => nodeMap.has(l.source) && nodeMap.has(l.target))
-        .map(l => ({
-          source: nodeMap.get(l.source),
-          target: nodeMap.get(l.target),
-          value: l.quantity_tonnes || l.quantity_kg/1000 || 1,
+        // Filter links to only include those with valid source and target
+        const validLinks = links.filter(l => nodeIds.has(l.source) && nodeIds.has(l.target));
+
+        // Create Sankey data with string IDs
+        const sankeyNodes = nodes.map(n => ({
+          id: n.id,
+          name: n.name,
+          type: n.type,
+          project_id: n.project_id
+        }));
+
+        const sankeyLinks = validLinks.map(l => ({
+          source: l.source,
+          target: l.target,
+          value: l.quantity_tonnes || (l.quantity_kg ? l.quantity_kg/1000 : 1),
           material: l.material,
           quantity_tonnes: l.quantity_tonnes,
           quantity_units: l.quantity_units,
@@ -255,123 +265,127 @@ const recipientStats = recipientNodes.map(r => {
           co2_saved_kg: l.co2_saved_kg
         }));
 
-      // Create Sankey generator
-      const sankey = d3.sankey()
-        .nodeId(d => d.id)
-        .nodeWidth(20)
-        .nodePadding(15)
-        .nodeSort(null)
-        .extent([[margin.left, margin.top], [width - margin.right, height - margin.bottom]]);
+        // Create Sankey generator with string ID accessor
+        const sankey = d3.sankey()
+          .nodeId(d => d.id)
+          .nodeWidth(20)
+          .nodePadding(12)
+          .nodeSort(null)
+          .extent([[margin.left, margin.top], [width - margin.right, height - margin.bottom]]);
 
-      // Generate layout
-      const { nodes: layoutNodes, links: layoutLinks } = sankey({
-        nodes: sankeyNodes.map(d => ({ ...d })),
-        links: sankeyLinks.map(d => ({ ...d }))
-      });
-
-      // Draw links
-      const link = svg.append('g')
-        .attr('fill', 'none')
-        .selectAll('g')
-        .data(layoutLinks)
-        .join('g')
-        .attr('class', 'link-group')
-        .style('mix-blend-mode', 'multiply');
-
-      link.append('path')
-        .attr('d', d3.sankeyLinkHorizontal())
-        .attr('stroke', d => {
-          const sourceNode = layoutNodes[d.source.index];
-          return color(sourceNode.type);
-        })
-        .attr('stroke-width', d => Math.max(1, d.width))
-        .attr('stroke-opacity', 0.4)
-        .on('mouseover', function(event, d) {
-          d3.select(this).attr('stroke-opacity', 0.7);
-          showTooltip(event, d);
-        })
-        .on('mouseout', function() {
-          d3.select(this).attr('stroke-opacity', 0.4);
-          hideTooltip();
+        // Generate layout
+        const graph = sankey({
+          nodes: sankeyNodes.map(d => Object.assign({}, d)),
+          links: sankeyLinks.map(d => Object.assign({}, d))
         });
 
-      // Draw nodes
-      const node = svg.append('g')
-        .selectAll('g')
-        .data(layoutNodes)
-        .join('g')
-        .attr('class', 'node-group');
+        const layoutNodes = graph.nodes;
+        const layoutLinks = graph.links;
 
-      node.append('rect')
-        .attr('x', d => d.x0)
-        .attr('y', d => d.y0)
-        .attr('height', d => Math.max(1, d.y1 - d.y0))
-        .attr('width', d => d.x1 - d.x0)
-        .attr('fill', d => color(d.type))
-        .attr('rx', 3)
-        .attr('opacity', 0.9)
-        .style('cursor', 'pointer')
-        .on('click', function(event, d) {
-          if (d.project_id) {
-            window.location.href = `/nordic-circular-buildings/case-studies/${d.project_id}`;
+        // Draw links
+        const link = svg.append('g')
+          .attr('fill', 'none')
+          .selectAll('g')
+          .data(layoutLinks)
+          .join('g')
+          .attr('class', 'link-group')
+          .style('mix-blend-mode', 'multiply');
+
+        link.append('path')
+          .attr('d', d3.sankeyLinkHorizontal())
+          .attr('stroke', d => color(d.source.type))
+          .attr('stroke-width', d => Math.max(1, d.width))
+          .attr('stroke-opacity', 0.4)
+          .on('mouseover', function(event, d) {
+            d3.select(this).attr('stroke-opacity', 0.7);
+            showTooltip(event, d);
+          })
+          .on('mouseout', function() {
+            d3.select(this).attr('stroke-opacity', 0.4);
+            hideTooltip();
+          });
+
+        // Draw nodes
+        const node = svg.append('g')
+          .selectAll('g')
+          .data(layoutNodes)
+          .join('g')
+          .attr('class', 'node-group');
+
+        node.append('rect')
+          .attr('x', d => d.x0)
+          .attr('y', d => d.y0)
+          .attr('height', d => Math.max(1, d.y1 - d.y0))
+          .attr('width', d => d.x1 - d.x0)
+          .attr('fill', d => color(d.type))
+          .attr('rx', 3)
+          .attr('opacity', 0.9)
+          .style('cursor', 'pointer')
+          .on('click', function(event, d) {
+            if (d.project_id) {
+              window.location.href = `/nordic-circular-buildings/case-studies/${d.project_id}`;
+            }
+          });
+
+        // Add labels
+        node.append('text')
+          .attr('x', d => d.x0 < width / 2 ? d.x0 - 6 : d.x1 + 6)
+          .attr('y', d => (d.y1 + d.y0) / 2)
+          .attr('dy', '0.35em')
+          .attr('text-anchor', d => d.x0 < width / 2 ? 'end' : 'start')
+          .attr('font-size', '11px')
+          .attr('fill', '#374151')
+          .text(d => d.name.length > 20 ? d.name.substring(0, 18) + '...' : d.name);
+
+        // Tooltip
+        const tooltip = d3.select('body')
+          .append('div')
+          .attr('class', 'sankey-tooltip')
+          .style('position', 'absolute')
+          .style('visibility', 'hidden')
+          .style('background', 'white')
+          .style('border', '1px solid #e5e7eb')
+          .style('border-radius', '8px')
+          .style('padding', '12px')
+          .style('box-shadow', '0 4px 6px -1px rgb(0 0 0 / 0.1)')
+          .style('font-size', '13px')
+          .style('max-width', '250px')
+          .style('z-index', '1000');
+
+        function showTooltip(event, d) {
+          // After sankey layout, d.source and d.target are node objects
+          let content = `
+            <div style="font-weight: 600; margin-bottom: 4px;">${d.material}</div>
+            <div style="color: #6b7280; margin-bottom: 8px;">
+              ${d.source.name} → ${d.target.name}
+            </div>
+          `;
+
+          if (d.quantity_tonnes) {
+            content += `<div><strong>${d.quantity_tonnes}t</strong> transferred</div>`;
+          } else if (d.quantity_units) {
+            content += `<div><strong>${d.quantity_units} ${d.unit_type || 'stk'}</strong></div>`;
           }
-        });
 
-      // Add labels
-      node.append('text')
-        .attr('x', d => d.x0 < width / 2 ? d.x0 - 6 : d.x1 + 6)
-        .attr('y', d => (d.y1 + d.y0) / 2)
-        .attr('dy', '0.35em')
-        .attr('text-anchor', d => d.x0 < width / 2 ? 'end' : 'start')
-        .attr('font-size', '11px')
-        .attr('fill', '#374151')
-        .text(d => d.name.length > 20 ? d.name.substring(0, 18) + '...' : d.name);
+          if (d.co2_saved_kg) {
+            content += `<div style="color: #10b981; margin-top: 4px;">${(d.co2_saved_kg/1000).toFixed(1)}t CO2 saved</div>`;
+          }
 
-      // Tooltip
-      const tooltip = d3.select('body')
-        .append('div')
-        .attr('class', 'sankey-tooltip')
-        .style('position', 'absolute')
-        .style('visibility', 'hidden')
-        .style('background', 'white')
-        .style('border', '1px solid #e5e7eb')
-        .style('border-radius', '8px')
-        .style('padding', '12px')
-        .style('box-shadow', '0 4px 6px -1px rgb(0 0 0 / 0.1)')
-        .style('font-size', '13px')
-        .style('max-width', '250px')
-        .style('z-index', '1000');
-
-      function showTooltip(event, d) {
-        const sourceNode = layoutNodes[d.source.index];
-        const targetNode = layoutNodes[d.target.index];
-
-        let content = `
-          <div style="font-weight: 600; margin-bottom: 4px;">${d.material}</div>
-          <div style="color: #6b7280; margin-bottom: 8px;">
-            ${sourceNode.name} → ${targetNode.name}
-          </div>
-        `;
-
-        if (d.quantity_tonnes) {
-          content += `<div><strong>${d.quantity_tonnes}t</strong> transferred</div>`;
-        } else if (d.quantity_units) {
-          content += `<div><strong>${d.quantity_units} ${d.unit_type || 'stk'}</strong></div>`;
+          tooltip
+            .html(content)
+            .style('visibility', 'visible')
+            .style('left', (event.pageX + 10) + 'px')
+            .style('top', (event.pageY - 10) + 'px');
         }
 
-        if (d.co2_saved_kg) {
-          content += `<div style="color: #10b981; margin-top: 4px;">${(d.co2_saved_kg/1000).toFixed(1)}t CO2 saved</div>`;
+        function hideTooltip() {
+          tooltip.style('visibility', 'hidden');
         }
 
-        tooltip
-          .html(content)
-          .style('visibility', 'visible')
-          .style('left', (event.pageX + 10) + 'px')
-          .style('top', (event.pageY - 10) + 'px');
-      }
-
-      function hideTooltip() {
-        tooltip.style('visibility', 'hidden');
+      } catch (error) {
+        console.error('Sankey diagram error:', error);
+        document.getElementById('sankey-diagram').innerHTML =
+          '<p style="color: #ef4444; padding: 20px;">Error loading diagram. Please check console.</p>';
       }
     });
   </script>
