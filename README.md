@@ -8,21 +8,21 @@ This database catalogs circular building projects across the Nordic region (Norw
 
 ## Current Status
 
-| Country | Projects | Status |
-|---------|----------|--------|
-| Norway | 24 | Complete with verified source citations |
-| Sweden | - | Pending research |
-| Denmark | - | Pending research |
-| Finland | - | Pending research |
-| Iceland | - | Pending research |
+| Country | Projects | Case Studies | Status |
+|---------|----------|--------------|--------|
+| Norway | 25 | 7 | Complete with verified source citations |
+| Sweden | - | - | Pending research |
+| Denmark | - | - | Pending research |
+| Finland | - | - | Pending research |
+| Iceland | - | - | Pending research |
 
 ## Norway Highlights
 
-- **24 documented projects** across Oslo, Bærum, Asker, Bergen, and Trondheim
+- **25 documented projects** across Oslo, Bærum, Asker, Bergen, and Trondheim
 - **Reuse rates**: 50-97% by weight
-- **CO2 reductions**: 70-97% vs conventional construction
+- **CO2 reductions**: 28-97% vs conventional construction
 - **Key programs**: FutureBuilt, BREEAM-NOR, EU CCRI
-- **2 Flagship case studies** with full material documentation and verified citations (KA13, KA23)
+- **7 Case studies** with detailed documentation (KA13, KA23, Føniks, Løren, Nedre Sem, Skur 38, Oksenøya Senter)
 
 ### Notable Projects
 
@@ -33,6 +33,7 @@ This database catalogs circular building projects across the Nordic region (Norw
 | Grensen 9B | 2025 | 97.3% reuse, metro rails as staircase |
 | Føniks | 2026 | 89% circularity index, near-100% target |
 | Løren | 2025 | World's first ship steel structure |
+| Oksenøya Senter | 2023 | 28-34% CO2 reduction, massivtre, Passivhus standard |
 
 ## Data Structure
 
@@ -40,16 +41,21 @@ This database catalogs circular building projects across the Nordic region (Norw
 data/
 ├── schema.json              # JSON schema definition
 ├── projects/
-│   ├── norway.json          # 24 projects with full detail
+│   ├── norway.json          # 25 projects with full detail
 │   ├── norway_sources.md    # Source citations
 │   └── norway_data_gaps.md  # Data quality notes
 ├── case-studies/
-│   └── ka13_flagship.json   # Deep-dive flagship case (v2.0)
+│   ├── ka13_flagship.json   # Deep-dive flagship case (KA13)
+│   ├── ka23_flagship.json   # Deep-dive flagship case (KA23)
+│   ├── foniks_tier2.json    # Tier 2 case study
+│   ├── loren_tier2.json     # Tier 2 case study
+│   ├── nedre_sem_strong.json # Strong documentation case
+│   ├── skur38_tier2.json    # Tier 2 case study
+│   └── oksenoya_senter.json # Tier 1 case study (new)
 docs/
 └── ROADMAP.md               # Project roadmap and planned features
 site/
 └── public/docs/             # Source PDFs for direct citation links
-    └── ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf
 ```
 
 ## Project Schema
@@ -92,8 +98,9 @@ All material data includes traceable citations:
 **https://justaride.github.io/nordic-circular-buildings/**
 
 ### Features
-- Interactive map with all 24 projects
+- Interactive map with all 25 projects
 - Project detail pages with material flow visualization
+- 7 detailed case study pages
 - Cost comparison data (reused vs new materials)
 - CO2 savings bar charts per material
 - Clickable source citations with PDF page links
@@ -106,14 +113,19 @@ All material data includes traceable citations:
 - Deployment: GitHub Pages
 - Source Documents: Self-hosted PDFs with page anchors
 
-## Flagship Case Studies
+## Case Studies
 
 Deep-dive documentation with full material traceability:
 
-| Project | Data Source | Key Metrics | Citation Status |
-|---------|-------------|-------------|-----------------|
-| KA13 | 116-page Erfaringsrapport (hosted locally) | Steel: 45t (97% CO2), Hulldekker: 96t (89% CO2), 116 sanitary items | ✅ All verified |
-| KA23 | 19-page Erfaringsrapport + 15 vedlegg (hosted locally) | 83% internal reuse (10,519t), 55% total CO2 reduction, 53% ombrukbarhet | ✅ All verified |
+| Project | Tier | Key Metrics | Citation Status |
+|---------|------|-------------|-----------------|
+| KA13 | FLAGSHIP | Steel: 45t (97% CO2), Hulldekker: 96t (89% CO2), 116 sanitary items | ✅ All verified |
+| KA23 | FLAGSHIP | 83% internal reuse (10,519t), 55% total CO2 reduction, 53% ombrukbarhet | ✅ All verified |
+| Føniks | TIER_2 | 89% circularity target, windows 1,400 NOK/m² vs 4,000 new | ✅ Verified |
+| Løren | TIER_2 | World's first ship steel building structure | ✅ Verified |
+| Nedre Sem | STRONG | 50% circularity, Stiltre timber processing | ✅ Verified |
+| Skur 38 | TIER_2 | Heritage transformation, metro rails as staircase | ✅ Verified |
+| Oksenøya Senter | TIER_1 | 28-34% CO2 reduction, 22,870 m², massivtre | ✅ Climate reports |
 
 See `data/case-studies/` and `docs/ROADMAP.md` for methodology.
 
@@ -130,4 +142,4 @@ Research data. See individual source citations for original content attribution.
 
 ---
 
-*Last updated: 2025-12-03*
+*Last updated: 2025-12-04*

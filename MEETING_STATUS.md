@@ -10,7 +10,7 @@
 
 This document tracks all feedback items from the post-iteration 1 meeting and their implementation status in Iteration 2.
 
-**Overall Progress:** 18/22 items completed (82%)
+**Overall Progress:** 21/22 items completed (95%)
 
 ---
 
@@ -365,12 +365,38 @@ Full scoring system with:
 
 | Metric | Before | After |
 |--------|--------|-------|
-| Projects with narrative | 12/23 | **23/23** |
-| Projects with cost data | 0/23 | **6/23** |
-| Scope flagged projects | 0/23 | **2/23** |
-| Sources | 103 | **117** |
-| Citations | 21 | **43** |
+| Projects with narrative | 12/23 | **25/25** |
+| Projects with cost data | 0/23 | **7/25** |
+| Scope flagged projects | 0/23 | **2/25** |
+| Sources | 103 | **120+** |
+| Citations | 21 | **45+** |
 
 ---
 
-*Last updated: 2025-12-03*
+## Iteration 6: Document Processing (2025-12-04)
+
+### Completed Tasks
+
+| Task | Status | Details |
+|------|--------|---------|
+| Oksenøya Senter case study | ✅ | Created TIER_1 case study from 3 klimagassrapporter |
+| KA23 document verification | ✅ | Ombruksvurdering + Klimagassberegninger confirmed existing data |
+| Oslo kommune Loopfront report | ✅ | Key insights: 16,500 materials, 498 tonnes CO2e, 22.5 MNOK value |
+
+### New Data Added
+
+| Project | Updates |
+|---------|---------|
+| Oksenøya Senter (NEW) | School: 28% CO2 reduction, Kindergarten: 34%, BBS: 24%, 22,870 m² total |
+
+### Metrics After Iteration 6
+
+| Metric | Before | After |
+|--------|--------|-------|
+| Total projects | 24 | **25** |
+| Case studies | 6 | **7** |
+| Projects with narrative | 24/24 | **25/25** |
+
+---
+
+*Last updated: 2025-12-04*

@@ -35,7 +35,7 @@ A comprehensive research platform documenting **material circularity in public b
 - Denmark (DK)
 - Finland (FI)
 - Iceland (IS)
-- Norway (NO) - **23 projects documented**
+- Norway (NO) - **25 projects documented**
 - Sweden (SE)
 
 ---
@@ -147,13 +147,16 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 - HasleTre → Primary (DfD focus, DOGA Award 2023)
 - Construction City → Primary (50% material reuse target)
 
-### Phase 6: Document Analysis (Current)
+### Phase 6: Document Analysis ✅ (2025-12-04)
 
-**Priority: Analyze fetched_files documents**
+**Completed:**
+- [x] Oksenøya Senter klimagassrapporter (skole, barnehage, BBS) → New case study created
+- [x] KA23 Ombruksvurdering + Klimagassberegninger → Confirmed existing data
+- [x] Oslo kommune Loopfront sluttrapport → Key insights extracted
+
+**Remaining:**
 - [ ] Ruseløkka skole documents (3 PDFs)
 - [ ] Bærum kommune årsrapporter (2 PDFs)
-- [ ] Other relevant PDFs
-- [ ] Extract data to enhance Tier 2/3 projects
 
 ### Phase 5: Nordic Expansion (Future)
 - [ ] Process Sweden research
@@ -211,17 +214,18 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 
 ---
 
-## Current Data Status (2025-12-03)
+## Current Data Status (2025-12-04)
 
-### Norway: 24 Projects
+### Norway: 25 Projects
 
 | Metric | Current | Target | Progress |
 |--------|---------|--------|----------|
-| Total projects | **24** | 25-30 | **80%** |
-| With circularity % | 6 | 15+ | 40% |
-| With narrative | **24** | 24 | **100%** ✅ |
-| With material breakdown | **6** | 10+ | **60%** |
-| With supplier data | **10** | 24 | **42%** |
+| Total projects | **25** | 25-30 | **100%** ✅ |
+| Case studies | **7** | 6-7 | **100%** ✅ |
+| With circularity % | 7 | 15+ | 47% |
+| With narrative | **25** | 25 | **100%** ✅ |
+| With material breakdown | **7** | 10+ | **70%** |
+| With supplier data | **10** | 25 | **40%** |
 | With cost comparison | **7** | 5+ | **140%** ✅ |
 | With budget data | **12** | 15+ | **80%** |
 
@@ -230,38 +234,39 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 | Type | Count | With Narrative | With Breakdown |
 |------|-------|----------------|----------------|
 | Transformation | 9 | **9** ✅ | 6 |
-| New Build | 15 | **15** ✅ | 0 |
+| New Build | 16 | **16** ✅ | 1 |
 
-### Tier 1 Projects (Deep-Dive Complete)
+### Case Studies (Deep-Dive Documentation)
+
+| Project | Tier | Circularity | Key Achievement |
+|---------|------|-------------|-----------------|
+| KA13 | FLAGSHIP | 80% | 45t steel (97% CO2), 96t hulldekker (89% CO2), full Erfaringsrapport |
+| KA23 | FLAGSHIP | 69% | First protected building transformation, 83% internal reuse |
+| Føniks | TIER_2 | 89% | Near-100% target, 1400 NOK/m² window savings |
+| Løren | TIER_2 | — | World's first ship steel structure |
+| Nedre Sem | STRONG | 50% | Stiltre timber processing from existing buildings |
+| Skur 38 | TIER_2 | — | Heritage transformation, metro rails as staircase |
+| Oksenøya Senter | TIER_1 | — | 28-34% CO2 reduction, massivtre, Passivhus |
+
+### Additional Enhanced Projects
 
 | Project | Circularity | Narrative | Breakdown | Suppliers |
 |---------|-------------|-----------|-----------|-----------|
-| KA13 | 80% | ✅ | ✅ | ✅ |
 | Grensen 9B | 97.3% | ✅ | ✅ | ✅ (4) |
-| Føniks | 89% | ✅ | ✅ | ✅ |
-| Løren | — | ✅ | — | ✅ |
 | Eikeli | — | ✅ | — | ✅ |
-| Nedre Sem | 50% | ✅ | ✅ | ✅ |
-
-### Tier 1.5 Projects (Iteration 3 Enhanced)
-
-| Project | Circularity | Narrative | Breakdown | Suppliers |
-|---------|-------------|-----------|-----------|-----------|
 | Nøstebukten Brygge | 70% | ✅ | ✅ | — |
-| KA23 | 50% | ✅ | ✅ | ✅ (3) |
-| Skur 38 | — | ✅ | — | ✅ |
 | Sophies Minde | — | ✅ | — | ✅ |
 | Høyblokken | — | ✅ | — | — |
 | Lilleborg skole | — | ✅ | — | — |
 
 ### Tier 2 Projects (Standard Documentation)
 
-All 23 projects now have complete narrative (driver, lessons_learned, challenges).
+All 25 projects now have complete narrative (driver, lessons_learned, challenges).
 
 Remaining data needs:
-- Material quantities for 17 projects
-- Supplier identification for 13 projects
-- CBC assessment for 17 projects
+- Material quantities for 18 projects
+- Supplier identification for 15 projects
+- CBC assessment for 19 projects
 
 ---
 
@@ -395,4 +400,4 @@ Public Circular Buildings/
 
 ---
 
-*Last updated: 2025-12-03*
+*Last updated: 2025-12-04*
