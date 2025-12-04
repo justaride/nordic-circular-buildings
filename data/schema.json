@@ -462,10 +462,62 @@
         }
       }
     },
+    "data_completeness": {
+      "type": "object",
+      "description": "Quantified data completeness assessment with objective scoring",
+      "properties": {
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Total completeness score (0-100)"
+        },
+        "grade": {
+          "type": "string",
+          "enum": ["A", "B", "C", "D", "E"],
+          "description": "Letter grade: A (80-100 Flagship), B (60-79 Strong), C (40-59 Moderate), D (20-39 Basic), E (0-19 Incomplete)"
+        },
+        "category_scores": {
+          "type": "object",
+          "description": "Scores per data category",
+          "properties": {
+            "basic_info": { "type": "number", "maximum": 10, "description": "Name, location, coordinates, status, year, type" },
+            "stakeholders": { "type": "number", "maximum": 10, "description": "Client, architect, contractor, consultants" },
+            "metrics_co2": { "type": "number", "maximum": 15, "description": "CO2 reduction with baseline, kg/m²/year" },
+            "metrics_circularity": { "type": "number", "maximum": 15, "description": "Reuse rate, circularity index" },
+            "material_inventory": { "type": "number", "maximum": 15, "description": "Detailed material inventory with quantities" },
+            "cost_data": { "type": "number", "maximum": 10, "description": "Costs, savings, budget" },
+            "sources_primary": { "type": "number", "maximum": 10, "description": "Primary sources (reports, LCA)" },
+            "certifications": { "type": "number", "maximum": 5, "description": "BREEAM, FutureBuilt, etc." },
+            "narrative": { "type": "number", "maximum": 5, "description": "Driver, lessons learned, challenges" },
+            "donor_sources": { "type": "number", "maximum": 5, "description": "Material origin documented" }
+          }
+        },
+        "has": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of documented data points"
+        },
+        "missing": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of missing data points"
+        },
+        "upgrade_path": {
+          "type": "string",
+          "description": "Actionable suggestions to improve data completeness"
+        },
+        "calculated_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date when completeness was last calculated"
+        }
+      }
+    },
     "data_quality": {
       "type": "string",
       "enum": ["strong", "moderate", "weak"],
-      "description": "Overall data quality assessment"
+      "description": "DEPRECATED: Use data_completeness.grade instead. Kept for backwards compatibility."
     },
     "verification_status": {
       "type": "string",
@@ -474,7 +526,7 @@
     "data_gaps": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "List of missing or unverified data points"
+      "description": "DEPRECATED: Use data_completeness.missing instead. Kept for backwards compatibility."
     },
     "notes": {
       "type": ["string", "null"]

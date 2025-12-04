@@ -383,6 +383,60 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "SINTEF-verified structural concrete reuse. DOGA Hedersmerke 2021."
+      },
+      "data_completeness": {
+        "score": 75,
+        "grade": "B",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 8,
+          "metrics_co2": 6,
+          "metrics_circularity": 15,
+          "material_inventory": 11,
+          "cost_data": 3,
+          "sources_primary": 10,
+          "certifications": 4,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Kristian Augusts gate 13 (KA13)",
+          "City: Oslo",
+          "Coordinates: 59.9163, 10.739",
+          "Status: completed",
+          "Year: 2021",
+          "Size: 4101 m²",
+          "Client: Entra ASA",
+          "Architect: Mad Oslo AS",
+          "Contractor: Haandverkerne AS (NCC subsidiary)",
+          "CO2 reduction: 70%",
+          "Circularity rate: 80%",
+          "1 materials with weight data (kg/tonnes)",
+          "4 circular features documented",
+          "Material types: concrete, glass, steel, stone",
+          "1 material(s) with quantified amounts",
+          "4 materials with source citations",
+          "Budget: 304000000",
+          "3 primary sources",
+          "Technical reports: KA13 Erfaringsrapport Ombruk (, Insenti - Erfaringsrapport fra",
+          "Total 8 sources documented",
+          "BREEAM certified",
+          "FutureBuilt Forbildeprosjekt",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "4 challenges documented",
+          "Donor sources: Skøyen facade renovation, Kværnerbyen, Regjeringskvartalet R4 building",
+          "Donor types: demolition, renovation, surplus"
+        ],
+        "missing": [
+          "Technical consultants documented",
+          "CO2 reduction baseline/methodology",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown"
+        ],
+        "upgrade_path": "To reach Grade A: Document cost savings from reuse; Obtain klimagassregnskap/LCA report",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -641,6 +695,61 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Heritage transformation of 1915 building - 171t CO2 saved"
+      },
+      "data_completeness": {
+        "score": 58,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 8,
+          "metrics_co2": 0,
+          "metrics_circularity": 7,
+          "material_inventory": 11,
+          "cost_data": 3,
+          "sources_primary": 7,
+          "certifications": 4,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Skur 38",
+          "City: Oslo",
+          "Coordinates: 59.9039, 10.7394",
+          "Status: completed",
+          "Year: 2022",
+          "Size: 4000 m²",
+          "Client: Oslo Havn KF",
+          "Architect: Hille Melbye Arkitekter",
+          "Contractor: Varden Entreprenør",
+          "Material quantities documented (partial)",
+          "1 materials with quantities (units/items)",
+          "5 circular features documented",
+          "Material types: concrete, fixtures, insulation, timber",
+          "1 material(s) with quantified amounts",
+          "1 material with source citation",
+          "Budget: 152000000 NOK",
+          "3 primary sources",
+          "Total 6 sources documented",
+          "BREEAM Excellent",
+          "FutureBuilt First pilot project",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "5 challenges documented",
+          "Donor sources: Original building, Original 1915 structure",
+          "Donor types: preservation"
+        ],
+        "missing": [
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Material weights in kg/tonnes",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -878,6 +987,59 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "First Norwegian project with CE-certified reclaimed brick at scale"
+      },
+      "data_completeness": {
+        "score": 53,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 10,
+          "metrics_co2": 0,
+          "metrics_circularity": 11,
+          "material_inventory": 5,
+          "cost_data": 0,
+          "sources_primary": 7,
+          "certifications": 4,
+          "narrative": 5,
+          "donor_sources": 3
+        },
+        "has": [
+          "Project name: Eikeli videregående skole",
+          "City: Bærum",
+          "Coordinates: 59.9195, 10.5248",
+          "Status: completed",
+          "Year: 2021",
+          "Size: 4500 m²",
+          "Client: Viken Fylkeskommune",
+          "Architect: ['KOHT Arkitekter', 'Nordic - Office of Architecture']",
+          "Contractor: Peab",
+          "1 consultant/technical sources",
+          "Material quantities documented (partial)",
+          "1 materials with weight data (kg/tonnes)",
+          "2 circular feature(s) documented",
+          "1 material(s) with quantified amounts",
+          "1 material with source citation",
+          "2 primary sources",
+          "Total 6 sources documented",
+          "BREEAM Excellent",
+          "FutureBuilt Forbildeprosjekt",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "4 challenges documented",
+          "2 material(s) with donor source",
+          "Donor types: demolition, preservation"
+        ],
+        "missing": [
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -1162,6 +1324,60 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Exemplary rural heritage transformation. Stiltre timber processing."
+      },
+      "data_completeness": {
+        "score": 59,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 8,
+          "metrics_co2": 0,
+          "metrics_circularity": 11,
+          "material_inventory": 9,
+          "cost_data": 3,
+          "sources_primary": 7,
+          "certifications": 3,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Nedre Sem låve",
+          "City: Asker",
+          "Coordinates: 59.838, 10.4345",
+          "Status: completed",
+          "Year: 2024",
+          "Size: 2190 m²",
+          "Client: Asker kommune",
+          "Architect: Holar Arkitekter",
+          "Contractor: Veidekke Entreprenør",
+          "Circularity rate: 50%",
+          "1 materials with quantities (units/items)",
+          "7 circular features documented",
+          "Material types: brick, concrete, fixtures, insulation, stone, timber",
+          "1 material with source citation",
+          "Budget: 150000000",
+          "4 primary sources",
+          "Total 6 sources documented",
+          "FutureBuilt Pilot",
+          "Energy: Near-zero energy",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "4 challenges documented",
+          "Donor sources: Fish box waste stream, 1887 barn on site, 1890 barn (unsuitable for bearing loads)",
+          "Donor types: demolition, industrial_waste, transfer"
+        ],
+        "missing": [
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Material weights in kg/tonnes",
+          "Material quantities (values with units)",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -1440,6 +1656,61 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Pioneering methodology for ship steel certification (Nordic Circles/DNV)"
+      },
+      "data_completeness": {
+        "score": 61,
+        "grade": "B",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 8,
+          "metrics_co2": 9,
+          "metrics_circularity": 11,
+          "material_inventory": 6,
+          "cost_data": 3,
+          "sources_primary": 5,
+          "certifications": 3,
+          "narrative": 5,
+          "donor_sources": 3
+        },
+        "has": [
+          "Project name: Løren aktivitetspark og flerbrukshall",
+          "City: Oslo",
+          "Coordinates: 59.932, 10.8",
+          "Status: under_construction",
+          "Year: 2025 (planned)",
+          "Size: 8500 m²",
+          "Client: Oslo kommune / Oslobygg KF",
+          "Architect: Pir II",
+          "Contractor: Håndverkskompaniet AS",
+          "CO2 reduction: 90%",
+          "CO2 baseline: Ship steel vs new production",
+          "Material quantities documented (partial)",
+          "1 materials with weight data (kg/tonnes)",
+          "2 circular feature(s) documented",
+          "Material types: concrete, steel",
+          "2 material(s) with quantified amounts",
+          "1 material with source citation",
+          "Budget: 301600000",
+          "1 primary source",
+          "Total 9 sources documented",
+          "FutureBuilt",
+          "Energy: Passivhus, Energy class A",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "4 challenges documented",
+          "2 material(s) with donor source",
+          "Donor types: decommissioning, demolition"
+        ],
+        "missing": [
+          "Technical consultants documented",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade A: Document cost savings from reuse; Add material weights (kg/tonnes)",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -1676,6 +1947,61 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Oksenøya Senter: 28-34% CO2 reduction, massivtre, Passivhus, BREEAM Excellent"
+      },
+      "data_completeness": {
+        "score": 59,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 10,
+          "metrics_co2": 0,
+          "metrics_circularity": 7,
+          "material_inventory": 11,
+          "cost_data": 3,
+          "sources_primary": 10,
+          "certifications": 5,
+          "narrative": 5,
+          "donor_sources": 0
+        },
+        "has": [
+          "Project name: Treklang / Oksenøya Senter",
+          "City: Bærum",
+          "Coordinates: 59.896, 10.618",
+          "Status: completed",
+          "Year: 2022-2023",
+          "Size: 37000 m²",
+          "Client: Bærum kommune",
+          "Architect: ['Arkitektgruppen Lille Frøen', 'Arkitema Architects']",
+          "Contractor: Veidekke Entreprenør",
+          "1 consultant/technical sources",
+          "Material quantities documented (partial)",
+          "4 materials with quantities (units/items)",
+          "6 circular features documented",
+          "Material types: concrete, steel, timber",
+          "3 materials with quantified amounts",
+          "Budget: 1700000000 NOK",
+          "2 primary sources",
+          "Technical reports: Klimagassrapport Oksenøya skol",
+          "Total 6 sources documented",
+          "BREEAM Outstanding",
+          "FutureBuilt Forbildeprosjekt",
+          "Energy: Near Zero Energy Building (nZE",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented"
+        ],
+        "missing": [
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Material weights in kg/tonnes",
+          "Source citations for materials",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Material donor sources"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document material origin/donor buildings",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -1831,7 +2157,7 @@
             "reference": 12.91
           },
           "transport": {
-            "project": 3.90,
+            "project": 3.9,
             "reference": 10.06
           }
         },
@@ -1948,7 +2274,10 @@
           }
         },
         "primary_pathway": "build_with_right_materials",
-        "secondary_pathways": ["build_efficiently", "build_for_longterm"],
+        "secondary_pathways": [
+          "build_efficiently",
+          "build_for_longterm"
+        ],
         "total_score": {
           "raw_score": 47.0,
           "quality_multiplier": 1.2,
@@ -1959,6 +2288,62 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Strong documentation with as-built klimagassregnskap. Exemplary new build with 61% CO2 reduction and design for future material recovery."
+      },
+      "data_completeness": {
+        "score": 80,
+        "grade": "A",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 8,
+          "metrics_co2": 15,
+          "metrics_circularity": 7,
+          "material_inventory": 15,
+          "cost_data": 4,
+          "sources_primary": 10,
+          "certifications": 3,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Ruseløkka skole",
+          "City: Oslo",
+          "Coordinates: 59.9145, 10.7296",
+          "Status: completed",
+          "Year: 2021",
+          "Size: 10300 m²",
+          "Client: Undervisningsbygg Oslo KF",
+          "Architect: GASA AS",
+          "Contractor: Veidekke Entreprenør",
+          "CO2 reduction: 61%",
+          "CO2 baseline: NS3720 reference building",
+          "CO2 intensity: 11.06 kg/m²/year",
+          "Material quantities documented (partial)",
+          "3 materials with quantities (units/items)",
+          "8 circular features documented",
+          "Material types: brick, concrete, fixtures, solar, stone",
+          "3 materials with quantified amounts",
+          "3 materials with source citations",
+          "Cost data in material features",
+          "3 primary sources",
+          "Technical reports: Klimagassregnskap As-built (As",
+          "Total 7 sources documented",
+          "FutureBuilt Forbildeprosjekt",
+          "Energy: Passivhus (near zero energy bu",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented",
+          "Donor sources: Old Ruseløkka school",
+          "Donor types: demolition"
+        ],
+        "missing": [
+          "Technical consultants documented",
+          "Overall circularity/reuse rate percentage",
+          "Material weights in kg/tonnes",
+          "Project budget",
+          "Detailed cost breakdown"
+        ],
+        "upgrade_path": "Flagship documentation level achieved. Maintain with updates as project progresses.",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -2097,6 +2482,57 @@
           "Adapting old timber to new construction",
           "Training in traditional techniques"
         ]
+      },
+      "data_completeness": {
+        "score": 38,
+        "grade": "D",
+        "category_scores": {
+          "basic_info": 7,
+          "stakeholders": 6,
+          "metrics_co2": 0,
+          "metrics_circularity": 0,
+          "material_inventory": 4,
+          "cost_data": 3,
+          "sources_primary": 6,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: TradLab TRE",
+          "City: Oslo",
+          "Coordinates: 59.902, 10.685",
+          "Status: completed",
+          "Year: 2024",
+          "Client: Norsk Folkemuseum",
+          "Architect: Olav Vidvei",
+          "4 circular features documented",
+          "Budget: 2100000 NOK",
+          "2 primary sources",
+          "Total 3 sources documented",
+          "FutureBuilt Innovation Pilot",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented",
+          "Donor sources: Nedre Sem låve (1890 barn), Nordmarka forest + Vikingtidsmuseet construction plot, Nedre Sem låve",
+          "Donor types: transfer, sustainable_harvest"
+        ],
+        "missing": [
+          "Building size (m²)",
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Circularity/reuse rate",
+          "Quantified material data",
+          "Material quantities (values with units)",
+          "Source citations for materials",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -2204,6 +2640,59 @@
           "Scaling operations",
           "Quality assurance of diverse materials"
         ]
+      },
+      "data_completeness": {
+        "score": 41,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 3,
+          "metrics_co2": 0,
+          "metrics_circularity": 11,
+          "material_inventory": 5,
+          "cost_data": 0,
+          "sources_primary": 6,
+          "certifications": 0,
+          "narrative": 5,
+          "donor_sources": 3
+        },
+        "has": [
+          "Project name: Sirkulær Ressurssentral",
+          "City: Oslo",
+          "Coordinates: 59.935, 10.8125",
+          "Status: operational",
+          "Year: 2023",
+          "Size: 7000 m²",
+          "Client: Sirkulær Ressurssentral AS (100% owned by Foreningen Pådriv Oslo)",
+          "Material quantities documented (partial)",
+          "1 materials with weight data (kg/tonnes)",
+          "3 circular features documented",
+          "2 material(s) with quantified amounts",
+          "3 primary sources",
+          "Total 3 sources documented",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented",
+          "1 material(s) with donor source",
+          "Donor types: surplus"
+        ],
+        "missing": [
+          "Architect",
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Material type classification",
+          "Source citations for materials",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap",
+          "Certifications (BREEAM, FutureBuilt, etc.)"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -2446,6 +2935,59 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "70% circularity rate - brick, timber, and other materials"
+      },
+      "data_completeness": {
+        "score": 58,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 7,
+          "stakeholders": 8,
+          "metrics_co2": 0,
+          "metrics_circularity": 15,
+          "material_inventory": 8,
+          "cost_data": 0,
+          "sources_primary": 7,
+          "certifications": 3,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Nøstebukten Brygge",
+          "City: Bergen",
+          "Coordinates: 60.389, 5.313",
+          "Status: planned",
+          "Year: 2027 (planned)",
+          "Client: OBOS / EGD Property",
+          "Architect: ['MAD arkitekter', 'Tredje Natur']",
+          "Contractor: LAB Entreprenør",
+          "Circularity rate: 70%",
+          "1 materials with weight data (kg/tonnes)",
+          "3 circular features documented",
+          "Material types: brick, other, timber",
+          "2 material(s) with quantified amounts",
+          "1 material with source citation",
+          "3 primary sources",
+          "Total 9 sources documented",
+          "FutureBuilt Forbildeprosjekt",
+          "Energy: Passivhus energy class A",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "4 challenges documented",
+          "Donor sources: Former TV2 headquarters",
+          "Donor types: demolition"
+        ],
+        "missing": [
+          "Building size (m²)",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -2767,6 +3309,60 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "99% netto null - exemplary minimal intervention approach"
+      },
+      "data_completeness": {
+        "score": 63,
+        "grade": "B",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 8,
+          "metrics_co2": 6,
+          "metrics_circularity": 11,
+          "material_inventory": 11,
+          "cost_data": 0,
+          "sources_primary": 7,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Grensen 9B",
+          "City: Oslo",
+          "Coordinates: 59.9135, 10.7455",
+          "Status: completed",
+          "Year: 2025",
+          "Size: 3500 m²",
+          "Client: Oslo Pensjonsforsikring (OPF) and Pensjonskassen for helseforetakene (PKH)",
+          "Architect: MAD Arkitekter",
+          "Contractor: Sane Entreprenør / Magna Construction Management",
+          "CO2 reduction: 93%",
+          "Circularity rate: 97.3%",
+          "2 materials with quantities (units/items)",
+          "8 circular features documented",
+          "Material types: concrete, fixtures, other, steel, timber",
+          "1 material(s) with quantified amounts",
+          "1 material with source citation",
+          "5 primary sources",
+          "Total 5 sources documented",
+          "BREEAM Very Good",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "4 challenges documented",
+          "Donor sources: Sporveien (Oslo public transport), Original building, Spjelkavik ungdomsskole, Kongsvinger brannstasjon",
+          "Donor types: demolition, decommissioned, on-site, preservation, surplus"
+        ],
+        "missing": [
+          "Technical consultants documented",
+          "CO2 reduction baseline/methodology",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Material weights in kg/tonnes",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade A: Document cost savings from reuse; Obtain klimagassregnskap/LCA report",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -2927,6 +3523,60 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Auto-assessed based on documented circular features"
+      },
+      "data_completeness": {
+        "score": 46,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 6,
+          "metrics_co2": 0,
+          "metrics_circularity": 7,
+          "material_inventory": 7,
+          "cost_data": 2,
+          "sources_primary": 4,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Oslo Legevakt",
+          "City: Oslo",
+          "Coordinates: 59.941, 10.802",
+          "Status: completed",
+          "Year: 2023",
+          "Size: 26000 m²",
+          "Client: Oslo kommune",
+          "Architect: Nordic Office of Architecture",
+          "Material quantities documented (partial)",
+          "1 materials with quantities (units/items)",
+          "4 circular features documented",
+          "Material types: concrete, stone",
+          "1 material(s) with quantified amounts",
+          "Cost information in notes",
+          "1 primary source",
+          "Total 2 sources documented",
+          "BREEAM Excellent",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented",
+          "Donor sources: Vika Terrasse, Nasjonalmuseet, unknown",
+          "Donor types: demolition, waste_stream"
+        ],
+        "missing": [
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Material weights in kg/tonnes",
+          "Source citations for materials",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -3159,6 +3809,60 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Auto-assessed based on documented circular features"
+      },
+      "data_completeness": {
+        "score": 49,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 7,
+          "stakeholders": 5,
+          "metrics_co2": 0,
+          "metrics_circularity": 7,
+          "material_inventory": 11,
+          "cost_data": 0,
+          "sources_primary": 7,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Sophies Minde",
+          "City: Oslo",
+          "Coordinates: 59.93, 10.785",
+          "Status: under_construction",
+          "Size: 13000 m²",
+          "Client: Oslobygg KF",
+          "Contractor: Vedal Entreprenør",
+          "Material quantities documented (partial)",
+          "1 materials with quantities (units/items)",
+          "5 circular features documented",
+          "Material types: brick, fixtures, steel, stone",
+          "1 material(s) with quantified amounts",
+          "1 material with source citation",
+          "5 primary sources",
+          "Total 8 sources documented",
+          "BREEAM Very Good",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "4 challenges documented",
+          "Donor sources: Existing hospital facilities, unknown, Existing hospital buildings",
+          "Donor types: preservation"
+        ],
+        "missing": [
+          "Completion year",
+          "Architect",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Material weights in kg/tonnes",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -3334,6 +4038,57 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "World's first office building designed for complete disassembly - DOGA Award 2023"
+      },
+      "data_completeness": {
+        "score": 36,
+        "grade": "D",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 6,
+          "metrics_co2": 0,
+          "metrics_circularity": 0,
+          "material_inventory": 5,
+          "cost_data": 3,
+          "sources_primary": 7,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 0
+        },
+        "has": [
+          "Project name: HasleTre",
+          "City: Oslo",
+          "Coordinates: 59.928, 10.795",
+          "Status: completed",
+          "Year: 2022",
+          "Size: 3000 m²",
+          "Client: Höegh Eiendom & AF Eiendom",
+          "Architect: Oslotre",
+          "5 circular features documented",
+          "Budget: 118000000",
+          "3 primary sources",
+          "Total 4 sources documented",
+          "BREEAM certified",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented"
+        ],
+        "missing": [
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Circularity/reuse rate",
+          "Quantified material data",
+          "Material type classification",
+          "Material quantities (values with units)",
+          "Source citations for materials",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap",
+          "Material donor sources"
+        ],
+        "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -3494,6 +4249,59 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "103,000 m² with 70-90% concrete reuse target (3,400 tonnes)"
+      },
+      "data_completeness": {
+        "score": 41,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 6,
+          "metrics_co2": 0,
+          "metrics_circularity": 7,
+          "material_inventory": 6,
+          "cost_data": 0,
+          "sources_primary": 6,
+          "certifications": 0,
+          "narrative": 5,
+          "donor_sources": 3
+        },
+        "has": [
+          "Project name: Construction City Ulven",
+          "City: Oslo",
+          "Coordinates: 59.925, 10.82",
+          "Status: completed",
+          "Year: 2024",
+          "Size: 103000 m²",
+          "Client: Construction City Eiendom",
+          "Architect: LINK Arkitektur",
+          "Material quantities documented (partial)",
+          "1 materials with quantities (units/items)",
+          "3 circular features documented",
+          "1 material(s) with quantified amounts",
+          "3 primary sources",
+          "Total 3 sources documented",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented",
+          "2 material(s) with donor source",
+          "Donor types: office_relocations, manufacturing_waste"
+        ],
+        "missing": [
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Material weights in kg/tonnes",
+          "Source citations for materials",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap",
+          "Certifications (BREEAM, FutureBuilt, etc.)"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -3663,6 +4471,60 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Auto-assessed based on documented circular features"
+      },
+      "data_completeness": {
+        "score": 37,
+        "grade": "D",
+        "category_scores": {
+          "basic_info": 7,
+          "stakeholders": 5,
+          "metrics_co2": 0,
+          "metrics_circularity": 7,
+          "material_inventory": 3,
+          "cost_data": 0,
+          "sources_primary": 7,
+          "certifications": 0,
+          "narrative": 5,
+          "donor_sources": 3
+        },
+        "has": [
+          "Project name: Nidarvoll og Sunnland Skoler",
+          "City: Trondheim",
+          "Coordinates: 63.41, 10.41",
+          "Status: completed",
+          "Year: 2024",
+          "Client: Trondheim kommune",
+          "Contractor: Skanska",
+          "Material quantities documented (partial)",
+          "1 materials with quantities (units/items)",
+          "2 circular feature(s) documented",
+          "1 material(s) with quantified amounts",
+          "4 primary sources",
+          "Total 5 sources documented",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented",
+          "2 material(s) with donor source",
+          "Donor types: demolition, municipal_warehouse"
+        ],
+        "missing": [
+          "Building size (m²)",
+          "Architect",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Material weights in kg/tonnes",
+          "Material type classification",
+          "Source citations for materials",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap",
+          "Certifications (BREEAM, FutureBuilt, etc.)"
+        ],
+        "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -3801,6 +4663,58 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Auto-assessed based on documented circular features"
+      },
+      "data_completeness": {
+        "score": 31,
+        "grade": "D",
+        "category_scores": {
+          "basic_info": 6,
+          "stakeholders": 3,
+          "metrics_co2": 6,
+          "metrics_circularity": 0,
+          "material_inventory": 2,
+          "cost_data": 0,
+          "sources_primary": 6,
+          "certifications": 0,
+          "narrative": 5,
+          "donor_sources": 3
+        },
+        "has": [
+          "Project name: Stovner Bad",
+          "City: Oslo",
+          "Coordinates: 59.962, 10.923",
+          "Status: under_construction",
+          "Client: Oslobygg KF",
+          "CO2 reduction: 90%",
+          "1 circular feature(s) documented",
+          "2 primary sources",
+          "Total 3 sources documented",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented",
+          "1 material(s) with donor source",
+          "Donor types: decommissioning"
+        ],
+        "missing": [
+          "Completion year",
+          "Building size (m²)",
+          "Architect",
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction baseline/methodology",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Circularity/reuse rate",
+          "Quantified material data",
+          "Material quantities (values with units)",
+          "Source citations for materials",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap",
+          "Certifications (BREEAM, FutureBuilt, etc.)"
+        ],
+        "upgrade_path": "Priority improvements: Document reuse/circularity percentage; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -3952,6 +4866,58 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Norway's first large-scale circular new-build housing - 20,000+ m² hulldekker reused"
+      },
+      "data_completeness": {
+        "score": 34,
+        "grade": "D",
+        "category_scores": {
+          "basic_info": 7,
+          "stakeholders": 6,
+          "metrics_co2": 0,
+          "metrics_circularity": 0,
+          "material_inventory": 5,
+          "cost_data": 0,
+          "sources_primary": 6,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 3
+        },
+        "has": [
+          "Project name: Stovner Torg",
+          "City: Oslo",
+          "Coordinates: 59.962, 10.925",
+          "Status: planned",
+          "Year: 2028",
+          "Client: Scandinavian Property Group (SPG) & Ineo Eiendom",
+          "Architect: Mad Arkitekter",
+          "3 circular features documented",
+          "Material types: concrete, steel",
+          "2 primary sources",
+          "Total 2 sources documented",
+          "FutureBuilt Forbildeprosjekt",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented",
+          "2 material(s) with donor source",
+          "Donor types: demolition"
+        ],
+        "missing": [
+          "Building size (m²)",
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Circularity/reuse rate",
+          "Quantified material data",
+          "Material quantities (values with units)",
+          "Source citations for materials",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -4062,6 +5028,55 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Auto-assessed based on documented circular features"
+      },
+      "data_completeness": {
+        "score": 23,
+        "grade": "D",
+        "category_scores": {
+          "basic_info": 6,
+          "stakeholders": 3,
+          "metrics_co2": 0,
+          "metrics_circularity": 0,
+          "material_inventory": 2,
+          "cost_data": 4,
+          "sources_primary": 3,
+          "certifications": 0,
+          "narrative": 5,
+          "donor_sources": 0
+        },
+        "has": [
+          "Project name: Voldsløkka Idrettspark",
+          "City: Oslo",
+          "Coordinates: 59.935, 10.755",
+          "Status: under_construction",
+          "Client: Oslobygg KF",
+          "1 circular feature(s) documented",
+          "Cost data in material features",
+          "1 primary source",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented"
+        ],
+        "missing": [
+          "Completion year",
+          "Building size (m²)",
+          "Architect",
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Circularity/reuse rate",
+          "Quantified material data",
+          "Material quantities (values with units)",
+          "Source citations for materials",
+          "Project budget",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap",
+          "Certifications (BREEAM, FutureBuilt, etc.)",
+          "Material donor sources"
+        ],
+        "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -4418,6 +5433,58 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Norway's first circular heritage-protected building - 83% internal reuse"
+      },
+      "data_completeness": {
+        "score": 59,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 10,
+          "metrics_co2": 0,
+          "metrics_circularity": 8,
+          "material_inventory": 11,
+          "cost_data": 3,
+          "sources_primary": 7,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Kristian Augusts gate 23 (KA23)",
+          "City: Oslo",
+          "Coordinates: 59.9165, 10.7385",
+          "Status: completed",
+          "Year: 2022",
+          "Size: 8730 m²",
+          "Client: Höegh Eiendom",
+          "Architect: Arcasa Arkitekter",
+          "Contractor: Seltor AS",
+          "1 consultant/technical sources",
+          "Circularity rate: 50%",
+          "6 circular features documented",
+          "Material types: concrete, glass, steel, stone, timber",
+          "6 materials with source citations",
+          "Budget: documented ",
+          "4 primary sources",
+          "Total 6 sources documented",
+          "FutureBuilt Showcase project",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "5 challenges documented",
+          "Donor sources: Original 1950 building, Demolition projects, Original building facade",
+          "Donor types: demolition, preservation"
+        ],
+        "missing": [
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Quantified material data",
+          "Material quantities (values with units)",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -4712,6 +5779,58 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "BREEAM Outstanding. FutureBuilt benchmark project."
+      },
+      "data_completeness": {
+        "score": 50,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 6,
+          "metrics_co2": 0,
+          "metrics_circularity": 8,
+          "material_inventory": 9,
+          "cost_data": 0,
+          "sources_primary": 7,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 5
+        },
+        "has": [
+          "Project name: Prosjekt Føniks",
+          "City: Bergen",
+          "Coordinates: 60.385, 5.31",
+          "Status: under_construction",
+          "Year: 2025-2026 (planned)",
+          "Size: 2200 m²",
+          "Client: Frydenbø Eiendom",
+          "Architect: Artec AS",
+          "Circularity rate: 89%",
+          "7 circular features documented",
+          "Material types: concrete, fixtures, glass, other, steel",
+          "1 material with source citation",
+          "3 primary sources",
+          "Total 4 sources documented",
+          "FutureBuilt Pilot",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "4 challenges documented",
+          "Donor sources: Same building, Bergen Courthouse + Mårdalen, Elevator test tower",
+          "Donor types: demolition, international, renovation, on_site_transformation"
+        ],
+        "missing": [
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Quantified material data",
+          "Material quantities (values with units)",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -4883,6 +6002,59 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Auto-assessed based on documented circular features"
+      },
+      "data_completeness": {
+        "score": 36,
+        "grade": "D",
+        "category_scores": {
+          "basic_info": 6,
+          "stakeholders": 3,
+          "metrics_co2": 0,
+          "metrics_circularity": 7,
+          "material_inventory": 3,
+          "cost_data": 0,
+          "sources_primary": 7,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 3
+        },
+        "has": [
+          "Project name: Høyblokken (Nytt Regjeringskvartal)",
+          "City: Oslo",
+          "Coordinates: 59.916, 10.7485",
+          "Status: under_construction",
+          "Client: Statsbygg",
+          "Material quantities documented (partial)",
+          "1 materials with quantities (units/items)",
+          "1 circular feature(s) documented",
+          "1 material with source citation",
+          "2 primary sources",
+          "Total 7 sources documented",
+          "BREEAM Excellent",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "5 challenges documented",
+          "1 material(s) with donor source",
+          "Donor types: preservation"
+        ],
+        "missing": [
+          "Completion year",
+          "Building size (m²)",
+          "Architect",
+          "Contractor/entreprenør",
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Material weights in kg/tonnes",
+          "Material quantities (values with units)",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap"
+        ],
+        "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -5022,6 +6194,58 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Auto-assessed based on documented circular features"
+      },
+      "data_completeness": {
+        "score": 34,
+        "grade": "D",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 8,
+          "metrics_co2": 0,
+          "metrics_circularity": 0,
+          "material_inventory": 1,
+          "cost_data": 3,
+          "sources_primary": 6,
+          "certifications": 0,
+          "narrative": 5,
+          "donor_sources": 3
+        },
+        "has": [
+          "Project name: Lilleborg skole",
+          "City: Oslo",
+          "Coordinates: 59.94, 10.77",
+          "Status: under_construction",
+          "Year: 2026",
+          "Size: 8600 m²",
+          "Client: Oslobygg KF",
+          "Architect: FuthArk Arkiteter AS",
+          "Contractor: Backe Stor-Oslo",
+          "1 circular feature(s) documented",
+          "Budget: 368000000",
+          "3 primary sources",
+          "Total 3 sources documented",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "4 challenges documented",
+          "1 material(s) with donor source",
+          "Donor types: preservation"
+        ],
+        "missing": [
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Circularity/reuse rate",
+          "Quantified material data",
+          "Material type classification",
+          "Material quantities (values with units)",
+          "Source citations for materials",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap",
+          "Certifications (BREEAM, FutureBuilt, etc.)"
+        ],
+        "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -5193,6 +6417,57 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Auto-assessed based on documented circular features"
+      },
+      "data_completeness": {
+        "score": 34,
+        "grade": "D",
+        "category_scores": {
+          "basic_info": 8,
+          "stakeholders": 8,
+          "metrics_co2": 0,
+          "metrics_circularity": 0,
+          "material_inventory": 1,
+          "cost_data": 3,
+          "sources_primary": 7,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 0
+        },
+        "has": [
+          "Project name: NRK Hovedkontor Normannsløkka",
+          "City: Oslo",
+          "Coordinates: 59.913, 10.785",
+          "Status: planned",
+          "Year: 2029 (planned)",
+          "Size: 50000 m²",
+          "Client: NRK (Norsk rikskringkasting)",
+          "Architect: ['Nordic Office of Architecture', 'Arup Architecture', 'Rodeo Arkitekter']",
+          "Contractor: HENT AS",
+          "2 circular feature(s) documented",
+          "Budget: 800000000 NOK",
+          "3 primary sources",
+          "Total 5 sources documented",
+          "FutureBuilt Forbildeprosjekt candidate",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented"
+        ],
+        "missing": [
+          "Technical consultants documented",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Circularity/reuse rate",
+          "Quantified material data",
+          "Material type classification",
+          "Material quantities (values with units)",
+          "Source citations for materials",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Technical report/klimagassregnskap",
+          "Material donor sources"
+        ],
+        "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
+        "calculated_date": "2025-12-04"
       }
     },
     {
@@ -5376,6 +6651,59 @@
         "assessed_by": "Nordic Circular Buildings Database",
         "methodology_version": "CBC-2024-v1",
         "notes": "Auto-assessed based on documented circular features"
+      },
+      "data_completeness": {
+        "score": 41,
+        "grade": "C",
+        "category_scores": {
+          "basic_info": 7,
+          "stakeholders": 5,
+          "metrics_co2": 0,
+          "metrics_circularity": 7,
+          "material_inventory": 8,
+          "cost_data": 0,
+          "sources_primary": 7,
+          "certifications": 2,
+          "narrative": 5,
+          "donor_sources": 0
+        },
+        "has": [
+          "Project name: Vollebekk torg",
+          "City: Oslo",
+          "Coordinates: 59.943, 10.817",
+          "Status: completed",
+          "Year: 2023",
+          "Client: OBOS Nye Hjem",
+          "1 consultant/technical sources",
+          "Material quantities documented (partial)",
+          "5 materials with quantities (units/items)",
+          "5 circular features documented",
+          "Material types: brick, ceramics, natural_stone, roof_tiles, timber",
+          "1 primary source",
+          "Technical reports: Vollebekk torg sirkulært byrom",
+          "Total 2 sources documented",
+          "FutureBuilt Forbildeprosjekt",
+          "Project driver/motivation documented",
+          "Lessons learned documented",
+          "3 challenges documented"
+        ],
+        "missing": [
+          "Building size (m²)",
+          "Architect",
+          "Contractor/entreprenør",
+          "CO2 reduction percentage",
+          "CO2 intensity (kg CO2/m²/year)",
+          "Overall circularity/reuse rate percentage",
+          "Material weights in kg/tonnes",
+          "Material quantities (values with units)",
+          "Source citations for materials",
+          "Project budget",
+          "Cost savings/comparison data",
+          "Detailed cost breakdown",
+          "Material donor sources"
+        ],
+        "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
+        "calculated_date": "2025-12-04"
       }
     }
   ],

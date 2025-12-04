@@ -139,6 +139,23 @@ def sync():
         if grade in by_grade:
             print(f"  {grade}: {by_grade[grade]}")
 
+    # Data completeness grades
+    dc_grades = {}
+    dc_scores = []
+    for p in projects:
+        dc = p.get('data_completeness', {})
+        grade = dc.get('grade', 'N/A')
+        dc_grades[grade] = dc_grades.get(grade, 0) + 1
+        if dc.get('score'):
+            dc_scores.append(dc['score'])
+
+    print(f"\nData Completeness Grades:")
+    for grade in ['A', 'B', 'C', 'D', 'E', 'N/A']:
+        if grade in dc_grades:
+            print(f"  {grade}: {dc_grades[grade]}")
+    if dc_scores:
+        print(f"  Average score: {sum(dc_scores)/len(dc_scores):.1f}/100")
+
     print(f"\nSync completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     return len(all_errors) == 0
 

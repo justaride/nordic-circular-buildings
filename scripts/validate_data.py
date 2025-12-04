@@ -171,6 +171,11 @@ def validate_project(project, idx, result: ValidationResult):
     for err in cbc_errors:
         result.error(f"[{pid}] {err}")
 
+    # Data completeness validation
+    dc_errors = validate_data_completeness(project.get('data_completeness'), pid)
+    for err in dc_errors:
+        result.error(f"[{pid}] {err}")
+
     # Year validation (allow string dates for planned projects)
     year = project.get('year_completed')
     status = project.get('status', '')
@@ -225,6 +230,42 @@ def validate_case_studies(project_ids, result: ValidationResult):
         except json.JSONDecodeError as e:
             result.error(f"Case study {cs_file.name}: Invalid JSON - {e}")
 
+def validate_data_completeness(dc, project_id):
+    """Validate data_completeness structure"""
+    errors = []
+
+    if not dc:
+        return ["Missing data_completeness"]
+
+    # Check score
+    score = dc.get('score')
+    if score is None:
+        errors.append("Missing completeness score")
+    elif not isinstance(score, (int, float)) or score < 0 or score > 100:
+        errors.append(f"Invalid completeness score: {score}")
+
+    # Check grade matches score
+    grade = dc.get('grade')
+    if grade:
+        expected_grade = None
+        if score >= 80: expected_grade = 'A'
+        elif score >= 60: expected_grade = 'B'
+        elif score >= 40: expected_grade = 'C'
+        elif score >= 20: expected_grade = 'D'
+        else: expected_grade = 'E'
+
+        if grade != expected_grade:
+            errors.append(f"Grade {grade} doesn't match score {score} (expected {expected_grade})")
+
+    # Check category_scores sum matches total
+    cat_scores = dc.get('category_scores', {})
+    if cat_scores:
+        cat_total = sum(cat_scores.values())
+        if abs(cat_total - score) > 1:  # Allow 1 point rounding
+            errors.append(f"Category scores sum ({cat_total}) doesn't match total ({score})")
+
+    return errors
+
 def validate_data_consistency(data, result: ValidationResult):
     """Check overall data consistency"""
 
@@ -248,12 +289,24 @@ def validate_data_consistency(data, result: ValidationResult):
     if no_cbc:
         result.add_info(f"{len(no_cbc)} projects without CBC assessment")
 
-    # Check data quality distribution
-    quality_dist = defaultdict(int)
+    # Check for projects without data_completeness
+    no_dc = [p['id'] for p in projects if not p.get('data_completeness')]
+    if no_dc:
+        result.warn(f"{len(no_dc)} projects without data_completeness: {', '.join(no_dc[:3])}...")
+
+    # Data completeness grade distribution
+    grade_dist = defaultdict(int)
     for p in projects:
-        q = p.get('data_quality', 'unknown')
-        quality_dist[q] += 1
-    result.add_info(f"Data quality distribution: {dict(quality_dist)}")
+        dc = p.get('data_completeness', {})
+        grade = dc.get('grade', 'N/A')
+        grade_dist[grade] += 1
+    result.add_info(f"Data completeness grades: A={grade_dist.get('A',0)}, B={grade_dist.get('B',0)}, C={grade_dist.get('C',0)}, D={grade_dist.get('D',0)}, E={grade_dist.get('E',0)}")
+
+    # Average completeness score
+    scores = [p.get('data_completeness', {}).get('score', 0) for p in projects]
+    if scores:
+        avg = sum(scores) / len(scores)
+        result.add_info(f"Average completeness score: {avg:.1f}/100")
 
 def main():
     print("Nordic Circular Buildings Data Validation")
