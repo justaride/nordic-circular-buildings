@@ -1,7 +1,7 @@
 {
   "country": "NO",
   "country_name": "Norway",
-  "last_updated": "2025-12-04",
+  "last_updated": "2025-12-03",
   "total_projects": 24,
   "summary": {
     "geographic_distribution": {
@@ -87,98 +87,32 @@
       "circular_features": [
         {
           "category": "material_reuse",
-          "material_type": "steel",
-          "description": "45 tonnes reused steel (70% of total) - columns, beams, hat profiles from 5 donor sources. Tested with OES spectrometer and SINTEF destructive testing.",
-          "donor_source": {
-            "name": "Multiple sources",
-            "location": "Oslo/Østlandet",
-            "type": "demolition/surplus",
-            "details": "Karl Johansgate 23 (3t), Dronning Maudsgate 1-3 (7t), Stena stål (4t), Agility Group offshore (22t), Stokke Stål restlager (23t)"
-          },
-          "quantity": {
-            "value": 45,
-            "unit": "tonnes",
-            "description": "45 tonnes installed of 57 tonnes procured (70% of total 64t steel in project)"
-          },
-          "processing": "Stokke Stål: sorting by origin, UCI hardness testing, OES chemical analysis by Mantena AS, 13 test batches, SINTEF destructive testing, sandblasting (70 hours), priming",
-          "cost_comparison": {
-            "reused_cost": "100 kr/kg",
-            "new_cost": "67 kr/kg",
-            "difference": "+49% more expensive than new",
-            "note": "Includes search, purchase, dismantling, testing, processing, storage, transport, installation"
-          },
-          "environmental_impact": {
-            "co2_savings_percent": 97,
-            "co2_savings_tonnes": 110,
-            "new_emission": "2.5 kg CO2-eq/kg",
-            "reused_emission": "0.07 kg CO2-eq/kg"
-          },
-          "citations": [
-            {
-              "source": "KA13 Erfaringsrapport",
-              "section": "4.2 Stålkonstruksjoner",
-              "pages": "54-58",
-              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=54",
-              "quote": "Ca. 70% av stålkonstruksjonene i KA13 er ombruksstål",
-              "data_points": [
-                "45t installed",
-                "57t procured",
-                "5 donor sources",
-                "100 kr/kg cost"
-              ]
-            }
-          ],
-          "supplier": {
-            "name": "Stokke Stål AS",
-            "country": "NO",
-            "role": "processor_certifier"
-          }
-        },
-        {
-          "category": "material_reuse",
           "material_type": "concrete",
-          "description": "21 hollow-core slabs (HD265, 6.5m x 1.2m) reused as floor dividers in floors 5-7. Norway's first structural concrete reuse at scale.",
+          "description": "21 hollow-core concrete slabs reused as floor dividers - Norway's first structural concrete reuse at scale",
           "donor_source": {
             "name": "Regjeringskvartalet R4 building",
             "location": "Oslo",
             "type": "demolition"
           },
           "quantity": {
-            "value": 96,
+            "value": 168,
             "unit": "tonnes",
-            "description": "21 hollow-core slabs HD265, 6.5m x 1.2m, ca. 160 m²"
+            "description": "21 hollow-core slabs"
           },
-          "processing": "Veidekke dismantling with custom lifting yokes, Øst-Riv transport/storage at Follestad, SINTEF carbonation and chloride testing",
-          "cost_comparison": {
-            "vs_new": "5-6x price of new hollow-core slabs",
-            "note": "Pilot project with high planning overhead. Cost includes dismantling, testing, transport, processing, extra design time."
-          },
-          "environmental_impact": {
-            "co2_savings_percent": 89,
-            "co2_savings_tonnes": 10.9,
-            "new_emission": "124.9 kg CO2-eq/tonne",
-            "reused_emission": "13.9 kg CO2-eq/tonne",
-            "transport_note": "Transport accounts for 90% of reuse emissions. Break-even distance: 890 km"
-          },
+          "processing": "SINTEF tested slabs to establish certification pathways",
           "citations": [
             {
-              "source": "KA13 Erfaringsrapport",
-              "section": "4.3 Hulldekker",
-              "pages": "63-67",
-              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=63",
-              "quote": "21 stk. hulldekker av typen HD265, med mål ca 6,5 x 1,2 m",
-              "data_points": [
-                "21 slabs",
-                "HD265 type",
-                "96 tonnes",
-                "R4 donor building"
-              ]
+              "source": "Anskaffelser.no - Ombruk hos Statsbygg og Entra",
+              "url": "https://anskaffelser.no/verktoy/eksempler/ombruk-av-byggematerialer-hos-statsbygg-og-entra",
+              "quote": "168 tonn betong i form av store betongelementer (hulldekker) ble flyttet fra Regjeringskvartalet til Tullinløkka"
             },
             {
-              "source": "Heidelberg Materials Prefab",
-              "section": "Ombruk av hulldekker",
+              "source": "NRK - Gjenbruk fra regjeringskvartalet",
+              "url": "https://www.nrk.no/norge/her-gjenbrukes-deler-av-regjeringskvartalet-_-men-dagens-regler-gjor-det-vanskelig-1.15104239",
+              "quote": "Hulldekkeelementene ble skjært løs og heist ut fra R4 i november 2019"
+            },
+            {
+              "source": "Heidelberg Materials Prefab - Ombruk av hulldekker",
               "url": "https://www.prefab.heidelbergmaterials.no/no/gjenbruk_hulldekker",
               "quote": "21 hulldekker fra Regjeringskvartalet installert i plan 5 til 8"
             }
@@ -191,86 +125,36 @@
         },
         {
           "category": "material_reuse",
-          "material_type": "sanitary",
-          "description": "116 sanitary fixtures from 7 donor buildings including sinks, toilets, faucets",
-          "donor_source": {
-            "name": "Multiple sources",
-            "location": "Oslo",
-            "type": "renovation/demolition",
-            "details": "Lambertseter sykehjem, Universitetsgata 2, Tøyenbadet, DEG 8, Refstad skole, Tordenskiolds gate 12"
-          },
-          "quantity": {
-            "value": 116,
-            "unit": "items",
-            "description": "34 sinks, 24 toilets, 23 faucets, 17 HC fixtures, 18 other"
-          },
-          "citations": [
-            {
-              "source": "KA13 Erfaringsrapport",
-              "section": "4.5 Sanitærutstyr (tabell)",
-              "pages": "69",
-              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=69",
-              "data_points": [
-                "116 items",
-                "7 donor buildings",
-                "Full inventory table"
-              ]
-            }
-          ]
-        },
-        {
-          "category": "material_reuse",
           "material_type": "glass",
           "description": "Windows from mistaken bulk order saved 90% production emissions",
           "donor_source": {
-            "name": "Turbinveien 15, Kværnerbyen",
+            "name": "Kværnerbyen",
             "location": "Oslo",
-            "type": "surplus/misorder",
-            "details": "28 vinduer feilprosjektert i boligprosjekt (manglet åpningsmulighet), demontert 2014, lagret hos Resirqel i 2 år"
+            "type": "surplus"
           },
-          "environmental_impact": {
-            "co2_savings_percent": 90
-          },
+          "quantity": null,
           "citations": [
             {
-              "source": "KA13 Erfaringsrapport",
-              "section": "2.4 Vinduer i tilbygg",
-              "pages": "16-18",
-              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=16",
-              "quote": "28 stk. vinduer fra Turbinveien 15, montert i etasjene 5, 6, 7 og 8",
-              "data_points": [
-                "28 windows from Turbinveien 15",
-                "2 from Nordregate 20-22",
-                "Via Resirqel"
-              ]
+              "source": "KA13 Erfaringsrapport (Entra)",
+              "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "quote": "Vinduer fra feilbestilling i Kværnerbyen sparte 90% produksjonsutslipp"
             }
           ]
         },
         {
           "category": "material_reuse",
           "material_type": "steel",
-          "description": "Internal staircase 8-9th floor from St. Olavsplass 5, extended with 4 steps, sandblasted and repainted",
+          "description": "Railings repurposed as atrium stairs",
           "donor_source": {
-            "name": "St. Olavsplass 5",
+            "name": "Tøyenbadet swimming pool",
             "location": "Oslo",
-            "type": "Entra portfolio"
+            "type": "demolition"
           },
-          "processing": "Stokke Stål: dismantling, cleaning, modification, sandblasting, new paint, new railing",
+          "quantity": null,
           "citations": [
             {
-              "source": "KA13 Erfaringsrapport",
-              "section": "4.6 Intern trapp",
-              "pages": "67",
-              "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
-              "page_url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf#page=67",
-              "quote": "To ståltrapper med ulike bredder vurdert - den ene passet i bredden men var litt for kort",
-              "data_points": [
-                "From St. Olavsplass 5",
-                "Extended with 4 steps",
-                "New railing"
-              ]
+              "source": "KA13 erfaringsrapport",
+              "url": null
             }
           ]
         },
@@ -283,12 +167,11 @@
             "location": "Oslo",
             "type": "renovation"
           },
+          "quantity": null,
           "citations": [
             {
-              "source": "DOGA Hedersmerke",
-              "section": "KA13 prosjektbeskrivelse",
-              "url": "https://doga.no/aktiviteter/dogas-priser/doga-merket-design-arkitektur/vinnere-av-doga-merket/kristian-augusts-gate-13/",
-              "quote": "Terrassedekkene er i naturstein fra en rehabilitert fasade på Skøyen"
+              "source": "KA13 erfaringsrapport",
+              "url": null
             }
           ]
         }
@@ -301,46 +184,42 @@
           "verified": true,
           "breakdown": [
             {
-              "material": "steel",
-              "contribution_percent": 35,
-              "notes": "45t reused of 64t total (70%), 97% CO2 savings, 110t CO2-eq saved"
-            },
-            {
               "material": "concrete",
-              "contribution_percent": 30,
-              "notes": "96t hollow-core HD265 from R4, 89% CO2 savings, 10.9t CO2-eq saved"
+              "contribution_percent": 45,
+              "notes": "168t hollow-core from R4"
             },
             {
               "material": "glass",
-              "contribution_percent": 15,
-              "notes": "Windows from Kværnerbyen surplus, 90% CO2 savings"
+              "contribution_percent": 20,
+              "notes": "Windows from Kværnerbyen surplus"
             },
             {
-              "material": "sanitary",
+              "material": "steel",
+              "contribution_percent": 15,
+              "notes": "Railings from Tøyenbadet"
+            },
+            {
+              "material": "stone",
               "contribution_percent": 10,
-              "notes": "116 fixtures from 7 donor buildings"
+              "notes": "Facade stone from Skøyen"
             },
             {
               "material": "fixtures",
               "contribution_percent": 10,
-              "notes": "Doors, radiators, staircase, stone"
+              "notes": "Doors, radiators, furniture"
             }
           ]
         },
         "co2_reduction": {
-          "value": 70,
-          "unit": "percent",
-          "note": "186 tonn CO2-eq total besparelse",
-          "source": "KA13 Erfaringsrapport"
+          "percent": 70,
+          "comparison_basis": "vs_conventional"
         },
         "donor_buildings_count": 25,
         "cost_notes": {
           "total_investment": "304 MNOK (incl. property value)",
-          "steel_cost": "100 kr/kg reused vs 67 kr/kg new (+49%)",
-          "hulldekker_cost": "5-6x price of new",
-          "cost_comparison": "Reuse was neither simple nor cheap - pilot project overhead. Steel and hollow-core were more expensive, but created replicable procedures and massive CO2 savings.",
-          "co2_savings_vs_new": "70% overall, 89-97% for individual reused elements",
-          "source": "Entra Erfaringsrapport 2021 (116 pages)"
+          "cost_comparison": "Reuse was neither simple nor cheap to implement - goal was to prove feasibility. Higher upfront costs but creating replicable procedures.",
+          "co2_savings_vs_new": "70% overall, 89-98% for individual reused elements",
+          "source": "Entra Erfaringsrapport 2021"
         }
       },
       "certifications": [
@@ -394,7 +273,7 @@
           "type": "primary",
           "name": "KA13 Erfaringsrapport Ombruk (116 sider)",
           "organization": "Entra ASA",
-          "url": "/nordic-circular-buildings/docs/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+          "url": "https://entra.no/storage/uploads/article-documents/ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
           "date": "2021-01"
         },
         {
@@ -624,18 +503,10 @@
       ],
       "metrics": {
         "co2_reduction": {
-          "value": 167,
-          "unit": "tonnes",
-          "note": "166,952 kg CO2-eq saved from material reuse",
-          "source": "FutureBuilt ombruksrapport 2022, vedlegg 2"
+          "absolute_tonnes": 171,
+          "note": "Reduction through material reuse"
         },
-        "structure_preservation": "100% of 1915 concrete structure",
-        "materials_reused": {
-          "value": 112,
-          "unit": "tonnes",
-          "note": "111,940 kg materials reused",
-          "source": "FutureBuilt ombruksrapport 2022, vedlegg 2"
-        }
+        "structure_preservation": "100% of 1915 concrete structure"
       },
       "narrative": {
         "driver": "Oslo Havn needed a new headquarters and chose to rehabilitate their historic 1915 warehouse rather than demolish. The project aimed to demonstrate that heritage preservation and modern environmental standards (BREEAM Excellent) could coexist, while reducing climate emissions through material reuse.",
@@ -1075,23 +946,37 @@
       ],
       "metrics": {
         "circularity_rate": {
-          "value": 48,
+          "value": 50,
           "unit": "percent",
-          "measurement": "sirkularitetsindeks",
-          "target": 50,
-          "status": "nearly achieved",
-          "source": "Sirkularitetsrapport 2023, side 7"
+          "measurement": "by_weight",
+          "verified": true,
+          "breakdown": [
+            {
+              "material": "stone",
+              "contribution_percent": 20,
+              "notes": "Original foundation rebuilt"
+            },
+            {
+              "material": "brick",
+              "contribution_percent": 15,
+              "notes": "Red barn brick reused"
+            },
+            {
+              "material": "timber",
+              "contribution_percent": 10,
+              "notes": "Panel cladding + transfer to TradLab"
+            },
+            {
+              "material": "other",
+              "contribution_percent": 5,
+              "notes": "Recycled concrete, fish-box EPS"
+            }
+          ]
         },
         "cost_notes": {
           "contract_sum": "104 MNOK excl. MVA (Veidekke contract)",
           "key_insight": "50% circularity achieved - first circular building project for Asker kommune",
           "source": "Asker Kommune / Mercell"
-        },
-        "co2_reduction": {
-          "value": 53327,
-          "unit": "kg",
-          "note": "CO2 saved from concrete alone",
-          "source": "Betongrapport 2024, side 13"
         }
       },
       "certifications": [],
@@ -1331,10 +1216,9 @@
       ],
       "metrics": {
         "co2_reduction": {
-          "value": 4620,
-          "unit": "kg",
-          "note": "4,620 kg CO2-eq saved",
-          "source": "Klimasats Sluttrapport 2025"
+          "percent": 90,
+          "comparison_basis": "vs_new_steel",
+          "description": "Ship steel vs new production"
         },
         "waste_diverted": {
           "tonnes": 62
@@ -3603,9 +3487,7 @@
       "client": "Höegh Eiendom",
       "architect": "Arcasa Arkitekter",
       "contractor": "Seltor AS",
-      "consultants": [
-        "Multiconsult"
-      ],
+      "consultants": ["Multiconsult"],
       "circularity_qualification": "Norway's first circular retrofit of heritage-protected building, achieving 50% material reuse while preserving 1951 Solvåg granite facade and mid-century teak interiors.",
       "primary_strategies": [
         "adaptive_reuse",
@@ -3737,12 +3619,37 @@
       ],
       "metrics": {
         "circularity_rate": {
-          "value": 83,
+          "value": 50,
           "unit": "percent",
-          "measurement": "internal_reuse_by_weight",
-          "status": "achieved (target was 50%)",
-          "note": "83% intern ombruk (10,519t av 12,673t total vekt)",
-          "source": "Erfaringsrapport KA23 rev4, side 16"
+          "measurement": "by_weight",
+          "status": "target met or exceeded",
+          "breakdown": [
+            {
+              "material": "concrete_structure",
+              "contribution_percent": 35,
+              "note": "Entire 1950 concrete/steel structure retained"
+            },
+            {
+              "material": "stone_facade",
+              "contribution_percent": 25,
+              "note": "Solvåg granite facade preserved and rebuilt"
+            },
+            {
+              "material": "timber_interiors",
+              "contribution_percent": 20,
+              "note": "Teak panels, marble finishes refurbished"
+            },
+            {
+              "material": "glass_fixtures",
+              "contribution_percent": 10,
+              "note": "Reclaimed partitions, doors, light fixtures"
+            },
+            {
+              "material": "steel",
+              "contribution_percent": 10,
+              "note": "Second-hand steel for structural supplements"
+            }
+          ]
         },
         "ghg_reduction": {
           "value": 55,
@@ -3750,20 +3657,6 @@
           "note": "55% reduction vs reference building (target was 50%)",
           "material_reduction": 85,
           "material_reduction_note": "85% reduction in material emissions alone"
-        },
-        "co2_reduction": {
-          "value": 55,
-          "unit": "percent",
-          "vs_reference": "nybygg",
-          "materials_reduction_percent": 83,
-          "source": "Erfaringsrapport KA23 rev4, side 13-14"
-        },
-        "ombrukbarhet": {
-          "value": 53,
-          "unit": "percent",
-          "target": 20,
-          "note": "Design for disassembly score exceeded target by 33pp",
-          "source": "Erfaringsrapport KA23 rev4, side 17"
         }
       },
       "preserved_components": {
@@ -4007,10 +3900,30 @@
         "circularity_rate": {
           "value": 89,
           "unit": "percent",
-          "measurement": "sirkularitetsindeks",
-          "target": 100,
-          "status": "in progress (project completion 2026)",
-          "source": "Frydenbø presentasjon juni 2025"
+          "measurement": "by_weight",
+          "verified": false,
+          "breakdown": [
+            {
+              "material": "structure",
+              "contribution_percent": 40,
+              "notes": "1969 building retained"
+            },
+            {
+              "material": "concrete",
+              "contribution_percent": 20,
+              "notes": "Floor cutouts to elevator shaft"
+            },
+            {
+              "material": "fixtures",
+              "contribution_percent": 20,
+              "notes": "Elevator from Greece, toilets, windows"
+            },
+            {
+              "material": "finishes",
+              "contribution_percent": 9,
+              "notes": "Carpet, ceiling, facade cladding"
+            }
+          ]
         },
         "cost_notes": {
           "window_cost": "1,400 NOK/m² for reused windows vs 4,000 NOK/m² for new (65% savings)",
