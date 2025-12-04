@@ -93,14 +93,21 @@ function getMaterialWeight(material: any): string {
         return `${material.quantity.total_tonnes}t`;
       }
       // KA13 style: count items like hulldekker (21 stk)
-      if (material.quantity.count) {
+      if (material.quantity.count != null) {
         const type = material.quantity.type || '';
         return `${material.quantity.count} stk ${type}`.trim();
       }
       if (material.quantity.value && material.quantity.unit) {
         return `${material.quantity.value} ${material.quantity.unit}`;
       }
+      // If quantity is an object but no usable values, return note or dash
+      if (material.quantity.note) {
+        return '-';
+      }
+      // Object with no extractable quantity - return dash instead of [object Object]
+      return '-';
     }
+    // Non-object quantity (number or string)
     return String(material.quantity);
   }
   return '-';
