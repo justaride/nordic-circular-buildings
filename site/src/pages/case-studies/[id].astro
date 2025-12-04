@@ -1,0 +1,367 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import fs from 'fs';
+import path from 'path';
+
+// Get case study ID from URL
+export async function getStaticPaths() {
+  const caseStudiesDir = path.join(process.cwd(), '..', 'data', 'case-studies');
+  const files = fs.readdirSync(caseStudiesDir).filter(f => f.endsWith('.json'));
+
+  return files.map(file => {
+    const content = fs.readFileSync(path.join(caseStudiesDir, file), 'utf-8');
+    const data = JSON.parse(content);
+    return {
+      params: { id: data.project_id },
+      props: { caseStudy: data, filename: file }
+    };
+  });
+}
+
+const { id } = Astro.params;
+const { caseStudy, filename } = Astro.props;
+
+// Tier colors
+const tierColors: Record<string, { bg: string; text: string; border: string }> = {
+  flagship: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
+  strong: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
+  tier2: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
+};
+
+const tier = caseStudy.case_study_tier || 'tier2';
+const tierColor = tierColors[tier] || tierColors.tier2;
+
+// Get materials from inventory
+const materials = caseStudy.material_inventory?.materials || [];
+
+// Get environmental metrics
+const envMetrics = caseStudy.environmental_metrics || {};
+const co2 = envMetrics.co2_reduction || {};
+
+// Get documentation
+const docs = caseStudy.documentation || {};
+const citations = caseStudy.verified_citations || [];
+
+// Get lessons learned
+const lessons = caseStudy.lessons_learned || {};
+---
+
+<Layout title={caseStudy.name} description={caseStudy.executive_summary?.headline}>
+  <div class="max-w-5xl mx-auto px-6 py-8">
+    <!-- Breadcrumb -->
+    <div class="mb-6">
+      <a href={import.meta.env.BASE_URL} class="inline-flex items-center gap-1.5 text-gray-400 hover:text-gray-600 text-sm transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Dashboard
+      </a>
+      <span class="mx-2 text-gray-300">/</span>
+      <span class="text-gray-500 text-sm">Case Studies</span>
+    </div>
+
+    <!-- Header -->
+    <header class="mb-8">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <span class={`px-3 py-1 rounded-full text-xs font-medium ${tierColor.bg} ${tierColor.text} border ${tierColor.border}`}>
+              {tier === 'flagship' ? 'Flagship Case' : tier === 'strong' ? 'Strong Case' : 'Tier 2'}
+            </span>
+            <span class="text-xs text-gray-400">v{caseStudy.case_study_version || '1.0'}</span>
+          </div>
+          <h1 class="text-2xl md:text-3xl font-bold text-gray-900">{caseStudy.name}</h1>
+          {caseStudy.subtitle && <p class="text-gray-500 mt-1">{caseStudy.subtitle}</p>}
+        </div>
+        <a
+          href={`${import.meta.env.BASE_URL}/project/${id}`}
+          class="px-4 py-2 bg-nordic-500 text-white rounded-lg text-sm font-medium hover:bg-nordic-600 transition-colors"
+        >
+          View Project
+        </a>
+      </div>
+
+      {caseStudy.executive_summary?.headline && (
+        <p class="text-lg text-gray-600 leading-relaxed">
+          {caseStudy.executive_summary.headline}
+        </p>
+      )}
+    </header>
+
+    <!-- Key Achievements -->
+    {caseStudy.executive_summary?.key_achievements && (
+      <section class="bg-gradient-to-br from-nordic-50 to-fjord-50 rounded-2xl p-6 mb-8 border border-nordic-100">
+        <h2 class="text-sm font-medium text-gray-400 uppercase tracking-wide mb-4">Key Achievements</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {caseStudy.executive_summary.key_achievements.map((achievement: string) => (
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-nordic-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">{achievement}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Metrics Grid -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      {caseStudy.project_basics?.total_weight_tonnes && (
+        <div class="bg-white rounded-xl p-4 border border-gray-100">
+          <div class="text-2xl font-bold text-gray-900">{caseStudy.project_basics.total_weight_tonnes.toLocaleString()}</div>
+          <div class="text-xs text-gray-400">Total Weight (t)</div>
+        </div>
+      )}
+      {caseStudy.project_basics?.area_m2 && (
+        <div class="bg-white rounded-xl p-4 border border-gray-100">
+          <div class="text-2xl font-bold text-gray-900">{caseStudy.project_basics.area_m2.toLocaleString()}</div>
+          <div class="text-xs text-gray-400">Area (m2)</div>
+        </div>
+      )}
+      {co2.vs_nybygg_total_percent && (
+        <div class="bg-white rounded-xl p-4 border border-gray-100">
+          <div class="text-2xl font-bold text-nordic-600">{co2.vs_nybygg_total_percent}%</div>
+          <div class="text-xs text-gray-400">CO2 Reduction</div>
+        </div>
+      )}
+      {caseStudy.project_basics?.reuse_results?.internal_reuse_percent && (
+        <div class="bg-white rounded-xl p-4 border border-gray-100">
+          <div class="text-2xl font-bold text-emerald-600">{caseStudy.project_basics.reuse_results.internal_reuse_percent}%</div>
+          <div class="text-xs text-gray-400">Reuse Rate</div>
+        </div>
+      )}
+    </section>
+
+    <!-- Material Inventory -->
+    {materials.length > 0 && (
+      <section class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
+        <div class="px-6 py-4 border-b border-gray-100">
+          <h2 class="text-lg font-semibold text-gray-900">Material Inventory</h2>
+          <p class="text-sm text-gray-500">{materials.length} materials documented</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Weight</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              {materials.slice(0, 20).map((material: any) => (
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-3 text-sm text-gray-900">{material.name || material.material}</td>
+                  <td class="px-6 py-3 text-sm text-gray-500">{material.category || '-'}</td>
+                  <td class="px-6 py-3 text-sm text-gray-900 text-right">
+                    {material.weight_kg ? `${(material.weight_kg / 1000).toFixed(1)}t` : material.quantity || '-'}
+                  </td>
+                  <td class="px-6 py-3">
+                    <span class={`px-2 py-0.5 rounded text-xs ${
+                      material.reuse_status === 'reused' || material.reuse_status === 'ombrukt'
+                        ? 'bg-emerald-100 text-emerald-700'
+                        : material.reuse_status === 'reusable' || material.reuse_status === 'ombrukbar'
+                        ? 'bg-blue-100 text-blue-700'
+                        : 'bg-gray-100 text-gray-600'
+                    }`}>
+                      {material.reuse_status || 'unknown'}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {materials.length > 20 && (
+            <div class="px-6 py-3 bg-gray-50 text-sm text-gray-500">
+              + {materials.length - 20} more materials
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+
+    <!-- Environmental Metrics -->
+    {Object.keys(envMetrics).length > 0 && (
+      <section class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
+        <div class="px-6 py-4 border-b border-gray-100">
+          <h2 class="text-lg font-semibold text-gray-900">Environmental Impact</h2>
+        </div>
+        <div class="p-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {co2.vs_nybygg_total_percent && (
+              <div class="text-center p-4 bg-nordic-50 rounded-xl">
+                <div class="text-3xl font-bold text-nordic-600">{co2.vs_nybygg_total_percent}%</div>
+                <div class="text-sm text-gray-600 mt-1">Total CO2 Reduction</div>
+                <div class="text-xs text-gray-400">vs new build reference</div>
+              </div>
+            )}
+            {co2.vs_nybygg_materials_percent && (
+              <div class="text-center p-4 bg-emerald-50 rounded-xl">
+                <div class="text-3xl font-bold text-emerald-600">{co2.vs_nybygg_materials_percent}%</div>
+                <div class="text-sm text-gray-600 mt-1">Materials CO2 Reduction</div>
+                <div class="text-xs text-gray-400">embodied carbon savings</div>
+              </div>
+            )}
+            {co2.vs_rehab_reference_materials_percent && (
+              <div class="text-center p-4 bg-amber-50 rounded-xl">
+                <div class="text-3xl font-bold text-amber-600">{co2.vs_rehab_reference_materials_percent}%</div>
+                <div class="text-sm text-gray-600 mt-1">vs Rehab Reference</div>
+                <div class="text-xs text-gray-400">better than standard rehab</div>
+              </div>
+            )}
+          </div>
+
+          {envMetrics.methodology && (
+            <div class="mt-6 pt-6 border-t border-gray-100 text-sm text-gray-500">
+              <strong>Methodology:</strong> {envMetrics.methodology.tool} ({envMetrics.methodology.standard})
+              {envMetrics.methodology.performed_by && ` by ${envMetrics.methodology.performed_by}`}
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+
+    <!-- Lessons Learned -->
+    {(lessons.successes || lessons.challenges || lessons.recommendations) && (
+      <section class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
+        <div class="px-6 py-4 border-b border-gray-100">
+          <h2 class="text-lg font-semibold text-gray-900">Lessons Learned</h2>
+        </div>
+        <div class="p-6 space-y-6">
+          {lessons.successes && lessons.successes.length > 0 && (
+            <div>
+              <h3 class="font-medium text-emerald-700 mb-2 flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Successes
+              </h3>
+              <ul class="space-y-2">
+                {lessons.successes.map((item: string) => (
+                  <li class="text-sm text-gray-600 pl-4 border-l-2 border-emerald-200">{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {lessons.challenges && lessons.challenges.length > 0 && (
+            <div>
+              <h3 class="font-medium text-amber-700 mb-2 flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                Challenges
+              </h3>
+              <ul class="space-y-2">
+                {lessons.challenges.map((item: string) => (
+                  <li class="text-sm text-gray-600 pl-4 border-l-2 border-amber-200">{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {lessons.recommendations && lessons.recommendations.length > 0 && (
+            <div>
+              <h3 class="font-medium text-blue-700 mb-2 flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                Recommendations
+              </h3>
+              <ul class="space-y-2">
+                {lessons.recommendations.map((item: string) => (
+                  <li class="text-sm text-gray-600 pl-4 border-l-2 border-blue-200">{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+
+    <!-- Verified Citations -->
+    {citations.length > 0 && (
+      <section class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
+        <div class="px-6 py-4 border-b border-gray-100">
+          <h2 class="text-lg font-semibold text-gray-900">Verified Citations</h2>
+          <p class="text-sm text-gray-500">Page-level references to source documents</p>
+        </div>
+        <div class="divide-y divide-gray-100">
+          {citations.map((citation: any) => (
+            <div class="px-6 py-4">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <div class="font-medium text-gray-900">{citation.material || citation.metric}</div>
+                  <div class="text-sm text-gray-500 mt-1">
+                    {citation.section} (p. {citation.pages})
+                  </div>
+                  {citation.quote && (
+                    <blockquote class="mt-2 text-sm text-gray-600 italic border-l-2 border-gray-200 pl-3">
+                      "{citation.quote}"
+                    </blockquote>
+                  )}
+                </div>
+                {citation.page_url && (
+                  <a
+                    href={citation.page_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded text-xs hover:bg-gray-200 transition-colors flex-shrink-0"
+                  >
+                    View PDF
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Source Documents -->
+    {docs.primary_report && (
+      <section class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
+        <div class="px-6 py-4 border-b border-gray-100">
+          <h2 class="text-lg font-semibold text-gray-900">Source Documentation</h2>
+        </div>
+        <div class="p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-medium text-gray-900">{docs.primary_report.title}</h3>
+              <p class="text-sm text-gray-500 mt-1">
+                {docs.primary_report.pages} pages
+                {docs.primary_report.attachments && ` + ${docs.primary_report.attachments} attachments`}
+              </p>
+              {docs.primary_report.local_file && (
+                <a
+                  href={docs.primary_report.local_file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-nordic-500 text-white rounded-lg text-sm font-medium hover:bg-nordic-600 transition-colors"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download PDF
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Data Quality Note -->
+    <div class="text-sm text-gray-400 text-center">
+      <p>Case study last updated: {caseStudy.last_updated}</p>
+      {caseStudy.data_quality_note && <p class="mt-1">{caseStudy.data_quality_note}</p>}
+    </div>
+  </div>
+</Layout>

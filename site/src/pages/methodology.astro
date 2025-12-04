@@ -1,0 +1,296 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Methodology" description="How we document and assess circular building projects">
+  <div class="max-w-4xl mx-auto px-6 py-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <a href={import.meta.env.BASE_URL} class="inline-flex items-center gap-1.5 text-gray-400 hover:text-gray-600 mb-4 text-sm transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Dashboard
+      </a>
+      <h1 class="text-2xl font-semibold text-gray-900 mb-2">Methodology</h1>
+      <p class="text-gray-500">
+        How we document, verify, and assess circular building projects in the Nordic Circular Buildings database.
+      </p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="prose prose-gray max-w-none">
+
+      <!-- Circularity Metrics -->
+      <section class="bg-white rounded-2xl border border-gray-100 p-6 mb-8">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <span class="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
+            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </span>
+          Circularity Rate
+        </h2>
+
+        <div class="space-y-4 text-sm text-gray-600">
+          <p>
+            <strong class="text-gray-900">Definition:</strong> The percentage of building materials (by weight)
+            that are either reused from other buildings or designed for future reuse.
+          </p>
+
+          <div class="bg-gray-50 rounded-lg p-4">
+            <code class="text-sm">
+              Circularity Rate = (Reused Materials + Reusable Materials) / Total Building Weight × 100
+            </code>
+          </div>
+
+          <h3 class="font-medium text-gray-900 mt-4">Measurement Methods</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li><strong>Sirkularitetsindeks (SI):</strong> FutureBuilt's circularity index, used by Veidekke and others</li>
+            <li><strong>Internal Reuse by Weight:</strong> Materials reused within the project (preservation)</li>
+            <li><strong>External Reuse:</strong> Materials sourced from demolition of other buildings</li>
+            <li><strong>Ombrukbarhet:</strong> Design for disassembly score (future reuse potential)</li>
+          </ul>
+
+          <h3 class="font-medium text-gray-900 mt-4">Data Sources</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>FutureBuilt erfaringsrapporter (experience reports)</li>
+            <li>Project sirkularitetsrapporter from contractors (e.g., Veidekke)</li>
+            <li>IFC models with weight data</li>
+            <li>Waste reports (avfallsrapporter)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CO2 Methodology -->
+      <section class="bg-white rounded-2xl border border-gray-100 p-6 mb-8">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <span class="w-8 h-8 bg-nordic-100 rounded-lg flex items-center justify-center">
+            <svg class="w-4 h-4 text-nordic-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </span>
+          CO2 Reduction
+        </h2>
+
+        <div class="space-y-4 text-sm text-gray-600">
+          <p>
+            <strong class="text-gray-900">Standard:</strong> All CO2 calculations follow
+            <strong>NS 3720:2018</strong> (Metode for klimagassberegninger for bygninger).
+          </p>
+
+          <h3 class="font-medium text-gray-900 mt-4">Reference Buildings</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li><strong>Nybygg reference:</strong> New build to same standard (FutureBuilt baseline)</li>
+            <li><strong>Rehabilitering reference:</strong> Standard renovation without circular practices</li>
+          </ul>
+
+          <h3 class="font-medium text-gray-900 mt-4">Calculation Tools</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li><strong>One Click LCA:</strong> Used by Multiconsult and others</li>
+            <li><strong>Project-specific calculations:</strong> By engineering consultants</li>
+          </ul>
+
+          <h3 class="font-medium text-gray-900 mt-4">What's Included</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+            <div class="bg-emerald-50 rounded-lg p-3">
+              <div class="font-medium text-emerald-700 mb-1">Included</div>
+              <ul class="text-xs text-emerald-600 space-y-1">
+                <li>• Material production (A1-A3)</li>
+                <li>• Transport (A4)</li>
+                <li>• Construction (A5)</li>
+                <li>• Replacement (B4)</li>
+                <li>• End of life (C1-C4)</li>
+              </ul>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3">
+              <div class="font-medium text-gray-700 mb-1">Varies by Project</div>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• Operational energy (B6)</li>
+                <li>• Module D benefits</li>
+                <li>• 60-year study period (typical)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CBC Grading -->
+      <section class="bg-white rounded-2xl border border-gray-100 p-6 mb-8">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <span class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+          </span>
+          CBC Assessment Framework
+        </h2>
+
+        <div class="space-y-4 text-sm text-gray-600">
+          <p>
+            We assess projects using the <strong>Circular Buildings Coalition (CBC)</strong> four-pathway framework,
+            adapted for Nordic context.
+          </p>
+
+          <h3 class="font-medium text-gray-900 mt-4">Four Pathways</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+            <div class="bg-emerald-50 rounded-lg p-3 border border-emerald-100">
+              <div class="font-medium text-emerald-700">Build Nothing New</div>
+              <p class="text-xs text-emerald-600 mt-1">Maximize use of existing buildings through renovation, preservation, adaptive reuse</p>
+            </div>
+            <div class="bg-blue-50 rounded-lg p-3 border border-blue-100">
+              <div class="font-medium text-blue-700">Build for Long-term</div>
+              <p class="text-xs text-blue-600 mt-1">Design for durability, flexibility, and future adaptability</p>
+            </div>
+            <div class="bg-purple-50 rounded-lg p-3 border border-purple-100">
+              <div class="font-medium text-purple-700">Build Efficiently</div>
+              <p class="text-xs text-purple-600 mt-1">Optimize material use, reduce waste, efficient construction processes</p>
+            </div>
+            <div class="bg-amber-50 rounded-lg p-3 border border-amber-100">
+              <div class="font-medium text-amber-700">Build with Right Materials</div>
+              <p class="text-xs text-amber-600 mt-1">Reused, recycled, bio-based, non-toxic, locally sourced materials</p>
+            </div>
+          </div>
+
+          <h3 class="font-medium text-gray-900 mt-4">Grading Scale</h3>
+          <div class="flex gap-2 mt-2">
+            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded font-medium">A</span>
+            <span class="px-3 py-1 bg-green-100 text-green-700 rounded font-medium">B</span>
+            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded font-medium">C</span>
+            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded font-medium">D</span>
+            <span class="px-3 py-1 bg-red-100 text-red-700 rounded font-medium">E</span>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">
+            Grades based on combination of pathway scores, documentation quality, and verified metrics.
+          </p>
+        </div>
+      </section>
+
+      <!-- Data Quality Tiers -->
+      <section class="bg-white rounded-2xl border border-gray-100 p-6 mb-8">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <span class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+            <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </span>
+          Data Quality Tiers
+        </h2>
+
+        <div class="space-y-4 text-sm text-gray-600">
+          <p>
+            We classify projects by documentation depth to help researchers understand data reliability.
+          </p>
+
+          <div class="space-y-3 mt-4">
+            <div class="flex gap-4 items-start p-4 bg-amber-50 rounded-lg border border-amber-100">
+              <span class="w-3 h-3 rounded-full bg-amber-500 mt-1 flex-shrink-0"></span>
+              <div>
+                <div class="font-medium text-amber-700">Flagship</div>
+                <p class="text-xs text-amber-600 mt-1">
+                  Full erfaringsrapport (50+ pages), page-level verified citations, detailed material inventory
+                  with weights, CO2 calculations, cost comparisons, self-hosted PDF.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start p-4 bg-emerald-50 rounded-lg border border-emerald-100">
+              <span class="w-3 h-3 rounded-full bg-emerald-500 mt-1 flex-shrink-0"></span>
+              <div>
+                <div class="font-medium text-emerald-700">Strong</div>
+                <p class="text-xs text-emerald-600 mt-1">
+                  Multiple official reports (sirkularitet, klimagass, etc.), SI-index calculated,
+                  material inventory, process documentation, self-hosted PDFs.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start p-4 bg-blue-50 rounded-lg border border-blue-100">
+              <span class="w-3 h-3 rounded-full bg-blue-500 mt-1 flex-shrink-0"></span>
+              <div>
+                <div class="font-medium text-blue-700">Tier 2</div>
+                <p class="text-xs text-blue-600 mt-1">
+                  Official report from FutureBuilt, Klimasats, or project team, key metrics documented,
+                  process insights, self-hosted PDF.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <span class="w-3 h-3 rounded-full bg-gray-400 mt-1 flex-shrink-0"></span>
+              <div>
+                <div class="font-medium text-gray-700">Moderate</div>
+                <p class="text-xs text-gray-600 mt-1">
+                  Basic project info from public sources, partial metrics, news articles and press releases.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Citation System -->
+      <section class="bg-white rounded-2xl border border-gray-100 p-6 mb-8">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <span class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
+          </span>
+          Citation & Verification
+        </h2>
+
+        <div class="space-y-4 text-sm text-gray-600">
+          <p>
+            For flagship and strong cases, we verify claims against source documents with page-level citations.
+          </p>
+
+          <h3 class="font-medium text-gray-900 mt-4">Verification Process</h3>
+          <ol class="list-decimal list-inside space-y-2">
+            <li>Locate specific claim in source PDF</li>
+            <li>Record section name and page number(s)</li>
+            <li>Extract exact Norwegian quote</li>
+            <li>Host PDF on GitHub Pages for direct linking</li>
+            <li>Create page-anchor URL (<code>#page=54</code>)</li>
+          </ol>
+
+          <h3 class="font-medium text-gray-900 mt-4">Self-Hosted Documents</h3>
+          <p>
+            Key reports are hosted at <code>/docs/</code> on our GitHub Pages site to ensure:
+          </p>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Permanent availability (no broken links)</li>
+            <li>Direct page anchors work reliably</li>
+            <li>Research reproducibility</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Standards Reference -->
+      <section class="bg-gray-50 rounded-2xl p-6">
+        <h2 class="font-semibold text-gray-900 mb-4">Key Standards & References</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <h3 class="font-medium text-gray-700 mb-2">Norwegian Standards</h3>
+            <ul class="space-y-1 text-gray-600">
+              <li><strong>NS 3720:2018</strong> - Climate gas calculations</li>
+              <li><strong>NS 3682</strong> - Hollow core slab reuse (draft)</li>
+              <li><strong>TEK17</strong> - Building technical requirements</li>
+              <li><strong>DOK</strong> - Product documentation</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-medium text-gray-700 mb-2">Programs & Frameworks</h3>
+            <ul class="space-y-1 text-gray-600">
+              <li><strong>FutureBuilt</strong> - Circularity criteria</li>
+              <li><strong>BREEAM-NOR</strong> - Sustainability certification</li>
+              <li><strong>Klimasats</strong> - Municipal climate funding</li>
+              <li><strong>CBC</strong> - Circular Buildings Coalition</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</Layout>
