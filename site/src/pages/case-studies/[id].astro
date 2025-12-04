@@ -34,9 +34,18 @@ const tierColor = tierColors[tier] || tierColors.tier2;
 // Get materials from inventory
 const materials = caseStudy.material_inventory?.materials || [];
 
-// Get environmental metrics
+// Get environmental metrics - handle different structures
 const envMetrics = caseStudy.environmental_metrics || {};
 const co2 = envMetrics.co2_reduction || {};
+const overallMetrics = envMetrics.overall || {};
+
+// Get overall GHG reduction (KA13 style or KA23 style)
+const ghgReductionPercent = co2.vs_nybygg_total_percent || overallMetrics.ghg_reduction_percent;
+const materialsReductionPercent = co2.vs_nybygg_materials_percent;
+const rehabReferencePercent = co2.vs_rehab_reference_materials_percent;
+
+// Get by_material data for KA13 style
+const byMaterial = envMetrics.by_material || [];
 
 // Get documentation
 const docs = caseStudy.documentation || {};
@@ -44,6 +53,50 @@ const citations = caseStudy.verified_citations || [];
 
 // Get lessons learned
 const lessons = caseStudy.lessons_learned || {};
+
+// Get project basics - handle different structures
+const projectBasics = caseStudy.project_basics || {};
+const areaSqm = projectBasics.area_m2 || projectBasics.size?.total_sqm;
+const totalWeight = projectBasics.total_weight_tonnes;
+const reusePercent = projectBasics.reuse_results?.internal_reuse_percent;
+
+// Helper function to get material name
+function getMaterialName(material: any): string {
+  return material.norwegian_name || material.english_name || material.name || material.material || 'Unknown';
+}
+
+// Helper function to get material weight display
+function getMaterialWeight(material: any): string {
+  if (material.weight_kg) {
+    return `${(material.weight_kg / 1000).toFixed(1)}t`;
+  }
+  if (material.quantity) {
+    if (typeof material.quantity === 'object') {
+      if (material.quantity.total_installed_tonnes) {
+        return `${material.quantity.total_installed_tonnes}t`;
+      }
+      if (material.quantity.total_tonnes) {
+        return `${material.quantity.total_tonnes}t`;
+      }
+      if (material.quantity.value && material.quantity.unit) {
+        return `${material.quantity.value} ${material.quantity.unit}`;
+      }
+    }
+    return String(material.quantity);
+  }
+  return '-';
+}
+
+// Helper function to get material CO2 savings
+function getMaterialCO2(material: any): string | null {
+  if (material.environmental_impact?.co2_savings_percent) {
+    return `${material.environmental_impact.co2_savings_percent}%`;
+  }
+  if (material.environmental_impact?.co2_savings_tonnes) {
+    return `${material.environmental_impact.co2_savings_tonnes}t`;
+  }
+  return null;
+}
 ---
 
 <Layout title={caseStudy.name} description={caseStudy.executive_summary?.headline}>
@@ -57,7 +110,9 @@ const lessons = caseStudy.lessons_learned || {};
         Dashboard
       </a>
       <span class="mx-2 text-gray-300">/</span>
-      <span class="text-gray-500 text-sm">Case Studies</span>
+      <a href={`${import.meta.env.BASE_URL}/case-studies`} class="text-gray-400 hover:text-gray-600 text-sm transition-colors">
+        Case Studies
+      </a>
     </div>
 
     <!-- Header -->
@@ -75,7 +130,7 @@ const lessons = caseStudy.lessons_learned || {};
         </div>
         <a
           href={`${import.meta.env.BASE_URL}/project/${id}`}
-          class="px-4 py-2 bg-nordic-500 text-white rounded-lg text-sm font-medium hover:bg-nordic-600 transition-colors"
+          class="px-4 py-2 bg-nordic-500 text-white rounded-lg text-sm font-medium hover:bg-nordic-600 transition-colors flex-shrink-0"
         >
           View Project
         </a>
@@ -107,27 +162,27 @@ const lessons = caseStudy.lessons_learned || {};
 
     <!-- Metrics Grid -->
     <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-      {caseStudy.project_basics?.total_weight_tonnes && (
+      {areaSqm && (
         <div class="bg-white rounded-xl p-4 border border-gray-100">
-          <div class="text-2xl font-bold text-gray-900">{caseStudy.project_basics.total_weight_tonnes.toLocaleString()}</div>
+          <div class="text-2xl font-bold text-gray-900">{areaSqm.toLocaleString()}</div>
+          <div class="text-xs text-gray-400">Area (m²)</div>
+        </div>
+      )}
+      {totalWeight && (
+        <div class="bg-white rounded-xl p-4 border border-gray-100">
+          <div class="text-2xl font-bold text-gray-900">{totalWeight.toLocaleString()}</div>
           <div class="text-xs text-gray-400">Total Weight (t)</div>
         </div>
       )}
-      {caseStudy.project_basics?.area_m2 && (
+      {ghgReductionPercent && (
         <div class="bg-white rounded-xl p-4 border border-gray-100">
-          <div class="text-2xl font-bold text-gray-900">{caseStudy.project_basics.area_m2.toLocaleString()}</div>
-          <div class="text-xs text-gray-400">Area (m2)</div>
-        </div>
-      )}
-      {co2.vs_nybygg_total_percent && (
-        <div class="bg-white rounded-xl p-4 border border-gray-100">
-          <div class="text-2xl font-bold text-nordic-600">{co2.vs_nybygg_total_percent}%</div>
+          <div class="text-2xl font-bold text-nordic-600">{ghgReductionPercent}%</div>
           <div class="text-xs text-gray-400">CO2 Reduction</div>
         </div>
       )}
-      {caseStudy.project_basics?.reuse_results?.internal_reuse_percent && (
+      {reusePercent && (
         <div class="bg-white rounded-xl p-4 border border-gray-100">
-          <div class="text-2xl font-bold text-emerald-600">{caseStudy.project_basics.reuse_results.internal_reuse_percent}%</div>
+          <div class="text-2xl font-bold text-emerald-600">{reusePercent}%</div>
           <div class="text-xs text-gray-400">Reuse Rate</div>
         </div>
       )}
@@ -146,36 +201,39 @@ const lessons = caseStudy.lessons_learned || {};
               <tr>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Weight</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
+                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">CO2 Saved</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
-              {materials.slice(0, 20).map((material: any) => (
+              {materials.slice(0, 15).map((material: any) => (
                 <tr class="hover:bg-gray-50">
-                  <td class="px-6 py-3 text-sm text-gray-900">{material.name || material.material}</td>
-                  <td class="px-6 py-3 text-sm text-gray-500">{material.category || '-'}</td>
-                  <td class="px-6 py-3 text-sm text-gray-900 text-right">
-                    {material.weight_kg ? `${(material.weight_kg / 1000).toFixed(1)}t` : material.quantity || '-'}
-                  </td>
                   <td class="px-6 py-3">
-                    <span class={`px-2 py-0.5 rounded text-xs ${
-                      material.reuse_status === 'reused' || material.reuse_status === 'ombrukt'
-                        ? 'bg-emerald-100 text-emerald-700'
-                        : material.reuse_status === 'reusable' || material.reuse_status === 'ombrukbar'
-                        ? 'bg-blue-100 text-blue-700'
-                        : 'bg-gray-100 text-gray-600'
-                    }`}>
-                      {material.reuse_status || 'unknown'}
-                    </span>
+                    <div class="text-sm font-medium text-gray-900">{getMaterialName(material)}</div>
+                    {material.description && (
+                      <div class="text-xs text-gray-500 mt-0.5 line-clamp-1">{material.description.substring(0, 80)}...</div>
+                    )}
+                  </td>
+                  <td class="px-6 py-3 text-sm text-gray-500 capitalize">{material.category || material.material_type || '-'}</td>
+                  <td class="px-6 py-3 text-sm text-gray-900 text-right font-medium">
+                    {getMaterialWeight(material)}
+                  </td>
+                  <td class="px-6 py-3 text-right">
+                    {getMaterialCO2(material) ? (
+                      <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded text-xs font-medium">
+                        {getMaterialCO2(material)}
+                      </span>
+                    ) : (
+                      <span class="text-gray-300">-</span>
+                    )}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-          {materials.length > 20 && (
+          {materials.length > 15 && (
             <div class="px-6 py-3 bg-gray-50 text-sm text-gray-500">
-              + {materials.length - 20} more materials
+              + {materials.length - 15} more materials documented
             </div>
           )}
         </div>
@@ -183,35 +241,64 @@ const lessons = caseStudy.lessons_learned || {};
     )}
 
     <!-- Environmental Metrics -->
-    {Object.keys(envMetrics).length > 0 && (
+    {(ghgReductionPercent || byMaterial.length > 0) && (
       <section class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
         <div class="px-6 py-4 border-b border-gray-100">
           <h2 class="text-lg font-semibold text-gray-900">Environmental Impact</h2>
+          {overallMetrics.comparison_basis && (
+            <p class="text-sm text-gray-500">{overallMetrics.comparison_basis}</p>
+          )}
         </div>
         <div class="p-6">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {co2.vs_nybygg_total_percent && (
+          <!-- Main metrics -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            {ghgReductionPercent && (
               <div class="text-center p-4 bg-nordic-50 rounded-xl">
-                <div class="text-3xl font-bold text-nordic-600">{co2.vs_nybygg_total_percent}%</div>
-                <div class="text-sm text-gray-600 mt-1">Total CO2 Reduction</div>
+                <div class="text-3xl font-bold text-nordic-600">{ghgReductionPercent}%</div>
+                <div class="text-sm text-gray-600 mt-1">Total GHG Reduction</div>
                 <div class="text-xs text-gray-400">vs new build reference</div>
               </div>
             )}
-            {co2.vs_nybygg_materials_percent && (
+            {materialsReductionPercent && (
               <div class="text-center p-4 bg-emerald-50 rounded-xl">
-                <div class="text-3xl font-bold text-emerald-600">{co2.vs_nybygg_materials_percent}%</div>
+                <div class="text-3xl font-bold text-emerald-600">{materialsReductionPercent}%</div>
                 <div class="text-sm text-gray-600 mt-1">Materials CO2 Reduction</div>
                 <div class="text-xs text-gray-400">embodied carbon savings</div>
               </div>
             )}
-            {co2.vs_rehab_reference_materials_percent && (
+            {rehabReferencePercent && (
               <div class="text-center p-4 bg-amber-50 rounded-xl">
-                <div class="text-3xl font-bold text-amber-600">{co2.vs_rehab_reference_materials_percent}%</div>
+                <div class="text-3xl font-bold text-amber-600">{rehabReferencePercent}%</div>
                 <div class="text-sm text-gray-600 mt-1">vs Rehab Reference</div>
                 <div class="text-xs text-gray-400">better than standard rehab</div>
               </div>
             )}
           </div>
+
+          <!-- By material breakdown (KA13 style) -->
+          {byMaterial.length > 0 && (
+            <div class="border-t border-gray-100 pt-6">
+              <h3 class="font-medium text-gray-900 mb-4">CO2 Savings by Material</h3>
+              <div class="space-y-3">
+                {byMaterial.map((mat: any) => (
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-700">{mat.material}</span>
+                    <div class="flex items-center gap-4">
+                      <div class="w-32 h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div
+                          class="h-full bg-emerald-500 rounded-full"
+                          style={`width: ${typeof mat.co2_savings_percent === 'string' ? 90 : mat.co2_savings_percent}%`}
+                        />
+                      </div>
+                      <span class="text-sm font-medium text-emerald-700 w-16 text-right">
+                        {mat.co2_savings_percent}%
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {envMetrics.methodology && (
             <div class="mt-6 pt-6 border-t border-gray-100 text-sm text-gray-500">
@@ -295,7 +382,7 @@ const lessons = caseStudy.lessons_learned || {};
                 <div>
                   <div class="font-medium text-gray-900">{citation.material || citation.metric}</div>
                   <div class="text-sm text-gray-500 mt-1">
-                    {citation.section} (p. {citation.pages})
+                    {citation.section} {citation.pages && `(p. ${citation.pages})`}
                   </div>
                   {citation.quote && (
                     <blockquote class="mt-2 text-sm text-gray-600 italic border-l-2 border-gray-200 pl-3">
@@ -308,7 +395,7 @@ const lessons = caseStudy.lessons_learned || {};
                     href={citation.page_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded text-xs hover:bg-gray-200 transition-colors flex-shrink-0"
+                    class="px-3 py-1.5 bg-nordic-100 text-nordic-700 rounded text-xs font-medium hover:bg-nordic-200 transition-colors flex-shrink-0"
                   >
                     View PDF
                   </a>
@@ -365,3 +452,12 @@ const lessons = caseStudy.lessons_learned || {};
     </div>
   </div>
 </Layout>
+
+<style>
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
