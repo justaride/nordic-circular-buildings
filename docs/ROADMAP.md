@@ -221,7 +221,7 @@ Oslo Havn's headquarters - comprehensive FutureBuilt circular report.
 |------|----------|---------------|
 | **Flagship** | Full material inventory, costs, verified citations, erfaringsrapport | 2 (KA13, KA23) |
 | **Strong** | Detailed report with SI-index, material inventory, process docs | 1 (Nedre Sem) |
-| **Tier 2** | Official reports, CO2 data, process documentation | 2 (Løren, Føniks) |
+| **Tier 2** | Official reports, CO2 data, process documentation | 3 (Løren, Føniks, Skur 38) |
 | **Moderate** | Basic info, partial verification | Remaining |
 
 ### Case Study Files
@@ -231,7 +231,8 @@ data/case-studies/
 ├── ka23_flagship.json      # Flagship - 19-page report + 15 attachments
 ├── nedre_sem_strong.json   # Strong - 3 reports (sirkularitet + klimagass + betong)
 ├── loren_tier2.json        # Tier 2 - Klimasats slutt + delrapport
-└── foniks_tier2.json       # Tier 2 - 17-page presentation
+├── foniks_tier2.json       # Tier 2 - 17-page presentation
+└── skur38_tier2.json       # Tier 2 - FutureBuilt ombruk report (34 pages)
 ```
 
 ### Hosted PDFs (site/public/docs/)
