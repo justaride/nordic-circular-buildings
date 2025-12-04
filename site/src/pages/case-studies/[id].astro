@@ -49,16 +49,23 @@ const byMaterial = envMetrics.by_material || [];
 
 // Get documentation
 const docs = caseStudy.documentation || {};
-const citations = caseStudy.verified_citations || [];
+// Handle citations from different locations (root level or under documentation.verified_citations.citations)
+const citations = caseStudy.verified_citations || docs.verified_citations?.citations || [];
 
-// Get lessons learned
+// Get lessons learned - handle KA13's different structure (success_factors, challenges_encountered, key_insights)
+// as well as KA23's structure (successes, challenges, recommendations)
 const lessons = caseStudy.lessons_learned || {};
+const lessonsSuccesses = lessons.successes || lessons.success_factors || [];
+const lessonsChallenges = lessons.challenges || lessons.challenges_encountered || [];
+const lessonsRecommendations = lessons.recommendations || lessons.key_insights || [];
 
 // Get project basics - handle different structures
 const projectBasics = caseStudy.project_basics || {};
 const areaSqm = projectBasics.area_m2 || projectBasics.size?.total_sqm;
 const totalWeight = projectBasics.total_weight_tonnes;
-const reusePercent = projectBasics.reuse_results?.internal_reuse_percent;
+// Reuse percent from KA23 style or KA13 style (material_inventory.overview)
+const materialOverview = caseStudy.material_inventory?.overview || {};
+const reusePercent = projectBasics.reuse_results?.internal_reuse_percent || materialOverview.total_reuse_rate_percent;
 
 // Helper function to get material name
 function getMaterialName(material: any): string {
@@ -72,11 +79,23 @@ function getMaterialWeight(material: any): string {
   }
   if (material.quantity) {
     if (typeof material.quantity === 'object') {
+      // KA13 style: weight_tonnes for hulldekker
+      if (material.quantity.weight_tonnes) {
+        return `${material.quantity.weight_tonnes}t`;
+      }
       if (material.quantity.total_installed_tonnes) {
         return `${material.quantity.total_installed_tonnes}t`;
       }
+      if (material.quantity.total_procured_tonnes) {
+        return `${material.quantity.total_procured_tonnes}t procured`;
+      }
       if (material.quantity.total_tonnes) {
         return `${material.quantity.total_tonnes}t`;
+      }
+      // KA13 style: count items like hulldekker (21 stk)
+      if (material.quantity.count) {
+        const type = material.quantity.type || '';
+        return `${material.quantity.count} stk ${type}`.trim();
       }
       if (material.quantity.value && material.quantity.unit) {
         return `${material.quantity.value} ${material.quantity.unit}`;
@@ -311,56 +330,65 @@ function getMaterialCO2(material: any): string | null {
     )}
 
     <!-- Lessons Learned -->
-    {(lessons.successes || lessons.challenges || lessons.recommendations) && (
+    {(lessonsSuccesses.length > 0 || lessonsChallenges.length > 0 || lessonsRecommendations.length > 0) && (
       <section class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
         <div class="px-6 py-4 border-b border-gray-100">
           <h2 class="text-lg font-semibold text-gray-900">Lessons Learned</h2>
         </div>
         <div class="p-6 space-y-6">
-          {lessons.successes && lessons.successes.length > 0 && (
+          {lessonsSuccesses.length > 0 && (
             <div>
               <h3 class="font-medium text-emerald-700 mb-2 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Successes
+                Success Factors
               </h3>
               <ul class="space-y-2">
-                {lessons.successes.map((item: string) => (
+                {lessonsSuccesses.slice(0, 8).map((item: string) => (
                   <li class="text-sm text-gray-600 pl-4 border-l-2 border-emerald-200">{item}</li>
                 ))}
+                {lessonsSuccesses.length > 8 && (
+                  <li class="text-xs text-gray-400 pl-4">+ {lessonsSuccesses.length - 8} more</li>
+                )}
               </ul>
             </div>
           )}
 
-          {lessons.challenges && lessons.challenges.length > 0 && (
+          {lessonsChallenges.length > 0 && (
             <div>
               <h3 class="font-medium text-amber-700 mb-2 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
-                Challenges
+                Challenges Encountered
               </h3>
               <ul class="space-y-2">
-                {lessons.challenges.map((item: string) => (
+                {lessonsChallenges.slice(0, 8).map((item: string) => (
                   <li class="text-sm text-gray-600 pl-4 border-l-2 border-amber-200">{item}</li>
                 ))}
+                {lessonsChallenges.length > 8 && (
+                  <li class="text-xs text-gray-400 pl-4">+ {lessonsChallenges.length - 8} more</li>
+                )}
               </ul>
             </div>
           )}
 
-          {lessons.recommendations && lessons.recommendations.length > 0 && (
+          {lessonsRecommendations.length > 0 && (
             <div>
               <h3 class="font-medium text-blue-700 mb-2 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
-                Recommendations
+                Key Insights
               </h3>
               <ul class="space-y-2">
-                {lessons.recommendations.map((item: string) => (
+                {lessonsRecommendations.slice(0, 8).map((item: string) => (
                   <li class="text-sm text-gray-600 pl-4 border-l-2 border-blue-200">{item}</li>
                 ))}
+                {lessonsRecommendations.length > 8 && (
+                  <li class="text-xs text-gray-400 pl-4">+ {lessonsRecommendations.length - 8} more</li>
+                )}
               </ul>
             </div>
           )}
@@ -426,9 +454,9 @@ function getMaterialCO2(material: any): string | null {
                 {docs.primary_report.pages} pages
                 {docs.primary_report.attachments && ` + ${docs.primary_report.attachments} attachments`}
               </p>
-              {docs.primary_report.local_file && (
+              {(docs.primary_report.local_file || docs.primary_report.local_url || docs.primary_report.url) && (
                 <a
-                  href={docs.primary_report.local_file}
+                  href={docs.primary_report.local_file || docs.primary_report.local_url || docs.primary_report.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-nordic-500 text-white rounded-lg text-sm font-medium hover:bg-nordic-600 transition-colors"
