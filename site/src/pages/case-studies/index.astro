@@ -42,28 +42,78 @@ const counts = {
         Dashboard
       </a>
       <h1 class="text-2xl font-semibold text-gray-900 mb-2">Case Studies</h1>
-      <p class="text-gray-500 max-w-2xl">
-        Deep-dive documentation of circular building projects with verified citations,
-        material inventories, and lessons learned from official erfaringsrapporter.
+      <p class="text-gray-500 max-w-3xl mb-4">
+        In-depth documentation of Norwegian circular building projects based on official
+        <em>erfaringsrapporter</em> (experience reports) published by project teams, FutureBuilt,
+        and public agencies.
       </p>
+      <p class="text-gray-500 max-w-3xl">
+        Each case study includes verified citations with page references, detailed material inventories
+        showing what was reused and from where, environmental impact calculations (CO2 savings per NS 3720:2018),
+        and lessons learned from practitioners. This documentation enables replication of successful
+        circular strategies in new projects.
+      </p>
+    </div>
+
+    <!-- What You'll Find -->
+    <div class="bg-gradient-to-br from-nordic-50 to-fjord-50 rounded-2xl p-6 mb-8 border border-nordic-100">
+      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-wide mb-4">What Each Case Study Contains</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="flex items-start gap-2">
+          <svg class="w-5 h-5 text-nordic-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <div>
+            <div class="text-sm font-medium text-gray-900">Source Reports</div>
+            <div class="text-xs text-gray-500">PDF with page citations</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-2">
+          <svg class="w-5 h-5 text-nordic-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          <div>
+            <div class="text-sm font-medium text-gray-900">Material Inventory</div>
+            <div class="text-xs text-gray-500">Types, quantities, sources</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-2">
+          <svg class="w-5 h-5 text-nordic-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          <div>
+            <div class="text-sm font-medium text-gray-900">CO2 Calculations</div>
+            <div class="text-xs text-gray-500">Verified savings data</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-2">
+          <svg class="w-5 h-5 text-nordic-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+          <div>
+            <div class="text-sm font-medium text-gray-900">Lessons Learned</div>
+            <div class="text-xs text-gray-500">Challenges & solutions</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Stats -->
     <div class="grid grid-cols-3 gap-4 mb-8">
       <div class="bg-amber-50 rounded-2xl p-5 border border-amber-100">
         <div class="text-2xl font-semibold text-amber-700">{counts.flagship}</div>
-        <div class="text-xs text-amber-600">Flagship Cases</div>
-        <div class="text-xs text-amber-500 mt-1">Full reports with verified citations</div>
+        <div class="text-xs text-amber-600 font-medium">Flagship Cases</div>
+        <div class="text-xs text-amber-500 mt-1">Full 100+ page reports, self-hosted PDFs, page-level citations</div>
       </div>
       <div class="bg-emerald-50 rounded-2xl p-5 border border-emerald-100">
         <div class="text-2xl font-semibold text-emerald-700">{counts.strong}</div>
-        <div class="text-xs text-emerald-600">Strong Cases</div>
-        <div class="text-xs text-emerald-500 mt-1">Multiple reports, detailed metrics</div>
+        <div class="text-xs text-emerald-600 font-medium">Strong Cases</div>
+        <div class="text-xs text-emerald-500 mt-1">Multiple official reports, detailed metrics, complete stakeholder data</div>
       </div>
       <div class="bg-blue-50 rounded-2xl p-5 border border-blue-100">
         <div class="text-2xl font-semibold text-blue-700">{counts.tier2}</div>
-        <div class="text-xs text-blue-600">Tier 2 Cases</div>
-        <div class="text-xs text-blue-500 mt-1">Official reports, process docs</div>
+        <div class="text-xs text-blue-600 font-medium">Tier 2 Cases</div>
+        <div class="text-xs text-blue-500 mt-1">FutureBuilt/Klimasats reports, key metrics, process documentation</div>
       </div>
     </div>
 
@@ -74,6 +124,13 @@ const counts = {
         const tierColor = tierColors[tier] || tierColors.tier2;
         const envMetrics = cs.environmental_metrics || {};
         const co2 = envMetrics.co2_reduction || {};
+        const overallMetrics = envMetrics.overall || {};
+
+        // Handle different CO2 reduction field locations
+        const co2Reduction = co2.vs_nybygg_total_percent || overallMetrics.ghg_reduction_percent;
+        // Handle different reuse rate field locations
+        const reuseRate = cs.project_basics?.reuse_results?.internal_reuse_percent ||
+                          cs.material_inventory?.overview?.total_reuse_rate_percent;
 
         return (
           <a
@@ -98,15 +155,15 @@ const counts = {
 
                 <!-- Metrics -->
                 <div class="flex gap-4 flex-shrink-0">
-                  {co2.vs_nybygg_total_percent && (
+                  {co2Reduction && (
                     <div class="text-center">
-                      <div class="text-xl font-bold text-nordic-600">{co2.vs_nybygg_total_percent}%</div>
+                      <div class="text-xl font-bold text-nordic-600">{co2Reduction}%</div>
                       <div class="text-xs text-gray-400">CO2 Reduction</div>
                     </div>
                   )}
-                  {cs.project_basics?.reuse_results?.internal_reuse_percent && (
+                  {reuseRate && (
                     <div class="text-center">
-                      <div class="text-xl font-bold text-emerald-600">{cs.project_basics.reuse_results.internal_reuse_percent}%</div>
+                      <div class="text-xl font-bold text-emerald-600">{reuseRate}%</div>
                       <div class="text-xs text-gray-400">Reuse Rate</div>
                     </div>
                   )}
@@ -140,12 +197,12 @@ const counts = {
                     </svg>
                     {cs.documentation.primary_report.pages} pages
                   </span>
-                  {cs.verified_citations && cs.verified_citations.length > 0 && (
+                  {(cs.verified_citations?.length > 0 || cs.documentation?.verified_citations?.citations?.length > 0) && (
                     <span class="flex items-center gap-1">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      {cs.verified_citations.length} verified citations
+                      {cs.verified_citations?.length || cs.documentation?.verified_citations?.citations?.length} verified citations
                     </span>
                   )}
                   {cs.material_inventory?.materials && (
