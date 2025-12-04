@@ -1,0 +1,1046 @@
+{
+  "country": "norway",
+  "last_updated": "2025-12-04",
+  "categories": [
+    {
+      "id": "material_banks",
+      "name": "Material Banking Infrastructure",
+      "description": "Physical facilities for storing, cataloging, and redistributing reusable building materials",
+      "enablers": [
+        {
+          "id": "sirkular_ressurssentral",
+          "name": "Sirkulær Ressurssentral",
+          "name_en": "Circular Resource Center",
+          "type": "material_bank",
+          "location": {
+            "city": "Oslo",
+            "district": "Økern",
+            "address": "Økernveien 9",
+            "coordinates": {
+              "lat": 59.929,
+              "lng": 10.795
+            }
+          },
+          "founded": "2023-03",
+          "owner": "Pådriv Oslo",
+          "status": "operational",
+          "facility": {
+            "indoor_area_m2": 4500,
+            "outdoor_area_m2": null,
+            "description": "Norway's first large-scale circular resource center"
+          },
+          "services": [
+            "Material intake and cataloging",
+            "Quality assessment",
+            "Storage",
+            "Sales to construction projects",
+            "Documentation support"
+          ],
+          "materials_handled": [
+            "Building materials",
+            "Interior fittings",
+            "Fixtures",
+            "Construction components"
+          ],
+          "pricing_model": "Sales-based with processing fees",
+          "projects_supplied": [
+            "ka23"
+          ],
+          "website": "https://ressurssentral.no",
+          "sources": [
+            {
+              "title": "Opening announcement",
+              "url": "https://ressurssentral.no",
+              "date": "2023-03"
+            }
+          ]
+        },
+        {
+          "id": "ombygg",
+          "name": "Ombygg.no",
+          "name_en": "Rebuild.no",
+          "type": "material_marketplace",
+          "location": {
+            "city": "Oslo",
+            "district": "Økern",
+            "address": "Økernveien 9",
+            "coordinates": {
+              "lat": 59.929,
+              "lng": 10.795
+            }
+          },
+          "founded": "2018",
+          "owner": "Resirqel AS",
+          "status": "operational",
+          "facility": {
+            "indoor_area_m2": 4500,
+            "outdoor_area_m2": 2500,
+            "description": "Europe's largest physical marketplace for reused building materials"
+          },
+          "services": [
+            "Physical showroom",
+            "Online marketplace",
+            "Material sourcing",
+            "Delivery coordination",
+            "Quality documentation"
+          ],
+          "materials_handled": [
+            "Doors and windows",
+            "Flooring",
+            "Ceiling tiles",
+            "Kitchen equipment",
+            "Sanitary equipment",
+            "Lighting fixtures",
+            "Building components"
+          ],
+          "pricing_model": "Commission-based sales",
+          "projects_supplied": [
+            "ka13",
+            "ka23",
+            "skur38"
+          ],
+          "annual_volume": {
+            "items": "Thousands",
+            "note": "Exact figures not published"
+          },
+          "website": "https://ombygg.no",
+          "sources": [
+            {
+              "title": "Ombygg marketplace",
+              "url": "https://ombygg.no",
+              "date": "2024"
+            }
+          ]
+        },
+        {
+          "id": "resirqel",
+          "name": "Resirqel AS",
+          "type": "material_bank_operator",
+          "location": {
+            "city": "Oslo",
+            "address": "Økernveien 9"
+          },
+          "founded": "2013",
+          "status": "operational",
+          "description": "Pioneer in Norwegian building material reuse, parent company of Ombygg.no",
+          "services": [
+            "Ombrukskartlegging (reuse inventory)",
+            "Material testing and documentation",
+            "Demolition consulting",
+            "Material bank operation",
+            "Project advisory"
+          ],
+          "certifications": [
+            "REBUS research project partner",
+            "SINTEF collaboration partner"
+          ],
+          "key_projects": [
+            {
+              "name": "KA13",
+              "role": "Material supply and documentation"
+            },
+            {
+              "name": "Skur 38",
+              "role": "Ombrukskartlegging consultant"
+            }
+          ],
+          "research_involvement": [
+            {
+              "project": "REBUS",
+              "description": "Research project on building material reuse",
+              "period": "2019-2023"
+            }
+          ],
+          "website": "https://www.resirqel.no",
+          "sources": [
+            {
+              "title": "Resirqel company info",
+              "url": "https://www.resirqel.no",
+              "date": "2024"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "digital_platforms",
+      "name": "Digital Platforms",
+      "description": "Software platforms for material tracking, marketplace functionality, and project documentation",
+      "enablers": [
+        {
+          "id": "loopfront",
+          "name": "Loopfront",
+          "type": "digital_platform",
+          "headquarters": "Oslo, Norway",
+          "founded": "2019",
+          "status": "operational",
+          "description": "Leading Norwegian digital platform for circular material management in buildings",
+          "platform_features": [
+            "Material inventory management",
+            "QR code tracking system",
+            "Marketplace for material exchange",
+            "Documentation and certification storage",
+            "CO2 impact calculation",
+            "Integration with BIM systems"
+          ],
+          "technology": {
+            "tracking": "QR codes on individual items",
+            "documentation": "Digital material passports",
+            "marketplace": "Internal and external exchange",
+            "analytics": "CO2 savings calculation"
+          },
+          "metrics": {
+            "objects_reused": 220000,
+            "as_of": "2024",
+            "note": "Self-reported"
+          },
+          "pricing_model": "Subscription-based SaaS",
+          "notable_clients": [
+            {
+              "name": "Oslo Kommune",
+              "type": "Municipality"
+            },
+            {
+              "name": "Statsbygg",
+              "type": "Government agency"
+            },
+            {
+              "name": "Bergen Kommune",
+              "type": "Municipality"
+            },
+            {
+              "name": "Entra",
+              "type": "Property developer"
+            },
+            {
+              "name": "Oslo Havn",
+              "type": "Port authority"
+            }
+          ],
+          "projects_used": [
+            {
+              "project_id": "skur38",
+              "name": "Skur 38",
+              "role": "Pilot project for platform development"
+            },
+            {
+              "project_id": "foniks",
+              "name": "Prosjekt Føniks",
+              "role": "Material registration (2,600+ items)"
+            },
+            {
+              "project_id": "ka23",
+              "name": "KA23",
+              "role": "Material tracking"
+            }
+          ],
+          "website": "https://loopfront.com",
+          "sources": [
+            {
+              "title": "Loopfront platform",
+              "url": "https://loopfront.com",
+              "date": "2024"
+            },
+            {
+              "title": "Skur 38 FutureBuilt report",
+              "file": "skur38-futurebuilt-ombruk-2022.pdf",
+              "page": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "testing_certification",
+      "name": "Testing & Certification Bodies",
+      "description": "Organizations providing technical testing, quality assurance, and certification for reused materials",
+      "enablers": [
+        {
+          "id": "sintef",
+          "name": "SINTEF",
+          "full_name": "Stiftelsen for industriell og teknisk forskning",
+          "type": "research_institute",
+          "headquarters": "Trondheim, Norway",
+          "founded": "1950",
+          "status": "operational",
+          "description": "Scandinavia's largest independent research organization, key partner for material testing and certification",
+          "relevant_divisions": [
+            {
+              "name": "SINTEF Community",
+              "focus": "Building and infrastructure research"
+            },
+            {
+              "name": "SINTEF Certification",
+              "focus": "Product certification and technical approvals"
+            },
+            {
+              "name": "Material Laboratory",
+              "focus": "Material testing services"
+            }
+          ],
+          "services_for_reuse": [
+            "Structural testing of reused materials",
+            "Technical approval (TG) for reused products",
+            "Material characterization",
+            "Documentation support",
+            "Research collaboration"
+          ],
+          "certifications_offered": [
+            {
+              "name": "SINTEF Technical Approval (TG)",
+              "description": "Confirms product suitability for use in Norway",
+              "applicable_to": "Reused building materials and components"
+            },
+            {
+              "name": "SINTEF Product Certificate",
+              "description": "Conformity with standards for non-CE products",
+              "applicable_to": "Construction products"
+            }
+          ],
+          "materials_tested": [
+            "Steel (structural capacity verification)",
+            "Concrete (strength testing)",
+            "Brick (freeze-thaw, absorption)",
+            "Timber (load-bearing capacity)",
+            "Hollow core slabs",
+            "Windows and doors"
+          ],
+          "reuse_research_projects": [
+            {
+              "name": "Ti-ReX",
+              "period": "2024-2027",
+              "focus": "Re-certification guideline for reclaimed timber",
+              "role": "Coordinator"
+            },
+            {
+              "name": "REBUS",
+              "period": "2019-2023",
+              "focus": "Reuse of building materials",
+              "role": "Research partner"
+            }
+          ],
+          "key_project_involvement": [
+            {
+              "project_id": "ka13",
+              "name": "KA13",
+              "services": [
+                "Steel testing",
+                "Hollow core slab testing",
+                "Documentation methodology"
+              ]
+            },
+            {
+              "project_id": "nedre_sem",
+              "name": "Nedre Sem Låve",
+              "services": [
+                "Brick testing for reuse"
+              ]
+            }
+          ],
+          "website": "https://www.sintef.no",
+          "certification_portal": "https://www.sintefcertification.no",
+          "sources": [
+            {
+              "title": "SINTEF Material Laboratory",
+              "url": "https://www.sintef.no/en/all-laboratories/material-laboratory/"
+            },
+            {
+              "title": "SINTEF Certification",
+              "url": "https://www.sintefcertification.no"
+            },
+            {
+              "title": "KA13 Erfaringsrapport",
+              "file": "ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "pages": "54-67"
+            }
+          ]
+        },
+        {
+          "id": "treteknisk",
+          "name": "Treteknisk",
+          "full_name": "Norsk Treteknisk Institutt",
+          "name_en": "Norwegian Institute of Wood Technology",
+          "type": "research_institute",
+          "headquarters": "Oslo, Norway (Blindern)",
+          "status": "operational",
+          "description": "Norway's leading institute for wood products research, testing, and certification",
+          "accreditations": [
+            {
+              "body": "Norwegian Accreditation",
+              "registration": "TEST 021",
+              "scope": "Mechanical testing laboratory"
+            },
+            {
+              "body": "Norwegian Accreditation",
+              "registration": "PROD 023",
+              "scope": "CE and PEFC certification"
+            },
+            {
+              "body": "DiBK",
+              "role": "Notified Body for CE-marking",
+              "scope": "Structural timber, wood products, wood-based panels"
+            }
+          ],
+          "services_for_reuse": [
+            "Timber strength testing",
+            "Wood species identification",
+            "Condition assessment",
+            "Grading of reclaimed timber",
+            "Documentation for building permits"
+          ],
+          "certifications_offered": [
+            {
+              "name": "CE marking",
+              "standards": ["NS-EN 14081", "NS-EN 13986", "NS-EN 14915"]
+            },
+            {
+              "name": "PEFC Chain of Custody",
+              "description": "Sustainable forest certification"
+            }
+          ],
+          "relevance_to_reuse": "Critical for documenting structural capacity of reclaimed timber, particularly for mass timber and glulam reuse",
+          "website": "https://www.treteknisk.no",
+          "sources": [
+            {
+              "title": "Treteknisk English",
+              "url": "https://www.treteknisk.no/english"
+            },
+            {
+              "title": "Treteknisk Certification",
+              "url": "https://www.treteknisk.no/english/certification"
+            }
+          ]
+        },
+        {
+          "id": "dnv",
+          "name": "DNV",
+          "full_name": "Det Norske Veritas",
+          "type": "classification_society",
+          "headquarters": "Høvik, Norway",
+          "founded": "1864",
+          "status": "operational",
+          "employees": 15000,
+          "description": "International classification society with expertise in steel and offshore structure certification",
+          "relevant_services": [
+            {
+              "name": "EN 1090 Certification",
+              "description": "CE marking for steel and aluminum structures",
+              "relevance": "Applicable to reused steel documentation"
+            },
+            {
+              "name": "ResponsibleSteel Certification",
+              "description": "Sustainable steel production standard",
+              "relevance": "Supply chain verification"
+            },
+            {
+              "name": "Material Manufacturer Approval",
+              "description": "Quality system certification for material producers"
+            }
+          ],
+          "relevance_to_reuse": "Expertise in offshore steel certification transferable to building reuse - used for documenting reused steel from offshore/industrial sources",
+          "key_project_involvement": [
+            {
+              "project_id": "ka13",
+              "name": "KA13",
+              "services": ["Steel certification methodology referenced"]
+            }
+          ],
+          "website": "https://www.dnv.com",
+          "sources": [
+            {
+              "title": "DNV EN 1090 Certification",
+              "url": "https://www.dnv.com/services/en-1090-certification-of-steel-structures-28473/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "program_frameworks",
+      "name": "Program Frameworks",
+      "description": "Government and industry programs that incentivize and guide circular construction practices",
+      "enablers": [
+        {
+          "id": "futurebuilt",
+          "name": "FutureBuilt",
+          "type": "innovation_program",
+          "status": "operational",
+          "founded": "2010",
+          "description": "Innovation program for climate-neutral urban development, setting circularity standards for Norwegian construction",
+          "governance": {
+            "structure": "Partnership between municipalities and national agencies",
+            "partners": [
+              "Oslo Kommune",
+              "Bærum Kommune",
+              "Asker Kommune",
+              "Drammen Kommune",
+              "Lillestrøm Kommune",
+              "Nordre Follo Kommune",
+              "Lørenskog Kommune",
+              "Ås Kommune",
+              "Vestby Kommune",
+              "Nesodden Kommune",
+              "Husbanken",
+              "Enova",
+              "Kommunal- og distriktsdepartementet",
+              "DiBK"
+            ]
+          },
+          "circularity_criteria": {
+            "target": "50% circularity index",
+            "measurement": "SI-index (Sirkularitetsindeks)",
+            "criteria_areas": [
+              {
+                "name": "Design for Disassembly",
+                "description": "Building designed for future material recovery"
+              },
+              {
+                "name": "Reused Materials",
+                "description": "Incorporation of materials from other buildings"
+              },
+              {
+                "name": "Recycled Content",
+                "description": "Use of recycled materials in new products"
+              },
+              {
+                "name": "Bio-based Materials",
+                "description": "Renewable material sources"
+              },
+              {
+                "name": "Documentation",
+                "description": "Material passports and traceability"
+              }
+            ]
+          },
+          "quality_criteria": [
+            "Klimagassregnskap (carbon accounting)",
+            "Sirkularitet (circularity)",
+            "Mobilitet (sustainable transport)",
+            "Blågrønn faktor (blue-green infrastructure)",
+            "Sosialt liv (social sustainability)"
+          ],
+          "certified_projects": [
+            {
+              "project_id": "ka13",
+              "name": "KA13",
+              "certification": "FutureBuilt pilotprosjekt"
+            },
+            {
+              "project_id": "ka23",
+              "name": "KA23",
+              "certification": "FutureBuilt forbildeprosjekt"
+            },
+            {
+              "project_id": "nedre_sem",
+              "name": "Nedre Sem Låve",
+              "certification": "FutureBuilt forbildeprosjekt",
+              "special": "First Plastkriterier pilot"
+            },
+            {
+              "project_id": "skur38",
+              "name": "Skur 38",
+              "certification": "FutureBuilt forbildeprosjekt"
+            }
+          ],
+          "resources_provided": [
+            "Erfaringsrapporter (experience reports)",
+            "Klimagassregnskap methodology",
+            "Sirkularitetsindeks calculator",
+            "Project advisory",
+            "Network events"
+          ],
+          "website": "https://www.futurebuilt.no",
+          "sources": [
+            {
+              "title": "FutureBuilt criteria",
+              "url": "https://www.futurebuilt.no"
+            },
+            {
+              "title": "Project reports",
+              "note": "Multiple erfaringsrapporter hosted"
+            }
+          ]
+        },
+        {
+          "id": "klimasats",
+          "name": "Klimasats",
+          "type": "funding_program",
+          "status": "operational",
+          "founded": "2016",
+          "administrator": "Miljødirektoratet (Norwegian Environment Agency)",
+          "description": "National funding scheme for municipal climate measures, including circular construction",
+          "funding_details": {
+            "annual_budget": "Varies by year",
+            "max_application": 12000000,
+            "min_application": 200000,
+            "min_municipal_contribution": 200000,
+            "personnel_support_2024": 600000,
+            "currency": "NOK"
+          },
+          "eligible_activities": [
+            "Circular building projects",
+            "Reuse mapping (ombrukskartlegging)",
+            "Material bank development",
+            "Climate action planning",
+            "Pilot projects for material reuse"
+          ],
+          "excluded_2024": [
+            "Circular solutions for furniture"
+          ],
+          "application_deadline": "February 15 (annual)",
+          "projects_funded": [
+            {
+              "project_id": "loren",
+              "name": "Løren aktivitetspark",
+              "grant": "Not specified",
+              "report": "Klimasats sluttrapport 2025"
+            },
+            {
+              "project_id": "ka23",
+              "name": "KA23",
+              "note": "Referenced in Klimasats reports"
+            }
+          ],
+          "website": "https://www.miljodirektoratet.no/klimasats",
+          "sources": [
+            {
+              "title": "Klimasats 2024 announcement",
+              "url": "https://www.miljodirektoratet.no/ansvarsomrader/klima/for-myndigheter/kutte-utslipp-av-klimagasser/klimasats/soke-stotte-til-lokale-tiltak/2024-utlysning/"
+            }
+          ]
+        },
+        {
+          "id": "breeam_nor",
+          "name": "BREEAM-NOR",
+          "type": "certification_scheme",
+          "status": "operational",
+          "administrator": "Grønn Byggallianse (Norwegian Green Building Council)",
+          "description": "Norwegian adaptation of BREEAM sustainability certification with circular economy credits",
+          "certification_levels": [
+            "Pass",
+            "Good",
+            "Very Good",
+            "Excellent",
+            "Outstanding"
+          ],
+          "circular_credits": {
+            "category": "Materials (Mat)",
+            "relevant_credits": [
+              {
+                "code": "Mat 01",
+                "name": "Life cycle impacts",
+                "relevance": "Rewards lower embodied carbon from reused materials"
+              },
+              {
+                "code": "Mat 03",
+                "name": "Responsible sourcing",
+                "relevance": "Credits for documented material sourcing"
+              },
+              {
+                "code": "Mat 05",
+                "name": "Designing for durability and resilience",
+                "relevance": "Design for disassembly principles"
+              },
+              {
+                "code": "Mat 06",
+                "name": "Material efficiency",
+                "relevance": "Waste reduction and reuse"
+              }
+            ]
+          },
+          "certified_projects": [
+            {
+              "project_id": "ka13",
+              "name": "KA13",
+              "level": "Excellent"
+            },
+            {
+              "project_id": "skur38",
+              "name": "Skur 38",
+              "level": "Excellent"
+            }
+          ],
+          "website": "https://byggalliansen.no/breeam-nor",
+          "sources": [
+            {
+              "title": "BREEAM Knowledge Base",
+              "url": "https://kb.breeam.com"
+            }
+          ]
+        },
+        {
+          "id": "enova",
+          "name": "Enova",
+          "type": "funding_agency",
+          "status": "operational",
+          "description": "Government enterprise promoting environmentally friendly energy solutions, offers targeted support for circular building",
+          "relevant_programs": [
+            {
+              "name": "Feasibility study for reuse and flexibility",
+              "description": "Support for early-stage reuse planning"
+            },
+            {
+              "name": "Project planning for reuse",
+              "description": "Support for detailed reuse project development"
+            }
+          ],
+          "website": "https://www.enova.no",
+          "sources": [
+            {
+              "title": "Nordic Network for Circular Construction",
+              "url": "https://pub.norden.org/nord2023-031/5-circular-construction-in-the-nordic-countries.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "consultants_specialists",
+      "name": "Key Consultants & Specialists",
+      "description": "Professional service providers specializing in circular construction",
+      "enablers": [
+        {
+          "id": "asplan_viak",
+          "name": "Asplan Viak",
+          "type": "consultant",
+          "specialization": "Ombrukskartlegging, circular design",
+          "headquarters": "Sandvika, Norway",
+          "projects": [
+            {
+              "project_id": "ka13",
+              "role": "Ombrukskartlegging"
+            },
+            {
+              "project_id": "skur38",
+              "role": "Reuse consultant"
+            }
+          ],
+          "website": "https://www.asplanviak.no",
+          "sources": []
+        },
+        {
+          "id": "multiconsult",
+          "name": "Multiconsult",
+          "type": "consultant",
+          "specialization": "Klimagassregnskap, structural engineering for reuse",
+          "headquarters": "Oslo, Norway",
+          "projects": [
+            {
+              "project_id": "ka23",
+              "role": "Klimagassregnskap, structural assessment"
+            },
+            {
+              "project_id": "nedre_sem",
+              "role": "Klimagassrapport"
+            }
+          ],
+          "website": "https://www.multiconsult.no",
+          "sources": []
+        },
+        {
+          "id": "mad_arkitekter",
+          "name": "MAD arkitekter",
+          "type": "architect",
+          "specialization": "Circular building design",
+          "headquarters": "Oslo, Norway",
+          "projects": [
+            {
+              "project_id": "ka13",
+              "role": "Lead architect"
+            },
+            {
+              "project_id": "ka23",
+              "role": "Lead architect"
+            }
+          ],
+          "website": "https://mad.no",
+          "sources": []
+        },
+        {
+          "id": "link_arkitektur",
+          "name": "LINK arkitektur",
+          "type": "architect",
+          "specialization": "Sustainable and circular design",
+          "headquarters": "Oslo, Norway",
+          "projects": [
+            {
+              "project_id": "nedre_sem",
+              "role": "Lead architect"
+            }
+          ],
+          "website": "https://linkarkitektur.com",
+          "sources": []
+        }
+      ]
+    },
+    {
+      "id": "contractors",
+      "name": "Contractors with Circular Expertise",
+      "description": "Construction companies with demonstrated experience in circular building practices",
+      "enablers": [
+        {
+          "id": "veidekke",
+          "name": "Veidekke",
+          "type": "contractor",
+          "specialization": "Circular construction, sirkularitetsindeks methodology",
+          "headquarters": "Oslo, Norway",
+          "circular_capabilities": [
+            "Sirkularitetsindeks calculation",
+            "Vektregnskap (weight accounting)",
+            "Design for disassembly",
+            "Material sourcing coordination"
+          ],
+          "projects": [
+            {
+              "project_id": "nedre_sem",
+              "role": "General contractor",
+              "achievement": "48% SI-index, 100% recycled aggregate"
+            }
+          ],
+          "website": "https://www.veidekke.no",
+          "sources": [
+            {
+              "title": "Nedre Sem Sirkularitetsrapport",
+              "file": "nedre-sem-sirkularitet-2023.pdf"
+            }
+          ]
+        },
+        {
+          "id": "seltor",
+          "name": "Seltor",
+          "type": "contractor",
+          "specialization": "Renovation and reuse projects",
+          "headquarters": "Oslo, Norway",
+          "projects": [
+            {
+              "project_id": "ka23",
+              "role": "General contractor",
+              "contract_value": "187-220 MNOK"
+            }
+          ],
+          "website": "https://seltor.no",
+          "sources": []
+        },
+        {
+          "id": "hent",
+          "name": "HENT",
+          "type": "contractor",
+          "specialization": "Circular procurement, material reuse",
+          "headquarters": "Trondheim, Norway",
+          "projects": [
+            {
+              "project_id": "ka13",
+              "role": "General contractor"
+            }
+          ],
+          "website": "https://www.hent.no",
+          "sources": []
+        }
+      ]
+    },
+    {
+      "id": "standards_regulations",
+      "name": "Standards & Regulations",
+      "description": "Technical standards and regulatory frameworks applicable to building material reuse",
+      "enablers": [
+        {
+          "id": "ns3720",
+          "name": "NS 3720:2018",
+          "type": "standard",
+          "title": "Method for greenhouse gas calculations for buildings",
+          "issuer": "Standard Norge",
+          "relevance": "Required methodology for klimagassregnskap, basis for comparing reused vs new material impacts",
+          "used_in_projects": ["ka13", "ka23", "nedre_sem", "loren", "skur38"],
+          "sources": []
+        },
+        {
+          "id": "ns3682",
+          "name": "NS 3682",
+          "type": "standard",
+          "title": "Hollow core slab reuse",
+          "issuer": "Standard Norge",
+          "status": "Under development",
+          "relevance": "First Norwegian standard specifically for material reuse - hollow core slabs",
+          "background": "Developed based on KA13 experience",
+          "sources": [
+            {
+              "title": "KA13 Erfaringsrapport",
+              "file": "ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf",
+              "page": 65
+            }
+          ]
+        },
+        {
+          "id": "tek17",
+          "name": "TEK17",
+          "type": "regulation",
+          "title": "Forskrift om tekniske krav til byggverk",
+          "issuer": "DiBK",
+          "relevance": "Building technical requirements that reused materials must satisfy",
+          "challenges_for_reuse": [
+            "New energy requirements may not apply to preserved elements",
+            "Documentation requirements for structural materials",
+            "Fire safety compliance"
+          ],
+          "sources": []
+        },
+        {
+          "id": "dok",
+          "name": "DOK",
+          "type": "regulation",
+          "title": "Forskrift om dokumentasjon av byggevarer",
+          "issuer": "DiBK",
+          "relevance": "Product documentation requirements, currently unclear for reused materials",
+          "challenges_for_reuse": [
+            "CE marking not applicable to reused products",
+            "Alternative documentation pathways needed"
+          ],
+          "sources": []
+        }
+      ]
+    },
+    {
+      "id": "research_networks",
+      "name": "Research & Networks",
+      "description": "Research projects and professional networks advancing circular construction",
+      "enablers": [
+        {
+          "id": "rebus",
+          "name": "REBUS",
+          "type": "research_project",
+          "full_name": "REuse of Building materials - a USer perspective",
+          "period": "2019-2023",
+          "funding": "Research Council of Norway",
+          "partners": [
+            "SINTEF",
+            "NTNU",
+            "Resirqel",
+            "Various industry partners"
+          ],
+          "focus": "Barriers and enablers for building material reuse",
+          "outputs": [
+            "Testing methodologies",
+            "Documentation frameworks",
+            "Industry guidelines"
+          ],
+          "sources": []
+        },
+        {
+          "id": "ti_rex",
+          "name": "Ti-ReX",
+          "type": "research_project",
+          "period": "2024-2027",
+          "coordinator": "SINTEF",
+          "focus": "Re-certification guideline for reclaimed timber",
+          "goal": "Basis for European standardization of timber reuse",
+          "sources": [
+            {
+              "title": "SINTEF Ti-ReX project",
+              "url": "https://www.sintef.no/en/projects/2024/ti-rex/"
+            }
+          ]
+        },
+        {
+          "id": "nordic_sustainable_construction",
+          "name": "Nordic Sustainable Construction",
+          "type": "program",
+          "period": "2021-2024",
+          "organizer": "Nordic Innovation",
+          "focus": "Green transition in Nordic construction sector",
+          "goals": [
+            "Carbon neutrality",
+            "Circular economy",
+            "Bio-based economy"
+          ],
+          "website": "https://www.nordicinnovation.org/programs/sustainable-construction",
+          "sources": []
+        },
+        {
+          "id": "nordic_circles",
+          "name": "Nordic Circles",
+          "type": "methodology",
+          "developer": "Nordic region collaboration",
+          "focus": "Standardized approach to circular construction assessment",
+          "application": "Referenced in FutureBuilt circularity criteria",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "material_flows": {
+    "description": "Known material transfers between projects documented in this database",
+    "flows": [
+      {
+        "from_project": "ka13",
+        "to_project": "ka23",
+        "materials": ["Windows", "Doors"],
+        "note": "Internal Entra portfolio transfer"
+      },
+      {
+        "from_project": "R6",
+        "to_project": "ka13",
+        "materials": ["Steel beams", "Steel columns"],
+        "note": "Regjeringskvartalet to KA13"
+      },
+      {
+        "from_project": "Turbinveien 15",
+        "to_project": "ka13",
+        "materials": ["Windows (28 stk)"],
+        "note": "External donor building"
+      },
+      {
+        "from_project": "Various Østfold projects",
+        "to_project": "ka23",
+        "materials": ["Grass carpet (Østfoldgress)"],
+        "note": "Sports field surfaces"
+      },
+      {
+        "from_project": "Nydalshøgda",
+        "to_project": "loren",
+        "materials": ["Facade brick", "Granite"],
+        "note": "Cross-municipal transfer via material bank"
+      },
+      {
+        "from_project": "TV2 building",
+        "to_project": "foniks",
+        "materials": ["Walkway"],
+        "note": "Bergen material transfer"
+      },
+      {
+        "from_project": "Multiple external",
+        "to_project": "skur38",
+        "materials": ["Parquet", "Bricks", "Facade boards", "Furniture"],
+        "note": "6 external donor buildings documented"
+      }
+    ]
+  },
+  "emerging_roles": {
+    "description": "New professional roles identified in circular construction (from Swedish research, applicable to Norway)",
+    "roles": [
+      {
+        "name": "Material scout",
+        "norwegian": "Materialspeidere",
+        "description": "Professionals who identify and source reusable materials from demolition projects"
+      },
+      {
+        "name": "Reuse coordinator",
+        "norwegian": "Ombrukskoordinator",
+        "description": "Project role managing material reuse logistics and documentation"
+      },
+      {
+        "name": "Ombrukskartlegger",
+        "english": "Reuse inventory specialist",
+        "description": "Specialist in assessing buildings for reusable material potential"
+      },
+      {
+        "name": "Circular procurement advisor",
+        "norwegian": "Sirkulær innkjøpsrådgiver",
+        "description": "Specialist in procurement processes that enable material reuse"
+      }
+    ],
+    "source": {
+      "research_id": "ERICSSON_2024",
+      "title": "Reuse of building materials—the perspective of Swedish clients"
+    }
+  }
+}

@@ -1,10 +1,34 @@
 # Nordic Circular Buildings - Project Roadmap
 
-## Current Phase: Deep Case Study Development
+## Current Phase: Value Chain Documentation
 
-### Immediate Focus: Flagship Case Studies
+### Phase 2 Complete: Case Study Development ✅
 
-**Objective**: Create comprehensive, inspirational case studies focused on **materiality** - the practical details of how circular construction actually works.
+All 6 case studies fully documented with comprehensive data extraction.
+
+---
+
+## Active Phase: Enablers & Value Chain
+
+**Objective**: Document the ecosystem that makes circular construction possible - material banks, digital platforms, testing bodies, and program frameworks.
+
+### Progress
+- [x] Material Banking Infrastructure (Sirkulær Ressurssentral, Resirqel, Ombygg)
+- [x] Digital Platforms (Loopfront, BIM integration)
+- [x] Testing & Certification (SINTEF, Treteknisk, DNV)
+- [x] Program Frameworks (FutureBuilt, BREEAM-NOR, Klimasats, Enova)
+- [x] Key Consultants & Specialists
+- [x] Standards & Regulations (NS 3720, NS 3682, TEK17, DOK)
+- [x] Research & Networks (REBUS, Ti-ReX, Nordic Sustainable Construction)
+- [x] Contractors with Circular Expertise (Veidekke, Seltor, HENT)
+- [x] Material Flows between documented projects
+- [x] Emerging Roles (from Swedish research)
+
+**Data file created:** `data/enablers/norway.json` (9 categories, 30+ enablers)
+
+---
+
+## Completed: Case Study Development
 
 #### Priority 1: KA13 (Kristian Augusts gate 13) - Flagship Case ✅ COMPLETE
 The most documented circular building in Norway. Serves as template for all other case studies.
@@ -339,7 +363,10 @@ site/public/
 | **Phase 2c** | Nedre Sem Strong case study | ✅ Complete |
 | **Phase 2d** | Løren + Føniks Tier 2 case studies | ✅ Complete |
 | **Phase 2e** | PDF hosting (9 documents) | ✅ Complete |
-| **Phase 3** | Enablers/value chain page | Planned |
+| **Phase 2f** | Skur 38 Tier 2 case study | ✅ Complete |
+| **Phase 2g** | Swedish research reference | ✅ Complete |
+| **Phase 3a** | Enablers data structure | ✅ Complete |
+| **Phase 3b** | Enablers site page | ✅ Complete |
 | **Phase 4** | Material flow visualization | Planned |
 | **Phase 5** | Nordic expansion (Sweden) | Future |
 
