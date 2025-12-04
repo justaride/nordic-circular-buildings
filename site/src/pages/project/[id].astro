@@ -81,11 +81,21 @@ const projectTypeDescription = typeof project.project_type === 'object'
   ? project.project_type?.description
   : null;
 
-// Data quality indicator (subtle)
-const dataQualityColors: Record<string, string> = {
-  strong: 'bg-teal-50 text-teal-600',
-  moderate: 'bg-amber-50 text-amber-600',
-  limited: 'bg-gray-100 text-gray-500',
+// Data completeness grade colors
+const completenessGradeColors: Record<string, string> = {
+  'A': 'bg-green-50 text-green-700 border border-green-200',
+  'B': 'bg-lime-50 text-lime-700 border border-lime-200',
+  'C': 'bg-yellow-50 text-yellow-700 border border-yellow-200',
+  'D': 'bg-orange-50 text-orange-700 border border-orange-200',
+  'E': 'bg-red-50 text-red-700 border border-red-200',
+};
+
+const completenessGradeLabels: Record<string, string> = {
+  'A': 'Flagship',
+  'B': 'Strong',
+  'C': 'Moderate',
+  'D': 'Basic',
+  'E': 'Incomplete',
 };
 
 // Helper to check if field exists and has data
@@ -97,32 +107,29 @@ const hasData = (field: any) => {
   return true;
 };
 
-// Calculate data completeness
-const requiredFields = [
-  { key: 'name', label: 'Project Name', value: project.name },
-  { key: 'location', label: 'Location', value: project.location?.city },
-  { key: 'status', label: 'Status', value: project.status },
-  { key: 'year_completed', label: 'Year Completed', value: project.year_completed },
-  { key: 'building_type', label: 'Building Type', value: project.building_type },
-  { key: 'size_sqm', label: 'Size (m²)', value: project.size_sqm },
-  { key: 'budget', label: 'Budget', value: project.budget },
-  { key: 'client', label: 'Client/Owner', value: project.client },
-  { key: 'architect', label: 'Architect', value: project.architect },
-  { key: 'contractor', label: 'Contractor', value: project.contractor },
-  { key: 'circularity_qualification', label: 'Circularity Summary', value: project.circularity_qualification },
-  { key: 'primary_strategies', label: 'Circular Strategies', value: project.primary_strategies },
-  { key: 'circular_features', label: 'Circular Features', value: project.circular_features },
-  { key: 'metrics.circularity_rate', label: 'Circularity Rate', value: project.metrics?.circularity_rate },
-  { key: 'metrics.co2_reduction', label: 'CO₂ Reduction', value: project.metrics?.co2_reduction },
-  { key: 'certifications', label: 'Certifications', value: project.certifications },
-  { key: 'awards', label: 'Awards', value: project.awards },
-  { key: 'sources', label: 'Sources', value: project.sources },
-  { key: 'notes', label: 'Additional Notes', value: project.notes },
-];
+// Get data completeness from project (calculated by scripts/calculate_completeness.py)
+const dataCompleteness = project.data_completeness || {};
+const completenessScore = dataCompleteness.score || 0;
+const completenessGrade = dataCompleteness.grade || 'E';
+const categoryScores = dataCompleteness.category_scores || {};
+const dataHas = dataCompleteness.has || [];
+const dataMissing = dataCompleteness.missing || [];
+const upgradePath = dataCompleteness.upgrade_path || '';
 
-const presentFields = requiredFields.filter(f => hasData(f.value));
-const missingFields = requiredFields.filter(f => !hasData(f.value));
-const completenessPercent = Math.round((presentFields.length / requiredFields.length) * 100);
+// Category max scores for display
+const categoryMaxScores: Record<string, number> = {
+  basic_info: 10, stakeholders: 10, metrics_co2: 15, metrics_circularity: 15,
+  material_inventory: 15, cost_data: 10, sources_primary: 10,
+  certifications: 5, narrative: 5, donor_sources: 5
+};
+
+// Pre-calculate category display data
+const categoryDisplayData = Object.entries(categoryScores).map(([cat, score]) => {
+  const max = categoryMaxScores[cat] || 10;
+  const pct = Math.round((Number(score) / max) * 100);
+  const label = cat.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  return { cat, score: Number(score), max, pct, label };
+});
 
 // Format budget
 const formatBudget = (budget: any) => {
@@ -193,23 +200,33 @@ const getCertifications = (certs: any[]) => {
             )}
           </div>
         </div>
-        <span class={`px-2.5 py-1 rounded-lg text-xs font-medium ${dataQualityColors[project.data_quality] || 'bg-gray-50 text-gray-500'}`}>
-          {project.data_quality || 'unknown'} data
-        </span>
+        <div class="flex items-center gap-2">
+          <span class={`px-2.5 py-1 rounded-lg text-xs font-medium ${completenessGradeColors[completenessGrade] || 'bg-gray-50 text-gray-500'}`}>
+            {completenessGradeLabels[completenessGrade] || 'Unknown'} ({completenessScore}/100)
+          </span>
+          <span class={`w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold ${completenessGradeColors[completenessGrade]}`}>
+            {completenessGrade}
+          </span>
+        </div>
       </div>
 
       <!-- Data Completeness Bar -->
       <div class="pt-6 border-t border-gray-50">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs text-gray-400 uppercase tracking-wide">Completeness</span>
-          <span class="text-xs font-medium text-gray-500">{completenessPercent}%</span>
+          <span class="text-xs text-gray-400 uppercase tracking-wide">Data Completeness</span>
+          <span class="text-xs font-medium text-gray-500">{completenessScore}/100</span>
         </div>
-        <div class="w-full bg-gray-100 rounded-full h-1">
+        <div class="w-full bg-gray-100 rounded-full h-1.5">
           <div
-            class={`h-1 rounded-full transition-all ${completenessPercent >= 70 ? 'bg-teal-400' : completenessPercent >= 50 ? 'bg-amber-400' : 'bg-gray-300'}`}
-            style={`width: ${completenessPercent}%`}
+            class={`h-1.5 rounded-full transition-all ${completenessScore >= 80 ? 'bg-green-400' : completenessScore >= 60 ? 'bg-lime-400' : completenessScore >= 40 ? 'bg-yellow-400' : completenessScore >= 20 ? 'bg-orange-400' : 'bg-red-400'}`}
+            style={`width: ${completenessScore}%`}
           ></div>
         </div>
+        {dataMissing.length > 0 && (
+          <div class="mt-3 text-xs text-gray-400">
+            <span class="font-medium">{dataMissing.length} data gaps:</span> {dataMissing.slice(0, 3).join(', ')}{dataMissing.length > 3 ? '...' : ''}
+          </div>
+        )}
       </div>
     </section>
 
@@ -764,6 +781,59 @@ const getCertifications = (certs: any[]) => {
             </ul>
           </section>
         )}
+
+        <!-- ============================================ -->
+        <!-- SIDEBAR: DATA COMPLETENESS DETAILS -->
+        <!-- ============================================ -->
+        <section class="bg-white rounded-2xl p-5 card-hover">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xs font-medium text-gray-400 uppercase tracking-wide">Data Quality</h2>
+            <span class={`px-2 py-0.5 rounded text-xs font-bold ${completenessGradeColors[completenessGrade]}`}>
+              Grade {completenessGrade}
+            </span>
+          </div>
+
+          <!-- Category breakdown -->
+          <div class="space-y-2 mb-4">
+            {categoryDisplayData.map((item) => (
+              <div class="flex items-center gap-2">
+                <div class="w-24 text-xs text-gray-500 truncate" title={item.label}>{item.label}</div>
+                <div class="flex-1 bg-gray-100 rounded-full h-1.5">
+                  <div
+                    class={`h-1.5 rounded-full ${item.pct >= 80 ? 'bg-green-400' : item.pct >= 50 ? 'bg-yellow-400' : 'bg-gray-300'}`}
+                    style={`width: ${item.pct}%`}
+                  ></div>
+                </div>
+                <div class="w-8 text-xs text-gray-400 text-right">{item.score}/{item.max}</div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Missing data -->
+          {dataMissing.length > 0 && (
+            <div class="pt-3 border-t border-gray-100">
+              <h3 class="text-xs font-medium text-gray-500 mb-2">Missing Data ({dataMissing.length})</h3>
+              <ul class="space-y-1">
+                {dataMissing.slice(0, 5).map((item: string) => (
+                  <li class="text-xs text-gray-400 flex items-start gap-1.5">
+                    <span class="text-orange-400 mt-0.5">•</span>
+                    {item}
+                  </li>
+                ))}
+                {dataMissing.length > 5 && (
+                  <li class="text-xs text-gray-300 italic">+{dataMissing.length - 5} more...</li>
+                )}
+              </ul>
+            </div>
+          )}
+
+          <!-- Upgrade path -->
+          {upgradePath && (
+            <div class="mt-3 pt-3 border-t border-gray-100">
+              <p class="text-xs text-gray-400 italic">{upgradePath}</p>
+            </div>
+          )}
+        </section>
 
         <!-- ============================================ -->
         <!-- SIDEBAR: LAST UPDATED -->
