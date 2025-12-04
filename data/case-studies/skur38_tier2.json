@@ -1,0 +1,706 @@
+{
+  "case_study_id": "SKUR38_TIER2",
+  "project_id": "NO_skur38",
+  "name": "Skur 38",
+  "subtitle": "Oslo Havns hovedkontor - rehabilitering med sirkulære prinsipper",
+  "case_study_version": "1.0",
+  "case_study_tier": "TIER2",
+  "last_updated": "2025-12-04",
+  "data_source": "FutureBuilt Rapportering Sirkulære prinsipper (34 sider + vedlegg), Oslo Havn 24.09.2021",
+  "data_quality_note": "Comprehensive FutureBuilt report with detailed material inventory, cost breakdown, process documentation and CO2 calculations. Project completed 2022.",
+
+  "executive_summary": {
+    "project_type": "Rehabilitering av verneverdig lagerbygg til moderne kontorbygg",
+    "original_construction": 1915,
+    "previous_renovation": 1987,
+    "completion_year": 2022,
+    "address": "Akershusstranda 19, 0150 Oslo",
+    "key_achievements": [
+      "167 tonn CO2-besparelser fra ombruk",
+      "112 tonn materialer ombrukt",
+      "Materialer hentet fra 6 eksterne prosjekter",
+      "Loopfront brukt til materialregistrering",
+      "BREEAM Excellent sertifisering",
+      "FutureBuilt forbildeprosjekt",
+      "Verneverdig bygg på Byantikvarens gule liste"
+    ],
+    "futurebuilt_criteria": {
+      "existing_structure_retained_percent": 50,
+      "reused_components_percent": 10,
+      "note": "Mål: minst 50% eksisterende konstruksjoner bevart, minst 10% tilførte komponenter ombrukt"
+    }
+  },
+
+  "circularity_metrics": {
+    "co2_savings": {
+      "total_kg_co2_eq": 166952,
+      "source": "Vedlegg 2 - Beregning CO2-besparelser"
+    },
+    "weight_reused": {
+      "total_kg": 111940,
+      "source": "Vedlegg 2"
+    },
+    "cost_of_reuse": {
+      "phase_1_nok": 1023318,
+      "breakdown": {
+        "demontering_pakking": 71500,
+        "demontering_dorer": 44838,
+        "demontering_gipsplater": 20000,
+        "demontering_listverk": 1275,
+        "demontering_himlingsplater": 14225,
+        "flytteksperten": 23128,
+        "transport": 20807,
+        "boss_i_follo_skoyen": 226720,
+        "elektroarbeider": 14128,
+        "efc_demontering": 71500,
+        "efc_gjenbruk_isolasjon": 3300,
+        "profilteam": 22368,
+        "prosjektering_ark": 65000,
+        "prosjektering_iark": 55875,
+        "prosjektering_lark": 69020,
+        "prosjektering_rib": 18600,
+        "prosjektering_rim": 89280,
+        "prosjektering_loopfront": 32303,
+        "prosjektering_sintef": 65293,
+        "fortjeneste_10_pct": 93029
+      },
+      "internal_hours_hav": 640,
+      "source": "Vedlegg 1 - Dokumentasjon merkostnader"
+    },
+    "funding": {
+      "futurebuilt_nok": 400000,
+      "klimasats_phase2": "Tilsagn mottatt juni/juli 2021"
+    }
+  },
+
+  "material_inventory": {
+    "from_skur38_internal": [
+      {
+        "material": "Yttertak (komplett konstruksjon inkl. stål)",
+        "quantity": 1957,
+        "unit": "m2",
+        "weight_kg": 24463,
+        "co2_saved_kg": 87000,
+        "status": "Ombrukt i sin helhet",
+        "note": "I-Bjelker + Bjelker 48x198 + 98x98. Takplater og luftelekter."
+      },
+      {
+        "material": "Limtrebærekonstruksjon",
+        "quantity": 390,
+        "unit": "lm",
+        "weight_kg": 7020,
+        "co2_saved_kg": 3300,
+        "status": "Ombrukt i sin helhet i plan 4"
+      },
+      {
+        "material": "Stendere yttervegger plan 1 og 2",
+        "quantity": 1125,
+        "unit": "lm",
+        "weight_kg": 2914,
+        "co2_saved_kg": 280,
+        "note": "48x98 Stendere, 825m2 fasade"
+      },
+      {
+        "material": "Stendere yttervegger plan 3 og 4",
+        "quantity": 1160,
+        "unit": "lm",
+        "weight_kg": 3944,
+        "co2_saved_kg": 250,
+        "note": "48x148 Stendere, 529m2 fasade"
+      },
+      {
+        "material": "Isolasjon yttervegger plan 2",
+        "quantity": 475,
+        "unit": "m2",
+        "weight_kg": 1648,
+        "co2_saved_kg": 1300,
+        "note": "200mm glava 0,37. Plan 1 forurenset - ikke gjenbrukt"
+      },
+      {
+        "material": "Isolasjon yttervegger plan 3 og 4",
+        "quantity": 495,
+        "unit": "m2",
+        "weight_kg": 1252,
+        "co2_saved_kg": 1000,
+        "note": "150mm glava 0,37"
+      },
+      {
+        "material": "Isolasjon yttertak",
+        "quantity": 870,
+        "unit": "m2",
+        "weight_kg": 3019,
+        "co2_saved_kg": 2400,
+        "note": "200mm glava 0,37"
+      },
+      {
+        "material": "Utvendig GU-gips vindsperre plan 3 og 4",
+        "quantity": 529,
+        "unit": "m2",
+        "weight_kg": 3809,
+        "co2_saved_kg": 1100,
+        "note": "9mm GU-gips"
+      },
+      {
+        "material": "Utvendig lekter for kledning plan 3 og 4",
+        "quantity": 1058,
+        "unit": "lm",
+        "weight_kg": 1022,
+        "co2_saved_kg": 160,
+        "note": "36x48 lekter"
+      },
+      {
+        "material": "Skipsgulv fra plan 4",
+        "quantity": 253,
+        "unit": "m2",
+        "weight_kg": 3289,
+        "co2_saved_kg": 3600,
+        "status": "Gjenbrukt i spilevegg"
+      },
+      {
+        "material": "Himlingsplater 60x60",
+        "quantity": 562,
+        "unit": "m2",
+        "weight_kg": 1040,
+        "co2_saved_kg": 1500,
+        "note": "Ca. 1560 plater. Gjenbrukes som lydempende tiltak"
+      },
+      {
+        "material": "Vindeltrapp/rømningstrapp plan 1-4 inkl. rekkverk",
+        "quantity": 1,
+        "unit": "stk",
+        "weight_kg": 858,
+        "co2_saved_kg": 1500,
+        "status": "Ombrukt i sin helhet"
+      },
+      {
+        "material": "Kabelbroer + oppheng",
+        "quantity": 108,
+        "unit": "lm",
+        "weight_kg": 360,
+        "co2_saved_kg": 5800,
+        "destination": "Sjakter og tekniske rom"
+      },
+      {
+        "material": "Takrenner",
+        "quantity": 155,
+        "unit": "m",
+        "weight_kg": 233,
+        "co2_saved_kg": 1500,
+        "status": "Renses og repareres"
+      },
+      {
+        "material": "Snøfangere",
+        "quantity": 155,
+        "unit": "m",
+        "weight_kg": 543,
+        "co2_saved_kg": 3000,
+        "status": "Modifiseres med isfangerfunksjon"
+      },
+      {
+        "material": "Heltre listverk",
+        "quantity": 292,
+        "unit": "lm",
+        "weight_kg": 358,
+        "co2_saved_kg": 120,
+        "note": "Inkl. teak og mahogny. Gjenbrukes i interiør"
+      },
+      {
+        "material": "Teakkledning fra vegger plan 4",
+        "quantity": 58,
+        "unit": "m2",
+        "weight_kg": 580,
+        "co2_saved_kg": 160,
+        "status": "Gjenbrukes i interiør"
+      },
+      {
+        "material": "Profilerte trelister (utvendig panel)",
+        "quantity": 300,
+        "unit": "lm",
+        "weight_kg": 360,
+        "co2_saved_kg": 150,
+        "status": "Ombrukes i sin helhet og males"
+      },
+      {
+        "material": "Flaggstang med fester",
+        "quantity": 7,
+        "unit": "stk",
+        "weight_kg": 133,
+        "co2_saved_kg": 910,
+        "status": "Flikkes og males"
+      },
+      {
+        "material": "Sykkelstativ",
+        "quantity": 14,
+        "unit": "stk",
+        "weight_kg": 112,
+        "co2_saved_kg": 180,
+        "status": "Lakkeres og ombrukes"
+      },
+      {
+        "material": "Glassdører Schuco",
+        "quantity": 4,
+        "unit": "stk",
+        "weight_kg": 802,
+        "co2_saved_kg": 1440,
+        "destination": "Plan 1 og 3"
+      },
+      {
+        "material": "Minikjøkken plan 1",
+        "quantity": 1,
+        "unit": "stk",
+        "weight_kg": 180,
+        "co2_saved_kg": 240,
+        "destination": "Utleiedel plan 1"
+      },
+      {
+        "material": "EPS 100mm",
+        "quantity": 60,
+        "unit": "stk",
+        "weight_kg": 95,
+        "co2_saved_kg": 370,
+        "destination": "Langs gulv/yttervegg plan 1"
+      },
+      {
+        "material": "Takvinduer (rammer)",
+        "quantity": 2,
+        "unit": "stk",
+        "weight_kg": 190,
+        "co2_saved_kg": 1220,
+        "note": "Bytter kun glasset, gjenbruker rammene"
+      },
+      {
+        "material": "Trafo Noratel",
+        "quantity": 1,
+        "unit": "stk",
+        "weight_kg": 293,
+        "co2_saved_kg": 1500,
+        "destination": "Toalett utomhus"
+      },
+      {
+        "material": "Dørautomatikk (Dorma/Geze)",
+        "quantity": 8,
+        "unit": "stk",
+        "weight_kg": 96,
+        "co2_saved_kg": 120,
+        "status": "Ombrukes hvis fungerer"
+      },
+      {
+        "material": "Utslagsvasker",
+        "quantity": 4,
+        "unit": "stk",
+        "weight_kg": 12,
+        "co2_saved_kg": 58,
+        "destination": "Bøttekott"
+      }
+    ],
+    "from_external_projects": [
+      {
+        "source_project": "Nedre Skøyen vei 26",
+        "source_owner": "Nordr Eiendom",
+        "demolition_contractor": "Veidekke",
+        "building_year": 2005,
+        "materials": [
+          {
+            "material": "Granittheller",
+            "quantity": 130,
+            "unit": "m2",
+            "weight_kg": 22600,
+            "co2_saved_kg": 20000,
+            "destination": "Uteområdet"
+          },
+          {
+            "material": "Storgatestein",
+            "quantity": 50,
+            "unit": "m2",
+            "weight_kg": 19200,
+            "co2_saved_kg": 290,
+            "note": "1650 stk",
+            "destination": "Uteområdet"
+          },
+          {
+            "material": "EL-kabelkanaler horisontale",
+            "quantity": 725,
+            "unit": "m",
+            "weight_kg": 5800,
+            "co2_saved_kg": 15000,
+            "destination": "Kontoretasjene"
+          },
+          {
+            "material": "EL-kabelkanaler vertikale",
+            "quantity": 46,
+            "unit": "m",
+            "weight_kg": 368,
+            "co2_saved_kg": 960,
+            "destination": "Kontoretasjene"
+          },
+          {
+            "material": "Tredører",
+            "quantity": 23,
+            "unit": "stk",
+            "weight_kg": 865,
+            "co2_saved_kg": 2108,
+            "note": "14 stk 80-dører, 4 stk 90-dører, 4 stk 100-dører",
+            "destination": "Plan 2, 3 og 4"
+          },
+          {
+            "material": "Brannskap",
+            "quantity": 10,
+            "unit": "stk",
+            "weight_kg": 200,
+            "co2_saved_kg": 3000,
+            "status": "Males og ombrukes"
+          },
+          {
+            "material": "Gulvlister",
+            "quantity": 950,
+            "unit": "m",
+            "weight_kg": 665,
+            "co2_saved_kg": 52,
+            "destination": "Kontoretasjene"
+          },
+          {
+            "material": "EL-skap",
+            "quantity": 3,
+            "unit": "stk",
+            "weight_kg": 150,
+            "co2_saved_kg": 120,
+            "destination": "EF-rom"
+          }
+        ]
+      },
+      {
+        "source_project": "Kongshavnveien 28",
+        "source_owner": "Oslo Havn",
+        "materials": [
+          {
+            "material": "Himlingsplater",
+            "quantity": 662,
+            "unit": "m2",
+            "weight_kg": 1226,
+            "co2_saved_kg": 1800,
+            "status": "Lydempende tiltak over himlingsplater"
+          }
+        ]
+      },
+      {
+        "source_project": "Rådhusbrygge 2",
+        "source_owner": "Oslo Havn",
+        "materials": [
+          {
+            "material": "EPS 100mm",
+            "quantity": 40,
+            "unit": "stk",
+            "weight_kg": 79,
+            "co2_saved_kg": 310,
+            "destination": "Langs gulv/yttervegg plan 1"
+          },
+          {
+            "material": "Royalimpregnert planker",
+            "quantity": 300,
+            "unit": "lm",
+            "weight_kg": 879,
+            "co2_saved_kg": 180,
+            "destination": "Spiler på utvendige benker"
+          }
+        ]
+      },
+      {
+        "source_project": "Haakon VII's gate 10",
+        "source_owner": "Storebrand",
+        "materials": [
+          {
+            "material": "Himlingsplater",
+            "quantity": 500,
+            "unit": "m2",
+            "weight_kg": 925,
+            "co2_saved_kg": 1350,
+            "status": "Lydempende tiltak"
+          }
+        ]
+      },
+      {
+        "source_project": "Munch museet",
+        "source_owner": "KID - Kultur og Idrettsbygg",
+        "materials": [
+          {
+            "material": "Tredør (feilbestilt)",
+            "quantity": 1,
+            "unit": "stk",
+            "weight_kg": 57,
+            "co2_saved_kg": 92,
+            "note": "100x2100"
+          }
+        ]
+      }
+    ],
+    "given_to_others": [
+      {
+        "material": "Utelamper",
+        "quantity": 8,
+        "unit": "stk",
+        "recipient": "Tønsberg Ungdomsklubb",
+        "source": "FutureBuilt annonse"
+      },
+      {
+        "material": "Tredører",
+        "quantity": 9,
+        "unit": "stk",
+        "recipient": "Vedal AS",
+        "source": "FutureBuilt annonse"
+      },
+      {
+        "material": "Vinduer",
+        "quantity": 18,
+        "unit": "stk",
+        "recipient": "Driftsleder (privat drivhus)"
+      },
+      {
+        "material": "Paller",
+        "quantity": 10,
+        "unit": "stk",
+        "recipient": "Kunstprosjekt"
+      },
+      {
+        "material": "Ladestasjoner",
+        "quantity": 10,
+        "unit": "stk",
+        "recipient": "Oslo Havn egne områder",
+        "note": "5 doble + 5 enkle"
+      }
+    ],
+    "not_reused": [
+      {
+        "material": "Isolasjon yttervegger plan 1",
+        "reason": "For forurenset"
+      },
+      {
+        "material": "Kontorskillevegger og kontordører",
+        "reason": "Tilfredsstilte ikke lydkrav, bearbeiding for dyrt"
+      },
+      {
+        "material": "Vinduer",
+        "reason": "Høye U-verdikrav, inneholdt klorparafiner og ftalater"
+      },
+      {
+        "material": "Ventiler med lydfeller (fra Skøyen)",
+        "quantity": 22,
+        "reason": "Feil dimensjoner"
+      },
+      {
+        "material": "Kombibafler (fra Skøyen)",
+        "quantity": 8,
+        "reason": "Ikke behov"
+      },
+      {
+        "material": "Lyktestolper (fra Skøyen)",
+        "quantity": 2,
+        "reason": "Ikke behov etter detaljprosjektering"
+      }
+    ]
+  },
+
+  "process_documentation": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Kartlegging og registrering",
+        "start": "September 2020",
+        "activities": [
+          "Grundig kartlegging av bygningsmessige og tekniske komponenter",
+          "Kartlegging av møbler og interiør",
+          "Registrering i Loopfront database",
+          "Befaringer med arkitekt, rådgivere, entreprenør og miljørådgiver"
+        ]
+      },
+      {
+        "phase": 2,
+        "name": "Demontering",
+        "start": "Årsskiftet 2020/21",
+        "activities": [
+          "Utarbeidet excel-lister med bilder fra Loopfront",
+          "Merking med tape",
+          "Demontering utført av Alt i Prosjekt (AIP), Wickstrøm (elektro), Profilteam (dører/glass)",
+          "Pakking og transport til fjellhallen"
+        ],
+        "contractors": ["Alt i Prosjekt (AIP)", "Wickstrøm", "Profilteam", "Boss i Follo"]
+      },
+      {
+        "phase": 3,
+        "name": "Anskaffelse eksternt",
+        "activities": [
+          "Hentet materialer fra 5 eksterne bygg",
+          "Boss i Follo for demontering fra Skøyen, Kongshavn og Haakon VII's gate",
+          "Tips via kollegaer og RIM"
+        ]
+      },
+      {
+        "phase": 4,
+        "name": "Implementering",
+        "start": "Juni/juli 2021",
+        "activities": [
+          "Rengjøring, lakkering og bearbeiding",
+          "Interiørprosjekt med møbelsnekker",
+          "Spilevegger av skipsgulv",
+          "Avtaler om garanti med entreprenører"
+        ]
+      }
+    ],
+    "storage": {
+      "location": "Oslo Havns fjellhall ved Kongshavn",
+      "importance": "Avgjørende for å kunne demontere og lagre materialer"
+    },
+    "digital_tools": {
+      "loopfront": {
+        "used_for": "Registrering av ombruks- og gjenbrukselementer",
+        "challenges": [
+          "Tidlig fase, brukervennlighet ikke optimal",
+          "Manglende rapportfunksjonalitet",
+          "Dobbeltføring i Excel nødvendig",
+          "Manglende integrasjon med OneClick LCA"
+        ],
+        "note": "Skur 38 var pilotprosjekt og bidro til forbedringer"
+      },
+      "qr_coding": {
+        "status": "Vurdert men ikke implementert",
+        "reason": "Riveentreprenør hadde ikke systemer/erfaring"
+      }
+    }
+  },
+
+  "stakeholders": {
+    "client": {
+      "name": "Oslo Havn KF",
+      "address": "Akershusstranda 19, 0150 Oslo"
+    },
+    "project_management": {
+      "name": "Advansia AS",
+      "address": "Lilleakerveien 8, 0283 Oslo"
+    },
+    "architect": {
+      "name": "Hille Melbye arkitekter",
+      "address": "Hausmanns gate 16, 0182 Oslo"
+    },
+    "contractor": {
+      "name": "Varden Entreprenør",
+      "address": "Sinsenveien 4, 0572 Oslo",
+      "contract_type": "Totalentreprise med integrert samhandling (samspill med målpris og incitament)"
+    },
+    "environmental_advisor": {
+      "name": "Bollinger + Grohmann Ingeniører AS",
+      "address": "Filipstadveien 5, 0250 Oslo"
+    },
+    "demolition_contractors": ["Alt i Prosjekt (AIP)", "Boss i Follo", "Wickstrøm", "Profilteam"],
+    "report_authors": ["Siri Breivik", "Silje Molid", "Michael Lommertz"],
+    "heritage": {
+      "status": "Byantikvarens gule liste + Oslo Havns Maritim kulturminneplan",
+      "approach": "Synliggjøre byggets historie som opprinnelig lagerbygg"
+    }
+  },
+
+  "lessons_learned": [
+    {
+      "category": "Planlegging",
+      "finding": "Avsett tid i forprosjektet til å prosjektere og ta konkrete valg",
+      "recommendation": "Ombrukselementer bør avklares i forprosjektfasen"
+    },
+    {
+      "category": "Entreprenørdialog",
+      "finding": "Kom tidlig i dialog med utførende entreprenører",
+      "recommendation": "Entreprenører kan bidra til valg av egnede materialer"
+    },
+    {
+      "category": "Merking",
+      "finding": "Dårlig merking fører til at elementer kan gå tapt",
+      "recommendation": "Planmessig merking og registrering tidlig i prosessen er essensielt"
+    },
+    {
+      "category": "Database",
+      "finding": "Kombinasjonen av dataverktøy som kunne omsettes til arbeidsunderlag manglet",
+      "recommendation": "Bruk database med sorteringsmuligheter som kan gi godt arbeidsunderlag for demontering"
+    },
+    {
+      "category": "Tid",
+      "finding": "Vi startet for sent, hadde for dårlig verktøy og for kort tid",
+      "recommendation": "Demontering av ombrukselementer bør utføres FØR oppstart rivning"
+    },
+    {
+      "category": "Kontrakt",
+      "finding": "Ombrukselementer som dukker opp underveis bør behandles som endringer",
+      "recommendation": "Ombrukselementer bør inn på tegningsunderlag og i riveentreprenørens kontrakt"
+    },
+    {
+      "category": "Lagring",
+      "finding": "Tilgang på lagerplass var avgjørende",
+      "recommendation": "Lagerplass anskaffes tidlig, plassering anmerkes på skisse eller i database"
+    },
+    {
+      "category": "Prosjekteringsflyt",
+      "finding": "Gjenbruk påvirker prosjekteringsflyten",
+      "recommendation": "Forprosjekt og detaljprosjekt glir over i hverandre - LEAN metodikk egner seg"
+    },
+    {
+      "category": "Vektkrav",
+      "finding": "10 vektprosent av ombrukte materialer kan være vanskelig å oppnå",
+      "recommendation": "Ombruksmaterialer har ofte lav vekt - kravene bør ses på"
+    },
+    {
+      "category": "Regelverk",
+      "finding": "Omstendelig og uklart regelverk for å gi bort materialer",
+      "recommendation": "Gaver faller utenfor kjøpsloven, men TEK-krav må hensyntas"
+    }
+  ],
+
+  "architect_lessons": [
+    {
+      "phase": "Kartlegging",
+      "finding": "Krevende å vurdere tilstand og teknisk nivå (brann, lyd)",
+      "recommendation": "Behov for spesiell kompetanse på gjenbruk"
+    },
+    {
+      "phase": "Kartlegging",
+      "finding": "Svært tilfeldig hvilke bygg og materialer vi fikk tilgang på",
+      "recommendation": "Loopfront bør samordnes nasjonalt a la finn.no"
+    },
+    {
+      "phase": "Implementering",
+      "finding": "Må forholde seg til ferdigproduserte elementer",
+      "recommendation": "Prosjektering for gjenbruk blir merkostnad/ulempe"
+    },
+    {
+      "phase": "Implementering",
+      "finding": "Gjenbruk gir behov for å være mer konkret i forprosjekt",
+      "recommendation": "Tett samarbeid og samtidig prosjektering nødvendig"
+    }
+  ],
+
+  "sources": [
+    {
+      "type": "primary_report",
+      "title": "Rapportering til FutureBuilt - Sirkulære prinsipper - Rehabilitering Skur 38",
+      "author": "Oslo Havn / Bollinger + Grohmann",
+      "authors_named": ["Siri Breivik", "Silje Molid", "Michael Lommertz"],
+      "date": "2021-09-24",
+      "pages": 34,
+      "local_pdf": "/nordic-circular-buildings/docs/skur38-futurebuilt-ombruk-2022.pdf"
+    },
+    {
+      "type": "attachment",
+      "title": "Vedlegg 1 - Dokumentasjon merkostnader for gjenbruk og sirkulærøkonomi",
+      "reference": "EA-004",
+      "total_cost_nok": 1023318
+    },
+    {
+      "type": "attachment",
+      "title": "Vedlegg 2 - Beregning CO2-besparelser",
+      "total_weight_kg": 111940,
+      "total_co2_kg": 166952
+    }
+  ],
+
+  "data_gaps": [
+    "Endelig sirkularitetsindeks ikke oppgitt",
+    "Faktisk ombruksprosent vs mål (10%) ikke bekreftet",
+    "Oppdaterte tall etter ferdigstillelse mangler",
+    "CO2-beregning per materialtype basert på generiske EPD-er"
+  ]
+}

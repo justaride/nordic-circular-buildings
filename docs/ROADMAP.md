@@ -66,16 +66,20 @@ Circular new build using historical barn as material bank.
 - ✅ SINTEF-tested brick for reuse
 - ✅ Detailed timber inventory with kg weights
 - ✅ Klimagassrapport + Betongrapport
-- ✅ **3 Self-hosted PDFs**
+- ✅ **FutureBuilt Plastkriterier pilot** (første i Norge)
+- ✅ **4 Self-hosted PDFs**
 
 **Key Metrics:**
 | Metric | Value | Source |
 |--------|-------|--------|
 | SI-index | 48% | Sirkularitetsrapport p.7 |
+| Plastic reduction | 52.9% | Plastkriterier p.3 |
+| New fossil plastic | 24.3% vs standard | Plastkriterier p.3 |
 | Total weight | 1,746 tonnes | Vektregnskap |
 | Reused | 848t (48.6%) | Vektregnskap |
 | Reusable | 486t (27.8%) | Vektregnskap |
 | Timber from barn | 57t | Materialinventar |
+| CO2 saved (concrete) | 53,327 kg | Betongrapport p.13 |
 
 #### Priority 4: Løren aktivitetspark - Tier 2 ✅ COMPLETE
 Pilot project for reuse of concrete facade elements.
@@ -111,9 +115,29 @@ Bergen's most ambitious circular project targeting ~100% reuse.
 - Elevator shaft from cut concrete floor raised vertically
 - "Ring en venn / Ny løsning / Vente / Kjøpe nytt" risk framework
 
+#### Priority 6: Skur 38 - Tier 2 ✅ COMPLETE
+Oslo Havn's headquarters - comprehensive FutureBuilt circular report.
+
+**Achieved:**
+- ✅ **Full FutureBuilt report (34 pages + 2 attachments)**
+- ✅ 167 tonnes CO2 saved from reuse
+- ✅ 112 tonnes materials reused
+- ✅ Materials from 6 external projects documented
+- ✅ Detailed cost breakdown: 1.02 MNOK phase 1
+- ✅ Loopfront pilot project
+- ✅ BREEAM Excellent + heritage protection
+- ✅ **Self-hosted PDF**
+
+**Key Metrics:**
+| Metric | Value | Source |
+|--------|-------|--------|
+| CO2 saved | 166,952 kg | Vedlegg 2 |
+| Weight reused | 111,940 kg | Vedlegg 2 |
+| Phase 1 cost | 1,023,318 NOK | Vedlegg 1 |
+| External sources | 6 buildings | Rapport |
+
 #### Remaining Deep Cases
 - Oksenøya Senter / Treklang - needs report
-- Skur 38 - FutureBuilt report analyzed, case study pending
 
 ---
 
@@ -217,6 +241,7 @@ ka23-erfaringsrapport-rev4.pdf                        (1.4MB)
 nedre-sem-sirkularitet-2023.pdf                       (1.0MB)
 nedre-sem-klimagass-2024.pdf                          (1.6MB)
 nedre-sem-betong-2024.pdf                             (2.9MB)
+nedre-sem-plastkriterier-2025.pdf                     (722KB)
 loren-klimasats-sluttrapport-2025.pdf                 (121KB)
 loren-klimasats-delrapport-2023.pdf                   (86KB)
 foniks-presentasjon-2025.pdf                          (9.5MB)

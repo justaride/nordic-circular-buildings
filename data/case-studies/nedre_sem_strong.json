@@ -3,30 +3,51 @@
   "project_id": "NO_nedre_sem",
   "name": "Nedre Sem Låve",
   "subtitle": "Sirkulært nybygg med historisk låve som materialbank",
-  "case_study_version": "1.0",
+  "case_study_version": "3.0",
   "case_study_tier": "STRONG",
-  "last_updated": "2025-12-03",
-  "data_source": "Veidekke Sirkularitetsrapport til FutureBuilt (27. oktober 2023) + Klimagassrapport + Betongrapport",
-  "data_quality_note": "Comprehensive documentation with detailed material inventory, SI-index calculations, and ombrukbarhet analysis per building component.",
+  "last_updated": "2025-12-04",
+  "data_source": "Veidekke Sirkularitetsrapport (2023) + Context AS Klimagassrapport (2024) + Veidekke Betongrapport (2023) + Context AS Plastkriterier (2025)",
+  "data_quality_note": "Comprehensive documentation with SI-index, FutureBuilt ZERO calculations, detailed concrete CO2 analysis, full material inventory, and FutureBuilt plastic reduction pilot data.",
 
   "executive_summary": {
     "project_type": "Nybygg med ombruk fra eksisterende låve",
     "completion_year": 2024,
-    "total_area_m2": 2000,
+    "total_area_m2": 2564,
+    "total_bta_m2": 2564,
+    "heated_bra_m2": 2127,
+    "building_parts": {
+      "work_center": {"bta_m2": 1445, "heated_bra_m2": 1283, "classification": "Skolebygg"},
+      "housing": {"bta_m2": 1119, "heated_bra_m2": 844, "classification": "Boligblokk"}
+    },
+    "users": {
+      "total": 41,
+      "employees": 10,
+      "residents": 10,
+      "other_users": 21
+    },
     "key_achievements": [
       "48% sirkularitetsindeks (SI) oppnådd",
-      "100% resirkulert betong-tilslag - sannsynligvis første i verden",
+      "100% resirkulert betong-tilslag (8-22mm) - sannsynligvis første i verden",
+      "53,327 kg CO2 spart fra lavkarbon ekstrem betong",
+      "FutureBuilt ZERO hovedkriteriet oppfylt (354 kg CO2-e/m²)",
+      "52.9% plastreduksjon - første FutureBuilt plastpilot",
+      "Kun 24.3% ny fossil plast vs standard praksis",
       "Massivtre bæresystem designet for demontering",
+      "480 m² solcelleanlegg - 68,000 kWh/år",
       "SINTEF-testet teglstein for ombruk",
-      "Treteknisk institutt samarbeid for treklassifisering",
-      "Detaljert ombrukbarhetsvurdering per bygningsdel",
-      "Demonteringsinstruks utarbeidet"
+      "Utslippsfri byggeplass med elektriske maskiner"
     ],
     "innovations": [
+      "Lavkarbon ekstrem betong med CEM III/B sement",
+      "Resirkulert tilslag fra Follobaneprosjektet på Åsland",
       "Skruer med større gods for fremtidig demontering",
       "Radiatorer istedenfor nedstøpt gulvvarme (fleksibilitet)",
       "Kalkmørtel på tegl for enkel fremtidig demontering",
-      "Samarbeid med Norsk Folkemuseum (TradLab TRE) for overskuddstømmer"
+      "Resirkulert EPS (300kPa) utviklet med Bewi",
+      "Maturix sanntidsovervåkning av fasthetsutvikling",
+      "Biobasert dampsperre (99.7% sukkerrør) fra Bewi",
+      "GU-X-plater istedenfor plastbasert vindsperre",
+      "Osmo hardvoksolje (plastfritt) til massivtre"
     ]
   },
 
@@ -37,6 +58,38 @@
       "target": 50,
       "source": "Sirkularitetsrapport side 7",
       "calculation_method": "FutureBuilt versjon 3"
+    },
+    "futurebuilt_zero": {
+      "main_criterion": {
+        "target_kg_co2_m2": 354,
+        "achieved_kg_co2_m2": 354,
+        "status": "Oppfylt akkurat",
+        "source": "Klimagassrapport side 4"
+      },
+      "materials": {
+        "target_kg_co2_m2": 226,
+        "achieved_kg_co2_m2": 190,
+        "achieved_with_demolition_kg_co2_m2": 233,
+        "status": "Li over grense inkl. riving",
+        "breakdown": {
+          "building_kg_co2_m2": 163,
+          "equipment_kg_co2_m2": 27
+        }
+      },
+      "energy": {
+        "target_kg_co2_m2": 163,
+        "achieved_kg_co2_m2": 121,
+        "status": "Oppfylt med god margin"
+      },
+      "transport_zero_t": {
+        "target_kg_co2_user_year": 183,
+        "achieved_kg_co2_user_year": 362,
+        "status": "Ikke oppfylt - rural beliggenhet"
+      },
+      "total_kg_co2": 1518678,
+      "kg_co2_m2_year": 11.9,
+      "kg_co2_person_year": 619,
+      "source": "Klimagassrapport revisjon 2, august 2024"
     },
     "weight_breakdown": {
       "total_weight_kg": 1746563,
@@ -134,6 +187,178 @@
     ]
   },
 
+  "plastic_reduction": {
+    "summary": {
+      "total_reduction_percent": 52.9,
+      "reused_recycled_biobased_percent": 48.4,
+      "new_fossil_plastic_percent": 24.3,
+      "note": "Første pilotprosjekt for FutureBuilt plastkriterier"
+    },
+    "by_building_component": [
+      {
+        "code": "21",
+        "name": "Grunn og Fundament",
+        "standard_kg": 1356.5,
+        "after_measures_kg": 1311.0,
+        "reduction_percent": 3,
+        "reused_recycled_biobased_kg": 1311.0,
+        "reused_recycled_biobased_percent": 100,
+        "measures": "Stål armeringsstoler istedenfor plast. 100% resirkulert EPS fra BEWI (300 kPa)."
+      },
+      {
+        "code": "23",
+        "name": "Yttervegger",
+        "standard_kg": 4033.5,
+        "after_measures_kg": 371.2,
+        "reduction_percent": 91,
+        "reused_recycled_biobased_kg": 205.5,
+        "reused_recycled_biobased_percent": 55,
+        "measures": "GU-X-plater istedenfor vindsperre, biobasert dampsperre (Gram av sukkerrør), steinull istedenfor EPS, drensplater av steinull, linolje til kledning, Osmo hardvoksolje til massivtre."
+      },
+      {
+        "code": "24",
+        "name": "Innervegger",
+        "standard_kg": 925.3,
+        "after_measures_kg": 742.9,
+        "reduction_percent": 20,
+        "reused_recycled_biobased_kg": 65.1,
+        "reused_recycled_biobased_percent": 9,
+        "measures": "Gips uten plastkomponenter, gipsbasert branntetting (<5% plast vs 10-50% i akryl/silikon)."
+      },
+      {
+        "code": "25",
+        "name": "Dekker",
+        "standard_kg": 9706.8,
+        "after_measures_kg": 2127.6,
+        "reduction_percent": 78,
+        "reused_recycled_biobased_kg": 655.3,
+        "reused_recycled_biobased_percent": 31,
+        "measures": "Steinull istedenfor EPS, 100% resirkulerbar radonsperre, biobasert glidesjikt, flytsparkel med kun 0.5% polymer, PVC-fri vinyl, garasjehimling med treullsementplater (Treulitt)."
+      },
+      {
+        "code": "26",
+        "name": "Yttertak",
+        "standard_kg": 3531.4,
+        "after_measures_kg": 3531.4,
+        "reduction_percent": 0,
+        "reused_recycled_biobased_kg": 582.4,
+        "reused_recycled_biobased_percent": 16,
+        "measures": "Ingen reduksjon mulig pga tekniske krav til dampsperre, membran og tetthet."
+      },
+      {
+        "code": "27",
+        "name": "Fast inventar",
+        "standard_kg": 2119.8,
+        "after_measures_kg": 2119.8,
+        "reduction_percent": 0,
+        "reused_recycled_biobased_kg": 2119.8,
+        "reused_recycled_biobased_percent": 100,
+        "measures": "Ombrukte kjøkkenelementer."
+      }
+    ],
+    "totals": {
+      "standard_kg": 21673.4,
+      "after_measures_kg": 10203.9,
+      "total_reduction_percent": 53,
+      "reused_recycled_biobased_kg": 4939.1,
+      "reused_recycled_biobased_percent": 48
+    },
+    "key_substitutions": [
+      {
+        "original": "Plastbasert vindsperre",
+        "replacement": "GU-X-plater (Nordgips)",
+        "note": "Øker CO2-utslipp men reduserer plast betydelig"
+      },
+      {
+        "original": "Fossil PE dampsperre",
+        "replacement": "Gram Dampsperre av fornybart råstoff",
+        "supplier": "BEWI",
+        "content": "99.7% sukkerrør-basert polyetylen"
+      },
+      {
+        "original": "EPS isolasjon",
+        "replacement": "Steinull",
+        "note": "Lavere plastandel (bindemiddel 2-5%), høyere CO2"
+      },
+      {
+        "original": "Knotteplast drenering",
+        "replacement": "Drensplater av steinull med fiberduk",
+        "note": "Fiberduk fortsatt plast, men mye lavere mengde"
+      },
+      {
+        "original": "Akrylmaling utvendig",
+        "replacement": "Linolje",
+        "note": "100% plastfritt"
+      },
+      {
+        "original": "Panellakk",
+        "replacement": "Osmo hardvoksolje",
+        "note": "Uten polymer, plastfritt alternativ"
+      },
+      {
+        "original": "Plastplugger",
+        "replacement": "Stålplugger",
+        "note": "Minimerer plastinnhold i veggkonstruksjoner"
+      },
+      {
+        "original": "Standard flytsparkel (polymer)",
+        "replacement": "Flytsparkel med 0.5% polymer",
+        "note": "Fiberarmering fra sand istedenfor plast"
+      },
+      {
+        "original": "Flis",
+        "replacement": "PVC-fri vinyl",
+        "note": "Svanemerket, delvis resirkulert, våtromsgodkjent"
+      },
+      {
+        "original": "Gipshimling m/sparkel+maling",
+        "replacement": "Garasjehimling med glassull + Treulitt",
+        "note": "Reduserer polymer fra sparkel/maling (30-40%)"
+      }
+    ],
+    "lessons_learned_plastic": [
+      {
+        "category": "Målkonflikt",
+        "finding": "Plastreduksjon og klimagassreduksjon går ikke alltid hånd i hånd",
+        "detail": "Flere materialvalg for plastreduksjon førte til økt CO2-utslipp (f.eks. steinull vs EPS)"
+      },
+      {
+        "category": "FutureBuilt-krav",
+        "finding": "50%-kravet kan virke mot sin hensikt",
+        "detail": "Kan oppmuntre til å beholde plast (biobasert/resirkulert) istedenfor å erstatte helt"
+      },
+      {
+        "category": "Demonterbarhet",
+        "finding": "95% demonterbarhetskrav vanskelig for flere materialer",
+        "detail": "Isolasjon (80%), sparkel/maling (0%), membraner (svært vanskelig)"
+      },
+      {
+        "category": "Våtrom",
+        "finding": "Tekniske krav krever polymerinnhold",
+        "detail": "Membran, flislim og våtromsmaling må inneholde polymer for godkjenning"
+      },
+      {
+        "category": "Yttertak",
+        "finding": "Ingen plastfrie alternativer funnet",
+        "detail": "Dampsperrer, membraner og tettematerialer krever plast for funksjon"
+      }
+    ],
+    "recommendations_to_futurebuilt": [
+      "Revurdere 50%-kravet slik at full plastfjerning premieres, ikke bare biobasert erstatning",
+      "Tilpasse demonterbarhetskravet til materialer der det faktisk er mulig",
+      "Justere resirkuleringskravet til teknisk gjennomførbare plastprodukter",
+      "Integrere klimagassvurdering i plastkravene for optimal samlet miljøpåvirkning",
+      "Ha nyansert tilnærming til plast i våtrom der funksjon/levetid krever det"
+    ],
+    "source": {
+      "title": "Nedre Sem Låve - Prosjektrapport: FutureBuilt kriterier for plastbruk",
+      "author": "Context AS (Marta Eggertsen, Sunniva Tellsgård, Rolf Hagen)",
+      "date": "2025-03-13",
+      "pages": 18,
+      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-plastkriterier-2025.pdf"
+    }
+  },
+
   "material_inventory": {
     "from_demolished_barn": {
       "timber": {
@@ -173,8 +398,57 @@
     "new_construction": {
       "concrete": {
         "recycled_aggregate_percent": 100,
-        "note": "Sannsynligvis første i verden med 100% resirkulert tilslag (standard maks 30%)",
-        "source": "Sirkularitetsrapport side 9"
+        "aggregate_fraction": "8-22mm",
+        "aggregate_source": "Follobaneprosjektet, Åsland - betongelementfabrikk",
+        "cement_type": "CEM III/B (66-80% slagg)",
+        "lavkarbon_class": "Ekstrem (NB37)",
+        "standard_deviation": "NS-EN 206 tillater maks 40% - prosjektet brukte 100%",
+        "total_concrete_m3": 373,
+        "co2_savings": {
+          "total_kg_co2_saved": 53327,
+          "vs_standard": "Lavkarbon B (280 kg CO2/m³)",
+          "lavkarbon_ekstrem_factor": 111.3,
+          "source": "Betongrapport side 13"
+        },
+        "by_element": [
+          {"element": "Stripefundament", "m3": 58.5, "class": "Lavkarbon A", "co2_factor": 200, "saved_kg": 1754},
+          {"element": "Punktfundament", "m3": 10.8, "class": "Lavkarbon A", "co2_factor": 200, "saved_kg": 324},
+          {"element": "Dekke heis", "m3": 2.1, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 346},
+          {"element": "Dekke over plan U", "m3": 33.8, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 5693},
+          {"element": "Gulv på grunn", "m3": 102.5, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 17298},
+          {"element": "Stripeopplegg massivtre", "m3": 2.4, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 398},
+          {"element": "Vegger plan U - yttervegger", "m3": 137.7, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 23232},
+          {"element": "Vegger plan U - grube", "m3": 5.6, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 950},
+          {"element": "Vegger plan U - innervegger", "m3": 11.1, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 1873},
+          {"element": "Vegger plan U - heisgrube", "m3": 4.06, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 685},
+          {"element": "Vegger plan 1 - låvebru", "m3": 4.05, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 684},
+          {"element": "Søyler tek-rom", "m3": 0.5, "class": "Ekstrem", "co2_factor": 111.3, "saved_kg": 91}
+        ],
+        "certification_process": {
+          "testing_body": "Unicon lab + prøvestøp Ulven",
+          "properties_tested": ["Trykkfasthet fck", "Elastisitetsmodul Ecm", "Strekkfasthet", "Uttørkingssvinntøyning", "Autogen svinntøyning"],
+          "ce_marking": "Tilslaget CE-merket ihht NS-EN 12620",
+          "aggregate_type": "Type AN (>99% mineralsk renhet)"
+        },
+        "execution_strategy": {
+          "warm_season_start": "Mai 2023 - unngå vinterstøp",
+          "heating_method": "Luft-luft varmepumper (XHP40 Nordic) + presenning - ingen innstøpte varmekabler",
+          "monitoring": "Maturix sanntidsovervåkning av temperatur og fasthetsutvikling",
+          "formwork_time": "24-48 timer avhengig av temperatur",
+          "saved_by_delayed_start": {
+            "kg_co2": 2844,
+            "cost_nok": 327952
+          }
+        },
+        "note": "Sannsynligvis første i verden med 100% resirkulert tilslag (standard maks 40%)",
+        "source": "Betongrapport oktober 2023"
+      },
+      "insulation": {
+        "type": "Resirkulert EPS",
+        "pressure_strength_kpa": 300,
+        "supplier": "Bewi",
+        "note": "Utviklet i dialog med produsenten spesielt for dette prosjektet",
+        "use": "Fundamenter og grunn"
       },
       "mass_timber": {
         "connection_type": "Skruer med større gods enn normalt",
@@ -268,26 +542,74 @@
     ]
   },
 
+  "energy_system": {
+    "solar_panels": {
+      "area_m2": 480,
+      "annual_production_kwh": 68000,
+      "production_per_m2_bra": 32.2,
+      "co2_savings_kg_m2": 130.7,
+      "location": "Tak"
+    },
+    "heating": {
+      "type": "Varmepumpe med geotermiske energibrønner",
+      "distribution": "Vegghengte radiatorer (ikke gulvvarme)",
+      "note": "Radiatorer valgt for fleksibilitet og fremtidig demontering"
+    },
+    "energy_standard": {
+      "classification": "FutureBuilt nZEB",
+      "reduction_vs_tek17": {
+        "work_center": "30%",
+        "housing": "10%"
+      },
+      "weighted_energy_demand_kwh_m2": 81.5,
+      "delivered_energy_kwh_m2": 62.8
+    },
+    "source": "Klimagassrapport side 9-10"
+  },
+
   "stakeholders": {
     "client": {
       "name": "Asker kommune",
       "contact": "Alf Kaare Stokker (prosjektleder)"
     },
     "contractor": {
-      "name": "Veidekke Entreprenør",
-      "contacts": ["Kristoffer Gjestemoen", "Tor Flesseberg"],
-      "role": "Totalentreprenør og sirkularitetsrapport"
+      "name": "Veidekke Entreprenør AS",
+      "contacts": ["Daniel Banka", "Håvard Kirkebøen", "Tor Flesseberg", "Alf Egil Mathisen"],
+      "role": "Totalentreprenør, sirkularitetsrapport og betongrapport"
     },
     "architect": {
-      "name": "Holar Arkitekter"
+      "name": "Ola Roald Arkitektur / Holar Arkitekter"
+    },
+    "climate_consultant": {
+      "name": "Context AS",
+      "contacts": ["Emily Smith", "Rolf Hagen", "Sunniva Tellsgård"],
+      "role": "Klimagassberegninger (OneClick LCA, Reduzer)"
+    },
+    "concrete_supplier": {
+      "name": "Unicon AS",
+      "role": "Betongresept og levering"
+    },
+    "aggregate_supplier": {
+      "name": "Veidekke Sirkulær / Veidekke Geomaterialer",
+      "role": "Resirkulert tilslag fra Follobaneprosjektet"
     },
     "certification_partners": [
       {"name": "SINTEF", "role": "Teglstein-testing"},
-      {"name": "Treteknisk institutt", "role": "Treverk-klassifisering"}
+      {"name": "Treteknisk institutt", "role": "Treverk-klassifisering"},
+      {"name": "Bewi", "role": "Resirkulert EPS utvikling"}
     ],
     "program": {
       "name": "FutureBuilt",
-      "status": "Forbildeprosjekt"
+      "status": "Forbildeprosjekt",
+      "criteria": ["ZERO", "ZERO-T", "NZEB", "Plastbruk (pilot)", "Sirkulære bygg (pilot)"],
+      "plastic_pilot": {
+        "status": "Første pilotprosjekt for FutureBuilt plastkriterier",
+        "report_date": "2025-03-13"
+      }
+    },
+    "eu_program": {
+      "name": "EU-prosjektet sirkulære byer",
+      "status": "Pilot"
     }
   },
 
@@ -298,9 +620,28 @@
       "recommendation": "Planlegg for varierende tilstand ved demontering av gamle bygg"
     },
     {
-      "category": "Betong",
-      "finding": "100% resirkulert tilslag fungerer, men krever godkjenning utover standard (maks 30%)",
-      "recommendation": "Dokumenter prosessen for fremtidige prosjekter"
+      "category": "Lavkarbon ekstrem betong",
+      "finding": "CEM III/B sement har lav varmeutvikling som krever varme omgivelsestemperaturer (>10°C)",
+      "recommendation": "Planlegg betongarbeider til varm årstid eller bruk omfattende varmetiltak",
+      "source": "Betongrapport kapittel 6"
+    },
+    {
+      "category": "Betong fremdrift",
+      "finding": "Ved å utsette oppstart til mai ble 53 tonn CO2 og 328,000 NOK spart",
+      "recommendation": "Vurder vinterstopp for lavkarbon ekstrem - både miljø- og kostnadsgevinst",
+      "source": "Betongrapport side 14"
+    },
+    {
+      "category": "Resirkulert tilslag",
+      "finding": "100% resirkulert tilslag fungerer, men krever godkjenning utover standard (NS-EN 206 maks 40%)",
+      "recommendation": "Tilslaget må CE-merkes og RIB må godkjenne basert på testede egenskaper",
+      "source": "Betongrapport kapittel 4"
+    },
+    {
+      "category": "Temperaturovervåkning",
+      "finding": "Maturix sanntidsovervåkning kritisk for å vite når forskaling kan rives",
+      "recommendation": "Bruk sensorbasert overvåkning ved lavkarbon betong for å optimalisere herdetid",
+      "source": "Betongrapport kapittel 6.5"
     },
     {
       "category": "Miljøgifter",
@@ -308,9 +649,15 @@
       "recommendation": "Grundig miljøkartlegging før demontering"
     },
     {
-      "category": "Design",
-      "finding": "Skruer med større gods muliggjør fremtidig demontering",
+      "category": "Design for demontering",
+      "finding": "Skruer med større gods muliggjør fremtidig demontering av massivtre",
       "recommendation": "Spesifiser demonterbare forbindelser i prosjektering"
+    },
+    {
+      "category": "Varmetiltak",
+      "finding": "Luft-luft varmepumper med presenning fungerer uten innstøpte varmekabler",
+      "recommendation": "Unngå plast fra varmekabler ved å bruke omgivelsesoppvarming",
+      "source": "Betongrapport kapittel 6.6"
     }
   ],
 
@@ -321,25 +668,44 @@
       "author": "Veidekke Entreprenør (Kristoffer Gjestemoen, Tor Flesseberg)",
       "date": "2023-10-27",
       "pages": 19,
-      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-sirkularitet-2023.pdf"
+      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-sirkularitet-2023.pdf",
+      "content": "SI-index, materialinventar, ombrukbarhet per bygningsdel"
     },
     {
       "type": "climate_report",
-      "title": "Klimagassrapport Nedre Sem Låve revisjon 2 - som bygget",
-      "date": "2024-08",
-      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-klimagass-2024.pdf"
+      "title": "Nedre Sem Låve - FutureBuilt ZERO og ZERO-T Klimagassrapport",
+      "author": "Context AS (Emily Smith, Rolf Hagen, Sunniva Tellsgård)",
+      "date": "2024-08-30",
+      "version": "2.0 (Som bygget)",
+      "pages": 17,
+      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-klimagass-2024.pdf",
+      "content": "FutureBuilt ZERO beregninger, energi, transport, NS 3720",
+      "tools_used": ["OneClick LCA (rev 1)", "Reduzer (rev 2)"]
     },
     {
       "type": "technical_report",
-      "title": "Nedre Sem Låve - Betongrapport",
-      "date": "2024-09-16",
-      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-betong-2024.pdf"
+      "title": "Nedre Sem Låve - Lavkarbon ekstrembetong m/resirkulert tilslag",
+      "author": "Veidekke Entreprenør AS (Daniel Banka, Håvard Kirkebøen, Tor Flesseberg, Alf Egil Mathisen)",
+      "date": "2023-10-31",
+      "pages": 23,
+      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-betong-2024.pdf",
+      "content": "Betongresept, resirkulert tilslag, CO2-beregninger, utførelsesmetoder, Maturix-data"
+    },
+    {
+      "type": "pilot_report",
+      "title": "Nedre Sem Låve - Prosjektrapport: FutureBuilt kriterier for plastbruk",
+      "author": "Context AS (Marta Eggertsen, Sunniva Tellsgård, Rolf Hagen)",
+      "date": "2025-03-13",
+      "pages": 18,
+      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-plastkriterier-2025.pdf",
+      "content": "FutureBuilt plastkriterier pilot - 52.9% plastreduksjon, materialsubstitusjoner, erfaringer og anbefalinger",
+      "significance": "Første pilotprosjekt for FutureBuilt plastkriterier i Norge"
     }
   ],
 
   "data_gaps": [
-    "CO2-besparelse per materialtype ikke beregnet",
-    "Kostnad for ombruk vs nytt ikke dokumentert",
-    "Faktisk ombruksprosent etter ferdigstillelse (rapport er fra prosjekteringsfase)"
+    "Kostnad for ombruk vs nytt ikke dokumentert offentlig",
+    "Faktisk ombruksprosent etter ferdigstillelse vs prosjektert",
+    "Driftserfaringer etter 2 år (Fase 3 rapport kommer)"
   ]
 }

@@ -1,0 +1,253 @@
+{
+  "research_id": "ERICSSON_2024",
+  "title": "Reuse of building materials—the perspective of Swedish clients",
+  "authors": ["Filip Ericsson", "Kristina Mjörnell", "Ulla Janson"],
+  "institutions": ["RISE Research Institutes of Sweden", "Lund University"],
+  "journal": "Cleaner Engineering and Technology",
+  "volume": 23,
+  "article_id": "100848",
+  "year": 2024,
+  "doi": "https://doi.org/10.1016/j.clet.2024.100848",
+  "open_access": true,
+  "license": "CC BY 4.0",
+
+  "methodology": {
+    "type": "Qualitative - Grounded Theory (Gioia method)",
+    "interviews": 27,
+    "interview_duration": "60-90 minutes",
+    "interview_period": "October 2023 - January 2024",
+    "interviewees": "Project managers at property companies with reuse experience",
+    "theoretical_saturation": "Reached after 20 interviews",
+    "analysis_framework": "PESTELO"
+  },
+
+  "sample_characteristics": {
+    "sectors": {
+      "public": 14,
+      "private": 13
+    },
+    "company_size_by_manageable_space_m2": {
+      "small_under_500k": 12,
+      "medium_500k_to_2M": 10,
+      "large_over_2M": 5
+    },
+    "building_types": {
+      "residential": 8,
+      "public_buildings": 14,
+      "commercial": 8
+    },
+    "geographic": {
+      "metropolitan_areas": 9,
+      "non_metropolitan": 18
+    }
+  },
+
+  "key_findings": {
+    "top_barriers": [
+      {
+        "rank": 1,
+        "barrier": "Lack of measurable economic incentives",
+        "response_rate_percent": 93,
+        "key_issues": [
+          "Climate-conscious measures cost more than traditional construction",
+          "Allocating costs within organisations is complex",
+          "Time-consuming and less efficient than new materials",
+          "Heavy tax burden on labour",
+          "Reused materials often more expensive even when free"
+        ]
+      },
+      {
+        "rank": 2,
+        "barrier": "Absence of a professional reuse market",
+        "response_rate_percent": 89,
+        "key_issues": [
+          "Challenging to obtain large quantities of uniform products",
+          "Poor external supply vs internal supply",
+          "Trading relies on personal contacts",
+          "Just-in-time deliveries not available",
+          "Storage challenges and lost rental income"
+        ]
+      },
+      {
+        "rank": 3,
+        "barrier": "Obsolete project management",
+        "response_rate_percent": 81,
+        "key_issues": [
+          "Organisational challenges outweigh technical ones",
+          "Transitioning from old practices is challenging",
+          "Knowledge gaps create uncertainty",
+          "Project planning and timing challenges",
+          "Poor reuse inventories from external consultants"
+        ]
+      },
+      {
+        "rank": 4,
+        "barrier": "Uncertainty of performance",
+        "response_rate_percent": 70,
+        "key_issues": [
+          "Absence of data and documentation",
+          "Difficulty meeting new construction standards",
+          "Lack of labelling and certification",
+          "No cost-effective quality assurance methods"
+        ]
+      },
+      {
+        "rank": 5,
+        "barrier": "Conservative norms and attitudes",
+        "response_rate_percent": 67,
+        "key_issues": [
+          "Tenant/customer scepticism",
+          "Visible reuse clashes with aesthetics",
+          "Industry mindset favours new products",
+          "Resistance from project designers"
+        ]
+      }
+    ],
+    "top_enablers": [
+      {
+        "rank": 1,
+        "enabler": "New and improved project management methods",
+        "response_rate_percent": 70,
+        "key_factors": [
+          "Thorough communication and investigation",
+          "Client presence at site offices",
+          "Early dialogue about reuse",
+          "Measurable environmental impact vs costs",
+          "Employing skilled workers directly",
+          "Partnering with trustworthy contractors"
+        ]
+      },
+      {
+        "rank": 2,
+        "enabler": "Enhancing competence and learning within and beyond organisations",
+        "response_rate_percent": 63,
+        "key_factors": [
+          "Experience, courage, and starting where one stands",
+          "Hands-on reuse work fosters growth",
+          "Contractors bringing reuse thinking to other projects",
+          "Understanding the rationale behind reuse"
+        ]
+      },
+      {
+        "rank": 3,
+        "enabler": "Introduce reuse at an early stage",
+        "response_rate_percent": 63,
+        "key_factors": [
+          "Conducting structured inventory",
+          "Adopting flexibility to building conditions",
+          "Allowing sufficient planning time",
+          "Consider reuse before building permits",
+          "On-site inventory by designers prior to design"
+        ]
+      },
+      {
+        "rank": 4,
+        "enabler": "Ensuring safety in performance",
+        "response_rate_percent": 56,
+        "key_factors": [
+          "Existing competence and craftsmanship",
+          "Technical barriers are minor",
+          "Clear reuse requirements facilitate quality assurance",
+          "Facility managers can assess internal reuse"
+        ]
+      },
+      {
+        "rank": 5,
+        "enabler": "Positive attitude and changing of norms",
+        "response_rate_percent": 56,
+        "key_factors": [
+          "Companies/municipalities required to lower climate impact",
+          "Explaining why they reuse increases acceptance",
+          "Positive marketing value",
+          "Surprising willingness to pay for disassembled material"
+        ]
+      }
+    ]
+  },
+
+  "sector_differences": {
+    "public_vs_private": {
+      "obsolete_project_management": {
+        "public_percent": 93,
+        "private_percent": 70,
+        "note": "Public sector finds it harder to develop new management methods"
+      },
+      "positive_attitude_changing_norms": {
+        "public_percent": 41,
+        "private_percent": 80,
+        "note": "Private companies report better tenant acceptance"
+      },
+      "traditional_procurement": {
+        "public_percent": 53,
+        "private_percent": 20,
+        "note": "Public Procurement Act creates barriers"
+      }
+    },
+    "company_size": {
+      "overregulation_barrier": {
+        "large_percent": 0,
+        "medium_percent": 60,
+        "small_percent": 50,
+        "note": "Larger companies better equipped to navigate regulations"
+      },
+      "enabling_policies": {
+        "large_percent": 60,
+        "medium_percent": 30,
+        "small_percent": 25,
+        "note": "Larger companies have more capacity for policy engagement"
+      }
+    }
+  },
+
+  "recommendations": {
+    "for_industry": [
+      "Develop new project management methods adopting circular economy principles",
+      "Create shorter decision paths",
+      "Establish partnerships for shared reuse markets",
+      "Employ dedicated reuse coordinators",
+      "Involve manufacturers in take-back infrastructure"
+    ],
+    "for_policymakers": [
+      "Increase transparency in pricing - simplify material cost comparisons",
+      "Develop manufacturer engagement and take-back systems",
+      "Clarify Planning and Building Act regarding reuse",
+      "Create practical guidance rather than prescriptive directives",
+      "Consider separate regulations for new construction vs renovation"
+    ],
+    "for_researchers": [
+      "Investigate client's role, possibilities and obligations",
+      "Develop effective material sourcing methods supported by digitalisation",
+      "Study economic aspects of reuse more comprehensively",
+      "Research manufacturer take-back systems"
+    ]
+  },
+
+  "emerging_roles_identified": [
+    "Material scouts",
+    "Dealers of reclaimed products",
+    "Technical advisers",
+    "Stock/reuse coordinators",
+    "Reuse inventory specialists"
+  ],
+
+  "contract_forms": {
+    "partnering_benefits": [
+      "Facilitates reuse",
+      "Enhances collaboration",
+      "Enables cost and benefit trade-offs",
+      "Creates shared understanding and goals",
+      "Identifies incentives",
+      "Addresses responsibility issues"
+    ],
+    "recommended": "Cost-plus contracts more beneficial than fixed-price for reuse projects"
+  },
+
+  "relevance_to_nordic_circular_buildings": {
+    "norway_comparison": "Similar barriers likely exist - validates Norwegian project experiences",
+    "useful_metrics": "Response rates by company size/type useful for analysis",
+    "cross_border_learning": "Identifies universal vs context-specific barriers",
+    "database_value": "Can inform enablers/value-chain page structure"
+  },
+
+  "local_file": "/Users/gabrielboen/Downloads/PUBLIC BUILDING DOKUMENTER/Reuse of building materials—the perspective of Swedish clients.pdf"
+}
