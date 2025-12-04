@@ -1,0 +1,174 @@
+{
+  "case_study_id": "OKSENOYA_SENTER",
+  "project_id": "NO_oksenoya_senter",
+  "name": "Oksenøya Senter (Treklang)",
+  "subtitle": "Norges mest bærekraftige skoleanlegg med 28-34% klimagassreduksjon",
+  "case_study_version": "1.0",
+  "case_study_tier": "TIER_1",
+  "last_updated": "2025-12-04",
+  "data_source": "Klimagassrapporter som prosjektert (Multiconsult/Bærum kommune)",
+  "data_quality_note": "Klimagassrapporter for skole, barnehage og BBS. Detaljer om materialombruk og sirkulære strategier trenger ytterligere dokumentasjon.",
+
+  "executive_summary": {
+    "headline": "Samlokalisert skole, barnehage og idrettshall med omfattende klimafokus og ombruk av eksisterende bygningsmasse",
+    "key_achievements": [
+      "28% klimagassreduksjon for skolen vs referanse",
+      "34% klimagassreduksjon for barnehagen vs referanse",
+      "24% klimagassreduksjon for BBS vs referanse",
+      "FutureBuilt forbildeprosjekt",
+      "Massivtre konstruksjoner",
+      "Samlokalisering av funksjoner for effektiv arealbruk",
+      "Passivhusstandard på alle bygg",
+      "BREEAM-NOR Excellent sertifisering"
+    ],
+    "why_tier_1": "Klimagassrapporter dokumenterer betydelig CO2-reduksjon. Mangler detaljert ombruksdokumentasjon for høyere tier."
+  },
+
+  "project_basics": {
+    "location": {
+      "address": "Oksenøyveien",
+      "area": "Fornebu/Oksenøya",
+      "city": "Bærum",
+      "municipality": "Bærum kommune",
+      "coordinates": {"lat": 59.8950, "lng": 10.6150}
+    },
+    "timeline": {
+      "project_start": 2019,
+      "completion_expected": 2023,
+      "climate_report_date": "2021"
+    },
+    "size": {
+      "total_sqm": 22870,
+      "breakdown": {
+        "skole_sqm": 15020,
+        "barnehage_sqm": 3350,
+        "bbs_sqm": 4500
+      }
+    },
+    "building_type": ["Skole", "Barnehage", "Idrettshall/Svømmehall"]
+  },
+
+  "stakeholders": {
+    "byggherre": {
+      "name": "Bærum kommune",
+      "url": "https://www.baerum.kommune.no"
+    },
+    "klimaradgiver": {
+      "name": "Multiconsult",
+      "role": "Klimagassberegninger"
+    },
+    "program": {
+      "name": "FutureBuilt",
+      "designation": "Forbildeprosjekt"
+    }
+  },
+
+  "environmental_metrics": {
+    "climate_reports": {
+      "skole": {
+        "bruttoareal_m2": 15020,
+        "prosjektert_kg_co2_m2_year": 6.8,
+        "reference_kg_co2_m2_year": 9.5,
+        "reduction_percent": 28
+      },
+      "barnehage": {
+        "bruttoareal_m2": 3350,
+        "prosjektert_kg_co2_m2_year": 5.9,
+        "reference_kg_co2_m2_year": 8.9,
+        "reduction_percent": 34
+      },
+      "bbs": {
+        "bruttoareal_m2": 4500,
+        "prosjektert_kg_co2_m2_year": 7.8,
+        "reference_kg_co2_m2_year": 10.2,
+        "reduction_percent": 24
+      }
+    },
+    "methodology": {
+      "tool": "One Click LCA",
+      "standard": "NS 3720:2018",
+      "performed_by": "Multiconsult"
+    }
+  },
+
+  "material_strategies": {
+    "overview": {
+      "strategy": "Massivtre og lavkarbonbetong",
+      "focus_areas": ["Massivtre konstruksjon", "Lavkarbonbetong", "Resirkulert armering", "Lokale materialer"]
+    },
+    "key_materials": [
+      {
+        "material": "Massivtre (CLT)",
+        "application": "Bærende konstruksjoner, etasjeskillere, vegger",
+        "benefit": "Karbonlagring og lavere utslipp enn betong"
+      },
+      {
+        "material": "Lavkarbonbetong",
+        "application": "Fundamenter og kjeller",
+        "benefit": "Redusert sementinnhold"
+      }
+    ],
+    "note": "Detaljert ombrukskartlegging ikke tilgjengelig i gjennomgåtte dokumenter"
+  },
+
+  "energy_measures": {
+    "energy_standard": "Passivhus",
+    "measures": [
+      "Passivhusstandard på alle bygg",
+      "Høyisolerte bygningskropper",
+      "Energieffektiv belysning",
+      "Varmegjenvinning",
+      "Solceller (planlagt)"
+    ]
+  },
+
+  "certification_and_standards": {
+    "programs": [
+      {
+        "name": "FutureBuilt",
+        "designation": "Forbildeprosjekt"
+      }
+    ],
+    "breeam": {
+      "type": "BREEAM-NOR",
+      "target": "Excellent"
+    }
+  },
+
+  "documentation": {
+    "climate_reports": [
+      {
+        "title": "Oksenøya Senter SKOLE - Klimagassrapport som prosjektert",
+        "author": "Multiconsult",
+        "local_path": "/docs/oksenoya-skole-klimagassrapport.pdf"
+      },
+      {
+        "title": "Oksenøya Senter Barnehage - Klimagassrapport som prosjektert",
+        "author": "Multiconsult",
+        "local_path": "/docs/oksenoya-barnehage-klimagassrapport.pdf"
+      },
+      {
+        "title": "Oksenøya Senter BBS - Klimagassrapport som prosjektert",
+        "author": "Multiconsult",
+        "local_path": "/docs/oksenoya-bbs-klimagassrapport.pdf"
+      }
+    ],
+    "secondary_sources": [
+      {
+        "name": "FutureBuilt - Forbildeprosjekt",
+        "url": "https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Oksenoya-senter"
+      }
+    ]
+  },
+
+  "data_gaps": {
+    "missing_information": [
+      "Detaljert materialinventar med mengder",
+      "Ombrukskartlegging og ombruksandel",
+      "As-built klimagassregnskap",
+      "Erfaringsrapport fra prosjektet",
+      "Design for disassembly dokumentasjon"
+    ],
+    "upgrade_potential": "Med fullstendig erfaringsrapport og ombruksdokumentasjon kan case study oppgraderes til FLAGSHIP tier"
+  }
+}
