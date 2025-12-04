@@ -592,7 +592,56 @@
       "verification_status": "verified",
       "notes": "Possibly first building from 1915 to achieve BREEAM-NOR Excellent. Heritage-protected yellow-listed warehouse. Samspillsentreprise (collaboration contract) enabled adaptive problem-solving. 160 workplaces. Materials stored in Kongshavn rock hall during assessment. Project duration June 2021 - October 2022.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "transformation"
+      "project_type_simple": "transformation",
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 85,
+            "interventions": {
+              "structure_preservation": 15,
+              "functional_transformation": 10,
+              "lifespan_extension": 10
+            },
+            "notes": "Norway's first reinforced concrete building (1915)"
+          },
+          "build_for_longterm": {
+            "score": 6,
+            "interventions": {
+              "material_passport": 6
+            },
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: o, f, f, i, c, e"
+          },
+          "build_with_right_materials": {
+            "score": 60,
+            "interventions": {
+              "structural_reuse": 8,
+              "non_structural_reuse": 8
+            },
+            "notes": "Mahogany, cobblestones, granite from Skøyen"
+          }
+        },
+        "primary_pathway": "build_nothing_new",
+        "secondary_pathways": [
+          "build_with_right_materials"
+        ],
+        "total_score": {
+          "raw_score": 54.1,
+          "quality_multiplier": 1.2,
+          "final_score": 64.9,
+          "grade": "A"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Heritage transformation of 1915 building - 171t CO2 saved"
+      }
     },
     {
       "id": "NO_eikeli",
@@ -1580,6 +1629,53 @@
           "Meeting BREEAM Excellent requirements",
           "Timber construction at scale"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 45,
+            "interventions": {
+              "design_for_disassembly": 6,
+              "material_passport": 4,
+              "flexibility": 3
+            },
+            "notes": "DfD considered, flexible school design"
+          },
+          "build_efficiently": {
+            "score": 55,
+            "interventions": {
+              "space_efficiency": 8,
+              "material_efficiency": 6
+            },
+            "notes": "Co-located school, kindergarten, sports hall"
+          },
+          "build_with_right_materials": {
+            "score": 60,
+            "interventions": {
+              "biobased_construction": 10,
+              "carbon_storage": 3,
+              "recycled_content": 3
+            },
+            "notes": "Massivtre (CLT), lavkarbonbetong"
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 54.0,
+          "quality_multiplier": 1.2,
+          "final_score": 64.8,
+          "grade": "C"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Oksenøya Senter: 28-34% CO2 reduction, massivtre, Passivhus, BREEAM Excellent"
       }
     },
     {
@@ -1679,25 +1775,100 @@
             "unit": "units",
             "description": "fyllningsdører/panel doors"
           }
+        },
+        {
+          "category": "low_carbon_materials",
+          "material_type": "concrete",
+          "description": "Lavkarbon Ekstrem concrete (CEM III/b) with 60% CO2 reduction vs standard concrete",
+          "citations": [
+            {
+              "source": "Klimagassregnskap Ruseløkka skole",
+              "url": "/docs/210422_Ruselokka_skole_klimagassregnskap.pdf",
+              "quote": "Lavkarbon Ekstrem lavkarbonbetong, med klassifisering CEM III/b"
+            }
+          ]
+        },
+        {
+          "category": "renewable_energy",
+          "material_type": "solar",
+          "description": "Facade-integrated and rooftop solar panels producing 80,000 kWh/year",
+          "quantity": {
+            "value": 700,
+            "unit": "sqm"
+          }
+        },
+        {
+          "category": "design_for_disassembly",
+          "description": "New brick walls with lime mortar for future reuse (not cement mortar)",
+          "citations": [
+            {
+              "source": "FutureBuilt case study",
+              "quote": "Veggene med brukt murstein ble murt med kalkmørtel - ikke sementmørtel for at mursteinen skal kunne gjenbrukes i neste byggeprosjekt"
+            }
+          ]
         }
       ],
       "metrics": {
-        "political_mandate": "Oslo City Council resolution September 27, 2017"
+        "political_mandate": "Oslo City Council resolution September 27, 2017",
+        "co2_reduction": {
+          "percent": 61,
+          "baseline": "NS3720 reference building",
+          "description": "Total GHG reduction vs reference (as-built)",
+          "breakdown": {
+            "materials_percent": 34,
+            "energy_percent": 74
+          }
+        },
+        "co2_kg_m2_year": {
+          "project": 11.06,
+          "reference": 28.65,
+          "materials": {
+            "project": 3.82,
+            "reference": 5.68
+          },
+          "energy": {
+            "project": 3.34,
+            "reference": 12.91
+          },
+          "transport": {
+            "project": 3.90,
+            "reference": 10.06
+          }
+        },
+        "energy_kwh_m2_year": 61.3,
+        "solar_production_kwh_year": 80000
       },
-      "certifications": [],
+      "certifications": [
+        {
+          "name": "Energy Label A",
+          "level": "Dark green",
+          "status": "achieved"
+        }
+      ],
       "programs": [
         {
           "name": "FutureBuilt",
           "designation": "Forbildeprosjekt"
+        },
+        {
+          "name": "Oslo Klimanøytral skole",
+          "designation": "Pilotprosjekt"
         }
       ],
-      "energy_standard": "Near-zero energy (nesten nullenergi bygg)",
+      "energy_standard": "Passivhus (near zero energy building)",
       "scope_notes": {
         "in_scope": true,
         "category": "core",
         "notes": null
       },
       "sources": [
+        {
+          "type": "primary",
+          "name": "Klimagassregnskap As-built (Asplan Viak)",
+          "url": "/docs/210422_Ruselokka_skole_klimagassregnskap.pdf",
+          "date": "2021-04-22",
+          "notes": "33-page as-built climate gas report documenting 61% total GHG reduction"
+        },
         {
           "type": "primary",
           "name": "Byggalliansen presentation",
@@ -1729,10 +1900,10 @@
           "url": "https://www.glassogfasade.no/dynamiske-glass-i-klimanoytral-skole/"
         }
       ],
-      "data_quality": "moderate",
+      "data_quality": "strong",
       "verification_status": "verified",
-      "notes": "Queen Sonja inaugurated. Capacity: 690 students. Value lies in establishing systematic testing protocols and honest documentation of what works and what doesn't. 700 m² solar panels. Rooftop terrace with greenhouse. Testing revealed facade brick lacked compressive strength for load-bearing - important lesson for future projects.",
-      "last_updated": "2024-12-02",
+      "notes": "Queen Sonja inaugurated. Capacity: 690 students + 74 staff (9,822 m² BRA). 61% GHG reduction documented in as-built klimagassregnskap. Passivhus standard. Fossil-free construction site. 700 m² solar panels producing 80,000 kWh/year. Rooftop terrace with greenhouse. Testing revealed facade brick lacked compressive strength for load-bearing - important lesson for future projects.",
+      "last_updated": "2025-12-04",
       "project_type_simple": "new_build",
       "narrative": {
         "driver": "Oslo kommune aimed to build a climate-neutral school while preserving local heritage. The old school materials - 4,500 bricks, timber beams, and granite blocks - were carefully salvaged for reuse.",
@@ -1742,6 +1913,52 @@
           "CE-certification of reused materials",
           "Tight urban construction site"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": "New build - no preservation component"
+          },
+          "build_for_longterm": {
+            "score": 14,
+            "interventions": {
+              "design_for_disassembly": 8,
+              "flexibility": 6
+            },
+            "notes": "Lime mortar for future brick reuse, flexible school design"
+          },
+          "build_efficiently": {
+            "score": 15,
+            "interventions": {
+              "material_efficiency": 7,
+              "space_efficiency": 8
+            },
+            "notes": "61% total GHG reduction (34% materials, 74% energy)"
+          },
+          "build_with_right_materials": {
+            "score": 18,
+            "interventions": {
+              "non_structural_reuse": 8,
+              "low_carbon_concrete": 6,
+              "renewable_energy_integration": 4
+            },
+            "notes": "4,500 reused bricks, Lavkarbon Ekstrem concrete, 80,000 kWh/year solar"
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": ["build_efficiently", "build_for_longterm"],
+        "total_score": {
+          "raw_score": 47.0,
+          "quality_multiplier": 1.2,
+          "final_score": 56.4,
+          "grade": "B"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Strong documentation with as-built klimagassregnskap. Exemplary new build with 61% CO2 reduction and design for future material recovery."
       }
     },
     {
@@ -2181,7 +2398,55 @@
       "verification_status": "partially_verified",
       "notes": "96 apartments plus maritime kindergarten and common garden. Establishes Bergen's FutureBuilt program (launched 2023). Ship-to-shore concept: donor and recipient are same site. District-scale circularity: materials serve both on-site and nearby projects. Residents can 'literally live within materials from site's history'. Featured in NTNU doctoral research on circular economy barriers.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "transformation"
+      "project_type_simple": "transformation",
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 75,
+            "interventions": {
+              "structure_preservation": 12,
+              "functional_transformation": 8,
+              "lifespan_extension": 8
+            },
+            "notes": "Transformation project"
+          },
+          "build_for_longterm": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: h, o, u, s, i, n, g"
+          },
+          "build_with_right_materials": {
+            "score": 70,
+            "interventions": {
+              "structural_reuse": 8,
+              "non_structural_reuse": 8,
+              "reuse_quantity_bonus": 3
+            },
+            "notes": "55% brick, 35% timber, 10% other"
+          }
+        },
+        "primary_pathway": "build_nothing_new",
+        "secondary_pathways": [
+          "build_with_right_materials"
+        ],
+        "total_score": {
+          "raw_score": 52.2,
+          "quality_multiplier": 1.0,
+          "final_score": 52.2,
+          "grade": "B"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "70% circularity rate - brick, timber, and other materials"
+      }
     },
     {
       "id": "NO_grensen9b",
@@ -2621,6 +2886,47 @@
           "Coordinating with R4 demolition timeline",
           "Material certification for healthcare use"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: h, e, a, l, t, h, c, a, r, e"
+          },
+          "build_with_right_materials": {
+            "score": 16,
+            "interventions": {
+              "structural_reuse": 10,
+              "non_structural_reuse": 6
+            },
+            "notes": "Reused materials: stone, concrete"
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 22.0,
+          "quality_multiplier": 1.1,
+          "final_score": 24.2,
+          "grade": "D"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Auto-assessed based on documented circular features"
       }
     },
     {
@@ -2808,7 +3114,52 @@
       "verification_status": "partially_verified",
       "notes": "Research significance: SINTEF collaboration addresses knowledge gap about historic brick structural performance. Methodology applicable to other heritage buildings. Combines heritage preservation with circular economy. Emission-free construction site. Former Nationalbryggeriet (1900) later became orthopedic hospital. 13,200 m² total.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "transformation"
+      "project_type_simple": "transformation",
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 28,
+            "interventions": {
+              "structure_preservation": 12,
+              "functional_transformation": 8,
+              "lifespan_extension": 8
+            },
+            "notes": "Transformation project preserving existing structure"
+          },
+          "build_for_longterm": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: h, e, a, l, t, h, c, a, r, e"
+          },
+          "build_with_right_materials": {
+            "score": 20,
+            "interventions": {
+              "structural_reuse": 12,
+              "non_structural_reuse": 8
+            },
+            "notes": "Reused materials: brick, steel, stone, fixtures"
+          }
+        },
+        "primary_pathway": "build_nothing_new",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 46.0,
+          "quality_multiplier": 1.1,
+          "final_score": 50.6,
+          "grade": "C"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Auto-assessed based on documented circular features"
+      }
     },
     {
       "id": "NO_hasle_tre",
@@ -2935,6 +3286,54 @@
           "Insurance and certification for DfD",
           "Market acceptance of non-permanent construction"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 90,
+            "interventions": {
+              "design_for_disassembly": 12,
+              "material_passport": 8,
+              "flexibility": 5
+            },
+            "notes": "Wood-to-wood joints, timber dowels, no steel connectors"
+          },
+          "build_efficiently": {
+            "score": 50,
+            "interventions": {
+              "material_efficiency": 7,
+              "space_efficiency": 4
+            },
+            "notes": "60% GHG reduction, 80% steel reduction"
+          },
+          "build_with_right_materials": {
+            "score": 75,
+            "interventions": {
+              "biobased_construction": 10,
+              "carbon_storage": 3,
+              "structural_reuse": 0,
+              "non_structural_reuse": 0
+            },
+            "notes": "474 m³ CLT, 108 m³ Glulam"
+          }
+        },
+        "primary_pathway": "build_for_longterm",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 72.0,
+          "quality_multiplier": 1.2,
+          "final_score": 86.4,
+          "grade": "A"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "World's first office building designed for complete disassembly - DOGA Award 2023"
       }
     },
     {
@@ -3049,6 +3448,52 @@
           "Sourcing sufficient reused materials at scale",
           "Design for future disassembly of large complex"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 45,
+            "interventions": {
+              "flexibility": 5,
+              "material_passport": 4
+            },
+            "notes": "4,500 workplaces"
+          },
+          "build_efficiently": {
+            "score": 50,
+            "interventions": {
+              "space_efficiency": 6,
+              "material_efficiency": 5
+            },
+            "notes": "Multi-use hub"
+          },
+          "build_with_right_materials": {
+            "score": 65,
+            "interventions": {
+              "structural_reuse": 10,
+              "biobased_construction": 8,
+              "recycled_content": 4
+            },
+            "notes": "Reused handrails, timber, 952t CO2 reduction"
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 54.5,
+          "quality_multiplier": 1.0,
+          "final_score": 54.5,
+          "grade": "B"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "103,000 m² with 70-90% concrete reuse target (3,400 tonnes)"
       }
     },
     {
@@ -3178,6 +3623,46 @@
           "Meeting school safety requirements with reused materials",
           "Developing local supply chain for circular materials"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: s, c, h, o, o, l"
+          },
+          "build_with_right_materials": {
+            "score": 5,
+            "interventions": {
+              "non_structural_reuse": 5
+            },
+            "notes": "Reused materials: "
+          }
+        },
+        "primary_pathway": "build_efficiently",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 11.0,
+          "quality_multiplier": 1.1,
+          "final_score": 12.1,
+          "grade": "E"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Auto-assessed based on documented circular features"
       }
     },
     {
@@ -3277,6 +3762,45 @@
           "Coordinating with Nordic Circles supply chain",
           "Ensuring structural integrity in high-humidity environment"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 15,
+            "interventions": {
+              "material_efficiency": 7,
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: s, p, o, r, t, s, _, f, a, c, i, l, i, t, y"
+          },
+          "build_with_right_materials": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          }
+        },
+        "primary_pathway": "build_efficiently",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 11.2,
+          "quality_multiplier": 1.0,
+          "final_score": 11.2,
+          "grade": "E"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Auto-assessed based on documented circular features"
       }
     },
     {
@@ -3382,6 +3906,52 @@
           "Certification of reused structural elements for residential use",
           "Market acceptance for homes built with reused materials"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 60,
+            "interventions": {
+              "design_for_disassembly": 8,
+              "material_passport": 6
+            },
+            "notes": "DfD principles in new housing"
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: r, e, s, i, d, e, n, t, i, a, l"
+          },
+          "build_with_right_materials": {
+            "score": 75,
+            "interventions": {
+              "structural_reuse": 12,
+              "non_structural_reuse": 6,
+              "reuse_quantity_bonus": 3,
+              "recycled_content": 4
+            },
+            "notes": "Reused hollow-core slabs, recycled steel"
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 50.4,
+          "quality_multiplier": 0.9,
+          "final_score": 45.4,
+          "grade": "B"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Norway's first large-scale circular new-build housing - 20,000+ m² hulldekker reused"
       }
     },
     {
@@ -3452,6 +4022,46 @@
           "Balancing multiple user group needs",
           "Long-term flexibility planning with uncertain future uses"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 8,
+            "interventions": {
+              "design_for_disassembly": 8
+            },
+            "notes": "Design for disassembly features"
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: s, p, o, r, t, s, _, f, a, c, i, l, i, t, y"
+          },
+          "build_with_right_materials": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          }
+        },
+        "primary_pathway": "build_for_longterm",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 12.0,
+          "quality_multiplier": 1.0,
+          "final_score": 12.0,
+          "grade": "E"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Auto-assessed based on documented circular features"
       }
     },
     {
@@ -3487,7 +4097,9 @@
       "client": "Höegh Eiendom",
       "architect": "Arcasa Arkitekter",
       "contractor": "Seltor AS",
-      "consultants": ["Multiconsult"],
+      "consultants": [
+        "Multiconsult"
+      ],
       "circularity_qualification": "Norway's first circular retrofit of heritage-protected building, achieving 50% material reuse while preserving 1951 Solvåg granite facade and mid-century teak interiors.",
       "primary_strategies": [
         "adaptive_reuse",
@@ -3755,7 +4367,58 @@
       "verification_status": "verified",
       "notes": "Norway's first circular building with heritage protection status. Former headquarters for Norsk Arbeidsgiverforening (Norwegian Employers' Association), built 1950, designed by Bjercke & Eliassen. Steel and concrete structure with Solvåg stone facade plates. 8th floor entirely preserved with original teak and marble walls. Höegh Eiendom purchased in fall 2019 and restored according to FutureBuilt criteria. Uses Loopfront as digital reuse platform. Höegh became strategic partner for Sirkulær Ressurssentral. Heritage protection enhanced rather than hindered circularity.",
       "last_updated": "2024-12-03",
-      "project_type_simple": "transformation"
+      "project_type_simple": "transformation",
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 85,
+            "interventions": {
+              "structure_preservation": 15,
+              "functional_transformation": 10,
+              "lifespan_extension": 10
+            },
+            "notes": "Heritage protected, 83% internal reuse"
+          },
+          "build_for_longterm": {
+            "score": 50,
+            "interventions": {
+              "material_passport": 6,
+              "flexibility": 4
+            },
+            "notes": "Documented via Loopfront"
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: o, f, f, i, c, e"
+          },
+          "build_with_right_materials": {
+            "score": 70,
+            "interventions": {
+              "structural_reuse": 10,
+              "non_structural_reuse": 8,
+              "reuse_quantity_bonus": 3
+            },
+            "notes": "50% circularity target, 55% CO2 reduction"
+          }
+        },
+        "primary_pathway": "build_nothing_new",
+        "secondary_pathways": [
+          "build_with_right_materials"
+        ],
+        "total_score": {
+          "raw_score": 63.7,
+          "quality_multiplier": 1.2,
+          "final_score": 76.4,
+          "grade": "A"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Norway's first circular heritage-protected building - 83% internal reuse"
+      }
     },
     {
       "id": "NO_foniks",
@@ -4176,7 +4839,51 @@
       ],
       "notes": "Iconic 1958 brutalist 17-story tower (Høyblokken/H-Block) designed by Erling Viksjø with unique 'naturbetong' technique. Damaged in 22 July 2011 terror attack. Decision to preserve rather than demolish preserves cultural heritage, memorial significance, and thousands of tonnes of embodied carbon. 15 of 17 floors rehabilitated. BREEAM Excellent certified with blue-green roof and seawater heat pump. 22 July Center integrated into structure. Materials from demolished R4 building donated to circular projects including KA13. Client: Statsbygg. Contractor: Skanska.",
       "last_updated": "2024-12-03",
-      "project_type_simple": "transformation"
+      "project_type_simple": "transformation",
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 28,
+            "interventions": {
+              "structure_preservation": 12,
+              "functional_transformation": 8,
+              "lifespan_extension": 8
+            },
+            "notes": "Transformation project preserving existing structure"
+          },
+          "build_for_longterm": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: g, o, v, e, r, n, m, e, n, t"
+          },
+          "build_with_right_materials": {
+            "score": 10,
+            "interventions": {
+              "structural_reuse": 10
+            },
+            "notes": "Reused materials: concrete"
+          }
+        },
+        "primary_pathway": "build_nothing_new",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 38.5,
+          "quality_multiplier": 1.2,
+          "final_score": 46.2,
+          "grade": "C"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Auto-assessed based on documented circular features"
+      }
     },
     {
       "id": "NO_lilleborg",
@@ -4271,7 +4978,51 @@
       "verification_status": "partially_verified",
       "notes": "Total rehabilitation of heritage school complex (5 buildings, 8,600 m²). Contract value 368 MNOK. Ferdigstillelse October 2026. 'Ny og moderne skole innenfor den ærverdige og gamle fasaden' (new modern school within venerable old facade). Part of Oslo's larger school development program. Strong focus on inventory/furniture reuse coordinated by Utdanningsetaten.",
       "last_updated": "2024-12-02",
-      "project_type_simple": "transformation"
+      "project_type_simple": "transformation",
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 28,
+            "interventions": {
+              "structure_preservation": 12,
+              "functional_transformation": 8,
+              "lifespan_extension": 8
+            },
+            "notes": "Transformation project preserving existing structure"
+          },
+          "build_for_longterm": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: s, c, h, o, o, l"
+          },
+          "build_with_right_materials": {
+            "score": 5,
+            "interventions": {
+              "non_structural_reuse": 5
+            },
+            "notes": "Reused materials: "
+          }
+        },
+        "primary_pathway": "build_nothing_new",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 34.8,
+          "quality_multiplier": 1.0,
+          "final_score": 34.8,
+          "grade": "D"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Auto-assessed based on documented circular features"
+      }
     },
     {
       "id": "NO_nrk_normannslokka",
@@ -4404,6 +5155,44 @@
           "Meeting complex broadcast facility requirements with reused materials",
           "Sourcing sufficient reused materials for 50,000 m² building"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: m, e, d, i, a, _, f, a, c, i, l, i, t, y"
+          },
+          "build_with_right_materials": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          }
+        },
+        "primary_pathway": "build_efficiently",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 6.0,
+          "quality_multiplier": 0.8,
+          "final_score": 4.8,
+          "grade": "E"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Auto-assessed based on documented circular features"
       }
     },
     {
@@ -4546,6 +5335,47 @@
           "Storing and sorting materials before installation",
           "Integrating diverse reused materials into cohesive design"
         ]
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_for_longterm": {
+            "score": 0,
+            "interventions": {},
+            "notes": ""
+          },
+          "build_efficiently": {
+            "score": 8,
+            "interventions": {
+              "space_efficiency": 8
+            },
+            "notes": "Multi-use building: i, n, f, r, a, s, t, r, u, c, t, u, r, e"
+          },
+          "build_with_right_materials": {
+            "score": 9,
+            "interventions": {
+              "biobased_construction": 7,
+              "carbon_storage": 2
+            },
+            "notes": ""
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": [],
+        "total_score": {
+          "raw_score": 14.0,
+          "quality_multiplier": 1.2,
+          "final_score": 16.8,
+          "grade": "E"
+        },
+        "assessment_date": "2025-12-04",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Auto-assessed based on documented circular features"
       }
     }
   ],
