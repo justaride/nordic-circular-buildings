@@ -1,0 +1,232 @@
+{
+  "case_study_id": "LOREN_TIER2",
+  "project_id": "NO_loren",
+  "name": "Løren aktivitetspark og flerbrukshall",
+  "subtitle": "Pilotprosjekt for ombruk av betongfasadeelementer",
+  "case_study_version": "1.0",
+  "case_study_tier": "TIER2",
+  "last_updated": "2025-12-03",
+  "data_source": "Klimasats Sluttrapport + Delrapport (Miljødirektoratet 2022-2025)",
+  "data_quality_note": "Official government funding reports with verified costs and CO2 calculations. Limited material inventory detail.",
+
+  "executive_summary": {
+    "project_type": "Nybygg flerbrukshall med ombrukte fasadeelementer",
+    "completion_year": 2025,
+    "key_achievements": [
+      "4.620 kg CO2-ekvivalenter spart",
+      "Metode for innfesting av utskjærte betongelementer utviklet",
+      "Prosess for tverr-prosjekt ombruk etablert",
+      "40 m² teglkledning ombrukt",
+      "27 m² granittstein ombrukt",
+      "53 m² tråkkheller ombrukt"
+    ],
+    "innovations": [
+      "Betongfasadeelementer fra Stig skole til ny flerbrukshall",
+      "Mellomlager hos Ombygg på Økern",
+      "Produktdokument delt med Standard Norge",
+      "Ombruksløsning som hovedløsning med opsjonspris for nytt"
+    ]
+  },
+
+  "circularity_metrics": {
+    "co2_reduction": {
+      "total_kg_co2_eq": 4620,
+      "source": "Klimasats Sluttrapport side 2"
+    },
+    "future_potential": {
+      "three_year_estimate_tonnes": "20-30",
+      "long_term_annual_tonnes": 100,
+      "note": "For Oslobygg KF, dobbelt for Oslo kommune totalt"
+    }
+  },
+
+  "material_inventory": {
+    "reused_materials": [
+      {
+        "material": "Teglkledning (betongfasadeelementer)",
+        "quantity_m2": 40,
+        "co2_factor_kg_per_m2": 48.5,
+        "co2_saved_kg": 1940,
+        "source_building": "Stig skole",
+        "destination": "Fasade flerbrukshall",
+        "epd_source": "Generisk i Reduzer"
+      },
+      {
+        "material": "Granitt",
+        "quantity_m2": 27,
+        "co2_factor_kg_per_m2": 38.8,
+        "co2_saved_kg": 1047,
+        "destination": "Utearealer",
+        "epd_source": "NEPD-6197-5461_Naturstein--Granitt-G386.pdf"
+      },
+      {
+        "material": "Tråkkheller (skifer)",
+        "quantity_m2": 53,
+        "co2_factor_kg_per_m2": 30.8,
+        "co2_saved_kg": 1634,
+        "destination": "Utearealer",
+        "epd_source": "NEPD-1673-671_Naturstein-av-skifer"
+      }
+    ],
+    "not_reused": {
+      "material": "Betongelementer til belegningsstein",
+      "reason": "Testing viste at de ikke egnet seg til dette formålet",
+      "original_plan": "Bruk som belegningssteiner i utearealer"
+    }
+  },
+
+  "process_documentation": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Demontering og transport",
+        "activities": [
+          "Betongfasadeelementer demontert fra Stig skole",
+          "Fraktet til Ombyggs telt på Økern for lagring"
+        ]
+      },
+      {
+        "phase": 2,
+        "name": "Testing og dokumentasjon",
+        "activities": [
+          "Elementer testet av Resirqel",
+          "Produktdokument utarbeidet",
+          "Flere tester gjennomført med entreprenør"
+        ]
+      },
+      {
+        "phase": 3,
+        "name": "Prosjektering",
+        "activities": [
+          "Innfestningsmetoder testet",
+          "Elementer beskåret",
+          "Prøvemontasje gjennomført"
+        ]
+      },
+      {
+        "phase": 4,
+        "name": "Montasje",
+        "activities": [
+          "Fasadeelementer montert november 2025",
+          "Grovbearbeidelse av betong"
+        ]
+      }
+    ]
+  },
+
+  "costs": {
+    "total_reuse_cost_nok": 974700,
+    "breakdown": [
+      {"item": "Rivning, demontering og utskjæring av betongpanel", "cost_nok": 445694},
+      {"item": "Testing og sertifisering av betongpanel", "cost_nok": 151156},
+      {"item": "Intern timebruk", "cost_nok": 60000},
+      {"item": "Grovbearbeidelse av betong", "cost_nok": 317850}
+    ],
+    "internal_hours": 100,
+    "funding": {
+      "klimasats_requested_nok": 900000,
+      "other_sources": ["Enova", "Oslobygg KF innovasjonsmidler"]
+    }
+  },
+
+  "stakeholders": {
+    "client": {
+      "name": "Oslobygg KF",
+      "org_number": "924599545",
+      "contact": {
+        "name": "Qing Tollefsen",
+        "role": "Rådgiver",
+        "email": "qing.tollefsen@obf.oslo.kommune.no"
+      }
+    },
+    "contractor": {
+      "name": "Håndverk kompaniet",
+      "role": "Totalentreprenør"
+    },
+    "testing_partner": {
+      "name": "Resirqel",
+      "role": "Testing og produktdokument"
+    },
+    "storage": {
+      "name": "Ombygg",
+      "location": "Økern",
+      "note": "OBF leier lagringsplass"
+    },
+    "source_building": {
+      "name": "Stig skole",
+      "material": "Betongfasadeelementer"
+    }
+  },
+
+  "lessons_learned": [
+    {
+      "category": "Finansiering",
+      "finding": "Prosjektet ville ikke blitt gjennomført uten støtte fra Enova, Klimasats og OBF innovasjonsmidler",
+      "recommendation": "Budsjetter for ombrukskostnader tidlig, skaff ekstern finansiering"
+    },
+    {
+      "category": "Testing",
+      "finding": "Testing kan være dyrt for piloter",
+      "recommendation": "Del produktdokumenter med Standard Norge og digitale plattformer"
+    },
+    {
+      "category": "Lagring",
+      "finding": "Mellomlager nyttig for trygg lagring og testing underveis",
+      "recommendation": "Etabler lagerløsning før demontering starter"
+    },
+    {
+      "category": "Kontraktstrategi",
+      "finding": "Ombruksløsning som hovedløsning med opsjonspris for nytt tar ned risiko",
+      "recommendation": "Beskriv ombruksløsning godt i kravspesifikasjon, byggherre tar noe garanti"
+    },
+    {
+      "category": "Materialtesting",
+      "finding": "Betongelementer egnet seg ikke til belegningsstein etter testing",
+      "recommendation": "Test materialer tidlig, ha alternativ plan"
+    },
+    {
+      "category": "Sertifisering",
+      "finding": "Ønsket enklere måte å sertifisere gamle betongelementer",
+      "recommendation": "Behov for forenklede sertifiseringsprosesser for ombruk"
+    }
+  ],
+
+  "future_applications": {
+    "planned_projects": [
+      {
+        "name": "Ny brannstasjon",
+        "status": "Under planlegging",
+        "reuse_type": "Ombrukte fasadeelementer"
+      }
+    ],
+    "estimated_scale": "500 m² fasadeelementer neste 3 år"
+  },
+
+  "sources": [
+    {
+      "type": "primary_report",
+      "title": "Klimasats Sluttrapport - Løren aktivitetspark og flerbrukshall",
+      "author": "Oslobygg KF / Qing Tollefsen",
+      "date": "2025-03-10",
+      "reference": "25R4CC67",
+      "pages": 4,
+      "local_pdf": "/nordic-circular-buildings/docs/loren-klimasats-sluttrapport-2025.pdf"
+    },
+    {
+      "type": "interim_report",
+      "title": "Klimasats Delrapport - Løren aktivitetspark og flerbrukshall",
+      "author": "Oslobygg KF / Qing Tollefsen",
+      "date": "2023-11-09",
+      "reference": "23R8B276",
+      "pages": 2,
+      "local_pdf": "/nordic-circular-buildings/docs/loren-klimasats-delrapport-2023.pdf"
+    }
+  ],
+
+  "data_gaps": [
+    "Detaljert materialinventar mangler (kun m² oppgitt)",
+    "Totalprosjektkostnad ikke oppgitt",
+    "Sirkularitetsindeks ikke beregnet",
+    "Skipsstål-komponenten fra Curlew FPSO ikke dokumentert i disse rapportene"
+  ]
+}

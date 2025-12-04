@@ -1,0 +1,704 @@
+{
+  "case_study_id": "KA23_FLAGSHIP",
+  "project_id": "NO_ka23",
+  "name": "Kristian Augusts gate 23 (KA23)",
+  "subtitle": "Norges første sirkulære bygg med vernestatus",
+  "case_study_version": "2.0",
+  "case_study_tier": "FLAGSHIP",
+  "last_updated": "2025-12-03",
+  "data_source": "Erfaringsrapport fra KA 23 (Höegh Eiendom/FutureBuilt, rev 4)",
+  "data_quality_note": "Full erfaringsrapport med 15 vedlegg. Detaljert materialinventar med kg-vekter, klimagassregnskap per NS 3720:2018 i One Click LCA.",
+
+  "executive_summary": {
+    "headline": "83% intern ombruk og 55% total CO2-reduksjon i vernet kontorbygg fra 1950",
+    "key_achievements": [
+      "83% intern ombruk etter vekt (10.519 tonn av 12.673 tonn)",
+      "55% total CO2-reduksjon vs nybygg referanse",
+      "83% CO2-reduksjon fra materialer alene",
+      "64% CO2-reduksjon vs tradisjonell rehabilitering",
+      "53% ombrukbarhet (mål var 20%)",
+      "Norges første sirkulære bygg med vernestatus",
+      "324 tonn tegl gitt til Østfoldgress for gjenbruk",
+      "8+ tonn kjøkken/skillevegger gitt til Bruktrom",
+      "3 tonn flis hentet fra KA13-prosjektet",
+      "Loopfront adoptert for QR-merking av ombrukbare materialer"
+    ],
+    "why_flagship": "KA23 har komplett erfaringsrapport med detaljert materialinventar i kg, klimagassregnskap mot både nybygg og rehabiliteringsreferanse, og 15 vedlegg med prosessdokumentasjon. Første vernede bygg rehabilitert etter FutureBuilt sirkulære kriterier."
+  },
+
+  "project_basics": {
+    "location": {
+      "address": "Kristian Augusts gate 23",
+      "area": "Tullinløkka/Tullinkvartalet",
+      "city": "Oslo",
+      "coordinates": {"lat": 59.9167, "lng": 10.7380}
+    },
+    "timeline": {
+      "original_construction": 1950,
+      "original_architects": "Bjercke & Eliassen",
+      "original_use": "Hovedkvarter for Norsk Arbeidsgiverforening",
+      "acquisition": "Høst 2019",
+      "contract_signed": "April 2020",
+      "demolition_start": "Mai 2020",
+      "demolition_duration_planned": "3-4 måneder",
+      "demolition_duration_actual": "6-8 måneder",
+      "completion_simula": "Oktober 2021",
+      "completion_dentsu": "November 2021"
+    },
+    "size": {
+      "total_sqm": 8730,
+      "floors": 8,
+      "total_weight_kg": 12673000,
+      "weight_per_sqm_kg": 1450
+    },
+    "budget": {
+      "contract_value_mnok": "187-220",
+      "note": "Inkludert endringsarbeider",
+      "contract_type": "Totalentreprise (startet som samspillsentreprise)"
+    },
+    "heritage_status": {
+      "protected": true,
+      "protected_elements": ["Fasade", "Yttertak"],
+      "facade_material": "Solvågstein",
+      "authority": "Plan- og bygningsloven",
+      "note": "Kun fasade og yttertak er vernet, men prosjektet har jobbet aktivt med å bevare mest mulig"
+    }
+  },
+
+  "stakeholders": {
+    "byggherre": {
+      "name": "Höegh Eiendom AS",
+      "url": "https://hoegheiendom.no",
+      "key_persons": [
+        {"name": "Jennifer Lamson", "role": "Bærekraftansvarlig"}
+      ]
+    },
+    "arkitekt_rehabilitering": {
+      "name": "Arcasa Arkitekter",
+      "role": "ARK - Rehabiliteringsarkitekt"
+    },
+    "arkitekt_original": {
+      "name": "Bjercke & Eliassen",
+      "year": 1950
+    },
+    "entreprenor": {
+      "name": "Seltor AS",
+      "role": "Totalentreprenør (tidligere samspillsentreprise)",
+      "url": "https://seltor.no"
+    },
+    "miljøradgiver": {
+      "name": "Multiconsult",
+      "role": "RIM - Rådgivende ingeniør Miljø, klimagassberegninger"
+    },
+    "tekniske_radgivere": [
+      {"name": "Borobygg", "role": "RIB - Rådgivende ingeniør Bygg"},
+      {"name": "Bright", "role": "RIV"},
+      {"name": "Bjerke rør", "role": "RIVrør"},
+      {"name": "Bjerke ventilasjon", "role": "RIVvent"},
+      {"name": "Gratech", "role": "Automatikk"},
+      {"name": "KPP", "role": "Prosjektleder"}
+    ],
+    "program": {
+      "name": "FutureBuilt",
+      "designation": "Forbildeprosjekt",
+      "criteria": "Sirkulære bygg v.1"
+    },
+    "digital_platform": {
+      "name": "Loopfront",
+      "role": "Digital ombruksdatabase med QR-koder",
+      "note": "Adoptert i løpet av prosjektet, brukt for merking av ombrukbare komponenter"
+    },
+    "leietakere": [
+      {"name": "Dentsu", "employees": 300, "type": "Kommunikasjonsbyrå"},
+      {"name": "Simula Research Laboratory", "type": "Forskningsinstitutt"}
+    ]
+  },
+
+  "material_inventory": {
+    "overview": {
+      "reuse_target_percent": 30,
+      "reuse_achieved_percent": 83,
+      "reusability_target_percent": 20,
+      "reusability_achieved_percent": 53,
+      "strategy": "Bevaring av eksisterende konstruksjon og materialer",
+      "approach": "Primært intern ombruk fra eksisterende bygg"
+    },
+
+    "summary_by_category": {
+      "intern_ombruk_kg": 10519267,
+      "intern_ombruk_percent": 83.0,
+      "ekstern_gitt_bort_kg": 332487,
+      "ekstern_gitt_bort_percent": 2.63,
+      "ekstern_hentet_kg": 3000,
+      "ekstern_hentet_percent": 0.02,
+      "nye_materialer_kg": 1818035,
+      "nye_materialer_percent": 14.35,
+      "total_weight_kg": 12672789
+    },
+
+    "detailed_inventory": [
+      {
+        "id": "M1_BETONG",
+        "norwegian_name": "Betong",
+        "category": "structural",
+        "intern_ombruk_kg": 9540778,
+        "nye_materialer_kg": 57600,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M2_SIPOREX",
+        "norwegian_name": "Siporex",
+        "category": "structural",
+        "intern_ombruk_kg": 812942,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M3_SOLVAGSTEIN",
+        "norwegian_name": "Fasadestein - Solvågstein",
+        "category": "facade",
+        "intern_ombruk_kg": 144252,
+        "heritage_protected": true,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M4_STAL",
+        "norwegian_name": "Stål",
+        "category": "structural",
+        "intern_ombruk_kg": 8560,
+        "nye_materialer_kg": 14310,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M5_VINDU_GLASS",
+        "norwegian_name": "Vindu/glass",
+        "category": "facade",
+        "intern_ombruk_kg": 35,
+        "nye_materialer_kg": 19700,
+        "note": "Karmer i teak bevart, nytt energieffektivt glass installert",
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M6_TRAPP",
+        "norwegian_name": "Trapp",
+        "category": "vertical_circulation",
+        "intern_ombruk_kg": 10000,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M7_HEIS",
+        "norwegian_name": "Heis",
+        "category": "vertical_circulation",
+        "intern_ombruk_kg": 1200,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M8_VENTILASJON_KJOLING",
+        "norwegian_name": "Ventilasjon/kjøling",
+        "category": "technical",
+        "intern_ombruk_kg": 1500,
+        "nye_materialer_kg": 56500,
+        "note": "2 stk kjølemaskiner (2015), 2 stk ventilasjonsaggregat (2005) ombrukt",
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M9_TEGL",
+        "norwegian_name": "Tegl (skillevegger)",
+        "category": "interior",
+        "ekstern_gitt_bort_kg": 324340,
+        "recipient": "Østfoldgress",
+        "note": "Levert mot avgift, intensjon om gjenbruk",
+        "verified": true,
+        "citation": {"page": 7, "section": "Tilgjengeliggjøre materialer for andre prosjekt"}
+      },
+      {
+        "id": "M10_KJOKKEN",
+        "norwegian_name": "Kjøkken",
+        "category": "interior",
+        "ekstern_gitt_bort_kg": 3890,
+        "recipient": "Bruktrom",
+        "nye_materialer_kg": 5000,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M11_FAST_INVENTAR",
+        "norwegian_name": "Fast inventar (skillevegger, himlingsplater, dører)",
+        "category": "interior",
+        "ekstern_gitt_bort_kg": 4257,
+        "recipient": "Bruktrom",
+        "nye_materialer_kg": 20076,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M12_FLIS",
+        "norwegian_name": "Flis",
+        "category": "interior",
+        "ekstern_hentet_kg": 3000,
+        "donor": "Kristian Augusts gate 13 (KA13)",
+        "nye_materialer_kg": 32100,
+        "note": "3 paller restflis fra KA13",
+        "verified": true,
+        "citation": {"page": 9, "section": "Ombruk og demontering"}
+      },
+      {
+        "id": "M13_HIMLING",
+        "norwegian_name": "Himling",
+        "category": "interior",
+        "ekstern_gitt_bort_note": "165 m² gitt til Entra/KA13",
+        "nye_materialer_kg": 33150,
+        "verified": true,
+        "citation": {"page": 7, "section": "Tilgjengeliggjøre materialer for andre prosjekt"}
+      },
+      {
+        "id": "M14_GIPS",
+        "norwegian_name": "Gips",
+        "category": "interior",
+        "nye_materialer_kg": 23810,
+        "note": "Glassfiberarmert gips med lavere utslipp",
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M15_ARMERINGSJERN",
+        "norwegian_name": "Armeringsjern",
+        "category": "structural",
+        "nye_materialer_kg": 3500,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M16_PARKETT",
+        "norwegian_name": "Parkett",
+        "category": "interior",
+        "nye_materialer_kg": 2025,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M17_LINOLEUM",
+        "norwegian_name": "Linoleum",
+        "category": "interior",
+        "nye_materialer_kg": 285,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M18_ISOLASJON",
+        "norwegian_name": "Isolasjon",
+        "category": "insulation",
+        "nye_materialer_kg": 1421,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M19_GULVTEPPER",
+        "norwegian_name": "Gulvtepper",
+        "category": "interior",
+        "nye_materialer_kg": 5950,
+        "note": "Samme tepper i store deler av bygget for fleksibilitet",
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M20_SANITAR_ROR",
+        "norwegian_name": "Sanitær/rør",
+        "category": "technical",
+        "nye_materialer_kg": 16560,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M21_ELEKTRONIKK",
+        "norwegian_name": "Elektronikk",
+        "category": "technical",
+        "ekstern_gitt_bort_note": "70 lm kabelkanal til Entra/KA13",
+        "nye_materialer_kg": 29048,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      },
+      {
+        "id": "M22_DIVERSE",
+        "norwegian_name": "Diverse (fra avfallsrapport)",
+        "category": "other",
+        "nye_materialer_kg": 1497000,
+        "verified": true,
+        "citation": {"page": 16, "section": "Resultat fra andel ombruk"}
+      }
+    ],
+
+    "retained_elements_qualitative": [
+      "Fundamenter - komplett bevart",
+      "Bærekonstruksjoner (stål og betong) - komplett bevart",
+      "Yttervegger med solvågstein - vernet fasade",
+      "Vinduskarmer i teak - bevart med nytt glass",
+      "Etasjeskillere/dekker - komplett bevart",
+      "Trapperom - komplett bevart",
+      "Heissjakter - bevart/oppgradert",
+      "8. etasje komplett - teak vegger, marmor overflater",
+      "Historiske dører - oppusset og oppgradert",
+      "Terrazogulv - original gulvbelegg",
+      "Stucco lustro vegger og tak - historisk veggbehandling",
+      "Mørk trepaneling - original paneling i fellesarealer"
+    ],
+
+    "design_for_disassembly": {
+      "principle": "Alle nye bygningskomponenter prosjektert for ombrukbarhet",
+      "measures": [
+        "Boltede forbindelser brukt der mulig for fremtidig demontering",
+        "Homogene materialer valgt",
+        "Mekaniske forbindelser fremfor kjemiske",
+        "Synlige festepunkter",
+        "Høy generalitet - samme tepper og skillevegger i store deler",
+        "Tekniske grid langs fasader for fleksibilitet",
+        "QR-koder på ombrukbare materialer via Loopfront"
+      ],
+      "note": "Sveisforbindelser kun brukt der boltede var praktisk umulig pga. plassbegrensninger"
+    }
+  },
+
+  "environmental_metrics": {
+    "co2_reduction": {
+      "vs_nybygg_total_percent": 55,
+      "vs_nybygg_materials_percent": 83,
+      "vs_rehab_reference_materials_percent": 64,
+      "futurebuilt_target_percent": 50,
+      "achieved": true
+    },
+    "detailed_climate_data": {
+      "referansebygg_nybygg_kg_co2_per_m2_year": 4.30,
+      "referansebygg_rehabilitering_kg_co2_per_m2_year": 1.74,
+      "ka23_prosjektert_kg_co2_per_m2_year": 0.63,
+      "breakdown_som_bygget": {
+        "transport_kg_co2_per_m2_year": 0.7,
+        "materialbruk_kg_co2_per_m2_year": 8.8,
+        "stasjonaer_energibruk_kg_co2_per_m2_year": 24.4
+      }
+    },
+    "methodology": {
+      "tool": "One Click LCA",
+      "standard": "NS 3720:2018",
+      "performed_by": "Multiconsult",
+      "reference_building": "Nybygg (FutureBuilt standard) og egen rehabiliteringsreferanse"
+    },
+    "climate_drivers": {
+      "largest_emission_sources": ["Dører, vinduer, delere (37.1%)", "Glass (32.6%)", "Gulv (17.1%)", "Gips, platter og sement (5.6%)"],
+      "note": "Klimagassregnskap brukt aktivt som styringsverktøy gjennom prosjektet"
+    }
+  },
+
+  "energy_measures": {
+    "original_energy_class": "D (lysegrønn)",
+    "achieved_energy_class": "C (mørkegrønn)",
+    "passive_house_level": "Tilbygg",
+    "enova_support": true,
+    "measures": [
+      "Energieffektive vindusglass",
+      "Romregulering",
+      "VAV-styring på ventilasjon",
+      "Mengderegulert varmeanlegg",
+      "Energieffektiv belysning",
+      "Lysstyring",
+      "Bedre solskjerming",
+      "Etterisolering av tak"
+    ],
+    "mobility": {
+      "bike_friendly": "FutureBuilt veileder for sykkelvennlige bygg",
+      "car_parking": "2 p-plasser til elektriske delebiler, ingen øvrige p-plasser"
+    }
+  },
+
+  "certification_and_standards": {
+    "programs": [
+      {
+        "name": "FutureBuilt",
+        "designation": "Forbildeprosjekt",
+        "criteria": "Sirkulære bygg v.1",
+        "achievement": "Første vernede bygg rehabilitert etter sirkulære prinsipper"
+      }
+    ],
+    "breeam": {
+      "type": "BREEAM In-Use",
+      "target": "Excellent"
+    },
+    "heritage": {
+      "status": "Vernet fasade og yttertak",
+      "authority": "Plan- og bygningsloven",
+      "impact": "Vernekrav drev bevaring av original materialitet"
+    }
+  },
+
+  "process_documentation": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Ombrukskartlegging",
+        "activities": ["Gjennomføre ombrukskartlegging", "Internt ombruk", "Eksternt ombruk", "Ikke ombrukbart"],
+        "participants": ["Prosjektleder", "Energi- og miljørådgiver", "Ombruksrådgiver (Multiconsult)", "Arkitekt (Arcasa)", "Entreprenør (Seltor)"],
+        "output": "Ombruksnotat med fargekoding (grønt/gult/rødt)"
+      },
+      {
+        "phase": 2,
+        "name": "Ombruk og demontering",
+        "activities": ["Merking av materialer", "Kontakt ombruksnettverk", "Organisere visninger", "Demontering og henting/lagring"],
+        "storage": "Seltors sentrallager + kjeller i KA23"
+      },
+      {
+        "phase": 3,
+        "name": "Ombrukbarhet og fleksibilitet",
+        "activities": ["Design for ombruk", "Tilrettelegg for fremtidige endringer"],
+        "meeting": "Tidlig oppstartsmøte med hele prosjekteringsgruppen"
+      },
+      {
+        "phase": 4,
+        "name": "Dokumentasjon",
+        "activities": ["FDV-dokumentasjon på alle materialer", "Demonteringsanvisning", "Merking med QR-koder i Loopfront"]
+      }
+    ],
+    "meeting_cadence": "Miljøoppfølgingsmøter annenhver uke gjennom hele prosjektet"
+  },
+
+  "lessons_learned": {
+    "challenges": [
+      {
+        "issue": "Skjult asbest og ukjent infrastruktur",
+        "impact": "Riving tok dobbelt så lang tid som planlagt (3-4 mnd → 6-8 mnd)",
+        "resolution": "Omfattende replanning underveis"
+      },
+      {
+        "issue": "Ingen riggplass utenfor bygget",
+        "impact": "Logistiske utfordringer",
+        "resolution": "Nattleveranser og vindusheiser for materialinntak"
+      },
+      {
+        "issue": "Begrenset lagringsplass",
+        "impact": "Materialhåndtering krevende",
+        "resolution": "Just-in-time leveranser essensielt"
+      },
+      {
+        "issue": "Kommunikasjonsproblemer med ombrukt teknisk utstyr",
+        "impact": "Utfordringer med automatikksystemer",
+        "resolution": "Burde ha testet kommunikasjon/samhandling tidligere",
+        "recommendation": "Ville kanskje ikke ombrukt så mye teknisk utstyr igjen"
+      },
+      {
+        "issue": "Dårlig merking av komponenter",
+        "impact": "Flere komponenter ble revet (undersentraler, pumper, energimålere)",
+        "resolution": "Tydeligere merking av hva som skal ombrukes"
+      },
+      {
+        "issue": "QR-koder fjernet av leietakere",
+        "impact": "Noen QR-koder ble plukket bort",
+        "resolution": "Bedre informasjon til leietakere om QR-kodene"
+      },
+      {
+        "issue": "Ekstern ombruk av flis tidkrevende",
+        "impact": "Byggherre brukte mye tid på koordinering",
+        "resolution": "Avsett egen pott til ombruk og egen ressurs til oppfølging"
+      }
+    ],
+    "success_factors": [
+      "Tidlig ombrukskartlegging ga beslutningsgrunnlag",
+      "Vernekrav drev bevaring fremfor riving",
+      "Miljørådgiver under byggherre sikret styring",
+      "Miljømøter annenhver uke holdt fokus oppe",
+      "Klimagassregnskap brukt aktivt som styringsverktøy",
+      "Engasjerte leietakere (Dentsu dokumenterte prosessen)",
+      "Seltor var åpne og samarbeidsvillige"
+    ],
+    "recommendations": [
+      "Engasjer ombruksrådgiver som følger prosessen fra start til slutt",
+      "Gjør generelle avklaringer tidlig: risiko, klimagassbelastning, estetikk, funksjon, pris, tidsfrister",
+      "Etabler klimagassregnskap tidlig for å avdekke største drivere",
+      "Still kvantitative krav på andel ombruk i kravspesifikasjon til entreprenør",
+      "Ha faste og hyppige beslutningsmøter i starten",
+      "Test kommunikasjon mellom nytt og ombrukt teknisk utstyr tidlig",
+      "Involver leietakere i ombruksprosessen",
+      "Vær tydeligere på dokumentasjonskrav for ombrukbarhet fra start"
+    ],
+    "strategic_outcomes": [
+      "Höegh Eiendom ble strategisk partner for Sirkulær Ressurssentral",
+      "Loopfront adoptert som digital plattform for hele porteføljen",
+      "Ombruk integrert i selskapets eiendomsstrategi",
+      "FutureBuilt kriteriesett tatt inn i nye prosjekter"
+    ]
+  },
+
+  "external_material_flows": {
+    "materials_given_away": [
+      {
+        "material": "Tegl (skillevegger)",
+        "quantity_kg": 324340,
+        "recipient": "Østfoldgress",
+        "note": "Levert mot avgift, intensjon om gjenbruk",
+        "contact": "Høine anbefalte Østfoldgress"
+      },
+      {
+        "material": "Kjøkken og skillevegger",
+        "quantity_kg": 8147,
+        "recipient": "Bruktrom",
+        "note": "Over 8 tonn gitt bort til ekstern ombruk"
+      },
+      {
+        "material": "Himlingsplater",
+        "quantity": "165 m²",
+        "recipient": "Entra/KA13"
+      },
+      {
+        "material": "Kabelkanaler",
+        "quantity": "70 lm",
+        "recipient": "Entra/KA13",
+        "note": "XRF-måling utført for å sikre ingen bly"
+      }
+    ],
+    "materials_received": [
+      {
+        "material": "Restflis",
+        "quantity_kg": 3000,
+        "quantity_note": "3 paller",
+        "donor": "Kristian Augusts gate 13 (KA13)",
+        "original_donor": "Diverse kilder via KA13",
+        "processing": "Sortering og telling av byggherre, flere runder med IARK og Bergersen Flis",
+        "note": "Tidkrevende prosess - byggherre motiverte, koordinerte logistikk"
+      }
+    ],
+    "materials_not_realized": [
+      {
+        "material": "Kjølebafler",
+        "potential_donor": "Entra/KA13 (opprinnelig fra Dronning Eufemias gate)",
+        "reason": "Spørsmål om teknisk kompatibilitet og garantiansvar, beslutning tatt for sent"
+      }
+    ]
+  },
+
+  "documentation": {
+    "primary_report": {
+      "title": "Erfaringsrapport fra KA 23",
+      "author": "Höegh Eiendom / FutureBuilt",
+      "version": "rev 4",
+      "pages": 19,
+      "attachments": 15,
+      "local_path": "/docs/ka23-erfaringsrapport-rev4.pdf"
+    },
+    "attachments": [
+      "1. Miljøoppfølgingsplan med alle bærekraftsmålene",
+      "2. Ombrukskartlegging fase 1",
+      "3. Ombrukkartlegging fase 2",
+      "4. Referat fra ombruksmøter for å definere omfang",
+      "5. Dokumentasjon knyttet til ekstern ombruk (ut av prosjektet) for tegl",
+      "6. Dokumentasjon knyttet til ekstern ombruk (ut av prosjektet) for skillevegger, kjøkken",
+      "7. Arbeidsdokument, for ombruk, ombrukbarhet og miljøvennlige materialer - alle fag",
+      "8. Materialnotat for gulv og vegger",
+      "9. Materialnotat for valg av belegg for kjeller",
+      "10. Klimagassregnskap mot referansebygg (nybygg)",
+      "11. Klimagassregnskap mot referansebygg (rehab)",
+      "12. Resultat fra andel ombruk",
+      "13. Resultat fra andel ombrukbarhet",
+      "14. Refleksjoner/Erfaring fra ENT",
+      "15. Refleksjoner/erfaringer fra RIM"
+    ],
+    "secondary_sources": [
+      {
+        "name": "Höegh Eiendom - Ombruksreise",
+        "url": "https://hoegheiendom.no/tema/var-ombruksreise-til-et-fullskala-sirkulaert-bygg-med-vernestatus"
+      },
+      {
+        "name": "Sweco - KA23",
+        "url": "https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/"
+      },
+      {
+        "name": "Dentsu - Prosessen",
+        "url": "https://www.dentsu.com/no/no/prosessen-gjennom-forbildeprosjektet-kristian-augusts-gate-23"
+      },
+      {
+        "name": "Seltor - Prosjektside",
+        "url": "https://seltor.no/en/prosjekter/kristian-augustsgate-23-oslo/"
+      },
+      {
+        "name": "FutureBuilt - Forbildeprosjekt",
+        "url": "https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Kristian-Augusts-gate-23"
+      },
+      {
+        "name": "Byggmesteren - Gjenbruker halvparten",
+        "url": "https://byggmesteren.as/2020/01/22/gjenbruker-halvparten-av-materialer-og-bygningsdeler/"
+      }
+    ]
+  },
+
+  "verified_citations": [
+    {
+      "claim": "83% intern ombruk etter vekt (10.519.267 kg)",
+      "page": 16,
+      "section": "Resultat fra andel ombruk",
+      "quote": "Resultatet viser at 83 % av bygget ble bevart og ombrukt."
+    },
+    {
+      "claim": "55% total CO2-reduksjon vs nybygg referanse",
+      "page": 13,
+      "section": "Klimagassregnskap- Totalt",
+      "quote": "utslippsreduksjonen på ca. 55 % «som bygget»"
+    },
+    {
+      "claim": "83% CO2-reduksjon fra materialer (som bygget)",
+      "page": 14,
+      "section": "Klimagassregnskap- fra materialer",
+      "quote": "KA 23 oppnår en utslippsreduksjon på 85 % for prosjektert og 83 % «som bygget»"
+    },
+    {
+      "claim": "64% CO2-reduksjon vs tradisjonell rehabilitering",
+      "page": 15,
+      "section": "Klimagassregnskap- fra materialer",
+      "quote": "prosjektet har redusert klimagassutslipp fra materialer med 64 % -grunnet ombruk og klimavennlige materialer"
+    },
+    {
+      "claim": "53% ombrukbarhet oppnådd (mål 20%)",
+      "page": 17,
+      "section": "Resultat fra andel ombrukbarhet",
+      "quote": "Andel ombrukbare materialer ble 53 % basert på vekt"
+    },
+    {
+      "claim": "324 tonn tegl til Østfoldgress",
+      "page": 7,
+      "section": "Tilgjengeliggjøre materialer for andre prosjekt",
+      "quote": "Vi leverte ca. 325 tonn med tegl"
+    },
+    {
+      "claim": "Totalvekt bygget 12.673 tonn",
+      "page": 16,
+      "section": "Resultat fra andel ombruk",
+      "quote": "Totalvekt: 12 673 tonn. Den estimerte vekten til bygget er på 1,45 tonn/m²"
+    },
+    {
+      "claim": "Riving tok dobbelt så lang tid (6-8 mnd vs 3-4 mnd planlagt)",
+      "page": 8,
+      "section": "Ombruk og demontering",
+      "quote": "På grunn av dårlig merking av de komponentene som skulle ombrukes, så ble flere komponenter revet"
+    }
+  ],
+
+  "comparison_to_ka13": {
+    "similarities": [
+      "Samme gate/område (Tullinløkka)",
+      "Begge FutureBuilt forbildeprosjekter",
+      "Begge kontorbygg fra 1950-tallet",
+      "Begge oppnådde >50% CO2-reduksjon",
+      "Materialutveksling mellom prosjektene (flis, himling, kabelkanal)"
+    ],
+    "differences": [
+      "KA23 har vernestatus - KA13 har ikke",
+      "KA23 primært intern ombruk (83%) - KA13 hentet fra 25+ donorbygg",
+      "KA23 nå har erfaringsrapport - begge er flagship",
+      "KA23 83% CO2-reduksjon materialer - KA13 70% totalt men 89-97% per material",
+      "KA23 12.673 tonn totalvekt - KA13 ukjent totalvekt"
+    ],
+    "complementary_value": "KA23 viser at sirkulær rehabilitering fungerer med vernekrav og primært intern ombruk, mens KA13 viser storskala ekstern materialombruk. Sammen demonstrerer de bredden i sirkulære strategier."
+  }
+}

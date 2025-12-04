@@ -1,0 +1,345 @@
+{
+  "case_study_id": "NEDRE_SEM_STRONG",
+  "project_id": "NO_nedre_sem",
+  "name": "Nedre Sem Låve",
+  "subtitle": "Sirkulært nybygg med historisk låve som materialbank",
+  "case_study_version": "1.0",
+  "case_study_tier": "STRONG",
+  "last_updated": "2025-12-03",
+  "data_source": "Veidekke Sirkularitetsrapport til FutureBuilt (27. oktober 2023) + Klimagassrapport + Betongrapport",
+  "data_quality_note": "Comprehensive documentation with detailed material inventory, SI-index calculations, and ombrukbarhet analysis per building component.",
+
+  "executive_summary": {
+    "project_type": "Nybygg med ombruk fra eksisterende låve",
+    "completion_year": 2024,
+    "total_area_m2": 2000,
+    "key_achievements": [
+      "48% sirkularitetsindeks (SI) oppnådd",
+      "100% resirkulert betong-tilslag - sannsynligvis første i verden",
+      "Massivtre bæresystem designet for demontering",
+      "SINTEF-testet teglstein for ombruk",
+      "Treteknisk institutt samarbeid for treklassifisering",
+      "Detaljert ombrukbarhetsvurdering per bygningsdel",
+      "Demonteringsinstruks utarbeidet"
+    ],
+    "innovations": [
+      "Skruer med større gods for fremtidig demontering",
+      "Radiatorer istedenfor nedstøpt gulvvarme (fleksibilitet)",
+      "Kalkmørtel på tegl for enkel fremtidig demontering",
+      "Samarbeid med Norsk Folkemuseum (TradLab TRE) for overskuddstømmer"
+    ]
+  },
+
+  "circularity_metrics": {
+    "si_index": {
+      "value": 48,
+      "unit": "percent",
+      "target": 50,
+      "source": "Sirkularitetsrapport side 7",
+      "calculation_method": "FutureBuilt versjon 3"
+    },
+    "weight_breakdown": {
+      "total_weight_kg": 1746563,
+      "reused_kg": 848085,
+      "reused_percent": 48.6,
+      "reusable_kg": 485738,
+      "reusable_percent": 27.8,
+      "not_reusable_kg": 412740,
+      "not_reusable_percent": 23.6
+    },
+    "by_building_component": [
+      {
+        "code": "20",
+        "name": "Bygning generelt",
+        "reused_kg": 242000,
+        "reusable_kg": 0,
+        "not_reusable_kg": 0,
+        "reused_percent": 100
+      },
+      {
+        "code": "22",
+        "name": "Bærende Konstruksjoner",
+        "reused_kg": 0,
+        "reusable_kg": 18258,
+        "not_reusable_kg": 0,
+        "reused_percent": 0,
+        "note": "Massivtre skrudd sammen for fremtidig demontering"
+      },
+      {
+        "code": "23",
+        "name": "Yttervegger",
+        "reused_kg": 318760,
+        "reusable_kg": 35540,
+        "not_reusable_kg": 92922,
+        "reused_percent": 71
+      },
+      {
+        "code": "24",
+        "name": "Innervegger",
+        "reused_kg": 4200,
+        "reusable_kg": 99062,
+        "not_reusable_kg": 89978,
+        "reused_percent": 2
+      },
+      {
+        "code": "25",
+        "name": "Dekker",
+        "reused_kg": 281750,
+        "reusable_kg": 241736,
+        "not_reusable_kg": 224439,
+        "reused_percent": 38
+      },
+      {
+        "code": "26",
+        "name": "Yttertak",
+        "reused_kg": 0,
+        "reusable_kg": 54533,
+        "not_reusable_kg": 0,
+        "reused_percent": 0
+      },
+      {
+        "code": "27",
+        "name": "Fast inventar",
+        "reused_kg": 0,
+        "reusable_kg": 5500,
+        "not_reusable_kg": 0,
+        "reused_percent": 0,
+        "note": "Ombrukt vaskelinje fra annet prosjekt"
+      },
+      {
+        "code": "28",
+        "name": "Trapper balkonger",
+        "reused_kg": 0,
+        "reusable_kg": 16300,
+        "not_reusable_kg": 0,
+        "reused_percent": 0
+      },
+      {
+        "code": "30",
+        "name": "VVS",
+        "reused_kg": 1300,
+        "reusable_kg": 13808,
+        "not_reusable_kg": 4401,
+        "reused_percent": 7
+      },
+      {
+        "code": "40",
+        "name": "Elkraft",
+        "reused_kg": 75,
+        "reusable_kg": 1000,
+        "not_reusable_kg": 1000,
+        "reused_percent": 4,
+        "note": "Ombrukte kabelbroer fra annet prosjekt"
+      }
+    ]
+  },
+
+  "material_inventory": {
+    "from_demolished_barn": {
+      "timber": {
+        "total_m3": 123.62,
+        "total_kg": 57294,
+        "items": [
+          {"name": "Takstoler", "m3": 28.8, "kg": 13680, "planned_use": "Søyler i nytt bygg + pergola + dekorative elementer"},
+          {"name": "Takbord/taktro", "m3": 14, "kg": 6650, "planned_use": "Lekter og sløyfer, museer for vernede bygninger"},
+          {"name": "Bjelker 3. etasje", "m3": 1.62, "kg": 770, "planned_use": "Ny bærekonstruksjon"},
+          {"name": "Bjelker 2. etasje", "m3": 8.8, "kg": 4180, "planned_use": "Ny bærekonstruksjon"},
+          {"name": "Bjelker 1. etasje", "m3": 17.66, "kg": 8390, "planned_use": "Ny bærekonstruksjon hvis mulig"},
+          {"name": "Søyler", "m3": 4.34, "kg": 2059, "planned_use": "Ny bærekonstruksjon"},
+          {"name": "Gulvbord 3. etasje", "m3": 5.4, "kg": 2565, "planned_use": "Dekorativt element eller gulv, 60x120mm med not/fjær"},
+          {"name": "Gulvbord 2. etasje", "m3": 8.75, "kg": 4156, "planned_use": "Sløyfer og lekter"},
+          {"name": "Gulvbord 1. etasje", "m3": 20, "kg": 9500, "planned_use": "Usikkert pga tjære, mulig spesialavfall"},
+          {"name": "Kledning", "m3": 11.25, "kg": 5344, "planned_use": "Kledning på nytt bygg, høvles"}
+        ],
+        "certification": "Treteknisk institutt for styrke-klassifisering",
+        "source": "Sirkularitetsrapport side 2-4"
+      },
+      "brick": {
+        "planned_use": "Forblending på fjøsdelen + innendørs dekorative elementer",
+        "certification": "SINTEF-testet",
+        "note": "Hullteglstein kan ombrukes, massivstein har holdbarhetsproblemer",
+        "mortar_type": "Kalkmørtel for enkel fremtidig demontering"
+      },
+      "natural_stone": {
+        "planned_use": "Steinmur/forblending, nivåforskjeller utomhus, låvebru",
+        "process": "Demonteres og sorteres med maskin"
+      },
+      "windows": {
+        "planned_use": "Innenfor klimaskallet som dekorativt element",
+        "external_recipients": "Aktører innen bygningsvern",
+        "documentation_required": false
+      }
+    },
+    "new_construction": {
+      "concrete": {
+        "recycled_aggregate_percent": 100,
+        "note": "Sannsynligvis første i verden med 100% resirkulert tilslag (standard maks 30%)",
+        "source": "Sirkularitetsrapport side 9"
+      },
+      "mass_timber": {
+        "connection_type": "Skruer med større gods enn normalt",
+        "disassembly": "Demonteringsinstruks vil foreligge",
+        "future_reuse": "Hele bygget kan i prinsippet demonteres og settes opp annet sted"
+      }
+    }
+  },
+
+  "hazardous_materials": {
+    "identified": [
+      "Betongdekke med oljesøl",
+      "Hvitmaling på dører øst",
+      "Isolerglassvinduer",
+      "EE-avfall, eldre kabler",
+      "Branndør",
+      "Iso leca",
+      "Armaturer med lysoffrør",
+      "Tjære-impregnerte materialer i kjeller"
+    ],
+    "handling": "Leveres til godkjent mottak"
+  },
+
+  "design_for_disassembly": {
+    "structural_system": {
+      "type": "Massivtre",
+      "connections": "Skruer med større gods for fremtidig demontering",
+      "documentation": "Demonteringsinstruks = monteringsrekkefølge i revers"
+    },
+    "facade": {
+      "cladding": "Festet med skruer, kan skrues ut",
+      "brick": "Murt med kalkmørtel, kan 'kakkes' i stykker",
+      "stone": "Murt med kalkmørtel"
+    },
+    "interior": {
+      "walls": "Stålstendere enkelt å demontere, isolasjon kan tas ut",
+      "floors": "Parkett ligger flytende (ikke limt)",
+      "ceilings": "Systemhimling med løse plater"
+    },
+    "hvac": {
+      "heating": "Vegghengte radiatorer istedenfor nedstøpt gulvvarme",
+      "ventilation": "Spiro-kanaler montert med 'popping', lett å demontere",
+      "pipes": "MA-rør i muffesystem med klammer"
+    }
+  },
+
+  "adaptability": {
+    "constraints": "Vernet kulturlandskap - nytt bygg må duplisere gammelt i høyde/bredde/lengde/uttrykk",
+    "floor_heights": {
+      "basement": "3.49m fri høyde",
+      "floor_1": "3.19m fri høyde",
+      "floor_2": "2.99m fri høyde"
+    },
+    "flexibility_features": [
+      "2 trappehus med båreheis på hver side",
+      "Direkte tilkomst fra bakkenivå på plan U og plan 1",
+      "Teknisk rom i bakkant, ikke midt i bygget",
+      "Radiatorer muliggjør endring av varmekurser uten pigging"
+    ]
+  },
+
+  "external_material_flows": {
+    "to_external": [
+      {
+        "recipient": "Norsk Folkemuseum (TradLab TRE)",
+        "material": "Overskuddstømmer",
+        "note": "FutureBuilt prosjekt"
+      },
+      {
+        "recipient": "Sirktre",
+        "material": "Trematerialer",
+        "status": "Dialog om levering hvis overskudd"
+      },
+      {
+        "recipient": "Museer",
+        "material": "Taktro/bord",
+        "use": "Istandsettingsprosjekter på vernede/fredede bygninger"
+      }
+    ],
+    "from_external": [
+      {
+        "source": "Annet prosjekt",
+        "material": "Vaskelinje (storkjøkken)",
+        "status": "Bekreftet ombruk"
+      },
+      {
+        "source": "Annet prosjekt",
+        "material": "Kabelbroer",
+        "status": "Bekreftet ombruk"
+      }
+    ]
+  },
+
+  "stakeholders": {
+    "client": {
+      "name": "Asker kommune",
+      "contact": "Alf Kaare Stokker (prosjektleder)"
+    },
+    "contractor": {
+      "name": "Veidekke Entreprenør",
+      "contacts": ["Kristoffer Gjestemoen", "Tor Flesseberg"],
+      "role": "Totalentreprenør og sirkularitetsrapport"
+    },
+    "architect": {
+      "name": "Holar Arkitekter"
+    },
+    "certification_partners": [
+      {"name": "SINTEF", "role": "Teglstein-testing"},
+      {"name": "Treteknisk institutt", "role": "Treverk-klassifisering"}
+    ],
+    "program": {
+      "name": "FutureBuilt",
+      "status": "Forbildeprosjekt"
+    }
+  },
+
+  "lessons_learned": [
+    {
+      "category": "Demontering",
+      "finding": "Nordre del av låven i dårlig forfatning - vurderinger underveis på sikkerhet vs materialgjenvinning",
+      "recommendation": "Planlegg for varierende tilstand ved demontering av gamle bygg"
+    },
+    {
+      "category": "Betong",
+      "finding": "100% resirkulert tilslag fungerer, men krever godkjenning utover standard (maks 30%)",
+      "recommendation": "Dokumenter prosessen for fremtidige prosjekter"
+    },
+    {
+      "category": "Miljøgifter",
+      "finding": "Tjære-impregnerte materialer oppdaget i kjeller",
+      "recommendation": "Grundig miljøkartlegging før demontering"
+    },
+    {
+      "category": "Design",
+      "finding": "Skruer med større gods muliggjør fremtidig demontering",
+      "recommendation": "Spesifiser demonterbare forbindelser i prosjektering"
+    }
+  ],
+
+  "sources": [
+    {
+      "type": "primary_report",
+      "title": "Nedre Sem Låve Sirkulæritet - Rapport til FutureBuilt",
+      "author": "Veidekke Entreprenør (Kristoffer Gjestemoen, Tor Flesseberg)",
+      "date": "2023-10-27",
+      "pages": 19,
+      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-sirkularitet-2023.pdf"
+    },
+    {
+      "type": "climate_report",
+      "title": "Klimagassrapport Nedre Sem Låve revisjon 2 - som bygget",
+      "date": "2024-08",
+      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-klimagass-2024.pdf"
+    },
+    {
+      "type": "technical_report",
+      "title": "Nedre Sem Låve - Betongrapport",
+      "date": "2024-09-16",
+      "local_pdf": "/nordic-circular-buildings/docs/nedre-sem-betong-2024.pdf"
+    }
+  ],
+
+  "data_gaps": [
+    "CO2-besparelse per materialtype ikke beregnet",
+    "Kostnad for ombruk vs nytt ikke dokumentert",
+    "Faktisk ombruksprosent etter ferdigstillelse (rapport er fra prosjekteringsfase)"
+  ]
+}

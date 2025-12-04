@@ -29,32 +29,91 @@ The most documented circular building in Norway. Serves as template for all othe
 | Windows (30 stk) | 2.4 Vinduer i tilbygg | 16-18 | "28 stk. vinduer fra Turbinveien 15" |
 | Sanitary (116 stk) | 5.2 Sanitærutstyr | 69 | Full inventory table |
 
-#### Priority 2: KA23 (Kristian Augusts gate 23) - Strong Case ✅ COMPLETE
+#### Priority 2: KA23 (Kristian Augusts gate 23) - Flagship Case ✅ COMPLETE
 Norway's first circular building with heritage protection status.
 
 **Achieved:**
-- ✅ CO2 metrics (85% materials, 66% total)
-- ✅ Stakeholder mapping (Höegh, Seltor, Arcasa, Dentsu)
-- ✅ Retained materials inventory (12 categories)
-- ✅ Timeline and budget data
-- ✅ Lessons learned documented
-- ⚠️ **No erfaringsrapport identified** - contact Höegh Eiendom
+- ✅ **Full erfaringsrapport (19 pages + 15 attachments)**
+- ✅ Detailed material inventory with kg weights (22 materials)
+- ✅ CO2 metrics verified against One Click LCA calculations
+- ✅ Ombruk results: 83% internal reuse by weight
+- ✅ Ombrukbarhet: 53% (target was 20%)
+- ✅ External material flows documented (Østfoldgress, Bruktrom, KA13)
+- ✅ Process documentation with 4 phases
+- ✅ Lessons learned with specific recommendations
+- ✅ **Self-hosted PDF** for reliable citation links
 
-**Key Data:**
+**Verified Key Metrics (from erfaringsrapport):**
+| Metric | Value | Page | Source |
+|--------|-------|------|--------|
+| Total CO2 reduction | 55% | 13 | Klimagassregnskap vs nybygg |
+| Materials CO2 reduction | 83% | 14 | Klimagassregnskap |
+| vs Rehab reference | 64% | 15 | Multiconsult |
+| Internal reuse | 83% (10,519 t) | 16 | Resultat fra andel ombruk |
+| Ombrukbarhet | 53% | 17 | Resultat fra andel ombrukbarhet |
+| Total weight | 12,673 tonnes | 16 | IFC-modell + avfallsrapport |
+| Area | 8,730 m² | 2 | Om prosjektet |
+| Contract value | 187-220 MNOK | - | Seltor |
+
+#### Priority 3: Nedre Sem Låve - Strong Case ✅ COMPLETE
+Circular new build using historical barn as material bank.
+
+**Achieved:**
+- ✅ **Full sirkularitetsrapport (19 pages)** from Veidekke
+- ✅ 48% sirkularitetsindeks (target 50%)
+- ✅ 100% recycled concrete aggregate - possibly world first
+- ✅ Mass timber structure designed for disassembly
+- ✅ SINTEF-tested brick for reuse
+- ✅ Detailed timber inventory with kg weights
+- ✅ Klimagassrapport + Betongrapport
+- ✅ **3 Self-hosted PDFs**
+
+**Key Metrics:**
 | Metric | Value | Source |
 |--------|-------|--------|
-| CO2 reduction (materials) | 85% | Sweco |
-| CO2 reduction (total) | 66% | Dentsu |
-| Area | 8,730 m² | Seltor |
-| Contract value | 187-220 MNOK | Seltor |
-| Completion | November 2021 | Multiple |
+| SI-index | 48% | Sirkularitetsrapport p.7 |
+| Total weight | 1,746 tonnes | Vektregnskap |
+| Reused | 848t (48.6%) | Vektregnskap |
+| Reusable | 486t (27.8%) | Vektregnskap |
+| Timber from barn | 57t | Materialinventar |
 
-#### Priority 3-5: Pending Deep Cases
-**Needs erfaringsrapport search:**
-- Prosjekt Føniks (Bergen) - 89% sirkularitet, ferdig 2026
-- Løren aktivitetspark - skipsstål, ferdig 2025
-- Nedre Sem låve - 470t ombruk, ferdig 2024
-- Oksenøya Senter / Treklang
+#### Priority 4: Løren aktivitetspark - Tier 2 ✅ COMPLETE
+Pilot project for reuse of concrete facade elements.
+
+**Achieved:**
+- ✅ **Klimasats Sluttrapport + Delrapport**
+- ✅ 4,620 kg CO2-eq saved
+- ✅ Process for cross-project material transfer documented
+- ✅ Cost breakdown: 974,700 NOK total
+- ✅ **2 Self-hosted PDFs**
+
+**Key Metrics:**
+| Material | Quantity | CO2 saved |
+|----------|----------|-----------|
+| Teglkledning | 40 m² | 1,940 kg |
+| Granitt | 27 m² | 1,047 kg |
+| Tråkkheller | 53 m² | 1,635 kg |
+
+#### Priority 5: Prosjekt Føniks - Tier 2 ✅ COMPLETE
+Bergen's most ambitious circular project targeting ~100% reuse.
+
+**Achieved:**
+- ✅ **Full presentation (17 pages)** from Frydenbø Eiendom
+- ✅ 89% sirkularitetsindeks
+- ✅ Circular procurement workflow documented
+- ✅ Risk management framework
+- ✅ 2,600 items registered in Loopfront
+- ✅ Team of 20+ organizations mapped
+- ✅ **Self-hosted PDF**
+
+**Key Features:**
+- Walkway reused from TV2 building
+- Elevator shaft from cut concrete floor raised vertically
+- "Ring en venn / Ny løsning / Vente / Kjøpe nytt" risk framework
+
+#### Remaining Deep Cases
+- Oksenøya Senter / Treklang - needs report
+- Skur 38 - FutureBuilt report analyzed, case study pending
 
 ---
 
@@ -136,16 +195,32 @@ Norway's first circular building with heritage protection status.
 
 | Tier | Criteria | Current Count |
 |------|----------|---------------|
-| **Flagship** | Full material inventory, costs, verified citations, erfaringsrapport | 1 (KA13) |
-| **Strong** | CO2 metrics, stakeholders, materials inventory, multiple sources | 1 (KA23) |
-| **Tier 2** | Basic metrics, some sources, needs report | 4 (Føniks, Løren, Nedre Sem, Skur 38) |
+| **Flagship** | Full material inventory, costs, verified citations, erfaringsrapport | 2 (KA13, KA23) |
+| **Strong** | Detailed report with SI-index, material inventory, process docs | 1 (Nedre Sem) |
+| **Tier 2** | Official reports, CO2 data, process documentation | 2 (Løren, Føniks) |
 | **Moderate** | Basic info, partial verification | Remaining |
 
 ### Case Study Files
 ```
 data/case-studies/
-├── ka13_flagship.json    # Flagship - 116-page report verified
-└── ka23_strong.json      # Strong - multiple sources, no report
+├── ka13_flagship.json      # Flagship - 116-page report verified
+├── ka23_flagship.json      # Flagship - 19-page report + 15 attachments
+├── nedre_sem_strong.json   # Strong - 3 reports (sirkularitet + klimagass + betong)
+├── loren_tier2.json        # Tier 2 - Klimasats slutt + delrapport
+└── foniks_tier2.json       # Tier 2 - 17-page presentation
+```
+
+### Hosted PDFs (site/public/docs/)
+```
+ka13-erfaringsrapport-ombruk-rev1-250120-kl-1211.pdf  (15MB)
+ka23-erfaringsrapport-rev4.pdf                        (1.4MB)
+nedre-sem-sirkularitet-2023.pdf                       (1.0MB)
+nedre-sem-klimagass-2024.pdf                          (1.6MB)
+nedre-sem-betong-2024.pdf                             (2.9MB)
+loren-klimasats-sluttrapport-2025.pdf                 (121KB)
+loren-klimasats-delrapport-2023.pdf                   (86KB)
+foniks-presentasjon-2025.pdf                          (9.5MB)
+skur38-futurebuilt-ombruk-2022.pdf                    (2.7MB)
 ```
 
 ---
@@ -233,9 +308,11 @@ site/public/
 | **Phase 1** | KA13 flagship case study | ✅ Complete |
 | **Phase 1b** | Citation verification & PDF hosting | ✅ Complete |
 | **Phase 1c** | Cost & CO2 visualization | ✅ Complete |
-| **Phase 2a** | KA23 Strong case study | ✅ Complete |
-| **Phase 2b** | Report search for Tier 2 projects | 🔄 In Progress |
-| **Phase 2c** | Additional deep cases (pending reports) | Next |
+| **Phase 2a** | KA23 Flagship case study | ✅ Complete |
+| **Phase 2b** | Report analysis for Tier 2 projects | ✅ Complete |
+| **Phase 2c** | Nedre Sem Strong case study | ✅ Complete |
+| **Phase 2d** | Løren + Føniks Tier 2 case studies | ✅ Complete |
+| **Phase 2e** | PDF hosting (9 documents) | ✅ Complete |
 | **Phase 3** | Enablers/value chain page | Planned |
 | **Phase 4** | Material flow visualization | Planned |
 | **Phase 5** | Nordic expansion (Sweden) | Future |
@@ -243,4 +320,4 @@ site/public/
 ---
 
 *Document created: 2024-12-03*
-*Last updated: 2025-12-03*
+*Last updated: 2025-12-04*

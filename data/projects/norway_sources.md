@@ -93,26 +93,102 @@
 
 ---
 
-### 4. Nedre Sem låve
+### 4. Nedre Sem låve ✅ STRONG CASE STUDY
 
-**Primary Sources:**
+**Primary Sources (3 PDFs) - Hosted locally:**
+- **Sirkularitetsrapport:** `/nordic-circular-buildings/docs/nedre-sem-sirkularitet-2023.pdf`
+- **Klimagassrapport:** `/nordic-circular-buildings/docs/nedre-sem-klimagass-2024.pdf`
+- **Betongrapport:** `/nordic-circular-buildings/docs/nedre-sem-betong-2024.pdf`
+
+**Case Study File:** `data/case-studies/nedre_sem_strong.json`
+
+**Key Metrics (from Sirkularitetsrapport):**
+| Metric | Value | Source |
+|--------|-------|--------|
+| SI-index | 48% | Side 7 |
+| Total weight | 1,746 tonnes | Vektregnskap |
+| Reused | 848t (48.6%) | Vektregnskap |
+| Reusable | 486t (27.8%) | Vektregnskap |
+| Timber from barn | 57t | Side 2-4 |
+
+**Timber Inventory (from demolished barn):**
+| Element | m³ | kg |
+|---------|-----|-----|
+| Takstoler | 28.8 | 13,680 |
+| Takbord/taktro | 14 | 6,650 |
+| Bjelker (all floors) | 28.1 | 13,340 |
+| Søyler | 4.3 | 2,059 |
+| Gulvbord (all floors) | 34.2 | 16,221 |
+| Kledning | 11.3 | 5,344 |
+
+**Key Innovations:**
+- 100% resirkulert betong-tilslag (possibly world first)
+- Mass timber structure designed for disassembly
+- SINTEF-tested brick for reuse
+- Collaboration with Treteknisk institutt
+- Material to TradLab TRE (Norsk Folkemuseum)
+
+**Additional Sources:**
 1. Arkitektur. "Nedre Sem låve". https://www.arkitektur.no/prosjekter/naering/nedre-sem-laave/
 2. Husbanken. "Nedre Sem gård: Frå falleferdig låve til omsorgsbustader". https://www.husbanken.no/eksempler/asker-nedre-sem-gaard/
 3. FutureBuilt. "Låve blir sirkulært FutureBuilt-prosjekt". https://www.futurebuilt.no/Nyheter?page=11#!/Nyheter/Laave-blir-sirkulaert-FutureBuilt-prosjekt
-4. FutureBuilt. "Kvalitetsprogram for Låven på Nedre Sem gård". https://www.futurebuilt.no/content/download/40938/221698
-5. Anskaffelser.no. "Asker viser at sirkulære bygg ikke behøver å koste mer". https://www.anskaffelser.no/verktoy/eksempelbanken/asker-viser-sirkulaere-bygg-ikke-behover-koste-mer
-6. Nordic Door. "Restdører til gjenbruksbygg". https://www.nordicdoor.no/restdorer-til-gjenbruksbygg-og-futurebuilt-prosjektet-nedre-sem-lave/
-7. Veidekke. "Bygger sirkulært og bærekraftig i Asker". https://www.veidekke.no/aktuelt/pressemeldinger/veidekke-bygger-sirkulart-og-barekraftig-i-asker/
+4. Anskaffelser.no. "Asker viser at sirkulære bygg ikke behøver å koste mer". https://www.anskaffelser.no/verktoy/eksempelbanken/asker-viser-sirkulaere-bygg-ikke-behover-koste-mer
+5. Veidekke. "Bygger sirkulært og bærekraftig i Asker". https://www.veidekke.no/aktuelt/pressemeldinger/veidekke-bygger-sirkulart-og-barekraftig-i-asker/
+
+**Stakeholder URLs:**
+- Client: Asker kommune
+- Contractor: Veidekke Entreprenør (Kristoffer Gjestemoen, Tor Flesseberg)
+- Architect: Holar Arkitekter - https://holar.no/prosjekt/nedre-sem-lave/
+- Testing: SINTEF (brick), Treteknisk institutt (timber)
+- Program: FutureBuilt
 
 ---
 
-### 5. Løren aktivitetspark
+### 5. Løren aktivitetspark ✅ TIER 2 CASE STUDY
 
-**Primary Sources:**
-- Oslo Kommune / Oslobygg KF project documentation
-- Klimaoslo.no case study
-- Nordic Circles methodology documentation
-- Sirkulær Ressurssentral material flow records
+**Primary Sources (2 PDFs) - Hosted locally:**
+- **Klimasats Sluttrapport:** `/nordic-circular-buildings/docs/loren-klimasats-sluttrapport-2025.pdf`
+- **Klimasats Delrapport:** `/nordic-circular-buildings/docs/loren-klimasats-delrapport-2023.pdf`
+
+**Case Study File:** `data/case-studies/loren_tier2.json`
+
+**Key Metrics (from Sluttrapport):**
+| Metric | Value | Source |
+|--------|-------|--------|
+| Total CO2 saved | 4,620 kg CO2-eq | Side 2 |
+| Total reuse cost | 974,700 NOK | Kostnadsoppsett |
+| Internal hours | 100 timer | Side 3 |
+
+**Material Inventory:**
+| Material | Quantity | CO2 saved | EPD Source |
+|----------|----------|-----------|------------|
+| Teglkledning (fasade) | 40 m² | 1,940 kg | Generisk Reduzer |
+| Granitt | 27 m² | 1,047 kg | NEPD-6197-5461 |
+| Tråkkheller (skifer) | 53 m² | 1,634 kg | NEPD-1673-671 |
+
+**Cost Breakdown:**
+| Post | NOK |
+|------|-----|
+| Rivning, demontering, utskjæring | 445,694 |
+| Testing og sertifisering | 151,156 |
+| Intern timebruk | 60,000 |
+| Grovbearbeidelse av betong | 317,850 |
+
+**Process Innovation:**
+- Betongfasadeelementer fra Stig skole → Løren flerbrukshall
+- Mellomlager hos Ombygg på Økern
+- Produktdokument delt med Standard Norge
+- Ombruksløsning som hovedløsning med opsjonspris for nytt
+
+**Additional Sources:**
+1. Klimaoslo. "Løren aktivitetspark". https://www.klimaoslo.no
+
+**Stakeholder URLs:**
+- Client: Oslobygg KF (Qing Tollefsen)
+- Contractor: Håndverk kompaniet (totalentreprenør)
+- Testing: Resirqel
+- Storage: Ombygg (Økern)
+- Source building: Stig skole
 
 ---
 
@@ -163,46 +239,113 @@
 
 ---
 
-### 19. Kristian Augusts gate 23 (KA23) ✅ STRONG CASE STUDY
+### 19. Kristian Augusts gate 23 (KA23) ✅ FLAGSHIP - VERIFIED
 
-**Case Study File:** `data/case-studies/ka23_strong.json`
+**Primary Source (19-page PDF + 15 attachments) - Hosted locally:**
+- **Local URL:** `/nordic-circular-buildings/docs/ka23-erfaringsrapport-rev4.pdf`
+- **Original:** Erfaringsrapport fra KA 23 (Höegh Eiendom/FutureBuilt, rev 4)
 
-**Key Metrics (2025-12-03):**
-| Metric | Value | Source |
-|--------|-------|--------|
-| CO2 reduction (materials) | 85% | Sweco |
-| CO2 reduction (total) | 66% | Dentsu |
-| Area | 8,730 m² | Seltor |
-| Contract value | 187-220 MNOK | Seltor |
-| Completion | November 2021 | Multiple |
-| Heritage status | First circular building with protection | Höegh |
+**Case Study File:** `data/case-studies/ka23_flagship.json`
 
-**Primary Sources:**
+**Verified Page-Level Citations (2025-12-03):**
+| Metric | Page | Value | Quote |
+|--------|------|-------|-------|
+| Internal reuse | 16 | 83% (10,519 t) | "Resultatet viser at 83 % av bygget ble bevart og ombrukt" |
+| Total CO2 reduction | 13 | 55% | "utslippsreduksjonen på ca. 55 % «som bygget»" |
+| Materials CO2 reduction | 14 | 83% | "83 % «som bygget» sammenlignet med referanseberegningen" |
+| vs Rehab reference | 15 | 64% | "redusert klimagassutslipp fra materialer med 64 %" |
+| Ombrukbarhet | 17 | 53% | "Andel ombrukbare materialer ble 53 % basert på vekt" |
+| Total weight | 16 | 12,673 t | "Totalvekt: 12 673 tonn" |
+
+**Material Inventory (from page 16):**
+| Material | Intern ombruk (kg) | Eksternt gitt (kg) | Eksternt hentet (kg) | Nye (kg) |
+|----------|-------------------|-------------------|---------------------|----------|
+| Betong | 9,540,778 | - | - | 57,600 |
+| Siporex | 812,942 | - | - | - |
+| Solvågstein | 144,252 | - | - | - |
+| Stål | 8,560 | - | - | 14,310 |
+| Tegl | - | 324,340 (Østfoldgress) | - | - |
+| Flis | - | - | 3,000 (KA13) | 32,100 |
+| Kjøkken | - | 3,890 (Bruktrom) | - | 5,000 |
+
+**Additional Sources:**
 1. Höegh Eiendom. "Vår ombruksreise til et fullskala sirkulært bygg med vernestatus". https://hoegheiendom.no/tema/var-ombruksreise-til-et-fullskala-sirkulaert-bygg-med-vernestatus
 2. Sweco. "KA23 – Norges første sirkulære bygg med vernestatus". https://www.sweco.no/aktuelt/nyheter/ka23-norges-forste-sirkulaere-bygg-med-vernestatus/
 3. Dentsu. "Prosessen gjennom forbildeprosjektet Kristian Augusts gate 23". https://www.dentsu.com/no/no/prosessen-gjennom-forbildeprosjektet-kristian-augusts-gate-23
 4. Seltor. "Kristian Augustsgate 23 Oslo". https://seltor.no/en/prosjekter/kristian-augustsgate-23-oslo/
 5. FutureBuilt. "Kristian Augusts gate 23". https://www.futurebuilt.no/Forbildeprosjekter#!/Forbildeprosjekter/Kristian-Augusts-gate-23
-6. Byggmesteren. "Gjenbruker halvparten av materialer og bygningsdeler". January 2020. https://byggmesteren.as/2020/01/22/gjenbruker-halvparten-av-materialer-og-bygningsdeler/
 
 **Stakeholder URLs:**
 - Client: Höegh Eiendom AS - https://hoegheiendom.no
 - Architect (rehab): Arcasa Arkitekter
-- Interior: DI (Design & Interiør)
+- Miljørådgiver: Multiconsult
 - Contractor: Seltor AS - https://seltor.no
 - Program: FutureBuilt - https://www.futurebuilt.no
+- Digital platform: Loopfront
 
-**⚠️ Missing: Erfaringsrapport** - No comprehensive report identified. Contact Jennifer Lamson at Höegh Eiendom for potential internal documentation.
+**Report Attachments (15 vedlegg):**
+1. Miljøoppfølgingsplan, 2-3. Ombrukskartlegging fase 1+2, 4. Referat ombruksmøter,
+5-6. Ekstern ombruk dokumentasjon, 7. Arbeidsdokument alle fag, 8-9. Materialnotat,
+10-11. Klimagassregnskap (nybygg + rehab), 12-13. Ombruk/ombrukbarhet resultat,
+14-15. Refleksjoner fra ENT og RIM
 
 ---
 
-### 20. Prosjekt Føniks
+### 20. Prosjekt Føniks ✅ TIER 2 CASE STUDY
 
-**Primary Sources:**
+**Primary Source (17-page PDF) - Hosted locally:**
+- **Presentasjon:** `/nordic-circular-buildings/docs/foniks-presentasjon-2025.pdf`
+
+**Case Study File:** `data/case-studies/foniks_tier2.json`
+
+**Key Metrics:**
+| Metric | Value | Source |
+|--------|-------|--------|
+| SI-index | 89% | FutureBuilt Bergen |
+| Target reuse | ~100% | Prosjektmål |
+| Total area | 2,196 m² | Presentasjon |
+| Loopfront items | 2,600 | Byggfakta |
+
+**Confirmed Material Reuse:**
+| Material | Source | Status |
+|----------|--------|--------|
+| Gangbro | TV2-bygget (OBOS) | Montert |
+| Heissjakt | Eget bygg (utskåret betonggulv) | Innovativ løsning |
+| Ventilasjonskanaler | TV2-bygget | Demontert |
+| Vinduer (40 stk) | Oslo + Stavanger Universitetssykehus | Prosjektert |
+| Toaletter (15 stk) | Bergen tinghus + Mårdalen + Skjold | Prosjektert |
+| Heis | Thessaloniki testtårn | Prosjektert |
+| LED-belysning | Bilforhandler | Prosjektert |
+| Teppefliser | TV2-bygget | Prosjektert |
+
+**Circular Procurement Workflow:**
+1. Skisse → 2. 3D-mengder → 3. Liste → 4. Demontering → 5. Registrering (Loopfront) → 6. Detaljprosjekt
+
+**Risk Framework ("Ring en venn"):**
+1. Hente mer fra egne donorbygg (Loopfront)
+2. Kjøp fra ombygg.no
+3. Undersøk samarbeidspartner: LAB / OBOS
+4. Ny løsning
+5. NØDLØSNING: Vente (medfører RISIKO!)
+6. NØDLØSNING: Kjøpe nytt?
+
+**Team (20+ organisasjoner):**
+- Certification: FutureBuilt, Svanemerket, SINTEF, Enova
+- Consultants: Skala rådgivende ingeniører, WSP/Axer, Voss Elconsult
+- Reuse partners: OBOS, Ombygg, Statsbygg, Forsvarsbygg, Norsk Riving, BIR
+
+**Additional Sources:**
 1. DNB Nyheter. "Føniks-prosjektet: En verdensrekord i ombruk?". https://www.dnb.no/dnbnyheter/no/samfunn/frydenbo-foniks
 2. Bergen Kommune. "Betonggulv blir ny heis i forbildeprosjektet Føniks". https://www.bergen.kommune.no/hvaskjer/tema/futurebuilt-i-bergen/hva-skjer/betonggulv-blir-ny-heis-i-forbildeprosjektet-foniks
 3. Fremtidens Byggenæring. "Prosjekt Føniks: – Alt bør renoveres". https://www.fremtidensbygg.no/prosjekt-foniks-alt-bor-renoveres/
 4. Byggfakta Nyheter. "«Føniks» - et foregangsprosjekt innen ombruk". https://byggfaktanyheter.no/foniks-et-foregangsprosjekt-innen-ombruk/
+5. FutureBuilt Bergen. "Føniks". https://www.bergen.kommune.no/hvaskjer/tema/futurebuilt-i-bergen/forbildeprosjekter-i-bergen/foniks
+
+**Stakeholder URLs:**
+- Client: Frydenbø Eiendom AS - https://frydenbo-eiendom.no
+- Architect: Artec AS - https://artec.no
+- Program: FutureBuilt Bergen
+- Digital platform: Loopfront
 
 ---
 
@@ -243,4 +386,4 @@
 
 ---
 
-*Last Updated: 2024-11-29*
+*Last Updated: 2025-12-04*

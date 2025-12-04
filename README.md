@@ -22,13 +22,14 @@ This database catalogs circular building projects across the Nordic region (Norw
 - **Reuse rates**: 50-97% by weight
 - **CO2 reductions**: 70-97% vs conventional construction
 - **Key programs**: FutureBuilt, BREEAM-NOR, EU CCRI
-- **1 Flagship case study** with full material documentation and verified citations (KA13)
+- **2 Flagship case studies** with full material documentation and verified citations (KA13, KA23)
 
 ### Notable Projects
 
 | Project | Year | Key Achievement |
 |---------|------|-----------------|
 | KA13 | 2021 | 80% reuse, 45t steel (97% CO2), 96t hulldekker (89% CO2) - FLAGSHIP |
+| KA23 | 2021 | 83% internal reuse, 55% total CO2 reduction, first protected building - FLAGSHIP |
 | Grensen 9B | 2025 | 97.3% reuse, metro rails as staircase |
 | Føniks | 2026 | 89% circularity index, near-100% target |
 | Løren | 2025 | World's first ship steel structure |
@@ -112,6 +113,7 @@ Deep-dive documentation with full material traceability:
 | Project | Data Source | Key Metrics | Citation Status |
 |---------|-------------|-------------|-----------------|
 | KA13 | 116-page Erfaringsrapport (hosted locally) | Steel: 45t (97% CO2), Hulldekker: 96t (89% CO2), 116 sanitary items | ✅ All verified |
+| KA23 | 19-page Erfaringsrapport + 15 vedlegg (hosted locally) | 83% internal reuse (10,519t), 55% total CO2 reduction, 53% ombrukbarhet | ✅ All verified |
 
 See `data/case-studies/` and `docs/ROADMAP.md` for methodology.
 

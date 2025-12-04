@@ -1,0 +1,226 @@
+{
+  "case_study_id": "FONIKS_TIER2",
+  "project_id": "NO_foniks",
+  "name": "Prosjekt Føniks",
+  "subtitle": "Tilnærmet 100% ombruk - Bergens mest ambisiøse sirkulære prosjekt",
+  "case_study_version": "1.0",
+  "case_study_tier": "TIER2",
+  "last_updated": "2025-12-03",
+  "data_source": "Frydenbø Eiendom presentasjon (juni 2025) + web sources",
+  "data_quality_note": "Project presentation with workflow documentation and team overview. Detailed material quantities pending completion.",
+
+  "executive_summary": {
+    "project_type": "Rehabilitering til kontorlokaler med tilnærmet 100% ombruk",
+    "completion_year": 2026,
+    "total_area_m2": 2196,
+    "address": "Damsgårdsveien 127, Bergen",
+    "key_achievements": [
+      "Mål: Tilnærmet 100% ombruk",
+      "89% sirkularitetsindeks (fra FutureBuilt)",
+      "Innovativ heissjakt fra utskåret betonggulv",
+      "Gangbro ombrukt fra TV2-bygget",
+      "Omfattende nettverk av samarbeidspartnere",
+      "Digital materialregistrering med Loopfront"
+    ],
+    "ambitions": [
+      "Tilnærmet 100% ombruk",
+      "Samarbeid med Enova, FutureBuilt, SINTEF",
+      "Kunnskapsutvikling og deling",
+      "Ikke på bekostning av kvalitet"
+    ]
+  },
+
+  "circularity_metrics": {
+    "si_index": {
+      "value": 89,
+      "unit": "percent",
+      "target": 100,
+      "source": "FutureBuilt Bergen"
+    }
+  },
+
+  "material_sourcing_workflow": {
+    "description": "Ny metode for materialanskaffelse vs tradisjonell",
+    "traditional": "Leverandør → Byggeplass → Drift/vedlikehold → Riving",
+    "new_circular": {
+      "sources": ["Internt (eget bygg)", "Eksternt (andre bygg)", "Samarbeidspartner", "Materialbank", "Leverandør (siste utvei)"],
+      "process": "Registrering → Lager/Bygg → Byggeplass → Drift → Demontering → tilbake til start"
+    },
+    "detailed_workflow": [
+      {"step": 1, "name": "Skisse", "description": "Identifiser behov"},
+      {"step": 2, "name": "3D-mengder", "description": "Beregn mengder fra BIM"},
+      {"step": 3, "name": "Liste", "description": "Materialliste med spesifikasjoner"},
+      {"step": 4, "name": "Demontering", "description": "Skånsom demontering fra donorbygg"},
+      {"step": 5, "name": "Registrering", "description": "Loopfront QR-merking og database"},
+      {"step": 6, "name": "Detaljprosjekt", "description": "Tilpasning til nytt bruk"}
+    ]
+  },
+
+  "risk_management": {
+    "decision_tree": "Har vi alt material? → Ja → Prosjektering → Godkjent av RIM? → Starte montering",
+    "alternatives_if_no": [
+      {"priority": 1, "action": "Hente mer fra egne donorbygg (Loopfront)"},
+      {"priority": 2, "action": "Kjøp fra ombygg.no"},
+      {"priority": 3, "action": "Undersøk samarbeidspartner: LAB / OBOS"},
+      {"priority": 4, "action": "Ny løsning"},
+      {"priority": 5, "action": "NØDLØSNING: Vente (medfører RISIKO!)"},
+      {"priority": 6, "action": "NØDLØSNING: Kjøpe nytt?"}
+    ],
+    "motto": "Ring en venn / Ny løsning / Vente / Kjøpe nytt"
+  },
+
+  "material_inventory": {
+    "confirmed_reuse": [
+      {
+        "material": "Gangbro",
+        "source": "TV2-bygget (via OBOS)",
+        "status": "Montert",
+        "images": "Presentasjon side 10"
+      },
+      {
+        "material": "Heissjakt",
+        "source": "Eget bygg - utskåret betonggulv reist vertikalt",
+        "status": "Innovativ løsning",
+        "images": "Presentasjon side 16"
+      },
+      {
+        "material": "Ventilasjonskanaler",
+        "source": "TV2-bygget",
+        "status": "Demontert og registrert"
+      },
+      {
+        "material": "Fasadekledning",
+        "type": "Cortenstål-lignende utseende",
+        "status": "Prosjektert"
+      }
+    ],
+    "from_web_sources": [
+      {"material": "Vinduer", "quantity": 40, "source": "Oslo + Stavanger Universitetssjukehus"},
+      {"material": "Toaletter", "quantity": 15, "source": "Bergen tinghus + Mårdalen borettslag + Skjold"},
+      {"material": "Heis", "source": "Thessaloniki, Hellas (testtårn)"},
+      {"material": "LED-belysning", "source": "Bilforhandler"},
+      {"material": "Teppefliser", "source": "TV2-bygget"},
+      {"material": "Fasadeplater", "source": "TV2-bygget"}
+    ],
+    "loopfront_registered": {
+      "total_items": 2600,
+      "source": "Byggfakta nyheter"
+    }
+  },
+
+  "building_design": {
+    "floors": 4,
+    "features": [
+      "Nytt atrium",
+      "Ny inngang første etasjen",
+      "Ny gangbro og ute-areal ved etasje 4"
+    ],
+    "transformation": "Fra industribygg til moderne kontorer"
+  },
+
+  "stakeholders": {
+    "client": {
+      "name": "Frydenbø Eiendom AS",
+      "history": "Etablert 1916 som Frydenbø Slip & mek. Verksted",
+      "website": "frydenbo-eiendom.no"
+    },
+    "architect": {
+      "name": "Artec AS",
+      "note": "Deleid av Frydenbø"
+    },
+    "team_categories": {
+      "certification_programs": ["FutureBuilt", "Svanemerket", "SINTEF", "Enova"],
+      "digital_platforms": ["Loopfront"],
+      "consultants": ["Skala rådgivende ingeniører", "WSP/Axer", "Voss Elconsult", "Tevas", "A4"],
+      "material_suppliers": [
+        "Alt Heis AS (Tomas Knutsen)",
+        "Fløysand",
+        "Bolseth Glass",
+        "BOV",
+        "Niro"
+      ],
+      "reuse_partners": [
+        "OBOS",
+        "Ombygg",
+        "Statsbygg",
+        "Forsvarsbygg",
+        "Norsk Riving AS",
+        "BIR",
+        "Recover",
+        "LAB",
+        "HENT",
+        "Modena"
+      ],
+      "contractors": ["Unik VVS"]
+    }
+  },
+
+  "project_management": {
+    "material_tracking": {
+      "tool": "Custom spreadsheet linked to Gantt",
+      "columns": [
+        "Oppgave", "Kommentar", "Ansv.Person", "Kontakt", "Enhet",
+        "Vi har", "Vi trenger", "%", "Farge",
+        "Når trenger vi?", "Klargjørings Oppgaver", "Klargjøringstid",
+        "Dato for bruk", "Risiko", "Alternativ", "Kommentar", "KS"
+      ]
+    },
+    "schedule_integration": "Fremdriftsplan koblet til material-liste"
+  },
+
+  "lessons_learned": [
+    {
+      "category": "Prosess",
+      "finding": "Ny arbeidsflyt kreves for sirkulær anskaffelse vs tradisjonell",
+      "detail": "Kilder: Internt → Eksternt → Samarbeidspartner → Materialbank → Leverandør"
+    },
+    {
+      "category": "Risiko",
+      "finding": "Strukturert alternativ-vurdering nødvendig",
+      "detail": "6-trinns prioritering fra 'hente mer fra donorbygg' til 'kjøpe nytt'"
+    },
+    {
+      "category": "Samarbeid",
+      "finding": "Bredt nettverk av partnere er kritisk",
+      "detail": "20+ organisasjoner involvert i ulike roller"
+    },
+    {
+      "category": "Digitalisering",
+      "finding": "Digital registrering med Loopfront muliggjør sporing",
+      "detail": "2600 elementer registrert med QR-koder"
+    }
+  ],
+
+  "sources": [
+    {
+      "type": "presentation",
+      "title": "Frydenbø Føniks Presentasjon",
+      "author": "Frydenbø Eiendom",
+      "date": "2025-06",
+      "pages": 17,
+      "local_pdf": "/nordic-circular-buildings/docs/foniks-presentasjon-2025.pdf"
+    },
+    {
+      "type": "web",
+      "title": "DNB Nyheter - Føniks",
+      "url": "https://www.dnb.no/dnbnyheter/no/samfunn/frydenbo-foniks"
+    },
+    {
+      "type": "web",
+      "title": "FutureBuilt Bergen - Føniks",
+      "url": "https://www.bergen.kommune.no/hvaskjer/tema/futurebuilt-i-bergen/forbildeprosjekter-i-bergen/foniks"
+    },
+    {
+      "type": "web",
+      "title": "Byggfakta - Føniks",
+      "url": "https://byggfaktanyheter.no/foniks-et-foregangsprosjekt-innen-ombruk/"
+    }
+  ],
+
+  "data_gaps": [
+    "Detaljert materialinventar med vekt/mengder mangler",
+    "CO2-beregninger per material ikke tilgjengelig",
+    "Kostnadsdata ikke offentliggjort",
+    "Prosjektet ikke ferdigstilt - data vil oppdateres"
+  ]
+}
