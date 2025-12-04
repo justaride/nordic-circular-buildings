@@ -1,18 +1,27 @@
 # Nordic Circular Buildings - Project Roadmap
 
-## Current Phase: Value Chain Documentation
+## Current Phase: Additional Case Studies & Visualization
 
-### Phase 2 Complete: Case Study Development ✅
+### Phase 3 Complete: Value Chain Documentation ✅
 
-All 6 case studies fully documented with comprehensive data extraction.
+Created comprehensive enablers database with 9 categories and 30+ enablers.
+See `/enablers` page on the live site.
 
 ---
 
-## Active Phase: Enablers & Value Chain
+## Active Phase: Expand Case Studies
 
-**Objective**: Document the ecosystem that makes circular construction possible - material banks, digital platforms, testing bodies, and program frameworks.
+**Objective**: Add 4 more deep-dive case studies to reach 40% coverage (10/25 projects).
 
-### Progress
+### Priority Targets
+| Project | Circularity | Status | Document Needed |
+|---------|-------------|--------|-----------------|
+| Grensen 9B | 97.3% | ⏳ Need report | Erfaringsrapport from DOGA |
+| Treklang/Oksenøya | TBD | ⏳ Need report | FutureBuilt rapport from Bærum |
+| Nøstebukten | 70% | ⏳ Need report | Ombruksrapport from developer |
+| Høyblokken | TBD | ⏳ Need report | Statsbygg dokumentasjon |
+
+### Completed Enablers (Phase 3)
 - [x] Material Banking Infrastructure (Sirkulær Ressurssentral, Resirqel, Ombygg)
 - [x] Digital Platforms (Loopfront, BIM integration)
 - [x] Testing & Certification (SINTEF, Treteknisk, DNV)
@@ -24,7 +33,7 @@ All 6 case studies fully documented with comprehensive data extraction.
 - [x] Material Flows between documented projects
 - [x] Emerging Roles (from Swedish research)
 
-**Data file created:** `data/enablers/norway.json` (9 categories, 30+ enablers)
+**Data file:** `data/enablers/norway.json` (9 categories, 30+ enablers)
 
 ---
 
@@ -189,53 +198,53 @@ Oslo Havn's headquarters - comprehensive FutureBuilt circular report.
 
 ## Planned Features
 
-### A. Value Chain / Enablers Page (Priority: High)
+### A. Value Chain / Enablers Page ✅ COMPLETE
 
-**Purpose**: Document the ecosystem that makes circular construction possible.
+Implemented at `/enablers` with 9 categories and 30+ enablers documented.
 
-**Content structure:**
-```
-/enablers or /value-chain
-
-1. Material Banking Infrastructure
-   - Sirkulær Ressurssentral (Oslo)
-   - Resirqel / Ombygg (Oslo)
-   - Role, capacity, pricing model
-
-2. Digital Platforms
-   - Loopfront (material marketplace)
-   - BIM integration approaches
-
-3. Testing & Certification Bodies
-   - SINTEF (structural testing)
-   - DNV (offshore steel certification)
-   - Nordic Circles methodology
-
-4. Program Frameworks
-   - FutureBuilt criteria
-   - BREEAM-NOR circular credits
-   - EU CCRI pilot
-
-5. Key Consultants & Specialists
-   - Ombrukskartlegging specialists
-   - Reuse-focused architects
-   - Circular procurement advisors
-```
-
-### B. Sankey Material Flow Diagram (Priority: Medium)
+### B. Sankey Material Flow Diagram (Priority: High)
 
 **Visualization showing:**
 - Donor buildings → Material banks → Recipient projects
 - Material types and quantities
 - Geographic flow
 
-### C. Additional Flagship Cases (Priority: High)
+**Data available:** 7 flows already documented in enablers.json:
+- R6 → KA13 (steel)
+- KA13 → KA23 (windows, doors)
+- Turbinveien 15 → KA13 (windows)
+- Nydalshøgda → Løren (facade materials)
+- TV2 building → Føniks (walkway)
+- Multiple → Skur 38 (6 sources)
 
-**Apply KA13 methodology to:**
-- Verify all citations against source documents
-- Host relevant PDFs locally
-- Add cost comparison data
-- Include CO2 savings per material
+**Implementation:** D3.js Sankey on `/materials` or `/flows` page
+
+### C. Additional Case Studies (Priority: High)
+
+**Apply KA13 methodology to 4 more projects:**
+
+| Project | Why Priority | Document Source |
+|---------|--------------|-----------------|
+| Grensen 9B | 97.3% circ (highest!) | DOGA |
+| Treklang | Mass timber reuse | Bærum/FutureBuilt |
+| Nøstebukten | 70% circ | Developer |
+| Høyblokken | Government flagship | Statsbygg |
+
+### D. Site Enhancements (Priority: Medium)
+
+1. **Case study pages** `/case-studies/[id]`
+   - Deep-dive pages for flagship cases
+   - Full material tables with PDF citations
+
+2. **Materials analysis** `/materials`
+   - Breakdown by material type
+   - CO2 savings by category
+   - Sankey flow diagram
+
+3. **Methodology page** `/methodology`
+   - Circularity calculation methods
+   - Data quality tiers
+   - CBC grading explanation
 
 ---
 
@@ -367,8 +376,40 @@ site/public/
 | **Phase 2g** | Swedish research reference | ✅ Complete |
 | **Phase 3a** | Enablers data structure | ✅ Complete |
 | **Phase 3b** | Enablers site page | ✅ Complete |
-| **Phase 4** | Material flow visualization | Planned |
-| **Phase 5** | Nordic expansion (Sweden) | Future |
+| **Phase 4a** | Additional case studies (4 projects) | **Next** |
+| **Phase 4b** | Material flow visualization (Sankey) | Planned |
+| **Phase 5a** | Case study detail pages | Planned |
+| **Phase 5b** | Materials analysis page | Planned |
+| **Phase 6** | Nordic expansion (Sweden, Denmark) | Future |
+
+---
+
+## External Documents Needed
+
+### Priority 1: High-Value Reports
+| Document | Project | Contact | Notes |
+|----------|---------|---------|-------|
+| Erfaringsrapport | Grensen 9B | DOGA | 97% circ - highest in DB |
+| FutureBuilt rapport | Treklang/Oksenøya | Bærum Kommune | Mass timber pilot |
+| Ombruksrapport | Nøstebukten | Developer | 70% documented circ |
+| Prosjektdokumentasjon | Høyblokken | Statsbygg | Government flagship |
+
+### Priority 2: Supporting Documentation
+| Document | Source | Purpose |
+|----------|--------|---------|
+| NS 3682 draft | Standard Norge | First reuse standard |
+| FutureBuilt 2024 årsrapport | FutureBuilt | Program metrics |
+| Loopfront case studies | Loopfront | Platform impact |
+| REBUS final report | SINTEF | Research findings |
+
+### Contact List
+| Organization | Email | For |
+|--------------|-------|-----|
+| FutureBuilt | erfaringsrapporter@futurebuilt.no | Project reports |
+| DOGA | post@doga.no | Grensen 9B |
+| Bærum Kommune | postmottak@baerum.kommune.no | Treklang |
+| Statsbygg | post@statsbygg.no | Høyblokken |
+| Standard Norge | info@standard.no | NS 3682 |
 
 ---
 
