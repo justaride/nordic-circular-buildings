@@ -381,6 +381,22 @@
         "transport_kg_co2_per_m2_year": 0.7,
         "materialbruk_kg_co2_per_m2_year": 8.8,
         "stasjonaer_energibruk_kg_co2_per_m2_year": 24.4
+      },
+      "annual_emissions_kg_co2_year": {
+        "reference_building": {
+          "materials": 37476,
+          "energy": 104960,
+          "transport": 371767,
+          "total": 514203
+        },
+        "as_built": {
+          "materials": 5588,
+          "energy": 76337,
+          "transport": 92574,
+          "total": 174499
+        },
+        "reduction_percent": 66,
+        "source": "FutureBuilt Klimasats Sluttrapport 2022"
       }
     },
     "methodology": {
