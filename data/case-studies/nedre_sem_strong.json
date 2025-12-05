@@ -5,7 +5,7 @@
   "subtitle": "Sirkulært nybygg med historisk låve som materialbank",
   "case_study_version": "3.0",
   "case_study_tier": "TIER_1",
-  "last_updated": "2025-12-04",
+  "last_updated": "2025-12-05",
   "data_source": "Veidekke Sirkularitetsrapport (2023) + Context AS Klimagassrapport (2024) + Veidekke Betongrapport (2023) + Context AS Plastkriterier (2025)",
   "data_quality_note": "Data completeness: 59/100 (Grade C). 24 data points documented, 8 gaps identified.",
   "executive_summary": {
@@ -898,7 +898,7 @@
       "Lessons learned documented",
       "4 challenges documented",
       "Donor sources: 1887 barn on site, 1890 barn (unsuitable for bearing loads), Fish box waste stream",
-      "Donor types: industrial_waste, transfer, demolition"
+      "Donor types: industrial_waste, demolition, transfer"
     ],
     "missing": [
       "Technical consultants documented",
@@ -912,6 +912,6 @@
     ],
     "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
     "synced_from_project": true,
-    "sync_date": "2025-12-04"
+    "sync_date": "2025-12-05"
   }
 }

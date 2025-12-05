@@ -5,7 +5,7 @@
   "subtitle": "Norges mest bærekraftige skoleanlegg med 28-34% klimagassreduksjon",
   "case_study_version": "1.0",
   "case_study_tier": "TIER_1",
-  "last_updated": "2025-12-04",
+  "last_updated": "2025-12-05",
   "data_source": "Klimagassrapporter som prosjektert (Multiconsult/Bærum kommune)",
   "data_quality_note": "Data completeness: 59/100 (Grade C). 25 data points documented, 8 gaps identified.",
   "executive_summary": {
@@ -229,6 +229,6 @@
     ],
     "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document material origin/donor buildings",
     "synced_from_project": true,
-    "sync_date": "2025-12-04"
+    "sync_date": "2025-12-05"
   }
 }

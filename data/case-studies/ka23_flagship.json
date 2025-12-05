@@ -5,7 +5,7 @@
   "subtitle": "Norges første sirkulære bygg med vernestatus",
   "case_study_version": "2.0",
   "case_study_tier": "TIER_2",
-  "last_updated": "2025-12-04",
+  "last_updated": "2025-12-05",
   "data_source": "Erfaringsrapport fra KA 23 (Höegh Eiendom/FutureBuilt, rev 4)",
   "data_quality_note": "Data completeness: 68/100 (Grade B). 25 data points documented, 6 gaps identified.",
   "executive_summary": {
@@ -868,8 +868,8 @@
       "Project driver/motivation documented",
       "Lessons learned documented",
       "5 challenges documented",
-      "Donor sources: Original 1950 building, Original building facade, Demolition projects",
-      "Donor types: preservation, demolition"
+      "Donor sources: Demolition projects, Norwegian demolition projects, Original 1950 building",
+      "Donor types: demolition, preservation"
     ],
     "missing": [
       "CO2 intensity (kg CO2/m²/year)",
@@ -881,6 +881,6 @@
     ],
     "upgrade_path": "To reach Grade A: Document cost savings from reuse",
     "synced_from_project": true,
-    "sync_date": "2025-12-04"
+    "sync_date": "2025-12-05"
   }
 }

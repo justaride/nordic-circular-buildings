@@ -5,7 +5,7 @@
   "name": "Kristian Augusts gate 13 (KA13)",
   "subtitle": "Norges første fullskala ombruksbygg",
   "case_study_version": "2.0",
-  "last_updated": "2025-12-04",
+  "last_updated": "2025-12-05",
   "data_source": "KA13 Erfaringsrapport Ombruk Rev.1 (116 sider, 20.01.2021)",
   "executive_summary": {
     "headline": "80% materialombruk i kontorrehabilitering - Norges gjennombruddsprosjekt for sirkulær bygging",
@@ -1236,7 +1236,7 @@
       "Lessons learned documented",
       "4 challenges documented",
       "Donor sources: Tøyenbadet swimming pool, Regjeringskvartalet R4 building, Skøyen facade renovation",
-      "Donor types: renovation, surplus, demolition"
+      "Donor types: surplus, renovation, demolition"
     ],
     "missing": [
       "Technical consultants documented",
@@ -1247,7 +1247,7 @@
     ],
     "upgrade_path": "To reach Grade A: Document cost savings from reuse; Obtain klimagassregnskap/LCA report",
     "synced_from_project": true,
-    "sync_date": "2025-12-04"
+    "sync_date": "2025-12-05"
   },
   "data_quality_note": "Data completeness: 75/100 (Grade B). 27 data points documented, 5 gaps identified."
 }

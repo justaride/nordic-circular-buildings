@@ -426,7 +426,7 @@
           "Lessons learned documented",
           "4 challenges documented",
           "Donor sources: Tøyenbadet swimming pool, Regjeringskvartalet R4 building, Skøyen facade renovation",
-          "Donor types: renovation, surplus, demolition"
+          "Donor types: surplus, renovation, demolition"
         ],
         "missing": [
           "Technical consultants documented",
@@ -436,7 +436,7 @@
           "Detailed cost breakdown"
         ],
         "upgrade_path": "To reach Grade A: Document cost savings from reuse; Obtain klimagassregnskap/LCA report",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -749,7 +749,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -1027,7 +1027,7 @@
           "Lessons learned documented",
           "4 challenges documented",
           "2 material(s) with donor source",
-          "Donor types: preservation, demolition"
+          "Donor types: demolition, preservation"
         ],
         "missing": [
           "CO2 reduction percentage",
@@ -1039,7 +1039,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -1364,7 +1364,7 @@
           "Lessons learned documented",
           "4 challenges documented",
           "Donor sources: 1887 barn on site, 1890 barn (unsuitable for bearing loads), Fish box waste stream",
-          "Donor types: industrial_waste, transfer, demolition"
+          "Donor types: industrial_waste, demolition, transfer"
         ],
         "missing": [
           "Technical consultants documented",
@@ -1377,7 +1377,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -1699,7 +1699,7 @@
           "Lessons learned documented",
           "4 challenges documented",
           "2 material(s) with donor source",
-          "Donor types: decommissioning, demolition"
+          "Donor types: demolition, decommissioning"
         ],
         "missing": [
           "Technical consultants documented",
@@ -1710,7 +1710,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade A: Document cost savings from reuse; Add material weights (kg/tonnes)",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -2001,7 +2001,7 @@
           "Material donor sources"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document material origin/donor buildings",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -2343,7 +2343,7 @@
           "Detailed cost breakdown"
         ],
         "upgrade_path": "Flagship documentation level achieved. Maintain with updates as project progresses.",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -2515,7 +2515,7 @@
           "Lessons learned documented",
           "3 challenges documented",
           "Donor sources: Nedre Sem låve (1890 barn), Nedre Sem låve, Nordmarka forest + Vikingtidsmuseet construction plot",
-          "Donor types: sustainable_harvest, transfer"
+          "Donor types: transfer, sustainable_harvest"
         ],
         "missing": [
           "Building size (m²)",
@@ -2532,7 +2532,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -2692,7 +2692,7 @@
           "Certifications (BREEAM, FutureBuilt, etc.)"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -2987,7 +2987,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -3348,8 +3348,8 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "4 challenges documented",
-          "Donor sources: Munchmuseet (MUNCH museum), Building's own modifications, Spjelkavik ungdomsskole, Kongsvinger brannstasjon",
-          "Donor types: surplus, demolition, preservation, on-site, decommissioned"
+          "Donor sources: Spjelkavik ungdomsskole, Kongsvinger brannstasjon, Donor building in Tollbugata, Building's own modifications",
+          "Donor types: surplus, decommissioned, demolition, on-site, preservation"
         ],
         "missing": [
           "Technical consultants documented",
@@ -3362,7 +3362,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade A: Document cost savings from reuse; Obtain klimagassregnskap/LCA report",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -3560,7 +3560,7 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "3 challenges documented",
-          "Donor sources: Vika Terrasse, unknown, Nasjonalmuseet",
+          "Donor sources: unknown, Vika Terrasse, Regjeringskvartalet",
           "Donor types: waste_stream, demolition"
         ],
         "missing": [
@@ -3576,7 +3576,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -3845,7 +3845,7 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "4 challenges documented",
-          "Donor sources: unknown, Existing hospital buildings, Existing hospital facilities",
+          "Donor sources: unknown, Existing hospital facilities, Existing hospital buildings",
           "Donor types: preservation"
         ],
         "missing": [
@@ -3862,7 +3862,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -4089,7 +4089,7 @@
           "Material donor sources"
         ],
         "upgrade_path": "To reach Grade B: Document reuse/circularity percentage; Document material origin/donor buildings",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -4285,7 +4285,7 @@
           "Lessons learned documented",
           "3 challenges documented",
           "2 material(s) with donor source",
-          "Donor types: manufacturing_waste, office_relocations"
+          "Donor types: office_relocations, manufacturing_waste"
         ],
         "missing": [
           "Contractor/entreprenør",
@@ -4302,7 +4302,7 @@
           "Certifications (BREEAM, FutureBuilt, etc.)"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -4506,7 +4506,7 @@
           "Lessons learned documented",
           "3 challenges documented",
           "2 material(s) with donor source",
-          "Donor types: municipal_warehouse, demolition"
+          "Donor types: demolition, municipal_warehouse"
         ],
         "missing": [
           "Building size (m²)",
@@ -4525,7 +4525,7 @@
           "Certifications (BREEAM, FutureBuilt, etc.)"
         ],
         "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -4715,7 +4715,7 @@
           "Certifications (BREEAM, FutureBuilt, etc.)"
         ],
         "upgrade_path": "Priority improvements: Document reuse/circularity percentage; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -4918,7 +4918,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -5077,7 +5077,7 @@
           "Material donor sources"
         ],
         "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -5474,8 +5474,8 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "5 challenges documented",
-          "Donor sources: Original 1950 building, Original building facade, Demolition projects",
-          "Donor types: preservation, demolition"
+          "Donor sources: Demolition projects, Norwegian demolition projects, Original 1950 building",
+          "Donor types: demolition, preservation"
         ],
         "missing": [
           "CO2 intensity (kg CO2/m²/year)",
@@ -5486,7 +5486,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade A: Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -5816,8 +5816,8 @@
           "Project driver/motivation documented",
           "Lessons learned documented",
           "4 challenges documented",
-          "Donor sources: Deconstructed warehouse, Bergen Courthouse + Mårdalen, Same building",
-          "Donor types: international, on_site_transformation, renovation, demolition"
+          "Donor sources: Elevator test tower, Same building, Old TV2 building",
+          "Donor types: renovation, demolition, on_site_transformation, international"
         ],
         "missing": [
           "Contractor/entreprenør",
@@ -5832,7 +5832,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -6056,7 +6056,7 @@
           "Technical report/klimagassregnskap"
         ],
         "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -6247,7 +6247,7 @@
           "Certifications (BREEAM, FutureBuilt, etc.)"
         ],
         "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -6469,7 +6469,7 @@
           "Material donor sources"
         ],
         "upgrade_path": "Priority improvements: Obtain klimagassregnskap/LCA report; Document reuse/circularity percentage",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     },
     {
@@ -6705,7 +6705,7 @@
           "Material donor sources"
         ],
         "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
-        "calculated_date": "2025-12-04"
+        "calculated_date": "2025-12-05"
       }
     }
   ],

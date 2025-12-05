@@ -5,7 +5,7 @@
   "subtitle": "Tilnærmet 100% ombruk - Bergens mest ambisiøse sirkulære prosjekt",
   "case_study_version": "1.0",
   "case_study_tier": "TIER_1",
-  "last_updated": "2025-12-04",
+  "last_updated": "2025-12-05",
   "data_source": "Frydenbø Eiendom presentasjon (juni 2025) + web sources",
   "data_quality_note": "Data completeness: 50/100 (Grade C). 20 data points documented, 10 gaps identified.",
   "executive_summary": {
@@ -343,8 +343,8 @@
       "Project driver/motivation documented",
       "Lessons learned documented",
       "4 challenges documented",
-      "Donor sources: Deconstructed warehouse, Bergen Courthouse + Mårdalen, Same building",
-      "Donor types: international, on_site_transformation, renovation, demolition"
+      "Donor sources: Elevator test tower, Same building, Old TV2 building",
+      "Donor types: renovation, demolition, on_site_transformation, international"
     ],
     "missing": [
       "Contractor/entreprenør",
@@ -360,6 +360,6 @@
     ],
     "upgrade_path": "To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse",
     "synced_from_project": true,
-    "sync_date": "2025-12-04"
+    "sync_date": "2025-12-05"
   }
 }
