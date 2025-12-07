@@ -3,6 +3,51 @@ import Layout from '../../layouts/Layout.astro';
 import fs from 'fs';
 import path from 'path';
 
+// Case study material interface
+interface CaseStudyMaterial {
+  norwegian_name?: string;
+  english_name?: string;
+  name?: string;
+  material?: string;
+  weight_kg?: number;
+  quantity?: {
+    weight_tonnes?: number;
+    total_installed_tonnes?: number;
+    total_procured_tonnes?: number;
+    total_tonnes?: number;
+    count?: number;
+    type?: string;
+    value?: number;
+    unit?: string;
+    note?: string;
+  } | number | string;
+  environmental_impact?: {
+    co2_savings_percent?: number;
+    co2_savings_tonnes?: number;
+  };
+  category?: string;
+}
+
+interface ByMaterialEntry {
+  material: string;
+  co2_savings_kg?: number;
+  co2_savings_percent?: number;
+  notes?: string;
+}
+
+interface CaseStudyCitation {
+  source?: string;
+  title?: string;
+  url?: string;
+  page_url?: string;
+  pdf_local_path?: string;
+  pages?: string;
+  quote?: string;
+  material?: string;
+  metric?: string;
+  section?: string;
+}
+
 // Get case study ID from URL
 export async function getStaticPaths() {
   const caseStudiesDir = path.join(process.cwd(), '..', 'data', 'case-studies');
@@ -68,12 +113,12 @@ const materialOverview = caseStudy.material_inventory?.overview || {};
 const reusePercent = projectBasics.reuse_results?.internal_reuse_percent || materialOverview.total_reuse_rate_percent;
 
 // Helper function to get material name
-function getMaterialName(material: any): string {
+function getMaterialName(material: CaseStudyMaterial): string {
   return material.norwegian_name || material.english_name || material.name || material.material || 'Unknown';
 }
 
 // Helper function to get material weight display
-function getMaterialWeight(material: any): string {
+function getMaterialWeight(material: CaseStudyMaterial): string {
   if (material.weight_kg) {
     return `${(material.weight_kg / 1000).toFixed(1)}t`;
   }
@@ -114,7 +159,7 @@ function getMaterialWeight(material: any): string {
 }
 
 // Helper function to get material CO2 savings
-function getMaterialCO2(material: any): string | null {
+function getMaterialCO2(material: CaseStudyMaterial): string | null {
   if (material.environmental_impact?.co2_savings_percent) {
     return `${material.environmental_impact.co2_savings_percent}%`;
   }
@@ -232,7 +277,7 @@ function getMaterialCO2(material: any): string | null {
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
-              {materials.slice(0, 15).map((material: any) => (
+              {materials.slice(0, 15).map((material: CaseStudyMaterial) => (
                 <tr class="hover:bg-gray-50">
                   <td class="px-6 py-3">
                     <div class="text-sm font-medium text-gray-900">{getMaterialName(material)}</div>
@@ -306,7 +351,7 @@ function getMaterialCO2(material: any): string | null {
             <div class="border-t border-gray-100 pt-6">
               <h3 class="font-medium text-gray-900 mb-4">CO2 Savings by Material</h3>
               <div class="space-y-3">
-                {byMaterial.map((mat: any) => (
+                {byMaterial.map((mat: ByMaterialEntry) => (
                   <div class="flex items-center justify-between">
                     <span class="text-sm text-gray-700">{mat.material}</span>
                     <div class="flex items-center gap-4">
@@ -411,7 +456,7 @@ function getMaterialCO2(material: any): string | null {
           <p class="text-sm text-gray-500">Page-level references to source documents</p>
         </div>
         <div class="divide-y divide-gray-100">
-          {citations.map((citation: any) => (
+          {citations.map((citation: CaseStudyCitation) => (
             <div class="px-6 py-4">
               <div class="flex items-start justify-between gap-4">
                 <div>

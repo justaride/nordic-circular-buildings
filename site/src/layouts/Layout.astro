@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import norwayData from '../../public/data/norway.json';
 
 interface Props {
   title: string;
@@ -7,6 +8,9 @@ interface Props {
 }
 
 const { title, description = "Research platform documenting circular building projects in the Nordic countries" } = Astro.props;
+
+// Dynamic project count
+const totalProjects = norwayData.projects.length;
 ---
 
 <!doctype html>
@@ -82,7 +86,7 @@ const { title, description = "Research platform documenting circular building pr
         <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-400">
           <div>Nordic Circular Buildings &copy; {new Date().getFullYear()}</div>
           <div class="flex items-center gap-4">
-            <span>25 Verified Projects</span>
+            <span>{totalProjects} Verified Projects</span>
             <span class="text-gray-200">•</span>
             <span>Open Data</span>
           </div>

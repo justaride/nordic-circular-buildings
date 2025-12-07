@@ -1,11 +1,26 @@
 ---
+// Load project data for dynamic counts
+import norwayData from '../../public/data/norway.json';
+import type { Project, NorwayData } from '../types/project';
+
+const data = norwayData as NorwayData;
+
+// Calculate country counts dynamically
+const projectsByCountry = {
+  NO: data.projects.filter((p: Project) => p.country === 'NO').length,
+  SE: 0, // Placeholder for future expansion
+  DK: 0,
+  FI: 0,
+  IS: 0,
+};
+
 // Filter options
 const countries = [
-  { code: 'NO', name: 'Norway', count: 23 },
-  { code: 'SE', name: 'Sweden', count: 0 },
-  { code: 'DK', name: 'Denmark', count: 0 },
-  { code: 'FI', name: 'Finland', count: 0 },
-  { code: 'IS', name: 'Iceland', count: 0 },
+  { code: 'NO', name: 'Norway', count: projectsByCountry.NO },
+  { code: 'SE', name: 'Sweden', count: projectsByCountry.SE },
+  { code: 'DK', name: 'Denmark', count: projectsByCountry.DK },
+  { code: 'FI', name: 'Finland', count: projectsByCountry.FI },
+  { code: 'IS', name: 'Iceland', count: projectsByCountry.IS },
 ];
 
 const projectTypes = [

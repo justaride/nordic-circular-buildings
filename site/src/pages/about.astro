@@ -1,20 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import norwayData from '../../public/data/norway.json';
+import type { Project, NorwayData } from '../types/project';
 
-// Calculate data quality metrics
-const projects = norwayData.projects;
+const data = norwayData as NorwayData;
+const projects: Project[] = data.projects;
+
+// Data depth analysis result type
+interface DataDepthResult {
+  id: string;
+  name: string;
+  dataQuality: string | undefined;
+  completeness: number;
+  hasSize: boolean;
+  hasBudget: boolean;
+  hasCircularity: boolean;
+  hasCO2: boolean;
+  hasArchitect: boolean;
+  hasContractor: boolean;
+  hasFeatures: boolean;
+  hasSources: boolean;
+}
 
 // Data depth analysis
-const dataDepthAnalysis = projects.map((p: any) => {
-  const hasSize = p.size_sqm !== null;
-  const hasBudget = p.budget !== null;
+const dataDepthAnalysis: DataDepthResult[] = projects.map((p) => {
+  const hasSize = p.size_sqm !== null && p.size_sqm !== undefined;
+  const hasBudget = p.budget !== null && p.budget !== undefined;
   const hasCircularity = p.metrics?.circularity_rate !== undefined;
   const hasCO2 = p.metrics?.co2_reduction !== undefined;
-  const hasArchitect = p.architect !== null;
-  const hasContractor = p.contractor !== null;
-  const hasFeatures = p.circular_features?.length > 0;
-  const hasSources = p.sources?.length > 0;
+  const hasArchitect = p.architect !== null && p.architect !== undefined;
+  const hasContractor = p.contractor !== null && p.contractor !== undefined;
+  const hasFeatures = (p.circular_features?.length ?? 0) > 0;
+  const hasSources = (p.sources?.length ?? 0) > 0;
 
   const fieldsPresent = [hasSize, hasBudget, hasCircularity, hasCO2, hasArchitect, hasContractor, hasFeatures, hasSources].filter(Boolean).length;
   const completeness = Math.round((fieldsPresent / 8) * 100);
@@ -33,11 +50,11 @@ const dataDepthAnalysis = projects.map((p: any) => {
     hasFeatures,
     hasSources
   };
-}).sort((a: any, b: any) => b.completeness - a.completeness);
+}).sort((a, b) => b.completeness - a.completeness);
 
-const strongCount = projects.filter((p: any) => p.data_quality === 'strong').length;
-const moderateCount = projects.filter((p: any) => p.data_quality === 'moderate').length;
-const avgCompleteness = Math.round(dataDepthAnalysis.reduce((sum: number, p: any) => sum + p.completeness, 0) / projects.length);
+const strongCount = projects.filter((p) => p.data_quality === 'strong').length;
+const moderateCount = projects.filter((p) => p.data_quality === 'moderate').length;
+const avgCompleteness = Math.round(dataDepthAnalysis.reduce((sum, p) => sum + p.completeness, 0) / projects.length);
 ---
 
 <Layout title="About" description="About the Nordic Circular Buildings Database - documenting circular economy in construction">
@@ -115,7 +132,7 @@ const avgCompleteness = Math.round(dataDepthAnalysis.reduce((sum: number, p: any
       <h2 class="text-xl font-semibold text-gray-900 mb-4">Research Methodology</h2>
       <div class="prose prose-gray max-w-none">
         <p class="text-gray-600 mb-4">
-          This database was compiled through systematic research of 24 individual project documents (November 2024),
+          This database was compiled through systematic research of {projects.length} individual project documents,
           supplemented by primary and secondary source verification.
         </p>
 
@@ -133,7 +150,7 @@ const avgCompleteness = Math.round(dataDepthAnalysis.reduce((sum: number, p: any
           <h3 class="font-semibold text-gray-800 mb-2">Data Currency</h3>
           <ul class="space-y-1 text-gray-600 text-sm">
             <li>• <strong>Last Research Update:</strong> November 30, 2024</li>
-            <li>• <strong>Documents Processed:</strong> 24 project-specific research files</li>
+            <li>• <strong>Documents Processed:</strong> {projects.length} project-specific research files</li>
             <li>• <strong>Primary Sources Verified:</strong> 38+ URLs checked</li>
             <li>• <strong>Languages:</strong> Norwegian (primary), English (secondary)</li>
           </ul>
@@ -274,7 +291,7 @@ const avgCompleteness = Math.round(dataDepthAnalysis.reduce((sum: number, p: any
             </tr>
           </thead>
           <tbody>
-            {dataDepthAnalysis.map((p: any) => (
+            {dataDepthAnalysis.map((p) => (
               <tr class="border-b border-gray-100 hover:bg-gray-50">
                 <td class="py-2 px-2">
                   <a href={`${import.meta.env.BASE_URL}project/${p.id}/`} class="text-nordic-600 hover:text-nordic-700">

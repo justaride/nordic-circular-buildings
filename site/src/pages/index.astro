@@ -9,25 +9,27 @@ import Charts from '../components/Charts.astro';
 
 // Load project data
 import norwayData from '../../public/data/norway.json';
+import type { Project, NorwayData } from '../types/project';
 
-const projects = norwayData.projects;
+const data = norwayData as NorwayData;
+const projects: Project[] = data.projects;
 
 // Calculate stats
 const totalProjects = projects.length;
-const completedProjects = projects.filter((p: any) => p.status === 'completed' || p.status === 'operational').length;
+const completedProjects = projects.filter((p) => p.status === 'completed' || p.status === 'operational').length;
 
 // CO2 reduction range
 const co2Values = projects
-  .map((p: any) => p.metrics?.co2_reduction?.value)
-  .filter((v: any) => v !== undefined && v !== null);
+  .map((p) => p.metrics?.co2_reduction?.value)
+  .filter((v): v is number => v !== undefined && v !== null);
 const totalCO2Saved = co2Values.length > 0
   ? `${Math.min(...co2Values)}–${Math.max(...co2Values)}%`
   : 'N/A';
 
 // Circularity range
 const circularityValues = projects
-  .map((p: any) => p.metrics?.circularity_rate?.value)
-  .filter((v: any) => v !== undefined && v !== null);
+  .map((p) => p.metrics?.circularity_rate?.value)
+  .filter((v): v is number => v !== undefined && v !== null);
 const avgCircularity = circularityValues.length > 0
   ? `${Math.min(...circularityValues)}–${Math.max(...circularityValues)}%`
   : 'N/A';
@@ -102,7 +104,7 @@ const baseUrl = import.meta.env.BASE_URL;
             </div>
             <div class="pt-2 border-t border-gray-100">
               <span class="text-xs text-gray-500">
-                24 projects documented • 117 sources cited • Last updated: Dec 2025
+                {totalProjects} projects documented • 117 sources cited • Last updated: Dec 2025
               </span>
             </div>
           </div>
@@ -194,7 +196,7 @@ const baseUrl = import.meta.env.BASE_URL;
         </div>
 
         <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {projects.map((project: any) => (
+          {projects.map((project) => (
             <div class="project-item" data-project={JSON.stringify(project)}>
               <ProjectCard project={project} />
             </div>

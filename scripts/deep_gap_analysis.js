@@ -225,8 +225,9 @@ data.projects.forEach(project => {
 });
 
 // Calculate summary
+const totalProjects = data.projects.length;
 report.summary = {
-  total_projects: 23,
+  total_projects: totalProjects,
   tier1_count: report.projects.filter(p => p.tier === 1).length,
   tier2_count: report.projects.filter(p => p.tier === 2).length,
   tier3_count: report.projects.filter(p => p.tier === 3).length,
@@ -235,7 +236,7 @@ report.summary = {
      report.dataCategories.material_breakdown.available +
      report.dataCategories.cbc_assessment.available +
      report.dataCategories.supplier_data.available +
-     report.dataCategories.quantity_data.available) / (23 * 5) * 100
+     report.dataCategories.quantity_data.available) / (totalProjects * 5) * 100
   )
 };
 
