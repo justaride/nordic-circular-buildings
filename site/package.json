@@ -4,9 +4,12 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node ../scripts/sync-data.js && node ../scripts/validate-schema.js",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sync": "node ../scripts/sync-data.js",
+    "validate": "node ../scripts/validate-schema.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
