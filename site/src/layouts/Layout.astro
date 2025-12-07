@@ -22,8 +22,6 @@ const totalProjects = norwayData.projects.length;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Nordic Circular Buildings</title>
 
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   </head>
   <body class="min-h-screen flex flex-col">
     <!-- Header - Apple-style -->
@@ -94,9 +92,9 @@ const totalProjects = norwayData.projects.length;
       </div>
     </footer>
 
-    <!-- Leaflet JS -->
-    <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- Chart.js -->
-    <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Vendor libraries (Leaflet, Chart.js) -->
+    <script>
+      import '../scripts/vendors';
+    </script>
   </body>
 </html>

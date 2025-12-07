@@ -16,7 +16,7 @@
 | 3 | Manuell data-sync mellom mapper | Medium | ✅ Fullført |
 | 4 | Inline scripts (500+ linjer) | Medium | ✅ Fullført |
 | 5 | Scripts uten validering | Medium | ✅ Fullført |
-| 6 | Eksterne CDN-avhengigheter | Lav | ⏳ Planlagt |
+| 6 | Eksterne CDN-avhengigheter | Lav | ✅ Fullført |
 | 7 | Ingen CI/CD for data-kvalitet | Lav | ✅ Fullført |
 
 ---
@@ -143,15 +143,17 @@ Validated 25 projects
 
 ---
 
-## ⏳ Fase 3: Infrastruktur (DELVIS FULLFØRT)
+## ✅ Fase 3: Infrastruktur (FULLFØRT)
 
-### 3.1 Lokal bundling av eksterne libs
+### 3.1 Lokal bundling av eksterne libs ✅
 
-**Status:** Ikke startet
+**Commit:** `pending`
 
-**Mål:**
-- Fjerne CDN-avhengigheter (Leaflet, Chart.js)
-- Bundle lokalt for offline-støtte
+**Endringer:**
+- Installert `leaflet` og `chart.js` som npm-avhengigheter
+- Opprettet `site/src/scripts/vendors.ts` for global tilgang
+- Fjernet CDN-lenker fra `Layout.astro`
+- Bundle-størrelse: 357KB (inkl. Leaflet CSS)
 
 ---
 
@@ -198,7 +200,7 @@ jobs:
 ## Neste steg
 
 1. [x] Fase 2.2: Refaktorer inline scripts ✅
-2. [ ] Fase 3.1: Bundle Leaflet/Chart.js lokalt
+2. [x] Fase 3.1: Bundle Leaflet/Chart.js lokalt ✅
 3. [x] Fase 3.2: GitHub Actions CI ✅
 4. [x] Fiks gjenværende `any` i sekundære sider ✅
 5. [ ] Fyll data gaps identifisert av validator
