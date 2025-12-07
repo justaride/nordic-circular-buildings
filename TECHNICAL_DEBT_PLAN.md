@@ -14,7 +14,7 @@
 | 1 | Hardkodede verdier spredt i koden | Høy | ✅ Fullført |
 | 2 | Ingen type-sikkerhet (any overalt) | Høy | ✅ Fullført |
 | 3 | Manuell data-sync mellom mapper | Medium | ✅ Fullført |
-| 4 | Inline scripts (500+ linjer) | Medium | ⏳ Planlagt |
+| 4 | Inline scripts (500+ linjer) | Medium | ✅ Fullført |
 | 5 | Scripts uten validering | Medium | ✅ Fullført |
 | 6 | Eksterne CDN-avhengigheter | Lav | ⏳ Planlagt |
 | 7 | Ingen CI/CD for data-kvalitet | Lav | ✅ Fullført |
@@ -73,7 +73,7 @@ grep -rE '\b2[345]\b.*project' site/src/ --include="*.astro"
 
 ---
 
-## ✅ Fase 2: Strukturelle forbedringer (DELVIS FULLFØRT)
+## ✅ Fase 2: Strukturelle forbedringer (FULLFØRT)
 
 ### 2.1 Automatisk data-sync ✅
 
@@ -97,18 +97,26 @@ grep -rE '\b2[345]\b.*project' site/src/ --include="*.astro"
 
 ---
 
-### 2.2 Refaktorer inline scripts ⏳
+### 2.2 Refaktorer inline scripts ✅
 
-**Status:** Ikke startet
+**Commit:** `47881a7`
 
-**Plan:**
+**Nye filer:** `site/src/scripts/`
 ```
 site/src/scripts/
-├── filter-manager.ts      # FilterPanel logikk
-├── project-grid.ts        # Sortering/visning
-├── map-controller.ts      # Leaflet-initialisering
-└── comparison.ts          # Sammenligning
+├── index.ts              # Hovedinitialisering
+├── filters.ts            # Delt filterlogikk (DRY)
+├── filter-manager.ts     # DOM-oppdatering for grid
+├── sort-manager.ts       # Sorteringslogikk
+├── comparison.ts         # Sammenligning
+└── mobile-drawer.ts      # Mobil drawer
 ```
+
+**Endringer:**
+- Ekstrahert 325 linjer inline JavaScript fra `index.astro`
+- Delt `matchesFilters()` funksjon (brukes av Map, Charts, Grid)
+- TypeScript-typer for alle moduler
+- Bundlet til 6.2KB minifisert
 
 ---
 
@@ -182,12 +190,13 @@ jobs:
 | 2025-12-07 | 2.1 | `048e437` | Data-sync script |
 | 2025-12-07 | 2.3 | `048e437` | Schema-validering |
 | 2025-12-07 | 3.2 | `4841e35` | GitHub Actions CI |
+| 2025-12-07 | 2.2 | `47881a7` | Inline scripts refaktorert |
 
 ---
 
 ## Neste steg
 
-1. [ ] Fase 2.2: Refaktorer inline scripts
+1. [x] Fase 2.2: Refaktorer inline scripts ✅
 2. [ ] Fase 3.1: Bundle Leaflet/Chart.js lokalt
 3. [x] Fase 3.2: GitHub Actions CI ✅
 4. [ ] Fiks gjenværende `any` i sekundære sider
