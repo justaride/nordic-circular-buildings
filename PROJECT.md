@@ -288,12 +288,16 @@ Public Circular Buildings/
 │       └── [other countries]    # (pending)
 │
 ├── scripts/
+│   ├── sync-data.js             # Data sync (prebuild)
+│   ├── validate-schema.js       # Schema validation (prebuild)
 │   ├── analyze_gaps.js          # Gap analysis script
 │   ├── add_suppliers.js         # Supplier data script
 │   └── enhance_tier1.js         # Tier 1 enhancement script
 │
 ├── site/                        # Astro 5 website
 │   ├── src/
+│   │   ├── types/
+│   │   │   └── project.ts           # TypeScript interfaces (270+ lines)
 │   │   ├── pages/
 │   │   │   ├── index.astro          # Dashboard
 │   │   │   ├── stakeholders.astro   # Stakeholder export
@@ -319,6 +323,8 @@ Public Circular Buildings/
 | Framework | Astro 5.16.3 | ✅ Live |
 | Styling | Tailwind CSS 4.1.17 | ✅ Live |
 | Data | JSON files | ✅ Live |
+| Type Safety | TypeScript interfaces | ✅ Live |
+| Build Validation | sync-data.js + validate-schema.js | ✅ Live |
 | Maps | Leaflet 1.9.4 | ✅ Live |
 | Charts | Chart.js | ✅ Live |
 | Deployment | GitHub Pages | ✅ Live |
@@ -376,6 +382,14 @@ Public Circular Buildings/
 
 ## Changelog
 
+### 2025-12-07 - Technical Debt Resolution (Phase 1-2)
+- Created TypeScript interfaces (`types/project.ts`) - 30+ interfaces, 270+ lines
+- Removed hardcoded project counts across all components
+- Added automatic data sync (`scripts/sync-data.js`) as prebuild hook
+- Added schema validation (`scripts/validate-schema.js`) with 3 severity levels
+- Updated package.json with `prebuild`, `sync`, and `validate` scripts
+- See `TECHNICAL_DEBT_PLAN.md` for detailed implementation log
+
 ### 2025-12-02 - Iteration 4: CBC Framework
 - Added CBC Four Pathways assessment methodology based on Circular Buildings Coalition (2024) report
 - Enhanced `project_type` schema with 5 categories (renovation, transformation, extension, hybrid, new_build)
@@ -400,4 +414,4 @@ Public Circular Buildings/
 
 ---
 
-*Last updated: 2025-12-04*
+*Last updated: 2025-12-07*
