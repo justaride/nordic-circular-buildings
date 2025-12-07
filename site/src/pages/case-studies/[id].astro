@@ -66,15 +66,26 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 const { caseStudy, filename } = Astro.props;
 
-// Tier colors
-const tierColors: Record<string, { bg: string; text: string; border: string }> = {
-  flagship: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
-  strong: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
-  tier2: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
+// Normalize tier to lowercase for consistent matching
+const normalizeTier = (tier: string): string => {
+  const t = (tier || '').toLowerCase();
+  if (t === 'flagship') return 'flagship';
+  if (t === 'strong') return 'strong';
+  if (t === 'tier_1') return 'tier1';
+  return 'tier2';
 };
 
-const tier = caseStudy.case_study_tier || 'tier2';
-const tierColor = tierColors[tier] || tierColors.tier2;
+// Tier config with colors and labels
+const tierConfig: Record<string, { bg: string; text: string; border: string; label: string }> = {
+  flagship: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200', label: 'Flagship' },
+  strong: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', label: 'Strong' },
+  tier1: { bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200', label: 'Tier 1' },
+  tier2: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200', label: 'Tier 2' },
+};
+
+const tier = normalizeTier(caseStudy.case_study_tier);
+const tierColor = tierConfig[tier] || tierConfig.tier2;
+const completeness = caseStudy.data_completeness || {};
 
 // Get materials from inventory
 const materials = caseStudy.material_inventory?.materials || [];
@@ -192,8 +203,13 @@ function getMaterialCO2(material: CaseStudyMaterial): string | null {
         <div>
           <div class="flex items-center gap-3 mb-2">
             <span class={`px-3 py-1 rounded-full text-xs font-medium ${tierColor.bg} ${tierColor.text} border ${tierColor.border}`}>
-              {tier === 'flagship' ? 'Flagship Case' : tier === 'strong' ? 'Strong Case' : 'Tier 2'}
+              {tierColor.label}
             </span>
+            {completeness.score && (
+              <span class={`px-2 py-0.5 rounded text-xs font-medium ${tierColor.bg} ${tierColor.text}`}>
+                {completeness.score}/100
+              </span>
+            )}
             <span class="text-xs text-gray-400">v{caseStudy.case_study_version || '1.0'}</span>
           </div>
           <h1 class="text-2xl md:text-3xl font-bold text-gray-900">{caseStudy.name}</h1>

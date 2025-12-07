@@ -44,7 +44,7 @@ export function matchesFilters(project: Project, filters: FilterState): boolean 
     const primaryPathway = project.cbc_assessment?.primary_pathway;
     const secondaryPathways = project.cbc_assessment?.secondary_pathways || [];
     const hasPathway = filters.cbc_pathway.some(
-      (p) => p === primaryPathway || secondaryPathways.includes(p)
+      (p) => p === primaryPathway || secondaryPathways.includes(p as typeof secondaryPathways[number])
     );
     if (!hasPathway) return false;
   }
@@ -102,12 +102,18 @@ export function matchesFilters(project: Project, filters: FilterState): boolean 
 export function matchesSearch(project: Project, query: string): boolean {
   if (!query) return true;
 
+  // Extract material types from circular features for search
+  const materialTypes = project.circular_features
+    ?.map(f => f.material_type)
+    .filter(Boolean) || [];
+
   const searchText = [
     project.name,
     project.location?.city,
     project.building_type,
-    project.description,
-    ...(project.materials_used || []),
+    project.client,
+    project.architect,
+    ...materialTypes,
   ].filter(Boolean).join(' ').toLowerCase();
 
   return searchText.includes(query.toLowerCase());

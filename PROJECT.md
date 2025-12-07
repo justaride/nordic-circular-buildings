@@ -214,7 +214,7 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 
 ---
 
-## Current Data Status (2025-12-04)
+## Current Data Status (2025-12-07)
 
 ### Norway: 25 Projects
 
@@ -222,12 +222,15 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 |--------|---------|--------|----------|
 | Total projects | **25** | 25-30 | **100%** ✅ |
 | Case studies | **7** | 6-7 | **100%** ✅ |
+| With architect | **25** | 25 | **100%** ✅ |
+| With year_completed | **25** | 25 | **100%** ✅ |
 | With circularity % | 7 | 15+ | 47% |
 | With narrative | **25** | 25 | **100%** ✅ |
 | With material breakdown | **7** | 10+ | **70%** |
 | With supplier data | **10** | 25 | **40%** |
 | With cost comparison | **7** | 5+ | **140%** ✅ |
 | With budget data | **12** | 15+ | **80%** |
+| Schema validation | **0 errors** | 0 | **100%** ✅ |
 
 ### Data Completeness by Project Type
 
@@ -382,13 +385,45 @@ Public Circular Buildings/
 
 ## Changelog
 
-### 2025-12-07 - Technical Debt Resolution (Phase 1-2)
+### 2025-12-07 - Tier System Overhaul & Code Quality
+**Case Study Tier System**
+- Fixed case-insensitive tier matching (FLAGSHIP/TIER_1/TIER_2 now work)
+- Added Tier 1 as new category (purple, score 55-64) between Strong and Tier 2
+- Synced JSON tier values with actual data_completeness scores
+- Added explicit tier explanation linking to data completeness scoring
+- Each case study now displays score (e.g., "Flagship 75/100")
+
+**Tier Reassignments Based on Score**
+- KA23: TIER_2 → STRONG (score 68)
+- Løren: TIER_2 → TIER_1 (score 61)
+- Føniks: TIER_1 → TIER_2 (score 50)
+
+**Code Quality Fixes**
+- Fixed 3 TypeScript errors in `filters.ts`
+- Removed deprecated `data_gaps` field from NO_nrk_normannslokka
+- All 25 projects now pass validation with 0 errors
+
+### 2025-12-07 - Technical Debt Resolution (ALL PHASES COMPLETE)
+**Phase 1: Critical Fixes**
 - Created TypeScript interfaces (`types/project.ts`) - 30+ interfaces, 270+ lines
 - Removed hardcoded project counts across all components
+- Added types to secondary pages (materials, stakeholders, enablers)
+
+**Phase 2: Structural Improvements**
 - Added automatic data sync (`scripts/sync-data.js`) as prebuild hook
 - Added schema validation (`scripts/validate-schema.js`) with 3 severity levels
-- Updated package.json with `prebuild`, `sync`, and `validate` scripts
-- See `TECHNICAL_DEBT_PLAN.md` for detailed implementation log
+- Refactored 500+ lines of inline JavaScript into 6 TypeScript modules
+
+**Phase 3: Infrastructure**
+- Bundled Leaflet and Chart.js locally (removed CDN dependencies)
+- Added GitHub Actions CI workflow for PR validation
+
+**Data Quality**
+- Filled 11 data gaps (architect, year_completed)
+- Removed 50 deprecated field warnings
+- All 25 projects now pass schema validation
+
+See `TECHNICAL_DEBT_PLAN.md` for detailed implementation log
 
 ### 2025-12-02 - Iteration 4: CBC Framework
 - Added CBC Four Pathways assessment methodology based on Circular Buildings Coalition (2024) report

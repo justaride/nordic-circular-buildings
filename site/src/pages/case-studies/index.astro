@@ -7,27 +7,57 @@ import path from 'path';
 const caseStudiesDir = path.join(process.cwd(), '..', 'data', 'case-studies');
 const files = fs.readdirSync(caseStudiesDir).filter(f => f.endsWith('.json'));
 
-const caseStudies = files.map(file => {
-  const content = fs.readFileSync(path.join(caseStudiesDir, file), 'utf-8');
-  return JSON.parse(content);
-}).sort((a, b) => {
-  // Sort by tier: flagship > strong > tier2
-  const tierOrder: Record<string, number> = { flagship: 0, strong: 1, tier2: 2 };
-  return (tierOrder[a.case_study_tier] || 2) - (tierOrder[b.case_study_tier] || 2);
-});
-
-// Tier colors
-const tierColors: Record<string, { bg: string; text: string; border: string }> = {
-  flagship: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
-  strong: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
-  tier2: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
+// Normalize tier to lowercase for consistent matching
+const normalizeTier = (tier: string): string => {
+  const t = (tier || '').toLowerCase();
+  if (t === 'flagship') return 'flagship';
+  if (t === 'strong') return 'strong';
+  if (t === 'tier_1') return 'tier1';
+  return 'tier2'; // tier_2 or default
 };
 
-// Count by tier
+const caseStudies = files.map(file => {
+  const content = fs.readFileSync(path.join(caseStudiesDir, file), 'utf-8');
+  const data = JSON.parse(content);
+  // Add normalized tier for consistent handling
+  data._normalizedTier = normalizeTier(data.case_study_tier);
+  return data;
+}).sort((a, b) => {
+  // Sort by tier: flagship > strong > tier1 > tier2
+  const tierOrder: Record<string, number> = { flagship: 0, strong: 1, tier1: 2, tier2: 3 };
+  return (tierOrder[a._normalizedTier] || 3) - (tierOrder[b._normalizedTier] || 3);
+});
+
+// Tier colors and labels
+const tierConfig: Record<string, { bg: string; text: string; border: string; label: string; description: string }> = {
+  flagship: {
+    bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200',
+    label: 'Flagship',
+    description: 'Full erfaringsrapport (100+ sider), page-level citations, self-hosted PDF, score 70+'
+  },
+  strong: {
+    bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200',
+    label: 'Strong',
+    description: 'Multiple official reports, detailed metrics, complete stakeholder data, score 65-69'
+  },
+  tier1: {
+    bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200',
+    label: 'Tier 1',
+    description: 'Klimagassrapporter, key metrics documented, score 55-64'
+  },
+  tier2: {
+    bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200',
+    label: 'Tier 2',
+    description: 'FutureBuilt/Klimasats reports, basic metrics, score <55'
+  },
+};
+
+// Count by normalized tier
 const counts = {
-  flagship: caseStudies.filter(c => c.case_study_tier === 'flagship').length,
-  strong: caseStudies.filter(c => c.case_study_tier === 'strong').length,
-  tier2: caseStudies.filter(c => c.case_study_tier === 'tier2').length,
+  flagship: caseStudies.filter(c => c._normalizedTier === 'flagship').length,
+  strong: caseStudies.filter(c => c._normalizedTier === 'strong').length,
+  tier1: caseStudies.filter(c => c._normalizedTier === 'tier1').length,
+  tier2: caseStudies.filter(c => c._normalizedTier === 'tier2').length,
 };
 ---
 
@@ -99,32 +129,38 @@ const counts = {
     </div>
 
     <!-- Stats -->
-    <div class="grid grid-cols-3 gap-4 mb-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
       <div class="bg-amber-50 rounded-2xl p-5 border border-amber-100">
         <div class="text-2xl font-semibold text-amber-700">{counts.flagship}</div>
-        <div class="text-xs text-amber-600 font-medium">Flagship Cases</div>
-        <div class="text-xs text-amber-500 mt-1">Full 100+ page reports, self-hosted PDFs, page-level citations</div>
+        <div class="text-xs text-amber-600 font-medium">Flagship</div>
+        <div class="text-xs text-amber-500 mt-1">Score 70+</div>
       </div>
       <div class="bg-emerald-50 rounded-2xl p-5 border border-emerald-100">
         <div class="text-2xl font-semibold text-emerald-700">{counts.strong}</div>
-        <div class="text-xs text-emerald-600 font-medium">Strong Cases</div>
-        <div class="text-xs text-emerald-500 mt-1">Multiple official reports, detailed metrics, complete stakeholder data</div>
+        <div class="text-xs text-emerald-600 font-medium">Strong</div>
+        <div class="text-xs text-emerald-500 mt-1">Score 65-69</div>
+      </div>
+      <div class="bg-purple-50 rounded-2xl p-5 border border-purple-100">
+        <div class="text-2xl font-semibold text-purple-700">{counts.tier1}</div>
+        <div class="text-xs text-purple-600 font-medium">Tier 1</div>
+        <div class="text-xs text-purple-500 mt-1">Score 55-64</div>
       </div>
       <div class="bg-blue-50 rounded-2xl p-5 border border-blue-100">
         <div class="text-2xl font-semibold text-blue-700">{counts.tier2}</div>
-        <div class="text-xs text-blue-600 font-medium">Tier 2 Cases</div>
-        <div class="text-xs text-blue-500 mt-1">FutureBuilt/Klimasats reports, key metrics, process documentation</div>
+        <div class="text-xs text-blue-600 font-medium">Tier 2</div>
+        <div class="text-xs text-blue-500 mt-1">Score &lt;55</div>
       </div>
     </div>
 
     <!-- Case Studies Grid -->
     <div class="space-y-6">
       {caseStudies.map((cs) => {
-        const tier = cs.case_study_tier || 'tier2';
-        const tierColor = tierColors[tier] || tierColors.tier2;
+        const tier = cs._normalizedTier || 'tier2';
+        const config = tierConfig[tier] || tierConfig.tier2;
         const envMetrics = cs.environmental_metrics || {};
         const co2 = envMetrics.co2_reduction || {};
         const overallMetrics = envMetrics.overall || {};
+        const completeness = cs.data_completeness || {};
 
         // Handle different CO2 reduction field locations
         const co2Reduction = co2.vs_nybygg_total_percent || overallMetrics.ghg_reduction_percent;
@@ -141,9 +177,14 @@ const counts = {
               <div class="flex items-start justify-between gap-4">
                 <div class="flex-1">
                   <div class="flex items-center gap-3 mb-2">
-                    <span class={`px-3 py-1 rounded-full text-xs font-medium ${tierColor.bg} ${tierColor.text} border ${tierColor.border}`}>
-                      {tier === 'flagship' ? 'Flagship' : tier === 'strong' ? 'Strong' : 'Tier 2'}
+                    <span class={`px-3 py-1 rounded-full text-xs font-medium ${config.bg} ${config.text} border ${config.border}`}>
+                      {config.label}
                     </span>
+                    {completeness.score && (
+                      <span class={`px-2 py-0.5 rounded text-xs font-medium ${config.bg} ${config.text}`}>
+                        {completeness.score}/100
+                      </span>
+                    )}
                     <span class="text-xs text-gray-400">v{cs.case_study_version || '1.0'}</span>
                   </div>
                   <h2 class="text-lg font-semibold text-gray-900 mb-1">{cs.name}</h2>
@@ -223,37 +264,83 @@ const counts = {
 
     <!-- Data Quality Explanation -->
     <section class="mt-12 bg-gray-50 rounded-2xl p-6">
-      <h2 class="font-semibold text-gray-900 mb-4">Data Quality Tiers</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-        <div>
+      <h2 class="font-semibold text-gray-900 mb-2">Tier-klassifisering og datakvalitet</h2>
+      <p class="text-sm text-gray-500 mb-6">
+        Hver case study får en <strong>data completeness score</strong> (0-100) basert på hvor mye dokumentasjon vi har samlet inn og verifisert.
+        Tier-plasseringen bestemmes av denne scoren og oppgraderes automatisk når vi legger til mer data.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm mb-6">
+        <div class="bg-amber-50 rounded-xl p-4 border border-amber-100">
           <div class="flex items-center gap-2 mb-2">
             <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-            <span class="font-medium text-gray-900">Flagship</span>
+            <span class="font-semibold text-amber-800">Flagship</span>
+            <span class="text-xs text-amber-600 ml-auto">70+ poeng</span>
           </div>
-          <p class="text-gray-600">
-            Full erfaringsrapport with page-level citations, detailed material inventory with weights,
-            verified CO2 calculations, and self-hosted PDF.
+          <p class="text-amber-700 text-xs">
+            Full erfaringsrapport (100+ sider), self-hosted PDF, page-level citations, komplett materialinventar med vekt, verifisert CO2-beregning.
           </p>
         </div>
-        <div>
+        <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
           <div class="flex items-center gap-2 mb-2">
             <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-            <span class="font-medium text-gray-900">Strong</span>
+            <span class="font-semibold text-emerald-800">Strong</span>
+            <span class="text-xs text-emerald-600 ml-auto">65-69 poeng</span>
           </div>
-          <p class="text-gray-600">
-            Multiple official reports (sirkularitet, klimagass, etc.), detailed metrics,
-            process documentation, and material breakdowns.
+          <p class="text-emerald-700 text-xs">
+            Flere offisielle rapporter (sirkularitet, klimagass), detaljerte metrics, komplett stakeholder-data, prosessdokumentasjon.
           </p>
         </div>
-        <div>
+        <div class="bg-purple-50 rounded-xl p-4 border border-purple-100">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+            <span class="font-semibold text-purple-800">Tier 1</span>
+            <span class="text-xs text-purple-600 ml-auto">55-64 poeng</span>
+          </div>
+          <p class="text-purple-700 text-xs">
+            Klimagassrapporter, nøkkelmetrikker dokumentert, delvis materialinventar, FutureBuilt-dokumentasjon.
+          </p>
+        </div>
+        <div class="bg-blue-50 rounded-xl p-4 border border-blue-100">
           <div class="flex items-center gap-2 mb-2">
             <span class="w-3 h-3 rounded-full bg-blue-500"></span>
-            <span class="font-medium text-gray-900">Tier 2</span>
+            <span class="font-semibold text-blue-800">Tier 2</span>
+            <span class="text-xs text-blue-600 ml-auto">&lt;55 poeng</span>
           </div>
-          <p class="text-gray-600">
-            Official reports from FutureBuilt, Klimasats, or project teams,
-            with key metrics and process insights documented.
+          <p class="text-blue-700 text-xs">
+            Grunnleggende prosjektinfo, FutureBuilt/Klimasats-oppføringer, basismetrikker. Under innsamling.
           </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 border border-gray-200">
+        <h3 class="text-sm font-medium text-gray-900 mb-2">Hvordan score beregnes</h3>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-xs">
+          <div class="text-center">
+            <div class="font-semibold text-gray-700">Grunninfo</div>
+            <div class="text-gray-500">10 poeng</div>
+            <div class="text-gray-400 mt-1">Navn, sted, år, areal</div>
+          </div>
+          <div class="text-center">
+            <div class="font-semibold text-gray-700">Stakeholders</div>
+            <div class="text-gray-500">15 poeng</div>
+            <div class="text-gray-400 mt-1">Byggherre, arkitekt, konsulenter</div>
+          </div>
+          <div class="text-center">
+            <div class="font-semibold text-gray-700">Metrics</div>
+            <div class="text-gray-500">25 poeng</div>
+            <div class="text-gray-400 mt-1">CO2, ombruksandel, kostnader</div>
+          </div>
+          <div class="text-center">
+            <div class="font-semibold text-gray-700">Materialer</div>
+            <div class="text-gray-500">25 poeng</div>
+            <div class="text-gray-400 mt-1">Inventar, mengder, donorbygg</div>
+          </div>
+          <div class="text-center">
+            <div class="font-semibold text-gray-700">Kilder</div>
+            <div class="text-gray-500">25 poeng</div>
+            <div class="text-gray-400 mt-1">Rapporter, siteringer, PDF</div>
+          </div>
         </div>
       </div>
     </section>

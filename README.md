@@ -107,11 +107,26 @@ All material data includes traceable citations:
 
 ## Tech Stack
 
-- Framework: Astro
-- Styling: Tailwind CSS
-- Maps: Leaflet + CartoDB
-- Deployment: GitHub Pages
-- Source Documents: Self-hosted PDFs with page anchors
+| Component | Technology | Status |
+|-----------|------------|--------|
+| Framework | Astro 5.16 | ✅ |
+| Styling | Tailwind CSS 4.1 | ✅ |
+| Type Safety | TypeScript | ✅ |
+| Maps | Leaflet (bundled) | ✅ |
+| Charts | Chart.js (bundled) | ✅ |
+| Validation | JSON Schema | ✅ |
+| CI/CD | GitHub Actions | ✅ |
+| Deployment | GitHub Pages | ✅ |
+
+### Development
+
+```bash
+cd site
+npm install
+npm run dev      # Start dev server
+npm run build    # Build with validation
+npm run validate # Run schema validation
+```
 
 ## Case Studies
 
