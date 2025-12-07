@@ -4,9 +4,61 @@ import Layout from '../../layouts/Layout.astro';
 // Load enablers data
 import enablersData from '../../../../data/enablers/norway.json';
 
-const categories = enablersData.categories;
-const materialFlows = enablersData.material_flows;
-const emergingRoles = enablersData.emerging_roles;
+interface EnablerLocation {
+  city?: string;
+  district?: string;
+}
+
+interface Enabler {
+  name: string;
+  full_name?: string;
+  description?: string;
+  status?: string;
+  location?: EnablerLocation;
+  founded?: string | number;
+  website?: string;
+  services?: string[];
+  services_for_reuse?: string[];
+  platform_features?: string[];
+  projects?: string[];
+  key_project_involvement?: string[];
+  certified_projects?: string[];
+}
+
+interface EnablerCategory {
+  id: string;
+  name: string;
+  description: string;
+  enablers: Enabler[];
+}
+
+interface MaterialFlow {
+  from_project: string;
+  to_project: string;
+  materials: string[];
+  note?: string;
+}
+
+interface EmergingRole {
+  name: string;
+  norwegian?: string;
+  description: string;
+}
+
+interface EnablersDataType {
+  categories: EnablerCategory[];
+  material_flows: { flows: MaterialFlow[] };
+  emerging_roles: {
+    roles: EmergingRole[];
+    source: { title: string; research_id: string };
+  };
+  last_updated: string;
+}
+
+const data = enablersData as EnablersDataType;
+const categories = data.categories;
+const materialFlows = data.material_flows;
+const emergingRoles = data.emerging_roles;
 
 // Count totals
 const totalEnablers = categories.reduce((sum, cat) => sum + cat.enablers.length, 0);
@@ -115,7 +167,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
               <!-- Enablers Grid -->
               <div class="bg-white p-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {category.enablers.map((enabler: any) => (
+                  {category.enablers.map((enabler: Enabler) => (
                     <div class="p-4 bg-gray-50/50 rounded-xl hover:bg-gray-50 transition-colors">
                       <div class="flex items-start justify-between gap-2 mb-2">
                         <h3 class="font-medium text-gray-900">{enabler.name}</h3>
@@ -235,7 +287,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
         </div>
         <div class="p-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {materialFlows.flows.map((flow: any) => (
+            {materialFlows.flows.map((flow: MaterialFlow) => (
               <div class="bg-white rounded-xl p-4 border border-gray-100">
                 <div class="flex items-center gap-2 mb-2">
                   <span class="font-medium text-gray-900">{flow.from_project}</span>
@@ -270,7 +322,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
         </div>
         <div class="p-6">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {emergingRoles.roles.map((role: any) => (
+            {emergingRoles.roles.map((role: EmergingRole) => (
               <div class="p-4 bg-gray-50/50 rounded-xl">
                 <h3 class="font-medium text-gray-900 mb-1">{role.name}</h3>
                 {role.norwegian && (
@@ -294,7 +346,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
       <p>
         <strong>Data source:</strong> Compiled from official project reports (erfaringsrapporter),
         FutureBuilt documentation, Klimasats reports, and web research.
-        Last updated: {enablersData.last_updated}
+        Last updated: {data.last_updated}
       </p>
     </div>
   </div>

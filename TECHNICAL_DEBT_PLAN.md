@@ -66,10 +66,10 @@ grep -rE '\b2[345]\b.*project' site/src/ --include="*.astro"
 | `about.astro` | `DataDepthResult` interface |
 | `case-studies/[id].astro` | Lokale interfaces |
 
-**Gjenværende `any` (sekundære sider):**
-- `materials.astro` (5)
-- `stakeholders.astro` (4)
-- `enablers/index.astro` (3)
+**Gjenværende `any` (sekundære sider):** ✅ Alle fjernet
+- ~~`materials.astro` (5)~~ → 0
+- ~~`stakeholders.astro` (4)~~ → 0
+- ~~`enablers/index.astro` (3)~~ → 0
 
 ---
 
@@ -191,6 +191,7 @@ jobs:
 | 2025-12-07 | 2.3 | `048e437` | Schema-validering |
 | 2025-12-07 | 3.2 | `4841e35` | GitHub Actions CI |
 | 2025-12-07 | 2.2 | `47881a7` | Inline scripts refaktorert |
+| 2025-12-07 | 1.2+ | `9f06ffe` | Types i sekundære sider |
 
 ---
 
@@ -199,5 +200,5 @@ jobs:
 1. [x] Fase 2.2: Refaktorer inline scripts ✅
 2. [ ] Fase 3.1: Bundle Leaflet/Chart.js lokalt
 3. [x] Fase 3.2: GitHub Actions CI ✅
-4. [ ] Fiks gjenværende `any` i sekundære sider
+4. [x] Fiks gjenværende `any` i sekundære sider ✅
 5. [ ] Fyll data gaps identifisert av validator

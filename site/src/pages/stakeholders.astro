@@ -1,13 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import norwayData from '../../public/data/norway.json';
+import type { Project, NorwayData, CircularFeature } from '../types/project';
 
-const projects = norwayData.projects;
+interface SupplierInfo {
+  name: string;
+  country: string;
+  role: string;
+  projects: string[];
+  materials: Set<string>;
+}
+
+interface ClientInfo {
+  name: string;
+  isPublicSector: boolean;
+  projects: string[];
+  locations: Set<string>;
+}
+
+interface ArchitectInfo {
+  name: string;
+  projects: string[];
+}
+
+const data = norwayData as NorwayData;
+const projects = data.projects;
 
 // Extract all unique suppliers
-const suppliersMap = new Map();
-projects.forEach((project: any) => {
-  project.circular_features?.forEach((feature: any) => {
+const suppliersMap = new Map<string, SupplierInfo>();
+projects.forEach((project: Project) => {
+  project.circular_features?.forEach((feature: CircularFeature) => {
     if (feature.supplier?.name) {
       const key = feature.supplier.name;
       if (!suppliersMap.has(key)) {
@@ -35,8 +57,8 @@ const suppliers = Array.from(suppliersMap.values()).map(s => ({
 }));
 
 // Extract all unique clients/owners
-const clientsMap = new Map();
-projects.forEach((project: any) => {
+const clientsMap = new Map<string, ClientInfo>();
+projects.forEach((project: Project) => {
   if (project.client) {
     const key = project.client;
     if (!clientsMap.has(key)) {
@@ -60,8 +82,8 @@ const clients = Array.from(clientsMap.values()).map(c => ({
 }));
 
 // Extract all architects
-const architectsMap = new Map();
-projects.forEach((project: any) => {
+const architectsMap = new Map<string, ArchitectInfo>();
+projects.forEach((project: Project) => {
   const architects = Array.isArray(project.architect) ? project.architect : [project.architect];
   architects.forEach((arch: string) => {
     if (arch) {
