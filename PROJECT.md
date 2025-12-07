@@ -385,6 +385,26 @@ Public Circular Buildings/
 
 ## Changelog
 
+### 2025-12-07 - Research Tracker & Documentation
+**Research Strategy Documentation**
+- Created `docs/RESEARCH_STRATEGY.md` - comprehensive 10-section research plan
+- Created `docs/RESEARCH_PROMPTS.md` - copy-paste ready AI prompts for data collection
+- Gap analysis identifying critical missing data across all 7 case studies
+- Project prioritization matrix with ROI-based ordering
+
+**Research Tracker UI (Case Studies Page)**
+- Added sticky research plan sidebar with progress tracking
+- Real-time task status: pending → in_progress → completed
+- Per-project research tasks with category labels (klimagass, materials, costs, stakeholders)
+- Dynamic score display from case study JSON files
+- Embedded research prompts with accordion view and copy-to-clipboard
+- Overall progress bar showing completed/total tasks
+
+**Technical**
+- Two-column layout: main content + 320px research sidebar
+- Markdown parser for RESEARCH_PROMPTS.md at build time
+- Copy button with visual feedback (green checkmark)
+
 ### 2025-12-07 - Tier System Overhaul & Code Quality
 **Case Study Tier System**
 - Fixed case-insensitive tier matching (FLAGSHIP/TIER_1/TIER_2 now work)

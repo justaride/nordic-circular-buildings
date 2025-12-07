@@ -59,10 +59,177 @@ const counts = {
   tier1: caseStudies.filter(c => c._normalizedTier === 'tier1').length,
   tier2: caseStudies.filter(c => c._normalizedTier === 'tier2').length,
 };
+
+// Research plan data - extract actual scores from case studies
+const getProjectScore = (projectId: string): number => {
+  const cs = caseStudies.find(c =>
+    c.project_id?.toLowerCase().includes(projectId) ||
+    c.name?.toLowerCase().includes(projectId)
+  );
+  return cs?.data_completeness?.score || 0;
+};
+
+const researchPlan = [
+  { id: 'ka23', name: 'KA23', current: getProjectScore('ka23'), target: 75, priority: 1 },
+  { id: 'loren', name: 'Løren', current: getProjectScore('loren'), target: 65, priority: 2 },
+  { id: 'nedre_sem', name: 'Nedre Sem', current: getProjectScore('nedre_sem'), target: 65, priority: 3 },
+  { id: 'skur38', name: 'Skur 38', current: getProjectScore('skur38'), target: 65, priority: 4 },
+  { id: 'treklang', name: 'Treklang', current: getProjectScore('treklang') || getProjectScore('oksenøya'), target: 65, priority: 5 },
+  { id: 'foniks', name: 'Føniks', current: getProjectScore('foniks') || getProjectScore('føniks'), target: 55, priority: 6 },
+  { id: 'ka13', name: 'KA13', current: getProjectScore('ka13'), target: 80, priority: 7 },
+];
+
+// Research tasks per project
+interface ResearchTask {
+  task: string;
+  category: 'klimagass' | 'materials' | 'costs' | 'stakeholders';
+  status: 'pending' | 'in_progress' | 'completed';
+}
+
+interface ProjectResearch {
+  id: string;
+  tasks: ResearchTask[];
+}
+
+const projectResearchTasks: ProjectResearch[] = [
+  {
+    id: 'ka23',
+    tasks: [
+      { task: 'Finn klimagassrapport', category: 'klimagass', status: 'pending' },
+      { task: 'Dokumenter materialvekt (tonn)', category: 'materials', status: 'pending' },
+      { task: 'Kostnadssammenligning ombruk/nytt', category: 'costs', status: 'pending' },
+    ]
+  },
+  {
+    id: 'loren',
+    tasks: [
+      { task: 'Finn ombruksandel %', category: 'materials', status: 'pending' },
+      { task: 'Klimasats sluttrapport', category: 'klimagass', status: 'pending' },
+      { task: 'Tekniske konsulenter (RIB, RIV)', category: 'stakeholders', status: 'pending' },
+    ]
+  },
+  {
+    id: 'nedre_sem',
+    tasks: [
+      { task: 'CO2-reduksjon %', category: 'klimagass', status: 'pending' },
+      { task: 'Materialvekt ombruk', category: 'materials', status: 'pending' },
+      { task: 'Klimagassregnskap/miljørapport', category: 'klimagass', status: 'pending' },
+    ]
+  },
+  {
+    id: 'skur38',
+    tasks: [
+      { task: 'CO2-reduksjon %', category: 'klimagass', status: 'pending' },
+      { task: 'Ombruksandel %', category: 'materials', status: 'pending' },
+      { task: 'Materialvekt bevart/ombrukt', category: 'materials', status: 'pending' },
+    ]
+  },
+  {
+    id: 'treklang',
+    tasks: [
+      { task: 'CO2-reduksjon fra klimagassrapporter', category: 'klimagass', status: 'pending' },
+      { task: 'Ombruksandel hele anlegget', category: 'materials', status: 'pending' },
+      { task: 'Donorkilder for materialer', category: 'materials', status: 'pending' },
+    ]
+  },
+  {
+    id: 'foniks',
+    tasks: [
+      { task: 'Entreprenør', category: 'stakeholders', status: 'pending' },
+      { task: 'Budsjett/investeringssum', category: 'costs', status: 'pending' },
+      { task: 'CO2-reduksjon vs referanse', category: 'klimagass', status: 'pending' },
+    ]
+  },
+  {
+    id: 'ka13',
+    tasks: [
+      { task: 'CO2-intensitet (kg CO2/m²/år)', category: 'klimagass', status: 'completed' },
+      { task: 'Kostnadssammenligning stål/hulldekker', category: 'costs', status: 'pending' },
+      { task: 'Masteroppgaver som analyserer', category: 'klimagass', status: 'pending' },
+    ]
+  },
+];
+
+// Calculate overall progress
+const totalTasks = projectResearchTasks.reduce((sum, p) => sum + p.tasks.length, 0);
+const completedTasks = projectResearchTasks.reduce(
+  (sum, p) => sum + p.tasks.filter(t => t.status === 'completed').length, 0
+);
+const inProgressTasks = projectResearchTasks.reduce(
+  (sum, p) => sum + p.tasks.filter(t => t.status === 'in_progress').length, 0
+);
+
+// Category colors
+const categoryColors: Record<string, { bg: string; text: string }> = {
+  klimagass: { bg: 'bg-green-100', text: 'text-green-700' },
+  materials: { bg: 'bg-blue-100', text: 'text-blue-700' },
+  costs: { bg: 'bg-amber-100', text: 'text-amber-700' },
+  stakeholders: { bg: 'bg-purple-100', text: 'text-purple-700' },
+};
+
+// Status icons
+const statusConfig: Record<string, { icon: string; color: string }> = {
+  pending: { icon: '○', color: 'text-gray-400' },
+  in_progress: { icon: '◐', color: 'text-blue-500' },
+  completed: { icon: '●', color: 'text-green-500' },
+};
+
+// Load research prompts markdown
+const promptsPath = path.join(process.cwd(), '..', 'docs', 'RESEARCH_PROMPTS.md');
+const researchPromptsRaw = fs.existsSync(promptsPath)
+  ? fs.readFileSync(promptsPath, 'utf-8')
+  : '';
+
+// Parse markdown into sections for better display
+interface PromptSection {
+  title: string;
+  content: string;
+  isCode: boolean;
+}
+
+const parsePrompts = (markdown: string): PromptSection[] => {
+  const sections: PromptSection[] = [];
+  const lines = markdown.split('\n');
+  let currentSection: PromptSection | null = null;
+  let inCodeBlock = false;
+  let codeContent = '';
+
+  for (const line of lines) {
+    if (line.startsWith('```')) {
+      if (inCodeBlock) {
+        // End code block
+        if (currentSection) {
+          sections.push({
+            title: currentSection.title,
+            content: codeContent.trim(),
+            isCode: true
+          });
+        }
+        inCodeBlock = false;
+        codeContent = '';
+      } else {
+        // Start code block
+        inCodeBlock = true;
+      }
+    } else if (inCodeBlock) {
+      codeContent += line + '\n';
+    } else if (line.startsWith('## ')) {
+      currentSection = { title: line.replace('## ', ''), content: '', isCode: false };
+    } else if (line.startsWith('### ')) {
+      currentSection = { title: line.replace('### ', ''), content: '', isCode: false };
+    }
+  }
+  return sections;
+};
+
+const promptSections = parsePrompts(researchPromptsRaw);
 ---
 
 <Layout title="Case Studies" description="Deep-dive documentation of circular building projects in Norway">
-  <div class="max-w-6xl mx-auto px-6 py-8">
+  <div class="max-w-[1600px] mx-auto px-6 py-8">
+    <div class="flex gap-8">
+      <!-- Main Content -->
+      <div class="flex-1 min-w-0">
     <!-- Header -->
     <div class="mb-8">
       <a href={import.meta.env.BASE_URL} class="inline-flex items-center gap-1.5 text-gray-400 hover:text-gray-600 mb-4 text-sm transition-colors">
@@ -344,6 +511,174 @@ const counts = {
         </div>
       </div>
     </section>
+      </div>
+
+      <!-- Research Plan Sidebar -->
+      <aside class="w-80 flex-shrink-0 hidden lg:block">
+        <div class="sticky top-6 space-y-4">
+          <!-- Progress Overview -->
+          <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+            <h3 class="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <svg class="w-5 h-5 text-nordic-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+              Research Plan
+            </h3>
+
+            <!-- Overall Progress Bar -->
+            <div class="mb-4">
+              <div class="flex justify-between text-xs text-gray-500 mb-1">
+                <span>Fremdrift</span>
+                <span>{completedTasks}/{totalTasks} oppgaver</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div
+                  class="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full transition-all"
+                  style={`width: ${(completedTasks / totalTasks) * 100}%`}
+                ></div>
+              </div>
+            </div>
+
+            <!-- Status Legend -->
+            <div class="flex gap-4 text-xs mb-4 pb-4 border-b border-gray-100">
+              <span class="flex items-center gap-1">
+                <span class="text-green-500">●</span> Fullført ({completedTasks})
+              </span>
+              <span class="flex items-center gap-1">
+                <span class="text-blue-500">◐</span> Pågår ({inProgressTasks})
+              </span>
+              <span class="flex items-center gap-1">
+                <span class="text-gray-400">○</span> Venter ({totalTasks - completedTasks - inProgressTasks})
+              </span>
+            </div>
+
+            <!-- Category Legend -->
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <span class={`px-2 py-1 rounded ${categoryColors.klimagass.bg} ${categoryColors.klimagass.text}`}>
+                Klimagass
+              </span>
+              <span class={`px-2 py-1 rounded ${categoryColors.materials.bg} ${categoryColors.materials.text}`}>
+                Materialer
+              </span>
+              <span class={`px-2 py-1 rounded ${categoryColors.costs.bg} ${categoryColors.costs.text}`}>
+                Kostnader
+              </span>
+              <span class={`px-2 py-1 rounded ${categoryColors.stakeholders.bg} ${categoryColors.stakeholders.text}`}>
+                Stakeholders
+              </span>
+            </div>
+          </div>
+
+          <!-- Project Tasks -->
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            <div class="px-5 py-3 bg-gray-50 border-b border-gray-100">
+              <h4 class="text-sm font-medium text-gray-700">Prosjekt-oppgaver</h4>
+            </div>
+            <div class="divide-y divide-gray-100 max-h-[600px] overflow-y-auto">
+              {researchPlan.map((project) => {
+                const tasks = projectResearchTasks.find(p => p.id === project.id)?.tasks || [];
+                const completed = tasks.filter(t => t.status === 'completed').length;
+                const progressPct = tasks.length > 0 ? (completed / tasks.length) * 100 : 0;
+
+                return (
+                  <div class="p-4">
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-nordic-100 text-nordic-600 text-xs font-medium flex items-center justify-center">
+                          {project.priority}
+                        </span>
+                        <span class="font-medium text-gray-900 text-sm">{project.name}</span>
+                      </div>
+                      <div class="text-xs text-gray-500">
+                        {project.current} → {project.target}
+                      </div>
+                    </div>
+
+                    <!-- Mini progress bar -->
+                    <div class="h-1 bg-gray-100 rounded-full overflow-hidden mb-2">
+                      <div
+                        class="h-full bg-green-400 rounded-full transition-all"
+                        style={`width: ${progressPct}%`}
+                      ></div>
+                    </div>
+
+                    <!-- Tasks -->
+                    <div class="space-y-1.5">
+                      {tasks.map((task) => {
+                        const status = statusConfig[task.status];
+                        const cat = categoryColors[task.category];
+                        return (
+                          <div class="flex items-start gap-2 text-xs">
+                            <span class={`${status.color} mt-0.5`}>{status.icon}</span>
+                            <span class={`flex-1 ${task.status === 'completed' ? 'text-gray-400 line-through' : 'text-gray-600'}`}>
+                              {task.task}
+                            </span>
+                            <span class={`px-1.5 py-0.5 rounded text-[10px] ${cat.bg} ${cat.text}`}>
+                              {task.category === 'klimagass' ? 'CO2' :
+                               task.category === 'materials' ? 'Mat' :
+                               task.category === 'costs' ? 'Kr' : 'Team'}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <!-- Research Prompts Document -->
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            <div class="px-5 py-3 bg-gradient-to-r from-nordic-50 to-fjord-50 border-b border-gray-100 flex items-center justify-between">
+              <h4 class="text-sm font-medium text-gray-700 flex items-center gap-2">
+                <svg class="w-4 h-4 text-nordic-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Research Prompts
+              </h4>
+              <span class="text-xs text-gray-400">{promptSections.length} prompts</span>
+            </div>
+            <div class="max-h-[500px] overflow-y-auto divide-y divide-gray-100" id="prompts-container">
+              {promptSections.map((section, idx) => (
+                <details class="group" open={idx === 0}>
+                  <summary class="px-4 py-3 cursor-pointer hover:bg-gray-50 flex items-center justify-between">
+                    <span class="text-sm font-medium text-gray-700">{section.title}</span>
+                    <svg class="w-4 h-4 text-gray-400 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-4 pb-4">
+                    <div class="relative">
+                      <pre class="bg-gray-900 text-gray-100 p-3 rounded-lg text-xs overflow-x-auto whitespace-pre-wrap font-mono leading-relaxed max-h-64 overflow-y-auto">{section.content}</pre>
+                      <button
+                        class="copy-btn absolute top-2 right-2 p-1.5 bg-gray-700 hover:bg-gray-600 rounded text-gray-300 hover:text-white transition-colors"
+                        data-content={section.content}
+                        title="Kopier prompt"
+                      >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="bg-gradient-to-br from-nordic-50 to-fjord-50 rounded-2xl border border-nordic-100 p-4">
+            <h4 class="text-sm font-medium text-gray-700 mb-3">Forskningstips</h4>
+            <div class="space-y-2 text-xs text-gray-600">
+              <p>• Start med høyest prioritet (lavest nummer)</p>
+              <p>• Klikk på prompt for å kopiere</p>
+              <p>• Oppdater status i <code class="bg-white px-1 rounded">index.astro</code></p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
   </div>
 </Layout>
 
@@ -354,4 +689,50 @@ const counts = {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary::marker {
+    display: none;
+  }
+
+  .copy-btn.copied {
+    background-color: #22c55e;
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyButtons = document.querySelectorAll('.copy-btn');
+
+    copyButtons.forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const content = btn.getAttribute('data-content');
+        if (!content) return;
+
+        try {
+          await navigator.clipboard.writeText(content);
+
+          btn.classList.add('copied');
+          btn.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>`;
+
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>`;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+  });
+</script>
