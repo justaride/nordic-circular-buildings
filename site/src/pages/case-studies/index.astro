@@ -60,6 +60,142 @@ const counts = {
   tier2: caseStudies.filter(c => c._normalizedTier === 'tier2').length,
 };
 
+// Extract stakeholder data from all case studies with coverage status
+interface StakeholderCoverage {
+  name: string;
+  role: string;
+  projects: { name: string; id: string; hasDetails: boolean }[];
+  coverage: 'full' | 'partial' | 'minimal';
+}
+
+// Byggherrer
+const byggherreMap = new Map<string, StakeholderCoverage>();
+caseStudies.forEach(cs => {
+  const byggherre = cs.stakeholders?.byggherre?.name ||
+                    cs.stakeholders?.client?.name ||
+                    cs.project_team?.developer?.name;
+  if (byggherre) {
+    if (!byggherreMap.has(byggherre)) {
+      byggherreMap.set(byggherre, {
+        name: byggherre,
+        role: 'Byggherre',
+        projects: [],
+        coverage: 'minimal'
+      });
+    }
+    const entry = byggherreMap.get(byggherre)!;
+    const hasDetails = !!(cs.stakeholders?.byggherre?.key_persons || cs.stakeholders?.client?.contact);
+    entry.projects.push({ name: cs.name, id: cs.project_id, hasDetails });
+  }
+});
+
+// Arkitekter
+const arkitektMap = new Map<string, StakeholderCoverage>();
+caseStudies.forEach(cs => {
+  const arkitekt = cs.stakeholders?.arkitekt?.name ||
+                   cs.stakeholders?.architect?.name ||
+                   cs.stakeholders?.arkitekt_rehabilitering?.name;
+  if (arkitekt) {
+    if (!arkitektMap.has(arkitekt)) {
+      arkitektMap.set(arkitekt, {
+        name: arkitekt,
+        role: 'Arkitekt',
+        projects: [],
+        coverage: 'minimal'
+      });
+    }
+    const entry = arkitektMap.get(arkitekt)!;
+    entry.projects.push({ name: cs.name, id: cs.project_id, hasDetails: true });
+  }
+});
+
+// Entreprenører
+const entreprenorMap = new Map<string, StakeholderCoverage>();
+caseStudies.forEach(cs => {
+  const entreprenor = cs.stakeholders?.entreprenor?.name ||
+                      cs.stakeholders?.contractor?.name ||
+                      cs.stakeholders?.totalentreprenor?.name;
+  if (entreprenor) {
+    if (!entreprenorMap.has(entreprenor)) {
+      entreprenorMap.set(entreprenor, {
+        name: entreprenor,
+        role: 'Entreprenør',
+        projects: [],
+        coverage: 'minimal'
+      });
+    }
+    const entry = entreprenorMap.get(entreprenor)!;
+    entry.projects.push({ name: cs.name, id: cs.project_id, hasDetails: true });
+  }
+});
+
+// Miljørådgivere
+const miljoradgiverMap = new Map<string, StakeholderCoverage>();
+caseStudies.forEach(cs => {
+  const miljoradgiver = cs.stakeholders?.miljoradgiver?.name ||
+                        cs.stakeholders?.miljøradgiver?.name ||
+                        cs.stakeholders?.climate_consultant?.name ||
+                        cs.stakeholders?.ombruksradgiver?.name;
+  if (miljoradgiver) {
+    if (!miljoradgiverMap.has(miljoradgiver)) {
+      miljoradgiverMap.set(miljoradgiver, {
+        name: miljoradgiver,
+        role: 'Miljørådgiver',
+        projects: [],
+        coverage: 'minimal'
+      });
+    }
+    const entry = miljoradgiverMap.get(miljoradgiver)!;
+    entry.projects.push({ name: cs.name, id: cs.project_id, hasDetails: true });
+  }
+});
+
+// Calculate coverage for each project
+interface ProjectDataStatus {
+  id: string;
+  name: string;
+  score: number;
+  grade: string;
+  tier: string;
+  hasStakeholders: boolean;
+  hasCO2: boolean;
+  hasCircularity: boolean;
+  hasMaterials: boolean;
+  hasCosts: boolean;
+  hasSources: boolean;
+  hasDonors: boolean;
+}
+
+const projectDataStatus: ProjectDataStatus[] = caseStudies.map(cs => {
+  const dc = cs.data_completeness || {};
+  const cats = dc.category_scores || {};
+  return {
+    id: cs.project_id,
+    name: cs.name,
+    score: dc.score || 0,
+    grade: dc.grade || 'D',
+    tier: cs._normalizedTier,
+    hasStakeholders: (cats.stakeholders || 0) >= 8,
+    hasCO2: (cats.metrics_co2 || 0) >= 8,
+    hasCircularity: (cats.metrics_circularity || 0) >= 8,
+    hasMaterials: (cats.material_inventory || 0) >= 8,
+    hasCosts: (cats.cost_data || 0) >= 3,
+    hasSources: (cats.sources_primary || 0) >= 7,
+    hasDonors: (cats.donor_sources || 0) >= 3,
+  };
+});
+
+// Calculate overall coverage stats
+const coverageStats = {
+  avgScore: Math.round(projectDataStatus.reduce((sum, p) => sum + p.score, 0) / projectDataStatus.length),
+  withCO2: projectDataStatus.filter(p => p.hasCO2).length,
+  withCircularity: projectDataStatus.filter(p => p.hasCircularity).length,
+  withMaterials: projectDataStatus.filter(p => p.hasMaterials).length,
+  withCosts: projectDataStatus.filter(p => p.hasCosts).length,
+  withDonors: projectDataStatus.filter(p => p.hasDonors).length,
+  total: projectDataStatus.length,
+};
+
 // Research plan data - extract actual scores from case studies
 const getProjectScore = (projectId: string): number => {
   const cs = caseStudies.find(c =>
@@ -290,6 +426,215 @@ const promptSections = parsePrompts(researchPromptsRaw);
           <div>
             <div class="text-sm font-medium text-gray-900">Lessons Learned</div>
             <div class="text-xs text-gray-500">Challenges & solutions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Status Dashboard -->
+    <div class="bg-white rounded-2xl border border-gray-200 p-6 mb-8 shadow-sm">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+          <svg class="w-5 h-5 text-nordic-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          Datastatus Dashboard
+        </h2>
+        <div class="flex items-center gap-2">
+          <span class="text-sm text-gray-500">Snitt kvalitet:</span>
+          <span class="px-3 py-1 bg-nordic-100 text-nordic-700 rounded-full text-sm font-semibold">{coverageStats.avgScore}%</span>
+        </div>
+      </div>
+
+      <!-- Coverage Matrix -->
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-gray-200">
+              <th class="text-left py-3 px-2 font-medium text-gray-600">Prosjekt</th>
+              <th class="text-center py-3 px-2 font-medium text-gray-600">Score</th>
+              <th class="text-center py-3 px-2 font-medium text-gray-600" title="Aktører dokumentert">
+                <span class="hidden sm:inline">Aktører</span>
+                <span class="sm:hidden">👥</span>
+              </th>
+              <th class="text-center py-3 px-2 font-medium text-gray-600" title="CO2-data">
+                <span class="hidden sm:inline">CO2</span>
+                <span class="sm:hidden">🌍</span>
+              </th>
+              <th class="text-center py-3 px-2 font-medium text-gray-600" title="Sirkularitetsmetrikker">
+                <span class="hidden sm:inline">Sirkularitet</span>
+                <span class="sm:hidden">♻️</span>
+              </th>
+              <th class="text-center py-3 px-2 font-medium text-gray-600" title="Materialinventar">
+                <span class="hidden sm:inline">Materialer</span>
+                <span class="sm:hidden">📦</span>
+              </th>
+              <th class="text-center py-3 px-2 font-medium text-gray-600" title="Kostnadsdata">
+                <span class="hidden sm:inline">Kostnader</span>
+                <span class="sm:hidden">💰</span>
+              </th>
+              <th class="text-center py-3 px-2 font-medium text-gray-600" title="Donorbygg dokumentert">
+                <span class="hidden sm:inline">Donorer</span>
+                <span class="sm:hidden">🏗️</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {projectDataStatus.map((project) => (
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="py-3 px-2">
+                    <a href={`${import.meta.env.BASE_URL}/case-studies/${project.id}`} class="hover:text-nordic-600 transition-colors">
+                      <span class="font-medium text-gray-900">{project.name}</span>
+                    </a>
+                  </td>
+                  <td class="py-3 px-2 text-center">
+                    <div class="flex items-center justify-center gap-1">
+                      <div class={`w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold ${
+                        project.grade === 'A' ? 'bg-green-500' :
+                        project.grade === 'B' ? 'bg-nordic-500' :
+                        project.grade === 'C' ? 'bg-amber-500' : 'bg-red-400'
+                      }`}>
+                        {project.grade}
+                      </div>
+                      <span class="text-gray-500 text-xs">{project.score}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-2 text-center">
+                    <span class={`inline-block w-6 h-6 rounded-full text-xs flex items-center justify-center ${project.hasStakeholders ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                      {project.hasStakeholders ? '✓' : '–'}
+                    </span>
+                  </td>
+                  <td class="py-3 px-2 text-center">
+                    <span class={`inline-block w-6 h-6 rounded-full text-xs flex items-center justify-center ${project.hasCO2 ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                      {project.hasCO2 ? '✓' : '–'}
+                    </span>
+                  </td>
+                  <td class="py-3 px-2 text-center">
+                    <span class={`inline-block w-6 h-6 rounded-full text-xs flex items-center justify-center ${project.hasCircularity ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                      {project.hasCircularity ? '✓' : '–'}
+                    </span>
+                  </td>
+                  <td class="py-3 px-2 text-center">
+                    <span class={`inline-block w-6 h-6 rounded-full text-xs flex items-center justify-center ${project.hasMaterials ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                      {project.hasMaterials ? '✓' : '–'}
+                    </span>
+                  </td>
+                  <td class="py-3 px-2 text-center">
+                    <span class={`inline-block w-6 h-6 rounded-full text-xs flex items-center justify-center ${project.hasCosts ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                      {project.hasCosts ? '✓' : '–'}
+                    </span>
+                  </td>
+                  <td class="py-3 px-2 text-center">
+                    <span class={`inline-block w-6 h-6 rounded-full text-xs flex items-center justify-center ${project.hasDonors ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                      {project.hasDonors ? '✓' : '–'}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Coverage Summary -->
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-3 pt-4 border-t border-gray-100">
+        <div class="text-center">
+          <div class="text-lg font-semibold text-gray-900">{coverageStats.withCO2}/{coverageStats.total}</div>
+          <div class="text-xs text-gray-500">CO2-data</div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-semibold text-gray-900">{coverageStats.withCircularity}/{coverageStats.total}</div>
+          <div class="text-xs text-gray-500">Sirkularitet</div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-semibold text-gray-900">{coverageStats.withMaterials}/{coverageStats.total}</div>
+          <div class="text-xs text-gray-500">Materialinventar</div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-semibold text-gray-900">{coverageStats.withCosts}/{coverageStats.total}</div>
+          <div class="text-xs text-gray-500">Kostnadsdata</div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-semibold text-gray-900">{coverageStats.withDonors}/{coverageStats.total}</div>
+          <div class="text-xs text-gray-500">Donorbygg</div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-semibold text-nordic-600">{coverageStats.total}</div>
+          <div class="text-xs text-gray-500">Case studies</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stakeholder Coverage -->
+    <div class="bg-white rounded-2xl border border-gray-200 p-6 mb-8 shadow-sm">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5 text-nordic-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+        Aktøroversikt
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Byggherrer -->
+        <div class="bg-gray-50 rounded-xl p-4">
+          <h3 class="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            Byggherrer ({Array.from(byggherreMap.values()).length})
+          </h3>
+          <div class="space-y-2 max-h-48 overflow-y-auto">
+            {Array.from(byggherreMap.values()).map(b => (
+              <div class="text-xs bg-white rounded-lg p-2 border border-gray-100">
+                <div class="font-medium text-gray-800">{b.name}</div>
+                <div class="text-gray-500">{b.projects.length} prosjekt{b.projects.length !== 1 ? 'er' : ''}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Arkitekter -->
+        <div class="bg-gray-50 rounded-xl p-4">
+          <h3 class="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+            Arkitekter ({Array.from(arkitektMap.values()).length})
+          </h3>
+          <div class="space-y-2 max-h-48 overflow-y-auto">
+            {Array.from(arkitektMap.values()).map(a => (
+              <div class="text-xs bg-white rounded-lg p-2 border border-gray-100">
+                <div class="font-medium text-gray-800">{a.name}</div>
+                <div class="text-gray-500">{a.projects.length} prosjekt{a.projects.length !== 1 ? 'er' : ''}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Entreprenører -->
+        <div class="bg-gray-50 rounded-xl p-4">
+          <h3 class="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Entreprenører ({Array.from(entreprenorMap.values()).length})
+          </h3>
+          <div class="space-y-2 max-h-48 overflow-y-auto">
+            {Array.from(entreprenorMap.values()).map(e => (
+              <div class="text-xs bg-white rounded-lg p-2 border border-gray-100">
+                <div class="font-medium text-gray-800">{e.name}</div>
+                <div class="text-gray-500">{e.projects.length} prosjekt{e.projects.length !== 1 ? 'er' : ''}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Miljørådgivere -->
+        <div class="bg-gray-50 rounded-xl p-4">
+          <h3 class="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+            Miljørådgivere ({Array.from(miljoradgiverMap.values()).length})
+          </h3>
+          <div class="space-y-2 max-h-48 overflow-y-auto">
+            {Array.from(miljoradgiverMap.values()).map(m => (
+              <div class="text-xs bg-white rounded-lg p-2 border border-gray-100">
+                <div class="font-medium text-gray-800">{m.name}</div>
+                <div class="text-gray-500">{m.projects.length} prosjekt{m.projects.length !== 1 ? 'er' : ''}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
