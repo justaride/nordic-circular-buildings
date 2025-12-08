@@ -666,6 +666,11 @@
   "stakeholders": {
     "client": {
       "name": "Oslo Havn KF",
+      "key_people": [
+        { "name": "Ingvar M. Mathisen", "role": "Havnedirektør" },
+        { "name": "Espen Dag Rydland", "role": "Eiendomsdirektør" },
+        { "name": "Erling Jenssen", "role": "Seksjonsleder/Prosjekteier" }
+      ],
       "address": "Akershusstranda 19, 0150 Oslo"
     },
     "project_management": {
@@ -674,22 +679,36 @@
     },
     "architect": {
       "name": "Hille Melbye arkitekter",
+      "key_people": [
+        { "name": "Joachim Midjo Andersen", "role": "Arkitekt/Kontaktperson" },
+        { "name": "Kaja Melbye", "role": "Faglig leder" }
+      ],
       "address": "Hausmanns gate 16, 0182 Oslo"
+    },
+    "interior_architect": {
+      "name": "IARK",
+      "role": "Interiørarkitekt, spilevegg og ombruksinteriør"
     },
     "contractor": {
       "name": "Varden Entreprenør",
+      "key_people": [
+        { "name": "Nils H. Stenhammer", "role": "Styreleder/Direktør" }
+      ],
       "address": "Sinsenveien 4, 0572 Oslo",
       "contract_type": "Totalentreprise med integrert samhandling (samspill med målpris og incitament)"
     },
     "environmental_advisor": {
-      "name": "Bollinger + Grohmann Ingeniører AS",
+      "name": "Bollinger + Grohmann Ingeniører AS / Zero Emission Studio",
+      "key_people": [
+        { "name": "Michael Lommertz", "role": "Miljørådgiver, FutureBuilt Zero" }
+      ],
       "address": "Filipstadveien 5, 0250 Oslo"
     },
     "demolition_contractors": [
-      "Alt i Prosjekt (AIP)",
-      "Boss i Follo",
-      "Wickstrøm",
-      "Profilteam"
+      { "name": "Alt i Prosjekt (AIP)", "role": "Demontering" },
+      { "name": "Boss i Follo", "role": "Demontering og transport fra donorbygg" },
+      { "name": "Wickstrøm", "role": "Elektrodemontering" },
+      { "name": "Profilteam", "role": "Dører og glass" }
     ],
     "report_authors": [
       "Siri Breivik",
@@ -698,7 +717,9 @@
     ],
     "heritage": {
       "status": "Byantikvarens gule liste + Oslo Havns Maritim kulturminneplan",
-      "approach": "Synliggjøre byggets historie som opprinnelig lagerbygg"
+      "approach": "Synliggjøre byggets historie som opprinnelig lagerbygg",
+      "original_architect": "Bernt Arlet Christian Lange",
+      "historical_significance": "Ett av Norges første armerte betongbygg, opprinnelig lagerbygg for Den Norske Amerikalinjen"
     }
   },
   "lessons_learned": [
@@ -802,6 +823,37 @@
       "total_co2_kg": 166952
     }
   ],
+  "logistics": {
+    "transport_method": "Veitransport (lastebil)",
+    "transport_contractor": "Boss i Follo",
+    "interim_storage": {
+      "location": "Fjellhallen på Kongshavn (Sydhavna)",
+      "function": "Buffer og prosesseringssentral",
+      "importance": "Avgjørende for å kunne demontere og lagre materialer - byggeplass på Vippetangen svært trang"
+    },
+    "note": "Ingen sjøtransport for byggematerialer - kun veitransport fra donorbygg i Oslo",
+    "market_observation": {
+      "resirqel_involvement": false,
+      "reason": "Markedet for ombrukstjenester var umodent (2020-2021). Resirqel og andre hadde ikke kapasitet.",
+      "consequence": "Oslo Havn og Varden måtte ta 'hands-on' rolle i logistikken selv"
+    }
+  },
+  "innovative_materials": {
+    "leirebetong_futurecem": {
+      "volume_m3": 65,
+      "description": "Leirebasert betong hvor sementklinkeren er delvis erstattet med kalsinert leire og kalksteinsmel",
+      "process": "Leire brennes ved ca. 850°C vs sement ved 1450°C - enorm energibesparelse",
+      "application": "Gulv på grunn",
+      "status": "Første i Norge i stor skala",
+      "supplier": "Unicon"
+    },
+    "isokalk_aerogel": {
+      "description": "Kalkbasert pussmørtel tilsatt aerogel-granulater (99.8% luft)",
+      "benefit": "Tynn påføring bevarer fasadens relieff, drastisk forbedret U-verdi",
+      "application": "Isolering av verneverdige betongfasader",
+      "award": "3. plass Aerogel Architecture Award 2023"
+    }
+  },
   "data_gaps": [
     "Endelig sirkularitetsindeks ikke oppgitt",
     "Faktisk ombruksprosent vs mål (10%) ikke bekreftet",

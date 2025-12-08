@@ -907,13 +907,54 @@
       "purpose": "Vise at gjenbruk er mulig – og kan lønne seg",
       "long_term_value": "Tids- og økonomiske kostnader brukes til å lage rutiner og erfaringer for fremtidige prosjekter"
     },
-    "material_costs": {
-      "hulldekker": {
-        "acquisition": "Selger sparer deponiavgift - potensielt gratis/lavkost",
-        "processing": "Ikke oppgitt",
-        "testing": "Ikke oppgitt"
+    "material_cost_analysis": {
+      "structural_steel": {
+        "new_steel_nok_per_kg": 67,
+        "reused_steel_nok_per_kg": 100,
+        "cost_premium_percent": 49,
+        "premium_drivers": [
+          "Sourcing and identification",
+          "Dismantling from donor buildings",
+          "Testing and chemical analysis",
+          "Sandblasting (67% of reuse emissions)",
+          "Refabrication and adjustment",
+          "Double handling and storage"
+        ],
+        "co2_reduction_percent": 97,
+        "implied_carbon_price_nok_per_tonne": 13580,
+        "source": "Detailed economic analysis from Erfaringsrapport"
       },
-      "general": "Detaljerte materialpriser ikke offentlig tilgjengelig"
+      "hollow_core_slabs": {
+        "new_slabs_nok_per_m2_range": { "low": 500, "high": 700 },
+        "reused_slabs_nok_per_m2_range": { "low": 2500, "high": 4200 },
+        "cost_multiplier": "5-6x",
+        "premium_drivers": [
+          "Manual sawing (diamond blades, ~500-700 NOK/meter)",
+          "Surgical extraction vs demolition",
+          "Core drilling for lifting holes",
+          "Double handling with interim storage",
+          "SINTEF testing and certification",
+          "Extra weight from retained topping (8cm concrete)"
+        ],
+        "co2_reduction_percent": 89,
+        "source": "Detailed economic analysis from Erfaringsrapport"
+      }
+    },
+    "engineering_cost_impact": {
+      "rib_hours_multiplier": 2,
+      "reason": "Design iteration based on available materials, rigorous testing protocols",
+      "note": "Engineering had to work with 'library' of available components from donor buildings"
+    },
+    "funding_support": {
+      "enova": {
+        "program": "Full-scale innovative energy and climate technology",
+        "coverage": "Up to 50% of additional costs",
+        "note": "De-risked the 5-6x multiplier on concrete slabs"
+      },
+      "futurebuilt": {
+        "role": "Arbeidsmøter for KS-prosedyrer",
+        "collaborators": ["Stålforbundet", "Kontrollrådet for betong", "SINTEF"]
+      }
     },
     "value_proposition": {
       "environmental": "70% GHG-reduksjon, 89-98% for enkeltmaterialer",

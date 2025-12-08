@@ -6,8 +6,8 @@
   "case_study_version": "1.0",
   "case_study_tier": "TIER_2",
   "last_updated": "2025-12-05",
-  "data_source": "Frydenbø Eiendom presentasjon (juni 2025) + web sources",
-  "data_quality_note": "Data completeness: 50/100 (Grade C). 20 data points documented, 10 gaps identified.",
+  "data_source": "Frydenbø Eiendom presentasjon (juni 2025) + web sources + Comprehensive Investment Analysis (Dec 2025)",
+  "data_quality_note": "Data completeness: 72/100 (Grade B). Enhanced with financial analysis, DNB Green Loan data, and CAPEX estimates.",
   "executive_summary": {
     "project_type": "Rehabilitering til kontorlokaler med tilnærmet 100% ombruk",
     "completion_year": 2026,
@@ -37,14 +37,36 @@
       "source": "FutureBuilt Bergen"
     },
     "co2_reduction_percent": {
-      "value": 90,
-      "comparison_basis": "vs konvensjonelt bygg med nye materialer",
-      "note": "Klimagassberegninger indikerer at nær full ombruk kan kutte utslippene med bortimot 90%",
-      "source": {
-        "name": "DNB Nyheter",
-        "url": "https://www.dnb.no/dnbnyheter/no/samfunn/frydenbo-foniks",
-        "date": "2024"
+      "total": {
+        "value": 51,
+        "comparison_basis": "Total Climate Footprint vs standard rehab",
+        "breakdown": {
+          "material_emissions": -89,
+          "energy_emissions": -15
+        },
+        "source": "Comprehensive Investment Analysis Dec 2025"
+      },
+      "materials_only": {
+        "value": 89,
+        "comparison_basis": "vs konvensjonelt bygg med nye materialer",
+        "note": "Klimagassberegninger indikerer at nær full ombruk kan kutte utslippene med bortimot 90%",
+        "source": {
+          "name": "DNB Nyheter",
+          "url": "https://www.dnb.no/dnbnyheter/no/samfunn/frydenbo-foniks",
+          "date": "2024"
+        }
       }
+    },
+    "energy_reduction": {
+      "value": 50,
+      "unit": "percent",
+      "comparison_basis": "vs pre-rehab baseline",
+      "technologies": [
+        "Sea water heating/cooling",
+        "Solar PV panels",
+        "Adaptic/Airthings smart management"
+      ],
+      "source": "Frydenbø Årsrapport 2024"
     },
     "registered_components": {
       "count": 2600,
@@ -360,10 +382,62 @@
       "url": "https://byggfaktanyheter.no/foniks-et-foregangsprosjekt-innen-ombruk/"
     }
   ],
+  "financial_analysis": {
+    "capex_estimate": {
+      "range_mnok": {
+        "low": 50,
+        "high": 70
+      },
+      "per_sqm_nok": {
+        "low": 25000,
+        "high": 35000
+      },
+      "comparison": {
+        "new_build_high": 100,
+        "new_build_standard": 80,
+        "savings_vs_new": "30-40 MNOK"
+      },
+      "note": "Cheaper than demolition and new construction",
+      "source": "Comprehensive Investment Analysis Dec 2025"
+    },
+    "cost_structure_shift": {
+      "description": "Circular projects shift costs from materials to labor",
+      "traditional_materials_pct": "40-50%",
+      "foniks_materials_pct": "<10%",
+      "labor_increase": "Very High - Tetris game installation",
+      "engineering_increase": "High - Recertification required"
+    },
+    "financing": {
+      "primary_lender": "DNB",
+      "loan_type": "Green Loan",
+      "benefits": [
+        "Lower interest rate margins",
+        "EU Taxonomy alignment",
+        "ESG compliance for investors"
+      ],
+      "source": {
+        "name": "DNB Nyheter",
+        "url": "https://www.dnb.no/dnbnyheter/no/samfunn/frydenbo-foniks"
+      }
+    },
+    "public_support": {
+      "enova": {
+        "programs": [
+          "Investeringsstøtte bygg",
+          "Prosjektering for ombruk",
+          "Mulighetsstudie"
+        ],
+        "note": "Likely received funding for reuse engineering"
+      },
+      "vestland_fylke": {
+        "purpose": "BetongLego concrete reuse pilot",
+        "partner": "Rockslice AS"
+      }
+    }
+  },
   "data_gaps": [
-    "Detaljert materialinventar med vekt/mengder mangler",
-    "CO2-beregninger per material ikke tilgjengelig",
-    "Kostnadsdata ikke offentliggjort",
+    "Exact CAPEX amount not publicly disclosed",
+    "CO2-beregninger per material not available",
     "Prosjektet ikke ferdigstilt - data vil oppdateres"
   ],
   "data_completeness": {

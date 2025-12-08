@@ -172,29 +172,84 @@
       "role": "Totalentreprenør"
     },
     "technical_consultants": {
-      "rib_konstruksjon": {
+      "rib_system_bim": {
         "name": "Pro Consult AS",
-        "role": "Rådgivende ingeniør bygg (konstruksjon)"
+        "role": "Rådgivende ingeniør bygg (System & BIM)",
+        "scope": "Overall structural integrity, concrete design, BIM coordination"
       },
       "rib_stal": {
         "name": "Stabil AS",
-        "role": "Rådgivende ingeniør bygg (stål)"
+        "role": "Rådgivende ingeniør bygg (stål)",
+        "scope": "Steel structures, Curlew FPSO steel analysis"
       },
       "riv": {
         "name": "Structor AS",
-        "role": "Rådgivende ingeniør VVS"
+        "role": "Rådgivende ingeniør VVS",
+        "scope": "Energy, ventilation, sanitation - Passive House design"
       },
       "rie": {
         "name": "Fremst AS",
-        "role": "Rådgivende ingeniør elektro"
+        "role": "Rådgivende ingeniør elektro",
+        "scope": "Detailed engineering, 3D electrical model"
       },
       "rim": {
         "name": "Rambøll Norge AS",
-        "role": "Miljørådgiver (RIM)"
+        "role": "Miljørådgiver (RIM) & Miljøgeologi (RIMg)",
+        "scope": "BREEAM compliance, fossil-free site metrics, soil analysis"
+      },
+      "ribr": {
+        "name": "Intec Norge AS",
+        "role": "Brannrådgiver (RIBr)",
+        "scope": "Fire strategy for semi-subterranean building"
+      },
+      "rig": {
+        "name": "Paya Solutions AS",
+        "role": "Geoteknikk (RIG)",
+        "scope": "Ground investigations, bedrock foundation"
+      },
+      "riaku": {
+        "name": "WSP Norge AS",
+        "role": "Akustikk (RIAku)",
+        "scope": "Sound insulation, reverberation control for sports hall"
+      },
+      "itb": {
+        "name": "ED Prosjekt AS",
+        "role": "ITB-koordinator",
+        "scope": "Technical systems integration, SD-anlegg"
       },
       "source": {
-        "name": "Byggeindustrien",
+        "name": "Comprehensive Project Analysis Dec 2025 + Bygg.no",
         "url": "https://byggeprosjekter.bygg.no/2025-oslo/loren-aktivitetspark-og-flerbrukshall/2831149"
+      }
+    },
+    "subcontractors": {
+      "ventilation": {
+        "name": "Energima AS",
+        "role": "Ventilasjon (montasje)"
+      },
+      "electrical": {
+        "name": "Torshov Elektro AS",
+        "role": "Elektro (montasje)"
+      },
+      "plumbing": {
+        "name": "Total VVS AS",
+        "role": "Rør og VVS (montasje)"
+      },
+      "exterior_water": {
+        "name": "Stener Sørensen AS",
+        "role": "Utvendig VA (RIVA)"
+      },
+      "automation": {
+        "name": "Schneider Electric",
+        "role": "Bygningsautomasjon"
+      },
+      "lifts": {
+        "name": "Orona",
+        "role": "Heis"
+      },
+      "security": {
+        "name": "Bravida AS",
+        "role": "Adgangskontroll og alarm"
       }
     },
     "testing_partner": {
