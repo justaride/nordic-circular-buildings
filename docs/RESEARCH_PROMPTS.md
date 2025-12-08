@@ -1,341 +1,344 @@
-# AI Research Prompts - Copy-Paste Ready
-> Konkrete prompts for systematisk datainnsamling
+# Research Prompts - Klare til bruk
+> Oppdatert: 2025-12-08 | Basert på faktisk datagap-analyse
 
 ---
 
-## Quick Start Prompt
+## Prioritet 1: Føniks (62% → 65%)
 
-Bruk denne for å starte en forskningssesjon:
-
-```
-Du er en forskningsassistent som hjelper meg å samle data om sirkulære byggeprosjekter i Norge.
-
-Jeg jobber med en database over case studies og trenger å fylle data-gap.
-
-For hvert prosjekt jeg spør om, søk etter:
-1. Klimagassregnskap/LCA-rapporter (CO2-reduksjon %)
-2. Materialinventar med mengder (tonn, m², stk)
-3. Kostnadsdata (ombruk vs nytt)
-4. Prosjektteam (konsulenter, rådgivere)
-5. Erfaringsrapporter eller masteroppgaver
-
-Returner data i dette formatet:
-- Verdi: [tall med enhet]
-- Kilde: [navn på dokument/nettsted]
-- URL: [direkte lenke]
-- Sidetall: [hvis PDF]
-- Verifisert: [ja/nei/delvis]
-```
-
----
-
-## Prosjektspesifikke Prompts
-
-### KA23 - Kristian Augusts gate 23
+### Føniks - Budsjett/investeringssum
 
 ```
-Søk etter data om Kristian Augusts gate 23 (KA23) i Oslo.
-
-Byggherre: Höegh Eiendom
-Arkitekt: Arcasa Arkitekter
-Status: Ferdigstilt 2022
-
-Jeg trenger spesifikt:
-1. Klimagassregnskap - finnes det en rapport fra Multiconsult eller annen?
-2. Materialvekt - hvor mange tonn ombrukte materialer totalt?
-3. Kostnadssammenligning - hva kostet ombruk vs nytt?
-4. Detaljert materialfordeling med mengder
-
-Søk på:
-- "Kristian Augusts gate 23" klimagassrapport
-- "KA23" Höegh erfaringsrapport
-- site:futurebuilt.no "KA23"
-- "KA23" ombruk materialbruk tonn
-```
-
----
-
-### Løren Aktivitetspark
-
-```
-Søk etter data om Løren aktivitetspark og flerbrukshall i Oslo.
-
-Byggherre: Oslo kommune / Oslobygg KF
-Arkitekt: Pir II
-Status: Under bygging, ferdig 2025
-
-Jeg trenger spesifikt:
-1. Samlet ombruksandel i prosent
-2. Klimasats-sluttrapport fra Miljødirektoratet
-3. Tekniske konsulenter (RIB, RIV, RIE, miljørådgiver)
-4. Detaljert oversikt over skipsstål-mengder
-
-Søk på:
-- "Løren aktivitetspark" klimasats filetype:pdf
-- site:miljodirektoratet.no "Løren" ombruk
-- "Løren flerbrukshall" sirkulær
-- "Pir II" "Løren" prosjektteam rådgiver
-```
-
----
-
-### Nedre Sem Låve
-
-```
-Søk etter data om Nedre Sem låve i Asker.
-
-Byggherre: Asker kommune
-Arkitekt: Holar Arkitekter
-Status: Ferdigstilt 2024
-
-Jeg trenger spesifikt:
-1. CO2-reduksjon i prosent vs referanse
-2. Materialvekt for ombrukte materialer (tonn)
-3. Klimagassregnskap eller miljørapport
-4. Detaljer om Stiltre-prosessering av tømmer
-
-Søk på:
-- "Nedre Sem" låve klimagassrapport
-- "Nedre Sem" Asker ombruk tonn
-- site:futurebuilt.no "Nedre Sem"
-- "Holar Arkitekter" "Nedre Sem"
-- "Stiltre" Nedre Sem tømmer
-```
-
----
-
-### Skur 38
-
-```
-Søk etter data om Skur 38 på Sørenga/Bjørvika i Oslo.
-
-Byggherre: Oslo Havn KF
-Arkitekt: Hille Melbye Arkitekter
-Status: Ferdigstilt 2022
-
-Jeg trenger spesifikt:
-1. CO2-reduksjon i prosent
-2. Samlet ombruksandel (% av materialer)
-3. Materialvekt for bevarte/ombrukte elementer
-4. Klimagassregnskap eller miljørapport
-
-Søk på:
-- "Skur 38" klimagassrapport Oslo Havn
-- "Skur 38" ombruk prosent sirkulær
-- site:oslohavn.no "Skur 38"
-- "Hille Melbye" "Skur 38" miljø
-```
-
----
-
-### Oksenøya Senter (Treklang)
-
-```
-Søk etter data om Oksenøya Senter / Treklang i Bærum.
-
-Byggherre: Bærum kommune
-Arkitekt: Arkitektgruppen Lille Frøen + Arkitema
-Status: Ferdigstilt 2022-2023
-
-Jeg trenger spesifikt:
-1. CO2-reduksjon i prosent (fra klimagassrapportene)
-2. Samlet ombruksandel for hele anlegget
-3. Donorkilder for ombrukte materialer
-4. Detaljer om massivtre-konstruksjon
-
-Søk på:
-- "Oksenøya senter" klimagassrapport filetype:pdf
-- "Treklang" Bærum ombruk materialer
-- site:baerum.kommune.no "Oksenøya"
-- "Oksenøya" FutureBuilt sirkulær
-```
-
----
-
-### Prosjekt Føniks
-
-```
-Søk etter data om Prosjekt Føniks i Bergen.
+Søk etter budsjett og investeringssum for Prosjekt Føniks på Damsgårdsveien 127 i Bergen.
 
 Byggherre: Frydenbø Eiendom
-Arkitekt: Artec AS
-Status: Under bygging, ferdig 2025-2026
+Status: Under bygging, ferdig 2026
+Areal: 2196 m²
 
-Jeg trenger spesifikt:
-1. Entreprenør - hvem bygger?
-2. Budsjett/investeringssum
-3. CO2-reduksjon vs referanse
-4. Materialvekt for ombrukte komponenter
-
-Søk på:
-- "Prosjekt Føniks" Bergen entreprenør
-- "Føniks" Damsgårdsveien budsjett
-- "Frydenbø Eiendom" "Føniks" investering
-- site:futurebuilt.no "Føniks"
-```
-
----
-
-### KA13 - Kristian Augusts gate 13
-
-```
-Søk etter supplerende data om KA13 i Oslo.
-
-Vi har allerede 116-siders erfaringsrapport. Trenger:
-1. CO2-intensitet (kg CO2/m²/år) - finnes dette i rapporten?
-2. Kostnadssammenligning for stål og hulldekker
-3. Tekniske konsulenter utover de dokumenterte
-4. Masteroppgaver som analyserer prosjektet
+Spesifikke spørsmål:
+1. Hva er total investeringssum/budsjett?
+2. Hva er kvadratmeterpris (NOK/m²)?
+3. Er det merkostnader knyttet til ombruk?
+4. Hvem finansierer - er det støtte fra Enova/FutureBuilt?
 
 Søk på:
-- "KA13" masteroppgave NTNU OsloMet
-- "Kristian Augusts gate 13" LCA
-- "KA13" kostnad ombruksstål
-- site:ntnuopen.ntnu.no "KA13"
+- "Prosjekt Føniks" Bergen budsjett investering
+- "Damsgårdsveien 127" kostnad
+- "Frydenbø Eiendom" "Føniks" millioner
+- site:enova.no "Føniks"
+- "Føniks" ombruk finansiering støtte
 ```
 
 ---
 
-## Generiske Søkeprompts
+## Prioritet 2: Løren (61% → 70%)
 
-### For Klimagassdata
-
-```
-Søk etter klimagassregnskap for [PROSJEKTNAVN] i [BY].
-
-Prioriter kilder i denne rekkefølgen:
-1. Offisielle prosjektrapporter (PDF)
-2. FutureBuilt prosjektsider
-3. Miljødirektoratet Klimasats
-4. Kommunale dokumenter
-5. Fagpresseartikler
-
-Returner:
-- CO2-reduksjon: X% vs [referanse]
-- Metodikk: [One Click LCA / SimaPro / annet]
-- Beregningsår: [årstall]
-- Kilde: [navn og URL]
-```
-
----
-
-### For Materialdata
+### Løren - Ombruksandel prosent
 
 ```
-Finn materialinventar for [PROSJEKTNAVN].
+Finn samlet ombruksandel for Løren aktivitetspark og flerbrukshall i Oslo.
 
-For hvert materiale, dokumenter:
-- Type: [stål/betong/tre/etc.]
-- Mengde: [tonn/m²/m³/stk]
-- Andel av total: [%]
-- Donorkilde: [hvor kommer det fra]
-- Bearbeiding: [hvordan ble det prosessert]
+Byggherre: Oslobygg KF
+Arkitekt: LPO Arkitekter
+Status: Ferdig 2025
 
-Prioriter verifiserbare tall fra offisielle rapporter.
+Vi vet at disse materialene er ombrukt:
+- 40 m² teglkledning fra Stig skole
+- 27 m² granittstein
+- 53 m² tråkkheller
+- Skipsstål (mengde ukjent)
+
+Jeg trenger:
+1. Samlet ombruksandel i vektprosent (%)
+2. Total vekt ombrukte materialer (tonn)
+3. Hvor mye skipsstål ble brukt (tonn)?
+4. Andel ombruk vs totalt materialforbruk
+
+Søk på:
+- "Løren aktivitetspark" ombruksandel prosent
+- "Løren flerbrukshall" materialvekt tonn
+- site:oslobygg.no "Løren" sirkulær
+- "Stig skole" "Løren" overføring materialer
 ```
 
----
-
-### For Kostnadsdata
+### Løren - Tekniske konsulenter
 
 ```
-Søk etter kostnadsdata for ombruk i [PROSJEKTNAVN].
+Finn prosjektteamet for Løren aktivitetspark og flerbrukshall i Oslo.
 
-Informasjon jeg trenger:
-1. Kostnad ombrukt materiale (NOK/kg eller NOK/m²)
-2. Kostnad tilsvarende nytt materiale
-3. Merkostnad/besparelse i prosent
-4. Hva er inkludert (demontering, transport, testing, etc.)
+Byggherre: Oslobygg KF
+Arkitekt: LPO Arkitekter
 
-Kilder å sjekke:
-- Erfaringsrapporter
-- Masteroppgaver
-- Presentasjoner fra prosjektteam
-- Intervjuer i fagpresse
+Jeg har allerede: Byggherre, arkitekt, landskapsarkitekt
+Jeg mangler:
+1. RIB - Rådgivende ingeniør bygg
+2. RIV - Rådgivende ingeniør VVS
+3. RIE - Rådgivende ingeniør elektro
+4. Miljørådgiver/klimakonsulent
+5. Entreprenør (totalentreprise?)
+
+Søk på:
+- "Løren aktivitetspark" rådgiver konsulent
+- "Løren flerbrukshall" RIB RIV prosjektteam
+- site:doffin.no "Løren" konsulent
+- "LPO" "Løren" samarbeidspartnere
 ```
 
 ---
 
-### For Akademiske Kilder
+## Prioritet 3: KA23 (68% → 75%)
+
+### KA23 - Klimagassrapport
 
 ```
-Søk etter akademisk litteratur om [PROSJEKTNAVN] eller [TEMAET].
+Finn klimagassrapport for Kristian Augusts gate 23 (KA23) i Oslo.
 
-Databaser:
-1. NTNU Open (ntnuopen.ntnu.no)
-2. OsloMet ODA (oda.oslomet.no)
-3. Google Scholar
-4. DiVA Portal (nordiske universiteter)
+Byggherre: Höegh Eiendom
+Miljørådgiver: Multiconsult
+Ferdigstilt: 2021
 
-Søkestrenger:
-- "[prosjektnavn] masteroppgave"
-- "[prosjektnavn] thesis"
-- "ombruk byggematerialer Norge"
-- "circular construction Norway case"
+Vi vet fra erfaringsrapporten:
+- 55% total CO2-reduksjon vs nybygg
+- 83% CO2-reduksjon fra materialer
+- 64% reduksjon vs tradisjonell rehabilitering
 
-For hver relevant oppgave, noter:
-- Tittel og forfatter
-- Institusjon og år
-- Relevante kapitler/sidetall
-- Nøkkelfunn for vårt prosjekt
+Jeg trenger:
+1. Selve klimagassrapporten (PDF)
+2. CO2-intensitet (kg CO2e/m²/år)
+3. Breakdown per LCA-fase (A1-A5, B, C, D)
+4. Metode og verktøy brukt (One Click LCA?)
+
+Søk på:
+- "Kristian Augusts gate 23" klimagassrapport filetype:pdf
+- "KA23" Multiconsult LCA
+- site:futurebuilt.no "KA23" klimagass
+- "Höegh Eiendom" "KA23" miljørapport
 ```
 
----
-
-## Validerings-Prompt
-
-Bruk denne etter datainnsamling:
+### KA23 - Kostnadssammenligning
 
 ```
-Jeg har samlet følgende data for [PROSJEKTNAVN]:
+Finn kostnadsdata for ombruk i Kristian Augusts gate 23 (KA23) i Oslo.
 
-[Lim inn data]
+Vi vet:
+- 83% intern ombruk (10.519 tonn av 12.673 tonn)
+- 324 tonn tegl gitt til Østfoldgress
+- Kontraktsverdi: 187-220 MNOK
 
-Vennligst:
-1. Sjekk om tallene virker rimelige
-2. Identifiser motstridende informasjon
-3. Vurder kildekvaliteten (primær/sekundær/tertiær)
-4. Foreslå flere kilder som kan verifisere dataene
-5. Flagg data som trenger ytterligere bekreftelse
-```
+Jeg trenger:
+1. Kostnad for ombruk vs nytt per materialtype
+2. Merkostnader knyttet til kartlegging og demontering
+3. Besparelser fra ombruk (NOK)
+4. Eventuell støtte fra FutureBuilt/Klimasats
 
----
-
-## Output-Format for JSON
-
-Når data er samlet og validert, bruk dette formatet:
-
-```json
-{
-  "field_updated": "metrics.co2_reduction.value",
-  "new_value": 55,
-  "unit": "percent",
-  "source": {
-    "name": "Klimagassrapport KA23",
-    "url": "https://example.com/rapport.pdf",
-    "page": "23",
-    "quote": "Prosjektet oppnådde 55% CO2-reduksjon vs referansebygg",
-    "accessed": "2025-12-07"
-  },
-  "confidence": "high",
-  "notes": "Beregnet med One Click LCA etter NS 3720:2018"
-}
+Søk på:
+- "KA23" kostnad ombruk merkostnad
+- "Kristian Augusts gate 23" budsjett sammenligning
+- "Höegh Eiendom" "KA23" besparelse
+- "Seltor" "KA23" entreprise pris
 ```
 
 ---
 
-## Checkliste per Prosjekt
+## Prioritet 4: Oksenøya (76% → 75%)
 
-Etter forskning, verifiser at du har:
+### Oksenøya - Ombruksandel hele anlegget
 
-- [ ] CO2-reduksjon (%) med kilde
-- [ ] Ombruksandel (%) med målemetode
-- [ ] Minst 2 materialer med vekt (tonn)
-- [ ] Minst 1 kostnadssammenligning
-- [ ] Komplett prosjektteam
-- [ ] Minst 3 verifiserte kilder
-- [ ] Alle data har sitering
+```
+Finn samlet ombruksandel for Oksenøya Senter (Treklang) i Bærum.
+
+Byggherre: Bærum kommune
+Prosjektet består av:
+- Barneskole (12.950 m²)
+- Barnehage (3.650 m²)
+- Sykehjem/BBS (4.500 m²)
+- Idrettshall
+
+Vi vet allerede:
+- 3 stk hulldekker ombrukt fra Regjeringskvartalet
+- CEM III B lavkarbonbetong
+- 99-100% resirkulert stålarmering
+- Kebony kledning
+
+Jeg trenger:
+1. Samlet ombruksandel i vektprosent (%)
+2. Total mengde ombrukte/resirkulerte materialer (tonn)
+3. Ombruksandel per bygningsdel
+4. Andre donorbygg utover Regjeringskvartalet?
+
+Søk på:
+- "Oksenøya senter" ombruksandel prosent
+- "Treklang" Bærum materialvekt ombruk
+- site:baerum.kommune.no "Oksenøya" sirkulær
+- "Oksenøya" FutureBuilt sirkularitetsindeks
+```
 
 ---
 
-*Bruk disse promptene systematisk for hvert prosjekt. Start med høyest prioritet (KA23) og jobb nedover listen.*
+## Prioritet 5: Nedre Sem (79% → 80%)
+
+### Nedre Sem - Oppdatert driftserfaring
+
+```
+Finn oppdaterte driftserfaringer for Nedre Sem Låve i Asker.
+
+Byggherre: Asker kommune
+Ferdigstilt: 2024
+Areal: 2.564 m²
+
+Vi har data fra:
+- Context AS Klimagassrapport rev 2.0 (aug 2024)
+- Veidekke Sirkularitetsrapport (2023)
+- Context Plastkriterier rapport (2025)
+
+Jeg trenger:
+1. Erfaringer etter 1 års drift
+2. Eventuelle justeringer av SI-indeks (nå 48%)
+3. Faktisk energiforbruk vs prosjektert
+4. Fase 3 rapport (driftserfaringer) - når kommer den?
+
+Søk på:
+- "Nedre Sem" låve driftserfaring 2025
+- "Asker kommune" "Nedre Sem" evaluering
+- site:futurebuilt.no "Nedre Sem" oppdatering
+- "Nedre Sem" FutureBuilt fase rapport
+```
+
+---
+
+## Prioritet 6: Skur 38 (78% → 80%)
+
+### Skur 38 - Donorbygg-dokumentasjon
+
+```
+Komplett oversikt over donorbygg for Skur 38 i Oslo.
+
+Byggherre: Oslo Havn KF
+Ferdigstilt: 2022
+
+Vi har dokumentert materialer fra:
+1. Skur 38 selv (intern ombruk)
+2. Nedre Skøyen vei 26 (Nordr Eiendom)
+3. Kongshavnveien 28 (Oslo Havn)
+4. Rådhusbrygge 2 (Oslo Havn)
+5. Haakon VII's gate 10 (Storebrand)
+6. Munch museet (KID)
+
+Jeg trenger:
+1. Er listen komplett? Finnes det flere donorbygg?
+2. Total vekt fra hvert donorbygg (tonn)
+3. Logistikk - hvordan ble materialene transportert?
+4. Kontaktpersoner hos hvert donorbygg
+
+Søk på:
+- "Skur 38" donorbygg materialkilde
+- "Oslo Havn" ombruk prosjekter oversikt
+- "Skur 38" "Nedre Skøyen" transport
+- "Loopfront" "Skur 38" registrering
+```
+
+---
+
+## Prioritet 7: KA13 (75% → 85%)
+
+### KA13 - Kostnadssammenligning stål/hulldekker
+
+```
+Finn kostnadsdata for ombruksstål og hulldekker i KA13 (Kristian Augusts gate 13) Oslo.
+
+Byggherre: Entra ASA
+Ferdigstilt: 2021
+
+Vi vet:
+- 45 tonn ombrukt stål (70% av total stålkonstruksjon)
+- 21 hulldekker (96 tonn) fra Regjeringskvartalet R4
+- 80% ombruksrate totalt
+
+Jeg trenger:
+1. Kostnad ombruksstål vs nytt stål (NOK/kg)
+2. Kostnad hulldekker inkl. uttaking, transport, testing
+3. Besparelse per materialtype
+4. Merkostnader for dokumentasjon og godkjenning
+
+Søk på:
+- "KA13" kostnad stål hulldekker sammenligning
+- "Kristian Augusts gate 13" økonomi ombruk
+- "Entra" "KA13" budsjett besparelse
+- "Regjeringskvartalet" hulldekker pris
+```
+
+### KA13 - Oppdatert driftsdata 2024
+
+```
+Finn oppdaterte driftsdata for KA13 etter 3+ års drift.
+
+Byggherre: Entra ASA
+Ferdigstilt: 2021
+Leietaker: Spaces (coworking)
+
+Vi har data frem til 2021. Trenger oppdatering:
+1. Faktisk energiforbruk vs prosjektert
+2. Eventuelle utfordringer med ombruksmaterialer
+3. Tilbakemeldinger fra leietakere
+4. Vedlikeholdserfaringer
+
+Søk på:
+- "KA13" driftserfaring 2024 2025
+- "Kristian Augusts gate 13" energi forbruk
+- "Entra" "KA13" evaluering
+- "Spaces" "KA13" erfaring
+```
+
+### KA13 - Masteroppgaver
+
+```
+Finn masteroppgaver og akademisk forskning om KA13.
+
+Vi søker:
+1. Masteroppgaver fra NTNU, OsloMet, AHO, NMBU
+2. Vitenskapelige artikler
+3. Konferansepresentasjoner
+4. Case-analyser i pensumlitteratur
+
+Søk på:
+- site:ntnuopen.ntnu.no "KA13" OR "Kristian Augusts gate 13"
+- site:oda.oslomet.no "ombruk" "kontor" Oslo
+- "KA13" thesis masteroppgave
+- "circular construction" "Oslo" case study
+- Google Scholar: "KA13" OR "Kristian Augusts gate 13" reuse
+```
+
+---
+
+## Valideringsprompt
+
+Bruk etter datainnsamling:
+
+```
+Jeg har samlet følgende data. Vennligst valider:
+
+[Lim inn funnet data]
+
+Sjekk:
+1. Er tallene rimelige sammenlignet med lignende prosjekter?
+2. Er kilden pålitelig (primær/sekundær/tertiær)?
+3. Er dataene konsistente med det vi allerede har?
+4. Hva mangler for å være komplett?
+```
+
+---
+
+## Statusoversikt
+
+| Prosjekt | Score | Mål | Gjenstående oppgaver |
+|----------|-------|-----|---------------------|
+| Føniks | 62% | 65% | Budsjett |
+| Løren | 61% | 70% | Ombruksandel, konsulenter |
+| KA23 | 68% | 75% | Klimagassrapport, kostnader |
+| Oksenøya | 76% | 75% | ✅ Mål nådd - evt. ombruksandel |
+| Nedre Sem | 79% | 80% | Driftserfaring |
+| Skur 38 | 78% | 80% | Donorbygg-komplettering |
+| KA13 | 75% | 85% | Kostnader, drift, akademia |
+
+---
+
+*Sist oppdatert etter PDF-analyse 2025-12-08*
