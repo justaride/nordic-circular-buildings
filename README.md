@@ -140,15 +140,22 @@ npm run sync      # Sync data files
 - ✅ Dynamic country routing (`/no/`, `/se/`, `/dk/`, `/fi/`, `/is/`)
 - ✅ Research queue display for countries in research phase
 - ✅ 7 case studies with deep material traceability
+- ✅ Nordic research plan and prompts for SE/DK/FI/IS
 
 ### In Progress
 - 🔄 Verify and promote research queue projects to verified status
-- 🔄 Deep-dive case studies for Swedish/Danish flagships
+- 🔄 Deep-dive case studies for Nordic flagships
 
 ### Planned
 - [ ] REST API for external access
 - [ ] Integration with Nordic Circle Construction stakeholder map
 - [ ] Community contribution system
+
+## Research Documentation
+
+For expanding the database to other Nordic countries, see:
+- `docs/NORDIC_RESEARCH_PLAN.md` - Strategy, priorities, source hierarchy
+- `docs/NORDIC_RESEARCH_PROMPTS.md` - Copy-paste ready prompts per country
 
 ## Contributing
 

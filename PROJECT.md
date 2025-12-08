@@ -185,6 +185,10 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 - [ ] Promote verified projects from queue to full project entries
 - [ ] Create case studies for Nordic flagships (Förskolan Hoppet, Circle House, Háteigsvegur 59)
 
+**Research Documentation:**
+- `docs/NORDIC_RESEARCH_PLAN.md` - Prioritized projects, source hierarchy, verification criteria
+- `docs/NORDIC_RESEARCH_PROMPTS.md` - Copy-paste ready prompts for all 20 priority projects
+
 ### Phase 8: API & Integrations (Future)
 - [ ] REST API for external access
 - [ ] Integration with Nordic Circle Construction stakeholder map
@@ -371,7 +375,9 @@ Public Circular Buildings/
 │
 └── docs/
     ├── COUNTRY_TEMPLATE.md      # Standard template for all countries
-    └── METHODOLOGY.md           # Research methodology
+    ├── METHODOLOGY.md           # Research methodology
+    ├── NORDIC_RESEARCH_PLAN.md  # Strategy for SE/DK/FI/IS expansion
+    └── NORDIC_RESEARCH_PROMPTS.md # Copy-paste prompts per country
 ```
 
 ---
@@ -465,6 +471,12 @@ Public Circular Buildings/
 - Added `data_status` field: `'initial_research' | 'in_progress' | 'complete'`
 - Added `research_queue` array for projects pending verification
 - Maintained backwards compatibility with existing Norway data
+
+**Research Documentation**
+- Created `docs/NORDIC_RESEARCH_PLAN.md` with prioritized projects, source hierarchy, verification criteria
+- Created `docs/NORDIC_RESEARCH_PROMPTS.md` with copy-paste ready prompts for 20 priority projects
+- Language-specific search terms for Swedish, Danish, Finnish, Icelandic
+- Estimated 42-61 hours to verify and promote all research queue projects
 
 ### 2025-12-07 - Research Tracker & Documentation
 **Research Strategy Documentation**

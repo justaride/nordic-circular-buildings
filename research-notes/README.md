@@ -99,6 +99,13 @@ See `/data/projects/{country}.json` for current research queue entries.
 - Studio Granda
 - Nordic Swan Iceland
 
+## Research Tools
+
+For systematic research across Nordic countries:
+
+- **`docs/NORDIC_RESEARCH_PLAN.md`** - Strategy, priorities, verification criteria
+- **`docs/NORDIC_RESEARCH_PROMPTS.md`** - Copy-paste prompts for 20 priority projects
+
 ## Contributing
 
 When adding research notes:
