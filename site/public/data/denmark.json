@@ -1,0 +1,113 @@
+{
+  "country": "DK",
+  "country_name": "Denmark",
+  "last_updated": "2025-12-08",
+  "total_projects": 0,
+  "data_status": "initial_research",
+  "summary": {
+    "geographic_distribution": {},
+    "by_status": {
+      "completed": 0,
+      "under_construction": 0,
+      "planned": 0,
+      "operational": 0
+    },
+    "by_strategy": {
+      "material_reuse": 0,
+      "adaptive_reuse": 0,
+      "upcycling": 0,
+      "design_for_disassembly": 0
+    },
+    "aggregate_metrics": {
+      "reuse_rate_range": "N/A",
+      "co2_reduction_range": "N/A"
+    },
+    "key_programs": [
+      "Realdania",
+      "State of Green",
+      "Danish Design Award"
+    ],
+    "by_project_type": {
+      "transformation": 0,
+      "new_build": 0
+    },
+    "by_sector": {
+      "public": 0,
+      "private": 0
+    },
+    "by_project_type_detailed": {
+      "renovation": 0,
+      "transformation": 0,
+      "extension": 0,
+      "hybrid": 0,
+      "new_build": 0
+    }
+  },
+  "research_queue": [
+    {
+      "name": "Resource Rows",
+      "city": "Copenhagen",
+      "year": 2019,
+      "type": "housing",
+      "highlight": "463 tonnes waste upcycled, 29% CO2 reduction, world's first upcycled housing",
+      "source": "https://lendager.com/project/resource-rows/"
+    },
+    {
+      "name": "Upcycle Studios",
+      "city": "Copenhagen",
+      "year": 2018,
+      "type": "housing",
+      "highlight": "1000 tonnes construction waste reused, 45% CO2 reduction",
+      "source": "https://lendager.com/project/upcycle-studios/"
+    },
+    {
+      "name": "UN17 Village",
+      "city": "Copenhagen",
+      "year": "2022-2024",
+      "type": "housing",
+      "highlight": "35,000 m², 400 apartments, upcycled concrete/timber/glass",
+      "source": "https://www.swecogroup.com/portfolio/architecture/un17-village/"
+    },
+    {
+      "name": "Circle House",
+      "city": "Aarhus",
+      "year": 2023,
+      "type": "housing",
+      "highlight": "Denmark's first circular social housing, 90% Design for Disassembly",
+      "source": "https://stateofgreen.com/en/solutions/denmarks-first-circular-social-housing-project/"
+    },
+    {
+      "name": "Green Solution House 2.0",
+      "city": "Rønne (Bornholm)",
+      "year": 2021,
+      "type": "hospitality",
+      "highlight": "Denmark's first full timber hotel, CLT offcuts to furniture",
+      "source": "https://gxn.3xn.com/project/green-solution-house-2-0"
+    },
+    {
+      "name": "Åens Hus",
+      "city": "Aarhus",
+      "year": 2024,
+      "type": "cultural",
+      "highlight": "Reclaimed timber from site warehouses, 80% reuse target",
+      "source": "https://briq.dk/projekter/aens-hus"
+    },
+    {
+      "name": "KAB House",
+      "city": "Copenhagen",
+      "year": 2021,
+      "type": "office",
+      "highlight": "Timber-hybrid office, upcycled pine wood glass partitions",
+      "source": "https://henninglarsen.com/en/projects/featured/2000-2021-kab-house"
+    },
+    {
+      "name": "Tscherninghuset Office",
+      "city": "Hedehusene",
+      "year": 2023,
+      "type": "office",
+      "highlight": "Extensive interior reuse, meeting rooms from salvaged materials",
+      "source": "https://naeste.dk/cases/tscherning"
+    }
+  ],
+  "projects": []
+}

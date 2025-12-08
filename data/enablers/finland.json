@@ -1,0 +1,42 @@
+{
+  "country": "finland",
+  "last_updated": "2025-12-08",
+  "categories": [
+    {
+      "id": "material_banks",
+      "name": "Material Banking Infrastructure",
+      "description": "Physical facilities for storing, cataloging, and redistributing reusable building materials",
+      "enablers": []
+    },
+    {
+      "id": "research_programs",
+      "name": "Research Programs",
+      "description": "EU and national research initiatives",
+      "enablers": [
+        {
+          "id": "circuit",
+          "name": "CIRCuIT",
+          "type": "eu_program",
+          "status": "completed",
+          "website": "https://www.circuit-project.eu/",
+          "description": "EU Horizon 2020 project for circular construction in cities (Helsinki, Copenhagen, Hamburg, London)"
+        }
+      ]
+    },
+    {
+      "id": "knowledge_platforms",
+      "name": "Knowledge Platforms",
+      "description": "Information resources for circular construction",
+      "enablers": [
+        {
+          "id": "hsy_ilmastoinfo",
+          "name": "HSY Ilmastoinfo",
+          "type": "knowledge_platform",
+          "status": "operational",
+          "website": "https://ilmastoinfo.hsy.fi",
+          "description": "Helsinki Region Environmental Services climate info platform with circular construction courses"
+        }
+      ]
+    }
+  ]
+}

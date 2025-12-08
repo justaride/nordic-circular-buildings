@@ -1,0 +1,113 @@
+{
+  "country": "SE",
+  "country_name": "Sweden",
+  "last_updated": "2025-12-08",
+  "total_projects": 0,
+  "data_status": "initial_research",
+  "summary": {
+    "geographic_distribution": {},
+    "by_status": {
+      "completed": 0,
+      "under_construction": 0,
+      "planned": 0,
+      "operational": 0
+    },
+    "by_strategy": {
+      "material_reuse": 0,
+      "adaptive_reuse": 0,
+      "upcycling": 0,
+      "design_for_disassembly": 0
+    },
+    "aggregate_metrics": {
+      "reuse_rate_range": "N/A",
+      "co2_reduction_range": "N/A"
+    },
+    "key_programs": [
+      "CCBuild",
+      "Återhus",
+      "BREEAM-SE"
+    ],
+    "by_project_type": {
+      "transformation": 0,
+      "new_build": 0
+    },
+    "by_sector": {
+      "public": 0,
+      "private": 0
+    },
+    "by_project_type_detailed": {
+      "renovation": 0,
+      "transformation": 0,
+      "extension": 0,
+      "hybrid": 0,
+      "new_build": 0
+    }
+  },
+  "research_queue": [
+    {
+      "name": "Förskolan Hoppet",
+      "city": "Gothenburg",
+      "year": 2021,
+      "type": "school",
+      "highlight": "Sweden's first fossil-free and circular preschool, ~70% CO2 reduction",
+      "source": "https://www.arkitekt.se/landskapsarkitektur/hoppet-forskola/"
+    },
+    {
+      "name": "Selma Lagerlöfs Center",
+      "city": "Gothenburg",
+      "year": 2019,
+      "type": "cultural",
+      "highlight": "92% reused interior fit-out, 70% cost savings",
+      "source": "https://circularhub.se/aterbruk-i-selma-lagerlofs-center-goteborg/"
+    },
+    {
+      "name": "Lumi (Kvarteret Hugin)",
+      "city": "Uppsala",
+      "year": 2025,
+      "type": "office",
+      "highlight": "80% concrete frame preserved, 3800t CO2 saved, 180M SEK cost savings",
+      "source": "https://ccbuild.se/referencedetailpage/?Id=14"
+    },
+    {
+      "name": "Litteraturgatan Reuse Housing",
+      "city": "Gothenburg",
+      "year": "2023-2026",
+      "type": "housing",
+      "highlight": ">50% reused materials target, max 280 kg CO2e/m²",
+      "source": "https://www.byggfakta.se/blogg/återbruk_möjligheter_utmaningar_och_exempel"
+    },
+    {
+      "name": "Svenska kraftnät HQ (Yrket 4)",
+      "city": "Solna",
+      "year": "2025+",
+      "type": "office",
+      "highlight": "52,000 m², Återhus pilot, 600 windows reused",
+      "source": "https://www.ncc.se/media/nyheter/projektstart-for-nytt-kontor-med-aterbruksfokus-i-solna/"
+    },
+    {
+      "name": "Borås Tingsrätt (Courthouse)",
+      "city": "Borås",
+      "year": 2025,
+      "type": "government",
+      "highlight": "100% reused brick facade, BREEAM Outstanding target",
+      "source": "https://www.skanska.se/vart-erbjudande/vara-projekt/272169/Tegelbacken%2C-Boras-tingsratt"
+    },
+    {
+      "name": "Trikåfabriken 2.0",
+      "city": "Malmö",
+      "year": "2022+",
+      "type": "office",
+      "highlight": "Reused steel beams (35 vs 3000 kg CO2/ton)",
+      "source": "https://www.byggfakta.se/blogg/återbruk_möjligheter_utmaningar_och_exempel"
+    },
+    {
+      "name": "Hoppet Reuse Preschool (Phase 2)",
+      "city": "Gothenburg",
+      "year": "2023-2025",
+      "type": "school",
+      "highlight": "Adaptive reuse of 1970s school, steel to pergola",
+      "source": "https://pressrum.derome.se/posts/pressreleases/aterbruk-i-fokus-vid-bygget-av-ny-forskola"
+    }
+  ],
+  "projects": []
+}

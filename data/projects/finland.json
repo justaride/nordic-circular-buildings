@@ -1,0 +1,105 @@
+{
+  "country": "FI",
+  "country_name": "Finland",
+  "last_updated": "2025-12-08",
+  "total_projects": 0,
+  "data_status": "initial_research",
+  "summary": {
+    "geographic_distribution": {},
+    "by_status": {
+      "completed": 0,
+      "under_construction": 0,
+      "planned": 0,
+      "operational": 0
+    },
+    "by_strategy": {
+      "material_reuse": 0,
+      "adaptive_reuse": 0,
+      "upcycling": 0,
+      "design_for_disassembly": 0
+    },
+    "aggregate_metrics": {
+      "reuse_rate_range": "N/A",
+      "co2_reduction_range": "N/A"
+    },
+    "key_programs": [
+      "CIRCuIT (EU)",
+      "HSY Climate Info",
+      "Finnish Building Regulations"
+    ],
+    "by_project_type": {
+      "transformation": 0,
+      "new_build": 0
+    },
+    "by_sector": {
+      "public": 0,
+      "private": 0
+    },
+    "by_project_type_detailed": {
+      "renovation": 0,
+      "transformation": 0,
+      "extension": 0,
+      "hybrid": 0,
+      "new_build": 0
+    }
+  },
+  "research_queue": [
+    {
+      "name": "Mustikkamaa Reused-Materials Depot",
+      "city": "Helsinki",
+      "year": 2025,
+      "type": "infrastructure",
+      "highlight": "Finland's first building from mostly reused materials, windows from Post Office",
+      "source": "https://www.hel.fi/en/news/pioneer-in-construction-finlands-first-service-and-warehouse-building-from-reused-materials-to-be"
+    },
+    {
+      "name": "Tikkurila School Storage",
+      "city": "Vantaa",
+      "year": 2021,
+      "type": "school",
+      "highlight": "2000 reclaimed bricks from National Theatre, 90% lower carbon",
+      "source": "https://ilmastoinfo.hsy.fi/verkkokurssit/rakentamisen-kiertotalous/"
+    },
+    {
+      "name": "Koivukylä Sortti Station Office",
+      "city": "Vantaa",
+      "year": 2021,
+      "type": "infrastructure",
+      "highlight": "Kiasma Museum zinc cladding reused, relocatable design",
+      "source": "https://uusiouutiset.fi/peltilevyja-kiasmasta-toimisto-siirtyy-nosturilla/"
+    },
+    {
+      "name": "Pikku-Finlandia",
+      "city": "Helsinki",
+      "year": 2022,
+      "type": "cultural",
+      "highlight": "2700 m² fully demountable, will be relocated as school/daycare",
+      "source": "https://puuinfo.fi/arkkitehtuuri/public-buildings/pikku-finlandia/?lang=en"
+    },
+    {
+      "name": "Uniarts Helsinki (Mylly)",
+      "city": "Helsinki",
+      "year": 2021,
+      "type": "education",
+      "highlight": "Preserved grain silo + electrical works integrated into campus",
+      "source": "https://www.archdaily.com/980758/university-of-the-arts-helsinki-jkmm-architects"
+    },
+    {
+      "name": "Dance House Helsinki",
+      "city": "Helsinki",
+      "year": 2022,
+      "type": "cultural",
+      "highlight": "Nokia Cable Factory adaptive reuse + new extension",
+      "source": "https://www.world-architects.com/en/architecture-news/headlines/a-visit-to-the-new-dance-house-in-helsinki-by-jkmm-architects"
+    },
+    {
+      "name": "Kulttuurikeskus Orvokki",
+      "city": "Vantaa",
+      "year": 2021,
+      "type": "cultural",
+      "highlight": "1926 school preserved and transformed to cultural center",
+      "source": "https://www.a-konsultit.fi/projektit/kulttuurikeskus-orvokki/"
+    }
+  ],
+  "projects": []
+}

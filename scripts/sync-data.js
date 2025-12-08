@@ -12,9 +12,13 @@ const ROOT = path.join(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'data', 'projects');
 const SITE_DATA_DIR = path.join(ROOT, 'site', 'public', 'data');
 
-// Files to sync
+// Files to sync - all Nordic countries
 const FILES_TO_SYNC = [
-  'norway.json'
+  'norway.json',
+  'sweden.json',
+  'denmark.json',
+  'finland.json',
+  'iceland.json'
 ];
 
 console.log('🔄 Syncing data files...\n');
@@ -37,14 +41,17 @@ FILES_TO_SYNC.forEach(file => {
     const content = fs.readFileSync(source, 'utf8');
     const data = JSON.parse(content);
 
-    // Basic validation
-    if (!data.projects || !Array.isArray(data.projects)) {
-      throw new Error('Invalid structure: missing projects array');
+    // Basic validation - allow empty projects array for countries in research phase
+    if (!data.projects) {
+      data.projects = [];
+    }
+    if (!Array.isArray(data.projects)) {
+      throw new Error('Invalid structure: projects must be an array');
     }
 
     // Check total_projects matches actual count
     const actualCount = data.projects.length;
-    if (data.total_projects !== actualCount) {
+    if (data.total_projects !== actualCount && actualCount > 0) {
       console.warn(`⚠️  Warning: total_projects (${data.total_projects}) != actual count (${actualCount})`);
       console.warn('   Consider updating total_projects in source file');
     }

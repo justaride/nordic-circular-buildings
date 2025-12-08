@@ -1,0 +1,112 @@
+{
+  "country": "IS",
+  "country_name": "Iceland",
+  "last_updated": "2025-12-08",
+  "total_projects": 0,
+  "data_status": "initial_research",
+  "summary": {
+    "geographic_distribution": {},
+    "by_status": {
+      "completed": 0,
+      "under_construction": 0,
+      "planned": 0,
+      "operational": 0
+    },
+    "by_strategy": {
+      "material_reuse": 0,
+      "adaptive_reuse": 0,
+      "upcycling": 0,
+      "design_for_disassembly": 0
+    },
+    "aggregate_metrics": {
+      "reuse_rate_range": "N/A",
+      "co2_reduction_range": "N/A"
+    },
+    "key_programs": [
+      "Byggjum Grænni Framtíð",
+      "Hringvangur",
+      "Nordic Swan (Svanurinn)"
+    ],
+    "by_project_type": {
+      "transformation": 0,
+      "new_build": 0
+    },
+    "by_sector": {
+      "public": 0,
+      "private": 0
+    },
+    "by_project_type_detailed": {
+      "renovation": 0,
+      "transformation": 0,
+      "extension": 0,
+      "hybrid": 0,
+      "new_build": 0
+    }
+  },
+  "research_queue": [
+    {
+      "name": "Háteigsvegur 59 Social Housing",
+      "city": "Reykjavík",
+      "year": 2022,
+      "type": "housing",
+      "highlight": "Iceland's most ambitious circular project, 40% CO2 reduction, Mies Award nomination",
+      "client": "Félagsbústaðir hf.",
+      "architect": "Arnhildur Pálmadóttir / s.ap arkitektar",
+      "circular_features": [
+        "Recycled aggregate concrete (40% lower CO2)",
+        "Reclaimed timber cladding (Yakisugi treated)",
+        "Surplus windows from Gluggagerðin",
+        "Danish beech parquet flooring",
+        "Stone tiles from Alþingi Smiðja building"
+      ],
+      "source": "https://hringvangur.is/"
+    },
+    {
+      "name": "Umhverfisstofnun Office Renovation",
+      "city": "Reykjavík",
+      "year": 2020,
+      "type": "office",
+      "highlight": "First Nordic Swan-certified renovation in all Nordic countries",
+      "client": "Umhverfisstofnun (Environment Agency)",
+      "architect": "THG arkitektar",
+      "circular_features": [
+        "Aluminum rims reused in place",
+        "Cork tiles preserved",
+        "94.4% construction waste separation rate"
+      ],
+      "source": "https://ust.is/"
+    },
+    {
+      "name": "Stöng Viking Ruins Shelter",
+      "city": "Þjórsárdalur",
+      "year": 2024,
+      "type": "cultural",
+      "highlight": "1957 shelter preserved and transformed, Dezeen/ArchDaily featured",
+      "client": "Cultural Heritage Agency of Iceland",
+      "architect": "Sp(r)int Studio",
+      "circular_features": [
+        "1957 timber shelter preserved",
+        "Steel reinforcement of existing structure",
+        "Untreated larch re-cladding"
+      ],
+      "source": "https://www.dezeen.com/2025/04/09/sprint-studio-stong-ruins-iceland/"
+    },
+    {
+      "name": "Smiðja Parliamentary Office Building",
+      "city": "Reykjavík",
+      "year": 2024,
+      "type": "government",
+      "highlight": "6500 m², Iceland Design Awards 2024, stone from hospital demolition",
+      "client": "Alþingi (Icelandic Parliament)",
+      "architect": "Studio Granda",
+      "circular_features": [
+        "Stone from Landspítali hospital demolition",
+        "Red stone from reopened abandoned quarry",
+        "Classic Icelandic chairs refurbished",
+        "Reclaimed doors from recycling center"
+      ],
+      "source": "https://www.wallpaper.com/"
+    }
+  ],
+  "projects": []
+}

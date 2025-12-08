@@ -445,3 +445,48 @@ export interface NorwayData {
   summary: DataSummary;
   projects: Project[];
 }
+
+// Generic country data interface for multi-country support
+export interface CountryData {
+  country: CountryCode;
+  country_name: string;
+  last_updated: string;
+  total_projects: number;
+  data_status?: 'initial_research' | 'in_progress' | 'complete';
+  summary: DataSummary;
+  research_queue?: ResearchQueueItem[];
+  projects: Project[];
+}
+
+export interface ResearchQueueItem {
+  name: string;
+  city: string;
+  year: number | string;
+  type: string;
+  highlight: string;
+  client?: string;
+  architect?: string;
+  circular_features?: string[];
+  source: string;
+}
+
+// Country metadata for navigation and display
+export interface CountryMeta {
+  code: CountryCode;
+  name: string;
+  name_local: string;
+  flag: string;
+  slug: string;
+  project_count: number;
+  data_status: 'initial_research' | 'in_progress' | 'complete';
+}
+
+export const COUNTRIES: CountryMeta[] = [
+  { code: 'NO', name: 'Norway', name_local: 'Norge', flag: '🇳🇴', slug: 'no', project_count: 0, data_status: 'complete' },
+  { code: 'SE', name: 'Sweden', name_local: 'Sverige', flag: '🇸🇪', slug: 'se', project_count: 0, data_status: 'initial_research' },
+  { code: 'DK', name: 'Denmark', name_local: 'Danmark', flag: '🇩🇰', slug: 'dk', project_count: 0, data_status: 'initial_research' },
+  { code: 'FI', name: 'Finland', name_local: 'Suomi', flag: '🇫🇮', slug: 'fi', project_count: 0, data_status: 'initial_research' },
+  { code: 'IS', name: 'Iceland', name_local: 'Ísland', flag: '🇮🇸', slug: 'is', project_count: 0, data_status: 'initial_research' },
+];
+
+export type CountrySlug = 'no' | 'se' | 'dk' | 'fi' | 'is';

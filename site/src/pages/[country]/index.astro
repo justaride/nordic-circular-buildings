@@ -1,0 +1,272 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SearchBar from '../../components/SearchBar.astro';
+import FilterPanel from '../../components/FilterPanel.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Stats from '../../components/Stats.astro';
+import Map from '../../components/Map.astro';
+import Charts from '../../components/Charts.astro';
+import type { CountryData, Project, CountrySlug } from '../../types/project';
+
+export async function getStaticPaths() {
+  return [
+    { params: { country: 'no' } },
+    { params: { country: 'se' } },
+    { params: { country: 'dk' } },
+    { params: { country: 'fi' } },
+    { params: { country: 'is' } },
+  ];
+}
+
+const { country } = Astro.params as { country: CountrySlug };
+
+// Map country codes to data files and metadata
+const countryConfig: Record<CountrySlug, { file: string; name: string; flag: string; localName: string }> = {
+  no: { file: 'norway', name: 'Norway', flag: '🇳🇴', localName: 'Norge' },
+  se: { file: 'sweden', name: 'Sweden', flag: '🇸🇪', localName: 'Sverige' },
+  dk: { file: 'denmark', name: 'Denmark', flag: '🇩🇰', localName: 'Danmark' },
+  fi: { file: 'finland', name: 'Finland', flag: '🇫🇮', localName: 'Suomi' },
+  is: { file: 'iceland', name: 'Iceland', flag: '🇮🇸', localName: 'Ísland' },
+};
+
+const config = countryConfig[country];
+
+// Dynamic import based on country
+let data: CountryData;
+try {
+  const imported = await import(`../../../public/data/${config.file}.json`);
+  data = imported.default as CountryData;
+} catch (e) {
+  // Fallback for countries without data yet
+  data = {
+    country: country.toUpperCase() as any,
+    country_name: config.name,
+    last_updated: new Date().toISOString().split('T')[0],
+    total_projects: 0,
+    data_status: 'initial_research',
+    summary: {
+      geographic_distribution: {},
+      by_status: { completed: 0, under_construction: 0, planned: 0, operational: 0 },
+      by_strategy: { material_reuse: 0, adaptive_reuse: 0, upcycling: 0, design_for_disassembly: 0 },
+      aggregate_metrics: { reuse_rate_range: 'N/A', co2_reduction_range: 'N/A' },
+      key_programs: [],
+      by_project_type: { transformation: 0, new_build: 0 },
+      by_sector: { public: 0, private: 0 },
+      by_project_type_detailed: { renovation: 0, transformation: 0, extension: 0, hybrid: 0, new_build: 0 }
+    },
+    research_queue: [],
+    projects: []
+  };
+}
+
+const projects: Project[] = data.projects || [];
+const researchQueue = data.research_queue || [];
+const isResearchPhase = data.data_status === 'initial_research' || projects.length === 0;
+
+// Calculate stats
+const totalProjects = projects.length;
+const completedProjects = projects.filter((p) => p.status === 'completed' || p.status === 'operational').length;
+
+// CO2 reduction range
+const co2Values = projects
+  .map((p) => p.metrics?.co2_reduction?.value)
+  .filter((v): v is number => v !== undefined && v !== null);
+const totalCO2Saved = co2Values.length > 0
+  ? `${Math.min(...co2Values)}–${Math.max(...co2Values)}%`
+  : 'N/A';
+
+// Circularity range
+const circularityValues = projects
+  .map((p) => p.metrics?.circularity_rate?.value)
+  .filter((v): v is number => v !== undefined && v !== null);
+const avgCircularity = circularityValues.length > 0
+  ? `${Math.min(...circularityValues)}–${Math.max(...circularityValues)}%`
+  : 'N/A';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+// Country navigation
+const allCountries = [
+  { code: 'no', name: 'Norway', flag: '🇳🇴' },
+  { code: 'se', name: 'Sweden', flag: '🇸🇪' },
+  { code: 'dk', name: 'Denmark', flag: '🇩🇰' },
+  { code: 'fi', name: 'Finland', flag: '🇫🇮' },
+  { code: 'is', name: 'Iceland', flag: '🇮🇸' },
+];
+---
+
+<Layout title={`${config.name} - Circular Buildings`}>
+  <!-- Country Navigation -->
+  <div class="mb-6 flex flex-wrap items-center gap-2">
+    <span class="text-sm text-gray-500 mr-2">Select country:</span>
+    {allCountries.map((c) => (
+      <a
+        href={`${baseUrl}${c.code}/`}
+        class={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+          c.code === country
+            ? 'bg-nordic-500 text-white'
+            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+        }`}
+      >
+        {c.flag} {c.name}
+      </a>
+    ))}
+    <a
+      href={`${baseUrl}`}
+      class="px-3 py-1.5 rounded-full text-sm font-medium bg-fjord-100 text-fjord-700 hover:bg-fjord-200 ml-2"
+    >
+      All Nordic
+    </a>
+  </div>
+
+  {isResearchPhase ? (
+    <!-- Research Phase View -->
+    <div class="space-y-8">
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border border-amber-200 p-6">
+        <div class="flex items-start gap-4">
+          <div class="text-4xl">{config.flag}</div>
+          <div class="flex-1">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">
+              {config.name} ({config.localName})
+            </h1>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="px-2 py-1 rounded-full bg-amber-200 text-amber-800 text-xs font-medium">
+                Research Phase
+              </span>
+              <span class="text-sm text-gray-600">
+                {researchQueue.length} projects identified for documentation
+              </span>
+            </div>
+            <p class="text-gray-600">
+              We have identified {researchQueue.length} circular building projects in {config.name}
+              from our initial research. These projects are queued for full documentation following
+              the same methodology used for our Norwegian projects.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Queue -->
+      <div>
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Projects Identified for Documentation</h2>
+        <div class="grid gap-4">
+          {researchQueue.map((project, index) => (
+            <div class="bg-white rounded-xl border border-gray-200 p-4 hover:border-nordic-300 transition-colors">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-sm text-gray-500">#{index + 1}</span>
+                    <h3 class="font-semibold text-gray-900">{project.name}</h3>
+                  </div>
+                  <div class="flex flex-wrap gap-2 text-sm text-gray-600 mb-2">
+                    <span>{project.city}</span>
+                    <span>•</span>
+                    <span>{project.year}</span>
+                    <span>•</span>
+                    <span class="capitalize">{project.type.replace('_', ' ')}</span>
+                  </div>
+                  <p class="text-sm text-gray-700 mb-2">{project.highlight}</p>
+                  {project.circular_features && project.circular_features.length > 0 && (
+                    <div class="flex flex-wrap gap-1">
+                      {project.circular_features.slice(0, 3).map((feature) => (
+                        <span class="px-2 py-0.5 bg-green-50 text-green-700 text-xs rounded-full">
+                          {feature.length > 40 ? feature.substring(0, 40) + '...' : feature}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <a
+                  href={project.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-lg transition-colors flex-shrink-0"
+                >
+                  Source ↗
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- How to Contribute -->
+      <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+        <h3 class="font-semibold text-gray-900 mb-3">Help Us Document These Projects</h3>
+        <p class="text-sm text-gray-600 mb-4">
+          We're looking for detailed information on these projects including:
+        </p>
+        <ul class="grid sm:grid-cols-2 gap-2 text-sm text-gray-600">
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-nordic-500"></span>
+            Specific reuse percentages and metrics
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-nordic-500"></span>
+            Material inventories with quantities
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-nordic-500"></span>
+            Donor building sources
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-nordic-500"></span>
+            Climate reports and LCA data
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-nordic-500"></span>
+            Project team details
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-nordic-500"></span>
+            Cost comparisons
+          </li>
+        </ul>
+      </div>
+    </div>
+  ) : (
+    <!-- Full Data View (same as Norway) -->
+    <div>
+      <div class="mb-8 bg-gradient-to-br from-nordic-50 via-white to-fjord-50 rounded-2xl border border-nordic-100 overflow-hidden">
+        <div class="p-6 md:p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-4xl">{config.flag}</span>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
+              {config.name} Circular Buildings
+            </h1>
+          </div>
+          <p class="text-gray-600 mb-4">
+            Documented circular building projects in {config.name} with verified material reuse,
+            adaptive transformation, and design for disassembly.
+          </p>
+        </div>
+      </div>
+
+      <Stats
+        totalProjects={totalProjects}
+        completedProjects={completedProjects}
+        avgCircularity={avgCircularity}
+        totalCO2Saved={totalCO2Saved}
+      />
+
+      <div class="mb-6">
+        <SearchBar />
+      </div>
+
+      <div class="grid lg:grid-cols-4 gap-6">
+        <div class="lg:col-span-1">
+          <FilterPanel projects={projects} />
+        </div>
+        <div class="lg:col-span-3 space-y-6">
+          <Map projects={projects} />
+          <div id="project-list" class="grid md:grid-cols-2 gap-4">
+            {projects.map((project) => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+          <Charts projects={projects} />
+        </div>
+      </div>
+    </div>
+  )}
+</Layout>

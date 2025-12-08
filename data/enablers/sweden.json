@@ -1,0 +1,50 @@
+{
+  "country": "sweden",
+  "last_updated": "2025-12-08",
+  "categories": [
+    {
+      "id": "material_banks",
+      "name": "Material Banking Infrastructure",
+      "description": "Physical facilities for storing, cataloging, and redistributing reusable building materials",
+      "enablers": []
+    },
+    {
+      "id": "digital_platforms",
+      "name": "Digital Platforms",
+      "description": "Online marketplaces and tools for circular construction",
+      "enablers": [
+        {
+          "id": "ccbuild",
+          "name": "CCBuild",
+          "type": "digital_platform",
+          "status": "operational",
+          "website": "https://ccbuild.se",
+          "description": "National platform for circular construction, reference projects database"
+        },
+        {
+          "id": "circular_hub",
+          "name": "Circular Hub",
+          "type": "digital_platform",
+          "status": "operational",
+          "website": "https://circularhub.se",
+          "description": "Knowledge platform for circular construction practices"
+        }
+      ]
+    },
+    {
+      "id": "research_programs",
+      "name": "Research Programs",
+      "description": "Research and innovation initiatives driving circular construction",
+      "enablers": [
+        {
+          "id": "aterhus",
+          "name": "Återhus",
+          "name_en": "Återhus - Building houses from houses",
+          "type": "research_program",
+          "status": "operational",
+          "description": "National innovation program to upscale reuse of structural elements (steel, concrete, timber)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "country": "denmark",
+  "last_updated": "2025-12-08",
+  "categories": [
+    {
+      "id": "material_banks",
+      "name": "Material Banking Infrastructure",
+      "description": "Physical facilities for storing, cataloging, and redistributing reusable building materials",
+      "enablers": []
+    },
+    {
+      "id": "digital_platforms",
+      "name": "Digital Platforms",
+      "description": "Online marketplaces and tools for circular construction",
+      "enablers": [
+        {
+          "id": "naeste",
+          "name": "Næste",
+          "type": "reuse_supplier",
+          "status": "operational",
+          "website": "https://naeste.dk",
+          "description": "Circular building materials supplier, supplies reused materials to construction projects"
+        }
+      ]
+    },
+    {
+      "id": "innovation_programs",
+      "name": "Innovation Programs",
+      "description": "Programs driving circular construction adoption",
+      "enablers": [
+        {
+          "id": "realdania",
+          "name": "Realdania",
+          "type": "foundation",
+          "status": "operational",
+          "website": "https://realdania.dk",
+          "description": "Philanthropic foundation supporting sustainable construction innovation including Circle House"
+        },
+        {
+          "id": "state_of_green",
+          "name": "State of Green",
+          "type": "knowledge_platform",
+          "status": "operational",
+          "website": "https://stateofgreen.com",
+          "description": "Danish green transition knowledge sharing platform"
+        }
+      ]
+    },
+    {
+      "id": "design_firms",
+      "name": "Circular Design Leaders",
+      "description": "Architecture and design firms pioneering circular construction",
+      "enablers": [
+        {
+          "id": "lendager",
+          "name": "Lendager Group",
+          "type": "architecture_firm",
+          "status": "operational",
+          "website": "https://lendager.com",
+          "description": "Pioneer in upcycled architecture, Resource Rows, Upcycle Studios, UN17 Village"
+        },
+        {
+          "id": "gxn",
+          "name": "GXN / 3XN",
+          "type": "architecture_firm",
+          "status": "operational",
+          "website": "https://gxn.3xn.com",
+          "description": "Innovation unit focusing on circular design, Circle House, Green Solution House"
+        }
+      ]
+    }
+  ]
+}

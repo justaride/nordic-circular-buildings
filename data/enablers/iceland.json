@@ -1,0 +1,51 @@
+{
+  "country": "iceland",
+  "last_updated": "2025-12-08",
+  "categories": [
+    {
+      "id": "material_banks",
+      "name": "Material Banking Infrastructure",
+      "description": "Physical facilities for storing, cataloging, and redistributing reusable building materials",
+      "enablers": [
+        {
+          "id": "sorpa_efnismidlun",
+          "name": "SORPA Efnismiðlun",
+          "type": "material_bank",
+          "status": "operational",
+          "description": "Material marketplace operated by SORPA waste management"
+        }
+      ]
+    },
+    {
+      "id": "digital_platforms",
+      "name": "Digital Platforms",
+      "description": "Online platforms for circular economy",
+      "enablers": [
+        {
+          "id": "hringvangur",
+          "name": "Hringvangur",
+          "type": "knowledge_platform",
+          "status": "operational",
+          "website": "https://hringvangur.is",
+          "description": "Icelandic circular economy platform with building project documentation"
+        }
+      ]
+    },
+    {
+      "id": "policy_programs",
+      "name": "Policy & Programs",
+      "description": "Government initiatives driving circular construction",
+      "enablers": [
+        {
+          "id": "byggjum_graenni",
+          "name": "Byggjum Grænni Framtíð",
+          "name_en": "Building a Greener Future",
+          "type": "government_program",
+          "status": "operational",
+          "launch_year": 2022,
+          "description": "Government roadmap for sustainable construction, published June 2022"
+        }
+      ]
+    }
+  ]
+}

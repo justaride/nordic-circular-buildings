@@ -32,11 +32,13 @@ A comprehensive research platform documenting **material circularity in public b
 ## Scope
 
 **Minimum 5 verified projects per country:**
-- Denmark (DK)
-- Finland (FI)
-- Iceland (IS)
-- Norway (NO) - **25 projects documented**
-- Sweden (SE)
+- Denmark (DK) - **9 projects in research queue**
+- Finland (FI) - **7 projects in research queue**
+- Iceland (IS) - **4 projects in research queue**
+- Norway (NO) - **22 verified projects** ✅
+- Sweden (SE) - **8 projects in research queue**
+
+**Total: 22 verified + 28 research queue = 50 documented projects**
 
 ---
 
@@ -158,13 +160,32 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 - [ ] Ruseløkka skole documents (3 PDFs)
 - [ ] Bærum kommune årsrapporter (2 PDFs)
 
-### Phase 5: Nordic Expansion (Future)
-- [ ] Process Sweden research
-- [ ] Process Denmark research
-- [ ] Process Finland research
-- [ ] Process Iceland research
+### Phase 7: Nordic Expansion ✅ (2025-12-08)
 
-### Phase 6: API & Integrations (Future)
+**Completed:**
+- [x] Analyzed Nordic research documents from initial research folder
+- [x] Created data templates for Sweden, Denmark, Finland, Iceland
+- [x] Set up research queue structure for countries in research phase
+- [x] Implemented dynamic country routing (`/no/`, `/se/`, `/dk/`, `/fi/`, `/is/`)
+- [x] Added country dropdown navigation to site header
+- [x] Created Nordic overview with country cards on homepage
+- [x] Updated TypeScript types with CountryData, ResearchQueueItem interfaces
+- [x] Updated sync-data.js to handle all 5 Nordic countries
+
+**Research Queue Status:**
+| Country | Projects | Top Highlights |
+|---------|----------|----------------|
+| Sweden | 8 | Förskolan Hoppet (~70% CO2), Selma Lagerlöfs (82% reuse), Sara Kulturhus (5000m³ CLT) |
+| Denmark | 9 | Circle House (first circular housing), UN17 Village (1600+ windows), Upcycle House (86%) |
+| Finland | 7 | Mustikkamaa (first reused materials), Pikku-Finlandia (demountable), Dance House |
+| Iceland | 4 | Háteigsvegur 59 (40% CO2, Mies nom.), Smiðja Parliament, Stöng Shelter |
+
+**Next Steps:**
+- [ ] Verify sources for research queue projects
+- [ ] Promote verified projects from queue to full project entries
+- [ ] Create case studies for Nordic flagships (Förskolan Hoppet, Circle House, Háteigsvegur 59)
+
+### Phase 8: API & Integrations (Future)
 - [ ] REST API for external access
 - [ ] Integration with Nordic Circle Construction stakeholder map
 - [ ] Community contribution system
@@ -214,30 +235,41 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 
 ---
 
-## Current Data Status (2025-12-07)
+## Current Data Status (2025-12-08)
 
-### Norway: 25 Projects
+### Nordic Overview
+
+| Country | Verified | Research Queue | Data Status |
+|---------|----------|----------------|-------------|
+| 🇳🇴 Norway | 22 | - | Complete |
+| 🇸🇪 Sweden | 0 | 8 | Initial Research |
+| 🇩🇰 Denmark | 0 | 9 | Initial Research |
+| 🇫🇮 Finland | 0 | 7 | Initial Research |
+| 🇮🇸 Iceland | 0 | 4 | Initial Research |
+| **Total** | **22** | **28** | **50 documented** |
+
+### Norway: 22 Projects
 
 | Metric | Current | Target | Progress |
 |--------|---------|--------|----------|
-| Total projects | **25** | 25-30 | **100%** ✅ |
+| Total projects | **22** | 25-30 | **88%** |
 | Case studies | **7** | 6-7 | **100%** ✅ |
-| With architect | **25** | 25 | **100%** ✅ |
-| With year_completed | **25** | 25 | **100%** ✅ |
+| With architect | **22** | 22 | **100%** ✅ |
+| With year_completed | **22** | 22 | **100%** ✅ |
 | With circularity % | 7 | 15+ | 47% |
-| With narrative | **25** | 25 | **100%** ✅ |
+| With narrative | **22** | 22 | **100%** ✅ |
 | With material breakdown | **7** | 10+ | **70%** |
-| With supplier data | **10** | 25 | **40%** |
+| With supplier data | **10** | 22 | **45%** |
 | With cost comparison | **7** | 5+ | **140%** ✅ |
 | With budget data | **12** | 15+ | **80%** |
 | Schema validation | **0 errors** | 0 | **100%** ✅ |
 
-### Data Completeness by Project Type
+### Data Completeness by Project Type (Norway)
 
 | Type | Count | With Narrative | With Breakdown |
 |------|-------|----------------|----------------|
 | Transformation | 9 | **9** ✅ | 6 |
-| New Build | 16 | **16** ✅ | 1 |
+| New Build | 13 | **13** ✅ | 1 |
 
 ### Case Studies (Deep-Dive Documentation)
 
@@ -281,17 +313,34 @@ Public Circular Buildings/
 ├── ITERATION_2_PLAN.md          # Iteration 2 detailed plan
 ├── MEETING_STATUS.md            # Meeting feedback tracking
 ├── README.md                     # Repository readme
+├── TECHNICAL_DEBT_PLAN.md       # Technical debt resolution log
 │
 ├── data/
 │   ├── schema.json              # JSON schema definition
-│   └── projects/
-│       ├── norway.json          # Structured project data (23 projects)
-│       ├── norway_sources.md    # Complete source citations
-│       ├── norway_data_gaps.md  # Verification checklist
-│       └── [other countries]    # (pending)
+│   ├── projects/
+│   │   ├── norway.json          # 22 verified projects
+│   │   ├── sweden.json          # 8 research queue
+│   │   ├── denmark.json         # 9 research queue
+│   │   ├── finland.json         # 7 research queue
+│   │   ├── iceland.json         # 4 research queue
+│   │   ├── norway_sources.md    # Source citations
+│   │   └── norway_data_gaps.md  # Verification checklist
+│   ├── enablers/                # Policy enablers per country
+│   │   ├── norway.json
+│   │   ├── sweden.json
+│   │   ├── denmark.json
+│   │   ├── finland.json
+│   │   └── iceland.json
+│   ├── flows/                   # Material flow mappings
+│   │   ├── norway.json
+│   │   ├── sweden.json
+│   │   ├── denmark.json
+│   │   ├── finland.json
+│   │   └── iceland.json
+│   └── case-studies/            # Deep-dive case studies (7)
 │
 ├── scripts/
-│   ├── sync-data.js             # Data sync (prebuild)
+│   ├── sync-data.js             # Data sync (prebuild) - all 5 countries
 │   ├── validate-schema.js       # Schema validation (prebuild)
 │   ├── analyze_gaps.js          # Gap analysis script
 │   ├── add_suppliers.js         # Supplier data script
@@ -300,17 +349,25 @@ Public Circular Buildings/
 ├── site/                        # Astro 5 website
 │   ├── src/
 │   │   ├── types/
-│   │   │   └── project.ts           # TypeScript interfaces (270+ lines)
+│   │   │   └── project.ts           # TypeScript interfaces (300+ lines)
 │   │   ├── pages/
-│   │   │   ├── index.astro          # Dashboard
+│   │   │   ├── index.astro          # Nordic dashboard with country cards
+│   │   │   ├── [country]/index.astro # Dynamic country routing
 │   │   │   ├── stakeholders.astro   # Stakeholder export
 │   │   │   ├── meeting-status.astro # Status & research plan
-│   │   │   ├── about.astro          # About page
+│   │   │   ├── case-studies/        # Case study pages
 │   │   │   └── project/[id].astro   # Project detail
 │   │   ├── components/
-│   │   └── layouts/
+│   │   ├── layouts/
+│   │   │   └── Layout.astro         # Site layout with country dropdown
+│   │   └── scripts/                 # TypeScript modules
 │   └── public/
-│       └── data/norway.json     # Synced data for site
+│       └── data/
+│           ├── norway.json          # Synced country data
+│           ├── sweden.json
+│           ├── denmark.json
+│           ├── finland.json
+│           └── iceland.json
 │
 └── docs/
     ├── COUNTRY_TEMPLATE.md      # Standard template for all countries
@@ -339,11 +396,19 @@ Public Circular Buildings/
 
 | Page | URL | Purpose |
 |------|-----|---------|
-| Dashboard | `/` | Project list with filters, map, charts |
+| Nordic Overview | `/` | Dashboard with country cards, map, charts |
+| Norway | `/no/` | Norwegian projects with full detail |
+| Sweden | `/se/` | Swedish research queue |
+| Denmark | `/dk/` | Danish research queue |
+| Finland | `/fi/` | Finnish research queue |
+| Iceland | `/is/` | Icelandic research queue |
 | Project Detail | `/project/[id]` | Full project information |
+| Case Studies | `/case-studies` | Deep-dive case studies |
 | Stakeholders | `/stakeholders` | Supplier/client export (JSON/CSV) |
 | Status | `/meeting-status` | Meeting feedback, gap analysis, research plan |
-| About | `/about` | Project information |
+| Materials | `/materials` | Material type analysis |
+| Flows | `/flows` | Material flow visualization |
+| Enablers | `/enablers` | Policy enablers by country |
 
 ---
 
@@ -384,6 +449,22 @@ Public Circular Buildings/
 ---
 
 ## Changelog
+
+### 2025-12-08 - Nordic Expansion
+**Multi-Country Support**
+- Added data templates for Sweden (8), Denmark (9), Finland (7), Iceland (4) - 28 research queue projects
+- Created dynamic country routing (`/no/`, `/se/`, `/dk/`, `/fi/`, `/is/`)
+- Implemented research queue display for countries in research phase
+- Added country dropdown navigation to site header
+- Created Nordic overview with country cards on homepage
+- Updated TypeScript types with `CountryData`, `ResearchQueueItem`, `CountryMeta` interfaces
+- Updated `sync-data.js` to synchronize all 5 Nordic country files
+- Created enablers and flows templates for all countries
+
+**Data Structure Updates**
+- Added `data_status` field: `'initial_research' | 'in_progress' | 'complete'`
+- Added `research_queue` array for projects pending verification
+- Maintained backwards compatibility with existing Norway data
 
 ### 2025-12-07 - Research Tracker & Documentation
 **Research Strategy Documentation**
@@ -469,4 +550,4 @@ See `TECHNICAL_DEBT_PLAN.md` for detailed implementation log
 
 ---
 
-*Last updated: 2025-12-07*
+*Last updated: 2025-12-08*

@@ -208,3 +208,98 @@ jobs:
 5. [x] Fyll data gaps identifisert av validator ✅
 
 **🎉 All teknisk gjeld er nå løst!**
+
+---
+
+## Phase 4: Nordic Expansion ✅ (2025-12-08)
+
+### 4.1 Multi-Country Data Support ✅
+
+**Commit:** (pending)
+
+**New files created:**
+- `data/projects/sweden.json` - 8 research queue projects
+- `data/projects/denmark.json` - 9 research queue projects
+- `data/projects/finland.json` - 7 research queue projects
+- `data/projects/iceland.json` - 4 research queue projects
+- `data/enablers/{sweden,denmark,finland,iceland}.json` - Policy enablers
+- `data/flows/{sweden,denmark,finland,iceland}.json` - Material flows
+
+**Updated files:**
+- `scripts/sync-data.js` - Now syncs all 5 Nordic countries
+- `site/src/types/project.ts` - Added `CountryData`, `ResearchQueueItem`, `CountryMeta` interfaces
+- `site/src/layouts/Layout.astro` - Country dropdown navigation
+- `site/src/pages/index.astro` - Nordic overview with country cards
+
+---
+
+### 4.2 Dynamic Country Routing ✅
+
+**New file:** `site/src/pages/[country]/index.astro`
+
+**Functionality:**
+- Generates static pages for `/no/`, `/se/`, `/dk/`, `/fi/`, `/is/`
+- Handles both verified projects and research queue
+- Dynamic content based on `data_status` field
+- Fallback for countries without data
+
+**Country configuration:**
+```typescript
+const countryConfig: Record<CountrySlug, CountryConfig> = {
+  no: { file: 'norway', name: 'Norway', flag: '🇳🇴', localName: 'Norge' },
+  se: { file: 'sweden', name: 'Sweden', flag: '🇸🇪', localName: 'Sverige' },
+  dk: { file: 'denmark', name: 'Denmark', flag: '🇩🇰', localName: 'Danmark' },
+  fi: { file: 'finland', name: 'Finland', flag: '🇫🇮', localName: 'Suomi' },
+  is: { file: 'iceland', name: 'Iceland', flag: '🇮🇸', localName: 'Ísland' },
+};
+```
+
+---
+
+### 4.3 Research Queue Pattern ✅
+
+**Schema addition:**
+```json
+{
+  "data_status": "initial_research | in_progress | complete",
+  "research_queue": [
+    {
+      "name": "Project Name",
+      "city": "City",
+      "year": 2024,
+      "type": "school",
+      "highlight": "Key achievement",
+      "source": "https://source-url.com"
+    }
+  ]
+}
+```
+
+**UI behavior:**
+- Countries with `data_status: 'initial_research'` show research queue
+- Countries with `data_status: 'complete'` show full project list
+- Footer shows both verified count and research queue count
+
+---
+
+## Implementeringslogg (oppdatert)
+
+| Dato | Fase | Beskrivelse |
+|------|------|-------------|
+| 2025-12-07 | 1.1-3.2 | All original teknisk gjeld løst |
+| 2025-12-08 | 4.1 | Multi-country data support |
+| 2025-12-08 | 4.2 | Dynamic country routing |
+| 2025-12-08 | 4.3 | Research queue pattern |
+
+---
+
+## Neste steg (fremtidige forbedringer)
+
+- [ ] Add schema validation for research queue items
+- [ ] Implement research queue → verified project promotion workflow
+- [ ] Add per-country case study support
+- [ ] Create Nordic-wide statistics aggregation
+
+---
+
+*Sist oppdatert: 2025-12-08*

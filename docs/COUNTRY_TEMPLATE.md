@@ -8,11 +8,65 @@ This document defines the standard structure for documenting circular building p
 
 Each country should have:
 ```
-data/projects/
-├── {country}.json           # Structured project data
-├── {country}_data_gaps.md   # Verification needs
-└── {country}_sources.md     # Complete source citations
+data/
+├── projects/
+│   ├── {country}.json           # Structured project data + research queue
+│   ├── {country}_data_gaps.md   # Verification needs (optional)
+│   └── {country}_sources.md     # Complete source citations (optional)
+├── enablers/
+│   └── {country}.json           # Policy enablers and programs
+└── flows/
+    └── {country}.json           # Material flow mappings
 ```
+
+## Data Status Progression
+
+Countries progress through three data statuses:
+
+| Status | Description | UI Display |
+|--------|-------------|------------|
+| `initial_research` | Projects identified, not verified | Research queue view |
+| `in_progress` | Active verification underway | Mixed view |
+| `complete` | All projects fully documented | Full project list |
+
+## Country JSON Root Structure
+
+```json
+{
+  "country": "SE",
+  "country_name": "Sweden",
+  "last_updated": "2025-12-08",
+  "total_projects": 0,
+  "data_status": "initial_research",
+  "summary": { ... },
+  "research_queue": [ ... ],
+  "projects": [ ... ]
+}
+```
+
+### Research Queue Schema
+
+For countries in `initial_research` or `in_progress` status:
+
+```json
+{
+  "research_queue": [
+    {
+      "name": "Project Name",
+      "city": "City",
+      "year": 2024,
+      "type": "school|office|housing|cultural|infrastructure|government",
+      "highlight": "Brief key achievement description",
+      "client": "Client Name (optional)",
+      "architect": "Architect Firm (optional)",
+      "circular_features": ["Feature 1", "Feature 2"],
+      "source": "https://primary-source-url.com"
+    }
+  ]
+}
+```
+
+Research queue items are promoted to full projects after verification.
 
 ---
 
@@ -349,4 +403,66 @@ Each country file should include aggregate statistics:
 
 ---
 
-*Template Version: 1.0 | Last Updated: 2024-11-29*
+---
+
+## TypeScript Interfaces
+
+Key TypeScript interfaces are defined in `site/src/types/project.ts`:
+
+```typescript
+// Country codes
+export type CountryCode = 'NO' | 'SE' | 'DK' | 'FI' | 'IS';
+export type CountrySlug = 'no' | 'se' | 'dk' | 'fi' | 'is';
+
+// Generic country data interface
+export interface CountryData {
+  country: CountryCode;
+  country_name: string;
+  last_updated: string;
+  total_projects: number;
+  data_status?: 'initial_research' | 'in_progress' | 'complete';
+  summary: DataSummary;
+  research_queue?: ResearchQueueItem[];
+  projects: Project[];
+}
+
+// Research queue item (lightweight)
+export interface ResearchQueueItem {
+  name: string;
+  city: string;
+  year: number | string;
+  type: string;
+  highlight: string;
+  client?: string;
+  architect?: string;
+  circular_features?: string[];
+  source: string;
+}
+
+// Country metadata for navigation
+export interface CountryMeta {
+  code: CountryCode;
+  name: string;
+  name_local: string;
+  flag: string;
+  slug: string;
+  project_count: number;
+  data_status: 'initial_research' | 'in_progress' | 'complete';
+}
+```
+
+---
+
+## Current Implementation Status
+
+| Country | Code | Slug | Data Status | Projects | Research Queue |
+|---------|------|------|-------------|----------|----------------|
+| Norway | NO | no | complete | 22 | - |
+| Sweden | SE | se | initial_research | 0 | 8 |
+| Denmark | DK | dk | initial_research | 0 | 9 |
+| Finland | FI | fi | initial_research | 0 | 7 |
+| Iceland | IS | is | initial_research | 0 | 4 |
+
+---
+
+*Template Version: 2.0 | Last Updated: 2025-12-08*

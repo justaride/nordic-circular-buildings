@@ -7,15 +7,84 @@ import Stats from '../components/Stats.astro';
 import Map from '../components/Map.astro';
 import Charts from '../components/Charts.astro';
 
-// Load project data
+// Load all country data
 import norwayData from '../../public/data/norway.json';
-import type { Project, NorwayData } from '../types/project';
+import swedenData from '../../public/data/sweden.json';
+import denmarkData from '../../public/data/denmark.json';
+import finlandData from '../../public/data/finland.json';
+import icelandData from '../../public/data/iceland.json';
+import type { Project, NorwayData, CountryData } from '../types/project';
 
 const data = norwayData as NorwayData;
 const projects: Project[] = data.projects;
 
+// Country summary data
+const countries = [
+  {
+    code: 'NO',
+    name: 'Norway',
+    localName: 'Norge',
+    flag: '🇳🇴',
+    slug: 'no',
+    projects: norwayData.projects.length,
+    research: 0,
+    status: 'complete' as const,
+    highlight: '25 verified projects',
+    programs: ['FutureBuilt', 'BREEAM-NOR'],
+  },
+  {
+    code: 'SE',
+    name: 'Sweden',
+    localName: 'Sverige',
+    flag: '🇸🇪',
+    slug: 'se',
+    projects: swedenData.projects?.length || 0,
+    research: swedenData.research_queue?.length || 0,
+    status: 'research' as const,
+    highlight: 'CCBuild, Återhus program',
+    programs: ['CCBuild', 'Återhus'],
+  },
+  {
+    code: 'DK',
+    name: 'Denmark',
+    localName: 'Danmark',
+    flag: '🇩🇰',
+    slug: 'dk',
+    projects: denmarkData.projects?.length || 0,
+    research: denmarkData.research_queue?.length || 0,
+    status: 'research' as const,
+    highlight: 'Lendager, Circle House',
+    programs: ['Realdania', 'State of Green'],
+  },
+  {
+    code: 'FI',
+    name: 'Finland',
+    localName: 'Suomi',
+    flag: '🇫🇮',
+    slug: 'fi',
+    projects: finlandData.projects?.length || 0,
+    research: finlandData.research_queue?.length || 0,
+    status: 'research' as const,
+    highlight: 'CIRCuIT, Helsinki pilots',
+    programs: ['CIRCuIT', 'HSY'],
+  },
+  {
+    code: 'IS',
+    name: 'Iceland',
+    localName: 'Ísland',
+    flag: '🇮🇸',
+    slug: 'is',
+    projects: icelandData.projects?.length || 0,
+    research: icelandData.research_queue?.length || 0,
+    status: 'research' as const,
+    highlight: 'Pioneering small market',
+    programs: ['Hringvangur', 'Nordic Swan'],
+  },
+];
+
 // Calculate stats
 const totalProjects = projects.length;
+const totalResearchQueue = countries.reduce((sum, c) => sum + c.research, 0);
 const completedProjects = projects.filter((p) => p.status === 'completed' || p.status === 'operational').length;
 
 // CO2 reduction range
@@ -144,6 +213,59 @@ const baseUrl = import.meta.env.BASE_URL;
         </div>
       </details>
     </div>
+  </div>
+
+  <!-- Country Cards Section -->
+  <div class="mb-8">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">Explore by Country</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      {countries.map((country) => (
+        <a
+          href={`${baseUrl}${country.slug}/`}
+          class="group bg-white rounded-xl border border-gray-200 p-4 hover:border-nordic-300 hover:shadow-md transition-all"
+        >
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">{country.flag}</span>
+            <div>
+              <h3 class="font-semibold text-gray-900 group-hover:text-nordic-600 transition-colors">
+                {country.name}
+              </h3>
+              <span class="text-xs text-gray-500">{country.localName}</span>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            {country.status === 'complete' ? (
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <span class="text-sm text-gray-700">{country.projects} verified projects</span>
+              </div>
+            ) : (
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                <span class="text-sm text-gray-700">{country.research} in research queue</span>
+              </div>
+            )}
+            <p class="text-xs text-gray-500">{country.highlight}</p>
+            <div class="flex flex-wrap gap-1">
+              {country.programs.slice(0, 2).map((program) => (
+                <span class="px-1.5 py-0.5 bg-gray-100 text-gray-600 text-xs rounded">
+                  {program}
+                </span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- Norway Projects Section (existing content) -->
+  <div class="mb-6 flex items-center justify-between">
+    <h2 class="text-xl font-bold text-gray-900">Norway Projects</h2>
+    <a href={`${baseUrl}no/`} class="text-sm text-nordic-600 hover:text-nordic-700 font-medium">
+      View all Norway projects →
+    </a>
   </div>
 
   <div class="flex gap-6">
