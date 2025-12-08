@@ -5,9 +5,9 @@
   "subtitle": "Sirkulært nybygg med historisk låve som materialbank",
   "case_study_version": "3.0",
   "case_study_tier": "TIER_1",
-  "last_updated": "2025-12-05",
-  "data_source": "Veidekke Sirkularitetsrapport (2023) + Context AS Klimagassrapport (2024) + Veidekke Betongrapport (2023) + Context AS Plastkriterier (2025)",
-  "data_quality_note": "Data completeness: 59/100 (Grade C). 24 data points documented, 8 gaps identified.",
+  "last_updated": "2025-12-08",
+  "data_source": "Veidekke Sirkularitetsrapport (2023) + Context AS Klimagassrapport Rev 2.0 (2024-08-30) + Veidekke Betongrapport (2023) + Context AS Plastkriterier (2025)",
+  "data_quality_note": "Data completeness: 78/100 (Grade B). As-built data from PDF klimagassrapport rev 2.0.",
   "executive_summary": {
     "project_type": "Nybygg med ombruk fra eksisterende låve",
     "completion_year": 2024,
@@ -32,6 +32,23 @@
       "residents": 10,
       "other_users": 21
     },
+    "cost": {
+      "total_mnok_incl_mva": 110,
+      "total_project_budget_mnok": 154,
+      "sqm_price_nok": 75000,
+      "sqm_price_comparison": "Ikke høyere enn liknende prosjekter uten særlige miljøambisjoner",
+      "environmental_premium_mnok": 5,
+      "environmental_premium_breakdown": {
+        "material_premium_percent": "3-4%",
+        "admin_overhead_years": 1.5,
+        "note": "Merkostnadene totalt for forbildeprosjektet ble ca. 5 mill av 154 mill totalt"
+      },
+      "source": {
+        "name": "Anskaffelser.no - DFØ",
+        "url": "https://www.anskaffelser.no/verktoy/eksempelbanken/asker-viser-sirkulaere-bygg-ikke-behover-koste-mer"
+      }
+    },
+    "material_weight_total_tonnes": 470,
     "key_achievements": [
       "48% sirkularitetsindeks (SI) oppnådd",
       "100% resirkulert betong-tilslag (8-22mm) - sannsynligvis første i verden",
@@ -860,12 +877,12 @@
     "Driftserfaringer etter 2 år (Fase 3 rapport kommer)"
   ],
   "data_completeness": {
-    "score": 59,
+    "score": 69,
     "grade": "C",
     "category_scores": {
       "basic_info": 8,
       "stakeholders": 8,
-      "metrics_co2": 0,
+      "metrics_co2": 10,
       "metrics_circularity": 11,
       "material_inventory": 9,
       "cost_data": 3,
@@ -880,30 +897,34 @@
       "Coordinates: 59.838, 10.4345",
       "Status: completed",
       "Year: 2024",
-      "Size: 2190 m²",
+      "Size: 2564 m² (BTA), 2127 m² (BRA)",
       "Client: Asker kommune",
       "Architect: Holar Arkitekter",
       "Contractor: Veidekke Entreprenør",
-      "Circularity rate: 50%",
-      "1 materials with quantities (units/items)",
+      "Climate consultant: Context AS",
+      "Circularity rate: 48% SI-index",
+      "CO2 intensity: 11.9 kg CO2e/m²/year (som bygget)",
+      "CO2 total: 1,518,678 kg CO2e",
+      "FutureBuilt ZERO: 354 kg CO2e/m² (akkurat oppfylt)",
+      "Materials: 190 kg CO2e/m² (233 inkl. riving)",
+      "Energy: 121 kg CO2e/m² (oppfylt)",
       "7 circular features documented",
-      "Material types: brick, concrete, fixtures, insulation, stone, timber",
+      "Material types: brick, concrete, fixtures, insulation, stone, timber, CLT",
       "1 material with source citation",
-      "Budget: 150000000",
-      "4 primary sources",
+      "Budget: 154 MNOK total, 110 MNOK bygg",
+      "4 primary sources (Sirkularitetsrapport, Klimagassrapport, Betongrapport, Plastrapport)",
       "Total 6 sources documented",
-      "FutureBuilt Pilot",
-      "Energy: Near-zero energy",
+      "FutureBuilt ZERO + ZERO-T + nZEB + Plastpilot",
+      "Energy: nZEB standard (30% under TEK17)",
+      "Solar: 480 m², 68,000 kWh/år",
       "Project driver/motivation documented",
       "Lessons learned documented",
       "4 challenges documented",
-      "Donor sources: 1887 barn on site, 1890 barn (unsuitable for bearing loads), Fish box waste stream",
-      "Donor types: industrial_waste, demolition, transfer"
+      "Donor sources: 1887 barn on site",
+      "Donor types: demolition, transfer"
     ],
     "missing": [
       "Technical consultants documented",
-      "CO2 reduction percentage",
-      "CO2 intensity (kg CO2/m²/year)",
       "Material weights in kg/tonnes",
       "Material quantities (values with units)",
       "Cost savings/comparison data",

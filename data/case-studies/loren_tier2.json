@@ -32,10 +32,24 @@
       "total_kg_co2_eq": 4620,
       "source": "Klimasats Sluttrapport side 2"
     },
+    "co2_reduction_percent": {
+      "value": 40,
+      "comparison_basis": "vs referansebygg",
+      "note": "Målsetting (FutureBuilt-krav)",
+      "source": {
+        "name": "Byggfakta Nyheter",
+        "url": "https://byggfaktanyheter.no/bygging-av-ny-flerbrukshall-pa-loren-bidrar-med-betydelige-kutt-i-co2-utslipp/"
+      }
+    },
     "future_potential": {
       "three_year_estimate_tonnes": "20-30",
       "long_term_annual_tonnes": 100,
       "note": "For Oslobygg KF, dobbelt for Oslo kommune totalt"
+    },
+    "klimasats_report": {
+      "status": "Gjennomført",
+      "delivered": "2025-03-10",
+      "url": "https://soknadssenter.miljodirektoratet.no/Innsyn/Detaljer?id=220327"
     }
   },
   "material_inventory": {
@@ -149,9 +163,39 @@
         "email": "qing.tollefsen@obf.oslo.kommune.no"
       }
     },
+    "architect": {
+      "name": "Pir II Arkitektkontor AS",
+      "role": "Arkitekt"
+    },
     "contractor": {
       "name": "Håndverk kompaniet",
       "role": "Totalentreprenør"
+    },
+    "technical_consultants": {
+      "rib_konstruksjon": {
+        "name": "Pro Consult AS",
+        "role": "Rådgivende ingeniør bygg (konstruksjon)"
+      },
+      "rib_stal": {
+        "name": "Stabil AS",
+        "role": "Rådgivende ingeniør bygg (stål)"
+      },
+      "riv": {
+        "name": "Structor AS",
+        "role": "Rådgivende ingeniør VVS"
+      },
+      "rie": {
+        "name": "Fremst AS",
+        "role": "Rådgivende ingeniør elektro"
+      },
+      "rim": {
+        "name": "Rambøll Norge AS",
+        "role": "Miljørådgiver (RIM)"
+      },
+      "source": {
+        "name": "Byggeindustrien",
+        "url": "https://byggeprosjekter.bygg.no/2025-oslo/loren-aktivitetspark-og-flerbrukshall/2831149"
+      }
     },
     "testing_partner": {
       "name": "Resirqel",
@@ -165,6 +209,17 @@
     "source_building": {
       "name": "Stig skole",
       "material": "Betongfasadeelementer"
+    },
+    "ship_steel_supplier": {
+      "name": "Nordic Circles / AF Offshore Decom",
+      "material": "Skipsstål fra Curlew FPSO",
+      "quantity_tonnes": 20,
+      "quantity_m2": "140-150",
+      "source": {
+        "name": "AF Gruppen",
+        "url": "https://www.afgruppen.com/press/artikler-af-posten/2024/stal-fra-curlew-blir-brukt-i-flerbrukshall-i-oslo/",
+        "date": "2024-04-04"
+      }
     }
   },
   "lessons_learned": [

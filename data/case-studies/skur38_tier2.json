@@ -5,9 +5,9 @@
   "subtitle": "Oslo Havns hovedkontor - rehabilitering med sirkulære prinsipper",
   "case_study_version": "1.0",
   "case_study_tier": "TIER_1",
-  "last_updated": "2025-12-05",
-  "data_source": "FutureBuilt Rapportering Sirkulære prinsipper (34 sider + vedlegg), Oslo Havn 24.09.2021",
-  "data_quality_note": "Data completeness: 58/100 (Grade C). 25 data points documented, 8 gaps identified.",
+  "last_updated": "2025-12-08",
+  "data_source": "FutureBuilt Rapportering Sirkulære prinsipper (34 sider + vedlegg) + Klimagassrapport FutureBuilt 2.0 (zero emission studio as, april 2023)",
+  "data_quality_note": "Data completeness: 76/100 (Grade B). Full klimagassberegning fra PDF-rapport.",
   "executive_summary": {
     "project_type": "Rehabilitering av verneverdig lagerbygg til moderne kontorbygg",
     "original_construction": 1915,
@@ -31,6 +31,101 @@
     "why_tier": "Completeness score 58/100 (Grade C). 8 gaps identified. To reach Grade B: Obtain klimagassregnskap/LCA report; Document cost savings from reuse"
   },
   "circularity_metrics": {
+    "futurebuilt_zero": {
+      "report_version": "2.0",
+      "report_date": "2023-04-17",
+      "report_author": "zero emission studio as",
+      "methodology": "Reduzer (som bygget), One Click LCA (prosjektert)",
+      "standard": "NS 3720 + FutureBuilt ZERO",
+      "bra_m2": 3333,
+      "bta_m2": 3772,
+      "users_projected": 100,
+      "users_as_built": 155,
+      "building_lifespan_years": 60,
+      "main_result": {
+        "target_kg_co2_m2": 401,
+        "as_built_kg_co2_m2": 741,
+        "as_built_kg_co2_m2_year": 12.4,
+        "as_built_kg_co2_person_year": 266,
+        "total_kg_co2_60yr": 2469753,
+        "status": "Ikke oppfylt - pga energi",
+        "note": "Materialer oppfylt med god margin (135 vs 256 krav). Energi ikke oppnådd pga vernekrav."
+      },
+      "materials": {
+        "target_kg_co2_m2": 256,
+        "as_built_kg_co2_m2": 135,
+        "kg_co2_m2_year": 2.3,
+        "status": "Oppfylt med god margin",
+        "breakdown": {
+          "a1_a3_production": 64.3,
+          "a4_transport": 8.2,
+          "a5_byggeplass": 61.5,
+          "b1_biogenic_carbon": -19.2,
+          "b1_carbonatisation": -0.194,
+          "b2_b5_replacement": 22.2,
+          "c3_waste_incineration": 2.02,
+          "d_reuse_potential": -3.74
+        },
+        "key_measures": [
+          "Bevaring og rehabilitering av eksisterende betongkonstruksjon",
+          "FutureCEM lavkarbonbetong (40%+ sement erstattet med kalsinert leire)",
+          "Ombrukselementer fra egne og eksterne prosjekter"
+        ]
+      },
+      "energy": {
+        "target_kg_co2_m2": 185,
+        "as_built_kg_co2_m2": 606,
+        "kg_co2_m2_year": 11,
+        "status": "Ikke oppfylt",
+        "reason": "Bygget på gul-liste. Byantikvaren begrenset etterisolering av fasader og betongsøyler. Solceller på tak ikke tillatt.",
+        "energy_consumption_kwh_m2_year": 107.5,
+        "original_energy_kwh_m2_year": 220,
+        "reduction_percent": 51,
+        "measures": [
+          "Fornyelse av hele det tekniske anlegget",
+          "Nye vinduer og dører",
+          "Utvendig Aerogel-puss (Isokalk) og innvendig isolasjon",
+          "Superisolerende isolasjon under bygget",
+          "Høy lufttetthet",
+          "Luft-til-vann varmepumpe (forberedt for fremtidig sjøvarme/fjernvarme)"
+        ]
+      },
+      "transport_zero_t": {
+        "target_kg_co2_person_year": "varies",
+        "as_built_kg_co2_person_year": 128,
+        "status": "Oppfylt",
+        "measures": [
+          "Sentral beliggenhet ved kollektivknutepunkt",
+          "Redusert fra 31 til 7 parkeringsplasser",
+          "5 av 7 plasser reservert tjenestebiler",
+          "Omfattende sykkelparkering (inne og ute)",
+          "El-sparkesykler og sykkel-pool til tjenestereiser"
+        ]
+      }
+    },
+    "co2_reduction_percent": {
+      "value": 50,
+      "comparison_basis": "vs referansebygg",
+      "note": "Over 50% oppnådd klimagassreduksjon totalt, materialer alene 47% (135 vs 256)",
+      "co2_saved_tonnes": 171,
+      "source": {
+        "name": "KlimaOslo",
+        "url": "https://www.klimaoslo.no/ombruk-av-bygningsmaterialer-gir-klimagevinst/"
+      }
+    },
+    "reuse_rate": {
+      "existing_structures_percent": 50,
+      "added_components_percent": 10,
+      "note": "≥50% eksisterende konstruksjoner bevart + ≥10% tilførte komponenter ombrukt",
+      "source": {
+        "name": "KlimaOslo",
+        "url": "https://www.klimaoslo.no/ombruk-av-bygningsmaterialer-gir-klimagevinst/"
+      }
+    },
+    "klimagassrapport": {
+      "url": "https://www.futurebuilt.no/content/download/36517/199502",
+      "type": "LCA sluttrapport"
+    },
     "co2_savings": {
       "total_kg_co2_eq": 166952,
       "source": "Vedlegg 2 - Beregning CO2-besparelser"

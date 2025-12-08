@@ -35,6 +35,63 @@
       "unit": "percent",
       "target": 100,
       "source": "FutureBuilt Bergen"
+    },
+    "co2_reduction_percent": {
+      "value": 90,
+      "comparison_basis": "vs konvensjonelt bygg med nye materialer",
+      "note": "Klimagassberegninger indikerer at nær full ombruk kan kutte utslippene med bortimot 90%",
+      "source": {
+        "name": "DNB Nyheter",
+        "url": "https://www.dnb.no/dnbnyheter/no/samfunn/frydenbo-foniks",
+        "date": "2024"
+      }
+    },
+    "registered_components": {
+      "count": 2600,
+      "platform": "Loopfront",
+      "source": {
+        "name": "Byggfakta Nyheter",
+        "url": "https://byggfaktanyheter.no/foniks-et-foregangsprosjekt-innen-ombruk/"
+      }
+    }
+  },
+  "project_team": {
+    "developer": {
+      "name": "Frydenbø Eiendom",
+      "role": "Byggherre og utvikler"
+    },
+    "project_management": {
+      "name": "Artec AS",
+      "role": "Byggeledelse (byggherrestyrte delentrepriser)"
+    },
+    "contractors": [
+      {
+        "name": "Unik VVS",
+        "role": "Rør og VVS",
+        "note": "Leverandør av ombrukte toaletter og servanter fra borettslagsprosjekter"
+      },
+      {
+        "name": "BOV",
+        "role": "Ventilasjon og blikkenslager"
+      },
+      {
+        "name": "Alt Heis AS",
+        "role": "Heis"
+      },
+      {
+        "name": "Frydenbø Electric AS",
+        "role": "Elektro"
+      }
+    ],
+    "consultants": {
+      "rib": {
+        "name": "Skala AS",
+        "role": "Rådgivende ingeniør bygg"
+      }
+    },
+    "source": {
+      "name": "Byggfakta Nyheter / Alliernytt",
+      "url": "https://byggfaktanyheter.no/foniks-et-foregangsprosjekt-innen-ombruk/"
     }
   },
   "material_sourcing_workflow": {

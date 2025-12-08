@@ -779,6 +779,23 @@
       "scope": "Både rehabilitering og nybygg",
       "main_driver": "Bevaring av eksisterende bygningskropp og bæresystemer"
     },
+    "co2_intensity": {
+      "rehabilitated_building": {
+        "value": 14.6,
+        "unit": "kg CO₂e/m²/år",
+        "note": "NS 3720-metoden"
+      },
+      "new_extension": {
+        "value": 16.6,
+        "unit": "kg CO₂e/m²/år",
+        "note": "NS 3720-metoden"
+      },
+      "source": {
+        "name": "Nordic Council SynTra 2022",
+        "url": "https://pub.norden.org/temanord2022-551/",
+        "section": "Table 25, Section 4.2 Results"
+      }
+    },
     "by_material": [
       {
         "material": "Stål (generelt)",
