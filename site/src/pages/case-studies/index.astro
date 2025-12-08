@@ -483,7 +483,7 @@ const promptSections = parsePrompts(researchPromptsRaw);
             {projectDataStatus.map((project) => (
                 <tr class="hover:bg-gray-50 transition-colors">
                   <td class="py-3 px-2">
-                    <a href={`${import.meta.env.BASE_URL}/case-studies/${project.id}`} class="hover:text-nordic-600 transition-colors">
+                    <a href={`${import.meta.env.BASE_URL}case-studies/${project.id}/`} class="hover:text-nordic-600 transition-colors">
                       <span class="font-medium text-gray-900">{project.name}</span>
                     </a>
                   </td>
@@ -682,7 +682,7 @@ const promptSections = parsePrompts(researchPromptsRaw);
 
         return (
           <a
-            href={`${import.meta.env.BASE_URL}/case-studies/${cs.project_id}`}
+            href={`${import.meta.env.BASE_URL}case-studies/${cs.project_id}/`}
             class="block bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow"
           >
             <div class="p-6">
