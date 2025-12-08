@@ -809,19 +809,19 @@
     "CO2-beregning per materialtype basert på generiske EPD-er"
   ],
   "data_completeness": {
-    "score": 58,
-    "grade": "C",
+    "score": 78,
+    "grade": "B",
     "category_scores": {
-      "basic_info": 8,
-      "stakeholders": 8,
-      "metrics_co2": 0,
-      "metrics_circularity": 7,
-      "material_inventory": 11,
-      "cost_data": 3,
-      "sources_primary": 7,
-      "certifications": 4,
+      "basic_info": 10,
+      "stakeholders": 10,
+      "metrics_co2": 12,
+      "metrics_circularity": 10,
+      "material_inventory": 12,
+      "cost_data": 5,
+      "sources_primary": 9,
+      "certifications": 5,
       "narrative": 5,
-      "donor_sources": 5
+      "donor_sources": 0
     },
     "has": [
       "Project name: Skur 38",

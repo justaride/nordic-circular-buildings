@@ -206,13 +206,13 @@ const getProjectScore = (projectId: string): number => {
 };
 
 const researchPlan = [
-  { id: 'ka23', name: 'KA23', current: getProjectScore('ka23'), target: 75, priority: 1 },
-  { id: 'loren', name: 'Løren', current: getProjectScore('loren'), target: 65, priority: 2 },
-  { id: 'nedre_sem', name: 'Nedre Sem', current: getProjectScore('nedre_sem'), target: 65, priority: 3 },
-  { id: 'skur38', name: 'Skur 38', current: getProjectScore('skur38'), target: 65, priority: 4 },
-  { id: 'treklang', name: 'Treklang', current: getProjectScore('treklang') || getProjectScore('oksenøya'), target: 65, priority: 5 },
-  { id: 'foniks', name: 'Føniks', current: getProjectScore('foniks') || getProjectScore('føniks'), target: 55, priority: 6 },
-  { id: 'ka13', name: 'KA13', current: getProjectScore('ka13'), target: 80, priority: 7 },
+  { id: 'foniks', name: 'Føniks', current: getProjectScore('foniks') || getProjectScore('føniks'), target: 65, priority: 1 },
+  { id: 'loren', name: 'Løren', current: getProjectScore('loren'), target: 70, priority: 2 },
+  { id: 'ka23', name: 'KA23', current: getProjectScore('ka23'), target: 75, priority: 3 },
+  { id: 'treklang', name: 'Oksenøya', current: getProjectScore('treklang') || getProjectScore('oksenøya'), target: 75, priority: 4 },
+  { id: 'nedre_sem', name: 'Nedre Sem', current: getProjectScore('nedre_sem'), target: 80, priority: 5 },
+  { id: 'skur38', name: 'Skur 38', current: getProjectScore('skur38'), target: 80, priority: 6 },
+  { id: 'ka13', name: 'KA13', current: getProjectScore('ka13'), target: 85, priority: 7 },
 ];
 
 // Research tasks per project
@@ -232,7 +232,7 @@ const projectResearchTasks: ProjectResearch[] = [
     id: 'ka23',
     tasks: [
       { task: 'Finn klimagassrapport', category: 'klimagass', status: 'pending' },
-      { task: 'Dokumenter materialvekt (tonn)', category: 'materials', status: 'pending' },
+      { task: 'Dokumenter materialvekt (tonn)', category: 'materials', status: 'completed' },
       { task: 'Kostnadssammenligning ombruk/nytt', category: 'costs', status: 'pending' },
     ]
   },
@@ -240,40 +240,40 @@ const projectResearchTasks: ProjectResearch[] = [
     id: 'loren',
     tasks: [
       { task: 'Finn ombruksandel %', category: 'materials', status: 'pending' },
-      { task: 'Klimasats sluttrapport', category: 'klimagass', status: 'pending' },
+      { task: 'Klimasats sluttrapport', category: 'klimagass', status: 'completed' },
       { task: 'Tekniske konsulenter (RIB, RIV)', category: 'stakeholders', status: 'pending' },
     ]
   },
   {
     id: 'nedre_sem',
     tasks: [
-      { task: 'CO2-reduksjon %', category: 'klimagass', status: 'pending' },
-      { task: 'Materialvekt ombruk', category: 'materials', status: 'pending' },
-      { task: 'Klimagassregnskap/miljørapport', category: 'klimagass', status: 'pending' },
+      { task: 'CO2-reduksjon %', category: 'klimagass', status: 'completed' },
+      { task: 'Materialvekt ombruk', category: 'materials', status: 'completed' },
+      { task: 'Klimagassregnskap as-built', category: 'klimagass', status: 'completed' },
     ]
   },
   {
     id: 'skur38',
     tasks: [
-      { task: 'CO2-reduksjon %', category: 'klimagass', status: 'pending' },
-      { task: 'Ombruksandel %', category: 'materials', status: 'pending' },
-      { task: 'Materialvekt bevart/ombrukt', category: 'materials', status: 'pending' },
+      { task: 'FutureBuilt ZERO-rapport', category: 'klimagass', status: 'completed' },
+      { task: 'Ombruksandel %', category: 'materials', status: 'completed' },
+      { task: 'Materialvekt bevart/ombrukt', category: 'materials', status: 'completed' },
     ]
   },
   {
     id: 'treklang',
     tasks: [
-      { task: 'CO2-reduksjon fra klimagassrapporter', category: 'klimagass', status: 'pending' },
+      { task: 'CO2-reduksjon fra klimagassrapporter', category: 'klimagass', status: 'completed' },
       { task: 'Ombruksandel hele anlegget', category: 'materials', status: 'pending' },
-      { task: 'Donorkilder for materialer', category: 'materials', status: 'pending' },
+      { task: 'Donorkilder (Regjeringskvartalet)', category: 'materials', status: 'completed' },
     ]
   },
   {
     id: 'foniks',
     tasks: [
-      { task: 'Entreprenør', category: 'stakeholders', status: 'pending' },
+      { task: 'Prosjektteam dokumentert', category: 'stakeholders', status: 'completed' },
       { task: 'Budsjett/investeringssum', category: 'costs', status: 'pending' },
-      { task: 'CO2-reduksjon vs referanse', category: 'klimagass', status: 'pending' },
+      { task: 'CO2-reduksjon (90%)', category: 'klimagass', status: 'completed' },
     ]
   },
   {
@@ -281,7 +281,7 @@ const projectResearchTasks: ProjectResearch[] = [
     tasks: [
       { task: 'CO2-intensitet (kg CO2/m²/år)', category: 'klimagass', status: 'completed' },
       { task: 'Kostnadssammenligning stål/hulldekker', category: 'costs', status: 'pending' },
-      { task: 'Masteroppgaver som analyserer', category: 'klimagass', status: 'pending' },
+      { task: 'Oppdatert driftsdata (2024)', category: 'klimagass', status: 'pending' },
     ]
   },
 ];

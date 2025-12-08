@@ -877,19 +877,19 @@
     "Driftserfaringer etter 2 år (Fase 3 rapport kommer)"
   ],
   "data_completeness": {
-    "score": 69,
-    "grade": "C",
+    "score": 79,
+    "grade": "B",
     "category_scores": {
-      "basic_info": 8,
-      "stakeholders": 8,
-      "metrics_co2": 10,
-      "metrics_circularity": 11,
-      "material_inventory": 9,
-      "cost_data": 3,
-      "sources_primary": 7,
+      "basic_info": 10,
+      "stakeholders": 10,
+      "metrics_co2": 12,
+      "metrics_circularity": 12,
+      "material_inventory": 10,
+      "cost_data": 8,
+      "sources_primary": 9,
       "certifications": 3,
       "narrative": 5,
-      "donor_sources": 5
+      "donor_sources": 0
     },
     "has": [
       "Project name: Nedre Sem låve",

@@ -367,19 +367,19 @@
     "Prosjektet ikke ferdigstilt - data vil oppdateres"
   ],
   "data_completeness": {
-    "score": 50,
+    "score": 62,
     "grade": "C",
     "category_scores": {
       "basic_info": 8,
-      "stakeholders": 6,
-      "metrics_co2": 0,
-      "metrics_circularity": 8,
-      "material_inventory": 9,
+      "stakeholders": 12,
+      "metrics_co2": 8,
+      "metrics_circularity": 10,
+      "material_inventory": 6,
       "cost_data": 0,
-      "sources_primary": 7,
-      "certifications": 2,
+      "sources_primary": 8,
+      "certifications": 3,
       "narrative": 5,
-      "donor_sources": 5
+      "donor_sources": 2
     },
     "has": [
       "Project name: Prosjekt Føniks",
