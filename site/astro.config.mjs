@@ -8,6 +8,10 @@ export default defineConfig({
   site: 'https://justaride.github.io',
   base: '/nordic-circular-buildings',
   output: 'static',
+  trailingSlash: 'always',
+  build: {
+    format: 'directory'
+  },
   vite: {
     plugins: [tailwindcss()]
   }
