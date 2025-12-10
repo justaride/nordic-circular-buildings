@@ -656,4 +656,237 @@ Island:
 
 ---
 
+## 🔍 DISCOVERY PROMPTS - Finn flere prosjekter
+
+> Bruk disse promptene for å oppdage sirkulære byggeprosjekter utover de vi allerede har dokumentert.
+
+### 🇸🇪 Sverige - Finn flere prosjekter
+
+```
+Jeg har allerede dokumentert følgende sirkulære byggeprosjekter i Sverige:
+
+KJENTE PROSJEKTER:
+1. Förskolan Hoppet, Göteborg (2021) - fossilfri barnehage, ~70% CO2-reduksjon
+2. Selma Lagerlöfs Center, Göteborg (2023) - 82% materialombruk, DGNB Platinum
+3. Sara Kulturhus, Skellefteå (2021) - 5000 m³ CLT, verdens høyeste trehus
+4. Lumi, Stockholm (2023) - klimapositivt kontor, DGNB Platinum
+5. Cirkeln, Uppsala (under bygging) - mål 90%+ materialombruk
+
+Finn andre svenske byggeprosjekter som kvalifiserer like godt eller bedre basert på:
+- Ombruksandel ≥50% (materialer fra andre bygg)
+- CO2-reduksjon ≥50% vs referansebygg
+- Design for Disassembly (demonterbart)
+- DGNB/BREEAM Outstanding/Excellent med sirkulært fokus
+- Adaptive reuse av eksisterende bygg
+
+Ekskluder:
+- Rene energiprosjekter uten materialfokus
+- Bygg som kun bruker resirkulert innhold (ikke ombruk)
+- Prosjekter uten dokumenterte metrikker
+
+Søkestrenger:
+- "cirkulärt byggande" Sverige projekt 2020-2025
+- "återbruk byggmaterial" procent
+- site:sgbc.se DGNB Platinum cirkulär
+- site:ccbuild.se projekt referens
+- "Design for Disassembly" Sverige
+- "återbrukat stål" OR "återbrukad betong" byggnad
+- "Riksbyggen" OR "Vasakronan" OR "Castellum" cirkulär projekt
+- "White Arkitekter" cirkulär
+- "cirkulär ekonomi" byggsektor referensprojekt
+
+Jeg trenger:
+1. Prosjektnavn og sted
+2. Byggherre og arkitekt
+3. Ferdigstillelsesår
+4. Nøkkelmetrikker (ombruk%, CO2%)
+5. Hva gjør prosjektet sirkulært
+6. Kilder/dokumentasjon
+```
+
+### 🇩🇰 Danmark - Finn flere prosjekter
+
+```
+Jeg har allerede dokumentert følgende sirkulære byggeprosjekter i Danmark:
+
+KJENTE PROSJEKTER:
+1. Circle House, Lisbjerg (2023) - 90% demonterbart, Design for Disassembly
+2. Resource Rows/Ressourcerækkerne, København (2019) - 1400 vinduer fra Carlsberg
+3. UN17 Village, København (under bygging) - 1600+ gjenbrukte vinduer
+4. Upcycle House, Nyborg (2013) - 86% resirkulert, skipskontainere
+5. Venligbolig+, Ringkøbing-Skjern (2022) - modulbygg med ombruk
+
+Finn andre danske byggeprosjekter som kvalifiserer like godt eller bedre basert på:
+- Ombruksandel ≥50% (materialer fra andre bygg)
+- CO2-reduksjon ≥50% vs referansebygg
+- Design for Disassembly (demonterbart)
+- DGNB Guld/Platin med sirkulært fokus
+- Adaptive reuse av eksisterende bygg
+
+Ekskluder:
+- Rene energiprosjekter uten materialfokus
+- Prosjekter kun med resirkulert innhold (ikke ombruk)
+- Prosjekter uten dokumenterte metrikker
+
+Søkestrenger:
+- "cirkulært byggeri" Danmark projekt 2020-2025
+- "genanvendte byggematerialer" procent
+- site:dk-gbc.dk DGNB Guld cirkulær
+- site:realdania.dk cirkulær byggeri
+- "Design for Disassembly" Danmark
+- "Lendager" projekt -"Circle House" -"Resource Rows" -"UN17"
+- "genbrugte mursten" OR "genbrugt stål" byggeri
+- "3XN" OR "Henning Larsen" OR "BIG" cirkulær
+- "cirkulær økonomi" byggebranchen case
+
+Jeg trenger:
+1. Prosjektnavn og sted
+2. Byggherre og arkitekt
+3. Ferdigstillelsesår
+4. Nøkkelmetrikker (ombruk%, CO2%)
+5. Hva gjør prosjektet sirkulært
+6. Kilder/dokumentasjon
+```
+
+### 🇫🇮 Finland - Finn flere prosjekter
+
+```
+Jeg har allerede dokumentert følgende sirkulære byggeprosjekter i Finland:
+
+KJENTE PROSJEKTER:
+1. Mustikkamaa Depot, Helsinki (2025) - første ombruksbygg, vinduer fra Post Office
+2. Pikku-Finlandia, Helsinki (2022) - fullt demonterbar, skal relokeres
+3. Dance House Helsinki (2022) - adaptive reuse av Nokia Cable Factory
+4. Tikkurila School Storage, Vantaa (2021) - 2000 murstein fra Nasjonalteateret
+5. Koivukylä Sortti Station, Vantaa (2021) - sink fra Kiasma, flyttbar
+
+Finn andre finske byggeprosjekter som kvalifiserer like godt eller bedre basert på:
+- Ombruksandel ≥50% (materialer fra andre bygg)
+- CO2-reduksjon ≥50% vs referansebygg
+- Design for Disassembly (demonterbart)
+- BREEAM Outstanding/Excellent med sirkulært fokus
+- Adaptive reuse av eksisterende bygg
+
+Ekskluder:
+- Rene energiprosjekter uten materialfokus
+- Bygg som kun bruker resirkulert innhold (ikke ombruk)
+- Prosjekter uten dokumenterte metrikker
+
+Søkestrenger:
+- "kiertotalous rakentaminen" Suomi projekti 2020-2025
+- "uudelleenkäytetyt rakennusmateriaalit" prosentti
+- site:hel.fi kiertotalous rakennus
+- site:hsy.fi kiertotalous referenssi
+- "purkumateriaalit" uudelleenkäyttö rakennus
+- "CLT" OR "puutalo" Suomi hiilijalanjälki
+- "BREEAM" Finland circular
+- "Lahdelma & Mahlamäki" OR "JKMM" OR "ALA" kiertotalous
+- "Material Bank" Finland building
+- "CIRCuIT" Helsinki project
+
+Jeg trenger:
+1. Prosjektnavn og sted
+2. Byggherre og arkitekt
+3. Ferdigstillelsesår
+4. Nøkkelmetrikker (ombruk%, CO2%)
+5. Hva gjør prosjektet sirkulært
+6. Kilder/dokumentasjon
+```
+
+### 🇮🇸 Island - Finn flere prosjekter
+
+```
+Jeg har allerede dokumentert følgende sirkulære byggeprosjekter på Island:
+
+KJENTE PROSJEKTER:
+1. Háteigsvegur 59, Reykjavík (2022) - 40% CO2-reduksjon, resirkulert betong
+2. Smiðja Parliament, Reykjavík (2024) - stein fra Landspítali, restaurerte møbler
+3. Stöng Viking Shelter, Þjórsárdalur (2024) - transformert 1957-struktur
+4. Umhverfisstofnun Office, Reykjavík (2020) - Nordic Swan, 94.4% avfallssortering
+
+Finn andre islandske byggeprosjekter som kvalifiserer like godt eller bedre basert på:
+- Ombruksandel ≥30% (lavere terskel pga. lite marked)
+- CO2-reduksjon ≥30% vs referansebygg
+- Design for Disassembly (demonterbart)
+- Nordic Swan Ecolabel eller tilsvarende
+- Adaptive reuse av eksisterende bygg
+- Bruk av lokale naturmaterialer (stein, torv, tre)
+
+Ekskluder:
+- Rene energiprosjekter (geotermisk) uten materialfokus
+- Prosjekter uten dokumenterte metrikker
+
+NB: Island har lite ombruksmarked, så også innovative prosjekter med
+    lokale materialer eller adaptive reuse er relevante.
+
+Søkestrenger:
+- "hringrásarhagkerfi" bygging Ísland
+- "endurnýting byggingarefni" verkefni
+- site:hringvangur.is verkefni
+- site:ust.is vistvæn bygging
+- "Svanurinn" Ísland bygging
+- "vistvæn" húsnæði Reykjavík
+- "endurgerð" húss saga
+- "Studio Granda" OR "PK Arkitektar" OR "BASALT" verkefni
+- "Félagsbústaðir" -"Háteigsvegur" verkefni
+- "Landsbankinn" OR "Arion" vistvæn höfuðstöðvar
+- "circular economy" Iceland building construction
+
+Jeg trenger:
+1. Prosjektnavn og sted
+2. Byggherre og arkitekt
+3. Ferdigstillelsesår
+4. Nøkkelmetrikker (ombruk%, CO2%)
+5. Hva gjør prosjektet sirkulært
+6. Kilder/dokumentasjon
+```
+
+---
+
+## 🌍 Pan-Nordisk Discovery
+
+```
+Finn sirkulære byggeprosjekter i Norden (Sverige, Danmark, Finland, Island)
+som jeg kanskje har oversett.
+
+KRITERIER FOR INKLUDERING:
+- Materialombruk fra andre bygg (ikke bare resirkulert innhold)
+- CO2-reduksjon dokumentert vs referanse
+- Design for Disassembly eller adaptive reuse
+- Ferdigstilt 2018-2025 eller under bygging
+- Offentlig dokumentasjon tilgjengelig
+
+SPESIELT INTERESSANT:
+- Prosjekter med erfaringsrapporter/case studies publisert
+- Offentlige bygg (skoler, barnehager, kontorer, kulturhus)
+- Sosialboliger med sirkulært fokus
+- Pilotprosjekter med EU-finansiering (Horizon, CIRCuIT, etc.)
+- Prosjekter som har vunnet designpriser for bærekraft
+
+SØKESTRENGER:
+- "circular building" Nordic award 2023 OR 2024
+- "material reuse" Scandinavia construction case study
+- "CIRCuIT" project building Nordic
+- "Horizon Europe" circular construction Nordic
+- "World Building of the Year" Nordic sustainability
+- site:dezeen.com Nordic circular OR reuse
+- site:archdaily.com Scandinavia recycled materials
+- "build in wood" Nordic massive timber CLT
+
+IKKE INKLUDER (allerede kjent):
+Sverige: Förskolan Hoppet, Selma Lagerlöfs Center, Sara Kulturhus, Lumi, Cirkeln
+Danmark: Circle House, Resource Rows, UN17 Village, Upcycle House, Venligbolig+
+Finland: Mustikkamaa, Pikku-Finlandia, Dance House, Tikkurila, Koivukylä
+Island: Háteigsvegur 59, Smiðja, Stöng, Umhverfisstofnun
+
+Returner liste med:
+1. Land og by
+2. Prosjektnavn
+3. År
+4. Hvorfor det kvalifiserer (nøkkelmetrikk)
+5. Kilde-URL
+```
+
+---
+
 *Sist oppdatert: 2025-12-08*

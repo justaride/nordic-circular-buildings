@@ -32,13 +32,13 @@ A comprehensive research platform documenting **material circularity in public b
 ## Scope
 
 **Minimum 5 verified projects per country:**
-- Denmark (DK) - **9 projects in research queue**
-- Finland (FI) - **7 projects in research queue**
-- Iceland (IS) - **4 projects in research queue**
-- Norway (NO) - **22 verified projects** ✅
-- Sweden (SE) - **8 projects in research queue**
+- Denmark (DK) - **4 verified** ✅ + 6 in research queue
+- Finland (FI) - **1 verified** ✅ + 6 in research queue
+- Iceland (IS) - **4 verified** ✅
+- Norway (NO) - **25 verified projects** ✅
+- Sweden (SE) - **4 verified** ✅ + 5 in research queue
 
-**Total: 22 verified + 28 research queue = 50 documented projects**
+**Total: 38 verified + 17 research queue = 55 documented projects**
 
 ---
 
@@ -172,24 +172,69 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 - [x] Updated TypeScript types with CountryData, ResearchQueueItem interfaces
 - [x] Updated sync-data.js to handle all 5 Nordic countries
 
-**Research Queue Status:**
-| Country | Projects | Top Highlights |
-|---------|----------|----------------|
-| Sweden | 8 | Förskolan Hoppet (~70% CO2), Selma Lagerlöfs (82% reuse), Sara Kulturhus (5000m³ CLT) |
-| Denmark | 9 | Circle House (first circular housing), UN17 Village (1600+ windows), Upcycle House (86%) |
-| Finland | 7 | Mustikkamaa (first reused materials), Pikku-Finlandia (demountable), Dance House |
-| Iceland | 4 | Háteigsvegur 59 (40% CO2, Mies nom.), Smiðja Parliament, Stöng Shelter |
+### Phase 8: Nordic Verification ✅ (2025-12-09)
 
-**Next Steps:**
-- [ ] Verify sources for research queue projects
-- [ ] Promote verified projects from queue to full project entries
-- [ ] Create case studies for Nordic flagships (Förskolan Hoppet, Circle House, Háteigsvegur 59)
+**Completed:**
+- [x] Processed 40 research documents across 4 countries
+- [x] Triaged 17 unique projects into Tier A/B/C categories
+- [x] Extracted 10 projects to verified JSON format (9 Tier A + 1 Tier B)
+- [x] Created sources library with 50+ primary documents
+- [x] All data validated and synced
+- [x] Research notes extraction: 100% complete for verifiable projects
 
-**Research Documentation:**
-- `docs/NORDIC_RESEARCH_PLAN.md` - Prioritized projects, source hierarchy, verification criteria
-- `docs/NORDIC_RESEARCH_PROMPTS.md` - Copy-paste ready prompts for all 20 priority projects
+**Verified Projects Added:**
 
-### Phase 8: API & Integrations (Future)
+| Country | Projects | Grades | Key Highlights |
+|---------|----------|--------|----------------|
+| 🇩🇰 Denmark | 4 | 3×A, 1×B | Upcycle House (86% CO2↓), Circle House (DfD), UN17 Village (535 units), Resource Rows |
+| 🇮🇸 Iceland | 3 | 2×A, 1×B | Smiðja Parliament (80% reuse), Umhverfisstofnun (1st Nordic Swan), Háteigsvegur 59 (53% CO2↓) |
+| 🇸🇪 Sweden | 3 | 2×A, 1×B | Förskolan Hoppet (62% CO2↓), Sara Kulturhus (carbon-negative), Lumi (80% frame reuse) |
+
+**Research Documentation Created:**
+- `docs/NORDIC_RESEARCH_PROCESSING.md` - Full processing plan and results
+- `docs/NORDIC_SOURCES_LIBRARY.md` - Curated library of 50+ primary sources
+
+**Research Notes Extraction Status:**
+
+| Country | Files | Verified | Queue | Status |
+|---------|-------|----------|-------|--------|
+| 🇸🇪 Sweden | 14 | 3 | 6 | ✅ All verifiable data extracted |
+| 🇩🇰 Denmark | 9 | 4 | 5 | ✅ All verifiable data extracted |
+| 🇫🇮 Finland | 10 | 0 | 7 | ⏳ Blocked - no quantified metrics in sources |
+| 🇮🇸 Iceland | 7 | 3 | 1 | ✅ All verifiable data extracted |
+
+**Remaining in Research Queue (19 projects):**
+
+| Country | Queue | Top Candidates | Blocker |
+|---------|-------|----------------|---------|
+| Sweden | 6 | Selma Lagerlöfs Center | Needs quantified metrics |
+| Denmark | 5 | Venligbolig+ | Limited circularity data |
+| Finland | 7 | Mustikkamaa, Pikku-Finlandia | No CO2/circularity % published |
+| Iceland | 1 | Stöng Ruins Shelter | Needs more documentation |
+
+### Phase 9: Research Deep-Dive ✅ (2025-12-10)
+
+**Completed:**
+- [x] Processed 33 new research files from "Videre Dykk" research session
+- [x] Enhanced Norwegian projects with detailed CO2 data (Oksenøya breakdown: School 51.9%, Kindergarten 60.8%)
+- [x] Promoted Selma Lagerlöfs Center to verified (Sweden) - 92% interior reuse, 70% cost savings
+- [x] Added Pikku-Finlandia to verified (Finland) - DfD timber pavilion, 2700m², relocatable
+- [x] Added Stöng Viking Ruins Shelter to verified (Iceland) - 1957 structure preserved
+- [x] Added FBAB Seest to Denmark research queue
+- [x] All data validated and site rebuilt successfully
+
+**New Verified Projects:**
+
+| Country | Project | Key Achievement |
+|---------|---------|-----------------|
+| 🇸🇪 Sweden | Selma Lagerlöfs Center | 92% interior reuse, 70% cost savings (9 MSEK), Design S Award 2020 |
+| 🇫🇮 Finland | Pikku-Finlandia | World-leading DfD - 2,700m² fully demountable timber, moving to school 2026 |
+| 🇮🇸 Iceland | Stöng Viking Ruins | First heritage site with sustainability focus, 1957 timber structure preserved |
+
+**Reports Identified for Download:**
+- 8 priority PDFs identified including FutureBuilt climate reports, Kiruna reuse report, Circle House facts
+
+### Phase 10: API & Integrations (Future)
 - [ ] REST API for external access
 - [ ] Integration with Nordic Circle Construction stakeholder map
 - [ ] Community contribution system
@@ -239,24 +284,24 @@ Based on analysis of the Circular Buildings Coalition "Four Circular Pathways" (
 
 ---
 
-## Current Data Status (2025-12-08)
+## Current Data Status (2025-12-10)
 
 ### Nordic Overview
 
 | Country | Verified | Research Queue | Data Status |
 |---------|----------|----------------|-------------|
-| 🇳🇴 Norway | 22 | - | Complete |
-| 🇸🇪 Sweden | 0 | 8 | Initial Research |
-| 🇩🇰 Denmark | 0 | 9 | Initial Research |
-| 🇫🇮 Finland | 0 | 7 | Initial Research |
-| 🇮🇸 Iceland | 0 | 4 | Initial Research |
-| **Total** | **22** | **28** | **50 documented** |
+| 🇳🇴 Norway | 25 | - | Complete |
+| 🇸🇪 Sweden | 4 | 5 | **Verified** |
+| 🇩🇰 Denmark | 4 | 6 | **Verified** |
+| 🇫🇮 Finland | 1 | 6 | **Verified** |
+| 🇮🇸 Iceland | 4 | - | **Verified** |
+| **Total** | **38** | **17** | **55 documented** |
 
-### Norway: 22 Projects
+### Norway: 25 Projects
 
 | Metric | Current | Target | Progress |
 |--------|---------|--------|----------|
-| Total projects | **22** | 25-30 | **88%** |
+| Total projects | **25** | 25-30 | **100%** ✅ |
 | Case studies | **7** | 6-7 | **100%** ✅ |
 | With architect | **22** | 22 | **100%** ✅ |
 | With year_completed | **22** | 22 | **100%** ✅ |
@@ -322,9 +367,9 @@ Public Circular Buildings/
 ├── data/
 │   ├── schema.json              # JSON schema definition
 │   ├── projects/
-│   │   ├── norway.json          # 22 verified projects
+│   │   ├── norway.json          # 25 verified projects
 │   │   ├── sweden.json          # 8 research queue
-│   │   ├── denmark.json         # 9 research queue
+│   │   ├── denmark.json         # 8 research queue
 │   │   ├── finland.json         # 7 research queue
 │   │   ├── iceland.json         # 4 research queue
 │   │   ├── norway_sources.md    # Source citations
@@ -341,7 +386,7 @@ Public Circular Buildings/
 │   │   ├── denmark.json
 │   │   ├── finland.json
 │   │   └── iceland.json
-│   └── case-studies/            # Deep-dive case studies (7)
+│   └── case-studies/            # 7 deep-dive case studies
 │
 ├── scripts/
 │   ├── sync-data.js             # Data sync (prebuild) - all 5 countries
@@ -456,6 +501,48 @@ Public Circular Buildings/
 
 ## Changelog
 
+### 2025-12-10 - Research Deep-Dive Complete (Phase 9)
+**3 New Projects Verified, 1 Enhanced**
+- Processed 33 research files from "Videre Dykk" research session
+- Enhanced Oksenøya with detailed CO2 breakdown (School 51.9%, Kindergarten 60.8%)
+- Sweden: Added Selma Lagerlöfs Center (92% interior reuse, 70% cost savings)
+- Finland: Added Pikku-Finlandia (first verified project - world-leading DfD timber)
+- Iceland: Added Stöng Viking Ruins Shelter (first heritage sustainability project)
+- Denmark: Added FBAB Seest to research queue
+- Fixed all schema issues (building_type, year_completed, primary_strategies, circularity_qualification)
+- All 5 Nordic country pages now rendering successfully
+- **Total verified projects: 38** (was 35)
+
+### 2025-12-09 - Nordic Verification Complete (Phase 8)
+**10 Projects Verified Across 4 Countries**
+- Processed 40 research documents from `_research-archive/` folder
+- Triaged 17 unique projects into Tier A (11), Tier B (4), Tier C (3)
+- Extracted 10 projects to verified JSON (9 Tier A + 1 Tier B)
+- Created `docs/NORDIC_SOURCES_LIBRARY.md` with 50+ primary source documents
+- **All verifiable research notes extracted** - remaining queue blocked on missing metrics
+
+**Denmark (4 verified):**
+- DK_upcycle_house (Grade A, 85/100) - 86% CO2 reduction, pioneer 2013 demo
+- DK_circle_house (Grade A, 82/100) - Europe's first DfD social housing
+- DK_un17_village (Grade A, 80/100) - 535 units, DGNB Platinum
+- DK_resource_rows (Grade B, 88/100) - 500+ reused windows, industrial upcycling
+
+**Iceland (3 verified):**
+- IS_smidja_parliament (Grade A, 82/100) - 80% material reuse, Iceland Design Awards 2024
+- IS_umhverfisstofnun (Grade B, 78/100) - First Nordic Swan renovation in all Nordics
+- IS_hateigsvegur59 (Grade A, 88/100) - 53% CO2 reduction, 20% reuse, Mies 2026 nominee
+
+**Sweden (3 verified):**
+- SE_forskolan_hoppet (Grade A, 85/100) - First fossil-free preschool, 62% CO2 reduction
+- SE_sara_kulturhus (Grade A, 82/100) - Carbon-negative, 9,095t CO2 stored
+- SE_lumi_uppsala (Grade B, 80/100) - 80% concrete frame reuse, LEED Platinum
+
+**Research Notes Status:**
+- Sweden: 14 files → 3 verified ✅ (all verifiable data extracted)
+- Denmark: 9 files → 4 verified ✅ (all verifiable data extracted)
+- Finland: 10 files → 0 verified ⏳ (blocked - no CO2/circularity % in sources)
+- Iceland: 7 files → 3 verified ✅ (all verifiable data extracted)
+
 ### 2025-12-08 - Nordic Expansion
 **Multi-Country Support**
 - Added data templates for Sweden (8), Denmark (9), Finland (7), Iceland (4) - 28 research queue projects
@@ -562,4 +649,4 @@ See `TECHNICAL_DEBT_PLAN.md` for detailed implementation log
 
 ---
 
-*Last updated: 2025-12-08*
+*Last updated: 2025-12-10*

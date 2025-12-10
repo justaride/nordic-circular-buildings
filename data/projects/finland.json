@@ -1,13 +1,15 @@
 {
   "country": "FI",
   "country_name": "Finland",
-  "last_updated": "2025-12-08",
-  "total_projects": 0,
-  "data_status": "initial_research",
+  "last_updated": "2025-12-10",
+  "total_projects": 1,
+  "data_status": "verified",
   "summary": {
-    "geographic_distribution": {},
+    "geographic_distribution": {
+      "Helsinki": 1
+    },
     "by_status": {
-      "completed": 0,
+      "completed": 1,
       "under_construction": 0,
       "planned": 0,
       "operational": 0
@@ -16,23 +18,24 @@
       "material_reuse": 0,
       "adaptive_reuse": 0,
       "upcycling": 0,
-      "design_for_disassembly": 0
+      "design_for_disassembly": 1
     },
     "aggregate_metrics": {
-      "reuse_rate_range": "N/A",
-      "co2_reduction_range": "N/A"
+      "reuse_rate_range": "DfD focus",
+      "co2_reduction_range": "14-90% (material-level)"
     },
     "key_programs": [
       "CIRCuIT (EU)",
       "HSY Climate Info",
+      "Closing Loops / Kiertotalouden klusteriohjelma",
       "Finnish Building Regulations"
     ],
     "by_project_type": {
       "transformation": 0,
-      "new_build": 0
+      "new_build": 1
     },
     "by_sector": {
-      "public": 0,
+      "public": 1,
       "private": 0
     },
     "by_project_type_detailed": {
@@ -40,41 +43,64 @@
       "transformation": 0,
       "extension": 0,
       "hybrid": 0,
-      "new_build": 0
+      "new_build": 1
     }
   },
   "research_queue": [
     {
       "name": "Mustikkamaa Reused-Materials Depot",
+      "name_local": "Mustikkamaan kiertotalousvarasto",
       "city": "Helsinki",
       "year": 2025,
       "type": "infrastructure",
       "highlight": "Finland's first building from mostly reused materials, windows from Post Office",
+      "tier": "B",
+      "score": "9/13",
+      "verification_gap": "NO quantified CO2 or circularity percentage - project explicitly has no percentage target. CO2/LCA evaluation pending post-completion.",
+      "circular_features": [
+        "Glulam structure from 3 demolition sites (incl. Tampere)",
+        "Windows from Postitalo Helsinki (rehabilitated by Spolia)",
+        "Facade panels from Kirkkonummi and Tapiola",
+        "Timber cladding from Siren-designed building",
+        "Concrete roof tiles from demolition",
+        "Brick from Malmi Airport for wet room partitions",
+        "Formwork plywood reused as partition walls"
+      ],
       "source": "https://www.hel.fi/en/news/pioneer-in-construction-finlands-first-service-and-warehouse-building-from-reused-materials-to-be"
     },
     {
       "name": "Tikkurila School Storage",
+      "name_local": "Tikkurilan paviljonkikoulun varasto",
       "city": "Vantaa",
       "year": 2021,
       "type": "school",
-      "highlight": "2000 reclaimed bricks from National Theatre, 90% lower carbon",
-      "source": "https://ilmastoinfo.hsy.fi/verkkokurssit/rakentamisen-kiertotalous/"
+      "highlight": "2000 reclaimed bricks from Kansallisteatteri, >90% lower CO2 for brick material",
+      "tier": "B",
+      "score": "7/13",
+      "verified_metric": "Reused bricks have >90% lower carbon footprint than new bricks (material-level A1-A4)",
+      "circular_features": [
+        "~2000 solid red bricks from Kansallisteatteri small stage partition walls",
+        "Lab testing by Tampere University and Koestus T&T",
+        "CIRCuIT pilot project"
+      ],
+      "source": "https://ilmastoinfo.hsy.fi/verkkokurssit/rakentamisen-kiertotalous/lessons/rakentamisen-muuntamisen-ja-ehjana-purkamisen-esimerkkeja/topics/tikkurilan-paviljonkikoulun-varasto-vantaa/"
     },
     {
       "name": "Koivukylä Sortti Station Office",
+      "name_local": "Koivukylän Sortti-asema toimisto",
       "city": "Vantaa",
       "year": 2021,
       "type": "infrastructure",
-      "highlight": "Kiasma Museum zinc cladding reused, relocatable design",
-      "source": "https://uusiouutiset.fi/peltilevyja-kiasmasta-toimisto-siirtyy-nosturilla/"
-    },
-    {
-      "name": "Pikku-Finlandia",
-      "city": "Helsinki",
-      "year": 2022,
-      "type": "cultural",
-      "highlight": "2700 m² fully demountable, will be relocated as school/daycare",
-      "source": "https://puuinfo.fi/arkkitehtuuri/public-buildings/pikku-finlandia/?lang=en"
+      "highlight": "Kiasma Museum zinc cladding, 14% lower construction-stage CO2",
+      "tier": "B",
+      "score": "7/13",
+      "verified_metric": "Construction-stage carbon footprint 14% lower than conventional reference due to reused zinc sheets from Kiasma roof",
+      "circular_features": [
+        "Zinc cladding sheets from old Kiasma museum roof",
+        "Relocatable modular building design",
+        "Co-located with Kierrätyskeskus and Rinki"
+      ],
+      "source": "https://ilmastoinfo.hsy.fi/verkkokurssit/rakentamisen-kiertotalous/lessons/rakentamisen-muuntamisen-ja-ehjana-purkamisen-esimerkkeja/topics/koivukylan-sortti-pienasema-vantaa/"
     },
     {
       "name": "Uniarts Helsinki (Mylly)",
@@ -86,10 +112,23 @@
     },
     {
       "name": "Dance House Helsinki",
+      "name_local": "Tanssin talo",
       "city": "Helsinki",
       "year": 2022,
       "type": "cultural",
       "highlight": "Nokia Cable Factory adaptive reuse + new extension",
+      "tier": "C",
+      "score": "7/13",
+      "verification_gap": "Only ~25% adaptive reuse (1550-2000 m² of 7000 m² total), 75% is new concrete/steel construction. NO public LCA or CO2 data. Limited circularity - primarily preservation, not material reuse.",
+      "circular_features": [
+        "Pannuhalli existing structure preserved and reinforced",
+        "Glass Courtyard built on existing crane beam structure",
+        "Granite cobblestones recycled from site in landscape",
+        "Green roof for stormwater",
+        "Industrial heritage preservation"
+      ],
+      "architect": "JKMM Architects",
+      "client": "Helsinki City / Kiinteistövirasto",
       "source": "https://www.world-architects.com/en/architecture-news/headlines/a-visit-to-the-new-dance-house-in-helsinki-by-jkmm-architects"
     },
     {
@@ -101,5 +140,141 @@
       "source": "https://www.a-konsultit.fi/projektit/kulttuurikeskus-orvokki/"
     }
   ],
-  "projects": []
+  "projects": [
+    {
+      "id": "FI_pikku_finlandia",
+      "name": "Pikku-Finlandia",
+      "country": "FI",
+      "status": "completed",
+      "is_public_sector": true,
+      "location": {
+        "city": "Helsinki",
+        "address": "Finlandia-talon vieressä",
+        "coordinates": {
+          "lat": 60.1765,
+          "lng": 24.9290
+        }
+      },
+      "client": "Helsinki City",
+      "architect": ["Jaakko Torvinen", "Elli Wendelin", "Havu Järvelä"],
+      "contractor": null,
+      "building_type": "cultural",
+      "building": {
+        "type": "cultural",
+        "subtype": "event_venue",
+        "size_sqm": 2700
+      },
+      "project_type": {
+        "primary": "new_build",
+        "preservation_percent": 0,
+        "description": "Fully demountable timber pavilion designed for relocation - world-leading Design for Disassembly"
+      },
+      "year_completed": 2022,
+      "year": {
+        "completed": 2022,
+        "planned_relocation": 2026
+      },
+      "budget": {
+        "amount": 9600000,
+        "currency": "EUR"
+      },
+      "circularity_qualification": "World-leading Design for Disassembly: 2,700 m² fully demountable timber pavilion with 95 pine columns designed for repeated relocation - moving to Medialukio school in 2026.",
+      "primary_strategies": ["design_for_disassembly"],
+      "circular_features": [
+        {
+          "category": "design_for_disassembly",
+          "material_type": "timber",
+          "description": "95 whole pine stem columns with bolted/screwed connections throughout - fully demountable",
+          "quantity": {
+            "value": 95,
+            "unit": "columns"
+          }
+        },
+        {
+          "category": "design_for_disassembly",
+          "material_type": "timber",
+          "description": "CLT wall elements, LVL roof elements, glulam beams and trusses - all designed for repeated disassembly and relocation",
+          "quantity": {
+            "value": 2700,
+            "unit": "sqm",
+            "description": "Total building area designed for multiple relocations"
+          }
+        },
+        {
+          "category": "design_for_disassembly",
+          "material_type": "steel",
+          "description": "Steel pile foundation enabling relocation without permanent ground works",
+          "donor_source": {
+            "type": "new_dfd"
+          }
+        },
+        {
+          "category": "design_for_disassembly",
+          "material_type": "other",
+          "description": "Modules up to 18 tonnes designed for crane lifting during relocation to Medialukio (Feb-May 2026)"
+        }
+      ],
+      "metrics": {
+        "co2_reduction": {
+          "percent": null,
+          "note": "Full building LCA exists in Aalto master thesis but not publicly accessible. Event-level operational footprint: 55.5-67.5 kgCO2e per seminar (520 attendees)"
+        },
+        "circularity_rate": {
+          "value": null,
+          "note": "DfD approach - 100% of structural elements designed for reuse/relocation"
+        },
+        "energy_performance": {
+          "e_value": 84,
+          "unit": "kWh/m²/a",
+          "airtightness_q50": 2.0
+        }
+      },
+      "certifications": [],
+      "awards": [],
+      "sources": {
+        "primary": [
+          {
+            "title": "Puuinfo - Pikku-Finlandia",
+            "url": "https://puuinfo.fi/arkkitehtuuri/public-buildings/pikku-finlandia/?lang=en",
+            "type": "database"
+          },
+          {
+            "title": "Aalto Master Thesis - Lifecycle carbon footprint",
+            "url": "https://aaltodoc.aalto.fi/items/e5f44329-3a64-4c57-920b-5938e0c56ed1",
+            "type": "academic",
+            "note": "Full LCA data, requires direct access"
+          },
+          {
+            "title": "Metropolia Thesis - Event carbon footprint",
+            "url": "https://www.theseus.fi/bitstream/handle/10024/801791/Olli_Heikki.pdf",
+            "type": "academic"
+          }
+        ],
+        "secondary": [
+          {
+            "title": "YLE - Pikku-Finlandia relocation",
+            "url": "https://yle.fi/a/74-20198123",
+            "type": "media"
+          }
+        ]
+      },
+      "data_completeness": {
+        "score": 58,
+        "grade": "C",
+        "has": ["location", "architect", "client", "year", "size", "budget", "dfd_documentation", "energy_performance", "primary_sources"],
+        "missing": ["co2_reduction_percent", "circularity_rate", "public_lca_report"],
+        "upgrade_path": "Obtain Aalto thesis PDF for full LCA data"
+      },
+      "narrative": {
+        "driver": "Helsinki City needed temporary event venue while Finlandia Hall was under renovation. Pioneering approach: design building to be relocated rather than demolished after temporary use.",
+        "approach": "Full Design for Disassembly with bolted connections, modular timber elements (CLT, LVL, glulam), and steel pile foundation. Building will move to Medialukio school as additional space in 2026.",
+        "challenges": [
+          "Designing timber connections for repeated disassembly",
+          "Logistics of moving 18-tonne modules by crane",
+          "Meeting building codes for temporary/relocatable structures"
+        ],
+        "lessons_learned": "DfD timber buildings are technically and economically viable. Key: design from the start for disassembly, not as an afterthought. Steel pile foundations enable relocation without ground disturbance."
+      }
+    }
+  ]
 }

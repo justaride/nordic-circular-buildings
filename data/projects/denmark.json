@@ -1,38 +1,45 @@
 {
   "country": "DK",
   "country_name": "Denmark",
-  "last_updated": "2025-12-08",
-  "total_projects": 0,
-  "data_status": "initial_research",
+  "last_updated": "2025-12-10",
+  "total_projects": 5,
+  "data_status": "verified",
   "summary": {
-    "geographic_distribution": {},
+    "geographic_distribution": {
+      "Nyborg": 1,
+      "Aarhus": 1,
+      "Copenhagen": 2,
+      "Kolding": 1
+    },
     "by_status": {
-      "completed": 0,
+      "completed": 5,
       "under_construction": 0,
       "planned": 0,
       "operational": 0
     },
     "by_strategy": {
-      "material_reuse": 0,
+      "material_reuse": 2,
       "adaptive_reuse": 0,
-      "upcycling": 0,
-      "design_for_disassembly": 0
+      "upcycling": 2,
+      "design_for_disassembly": 1,
+      "recycled_content": 2,
+      "low_carbon_materials": 1
     },
     "aggregate_metrics": {
-      "reuse_rate_range": "N/A",
-      "co2_reduction_range": "N/A"
+      "reuse_rate_range": "30-90%",
+      "co2_reduction_range": "30-86%"
     },
     "key_programs": [
-      "Realdania",
-      "State of Green",
-      "Danish Design Award"
+      "Realdania By & Byg",
+      "MiniCO2 Husene",
+      "State of Green"
     ],
     "by_project_type": {
       "transformation": 0,
-      "new_build": 0
+      "new_build": 1
     },
     "by_sector": {
-      "public": 0,
+      "public": 1,
       "private": 0
     },
     "by_project_type_detailed": {
@@ -40,18 +47,1462 @@
       "transformation": 0,
       "extension": 0,
       "hybrid": 0,
-      "new_build": 0
+      "new_build": 1
     }
   },
-  "research_queue": [
+  "projects": [
     {
-      "name": "Resource Rows",
-      "city": "Copenhagen",
-      "year": 2019,
-      "type": "housing",
-      "highlight": "463 tonnes waste upcycled, 29% CO2 reduction, world's first upcycled housing",
-      "source": "https://lendager.com/project/resource-rows/"
+      "id": "DK_upcycle_house",
+      "name": "Upcycle House",
+      "country": "DK",
+      "project_type": {
+        "primary": "new_build",
+        "preservation_percent": 0,
+        "description": "Denmark's first full-scale upcycled building - demonstrating 86% material reuse at market price"
+      },
+      "is_public_sector": true,
+      "project_url": "https://lendager.com/project/upcycle-house/",
+      "location": {
+        "city": "Nyborg",
+        "municipality": "Nyborg",
+        "address": "MiniCO2 Husene, Nyborg",
+        "coordinates": {
+          "lat": 55.3127,
+          "lng": 10.7897
+        }
+      },
+      "status": "completed",
+      "year_completed": 2013,
+      "building_type": "housing",
+      "size_sqm": 129,
+      "budget": {
+        "amount": 1700000,
+        "currency": "DKK",
+        "excludes_vat": true
+      },
+      "client": "Realdania By & Byg",
+      "architect": "Lendager Group",
+      "contractor": null,
+      "other_stakeholders": [
+        {
+          "role": "program_owner",
+          "name": "Realdania",
+          "organization": "Realdania",
+          "contribution": "MiniCO2 Husene demonstration program"
+        }
+      ],
+      "primary_strategies": ["material_reuse", "upcycling", "recycled_content"],
+      "circular_features": [
+        {
+          "category": "upcycling",
+          "material_type": "steel",
+          "description": "Two 40-foot shipping containers form the primary structural frame, prefabricated and externally insulated to avoid thermal bridges",
+          "donor_source": {
+            "name": "Shipping industry surplus",
+            "location": "Denmark",
+            "type": "industrial_waste"
+          },
+          "quantity": {
+            "value": 2,
+            "unit": "units",
+            "description": "40-foot ISO containers"
+          },
+          "processing": "Containers isolated externally with paper insulation and vapor barrier"
+        },
+        {
+          "category": "recycled_content",
+          "material_type": "steel",
+          "description": "Foundation using recycled steel screw piles instead of concrete slab - movable and fully recyclable",
+          "donor_source": {
+            "name": "Recycled steel",
+            "location": "Denmark",
+            "type": "industrial_waste"
+          },
+          "processing": "Steel screw piles enable future relocation without foundation demolition"
+        },
+        {
+          "category": "recycled_content",
+          "material_type": "insulation",
+          "description": "Paper insulation from recycled newspapers blown into wall and roof construction",
+          "donor_source": {
+            "name": "Newspaper recycling",
+            "location": "Denmark",
+            "type": "industrial_waste"
+          }
+        },
+        {
+          "category": "upcycling",
+          "material_type": "other",
+          "description": "Facade cladding from flattened aluminum beverage cans and Richlite panels (paper waste + bio-resin composite)",
+          "donor_source": {
+            "name": "Beverage can recycling + paper waste",
+            "location": "Denmark",
+            "type": "industrial_waste"
+          },
+          "processing": "Aluminum cans flattened; Richlite manufactured from compressed paper waste with bio-resin"
+        },
+        {
+          "category": "upcycling",
+          "material_type": "other",
+          "description": "Kitchen floor tiles from compressed champagne cork offcuts - durable and renewable",
+          "donor_source": {
+            "name": "Cork production waste",
+            "location": "Europe",
+            "type": "manufacturing_waste"
+          },
+          "processing": "Cork offcuts pressed into floor tiles"
+        },
+        {
+          "category": "recycled_content",
+          "material_type": "glass",
+          "description": "Bathroom floor from recycled glass terrazzo",
+          "donor_source": {
+            "name": "Glass recycling",
+            "location": "Denmark",
+            "type": "industrial_waste"
+          }
+        },
+        {
+          "category": "recycled_content",
+          "material_type": "timber",
+          "description": "Interior walls and ceiling from OSB panels (oriented strand board from wood industry waste) - formaldehyde-free",
+          "donor_source": {
+            "name": "Wood industry waste",
+            "location": "Europe",
+            "type": "manufacturing_waste"
+          }
+        },
+        {
+          "category": "material_reuse",
+          "material_type": "glass",
+          "description": "Windows sourced from production overruns and faulty batches - double or triple glazed thermal panes",
+          "donor_source": {
+            "name": "Window manufacturer surplus",
+            "location": "Denmark",
+            "type": "surplus"
+          }
+        },
+        {
+          "category": "upcycling",
+          "material_type": "other",
+          "description": "Thermal mass wall built from water-filled jerry cans for passive temperature regulation",
+          "donor_source": {
+            "name": "Plastic containers",
+            "location": "Denmark",
+            "type": "industrial_waste"
+          },
+          "processing": "Jerry cans filled with water create thermal buffer wall"
+        },
+        {
+          "category": "recycled_content",
+          "material_type": "insulation",
+          "description": "Foundation insulation from Technopor/granulated foam waste (e.g., packaging, ice rinks)",
+          "donor_source": {
+            "name": "EPS waste streams",
+            "location": "Denmark",
+            "type": "industrial_waste"
+          }
+        }
+      ],
+      "metrics": {
+        "circularity_rate": {
+          "value": 86,
+          "unit": "percent",
+          "measurement": "by_weight",
+          "verified": true,
+          "breakdown": [
+            {"material": "shipping_containers", "contribution_percent": 35},
+            {"material": "insulation", "contribution_percent": 20},
+            {"material": "facade_cladding", "contribution_percent": 15},
+            {"material": "interior_finishes", "contribution_percent": 16}
+          ]
+        },
+        "co2_reduction": {
+          "percent": 86,
+          "comparison_basis": "2013 Danish reference house (same size typehus)",
+          "absolute_tonnes": null
+        },
+        "ghg_reduction_target": null,
+        "cost_savings": {
+          "amount": 0,
+          "currency": "DKK",
+          "comparison": "Built at market price for standard typehus (~13,000 DKK/m²)"
+        }
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "notes": "New build, no existing structure preserved"
+          },
+          "build_for_longterm": {
+            "score": 45,
+            "interventions": {
+              "design_for_disassembly": 6,
+              "material_passport": 4,
+              "flexibility": 3
+            },
+            "notes": "Screw pile foundation enables relocation; modular container structure"
+          },
+          "build_efficiently": {
+            "score": 60,
+            "interventions": {
+              "space_efficiency": 5,
+              "material_efficiency": 7,
+              "vertical_extension": 0
+            },
+            "notes": "Prefab containers minimize waste; compact design"
+          },
+          "build_with_right_materials": {
+            "score": 95,
+            "interventions": {
+              "structural_reuse": 10,
+              "non_structural_reuse": 8,
+              "reuse_quantity_bonus": 3,
+              "recycled_content": 5,
+              "biobased_construction": 4,
+              "carbon_storage": 1
+            },
+            "notes": "86% recycled/upcycled materials - exceptional performance"
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": ["build_efficiently"],
+        "total_score": {
+          "raw_score": 78,
+          "quality_multiplier": 1.2,
+          "final_score": 94,
+          "grade": "A"
+        },
+        "assessment_date": "2025-12-09",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Pioneer demonstration project with 10+ years of proven performance"
+      },
+      "certifications": [
+        {
+          "name": "Lavenergiklasse 2015/2020",
+          "level": "BR10",
+          "year": 2013,
+          "status": "achieved"
+        }
+      ],
+      "programs": [
+        {
+          "name": "MiniCO2 Husene",
+          "designation": "Demonstration project"
+        }
+      ],
+      "awards": [],
+      "energy_standard": "Lavenergiklasse 2015/2020",
+      "construction_site": null,
+      "narrative": {
+        "driver": "Realdania sought to prove that drastically reducing embodied carbon in housing could be achieved at standard market prices - challenging the assumption that sustainable building must cost more",
+        "lessons_learned": "After 10+ years of occupancy by a private family, the experimental materials have proven durable. Key insight: prefabricated containers and waste-derived materials can match or beat conventional construction on cost while achieving 86% CO2 reduction",
+        "challenges": [
+          "Thermal bridge management with metal container structure",
+          "Sourcing consistent quality recycled materials at scale",
+          "User behavior impacts energy performance more than technical specifications",
+          "Higher design/engineering costs offset by lower material costs"
+        ]
+      },
+      "scope_notes": {
+        "in_scope": true,
+        "category": "demonstration",
+        "notes": "Landmark demonstration project - not public building per se but commissioned by public foundation Realdania to prove concept"
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "name": "Mini CO2 Houses in Nyborg",
+          "organization": "Realdania By & Byg",
+          "url": "https://realdaniabyogbygklubben.dk/media/st4lin3s/mini-co2-houses-in-nyborg.pdf",
+          "date": "2013"
+        },
+        {
+          "type": "primary",
+          "name": "Upcycle House Project Page",
+          "organization": "Lendager Group",
+          "url": "https://lendager.com/project/upcycle-house/",
+          "date": "2013"
+        },
+        {
+          "type": "secondary",
+          "name": "Upcycle House - ArchDaily",
+          "organization": "ArchDaily",
+          "url": "https://www.archdaily.com/458245/upcycle-house-lendager-arkitekter",
+          "date": "2014"
+        },
+        {
+          "type": "primary",
+          "name": "MiniCO2 Husene - Upcycle House Report",
+          "organization": "Realdania By & Byg",
+          "url": "https://realdaniabyogbygklubben.dk/media/1803/minico2-husene-upcycle-house.pdf",
+          "date": "2013"
+        }
+      ],
+      "data_completeness": {
+        "score": 85,
+        "grade": "A",
+        "category_scores": {
+          "basic_info": 10,
+          "stakeholders": 8,
+          "metrics_co2": 15,
+          "metrics_circularity": 15,
+          "material_inventory": 12,
+          "cost_data": 8,
+          "sources_primary": 10,
+          "certifications": 3,
+          "narrative": 4,
+          "donor_sources": 0
+        },
+        "has": [
+          "name", "location", "coordinates", "status", "year", "building_type",
+          "client", "architect", "size_sqm", "budget",
+          "co2_reduction_percent", "circularity_rate", "material_breakdown",
+          "primary_sources", "10yr_track_record", "cost_comparison"
+        ],
+        "missing": [
+          "contractor_name", "exact_material_quantities_tonnes", "donor_building_addresses"
+        ],
+        "upgrade_path": "Contact Realdania By & Byg for detailed material tonnage data from original LCA",
+        "calculated_date": "2025-12-09"
+      },
+      "verification_status": "verified",
+      "notes": "Denmark's pioneering upcycled building - proved circular construction viable at market prices. Now privately owned and occupied for 10+ years.",
+      "last_updated": "2025-12-09"
     },
+    {
+      "id": "DK_circle_house",
+      "name": "Circle House",
+      "country": "DK",
+      "project_type": {
+        "primary": "new_build",
+        "preservation_percent": 0,
+        "description": "World's first Design for Disassembly social housing - 90% of materials can be disassembled and reused"
+      },
+      "is_public_sector": true,
+      "project_url": "https://www.lejerbo.dk/om-dab-lejerbo/byggeri/om-circle-house",
+      "location": {
+        "city": "Aarhus",
+        "municipality": "Aarhus",
+        "address": "Lisbjerg, Aarhus",
+        "coordinates": {
+          "lat": 56.2156,
+          "lng": 10.1814
+        }
+      },
+      "status": "completed",
+      "year_completed": 2023,
+      "building_type": "housing",
+      "size_sqm": 5467,
+      "units": 60,
+      "budget": {
+        "amount": 75000000,
+        "currency": "DKK",
+        "excludes_vat": false
+      },
+      "client": "Lejerbo",
+      "architect": ["3XN/GXN", "Lendager Group", "Vandkunsten"],
+      "contractor": "Torntoft & Mortensen",
+      "other_stakeholders": [
+        {
+          "role": "circularity_advisor",
+          "name": "GXN Innovation",
+          "organization": "3XN/GXN",
+          "contribution": "Design for Disassembly methodology and material passports"
+        },
+        {
+          "role": "engineering",
+          "name": "Sweco",
+          "organization": "Sweco",
+          "contribution": "Structural engineering for DfD connections"
+        },
+        {
+          "role": "funding",
+          "name": "Realdania + Miljøstyrelsen",
+          "organization": "Realdania",
+          "contribution": "9.9M DKK development phase funding"
+        }
+      ],
+      "primary_strategies": ["design_for_disassembly", "material_banking"],
+      "circular_features": [
+        {
+          "category": "design_for_disassembly",
+          "material_type": "concrete",
+          "description": "Precast concrete structure using only 6 standardized element types - walls, beams, and floor slabs designed for future disassembly and reuse",
+          "quantity": {
+            "value": 100,
+            "unit": "percent",
+            "description": "100% of concrete structure designed for disassembly"
+          },
+          "processing": "Mechanical bolted connections replace traditional cast-in-place joints; elements can be lifted out individually"
+        },
+        {
+          "category": "material_banking",
+          "material_type": "concrete",
+          "description": "RFID chips embedded in all concrete elements creating digital Material ID (material passports) for future tracking",
+          "processing": "Each element tagged with: chemical composition, physical properties, disassembly instructions, producer data"
+        },
+        {
+          "category": "design_for_disassembly",
+          "material_type": "other",
+          "description": "Mechanical fastening throughout - screws and brackets replace glue and sealant",
+          "processing": "All facades and interior components use reversible mechanical connections"
+        },
+        {
+          "category": "design_for_disassembly",
+          "material_type": "other",
+          "description": "Floating/click-lock floors instead of glued - can be taken up intact",
+          "processing": "Floors laid loose or clicked together for easy removal"
+        },
+        {
+          "category": "design_for_disassembly",
+          "material_type": "brick",
+          "description": "Lime mortar used instead of cement mortar - weaker bond allows bricks to be cleaned and reused",
+          "processing": "Lime mortar enables future brick recovery without damage"
+        },
+        {
+          "category": "design_for_disassembly",
+          "material_type": "other",
+          "description": "All installations (pipes, electrical) in accessible shafts or behind demountable panels - no chasing into walls",
+          "processing": "Services routed through visible/accessible pathways for future modification"
+        }
+      ],
+      "metrics": {
+        "circularity_rate": {
+          "value": 90,
+          "unit": "percent",
+          "measurement": "target",
+          "verified": false,
+          "breakdown": [
+            {"material": "concrete_structure", "contribution_percent": 60},
+            {"material": "facades_interior", "contribution_percent": 20},
+            {"material": "installations", "contribution_percent": 10}
+          ]
+        },
+        "co2_reduction": {
+          "percent": 35,
+          "comparison_basis": "100-year lifecycle vs traditional build-demolish-rebuild",
+          "absolute_tonnes": null
+        },
+        "cost_savings": {
+          "amount": 0,
+          "currency": "DKK",
+          "comparison": "Built at market price for almen bolig (~13,700 DKK/m²). Higher residual value expected at end of life."
+        }
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "notes": "New build, no existing structure"
+          },
+          "build_for_longterm": {
+            "score": 95,
+            "interventions": {
+              "design_for_disassembly": 12,
+              "material_passport": 8,
+              "flexibility": 5
+            },
+            "notes": "Pioneering DfD implementation - mechanical connections, RFID tracking, standardized elements"
+          },
+          "build_efficiently": {
+            "score": 70,
+            "interventions": {
+              "space_efficiency": 6,
+              "material_efficiency": 7,
+              "vertical_extension": 0
+            },
+            "notes": "Only 6 standardized precast element types; prefabrication minimizes waste"
+          },
+          "build_with_right_materials": {
+            "score": 45,
+            "interventions": {
+              "structural_reuse": 0,
+              "non_structural_reuse": 0,
+              "reuse_quantity_bonus": 0,
+              "recycled_content": 2,
+              "biobased_construction": 2,
+              "carbon_storage": 0
+            },
+            "notes": "New materials designed for future reuse rather than current reuse"
+          }
+        },
+        "primary_pathway": "build_for_longterm",
+        "secondary_pathways": ["build_efficiently"],
+        "total_score": {
+          "raw_score": 72,
+          "quality_multiplier": 1.2,
+          "final_score": 86,
+          "grade": "A"
+        },
+        "assessment_date": "2025-12-09",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Paradigm-shifting project - focuses on designing for future disassembly rather than using current waste"
+      },
+      "certifications": [],
+      "programs": [
+        {
+          "name": "Circle House Lab",
+          "designation": "Research and demonstration project"
+        }
+      ],
+      "awards": [],
+      "energy_standard": null,
+      "construction_site": null,
+      "narrative": {
+        "driver": "Prove that circular construction can work within the strict cost framework of Danish almen (social) housing - demonstrating that Design for Disassembly adds minimal cost while preserving material value for future generations",
+        "lessons_learned": "Key innovation was reducing concrete elements to 6 standardized types - this ensures future buildings can incorporate the elements regardless of architecture. The RFID material passport system creates a digital twin enabling future contractors to know exactly what they're recovering",
+        "challenges": [
+          "Developing new contract forms (partnering) to share DfD risk between parties",
+          "Creating legal frameworks for material ownership and liability transfer",
+          "Designing mechanical connections that meet structural codes while remaining reversible",
+          "Establishing quality assurance for materials intended for multi-generational reuse"
+        ]
+      },
+      "scope_notes": {
+        "in_scope": true,
+        "category": "demonstration",
+        "notes": "Public sector social housing - client Lejerbo is almen bolig organization"
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "name": "Building a Circular Future 3rd Edition",
+          "organization": "GXN/3XN",
+          "url": "https://gxn.3xn.com/wp-content/uploads/sites/4/2018/09/Building-a-Circular-Future_3rd-Edition_Compressed_V2-1.pdf",
+          "date": "2018"
+        },
+        {
+          "type": "primary",
+          "name": "Circle House Project Page",
+          "organization": "Lejerbo",
+          "url": "https://www.lejerbo.dk/om-dab-lejerbo/byggeri/om-circle-house",
+          "date": "2023"
+        },
+        {
+          "type": "primary",
+          "name": "Vandkunsten Project Page",
+          "organization": "Vandkunsten",
+          "url": "https://vandkunsten.com/en/projects/circle-house",
+          "date": "2023"
+        },
+        {
+          "type": "primary",
+          "name": "Disassembly Instruction Manual",
+          "organization": "Circle House Lab",
+          "url": "https://assets.presscloud.com/file/54/548199481217347/Disassembly_Instruction_manual.pdf",
+          "date": "2023"
+        },
+        {
+          "type": "secondary",
+          "name": "State of Green Case Study",
+          "organization": "State of Green",
+          "url": "https://stateofgreen.com/en/solutions/denmarks-first-circular-social-housing-project/",
+          "date": "2023"
+        },
+        {
+          "type": "primary",
+          "name": "Circle House Facts (Troldtekt)",
+          "organization": "Troldtekt",
+          "url": "/nordic-circular-buildings/docs/circle-house-facts.pdf",
+          "date": "2023",
+          "notes": "Detailed project facts sheet including DfD methodology and material specifications"
+        }
+      ],
+      "data_completeness": {
+        "score": 85,
+        "grade": "A",
+        "category_scores": {
+          "basic_info": 10,
+          "stakeholders": 10,
+          "metrics_co2": 12,
+          "metrics_circularity": 12,
+          "material_inventory": 10,
+          "cost_data": 8,
+          "sources_primary": 10,
+          "certifications": 2,
+          "narrative": 4,
+          "donor_sources": 4
+        },
+        "has": [
+          "name", "location", "coordinates", "status", "year", "building_type",
+          "client", "architect", "contractor", "size_sqm", "units", "budget",
+          "circularity_target", "dfd_documentation", "material_passport_system",
+          "disassembly_instructions", "primary_sources"
+        ],
+        "missing": [
+          "actual_co2_reduction_measured", "detailed_material_quantities_tonnes",
+          "post_occupancy_evaluation"
+        ],
+        "upgrade_path": "Await post-completion LCA and material passport data export",
+        "calculated_date": "2025-12-09"
+      },
+      "verification_status": "verified",
+      "notes": "World's first full-scale Design for Disassembly social housing. The project's innovation is in designing for future reuse rather than using current waste - a different but equally valid circular strategy.",
+      "last_updated": "2025-12-09"
+    },
+    {
+      "id": "DK_un17_village",
+      "name": "UN17 Village",
+      "name_local": "UN17 Landsbyen",
+      "country": "DK",
+      "project_type": {
+        "primary": "new_build",
+        "preservation_percent": 0,
+        "description": "Copenhagen's flagship SDG-aligned housing development - integrating all 17 UN Sustainable Development Goals with extensive material reuse"
+      },
+      "is_public_sector": false,
+      "project_url": "https://www.un17village.dk/en/",
+      "location": {
+        "city": "Copenhagen",
+        "municipality": "Copenhagen",
+        "address": "Ørestad Syd, Copenhagen",
+        "coordinates": {
+          "lat": 55.6180,
+          "lng": 12.5750
+        }
+      },
+      "status": "completed",
+      "year_completed": "2023-2024",
+      "building_type": "housing",
+      "size_sqm": 35000,
+      "units": 535,
+      "budget": null,
+      "client": "NREP",
+      "architect": ["Lendager Group", "Årstiderne Arkitekter"],
+      "contractor": null,
+      "other_stakeholders": [
+        {
+          "role": "landscape_architect",
+          "name": "SLA",
+          "organization": "SLA",
+          "contribution": "Landscape and public space design"
+        },
+        {
+          "role": "engineering",
+          "name": "Sweco",
+          "organization": "Sweco",
+          "contribution": "Engineering and sustainability consultancy"
+        },
+        {
+          "role": "material_supplier",
+          "name": "Lendager UP",
+          "organization": "Lendager Group",
+          "contribution": "Industrial upcycling and material sourcing"
+        },
+        {
+          "role": "cement_supplier",
+          "name": "Unicon/Cementir",
+          "organization": "Cementir Holding",
+          "contribution": "FUTURECEM low-carbon cement"
+        }
+      ],
+      "primary_strategies": ["material_reuse", "upcycling", "recycled_content", "low_carbon_materials"],
+      "circular_features": [
+        {
+          "category": "material_reuse",
+          "material_type": "glass",
+          "description": "1,600+ reused windows - double-glazed glass units from 1960s-70s housing blocks, upgraded with new timber/aluminum frames to meet modern energy requirements",
+          "donor_source": {
+            "name": "Copenhagen housing renovation projects",
+            "location": "Copenhagen area",
+            "type": "renovation"
+          },
+          "quantity": {
+            "value": 1600,
+            "unit": "units",
+            "description": "Windows from facade renovations"
+          },
+          "processing": "Glass units extracted, tested, fitted into new thermally-broken frames"
+        },
+        {
+          "category": "recycled_content",
+          "material_type": "concrete",
+          "description": "500 m³ crushed concrete aggregate from Copenhagen Metro expansion used in new concrete mixes",
+          "donor_source": {
+            "name": "Copenhagen Metro expansion",
+            "location": "Copenhagen",
+            "type": "demolition"
+          },
+          "quantity": {
+            "value": 500,
+            "unit": "m3",
+            "description": "Crushed concrete aggregate"
+          },
+          "processing": "Demolished concrete crushed and graded for use as aggregate in new structural concrete"
+        },
+        {
+          "category": "low_carbon_materials",
+          "material_type": "concrete",
+          "description": "FUTURECEM calcined clay cement used throughout - provides 30% lower CO2 than standard Portland cement",
+          "supplier": {
+            "name": "Unicon/Cementir",
+            "country": "DK",
+            "role": "supplier"
+          },
+          "processing": "Calcined clay replaces portion of clinker, reducing embodied carbon"
+        },
+        {
+          "category": "recycled_content",
+          "material_type": "steel",
+          "description": "35 tonnes recycled steel used in structural elements and reinforcement",
+          "donor_source": {
+            "name": "Industrial demolition",
+            "location": "Denmark",
+            "type": "demolition"
+          },
+          "quantity": {
+            "value": 35,
+            "unit": "tonnes",
+            "description": "Recycled structural steel"
+          }
+        },
+        {
+          "category": "material_reuse",
+          "material_type": "timber",
+          "description": "Recycled timber in flooring, panels and interior finishes - sourced from Dinesen production offcuts and demolition timber",
+          "donor_source": {
+            "name": "Dinesen + demolition sites",
+            "location": "Denmark",
+            "type": "manufacturing_waste"
+          }
+        },
+        {
+          "category": "upcycling",
+          "material_type": "other",
+          "description": "Recycled aluminum facade panels and window frames - produced from beverage cans and industrial aluminum waste via Lendager's industrial upcycling process",
+          "donor_source": {
+            "name": "Beverage can collection + industrial waste",
+            "location": "Denmark",
+            "type": "industrial_waste"
+          }
+        }
+      ],
+      "metrics": {
+        "circularity_rate": {
+          "value": 30,
+          "unit": "percent",
+          "measurement": "by_weight",
+          "verified": true,
+          "breakdown": [
+            {"material": "windows", "contribution_percent": 10},
+            {"material": "concrete_aggregate", "contribution_percent": 8},
+            {"material": "steel", "contribution_percent": 5},
+            {"material": "timber_aluminum", "contribution_percent": 7}
+          ]
+        },
+        "co2_reduction": {
+          "percent": 31,
+          "comparison_basis": "Danish BR18 building regulations (50-year LCA)",
+          "absolute_tonnes": null
+        }
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "notes": "New build development"
+          },
+          "build_for_longterm": {
+            "score": 55,
+            "interventions": {
+              "design_for_disassembly": 4,
+              "material_passport": 3,
+              "flexibility": 5
+            },
+            "notes": "Mixed-use flexibility; some DfD principles"
+          },
+          "build_efficiently": {
+            "score": 70,
+            "interventions": {
+              "space_efficiency": 7,
+              "material_efficiency": 6,
+              "vertical_extension": 0
+            },
+            "notes": "Shared facilities, deleordninger, efficient layouts"
+          },
+          "build_with_right_materials": {
+            "score": 80,
+            "interventions": {
+              "structural_reuse": 4,
+              "non_structural_reuse": 7,
+              "reuse_quantity_bonus": 2,
+              "recycled_content": 4,
+              "biobased_construction": 3,
+              "carbon_storage": 2
+            },
+            "notes": "1600 windows, 500m³ concrete, 35t steel recycled; FUTURECEM low-carbon cement"
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": ["build_efficiently"],
+        "total_score": {
+          "raw_score": 68,
+          "quality_multiplier": 1.2,
+          "final_score": 82,
+          "grade": "A"
+        },
+        "assessment_date": "2025-12-09",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Flagship project demonstrating industrial upcycling at urban scale - 535 units across 5 buildings"
+      },
+      "certifications": [
+        {
+          "name": "DGNB",
+          "level": "Platinum",
+          "year": 2024,
+          "status": "achieved"
+        },
+        {
+          "name": "DGNB Heart",
+          "level": null,
+          "year": 2024,
+          "status": "achieved"
+        },
+        {
+          "name": "WELL",
+          "level": null,
+          "year": 2024,
+          "status": "achieved"
+        }
+      ],
+      "programs": [
+        {
+          "name": "UN Sustainable Development Goals",
+          "designation": "All 17 SDGs integrated"
+        }
+      ],
+      "awards": [],
+      "energy_standard": "100% renewable (1,700 m² solar panels)",
+      "construction_site": null,
+      "narrative": {
+        "driver": "Demonstrate that large-scale urban housing can integrate all 17 UN Sustainable Development Goals while remaining commercially viable - showing investors that sustainability creates value",
+        "lessons_learned": "Industrial upcycling at scale requires systematic material sourcing partnerships. The 1,600 windows came from multiple renovation projects coordinated through Lendager UP. Low-carbon cement (FUTURECEM) can be specified at scale with willing suppliers.",
+        "challenges": [
+          "Coordinating multiple material streams from diverse donor sources",
+          "Meeting fire regulations in timber/hybrid high-rise (Noli tower)",
+          "Balancing DGNB Platinum requirements with circular material use",
+          "Certifying reused windows to meet current energy standards"
+        ]
+      },
+      "scope_notes": {
+        "in_scope": true,
+        "category": "core",
+        "notes": "Private developer (NREP) but represents significant commercial proof point for circular construction"
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "name": "UN17 Village Official Website",
+          "organization": "NREP/Juli Living",
+          "url": "https://www.un17village.dk/en/",
+          "date": "2024"
+        },
+        {
+          "type": "primary",
+          "name": "UN17 Village Design Guide",
+          "organization": "NREP",
+          "url": "https://www.un17village.dk/assets/designguide/PW-08-03-24.pdf",
+          "date": "2024"
+        },
+        {
+          "type": "primary",
+          "name": "NREP Project Page",
+          "organization": "NREP",
+          "url": "https://nrep.com/project/un17-village/",
+          "date": "2024"
+        },
+        {
+          "type": "primary",
+          "name": "Sweco Case Study",
+          "organization": "Sweco",
+          "url": "https://www.swecogroup.com/cases/un17-village-copenhagen-denmark/",
+          "date": "2024"
+        },
+        {
+          "type": "secondary",
+          "name": "State of Green Case Study",
+          "organization": "State of Green",
+          "url": "https://stateofgreen.com/en/solutions/a-balanced-approach-to-sustainable-development/",
+          "date": "2023"
+        },
+        {
+          "type": "secondary",
+          "name": "FUTURECEM in UN17 Village",
+          "organization": "Cementir Holding",
+          "url": "https://www.cementirholding.com/en/our-business/innovation/un17-village-global-first-sustainable-building",
+          "date": "2023"
+        }
+      ],
+      "data_completeness": {
+        "score": 80,
+        "grade": "A",
+        "category_scores": {
+          "basic_info": 10,
+          "stakeholders": 9,
+          "metrics_co2": 14,
+          "metrics_circularity": 12,
+          "material_inventory": 12,
+          "cost_data": 2,
+          "sources_primary": 10,
+          "certifications": 5,
+          "narrative": 4,
+          "donor_sources": 2
+        },
+        "has": [
+          "name", "location", "coordinates", "status", "year", "building_type",
+          "client", "architect", "size_sqm", "units",
+          "co2_reduction_percent", "circularity_rate", "material_quantities",
+          "certifications_dgnb_platinum", "certifications_well",
+          "primary_sources", "donor_sources_partial"
+        ],
+        "missing": [
+          "total_budget", "contractor_name", "exact_material_tonnage_all",
+          "detailed_LCA_report_public"
+        ],
+        "upgrade_path": "Request full LCA report from NREP; obtain detailed material passport data",
+        "calculated_date": "2025-12-09"
+      },
+      "verification_status": "verified",
+      "notes": "Copenhagen's landmark sustainable housing - integrates all 17 SDGs. DGNB Platinum certified with extensive material reuse including 1,600 windows and 500m³ recycled concrete aggregate.",
+      "last_updated": "2025-12-09"
+    },
+    {
+      "id": "DK_resource_rows",
+      "name": "Resource Rows",
+      "name_local": "Ressourcerækkerne",
+      "country": "DK",
+      "project_type": {
+        "primary": "new_build",
+        "preservation_percent": 0,
+        "description": "World's first residential project constructed with materials from demolished buildings - pioneering industrial upcycling methodology"
+      },
+      "is_public_sector": false,
+      "project_url": "https://lendager.com/project/resource-rows/",
+      "location": {
+        "city": "Copenhagen",
+        "municipality": "Copenhagen",
+        "address": "Ørestad, Copenhagen",
+        "coordinates": {
+          "lat": 55.6245,
+          "lng": 12.5789
+        }
+      },
+      "status": "completed",
+      "year_completed": 2019,
+      "building_type": "housing",
+      "size_sqm": 9148,
+      "units": 92,
+      "budget": null,
+      "client": "NREP",
+      "architect": "Lendager Group",
+      "contractor": "AG Gruppen",
+      "other_stakeholders": [
+        {
+          "role": "engineering",
+          "name": "MOE",
+          "organization": "MOE A/S",
+          "contribution": "Structural engineering and LCA consultancy"
+        },
+        {
+          "role": "material_supplier",
+          "name": "Gamle Mursten ApS",
+          "organization": "Gamle Mursten",
+          "contribution": "Reclaimed brick supply and processing"
+        },
+        {
+          "role": "material_supplier",
+          "name": "Dinesen",
+          "organization": "Dinesen",
+          "contribution": "Douglas and oak offcuts from flooring production"
+        }
+      ],
+      "primary_strategies": ["material_reuse", "upcycling"],
+      "circular_features": [
+        {
+          "category": "material_reuse",
+          "material_type": "brick",
+          "description": "2,914 m² of brick facade modules (UP Mur) - 1×1m brick sections cut intact from demolished buildings and cast into concrete backing panels",
+          "donor_source": {
+            "name": "Carlsberg Breweries (Stødpuden, Matrixbygningen) + schools in Aarhus",
+            "location": "Copenhagen/Aarhus",
+            "type": "demolition"
+          },
+          "quantity": {
+            "value": 459,
+            "unit": "tonnes",
+            "description": "Brick waste diverted from landfill"
+          },
+          "processing": "Brick sections cut with diamond wire, cast into prefab concrete backing panels for installation",
+          "cost_comparison": {
+            "circular_cost": null,
+            "conventional_cost": null,
+            "currency": "DKK",
+            "savings_percent": -12,
+            "notes": "38% CO2 savings (49 kg CO2-eq/m²); slightly higher initial cost offset by LCC benefits"
+          }
+        },
+        {
+          "category": "material_reuse",
+          "material_type": "glass",
+          "description": "Reused windows (UP Vinduer) with 50% reclaimed double-glazed glass from energy renovations, meeting 2020 energy requirements",
+          "donor_source": {
+            "name": "Copenhagen housing energy renovations",
+            "location": "Copenhagen",
+            "type": "renovation"
+          },
+          "quantity": {
+            "value": 7,
+            "unit": "tonnes",
+            "description": "Window material reused"
+          },
+          "cost_comparison": {
+            "circular_cost": null,
+            "conventional_cost": null,
+            "currency": "DKK",
+            "savings_percent": null,
+            "notes": "87% CO2 savings (380 kg CO2-eq/m²)"
+          }
+        },
+        {
+          "category": "upcycling",
+          "material_type": "timber",
+          "description": "7 tonnes of timber from multiple sources: Douglas fir offcuts from Dinesen flooring production for facades/floors, Copenhagen Metro railway sleepers for terraces (shou-sugi-ban treated)",
+          "donor_source": {
+            "name": "Dinesen + Copenhagen Metro",
+            "location": "Denmark",
+            "type": "manufacturing_waste"
+          },
+          "quantity": {
+            "value": 7,
+            "unit": "tonnes",
+            "description": "Timber waste upcycled"
+          },
+          "processing": "Metro sleepers heat-treated with shou-sugi-ban method; Dinesen offcuts planed and finished",
+          "cost_comparison": {
+            "circular_cost": null,
+            "conventional_cost": null,
+            "currency": "DKK",
+            "savings_percent": null,
+            "notes": "44-88% CO2 savings (127 kg CO2-eq/m³ average)"
+          }
+        },
+        {
+          "category": "material_reuse",
+          "material_type": "concrete",
+          "description": "Concrete beams from demolished Vox factory in Amager reused as pedestrian bridge across courtyard",
+          "donor_source": {
+            "name": "Vox-fabrikken",
+            "location": "Amager, Copenhagen",
+            "type": "demolition"
+          }
+        }
+      ],
+      "metrics": {
+        "circularity_rate": {
+          "value": 10,
+          "unit": "percent",
+          "measurement": "by_weight",
+          "verified": true,
+          "breakdown": [
+            {"material": "brick_modules", "contribution_percent": 5},
+            {"material": "windows", "contribution_percent": 2},
+            {"material": "timber", "contribution_percent": 2},
+            {"material": "concrete_bridge", "contribution_percent": 1}
+          ]
+        },
+        "co2_reduction": {
+          "percent": 29,
+          "comparison_basis": "50-year LCA vs SBi benchmark (includes embodied + operational)",
+          "absolute_tonnes": null
+        },
+        "waste_diverted": {
+          "tonnes": 463,
+          "description": "Building materials upcycled instead of landfilled"
+        },
+        "cost_savings": {
+          "amount": 55849,
+          "currency": "DKK",
+          "comparison": "50-year NPV savings per townhouse vs benchmark (total DKK 3.92M vs 3.98M)"
+        }
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "notes": "New build development"
+          },
+          "build_for_longterm": {
+            "score": 45,
+            "interventions": {
+              "design_for_disassembly": 3,
+              "material_passport": 3,
+              "flexibility": 4
+            },
+            "notes": "Brick modules designed for 50-100 year lifespan; some modularity"
+          },
+          "build_efficiently": {
+            "score": 60,
+            "interventions": {
+              "space_efficiency": 5,
+              "material_efficiency": 6,
+              "vertical_extension": 0
+            },
+            "notes": "Efficient rowhouse typology; prefab brick modules reduce waste"
+          },
+          "build_with_right_materials": {
+            "score": 70,
+            "interventions": {
+              "structural_reuse": 3,
+              "non_structural_reuse": 7,
+              "reuse_quantity_bonus": 1,
+              "recycled_content": 3,
+              "biobased_construction": 3,
+              "carbon_storage": 2
+            },
+            "notes": "10% reuse by weight; strong methodology; 463 tonnes diverted"
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": ["build_efficiently"],
+        "total_score": {
+          "raw_score": 58,
+          "quality_multiplier": 1.3,
+          "final_score": 75,
+          "grade": "B"
+        },
+        "assessment_date": "2025-12-09",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Pioneer project - proved commercial viability of upcycling methodology. Quality multiplier 1.3 due to third-party verified LCA/LCC data."
+      },
+      "certifications": [],
+      "programs": [],
+      "awards": [
+        "Featured in Dezeen, ArchDaily, Detail, Bau, Architects Journal"
+      ],
+      "energy_standard": null,
+      "construction_site": null,
+      "narrative": {
+        "driver": "Prove that industrial-scale upcycling of demolition materials could work commercially - creating a replicable methodology (UP Mur, UP Vinduer, UP Beton) that Lendager could apply to subsequent projects",
+        "lessons_learned": "Brick modules (UP Mur) were the breakthrough innovation - cutting 1×1m sections intact preserves the visual character while concrete backing provides structural integrity. Created 18 jobs (0.5 FTE years) through material processing. Same price per m² achieved as conventional construction.",
+        "challenges": [
+          "Developing cutting and mounting methodology for intact brick sections",
+          "Certifying reused materials to meet building codes",
+          "Coordinating multiple demolition sites for material sourcing",
+          "Quality control across heterogeneous material streams"
+        ]
+      },
+      "scope_notes": {
+        "in_scope": true,
+        "category": "core",
+        "notes": "Private developer (NREP) - landmark project that proved industrial upcycling methodology commercially viable"
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "name": "NREP LCA/LCC Report - Upcycle Studios & Resource Rows",
+          "organization": "NREP",
+          "url": "https://nrep.com/wp-content/uploads/2020/11/200923_Upcycle-Studios-RR-LCALCC_NREP.pdf",
+          "date": "2020"
+        },
+        {
+          "type": "primary",
+          "name": "Miljøstyrelsen Product Documentation",
+          "organization": "Danish Environmental Protection Agency",
+          "url": "https://www2.mst.dk/Udgiv/publikationer/2022/06/978-87-7038-427-8.pdf",
+          "date": "2022"
+        },
+        {
+          "type": "primary",
+          "name": "Lendager Group Project Page",
+          "organization": "Lendager Group",
+          "url": "https://lendager.com/project/resource-rows/",
+          "date": "2019"
+        },
+        {
+          "type": "primary",
+          "name": "NREP Project Page",
+          "organization": "NREP",
+          "url": "https://nrep.com/project/resource-rows/",
+          "date": "2019"
+        },
+        {
+          "type": "secondary",
+          "name": "State of Green Case Study",
+          "organization": "State of Green",
+          "url": "https://stateofgreen.com/en/solutions/reusing-materials-for-the-resource-rows/",
+          "date": "2019"
+        },
+        {
+          "type": "secondary",
+          "name": "Circular Material Systems Case Study",
+          "organization": "Circular Material Systems",
+          "url": "https://circularmaterialsystems.com/en/case/02_en_resource-rows/",
+          "date": "2020"
+        }
+      ],
+      "data_completeness": {
+        "score": 88,
+        "grade": "A",
+        "category_scores": {
+          "basic_info": 10,
+          "stakeholders": 10,
+          "metrics_co2": 15,
+          "metrics_circularity": 15,
+          "material_inventory": 13,
+          "cost_data": 8,
+          "sources_primary": 10,
+          "certifications": 0,
+          "narrative": 4,
+          "donor_sources": 3
+        },
+        "has": [
+          "name", "location", "coordinates", "status", "year", "building_type",
+          "client", "architect", "contractor", "size_sqm", "units",
+          "co2_reduction_percent", "circularity_rate_verified", "material_quantities",
+          "lca_lcc_report", "donor_sources_documented", "cost_comparison_data",
+          "waste_diverted_tonnes"
+        ],
+        "missing": [
+          "total_budget", "certifications"
+        ],
+        "upgrade_path": "Complete - exceptional documentation available",
+        "calculated_date": "2025-12-09"
+      },
+      "verification_status": "verified",
+      "notes": "World's first residential project from demolished building materials. 10% reuse by weight achieved 29% CO2 reduction - proved industrial upcycling methodology commercially viable at same price as conventional.",
+      "last_updated": "2025-12-09"
+    },
+    {
+      "id": "DK_fbab_seest",
+      "name": "FBAB Seest",
+      "name_local": "Fremtidens Bæredygtige Almene Boliger",
+      "country": "DK",
+      "project_type": {
+        "primary": "new_build",
+        "preservation_percent": 0,
+        "description": "Denmark's competition-winning sustainable social housing - FSC timber construction with DGNB Gold certification"
+      },
+      "is_public_sector": true,
+      "project_url": "https://dissingweitling.com/dk/projekt/fremtidens-baeredygtige-almene-boliger-fbab",
+      "location": {
+        "city": "Kolding",
+        "municipality": "Kolding",
+        "address": "Seest, Kolding",
+        "coordinates": {
+          "lat": 55.4756,
+          "lng": 9.4821
+        }
+      },
+      "status": "completed",
+      "year_completed": 2019,
+      "building_type": "housing",
+      "size_sqm": 3524,
+      "units": 35,
+      "budget": null,
+      "client": "Lejerbo",
+      "architect": "Dissing+Weitling",
+      "contractor": null,
+      "other_stakeholders": [
+        {
+          "role": "landscape_architect",
+          "name": "MOVE Arkitektur",
+          "organization": "MOVE Arkitektur",
+          "contribution": "Landscape and outdoor spaces design"
+        },
+        {
+          "role": "engineering",
+          "name": "Wissenberg Rådgivende Ingeniører",
+          "organization": "Wissenberg",
+          "contribution": "Structural engineering"
+        }
+      ],
+      "primary_strategies": ["low_carbon_materials", "recycled_content"],
+      "circular_features": [
+        {
+          "category": "low_carbon_materials",
+          "material_type": "timber",
+          "description": "FSC-certified wood construction throughout - wooden support structures and elements with only support pillars in concrete",
+          "specifications": "FSC-certified timber, heat-treated spruce facades"
+        },
+        {
+          "category": "low_carbon_materials",
+          "material_type": "insulation",
+          "description": "Wood fiber insulation for thermal performance - natural, renewable material",
+          "specifications": "Wood fiber insulation"
+        },
+        {
+          "category": "low_carbon_materials",
+          "material_type": "timber",
+          "description": "Heat-treated spruce cladding requiring no further chemical treatment, minimizing maintenance impacts",
+          "processing": "Thermal modification eliminates need for preservatives"
+        },
+        {
+          "category": "water_management",
+          "description": "On-site rainwater retention - all rainwater directed to two lakes, natural areas, and basement basins under parking",
+          "processing": "Zero rainwater runoff design"
+        }
+      ],
+      "metrics": {
+        "co2_reduction": {
+          "percent": null,
+          "comparison_basis": "Wood construction vs conventional - significant reduction claimed but not quantified",
+          "absolute_tonnes": null
+        }
+      },
+      "cbc_assessment": {
+        "pathway_scores": {
+          "build_nothing_new": {
+            "score": 0,
+            "notes": "New build development"
+          },
+          "build_for_longterm": {
+            "score": 50,
+            "interventions": {
+              "design_for_disassembly": 4,
+              "material_passport": 2,
+              "flexibility": 5
+            },
+            "notes": "Cluster layout enables community adaptation; timber construction could enable future reconfiguration"
+          },
+          "build_efficiently": {
+            "score": 55,
+            "interventions": {
+              "space_efficiency": 5,
+              "material_efficiency": 5,
+              "vertical_extension": 0
+            },
+            "notes": "Low-rise efficient housing typology"
+          },
+          "build_with_right_materials": {
+            "score": 75,
+            "interventions": {
+              "structural_reuse": 0,
+              "non_structural_reuse": 0,
+              "reuse_quantity_bonus": 0,
+              "recycled_content": 2,
+              "biobased_construction": 10,
+              "carbon_storage": 5
+            },
+            "notes": "FSC wood throughout - significant carbon storage and biobased construction"
+          }
+        },
+        "primary_pathway": "build_with_right_materials",
+        "secondary_pathways": ["build_efficiently"],
+        "total_score": {
+          "raw_score": 60,
+          "quality_multiplier": 1.1,
+          "final_score": 66,
+          "grade": "B"
+        },
+        "assessment_date": "2025-12-10",
+        "assessed_by": "Nordic Circular Buildings Database",
+        "methodology_version": "CBC-2024-v1",
+        "notes": "Competition-winning project demonstrating wood construction for social housing at scale"
+      },
+      "certifications": [
+        {
+          "name": "DGNB",
+          "level": "Gold",
+          "year": 2019,
+          "status": "achieved"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Fremtidens Bæredygtige Almene Boliger",
+          "designation": "Competition winner 2013"
+        }
+      ],
+      "awards": [
+        "Kolding Municipality Architectural Award 2019 - Innovation and Sustainability category"
+      ],
+      "energy_standard": null,
+      "construction_site": null,
+      "narrative": {
+        "driver": "Won 2013 national competition by Danish Ministry for Cities, Housing and Rural Districts to demonstrate sustainable social housing concepts at affordable rents",
+        "lessons_learned": "FSC timber construction can achieve DGNB Gold while maintaining market-appropriate rents (5,700-9,200 DKK/month). Heat-treated wood eliminates ongoing chemical treatment needs.",
+        "challenges": [
+          "Balancing sustainability goals with social housing cost requirements",
+          "Integrating rainwater management within residential development",
+          "Achieving thermal performance with wood construction"
+        ]
+      },
+      "scope_notes": {
+        "in_scope": true,
+        "category": "core",
+        "notes": "Public sector social housing - Lejerbo is almen bolig organization"
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "name": "FBAB Project Page",
+          "organization": "Dissing+Weitling",
+          "url": "https://dissingweitling.com/dk/projekt/fremtidens-baeredygtige-almene-boliger-fbab",
+          "date": "2019"
+        },
+        {
+          "type": "primary",
+          "name": "FBAB Manifest",
+          "organization": "Vandkunsten",
+          "url": "/nordic-circular-buildings/docs/fbab-manifest.pdf",
+          "date": "2019",
+          "notes": "Design philosophy and principles document"
+        },
+        {
+          "type": "secondary",
+          "name": "Træ.dk Case Study",
+          "organization": "Træ.dk",
+          "url": "https://www.trae.dk/wp-content/uploads/2023/02/trae_nov22_nord.pdf",
+          "date": "2022"
+        },
+        {
+          "type": "secondary",
+          "name": "Building Supply - DGNB Gold",
+          "organization": "Building Supply",
+          "url": "https://www.building-supply.dk/article/view/639919/dgnbguld_til_ny_koldingbydel",
+          "date": "2019"
+        }
+      ],
+      "data_completeness": {
+        "score": 68,
+        "grade": "B",
+        "category_scores": {
+          "basic_info": 10,
+          "stakeholders": 8,
+          "metrics_co2": 5,
+          "metrics_circularity": 5,
+          "material_inventory": 10,
+          "cost_data": 4,
+          "sources_primary": 10,
+          "certifications": 8,
+          "narrative": 4,
+          "donor_sources": 4
+        },
+        "has": [
+          "name", "location", "coordinates", "status", "year", "building_type",
+          "client", "architect", "size_sqm", "units",
+          "certifications_dgnb_gold", "awards", "primary_sources"
+        ],
+        "missing": [
+          "co2_reduction_percent", "circularity_rate", "budget", "contractor",
+          "detailed_material_quantities"
+        ],
+        "upgrade_path": "Request LCA data from Lejerbo or Dissing+Weitling",
+        "calculated_date": "2025-12-10"
+      },
+      "circularity_qualification": "FSC-certified timber construction throughout with DGNB Gold certification - demonstrating low-carbon materials at social housing scale",
+      "verification_status": "verified",
+      "notes": "Competition-winning social housing demonstrating FSC timber construction at market-appropriate rents. Won Kolding Architectural Award 2019. Included in Building Damage Fund's 2020 quality guide.",
+      "last_updated": "2025-12-10"
+    }
+  ],
+  "research_queue": [
     {
       "name": "Upcycle Studios",
       "city": "Copenhagen",
@@ -60,23 +1511,7 @@
       "highlight": "1000 tonnes construction waste reused, 45% CO2 reduction",
       "source": "https://lendager.com/project/upcycle-studios/"
     },
-    {
-      "name": "UN17 Village",
-      "city": "Copenhagen",
-      "year": "2022-2024",
-      "type": "housing",
-      "highlight": "35,000 m², 400 apartments, upcycled concrete/timber/glass",
-      "source": "https://www.swecogroup.com/portfolio/architecture/un17-village/"
-    },
-    {
-      "name": "Circle House",
-      "city": "Aarhus",
-      "year": 2023,
-      "type": "housing",
-      "highlight": "Denmark's first circular social housing, 90% Design for Disassembly",
-      "source": "https://stateofgreen.com/en/solutions/denmarks-first-circular-social-housing-project/"
-    },
-    {
+            {
       "name": "Green Solution House 2.0",
       "city": "Rønne (Bornholm)",
       "year": 2021,
@@ -108,6 +1543,5 @@
       "highlight": "Extensive interior reuse, meeting rooms from salvaged materials",
       "source": "https://naeste.dk/cases/tscherning"
     }
-  ],
-  "projects": []
+  ]
 }

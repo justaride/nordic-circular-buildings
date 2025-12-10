@@ -1,7 +1,7 @@
 {
   "country": "NO",
   "country_name": "Norway",
-  "last_updated": "2025-12-07",
+  "last_updated": "2025-12-10",
   "total_projects": 25,
   "summary": {
     "geographic_distribution": {
@@ -1792,6 +1792,14 @@
         }
       ],
       "metrics": {
+        "co2_reduction": {
+          "percent": 51.9,
+          "comparison_basis": "NS 3720 reference building",
+          "breakdown": {
+            "school": { "percent": 51.9, "absolute_value": "28 kg CO2-ekv/m²/år" },
+            "kindergarten": { "percent": 60.8, "absolute_value": "23.1 kg CO2-ekv/m²/år" }
+          }
+        },
         "ghg_total": {
           "value": 28,
           "unit": "kg CO2-ekv/m²/år",
@@ -1873,8 +1881,14 @@
         {
           "name": "Klimagassrapport Oksenøya skole (Asplan Viak/OneClickLCA)",
           "type": "technical_report",
-          "url": "local:klimagassrapport_oksenoya_skole.pdf",
-          "notes": "Detailed GHG calculations per NS 3720, includes breakdown by materials, energy, transport"
+          "url": "/nordic-circular-buildings/docs/oksenoya-klimagass-skole.pdf",
+          "notes": "Detailed GHG calculations per NS 3720, 51.9% CO2 reduction vs reference"
+        },
+        {
+          "name": "Klimagassrapport Oksenøya barnehage (Asplan Viak/OneClickLCA)",
+          "type": "technical_report",
+          "url": "/nordic-circular-buildings/docs/oksenoya-klimagass-barnehage.pdf",
+          "notes": "Detailed GHG calculations per NS 3720, 60.8% CO2 reduction vs reference"
         }
       ],
       "verification_status": "verified",

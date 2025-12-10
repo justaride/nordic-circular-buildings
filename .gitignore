@@ -30,3 +30,6 @@ npm-debug.log*
 
 # Claude Code
 .claude/
+
+# Research Archive (large PDFs and source materials)
+_research-archive/

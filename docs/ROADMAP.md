@@ -1,25 +1,63 @@
 # Nordic Circular Buildings - Project Roadmap
 
-## Current Phase: Additional Case Studies & Visualization
+## Current Phase: Continuing Research & Documentation
 
-### Phase 3 Complete: Value Chain Documentation ✅
+### Phase 9 Complete: Research Deep-Dive ✅ (2025-12-10)
 
-Created comprehensive enablers database with 9 categories and 30+ enablers.
-See `/enablers` page on the live site.
+**All 5 Nordic countries now have verified projects.** Added 3 new verified projects:
+- 🇸🇪 Sweden: +1 (Selma Lagerlöfs Center - 92% interior reuse)
+- 🇫🇮 Finland: +1 (Pikku-Finlandia - first verified, world-leading DfD)
+- 🇮🇸 Iceland: +1 (Stöng Viking Ruins - first heritage sustainability project)
+- 🇳🇴 Norway: Enhanced Oksenøya with CO2 breakdown (School 51.9%, Kindergarten 60.8%)
+
+**Total: 38 verified projects across 5 countries (NO: 25, DK: 4, SE: 4, IS: 4, FI: 1)**
+
+### Phase 8 Complete: Nordic Verification ✅ (2025-12-09)
+
+Verified 10 projects across 4 countries:
+- 🇩🇰 Denmark: 4 verified (Upcycle House, Circle House, UN17 Village, Resource Rows)
+- 🇮🇸 Iceland: 3 verified (Smiðja Parliament, Umhverfisstofnun, Háteigsvegur 59)
+- 🇸🇪 Sweden: 3 verified (Förskolan Hoppet, Sara Kulturhus, Lumi)
+
+### Research Notes Extraction: Complete ✅
+
+| Country | Research Files | Verified | Queue | Status |
+|---------|---------------|----------|-------|--------|
+| Sweden | 20 | 4 | 5 | ✅ +Selma Lagerlöfs Center |
+| Denmark | 13 | 4 | 6 | ✅ +FBAB Seest (queue) |
+| Finland | 17 | 1 | 6 | ✅ +Pikku-Finlandia verified |
+| Iceland | 8 | 4 | - | ✅ +Stöng Viking Ruins |
 
 ---
 
-## Active Phase: Expand Case Studies
+## Active Phase: Monitoring for New Data
 
-**Objective**: Add 4 more deep-dive case studies to reach 40% coverage (10/25 projects).
+**Objective**: Wait for quantified metrics to be published for remaining queue projects.
 
 ### Priority Targets
+
+**Norway (External Documents Needed):**
 | Project | Circularity | Status | Document Needed |
 |---------|-------------|--------|-----------------|
 | Grensen 9B | 97.3% | ⏳ Need report | Erfaringsrapport from DOGA |
 | Treklang/Oksenøya | TBD | ⏳ Need report | FutureBuilt rapport from Bærum |
 | Nøstebukten | 70% | ⏳ Need report | Ombruksrapport from developer |
 | Høyblokken | TBD | ⏳ Need report | Statsbygg dokumentasjon |
+
+**Finland (Queue - 6 remaining):**
+| Project | Score | Gap | Action |
+|---------|-------|-----|--------|
+| Mustikkamaa Depot | 9/13 | No CO2/circularity % | Wait for post-completion LCA |
+| Tikkurilan varasto | 7/13 | >90% CO2 for brick material | Tier B candidate |
+| Koivukylä Sortti | 7/13 | 14% CO2 reduction | Tier B candidate |
+| Dance House | 7/13 | Only 25% reuse | Deprioritize (limited circularity) |
+
+**Other Nordic (Queue Projects):**
+| Country | Queue | Status |
+|---------|-------|--------|
+| Sweden | 5 | Kiruna reuse, Borås, Cirkeln Uppsala need metrics |
+| Denmark | 6 | FBAB Seest ready for promotion, Venligbolig+ needs data |
+| Iceland | 0 | ✅ All verified |
 
 ### Completed Enablers (Phase 3)
 - [x] Material Banking Infrastructure (Sirkulær Ressurssentral, Resirqel, Ombygg)
@@ -254,8 +292,8 @@ Implemented at `/enablers` with 9 categories and 30+ enablers documented.
 |------|----------|---------------|
 | **Flagship** | Full material inventory, costs, verified citations, erfaringsrapport | 2 (KA13, KA23) |
 | **Strong** | Detailed report with SI-index, material inventory, process docs | 1 (Nedre Sem) |
-| **Tier 2** | Official reports, CO2 data, process documentation | 3 (Løren, Føniks, Skur 38) |
-| **Moderate** | Basic info, partial verification | Remaining |
+| **Tier 2** | Official reports, CO2 data, process documentation | 4 (Løren, Føniks, Skur 38, Oksenøya) |
+| **Moderate** | Basic info, partial verification | Remaining 18 |
 
 ### Case Study Files
 ```
@@ -265,7 +303,8 @@ data/case-studies/
 ├── nedre_sem_strong.json   # Strong - 3 reports (sirkularitet + klimagass + betong)
 ├── loren_tier2.json        # Tier 2 - Klimasats slutt + delrapport
 ├── foniks_tier2.json       # Tier 2 - 17-page presentation
-└── skur38_tier2.json       # Tier 2 - FutureBuilt ombruk report (34 pages)
+├── skur38_tier2.json       # Tier 2 - FutureBuilt ombruk report (34 pages)
+└── oksenoya_senter.json    # Tier 2 - Klimagass reports (skole, barnehage, BBS)
 ```
 
 ### Hosted PDFs (site/public/docs/)
@@ -376,11 +415,15 @@ site/public/
 | **Phase 2g** | Swedish research reference | ✅ Complete |
 | **Phase 3a** | Enablers data structure | ✅ Complete |
 | **Phase 3b** | Enablers site page | ✅ Complete |
-| **Phase 4a** | Additional case studies (4 projects) | **Next** |
-| **Phase 4b** | Material flow visualization (Sankey) | Planned |
-| **Phase 5a** | Case study detail pages | Planned |
-| **Phase 5b** | Materials analysis page | Planned |
-| **Phase 6** | Nordic expansion (Sweden, Denmark) | Future |
+| **Phase 7** | Nordic expansion templates | ✅ Complete |
+| **Phase 8a** | Nordic Tier A extraction (9 projects) | ✅ Complete |
+| **Phase 8b** | Sources library (50+ documents) | ✅ Complete |
+| **Phase 9a** | Research deep-dive (33 files processed) | ✅ Complete |
+| **Phase 9b** | 3 new verified projects (SE, FI, IS) | ✅ Complete |
+| **Phase 9c** | All 5 Nordic countries with verified projects | ✅ Complete |
+| **Phase 10** | Material flow visualization (Sankey) | Planned |
+| **Phase 11** | Additional Norway case studies | Planned |
+| **Phase 12** | Remaining queue promotions | Planned |
 
 ---
 
@@ -414,4 +457,4 @@ site/public/
 ---
 
 *Document created: 2024-12-03*
-*Last updated: 2025-12-04*
+*Last updated: 2025-12-10*
