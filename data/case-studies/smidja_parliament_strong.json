@@ -1,0 +1,193 @@
+{
+  "case_study_id": "SMIDJA_PARLIAMENT_STRONG",
+  "case_study_tier": "STRONG",
+  "project_id": "IS_smidja_parliament",
+  "name": "Smiðja Parliamentary Offices",
+  "name_local": "Smiðja - Skrifstofubygging Alþingis",
+  "subtitle": "80% material circularity with 100% local Icelandic stone - parliament as circular economy symbol",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "Nordic Best Practice Catalogue + Studio Granda + Alþingi",
+  "executive_summary": {
+    "headline": "80% material circularity through local stone reuse - Iceland's parliament demonstrates national commitment to sustainability",
+    "key_achievements": [
+      "80% material circularity rate",
+      "100% local Icelandic stone (basalt from hospital demolition + reopened quarry)",
+      "100% stone offcuts upcycled to terrazzo-effect meeting room floors",
+      "Classic Icelandic chairs restored from Parliament's historical collection",
+      "Reclaimed doors from recycling centers",
+      "Aluminum art installation from production byproduct",
+      "LCA completed via One Click LCA",
+      "Iceland Design Awards 2024 - Place of the Year",
+      "Mies van der Rohe Award 2026 nomination"
+    ],
+    "why_strong": "Smiðja demonstrates that high circularity (80%) can be achieved through creative local sourcing. The project's symbolic significance - parliament building using materials from hospital demolition - represents national circular economy ambitions.",
+    "why_tier": "Completeness score 82/100 (Grade A). Good LCA documentation but specific CO2 reduction not published. Strong circular features documentation."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Tjarnargata 9",
+      "city": "Reykjavík",
+      "country": "Iceland",
+      "coordinates": {
+        "lat": 64.1466,
+        "lng": -21.9426
+      }
+    },
+    "timeline": {
+      "construction_start": 2021,
+      "completion": 2023,
+      "inauguration": 2024
+    },
+    "size": {
+      "total_sqm": 5962,
+      "floors": 6,
+      "floors_description": "5 above ground + 1 basement (1,307 m²)",
+      "building_type": "government"
+    }
+  },
+  "stakeholders": {
+    "client": {
+      "name": "Alþingi",
+      "name_en": "Icelandic Parliament",
+      "type": "government"
+    },
+    "building_authority": {
+      "name": "Framkvæmdasýslan - Ríkiseignir",
+      "role": "State property management"
+    },
+    "architect": {
+      "name": "Studio Granda"
+    },
+    "consultant": {
+      "name": "EFLA",
+      "role": "LCA consultant"
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "circularity_rate_percent": 80,
+      "local_stone_percent": 100
+    },
+    "materials": [
+      {
+        "id": "M1_BASALT",
+        "material_type": "stone",
+        "description": "Basalt stone from Landspítali hospital demolition - facade and interior",
+        "donor_source": "Landspítali University Hospital demolition"
+      },
+      {
+        "id": "M2_QUARRY_STONE",
+        "material_type": "stone",
+        "description": "Red stone from reopened abandoned local quarry",
+        "donor_source": "Abandoned Icelandic quarry"
+      },
+      {
+        "id": "M3_TERRAZZO",
+        "material_type": "stone",
+        "description": "100% of stone offcuts from facade cutting reused as terrazzo-effect flooring in 6 meeting rooms",
+        "reuse_rate": "100%"
+      },
+      {
+        "id": "M4_FURNITURE",
+        "material_type": "furniture",
+        "description": "Classic Icelandic chairs from Parliament's existing collection restored",
+        "donor_source": "Alþingi historical collection"
+      },
+      {
+        "id": "M5_DOORS",
+        "material_type": "timber",
+        "description": "Reclaimed doors from Icelandic recycling centers"
+      },
+      {
+        "id": "M6_ART",
+        "material_type": "aluminum",
+        "description": "Rooftop art installation using aluminum production byproduct ('red thread')",
+        "artist": "Þór Vigfússon"
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "circularity": {
+      "rate_percent": 80,
+      "methodology": "Material reuse assessment from Nordic LCA study"
+    },
+    "co2_reduction": {
+      "quantified": false,
+      "note": "LCA completed but specific reduction not published. Expected better than benchmark (9.1 kg CO2e/m²/year)"
+    },
+    "lca": {
+      "completed": true,
+      "tool": "One Click LCA v 0.33.0",
+      "reference_period_years": 50
+    }
+  },
+  "certifications_and_awards": {
+    "certifications": [
+      {"name": "BREEAM", "status": "In progress/certified", "year": 2023}
+    ],
+    "awards": [
+      {
+        "name": "Iceland Design Awards - Place of the Year",
+        "year": 2024,
+        "organization": "Iceland Design Centre"
+      },
+      {
+        "name": "Mies van der Rohe Award",
+        "year": 2026,
+        "status": "nominated"
+      }
+    ]
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "Local stone reuse achieves 80% circularity even with challenging geology",
+      "Icelandic basalt is brittle (only 30% yield when cutting)",
+      "Design integration of waste streams (offcuts→floors) maximizes value",
+      "Pushback from engineers preferring imported stone was overcome"
+    ],
+    "challenges": [
+      "LCA tools lack factors for Icelandic stone - default to Norwegian references",
+      "Brittle basalt requires careful cutting methodology"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "Nordic Best Practice Catalogue - Smiðja LCA Entry",
+      "url": "https://pub.norden.org/us2024-461/20-nybygging-alingis-smija.html"
+    },
+    {
+      "type": "primary",
+      "name": "Alþingi Official Project Page",
+      "url": "https://www.althingi.is/um-althingi/fraedslu--og-kynningarefni/nybygging-a-althingisreit/"
+    },
+    {
+      "type": "secondary",
+      "name": "Studio Granda Project Page",
+      "url": "https://www.studiogranda.is/Gen/Alþingi/Text.html"
+    },
+    {
+      "type": "secondary",
+      "name": "Iceland Design Awards 2024",
+      "url": "https://www.honnunarmidstod.is/en/ha-frettir/smiðja-office-building-for-alþingi-is-the-winner-o"
+    }
+  ],
+  "data_completeness": {
+    "score": 82,
+    "grade": "A",
+    "has": [
+      "Location", "Architect", "Client", "Year",
+      "Circularity rate (80%)", "LCA", "Sources", "Awards", "Material inventory"
+    ],
+    "missing": ["Contractor", "Exact CO2 reduction", "Cost comparison"],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "Parliament building to symbolize Iceland's commitment to sustainability using local resources.",
+    "approach": "All stone from Iceland - reclaimed hospital demolition or reopened quarry. 100% offcuts upcycled to meeting room floors. Design philosophy based on geological strata.",
+    "significance": "National symbol of circular economy commitment. 80% circularity demonstrates local material viability.",
+    "legacy": "Stone from Smiðja reused in Háteigsvegur 59 - emerging circular ecosystem."
+  }
+}

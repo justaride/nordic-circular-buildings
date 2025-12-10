@@ -1,0 +1,234 @@
+{
+  "case_study_id": "SARA_KULTURHUS_TIER2",
+  "case_study_tier": "TIER2",
+  "project_id": "SE_sara_kulturhus",
+  "name": "Sara Kulturhus",
+  "name_en": "Sara Cultural Center",
+  "subtitle": "World's tallest timber building storing 9,095 tonnes CO2 - carbon-negative construction",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "White Arkitekter Carbon Budget + ARQforsk Klimatberäkning",
+  "executive_summary": {
+    "headline": "Carbon-negative landmark: 12,200 m³ timber storing 9,095t CO2 over 50-year lifespan",
+    "key_achievements": [
+      "Carbon-negative: timber stores more CO2 than construction emits",
+      "9,095 tonnes CO2 sequestered in timber structure",
+      "12,200 m³ FSC-certified timber (CLT and glulam)",
+      "100% local timber sourced within 60km from Västerbotten",
+      "One of world's tallest timber buildings (75m, 20 floors)",
+      "Interior reuse: municipal furniture, church benches, historic chandeliers",
+      "100+ year design lifespan",
+      "Swedish Wood Award 2024"
+    ],
+    "why_tier2": "Primary circularity is through carbon storage in bio-based materials rather than material reuse. Interior reuse (furniture, fixtures) is supplementary. Strong documentation of carbon metrics."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Kanalgatan 70",
+      "city": "Skellefteå",
+      "region": "Västerbotten",
+      "country": "Sweden",
+      "coordinates": {
+        "lat": 64.7507,
+        "lng": 20.9528
+      }
+    },
+    "timeline": {
+      "completion": 2021
+    },
+    "size": {
+      "total_sqm": 32000,
+      "floors": 20,
+      "height_m": 75,
+      "building_type": "cultural_center_with_hotel"
+    }
+  },
+  "stakeholders": {
+    "client_organization": {
+      "byggherre": {
+        "name": "Skellefteå kommun",
+        "type": "municipality"
+      }
+    },
+    "design_team": {
+      "arkitekt": {
+        "name": "White Arkitekter",
+        "role": "Architect"
+      }
+    },
+    "suppliers": {
+      "timber_production": {
+        "name": "Martinsons",
+        "contribution": "CLT and glulam production"
+      },
+      "timber_source": {
+        "name": "Holmen",
+        "contribution": "FSC-certified timber supply"
+      }
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "primary_strategy": "carbon_storage",
+      "secondary_strategy": "interior_reuse",
+      "timber_volume_m3": 12200
+    },
+    "materials": [
+      {
+        "id": "M1_MASS_TIMBER",
+        "category": "structural",
+        "material_type": "timber",
+        "description": "12,200 m³ FSC-certified CLT and glulam storing 9,095t CO2",
+        "quantity": {
+          "volume_m3": 12200,
+          "co2_stored_tonnes": 9095
+        },
+        "supplier": {
+          "production": "Martinsons",
+          "forest_source": "Holmen FSC-certified",
+          "transport_distance_km": 60,
+          "note": "100% local supply from Västerbotten"
+        },
+        "environmental_impact": {
+          "co2_storage_tonnes": 9095,
+          "mechanism": "Carbon sequestration in timber over building lifespan"
+        }
+      },
+      {
+        "id": "M2_REUSED_FURNITURE",
+        "category": "interior",
+        "material_type": "furniture",
+        "description": "Reused municipal furniture reupholstered with recycled textiles",
+        "donor_source": {
+          "name": "Skellefteå municipal operations",
+          "type": "internal_transfer"
+        }
+      },
+      {
+        "id": "M3_CHURCH_BENCHES",
+        "category": "interior",
+        "material_type": "furniture",
+        "description": "Historic church benches repurposed for seating",
+        "donor_source": {
+          "name": "Local churches",
+          "type": "donation"
+        }
+      },
+      {
+        "id": "M4_CHANDELIERS",
+        "category": "interior",
+        "material_type": "lighting",
+        "description": "Chandeliers from old Stadshotellet restored and reused",
+        "donor_source": {
+          "name": "Former Skellefteå Stadshotell",
+          "type": "heritage_salvage"
+        }
+      },
+      {
+        "id": "M5_MODULAR_ROOMS",
+        "category": "structural",
+        "material_type": "prefab",
+        "description": "Prefabricated timber hotel room modules designed for flexibility",
+        "design_feature": "Potential future reconfiguration capability"
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "carbon_storage": {
+      "value": 9095,
+      "unit": "tonnes CO2",
+      "methodology": "Carbon sequestered in timber structure"
+    },
+    "carbon_emissions": {
+      "value": 5631,
+      "unit": "tonnes CO2",
+      "period": "50 years",
+      "note": "Carbon-negative over 50-year lifespan (storage > emissions)"
+    },
+    "net_carbon": {
+      "value": -3464,
+      "unit": "tonnes CO2",
+      "note": "Net carbon negative"
+    },
+    "lca_details": {
+      "completed": true,
+      "tool": "White Arkitekter Carbon Budget methodology",
+      "phases_included": ["A1", "A2", "A3", "A4", "A5", "B6"]
+    }
+  },
+  "certifications_and_awards": {
+    "certifications": [
+      {
+        "name": "FSC",
+        "level": "Certified",
+        "scope": "All mass timber"
+      }
+    ],
+    "awards": [
+      {
+        "name": "Swedish Wood Award",
+        "year": 2024,
+        "organization": "Swedish Wood"
+      }
+    ]
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "Timber construction can achieve carbon-negative buildings",
+      "Local supply chains reduce transport emissions",
+      "Interior reuse complements low-carbon structure",
+      "100+ year design lifespan is itself a circular strategy"
+    ],
+    "challenges": [
+      "Not documented as Design for Disassembly",
+      "Primary circularity is carbon storage, not material reuse"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "White Arkitekter - Sara Carbon Budget",
+      "url": "https://whitearkitekter.com/wp-content/uploads/2021/09/20210903_Sara_Carbon-budget-2.pdf"
+    },
+    {
+      "type": "primary",
+      "name": "Sara Kulturhus FAQ Technical",
+      "url": "https://www.sarakulturhus.se/media/2202/faq_technical_en.pdf"
+    },
+    {
+      "type": "primary",
+      "name": "ARQforsk - Sara Klimatberäkning Delrapport 2",
+      "url": "https://arqforsk.se/wp-content/uploads/2025/06/Sara_Kulturhus_Klimatberakning_Delrapport_2.pdf"
+    },
+    {
+      "type": "secondary",
+      "name": "Sara Kulturhus - Återbruk",
+      "url": "https://www.sarakulturhus.se/sv/ett-klimatklokt-hus/aaterbruk/"
+    },
+    {
+      "type": "secondary",
+      "name": "Swedish Wood Award 2024",
+      "url": "https://www.swedishwood.com/inspiration/swedish-wood-award/swedish-wood-award-2024/sara-kulturhus/"
+    }
+  ],
+  "data_completeness": {
+    "score": 82,
+    "grade": "A",
+    "has": [
+      "Location", "Year", "Size (32,000 m²)", "Client", "Architect",
+      "CO2 storage data", "LCA methodology", "FSC certification",
+      "Material inventory", "Primary sources"
+    ],
+    "missing": [
+      "Full contractor details", "DfD documentation", "Cost comparison"
+    ],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "Skellefteå municipality's ambition to showcase local forestry and sustainable building.",
+    "approach": "Carbon-negative through massive timber (12,200 m³) storing 9,095t CO2. Interior reuse includes municipal furniture, church benches, and historic chandeliers. Local 60km supply chain.",
+    "significance": "Demonstrates timber construction can achieve net-negative carbon at landmark scale.",
+    "legacy": "Model for large-scale timber construction globally."
+  }
+}

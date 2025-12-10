@@ -1,0 +1,626 @@
+{
+  "case_study_id": "FORSKOLAN_HOPPET_FLAGSHIP",
+  "case_study_tier": "FLAGSHIP",
+  "project_id": "SE_forskolan_hoppet",
+  "name": "Förskolan Hoppet",
+  "name_en": "Hoppet Preschool",
+  "subtitle": "Sweden's first fossil-free preschool with 62% CO2 reduction",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "Klimatarbete Hoppet - Delrapportering Byggskede (Gothenburg City)",
+  "executive_summary": {
+    "headline": "62% CO2 reduction through bio-based materials and circular construction - Sweden's pioneering fossil-free preschool",
+    "key_achievements": [
+      "62% CO2 reduction compared to reference preschool (206 vs 543 kg CO2e/m² BTA)",
+      "First Swedish preschool combining multiple circular strategies (timber, reuse, recycled foundation)",
+      "NollCO2 pilot project - Sweden Green Building Council",
+      "Koljern recycled glass foundation (60-70% recycled content, 50% CO2 reduction vs concrete)",
+      "CLT structure from local Södra production within 60km",
+      "Reused acoustic panels via Ecophon SoundCircularity service",
+      "Reused bricks, glass blocks, concrete pavers from local demolition",
+      "Hemp-lime and wood fiber insulation replacing fossil-based alternatives"
+    ],
+    "why_flagship": "Förskolan Hoppet is Sweden's first fossil-free preschool and demonstrates that combining bio-based materials with targeted reuse can achieve dramatic CO2 reductions. The project served as NollCO2 pilot and established methodologies for fossil-free public construction.",
+    "why_tier": "Completeness score 85/100 (Grade A). Comprehensive LCA documentation from Gothenburg City with verified CO2 metrics across all A1-A5 phases."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Backa Kyrkogata 11",
+      "district": "Hisings Backa",
+      "area": "Backa",
+      "city": "Gothenburg",
+      "region": "Västra Götaland",
+      "country": "Sweden",
+      "coordinates": {
+        "lat": 57.7648,
+        "lng": 12.0033
+      }
+    },
+    "timeline": {
+      "design_start": "2018",
+      "construction_start": 2019,
+      "completion": 2021,
+      "duration_months": 24,
+      "operational_since": 2021
+    },
+    "size": {
+      "total_sqm": 1850,
+      "total_bta": 1850,
+      "capacity": "120 children",
+      "building_type": "preschool",
+      "floors": 1
+    },
+    "budget": {
+      "note": "Cost data not publicly available",
+      "cost_assessment": "Bio-based materials required new supply chain development but achieved competitive costs at scale"
+    }
+  },
+  "stakeholders": {
+    "client_organization": {
+      "byggherre": {
+        "name": "Lokalförvaltningen Göteborgs Stad",
+        "name_en": "Gothenburg City Property Management",
+        "type": "municipality",
+        "role": "Property developer and building owner"
+      },
+      "arkitekt": {
+        "name": "White Arkitekter / Link Arkitektur",
+        "role": "Architects",
+        "contribution": "Designed fossil-free building concept with bio-based materials"
+      }
+    },
+    "contractors": {
+      "huvudentreprenor": {
+        "name": "Derome",
+        "role": "Main contractor",
+        "contribution": "Timber construction expertise, CLT installation"
+      }
+    },
+    "consultants": {
+      "structural_engineer": {
+        "name": "WSP",
+        "role": "Structural engineering",
+        "contribution": "CLT and Koljern foundation design"
+      }
+    },
+    "suppliers": {
+      "timber": {
+        "name": "Södra",
+        "role": "CLT supplier",
+        "contribution": "Cross-laminated timber from Värö production facility within 60km"
+      },
+      "foundation": {
+        "name": "Koljern",
+        "role": "Foundation system",
+        "contribution": "Recycled glass cellular foam foundation (GEOFOAM)"
+      },
+      "acoustics": {
+        "name": "Ecophon",
+        "role": "Acoustic panels",
+        "contribution": "Reused acoustic absorbers via SoundCircularity service"
+      }
+    },
+    "programs": [
+      {
+        "name": "NollCO2",
+        "organization": "Sweden Green Building Council",
+        "designation": "Pilot project",
+        "year": 2021,
+        "role": "First preschool pilot for zero-emission construction methodology"
+      },
+      {
+        "name": "Miljöbyggnad",
+        "level": "Gold/Silver",
+        "note": "Standard requirement for Gothenburg City buildings"
+      }
+    ]
+  },
+  "material_inventory": {
+    "overview": {
+      "primary_strategy": "fossil_free_biobased",
+      "secondary_strategy": "material_reuse",
+      "measurement_basis": "lca_a1_a5",
+      "material_categories": 8,
+      "note": "Main building prioritized fossil-free new bio-based materials. Auxiliary buildings (Building C, D) served as test lab for direct material reuse."
+    },
+    "materials": [
+      {
+        "id": "M1_CLT_STRUCTURE",
+        "category": "structural",
+        "material_type": "timber",
+        "local_name": "KL-trä (korslimmat trä)",
+        "english_name": "Cross-laminated timber (CLT)",
+        "description": "Primary structural system - CLT from local Södra production in Värö",
+        "quantity": {
+          "scope": "Main building structure",
+          "note": "Full CLT construction"
+        },
+        "supplier": {
+          "name": "Södra",
+          "location": "Värö, Sweden",
+          "transport_distance_km": 60,
+          "note": "Local supply chain minimizes transport emissions"
+        },
+        "environmental_impact": {
+          "contribution": "Major contributor to 62% CO2 reduction",
+          "carbon_storage": "Timber stores CO2 during building lifespan",
+          "comparison": "Replaces concrete/steel structure"
+        },
+        "certification": {
+          "standard": "FSC certified timber",
+          "note": "Södra sustainability certification"
+        },
+        "citations": [
+          {
+            "source": "Södra Project Page",
+            "url": "https://www.sodra.com/en/global/products/building-systems/our-projects/hoppet-preschool/",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "id": "M2_KOLJERN_FOUNDATION",
+        "category": "structural",
+        "material_type": "glass",
+        "local_name": "Koljern cellglasfundament",
+        "english_name": "Recycled glass cellular foam foundation",
+        "description": "GEOFOAM foundation system using 60-70% recycled glass foam",
+        "quantity": {
+          "recycled_content_percent": "60-70%",
+          "scope": "Main building foundation"
+        },
+        "supplier": {
+          "name": "Koljern",
+          "note": "Swedish company specializing in recycled glass construction materials"
+        },
+        "environmental_impact": {
+          "co2_reduction_percent": 50,
+          "comparison_basis": "vs conventional concrete foundation",
+          "note": "Cellular glass foam has significantly lower embodied carbon than cast concrete"
+        },
+        "processing": {
+          "material_source": "Recycled glass from various waste streams",
+          "manufacturing": "Foamed and shaped into foundation blocks"
+        },
+        "citations": [
+          {
+            "source": "Klimatarbete Hoppet - Delrapportering Byggskede",
+            "url": "https://goteborg.se/wps/wcm/connect/2709251d-233c-4362-8439-1ea67a66ac7b/Klimatarbete+Hoppet-Delrapportering+Byggskede.pdf",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "id": "M3_INSULATION",
+        "category": "envelope",
+        "material_type": "insulation",
+        "local_name": "Hampakalk och träfiberisolering",
+        "english_name": "Hemp-lime and wood fiber insulation",
+        "description": "Bio-based insulation replacing mineral wool and EPS",
+        "quantity": {
+          "scope": "Building envelope"
+        },
+        "environmental_impact": {
+          "note": "Replaces fossil-based insulation materials (mineral wool, EPS/XPS)",
+          "carbon_benefit": "Hemp absorbs CO2 during growth; wood fiber is carbon-neutral"
+        }
+      },
+      {
+        "id": "M4_REUSED_BRICK",
+        "category": "facade",
+        "material_type": "brick",
+        "local_name": "Återbrukat tegel",
+        "english_name": "Reused brick",
+        "description": "Salvaged brick used in auxiliary building C walls",
+        "donor_source": {
+          "name": "Local demolition projects in Gothenburg",
+          "type": "demolition"
+        },
+        "quantity": {
+          "scope": "Auxiliary building C"
+        },
+        "processing": {
+          "steps": ["Sourced from local demolition", "Cleaned", "Laid in building C"]
+        },
+        "environmental_impact": {
+          "note": "Direct reuse avoids production emissions of new brick"
+        }
+      },
+      {
+        "id": "M5_REUSED_GLASS_BLOCKS",
+        "category": "facade",
+        "material_type": "glass_blocks",
+        "local_name": "Återbrukade glasblock",
+        "english_name": "Reused glass blocks",
+        "description": "Salvaged glass blocks for light openings in auxiliary building C",
+        "donor_source": {
+          "name": "Local demolition projects",
+          "type": "demolition"
+        },
+        "quantity": {
+          "scope": "Auxiliary building C - light openings"
+        }
+      },
+      {
+        "id": "M6_REUSED_PILE_CAPS",
+        "category": "structural",
+        "material_type": "concrete",
+        "local_name": "Återbrukade pålkap",
+        "english_name": "Reused pile caps",
+        "description": "Concrete pile caps from other construction sites reused as foundations for auxiliary buildings",
+        "donor_source": {
+          "name": "Regional construction sites",
+          "type": "surplus"
+        },
+        "quantity": {
+          "scope": "Auxiliary buildings foundations"
+        },
+        "environmental_impact": {
+          "note": "Avoids new concrete production for auxiliary building foundations"
+        }
+      },
+      {
+        "id": "M7_REUSED_CLAY",
+        "category": "interior",
+        "material_type": "clay",
+        "local_name": "Obränd lera",
+        "english_name": "Unfired clay",
+        "description": "Unfired clay used in wall construction for auxiliary building D",
+        "donor_source": {
+          "name": "Göteborgsoperan (Gothenburg Opera House)",
+          "type": "surplus",
+          "note": "Former stage scenography material"
+        },
+        "quantity": {
+          "scope": "Auxiliary building D walls"
+        },
+        "processing": {
+          "steps": ["Recovered from Opera House stage set", "Applied as wall construction"]
+        },
+        "environmental_impact": {
+          "note": "Creative reuse of performance material for permanent construction"
+        }
+      },
+      {
+        "id": "M8_REUSED_ACOUSTICS",
+        "category": "interior",
+        "material_type": "acoustic_panels",
+        "local_name": "Återbrukade akustikabsorbenter",
+        "english_name": "Reused acoustic absorbers",
+        "description": "Reused acoustic panels via Ecophon SoundCircularity service",
+        "donor_source": {
+          "name": "Ecophon SoundCircularity program",
+          "type": "take-back service"
+        },
+        "supplier": {
+          "name": "Ecophon",
+          "program": "SoundCircularity",
+          "note": "Manufacturer take-back and reconditioning service"
+        },
+        "environmental_impact": {
+          "note": "Extends lifecycle of acoustic products"
+        },
+        "citations": [
+          {
+            "source": "Ecophon News",
+            "url": "https://www.ecophon.com/sv/about-ecophon/newsroom/forsta-fossilfria-forskolan-byggd-med-aterbrukade-akustiksystem/",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "id": "M9_REUSED_PAVERS",
+        "category": "exterior",
+        "material_type": "paving",
+        "local_name": "Återbrukade betongplattor",
+        "english_name": "Reused concrete pavers",
+        "description": "Reused concrete pavers in outdoor environment",
+        "donor_source": {
+          "type": "demolition",
+          "note": "Local sources"
+        },
+        "quantity": {
+          "scope": "Outdoor play areas and pathways"
+        }
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "overall": {
+      "ghg_reduction_percent": 62,
+      "comparison_basis": "Reference preschool Grönskan with conventional construction",
+      "scope": "LCA phases A1-A5 (Production, Transport, Construction)",
+      "main_driver": "Bio-based materials (CLT) and recycled glass foundation"
+    },
+    "co2_intensity": {
+      "project": {
+        "value": 206,
+        "unit": "kg CO2e/m² BTA",
+        "phases": "A1-A5"
+      },
+      "reference": {
+        "value": 543,
+        "unit": "kg CO2e/m² BTA",
+        "name": "Grönskan preschool",
+        "phases": "A1-A5"
+      },
+      "absolute_reduction": {
+        "value": 337,
+        "unit": "kg CO2e/m² BTA"
+      }
+    },
+    "total_emissions": {
+      "value": 381323,
+      "unit": "kg CO2e",
+      "phases": "A1-A5",
+      "scope": "Total building"
+    },
+    "lca_details": {
+      "completed": true,
+      "standard": "EN 15978",
+      "phases_included": ["A1", "A2", "A3", "A4", "A5"],
+      "tool": "Not specified",
+      "assessor": "Gothenburg City / Lokalförvaltningen"
+    },
+    "by_strategy": [
+      {
+        "strategy": "CLT timber structure",
+        "contribution": "Major - replaces concrete/steel",
+        "mechanism": "Carbon storage + lower embodied carbon"
+      },
+      {
+        "strategy": "Koljern recycled glass foundation",
+        "contribution": "50% reduction vs concrete foundation",
+        "mechanism": "Recycled content + lower production energy"
+      },
+      {
+        "strategy": "Bio-based insulation",
+        "contribution": "Moderate",
+        "mechanism": "Replaces fossil-based insulation"
+      },
+      {
+        "strategy": "Material reuse in auxiliary buildings",
+        "contribution": "Supplementary - auxiliary buildings only",
+        "mechanism": "Avoided production emissions"
+      }
+    ]
+  },
+  "certifications_and_awards": {
+    "certifications": [
+      {
+        "name": "NollCO2",
+        "level": "Pilot project",
+        "year": 2021,
+        "organization": "Sweden Green Building Council",
+        "significance": "First preschool in NollCO2 program - established methodology for zero-emission public buildings"
+      },
+      {
+        "name": "Miljöbyggnad",
+        "level": "Gold/Silver",
+        "year": 2021,
+        "organization": "Sweden Green Building Council",
+        "note": "Standard certification level for Gothenburg City buildings"
+      }
+    ],
+    "awards": [],
+    "recognition": [
+      {
+        "description": "Frequently cited as Sweden's first fossil-free preschool",
+        "year": 2021
+      }
+    ]
+  },
+  "logistics_and_process": {
+    "material_sourcing": {
+      "approach": "Prioritized local bio-based materials for main building; targeted reuse for auxiliary structures",
+      "timber_sourcing": "Södra CLT from Värö facility within 60km",
+      "reuse_sourcing": "Local demolition projects in Gothenburg region",
+      "acoustic_sourcing": "Ecophon SoundCircularity take-back program"
+    },
+    "design_approach": {
+      "main_building": "90-95% new bio-based materials - prioritized fossil-free over reuse",
+      "auxiliary_buildings": "Test lab for direct material reuse (brick, glass blocks, clay, pile caps)",
+      "rationale": "Fossil-free was primary goal; auxiliary buildings could accept higher risk of reuse testing"
+    },
+    "challenges": {
+      "supply_chain": "Bio-based materials required developing new supplier relationships",
+      "expertise": "Required contractors with timber construction experience",
+      "codes": "Some materials required additional documentation for building approval"
+    }
+  },
+  "economics": {
+    "cost_data_available": false,
+    "note": "Detailed cost comparison not publicly available",
+    "qualitative_assessment": {
+      "bio_based_premium": "Bio-based materials initially more expensive but costs reducing with scale",
+      "reuse_costs": "Auxiliary building reuse achieved cost savings vs new materials",
+      "long_term_value": "Lower operational energy costs; positive marketing value for municipality"
+    },
+    "funding": {
+      "note": "Municipality-funded as standard preschool development"
+    }
+  },
+  "lessons_learned": {
+    "design_approach": {
+      "key_insight": "Fossil-free and material reuse are complementary but distinct strategies",
+      "main_building": "Achieving 62% CO2 reduction required prioritizing bio-based materials over reuse",
+      "auxiliary_buildings": "Provided safe testing ground for reuse without risking main building timeline"
+    },
+    "material_strategies": {
+      "timber": "Local CLT supply chain critical for reducing transport emissions",
+      "foundation": "Recycled glass foundations are viable concrete alternative",
+      "reuse": "Small-scale reuse (brick, glass blocks, pavers) adds value with minimal risk"
+    },
+    "success_factors": [
+      "Early commitment to fossil-free goal from municipality",
+      "Experienced timber contractor (Derome)",
+      "Local CLT supplier (Södra) within 60km",
+      "Willingness to test reuse in auxiliary buildings",
+      "NollCO2 pilot status provided methodology and visibility"
+    ],
+    "challenges_encountered": [
+      "Bio-based insulation materials less established in Swedish market",
+      "Reuse requires flexibility in design to accommodate available materials",
+      "LCA documentation more complex for mixed new/reused materials"
+    ],
+    "recommendations": [
+      "Separate fossil-free goals from material reuse goals - both valuable but different approaches",
+      "Use auxiliary structures to test reuse without timeline risk",
+      "Develop local bio-based supply chains for cost competitiveness",
+      "Manufacturer take-back programs (like Ecophon) reduce reuse complexity"
+    ]
+  },
+  "documentation": {
+    "primary_report": {
+      "title": "Klimatarbete Hoppet - Delrapportering Byggskede",
+      "author": "Lokalförvaltningen Göteborgs Stad",
+      "url": "https://goteborg.se/wps/wcm/connect/2709251d-233c-4362-8439-1ea67a66ac7b/Klimatarbete+Hoppet-Delrapportering+Byggskede.pdf",
+      "type": "LCA report",
+      "pages": "Not specified",
+      "contents": ["LCA methodology", "CO2 calculations", "Material breakdown", "Comparison to reference"]
+    },
+    "additional_reports": [
+      {
+        "title": "Klimat- och kostnadsberäkning återbrukade möbler",
+        "description": "Cost and climate analysis of reused furniture",
+        "organization": "Gothenburg City",
+        "url": "https://goteborg.se"
+      }
+    ],
+    "verified_citations": {
+      "verification_date": "2025-12-10",
+      "verification_method": "URL verification and source cross-reference",
+      "citations": [
+        {
+          "claim": "62% CO2 reduction vs reference",
+          "source": "Klimatarbete Hoppet report",
+          "verified": true
+        },
+        {
+          "claim": "206 kg CO2e/m² BTA",
+          "source": "Klimatarbete Hoppet report",
+          "verified": true
+        },
+        {
+          "claim": "Koljern foundation 50% CO2 reduction",
+          "source": "Project documentation",
+          "verified": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "Klimatarbete Hoppet - Delrapportering Byggskede",
+      "organization": "Lokalförvaltningen Göteborgs Stad",
+      "url": "https://goteborg.se/wps/wcm/connect/2709251d-233c-4362-8439-1ea67a66ac7b/Klimatarbete+Hoppet-Delrapportering+Byggskede.pdf",
+      "language": "Swedish"
+    },
+    {
+      "type": "primary",
+      "name": "Link Arkitektur Press Release",
+      "organization": "Link Arkitektur",
+      "url": "https://www.mynewsdesk.com/se/linkarkitektur/pressreleases/foerskolan-hoppet-har-70-procent-laegre-klimatpaaverkan-2988186",
+      "note": "Claims 70% reduction - may use different methodology"
+    },
+    {
+      "type": "secondary",
+      "name": "Södra Project Page - Hoppet Preschool",
+      "organization": "Södra",
+      "url": "https://www.sodra.com/en/global/products/building-systems/our-projects/hoppet-preschool/"
+    },
+    {
+      "type": "secondary",
+      "name": "Ecophon - First fossil-free preschool with reused acoustic systems",
+      "organization": "Ecophon",
+      "url": "https://www.ecophon.com/sv/about-ecophon/newsroom/forsta-fossilfria-forskolan-byggd-med-aterbrukade-akustiksystem/"
+    },
+    {
+      "type": "secondary",
+      "name": "Arkitekt.se - Landscape Architecture",
+      "organization": "Arkitekt.se",
+      "url": "https://www.arkitekt.se/landskapsarkitektur/hoppet-forskola/"
+    }
+  ],
+  "data_gaps": {
+    "documented": [
+      "CO2 reduction percentage (62%)",
+      "CO2 intensity (206 kg CO2e/m² BTA)",
+      "LCA phases A1-A5",
+      "Material categories and strategies",
+      "Certifications (NollCO2, Miljöbyggnad)",
+      "Key stakeholders and suppliers"
+    ],
+    "remaining_gaps": [
+      "Detailed cost breakdown and comparison",
+      "Material quantities in tonnes/m³",
+      "Detailed LCA by material category",
+      "Reuse percentages by weight",
+      "Transport distances for all materials"
+    ],
+    "potential_sources": [
+      "Direct contact with Lokalförvaltningen",
+      "Derome project documentation",
+      "NollCO2 detailed assessment report"
+    ]
+  },
+  "replicability_assessment": {
+    "transferable_elements": [
+      "CLT structural system for public buildings",
+      "Koljern recycled glass foundation as concrete alternative",
+      "Ecophon SoundCircularity for acoustic panel reuse",
+      "Auxiliary building reuse testing approach",
+      "NollCO2 methodology for zero-emission construction"
+    ],
+    "context_dependent": [
+      "Local CLT supplier (Södra) - other regions need equivalent",
+      "Municipal commitment to fossil-free goals",
+      "Contractor timber expertise"
+    ],
+    "scalability": "High - bio-based strategies scale well; NollCO2 methodology being adopted across Sweden"
+  },
+  "narrative": {
+    "driver": "Gothenburg City's goal to demonstrate fossil-free construction. First project to eliminate fossil-based materials (plastic, concrete, steel) in favor of bio-based alternatives.",
+    "approach": "Main building uses innovative bio-based materials (CLT, hemp-lime, wood fiber). Auxiliary buildings served as test lab for direct reuse (brick, glass blocks, clay from opera). Foundation replaced concrete with recycled glass cellular foam (Koljern system).",
+    "significance": "Established template for fossil-free public building construction in Sweden. Demonstrated 62% CO2 reduction is achievable with available technology and supply chains.",
+    "legacy": "NollCO2 pilot project methodology now being applied to other Swedish public buildings."
+  },
+  "data_completeness": {
+    "score": 85,
+    "grade": "A",
+    "category_scores": {
+      "basic_info": 95,
+      "stakeholders": 90,
+      "metrics_co2": 90,
+      "metrics_circularity": 70,
+      "material_inventory": 80,
+      "cost_data": 30,
+      "sources_primary": 95,
+      "certifications": 90,
+      "narrative": 90
+    },
+    "has": [
+      "Location with coordinates",
+      "Year completed",
+      "Size (1850 m²)",
+      "Client (Lokalförvaltningen)",
+      "Architect (White/Link)",
+      "Contractor (Derome)",
+      "CO2 reduction (62%)",
+      "CO2 intensity (206 kg CO2e/m²)",
+      "LCA methodology (A1-A5)",
+      "8 material types documented",
+      "Certifications (NollCO2, Miljöbyggnad)",
+      "Primary source report"
+    ],
+    "missing": [
+      "Cost data and comparison",
+      "Material quantities in weight",
+      "Detailed reuse percentages"
+    ],
+    "upgrade_path": "Obtain detailed LCA report with material-by-material breakdown; contact municipality for cost comparison data",
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  }
+}

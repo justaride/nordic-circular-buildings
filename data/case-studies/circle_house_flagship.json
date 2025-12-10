@@ -1,0 +1,327 @@
+{
+  "case_study_id": "CIRCLE_HOUSE_FLAGSHIP",
+  "case_study_tier": "FLAGSHIP",
+  "project_id": "DK_circle_house",
+  "name": "Circle House",
+  "subtitle": "World's first Design for Disassembly social housing - 90% of materials recoverable for future reuse",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "GXN/3XN Building a Circular Future + Circle House Lab documentation",
+  "executive_summary": {
+    "headline": "Europe's first DfD social housing: 60 units designed for 90% material recovery at end of life",
+    "key_achievements": [
+      "90% of materials designed for disassembly and reuse (target)",
+      "35% CO2 reduction over 100-year lifecycle vs traditional build-demolish-rebuild",
+      "World's first full-scale Design for Disassembly social housing",
+      "Only 6 standardized precast concrete element types",
+      "RFID chips in all concrete elements creating digital Material IDs (material passports)",
+      "Mechanical fastening throughout - screws/brackets replace glue/sealant",
+      "Lime mortar for brick facades (enables future brick recovery)",
+      "Floating/click-lock floors (not glued)",
+      "All installations in accessible shafts (no chasing into walls)",
+      "Published disassembly instruction manual"
+    ],
+    "why_flagship": "Circle House is paradigm-shifting - rather than using current waste, it designs for future waste elimination. The project proves DfD is viable within Denmark's strict social housing cost framework. Material passports and disassembly instructions ensure future contractors can recover 90% of materials regardless of who owns the building.",
+    "why_tier": "Completeness score 85/100 (Grade A). Comprehensive GXN/Circle House Lab documentation including disassembly manual, material passport methodology, and DfD specifications."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Lisbjerg, Aarhus",
+      "city": "Aarhus",
+      "municipality": "Aarhus",
+      "country": "Denmark",
+      "coordinates": {
+        "lat": 56.2156,
+        "lng": 10.1814
+      }
+    },
+    "timeline": {
+      "development_start": 2017,
+      "construction_start": 2021,
+      "completion": 2023
+    },
+    "size": {
+      "total_sqm": 5467,
+      "units": 60,
+      "building_type": "social_housing"
+    },
+    "budget": {
+      "amount": 75000000,
+      "currency": "DKK",
+      "per_sqm": 13721,
+      "comparison": "Market price for almen bolig"
+    }
+  },
+  "stakeholders": {
+    "client": {
+      "name": "Lejerbo",
+      "type": "almen_bolig",
+      "role": "Social housing organization"
+    },
+    "architects": [
+      {
+        "name": "3XN/GXN",
+        "role": "DfD methodology development, material passports"
+      },
+      {
+        "name": "Lendager Group",
+        "role": "Circular design"
+      },
+      {
+        "name": "Vandkunsten",
+        "role": "Architecture"
+      }
+    ],
+    "contractor": {
+      "name": "Torntoft & Mortensen",
+      "role": "General contractor"
+    },
+    "engineering": {
+      "name": "Sweco",
+      "role": "Structural engineering for DfD connections"
+    },
+    "funding": {
+      "name": "Realdania + Miljøstyrelsen",
+      "amount": 9900000,
+      "currency": "DKK",
+      "phase": "Development phase"
+    },
+    "program": {
+      "name": "Circle House Lab",
+      "role": "Research and demonstration consortium"
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "primary_strategy": "design_for_disassembly",
+      "target_recovery_percent": 90,
+      "standardized_element_types": 6,
+      "material_passport_system": "RFID embedded"
+    },
+    "materials": [
+      {
+        "id": "M1_PRECAST_CONCRETE",
+        "category": "structural",
+        "material_type": "concrete",
+        "description": "Precast concrete structure using only 6 standardized element types - walls, beams, floor slabs",
+        "quantity": {
+          "dfd_percent": 100,
+          "contribution_percent": 60
+        },
+        "design_features": [
+          "Mechanical bolted connections replace cast-in-place joints",
+          "Elements can be lifted out individually for reuse",
+          "Standardization ensures compatibility with future buildings"
+        ]
+      },
+      {
+        "id": "M2_MATERIAL_PASSPORTS",
+        "category": "documentation",
+        "material_type": "digital",
+        "description": "RFID chips embedded in all concrete elements creating digital Material IDs",
+        "data_captured": [
+          "Chemical composition",
+          "Physical properties",
+          "Disassembly instructions",
+          "Producer data",
+          "Location in building"
+        ]
+      },
+      {
+        "id": "M3_FACADES",
+        "category": "facade",
+        "material_type": "mixed",
+        "description": "All facades use reversible mechanical connections - screws and brackets replace glue and sealant",
+        "quantity": {
+          "contribution_percent": 20
+        }
+      },
+      {
+        "id": "M4_BRICK_LIME_MORTAR",
+        "category": "facade",
+        "material_type": "brick",
+        "description": "Lime mortar used instead of cement mortar - weaker bond allows bricks to be cleaned and reused",
+        "design_feature": "Lime mortar enables future brick recovery without damage"
+      },
+      {
+        "id": "M5_FLOORING",
+        "category": "interior",
+        "material_type": "flooring",
+        "description": "Floating/click-lock floors instead of glued - can be taken up intact",
+        "design_feature": "Floors laid loose or clicked together for easy removal"
+      },
+      {
+        "id": "M6_INSTALLATIONS",
+        "category": "hvac",
+        "material_type": "services",
+        "description": "All installations in accessible shafts or behind demountable panels - no chasing into walls",
+        "quantity": {
+          "contribution_percent": 10
+        },
+        "design_feature": "Services routed through visible/accessible pathways for future modification"
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "circularity": {
+      "target_percent": 90,
+      "scope": "Materials recoverable for reuse at end of life",
+      "verification": "Design target - to be verified at disassembly"
+    },
+    "co2_reduction": {
+      "percent": 35,
+      "comparison_basis": "100-year lifecycle vs traditional build-demolish-rebuild",
+      "mechanism": "Materials reused rather than demolished at end of first life"
+    },
+    "lca_scope": {
+      "timeframe": "100 years",
+      "assumption": "Materials achieve second life in new building"
+    }
+  },
+  "certifications_and_awards": {
+    "programs": [
+      {
+        "name": "Circle House Lab",
+        "designation": "Research and demonstration project"
+      }
+    ]
+  },
+  "economics": {
+    "total_cost": {
+      "amount": 75000000,
+      "currency": "DKK"
+    },
+    "cost_per_sqm": {
+      "value": 13721,
+      "currency": "DKK/m²"
+    },
+    "cost_comparison": {
+      "result": "Market price achieved",
+      "benchmark": "Standard almen bolig (~13,700 DKK/m²)",
+      "premium": 0
+    },
+    "value_proposition": {
+      "residual_value": "Higher end-of-life value due to recoverable materials",
+      "lifecycle_cost": "Lower over 100 years due to material reuse"
+    }
+  },
+  "design_for_disassembly_methodology": {
+    "principles": [
+      "Mechanical connections only - no adhesives",
+      "Standardized elements for cross-project compatibility",
+      "Material passports for every component",
+      "Accessible installations without wall destruction",
+      "Layered construction for selective replacement"
+    ],
+    "documentation": {
+      "disassembly_manual": {
+        "title": "Disassembly Instruction Manual",
+        "url": "https://assets.presscloud.com/file/54/548199481217347/Disassembly_Instruction_manual.pdf",
+        "purpose": "Enables future contractors to recover materials"
+      }
+    },
+    "legal_framework": {
+      "innovation": "New contract forms (partnering) to share DfD risk",
+      "challenge": "Material ownership and liability transfer at disassembly"
+    }
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "DfD achievable within social housing cost framework",
+      "6 standardized element types ensure future compatibility",
+      "RFID material passports create digital twin for recovery",
+      "Lime mortar critical for brick recovery",
+      "Mechanical connections require no specialist tools for disassembly"
+    ],
+    "success_factors": [
+      "Consortium approach (Circle House Lab) spread development risk",
+      "Realdania/Miljøstyrelsen funding for methodology development",
+      "Multiple architect perspectives ensured robust methodology",
+      "Published disassembly instructions ensure knowledge transfer"
+    ],
+    "challenges_encountered": [
+      "Developing mechanical connections meeting structural codes while reversible",
+      "Creating legal frameworks for material ownership transfer",
+      "Quality assurance for multi-generational reuse",
+      "Insurance and liability for novel connection types"
+    ],
+    "recommendations": [
+      "Standardize element types early in design",
+      "Embed material passports during production (not retrofit)",
+      "Use lime mortar for all brick facades",
+      "Route all services through accessible shafts",
+      "Publish disassembly instructions for future owners"
+    ]
+  },
+  "documentation": {
+    "primary_reports": [
+      {
+        "title": "Building a Circular Future 3rd Edition",
+        "organization": "GXN/3XN",
+        "url": "https://gxn.3xn.com/wp-content/uploads/sites/4/2018/09/Building-a-Circular-Future_3rd-Edition_Compressed_V2-1.pdf",
+        "year": 2018
+      },
+      {
+        "title": "Disassembly Instruction Manual",
+        "organization": "Circle House Lab",
+        "url": "https://assets.presscloud.com/file/54/548199481217347/Disassembly_Instruction_manual.pdf",
+        "year": 2023
+      }
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "Building a Circular Future 3rd Edition",
+      "organization": "GXN/3XN",
+      "url": "https://gxn.3xn.com/wp-content/uploads/sites/4/2018/09/Building-a-Circular-Future_3rd-Edition_Compressed_V2-1.pdf"
+    },
+    {
+      "type": "primary",
+      "name": "Circle House Project Page",
+      "organization": "Lejerbo",
+      "url": "https://www.lejerbo.dk/om-dab-lejerbo/byggeri/om-circle-house"
+    },
+    {
+      "type": "primary",
+      "name": "Vandkunsten Project Page",
+      "organization": "Vandkunsten",
+      "url": "https://vandkunsten.com/en/projects/circle-house"
+    },
+    {
+      "type": "primary",
+      "name": "Disassembly Instruction Manual",
+      "organization": "Circle House Lab",
+      "url": "https://assets.presscloud.com/file/54/548199481217347/Disassembly_Instruction_manual.pdf"
+    },
+    {
+      "type": "secondary",
+      "name": "State of Green Case Study",
+      "url": "https://stateofgreen.com/en/solutions/denmarks-first-circular-social-housing-project/"
+    }
+  ],
+  "data_completeness": {
+    "score": 85,
+    "grade": "A",
+    "has": [
+      "Location", "Year", "Size", "Units", "Budget",
+      "Client", "Architects (3)", "Contractor", "Engineering",
+      "DfD target (90%)", "CO2 reduction (35%)",
+      "Material passport system", "Disassembly manual",
+      "Funding details", "Primary sources"
+    ],
+    "missing": [
+      "Actual CO2 reduction measured",
+      "Post-occupancy evaluation",
+      "Material quantities in tonnes"
+    ],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "Prove that Design for Disassembly can work within the strict cost framework of Danish social housing - demonstrating that designing for future reuse adds minimal cost while preserving material value for generations.",
+    "approach": "Only 6 standardized precast element types. RFID material passports in every component. Mechanical connections throughout. Lime mortar for brick facades. Published disassembly instructions ensure future recovery regardless of ownership.",
+    "significance": "Paradigm shift from using waste to eliminating future waste. First building designed from the start for materials to outlive the structure.",
+    "legacy": "Circle House methodology being applied to subsequent Lejerbo projects. Disassembly manual serves as template for DfD documentation globally."
+  }
+}

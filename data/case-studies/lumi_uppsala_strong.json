@@ -1,0 +1,426 @@
+{
+  "case_study_id": "LUMI_UPPSALA_STRONG",
+  "case_study_tier": "STRONG",
+  "project_id": "SE_lumi_uppsala",
+  "name": "Lumi (Kvarteret Hugin)",
+  "name_en": "Lumi Uppsala",
+  "subtitle": "Sweden's most ambitious office reuse - 80% structure retained with 43% CO2 reduction",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "Vasakronan project documentation + CCBuild Guide för Cirkulär Projektering",
+  "executive_summary": {
+    "headline": "80% concrete frame retention in Sweden's largest office transformation - pioneering methodology for structural reuse",
+    "key_achievements": [
+      "80% of existing concrete frame retained and reused",
+      "43% CO2 reduction (~170 vs 300-400 kg CO2e/m² for new build)",
+      "Complete foundation reuse from previous building",
+      "LEED Platinum certification target",
+      "Aluminum cladding repurposed for bicycle parking and elevator",
+      "Reconditioned carpet tiles via Tarkett partnership",
+      "Existing toilets and kitchen fixtures rehabilitated",
+      "Digital twin BIM model for future management"
+    ],
+    "why_strong": "Lumi demonstrates that large-scale structural reuse is viable for commercial office transformation. Vasakronan's most ambitious reuse project establishes methodology and partnerships scalable across their portfolio.",
+    "why_tier": "Completeness score 80/100 (Grade B). Good documentation from Vasakronan and CCBuild but missing detailed material tonnages."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Kvarteret Hugin",
+      "district": "Södra city",
+      "city": "Uppsala",
+      "region": "Uppsala län",
+      "country": "Sweden",
+      "coordinates": {
+        "lat": 59.8586,
+        "lng": 17.6389
+      }
+    },
+    "timeline": {
+      "construction_start": 2022,
+      "completion": 2024,
+      "inauguration": "2024-10-24",
+      "duration_months": 24
+    },
+    "size": {
+      "total_sqm": 21000,
+      "loa_sqm": 16500,
+      "building_type": "office"
+    },
+    "budget": {
+      "note": "Not publicly disclosed"
+    }
+  },
+  "stakeholders": {
+    "client_organization": {
+      "byggherre": {
+        "name": "Vasakronan",
+        "type": "private_developer",
+        "note": "Sweden's largest property company - this is their most ambitious reuse project"
+      }
+    },
+    "design_team": {
+      "arkitekt": {
+        "name": "White Arkitekter",
+        "role": "Architect"
+      }
+    },
+    "contractors": {
+      "main": {
+        "name": "Construction Management (multiple contracts)",
+        "note": "Split contract structure for specialized work packages"
+      }
+    },
+    "suppliers": {
+      "flooring": {
+        "name": "Tarkett",
+        "role": "Flooring supplier",
+        "contribution": "Reconditioned carpet tiles from other demolition projects"
+      }
+    },
+    "planning_authority": {
+      "name": "Uppsala kommun",
+      "contribution": "Collaboration on zoning plan modification for transformation"
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "primary_strategy": "structural_retention",
+      "total_retention_percent": 80,
+      "measurement_basis": "concrete_frame",
+      "categories_reused": 8
+    },
+    "materials": [
+      {
+        "id": "M1_CONCRETE_FRAME",
+        "category": "structural",
+        "material_type": "concrete",
+        "local_name": "Betongstomme",
+        "english_name": "Concrete frame",
+        "description": "80% of existing concrete frame retained and reused",
+        "quantity": {
+          "retention_percent": 80,
+          "scope": "Primary structure"
+        },
+        "environmental_impact": {
+          "co2_savings": "Major contributor to 43% reduction",
+          "note": "Avoiding new concrete production saves ~200 kg CO2/m³"
+        }
+      },
+      {
+        "id": "M2_FOUNDATION",
+        "category": "structural",
+        "material_type": "concrete",
+        "local_name": "Grundläggning",
+        "english_name": "Foundation",
+        "description": "Entire foundation from previous building reused",
+        "quantity": {
+          "retention_percent": 100,
+          "scope": "Complete foundation"
+        }
+      },
+      {
+        "id": "M3_ALUMINUM_CLADDING",
+        "category": "facade",
+        "material_type": "aluminum",
+        "local_name": "Aluminiumklädning",
+        "english_name": "Aluminum cladding",
+        "description": "Technical/facade aluminum repurposed for bicycle parking and elevator cladding",
+        "donor_source": {
+          "name": "Same building (in-situ)",
+          "type": "internal_reuse"
+        },
+        "processing": {
+          "steps": ["Removed from technical areas", "Cleaned", "Repurposed for bike parking and elevator"]
+        }
+      },
+      {
+        "id": "M4_TOILETS",
+        "category": "interior",
+        "material_type": "sanitary",
+        "local_name": "Toaletter",
+        "english_name": "Toilets",
+        "description": "Existing toilets rehabilitated and reused",
+        "donor_source": {
+          "name": "Same building (in-situ)",
+          "type": "internal_reuse"
+        }
+      },
+      {
+        "id": "M5_KITCHEN_FIXTURES",
+        "category": "interior",
+        "material_type": "fixtures",
+        "local_name": "Pentry",
+        "english_name": "Kitchen/pantry fixtures",
+        "description": "Pantry components converted to new coffee stations",
+        "donor_source": {
+          "name": "Same building (in-situ)",
+          "type": "internal_reuse"
+        }
+      },
+      {
+        "id": "M6_CARPET_TILES",
+        "category": "interior",
+        "material_type": "flooring",
+        "local_name": "Textilplattor",
+        "english_name": "Carpet tiles",
+        "description": "Reconditioned carpet tiles from external demolition projects via Tarkett partnership",
+        "donor_source": {
+          "name": "External buildings via Tarkett",
+          "type": "supplier_program"
+        },
+        "supplier": {
+          "name": "Tarkett",
+          "program": "Carpet tile reconditioning service"
+        }
+      },
+      {
+        "id": "M7_DRYWALL",
+        "category": "interior",
+        "material_type": "gypsum",
+        "local_name": "Gips",
+        "english_name": "Drywall/Gypsum boards",
+        "description": "Gypsum boards flipped and remounted",
+        "donor_source": {
+          "name": "Same building (in-situ)",
+          "type": "internal_reuse"
+        },
+        "processing": {
+          "method": "Boards removed, flipped to expose clean side, remounted"
+        }
+      },
+      {
+        "id": "M8_DUCTWORK",
+        "category": "hvac",
+        "material_type": "ductwork",
+        "local_name": "Ventilationskanaler",
+        "english_name": "Ventilation duct casings",
+        "description": "Ventilation duct casings reused",
+        "donor_source": {
+          "name": "Same building (in-situ)",
+          "type": "internal_reuse"
+        }
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "overall": {
+      "co2_reduction_percent": 43,
+      "comparison_basis": "Comparable new build office",
+      "scope": "LCA completed"
+    },
+    "co2_intensity": {
+      "project": {
+        "value": 170,
+        "unit": "kg CO2e/m² BTA",
+        "note": "Approximate"
+      },
+      "reference": {
+        "value_range": "300-400",
+        "unit": "kg CO2e/m² BTA",
+        "note": "Comparable new build office"
+      }
+    },
+    "lca_details": {
+      "completed": true,
+      "note": "Exact report not publicly available"
+    }
+  },
+  "certifications_and_awards": {
+    "certifications": [
+      {
+        "name": "LEED",
+        "level": "Platinum (target)",
+        "year": 2024,
+        "status": "Certification in progress"
+      }
+    ]
+  },
+  "logistics_and_process": {
+    "approach": {
+      "key_principle": "Early ambition setting",
+      "methodology": "Full material inventory and cataloging before design",
+      "tools": "BIM-based construction documents"
+    },
+    "inventory_process": {
+      "step_1": "Complete material inventory of existing building",
+      "step_2": "Cataloging of all potentially reusable elements",
+      "step_3": "Material tagging and tracking system",
+      "step_4": "Design adaptation to available materials"
+    },
+    "partnerships": {
+      "tarkett": "External reconditioned carpet tiles",
+      "note": "Partnerships expand reuse options beyond in-situ materials"
+    },
+    "digital_infrastructure": {
+      "bim_model": "Digital twin for construction and future facility management",
+      "benefit": "Enables tracking of reused materials through building lifecycle"
+    }
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "80% structure reuse achievable with proper planning",
+      "External partnerships (Tarkett) expand reuse options",
+      "Digital BIM model enables both construction and future management",
+      "Early ambition setting critical - reuse goals must be set before design",
+      "Full inventory cataloging essential before design decisions"
+    ],
+    "success_factors": [
+      "Corporate commitment (Vasakronan's most ambitious reuse project)",
+      "Early integration of reuse goals in project brief",
+      "BIM-based documentation from start",
+      "Supplier partnerships for external materials"
+    ],
+    "challenges_encountered": [
+      "Logistics infrastructure for material storage and tagging",
+      "BIM integration essential for tracking",
+      "Zoning modification required collaboration with municipality"
+    ],
+    "recommendations": [
+      "Set reuse ambitions before design begins",
+      "Complete inventory cataloging early",
+      "Develop supplier partnerships for external reconditioned materials",
+      "Use BIM for tracking throughout project lifecycle"
+    ]
+  },
+  "documentation": {
+    "primary_sources": [
+      {
+        "title": "Vasakronan - Återbruk i Lumi",
+        "url": "https://vasakronan.se/aktuellt/aterbruk-lumi/",
+        "type": "official"
+      },
+      {
+        "title": "Vasakronan Project Page - Lumi",
+        "url": "https://vasakronan.se/projekt/lumi/",
+        "type": "official"
+      },
+      {
+        "title": "CCBuild Guide för Cirkulär Projektering",
+        "url": "https://www.ccbuild.se/media/vcgag1qz/guide-foer-cirkulaer-projektering.pdf",
+        "type": "methodology"
+      }
+    ],
+    "secondary_sources": [
+      {
+        "title": "White Arkitekter - Lumi Uppsala",
+        "url": "https://whitearkitekter.com/project/lumi-in-uppsala/",
+        "type": "architect"
+      },
+      {
+        "title": "Grönt Samhällsbyggande - Opening Coverage",
+        "url": "https://www.grontsamhallsbyggande.se/2024/10/25/igar-invigdes-lumi-i-uppsala-sveriges-most-ambitiosa-aterbruksprojekt/",
+        "type": "media"
+      },
+      {
+        "title": "BE Exchange - Vasakronan Case Study",
+        "url": "https://be-exchange.org/wp-content/uploads/2024/05/stockholm_casestudy_vasakronan.pdf",
+        "type": "case_study"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "Vasakronan - Återbruk i Lumi",
+      "url": "https://vasakronan.se/aktuellt/aterbruk-lumi/"
+    },
+    {
+      "type": "primary",
+      "name": "Vasakronan Project Page - Lumi",
+      "url": "https://vasakronan.se/projekt/lumi/"
+    },
+    {
+      "type": "primary",
+      "name": "CCBuild Guide för Cirkulär Projektering",
+      "url": "https://www.ccbuild.se/media/vcgag1qz/guide-foer-cirkulaer-projektering.pdf"
+    },
+    {
+      "type": "secondary",
+      "name": "White Arkitekter - Lumi Uppsala",
+      "url": "https://whitearkitekter.com/project/lumi-in-uppsala/"
+    },
+    {
+      "type": "secondary",
+      "name": "Grönt Samhällsbyggande",
+      "url": "https://www.grontsamhallsbyggande.se/2024/10/25/igar-invigdes-lumi-i-uppsala-sveriges-most-ambitiosa-aterbruksprojekt/"
+    },
+    {
+      "type": "secondary",
+      "name": "BE Exchange Case Study",
+      "url": "https://be-exchange.org/wp-content/uploads/2024/05/stockholm_casestudy_vasakronan.pdf"
+    }
+  ],
+  "data_gaps": {
+    "documented": [
+      "80% structure retention",
+      "43% CO2 reduction",
+      "170 kg CO2e/m² intensity",
+      "LEED Platinum target",
+      "8 material categories reused",
+      "Tarkett partnership"
+    ],
+    "remaining_gaps": [
+      "Detailed material tonnages",
+      "Cost savings data",
+      "Exact LCA report",
+      "Breakdown of CO2 by material"
+    ],
+    "potential_sources": [
+      "Direct contact with Vasakronan",
+      "LEED certification documentation when complete"
+    ]
+  },
+  "replicability_assessment": {
+    "transferable_elements": [
+      "Early ambition setting methodology",
+      "Full inventory cataloging approach",
+      "BIM-based tracking system",
+      "Supplier partnership model (Tarkett)",
+      "In-situ reuse techniques (gypsum flipping, fixture reuse)"
+    ],
+    "context_dependent": [
+      "Large property company resources (Vasakronan)",
+      "Existing concrete frame suitable for retention",
+      "Municipality collaboration on zoning"
+    ],
+    "scalability": "High - Vasakronan planning to apply methodology across portfolio"
+  },
+  "narrative": {
+    "driver": "Vasakronan's most ambitious reuse project - testing circular economy methodologies at scale for office transformation.",
+    "approach": "Early ambition setting, full material inventory and cataloging, BIM-based construction documents. 80% concrete frame retention. Partnerships with suppliers (Tarkett) for external reconditioned materials. In-situ reuse of aluminum, toilets, kitchens, ductwork.",
+    "significance": "Demonstrates commercial viability of large-scale structural reuse in private sector office market.",
+    "legacy": "Methodology being scaled across Vasakronan's property portfolio."
+  },
+  "data_completeness": {
+    "score": 80,
+    "grade": "B",
+    "category_scores": {
+      "basic_info": 90,
+      "stakeholders": 75,
+      "metrics_co2": 80,
+      "metrics_circularity": 85,
+      "material_inventory": 75,
+      "cost_data": 20,
+      "sources_primary": 85
+    },
+    "has": [
+      "Location with coordinates",
+      "Year completed (2024)",
+      "Size (21,000 m²)",
+      "Client (Vasakronan)",
+      "Architect (White)",
+      "CO2 reduction (43%)",
+      "Circularity rate (80%)",
+      "8 material types documented",
+      "LEED target",
+      "Primary sources"
+    ],
+    "missing": [
+      "Cost data",
+      "Material tonnages",
+      "Detailed LCA"
+    ],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  }
+}

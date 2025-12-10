@@ -1,0 +1,252 @@
+{
+  "case_study_id": "HATEIGSVEGUR59_FLAGSHIP",
+  "case_study_tier": "FLAGSHIP",
+  "project_id": "IS_hateigsvegur59",
+  "name": "Háteigsvegur 59",
+  "name_local": "Íbúðakjarni fyrir fatlað fólk - Háteigsvegur 59",
+  "subtitle": "Iceland's circular social housing - 53% CO2 reduction at conventional cost",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "Reykjavík City + BM Vallá + Hringvangur documentation",
+  "executive_summary": {
+    "headline": "53% CO2 reduction with 20% reused/surplus materials - proving circular construction achievable at conventional cost for social housing",
+    "key_achievements": [
+      "53% CO2 reduction vs reference building (initial target 30%)",
+      "20% reused/surplus materials by weight",
+      "39% lower-carbon Berglind Plús concrete with recycled aggregate",
+      "Stone tiles donated from Smiðja Parliament project",
+      "Yakisugi/Shou Sugi Ban timber cladding (chemical-free, cheaper than metal)",
+      "Reclaimed beech sports parquet flooring",
+      "Surplus windows from Gluggagerðin",
+      "Built within conventional cost framework (~530 million ISK)",
+      "Græna skóflan Award 2025",
+      "Mies van der Rohe Award 2026 nomination"
+    ],
+    "why_flagship": "Háteigsvegur 59 is Iceland's most comprehensively documented circular building with verified LCA, LCC, and detailed material sourcing. It demonstrates that 53% CO2 reduction is achievable within conventional social housing budgets through strategic partnerships and creative material sourcing.",
+    "why_tier": "Completeness score 88/100 (Grade A). Full LCA verification, detailed cost data, and extensive documentation from multiple sources including Reykjavík City official announcements."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Háteigsvegur 59",
+      "city": "Reykjavík",
+      "country": "Iceland",
+      "coordinates": {
+        "lat": 64.1383,
+        "lng": -21.8670
+      }
+    },
+    "timeline": {
+      "construction_start": 2023,
+      "completion": 2024,
+      "operational": 2025
+    },
+    "size": {
+      "total_sqm": 565,
+      "units": 9,
+      "building_type": "social_housing",
+      "description": "Housing for disabled residents"
+    },
+    "budget": {
+      "amount_isk": 529243773,
+      "amount_eur": 3400000,
+      "note": "Within conventional cost framework despite circular approach"
+    }
+  },
+  "stakeholders": {
+    "client": {
+      "name": "Félagsbústaðir hf.",
+      "name_en": "Social Housing of Reykjavík",
+      "type": "public_housing"
+    },
+    "architect": {
+      "name": "Arnhildur Pálmadóttir / s.ap arkitektar"
+    },
+    "contractor": {
+      "name": "Vinahús ehf."
+    },
+    "consultants": [
+      {
+        "name": "VSÓ Ráðgjöf",
+        "role": "LCA and LCC analysis"
+      },
+      {
+        "name": "VSB verkfræðistofa",
+        "role": "Construction supervision"
+      }
+    ],
+    "suppliers": [
+      {
+        "name": "BM Vallá",
+        "contribution": "Berglind Plús low-carbon concrete"
+      },
+      {
+        "name": "Húsasmiðjan",
+        "contribution": "Donated surplus/packaging timber"
+      },
+      {
+        "name": "Gluggagerðin",
+        "contribution": "Surplus/reclaimed windows"
+      },
+      {
+        "name": "SSJ Steinsmiðja / Grafa og grjót",
+        "contribution": "Stone tiles from Smiðja Parliament project"
+      }
+    ],
+    "programs": [
+      "Byggjum Grænni Framtíð",
+      "Hringvangur",
+      "Askur Mannvirkjasjóður (40% CO2 reduction support)"
+    ]
+  },
+  "material_inventory": {
+    "overview": {
+      "circularity_rate_percent": 20,
+      "measurement": "by_weight",
+      "sourcing": "donation_surplus_local"
+    },
+    "materials": [
+      {
+        "id": "M1_CONCRETE",
+        "material_type": "concrete",
+        "description": "Berglind Plús low-carbon concrete with crushed surplus stone tiles as aggregate",
+        "co2_reduction_percent": 39,
+        "supplier": "BM Vallá",
+        "donor_source": "Surplus stone tiles from construction projects"
+      },
+      {
+        "id": "M2_WINDOWS",
+        "material_type": "glass",
+        "description": "Composite windows: 6 reclaimed + 7 new units assembled together",
+        "donor_source": "Gluggagerðin surplus inventory"
+      },
+      {
+        "id": "M3_CLADDING",
+        "material_type": "timber",
+        "description": "Yakisugi/Shou Sugi Ban heat-treated surplus timber (no chemical impregnation)",
+        "donor_source": "Húsasmiðjan, Byko surplus/packaging",
+        "cost_note": "Cheaper than corrugated metal alternative"
+      },
+      {
+        "id": "M4_STONE_TILES",
+        "material_type": "stone",
+        "description": "Interior stone tiles reused from Smiðja Parliament project",
+        "donor_source": "IS_smidja_parliament"
+      },
+      {
+        "id": "M5_FLOORING",
+        "material_type": "timber",
+        "description": "Reclaimed beech sports parquet flooring",
+        "donor_source": "Junckers / Egill Árnason"
+      },
+      {
+        "id": "M6_PARTITIONS",
+        "material_type": "timber",
+        "description": "Interior walls from flexible plywood previously used as formwork",
+        "donor_source": "Construction formwork"
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "overall": {
+      "co2_reduction_percent": 53,
+      "comparison_basis": "Reference building, verified by VSÓ LCA at completion",
+      "initial_target_percent": 30,
+      "circularity_rate_percent": 20
+    },
+    "by_material": {
+      "concrete": {"co2_reduction_percent": 39}
+    },
+    "lca": {
+      "completed": true,
+      "provider": "VSÓ Ráðgjöf"
+    },
+    "lcc": {
+      "completed": true,
+      "provider": "VSÓ Ráðgjöf"
+    }
+  },
+  "certifications_and_awards": {
+    "awards": [
+      {
+        "name": "Græna skóflan (Green Shovel Award)",
+        "year": 2025,
+        "organization": "Grænni byggð / GBCI Iceland"
+      },
+      {
+        "name": "EU Prize for Contemporary Architecture - Mies van der Rohe Award",
+        "year": 2026,
+        "status": "nominated",
+        "note": "Nominated by Hönnunarmiðstöð"
+      }
+    ]
+  },
+  "economics": {
+    "total_cost": {
+      "amount_isk": 529243773,
+      "amount_eur": 3400000
+    },
+    "cost_comparison": {
+      "result": "Conventional cost achieved",
+      "innovation": "Yakisugi cladding cheaper than corrugated metal"
+    }
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "53% CO2 reduction achievable at conventional cost",
+      "Partnership-based material sourcing essential",
+      "Yakisugi cladding cheaper AND more sustainable than metal",
+      "Stone material flows between projects demonstrate circular ecosystem"
+    ],
+    "success_factors": [
+      "LCA+LCC integration from design phase",
+      "Local partner network (Húsasmiðjan, Gluggagerðin, BM Vallá)",
+      "Flexible design accepting materials found during construction",
+      "Askur Mannvirkjasjóður funding for 40% CO2 target support"
+    ],
+    "challenges": [
+      "Iterative sourcing - materials found during construction, not specified in advance",
+      "Multiple CO2 reduction figures reported (30-59%) due to different baselines"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "Reykjavík City - Opening Announcement",
+      "url": "https://reykjavik.is/frettir/2024/nyr-og-glaesilegur-ibudakjarni-i-hlidunum"
+    },
+    {
+      "type": "primary",
+      "name": "Félagsbústaðir - Græna skóflan Award",
+      "url": "https://felagsbustadir.is/um-starfsemina/frettir/graena-skoflan-2025-umhverfisvaent-bjart-og-fallegt-hus/"
+    },
+    {
+      "type": "primary",
+      "name": "BM Vallá - Sustainable Housing Case Study",
+      "url": "https://www.bmvalla.is/frettir/sjalfbaert-og-metnadarfullt-husnaedi"
+    },
+    {
+      "type": "secondary",
+      "name": "Hringvangur - Material Description",
+      "url": "https://www.hringvangur.is/post/háteigsvegur-59"
+    }
+  ],
+  "data_completeness": {
+    "score": 88,
+    "grade": "A",
+    "has": [
+      "Location", "Architect", "Contractor", "Client", "Year",
+      "CO2 reduction (53%)", "Circularity rate (20%)",
+      "LCA", "LCC", "Cost", "Awards", "Material inventory",
+      "Stakeholders", "Primary sources"
+    ],
+    "missing": ["Full LCA report", "Detailed material quantities"],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "Félagsbústaðir wanted to demonstrate circular construction achievable within conventional cost/time for social housing.",
+    "approach": "LCA+LCC from design. Partner network for surplus materials. Berglind Plús low-carbon concrete. Yakisugi cladding. Stone from Smiðja project demonstrates emerging Icelandic circular ecosystem.",
+    "significance": "53% CO2 reduction at conventional cost for social housing. Template for Icelandic circular construction.",
+    "legacy": "Græna skóflan Award 2025. Mies nomination 2026. Model for future Félagsbústaðir projects."
+  }
+}

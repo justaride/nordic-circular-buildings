@@ -1,0 +1,299 @@
+{
+  "case_study_id": "RESOURCE_ROWS_STRONG",
+  "case_study_tier": "STRONG",
+  "project_id": "DK_resource_rows",
+  "name": "Resource Rows",
+  "name_local": "Ressourcerækkerne",
+  "subtitle": "World's first residential project from demolished building materials - 463 tonnes diverted from landfill",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "NREP LCA/LCC Report + Miljøstyrelsen Product Documentation",
+  "executive_summary": {
+    "headline": "463 tonnes of demolition waste transformed into 92 townhouses - proving industrial upcycling commercially viable",
+    "key_achievements": [
+      "463 tonnes construction waste upcycled instead of landfilled",
+      "29% CO2 reduction over 50-year lifecycle vs benchmark",
+      "2,914 m² UP Mur brick modules - 1×1m sections cut intact from demolition",
+      "500+ reused windows with 50% reclaimed glass",
+      "7 tonnes Douglas fir from Dinesen production offcuts",
+      "Metro railway sleepers as shou-sugi-ban treated terraces",
+      "Concrete beams from Vox factory as pedestrian bridge",
+      "Built at same price per m² as conventional construction",
+      "Third-party verified LCA/LCC report (NREP)",
+      "Created 18 jobs (0.5 FTE years) through material processing"
+    ],
+    "why_strong": "Resource Rows was the proof-of-concept that scaled Upcycle House methodology to commercial multi-family housing. The UP Mur innovation (cutting intact brick sections) solved the brick reuse quality problem. Third-party LCA/LCC verification provides rare cost transparency.",
+    "why_tier": "Completeness score 88/100 (Grade A). Exceptional documentation with verified LCA/LCC, detailed material quantities, and published Miljøstyrelsen product documentation."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Ørestad, Copenhagen",
+      "city": "Copenhagen",
+      "municipality": "Copenhagen",
+      "country": "Denmark",
+      "coordinates": {
+        "lat": 55.6245,
+        "lng": 12.5789
+      }
+    },
+    "timeline": {
+      "completion": 2019
+    },
+    "size": {
+      "total_sqm": 9148,
+      "units": 92,
+      "building_type": "townhouses"
+    }
+  },
+  "stakeholders": {
+    "client": {
+      "name": "NREP",
+      "type": "private_developer"
+    },
+    "architect": {
+      "name": "Lendager Group",
+      "role": "Architect and industrial upcycling"
+    },
+    "contractor": {
+      "name": "AG Gruppen"
+    },
+    "engineering": {
+      "name": "MOE A/S",
+      "role": "Structural engineering and LCA consultancy"
+    },
+    "material_suppliers": [
+      {
+        "name": "Gamle Mursten ApS",
+        "role": "Reclaimed brick processing"
+      },
+      {
+        "name": "Dinesen",
+        "role": "Douglas and oak offcuts"
+      }
+    ]
+  },
+  "material_inventory": {
+    "overview": {
+      "circularity_rate_percent": 10,
+      "measurement_basis": "by_weight",
+      "waste_diverted_tonnes": 463,
+      "innovation": "UP Mur, UP Vinduer, UP Beton methodology"
+    },
+    "materials": [
+      {
+        "id": "M1_UP_MUR_BRICK",
+        "category": "facade",
+        "material_type": "brick",
+        "local_name": "UP Mur",
+        "description": "2,914 m² brick facade modules - 1×1m sections cut intact from demolished buildings and cast into concrete backing",
+        "quantity": {
+          "area_sqm": 2914,
+          "tonnes": 459,
+          "contribution_percent": 5
+        },
+        "donor_sources": [
+          {
+            "name": "Carlsberg Breweries (Stødpuden, Matrixbygningen)",
+            "location": "Copenhagen"
+          },
+          {
+            "name": "Schools in Aarhus",
+            "location": "Aarhus"
+          }
+        ],
+        "processing": "Brick sections cut with diamond wire, cast into prefab concrete backing panels",
+        "environmental_impact": {
+          "co2_savings_percent": 38,
+          "co2_savings_kg_per_sqm": 49
+        }
+      },
+      {
+        "id": "M2_UP_VINDUER",
+        "category": "facade",
+        "material_type": "glass",
+        "local_name": "UP Vinduer",
+        "description": "Reused windows with 50% reclaimed double-glazed glass from energy renovations",
+        "quantity": {
+          "tonnes": 7,
+          "contribution_percent": 2,
+          "units": "500+"
+        },
+        "donor_source": {
+          "name": "Copenhagen housing energy renovations",
+          "type": "renovation"
+        },
+        "environmental_impact": {
+          "co2_savings_percent": 87,
+          "co2_savings_kg_per_sqm": 380
+        }
+      },
+      {
+        "id": "M3_TIMBER",
+        "category": "facade",
+        "material_type": "timber",
+        "description": "Douglas fir offcuts from Dinesen flooring production + Metro railway sleepers",
+        "quantity": {
+          "tonnes": 7,
+          "contribution_percent": 2
+        },
+        "donor_sources": [
+          {
+            "name": "Dinesen",
+            "type": "manufacturing_waste"
+          },
+          {
+            "name": "Copenhagen Metro",
+            "type": "infrastructure"
+          }
+        ],
+        "processing": "Metro sleepers heat-treated with shou-sugi-ban method; Dinesen offcuts planed and finished",
+        "environmental_impact": {
+          "co2_savings_percent": "44-88",
+          "co2_savings_kg_per_m3": 127
+        }
+      },
+      {
+        "id": "M4_CONCRETE_BRIDGE",
+        "category": "structural",
+        "material_type": "concrete",
+        "description": "Concrete beams from demolished Vox factory reused as pedestrian bridge across courtyard",
+        "quantity": {
+          "contribution_percent": 1
+        },
+        "donor_source": {
+          "name": "Vox-fabrikken",
+          "location": "Amager, Copenhagen"
+        }
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "overall": {
+      "co2_reduction_percent": 29,
+      "comparison_basis": "50-year LCA vs SBi benchmark (embodied + operational)",
+      "circularity_rate_percent": 10,
+      "measurement": "by_weight"
+    },
+    "waste_diverted": {
+      "tonnes": 463,
+      "description": "Building materials upcycled instead of landfilled"
+    },
+    "by_material": [
+      {
+        "material": "UP Mur brick",
+        "co2_savings_percent": 38
+      },
+      {
+        "material": "Windows",
+        "co2_savings_percent": 87
+      },
+      {
+        "material": "Timber",
+        "co2_savings_percent": "44-88"
+      }
+    ],
+    "lca_verification": {
+      "report": "NREP LCA/LCC Report",
+      "url": "https://nrep.com/wp-content/uploads/2020/11/200923_Upcycle-Studios-RR-LCALCC_NREP.pdf",
+      "third_party": true
+    }
+  },
+  "economics": {
+    "cost_comparison": {
+      "result": "Same price per m² as conventional",
+      "innovation": "Higher design cost offset by lower material cost"
+    },
+    "lifecycle_cost": {
+      "npv_savings_per_unit": 55849,
+      "currency": "DKK",
+      "comparison": "50-year NPV vs benchmark (3.92M vs 3.98M total)"
+    },
+    "social_impact": {
+      "jobs_created": 18,
+      "fte_years": 0.5,
+      "note": "Through material processing"
+    }
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "UP Mur methodology solved brick reuse quality problem",
+      "10% reuse by weight achieved 29% CO2 reduction",
+      "Manufacturing waste (Dinesen) offers consistent quality",
+      "Same price achievable with careful design/material trade-offs"
+    ],
+    "innovations": [
+      "Diamond wire cutting of intact brick sections",
+      "Concrete backing panels for structural integrity",
+      "Shou-sugi-ban treatment for railway sleeper durability"
+    ],
+    "challenges": [
+      "Coordinating multiple demolition sites for sourcing",
+      "Certifying reused materials to building codes",
+      "Quality control across heterogeneous material streams"
+    ]
+  },
+  "documentation": {
+    "primary_reports": [
+      {
+        "title": "NREP LCA/LCC Report - Upcycle Studios & Resource Rows",
+        "url": "https://nrep.com/wp-content/uploads/2020/11/200923_Upcycle-Studios-RR-LCALCC_NREP.pdf",
+        "year": 2020
+      },
+      {
+        "title": "Miljøstyrelsen Product Documentation",
+        "url": "https://www2.mst.dk/Udgiv/publikationer/2022/06/978-87-7038-427-8.pdf",
+        "year": 2022
+      }
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "NREP LCA/LCC Report",
+      "url": "https://nrep.com/wp-content/uploads/2020/11/200923_Upcycle-Studios-RR-LCALCC_NREP.pdf"
+    },
+    {
+      "type": "primary",
+      "name": "Miljøstyrelsen Product Documentation",
+      "url": "https://www2.mst.dk/Udgiv/publikationer/2022/06/978-87-7038-427-8.pdf"
+    },
+    {
+      "type": "primary",
+      "name": "Lendager Group Project Page",
+      "url": "https://lendager.com/project/resource-rows/"
+    },
+    {
+      "type": "primary",
+      "name": "NREP Project Page",
+      "url": "https://nrep.com/project/resource-rows/"
+    },
+    {
+      "type": "secondary",
+      "name": "State of Green Case Study",
+      "url": "https://stateofgreen.com/en/solutions/reusing-materials-for-the-resource-rows/"
+    }
+  ],
+  "data_completeness": {
+    "score": 88,
+    "grade": "A",
+    "has": [
+      "Location", "Year", "Size", "Units",
+      "Client", "Architect", "Contractor", "Engineering",
+      "CO2 reduction (29%)", "Circularity rate (10%)",
+      "Material quantities", "Donor sources",
+      "LCA/LCC verification", "Cost comparison",
+      "Jobs created"
+    ],
+    "missing": [
+      "Total budget"
+    ],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "Prove industrial-scale upcycling could work commercially - creating replicable methodology (UP Mur, UP Vinduer, UP Beton) for subsequent projects.",
+    "approach": "UP Mur breakthrough - cutting 1×1m brick sections intact preserves visual character while concrete backing provides structural integrity. Coordinated multiple demolition sites for sourcing.",
+    "significance": "First residential project built from demolished building materials. 10% reuse by weight achieved 29% CO2 reduction at same price as conventional.",
+    "legacy": "UP methodology scaled to UN17 Village and other Lendager projects. Third-party LCA/LCC provides rare cost transparency for circular construction."
+  }
+}

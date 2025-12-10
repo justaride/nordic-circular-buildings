@@ -1,0 +1,157 @@
+{
+  "case_study_id": "UMHVERFISSTOFNUN_TIER2",
+  "case_study_tier": "TIER2",
+  "project_id": "IS_umhverfisstofnun",
+  "name": "Umhverfisstofnun Office Renovation",
+  "name_local": "Umhverfisstofnun endurbætur",
+  "subtitle": "First Nordic Swan certified renovation in ALL Nordic countries - 94.4% waste sorting",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "Nordic Swan + Svanurinn + THG arkitektar",
+  "executive_summary": {
+    "headline": "Nordic-first: 94.4% waste sorting in renovation meeting Nordic Swan's strictest criteria",
+    "key_achievements": [
+      "First Nordic Swan certified renovation in all Nordic countries (NO, SE, DK, FI, IS)",
+      "94.4% construction waste sorting rate (vs 70% EU requirement)",
+      "85% building preservation",
+      "40% energy savings from HVAC upgrades",
+      "Aluminum window/door frames reused in place",
+      "Cork tiles preserved from original interior",
+      "All paints/sealants Nordic Swan certified (no GHS-classified hazardous substances)",
+      "Nordic Swan Renovation Criteria 102 compliance"
+    ],
+    "why_tier2": "Renovation project demonstrating certification-driven circular approach. CO2 reduction not quantified but 94.4% waste sorting and 85% preservation are strong indicators. Limited material innovation compared to flagships."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Suðurlandsbraut 24",
+      "city": "Reykjavík",
+      "country": "Iceland",
+      "coordinates": {
+        "lat": 64.1275,
+        "lng": -21.8654
+      }
+    },
+    "timeline": {
+      "year_built": 2002,
+      "completion": 2019,
+      "certification": 2020
+    },
+    "size": {
+      "building_type": "office"
+    }
+  },
+  "stakeholders": {
+    "client": {
+      "name": "Umhverfisstofnun",
+      "name_en": "Environment Agency of Iceland",
+      "type": "government"
+    },
+    "building_owner": {
+      "name": "Reitir fasteignafélag"
+    },
+    "architect": {
+      "name": "THG arkitektar"
+    },
+    "certification_consultant": {
+      "name": "Visthús",
+      "role": "Nordic Swan certification consultant"
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "preservation_percent": 85,
+      "waste_sorting_percent": 94.4
+    },
+    "materials": [
+      {
+        "id": "M1_ALUMINUM_FRAMES",
+        "material_type": "aluminum",
+        "description": "Window and door frames reused in place - cleaned and resealed",
+        "processing": "Cleaned and resealed rather than replaced"
+      },
+      {
+        "id": "M2_CORK",
+        "material_type": "flooring",
+        "description": "Cork tiles preserved from original 2002 interior"
+      },
+      {
+        "id": "M3_PAINTS",
+        "material_type": "finishes",
+        "description": "All new paints/sealants Nordic Swan certified - no hazardous substances"
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "waste_sorting": {
+      "rate_percent": 94.4,
+      "eu_requirement_percent": 70
+    },
+    "energy_savings": {
+      "percent": 40,
+      "source": "Heat recovery ventilation system"
+    },
+    "co2_reduction": {
+      "quantified": false,
+      "estimate": "70-80% less than demolition + new build"
+    }
+  },
+  "certifications_and_awards": {
+    "certifications": [
+      {
+        "name": "Nordic Swan Ecolabel",
+        "level": "Certified",
+        "year": 2020,
+        "significance": "First Nordic Swan certified renovation in all Nordic countries",
+        "criteria_version": "102 Renovation"
+      }
+    ]
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "94.4% waste sorting achievable through selective dismantling",
+      "Early Nordic Swan criteria integration from design phase critical",
+      "Digital material logging (O20 requirement) enables long-term tracking",
+      "Public sector renovation can achieve higher circularity than many new builds"
+    ],
+    "challenges": [
+      "Meeting preservation goals AND stringent Nordic Swan chemical requirements",
+      "Risk assessment needed for reused materials (asbestos, PCBs testing)"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "Svanurinn - First Nordic Swan Renovation",
+      "url": "https://svanurinn.is/frettir/fyrstu-svansvottudu-endurbaeturnar-a-nordurlondunum/"
+    },
+    {
+      "type": "primary",
+      "name": "Nordic Swan Renovation Criteria",
+      "url": "https://www.nordic-swan-ecolabel.org/4a7ba8/contentassets/76846ce7f01a47549a08dffa68227b1b/criteria-document_102_renovation-102_english2.pdf"
+    },
+    {
+      "type": "secondary",
+      "name": "THG arkitektar",
+      "url": "https://www.thg.is/umhverfisstofnun"
+    }
+  ],
+  "data_completeness": {
+    "score": 78,
+    "grade": "B",
+    "has": [
+      "Location", "Architect", "Client", "Year",
+      "Waste sorting rate (94.4%)", "Energy savings (40%)",
+      "Certification", "Material preservation", "Sources"
+    ],
+    "missing": ["Size", "CO2 reduction", "Contractor", "Cost"],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "Environment Agency demonstrating sustainability leadership through first Nordic Swan renovation.",
+    "approach": "Aggressive preservation: aluminum frames reused, cork preserved. All new materials Nordic Swan certified. 94.4% waste sorting through selective dismantling.",
+    "significance": "First Nordic Swan renovation in all Nordic countries. Proves renovation certification achievable.",
+    "legacy": "Template for Nordic Swan renovation criteria application."
+  }
+}

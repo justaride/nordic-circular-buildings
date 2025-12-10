@@ -1,0 +1,175 @@
+{
+  "case_study_id": "FBAB_SEEST_TIER2",
+  "case_study_tier": "TIER2",
+  "project_id": "DK_fbab_seest",
+  "name": "FBAB Seest",
+  "name_local": "Fremtidens Bæredygtige Almene Boliger",
+  "subtitle": "Competition-winning sustainable social housing - FSC timber with DGNB Gold",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "Dissing+Weitling + Træ.dk documentation",
+  "executive_summary": {
+    "headline": "National competition winner demonstrating FSC timber construction achievable within social housing budget",
+    "key_achievements": [
+      "DGNB Gold certification",
+      "FSC-certified timber construction throughout",
+      "Heat-treated spruce facades (no chemical treatment)",
+      "Wood fiber insulation",
+      "Zero rainwater runoff design",
+      "35 units at market-appropriate rents (5,700-9,200 DKK/month)",
+      "Kolding Architectural Award 2019 (Innovation & Sustainability)",
+      "Won 2013 national competition for sustainable social housing"
+    ],
+    "why_tier2": "Bio-based timber construction rather than material reuse. DGNB Gold validates sustainability but CO2 reduction not quantified. Strong policy significance as national competition winner."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Seest, Kolding",
+      "city": "Kolding",
+      "country": "Denmark",
+      "coordinates": {
+        "lat": 55.4756,
+        "lng": 9.4821
+      }
+    },
+    "timeline": {
+      "competition_win": 2013,
+      "completion": 2019
+    },
+    "size": {
+      "total_sqm": 3524,
+      "units": 35,
+      "building_type": "social_housing"
+    }
+  },
+  "stakeholders": {
+    "client": {
+      "name": "Lejerbo",
+      "type": "almen_bolig"
+    },
+    "architect": {
+      "name": "Dissing+Weitling"
+    },
+    "landscape": {
+      "name": "MOVE Arkitektur"
+    },
+    "engineering": {
+      "name": "Wissenberg Rådgivende Ingeniører"
+    },
+    "competition_organizer": {
+      "name": "Danish Ministry for Cities, Housing and Rural Districts"
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "primary_strategy": "bio_based_materials",
+      "certification": "FSC"
+    },
+    "materials": [
+      {
+        "id": "M1_TIMBER_STRUCTURE",
+        "material_type": "timber",
+        "description": "FSC-certified wood construction throughout - only support pillars in concrete",
+        "certification": "FSC"
+      },
+      {
+        "id": "M2_FACADE",
+        "material_type": "timber",
+        "description": "Heat-treated spruce cladding - thermal modification eliminates need for preservatives"
+      },
+      {
+        "id": "M3_INSULATION",
+        "material_type": "insulation",
+        "description": "Wood fiber insulation for thermal performance"
+      },
+      {
+        "id": "M4_RAINWATER",
+        "material_type": "water_management",
+        "description": "On-site rainwater retention - zero runoff to sewer"
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "certification": {
+      "name": "DGNB",
+      "level": "Gold",
+      "year": 2019
+    },
+    "co2_reduction": {
+      "quantified": false,
+      "note": "Timber construction vs conventional - significant reduction claimed but not measured"
+    }
+  },
+  "certifications_and_awards": {
+    "certifications": [
+      {"name": "DGNB", "level": "Gold", "year": 2019}
+    ],
+    "awards": [
+      {
+        "name": "Kolding Municipality Architectural Award",
+        "year": 2019,
+        "category": "Innovation and Sustainability"
+      }
+    ],
+    "programs": [
+      {
+        "name": "Fremtidens Bæredygtige Almene Boliger",
+        "designation": "Competition winner 2013"
+      }
+    ]
+  },
+  "economics": {
+    "affordability": {
+      "rent_range": "5,700-9,200 DKK/month",
+      "note": "Market-appropriate for social housing"
+    }
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "FSC timber achievable within social housing budget",
+      "Heat-treated wood eliminates ongoing chemical treatment",
+      "DGNB Gold compatible with affordable rents",
+      "Competition format drives innovation in social housing"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "FBAB Project Page",
+      "organization": "Dissing+Weitling",
+      "url": "https://dissingweitling.com/dk/projekt/fremtidens-baeredygtige-almene-boliger-fbab"
+    },
+    {
+      "type": "secondary",
+      "name": "Træ.dk Case Study",
+      "url": "https://www.trae.dk/wp-content/uploads/2023/02/trae_nov22_nord.pdf"
+    },
+    {
+      "type": "secondary",
+      "name": "Building Supply - DGNB Gold",
+      "url": "https://www.building-supply.dk/article/view/639919/dgnbguld_til_ny_koldingbydel"
+    }
+  ],
+  "data_completeness": {
+    "score": 68,
+    "grade": "B",
+    "has": [
+      "Location", "Year", "Size", "Units",
+      "Client", "Architect", "Engineering",
+      "DGNB Gold certification", "Award",
+      "Material categories", "Rent data"
+    ],
+    "missing": [
+      "CO2 reduction quantified", "Budget", "Contractor",
+      "Detailed material quantities"
+    ],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "National competition by Danish Ministry to demonstrate sustainable social housing concepts at affordable rents.",
+    "approach": "FSC timber construction throughout with heat-treated spruce facades. Wood fiber insulation. Zero rainwater runoff design. Achieved DGNB Gold while maintaining market-appropriate rents.",
+    "significance": "Competition winner proving timber construction viable for Danish social housing sector.",
+    "legacy": "Included in Building Damage Fund's 2020 quality guide as reference project."
+  }
+}

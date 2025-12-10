@@ -1,0 +1,199 @@
+{
+  "case_study_id": "UN17_VILLAGE_TIER2",
+  "case_study_tier": "TIER2",
+  "project_id": "DK_un17_village",
+  "name": "UN17 Village",
+  "name_local": "UN17 Landsbyen",
+  "subtitle": "Copenhagen's SDG-aligned flagship - 535 units with 1,600+ reused windows and DGNB Platinum",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "NREP + Sweco Case Studies + UN17 Village Design Guide",
+  "executive_summary": {
+    "headline": "All 17 UN SDGs integrated in 535-unit development - 31% CO2 reduction with extensive material reuse",
+    "key_achievements": [
+      "31% CO2 reduction vs BR18 building regulations",
+      "30% circularity rate by weight",
+      "1,600+ reused windows from 1960s-70s housing renovations",
+      "500 m³ crushed concrete aggregate from Metro expansion",
+      "35 tonnes recycled steel",
+      "FUTURECEM low-carbon cement (30% lower CO2)",
+      "DGNB Platinum + DGNB Heart + WELL certifications",
+      "535 residential units across 5 buildings",
+      "1,700 m² solar panels - 100% renewable energy"
+    ],
+    "why_tier2": "Large-scale implementation of proven methodology rather than pioneering innovation. DGNB Platinum certification validates comprehensive sustainability approach beyond circularity alone."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Ørestad Syd, Copenhagen",
+      "city": "Copenhagen",
+      "country": "Denmark",
+      "coordinates": {
+        "lat": 55.6180,
+        "lng": 12.5750
+      }
+    },
+    "timeline": {
+      "completion": "2023-2024"
+    },
+    "size": {
+      "total_sqm": 35000,
+      "units": 535,
+      "building_type": "mixed_housing"
+    }
+  },
+  "stakeholders": {
+    "client": {
+      "name": "NREP",
+      "type": "private_developer"
+    },
+    "architects": [
+      {"name": "Lendager Group"},
+      {"name": "Årstiderne Arkitekter"}
+    ],
+    "landscape": {
+      "name": "SLA"
+    },
+    "engineering": {
+      "name": "Sweco"
+    },
+    "material_supplier": {
+      "name": "Lendager UP",
+      "role": "Industrial upcycling"
+    },
+    "cement_supplier": {
+      "name": "Unicon/Cementir",
+      "product": "FUTURECEM"
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "circularity_rate_percent": 30,
+      "measurement": "by_weight"
+    },
+    "materials": [
+      {
+        "id": "M1_WINDOWS",
+        "material_type": "glass",
+        "description": "1,600+ reused double-glazed windows from 1960s-70s housing renovations",
+        "quantity": {
+          "count": 1600,
+          "contribution_percent": 10
+        },
+        "donor_source": "Copenhagen housing energy renovations",
+        "processing": "Glass units extracted, tested, fitted into new thermally-broken frames"
+      },
+      {
+        "id": "M2_CONCRETE_AGGREGATE",
+        "material_type": "concrete",
+        "description": "500 m³ crushed concrete aggregate from Metro expansion",
+        "quantity": {
+          "volume_m3": 500,
+          "contribution_percent": 8
+        },
+        "donor_source": "Copenhagen Metro expansion"
+      },
+      {
+        "id": "M3_STEEL",
+        "material_type": "steel",
+        "description": "35 tonnes recycled structural steel",
+        "quantity": {
+          "tonnes": 35,
+          "contribution_percent": 5
+        },
+        "donor_source": "Industrial demolition"
+      },
+      {
+        "id": "M4_FUTURECEM",
+        "material_type": "cement",
+        "description": "FUTURECEM calcined clay cement - 30% lower CO2 than Portland cement",
+        "supplier": "Unicon/Cementir"
+      },
+      {
+        "id": "M5_TIMBER",
+        "material_type": "timber",
+        "description": "Recycled timber from Dinesen offcuts and demolition",
+        "donor_source": "Dinesen + demolition sites"
+      },
+      {
+        "id": "M6_ALUMINUM",
+        "material_type": "aluminum",
+        "description": "Recycled aluminum facade panels from beverage cans and industrial waste",
+        "donor_source": "Beverage can collection + industrial"
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "overall": {
+      "co2_reduction_percent": 31,
+      "comparison_basis": "BR18 building regulations (50-year LCA)",
+      "circularity_rate_percent": 30
+    },
+    "energy": {
+      "solar_panels_sqm": 1700,
+      "renewable_percent": 100
+    }
+  },
+  "certifications_and_awards": {
+    "certifications": [
+      {"name": "DGNB", "level": "Platinum", "year": 2024},
+      {"name": "DGNB Heart", "year": 2024},
+      {"name": "WELL", "year": 2024}
+    ]
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "Industrial upcycling scales to 535-unit developments",
+      "Multiple material streams require systematic coordination",
+      "Low-carbon cement (FUTURECEM) specifiable at scale",
+      "DGNB Platinum achievable with circular approach"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "UN17 Village Official Website",
+      "url": "https://www.un17village.dk/en/"
+    },
+    {
+      "type": "primary",
+      "name": "UN17 Village Design Guide",
+      "url": "https://www.un17village.dk/assets/designguide/PW-08-03-24.pdf"
+    },
+    {
+      "type": "primary",
+      "name": "NREP Project Page",
+      "url": "https://nrep.com/project/un17-village/"
+    },
+    {
+      "type": "primary",
+      "name": "Sweco Case Study",
+      "url": "https://www.swecogroup.com/cases/un17-village-copenhagen-denmark/"
+    },
+    {
+      "type": "secondary",
+      "name": "FUTURECEM in UN17 Village",
+      "url": "https://www.cementirholding.com/en/our-business/innovation/un17-village-global-first-sustainable-building"
+    }
+  ],
+  "data_completeness": {
+    "score": 80,
+    "grade": "A",
+    "has": [
+      "Location", "Year", "Size", "Units",
+      "Client", "Architects", "Engineering",
+      "CO2 reduction (31%)", "Circularity (30%)",
+      "Material quantities", "Certifications (DGNB Plat)",
+      "Primary sources"
+    ],
+    "missing": ["Budget", "Contractor", "Detailed LCA report"],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "Demonstrate large-scale urban housing can integrate all 17 UN SDGs while remaining commercially viable.",
+    "approach": "Scaled Lendager UP industrial upcycling: 1,600 windows from renovations, 500m³ Metro concrete, FUTURECEM cement. Multiple certifications (DGNB Plat, WELL) validate comprehensive sustainability.",
+    "significance": "Copenhagen's flagship sustainable housing - proves circular approach scales to 535 units with DGNB Platinum certification.",
+    "legacy": "Model for SDG-aligned urban development globally."
+  }
+}

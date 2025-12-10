@@ -1,0 +1,176 @@
+{
+  "case_study_id": "STONG_RUINS_TIER2",
+  "case_study_tier": "TIER2",
+  "project_id": "IS_stong_ruins",
+  "name": "Stöng Viking Ruins Shelter",
+  "name_local": "Yfirbygging á Stöng í Þjórsárdal",
+  "subtitle": "First Icelandic heritage site with sustainability focus - 1957 shelter preserved",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "Minjastofnun + SP(R)INT STUDIO + ArchDaily",
+  "executive_summary": {
+    "headline": "Heritage preservation meets circular economy: 1957 timber shelter transformed with untreated larch and polycarbonate",
+    "key_achievements": [
+      "First heritage site in Iceland designed with sustainability focus",
+      "1957 timber load-bearing structure retained and reinforced",
+      "~70% original structure preserved (estimated)",
+      "Untreated larch re-cladding (no chemical treatment)",
+      "Translucent polycarbonate roof for natural light",
+      "Dezeen Awards 2025 longlist",
+      "Mies van der Rohe Award 2026 nomination",
+      "Protects 11th-century Viking ruins underneath"
+    ],
+    "why_tier2": "Heritage preservation project with sustainability integration rather than explicit circular metrics. No LCA documentation. Strong architectural significance but limited quantified circularity data."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Stöng farm ruins",
+      "region": "Þjórsárdalur, South Iceland",
+      "country": "Iceland",
+      "coordinates": {
+        "lat": 64.1169,
+        "lng": -19.8456
+      }
+    },
+    "timeline": {
+      "original_structure": 1957,
+      "completion": 2024
+    },
+    "size": {
+      "total_sqm": 385,
+      "building_type": "heritage_shelter"
+    }
+  },
+  "stakeholders": {
+    "client": {
+      "name": "Minjastofnun Íslands",
+      "name_en": "Cultural Heritage Agency of Iceland",
+      "type": "government"
+    },
+    "project_manager": {
+      "name": "Framkvæmdasýslan - Ríkiseignir",
+      "role": "State project management"
+    },
+    "architect": {
+      "name": "SP(R)INT STUDIO",
+      "people": ["Karl Kvaran", "Sahar Ghaderi Kvaran"]
+    },
+    "contractor": {
+      "name": "Langeldur ehf."
+    },
+    "structural_engineer": {
+      "name": "VSB verkfræðistofa"
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "preservation_percent": 70,
+      "note": "Estimated 60-75% original structure retained"
+    },
+    "materials": [
+      {
+        "id": "M1_TIMBER_FRAME",
+        "material_type": "timber",
+        "description": "1957 timber load-bearing frame retained and reinforced",
+        "donor_source": "Original 1957 shelter"
+      },
+      {
+        "id": "M2_LARCH_CLADDING",
+        "material_type": "timber",
+        "description": "Untreated larch re-cladding (no chemical impregnation)"
+      },
+      {
+        "id": "M3_POLYCARBONATE_ROOF",
+        "material_type": "polycarbonate",
+        "description": "Translucent corrugated polycarbonate roof (Brett Martin) - allows natural light and airflow"
+      },
+      {
+        "id": "M4_STEEL_REINFORCEMENT",
+        "material_type": "steel",
+        "description": "Steel connectors and reinforcement to strengthen existing frame"
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "circularity": {
+      "rate_percent": 70,
+      "note": "Estimated - no formal assessment published"
+    },
+    "co2_reduction": {
+      "quantified": false,
+      "estimate_tonnes": "50-100",
+      "note": "Estimated savings from structure reuse vs new construction"
+    },
+    "lca": {
+      "completed": false
+    }
+  },
+  "certifications_and_awards": {
+    "awards": [
+      {
+        "name": "Dezeen Awards 2025",
+        "status": "longlist"
+      },
+      {
+        "name": "Mies van der Rohe Award",
+        "year": 2026,
+        "status": "nominated",
+        "note": "Nominated by Iceland Design Centre"
+      }
+    ],
+    "programs": [
+      "Landsáætlun um uppbyggingu innviða til verndar náttúru og menningarsögulegum minjum"
+    ]
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "Heritage preservation and material reuse can be combined",
+      "1957 shelter treated as 'artifact worth conserving in its own right'",
+      "Untreated larch viable in Icelandic climate"
+    ],
+    "challenges": [
+      "Protecting fragile archaeological remains while improving accessibility",
+      "Balancing modern intervention with heritage preservation",
+      "Remote site in Þjórsárdalur valley"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "Minjastofnun - Opening announcement",
+      "url": "https://www.minjastofnun.is/is/frettir/opnun-a-nyrri-yfirbyggingu-a-stong-i-thjorsardal"
+    },
+    {
+      "type": "primary",
+      "name": "ArchDaily - Stöng Ruins",
+      "url": "https://www.archdaily.com/1030732/stong-ruins-sp-r-int-studio"
+    },
+    {
+      "type": "secondary",
+      "name": "Dezeen - Stöng Viking Ruins",
+      "url": "https://www.dezeen.com/2025/04/09/sprint-studio-stong-viking-ruins-shelter-iceland/"
+    },
+    {
+      "type": "secondary",
+      "name": "SP(R)INT STUDIO",
+      "url": "https://www.sprint-studio.com/stong-ruins"
+    }
+  ],
+  "data_completeness": {
+    "score": 55,
+    "grade": "C",
+    "has": [
+      "Location", "Architect", "Client", "Contractor", "Year",
+      "Size", "Material inventory", "Sources", "Awards"
+    ],
+    "missing": ["CO2 reduction", "Circularity rate", "LCA", "Preservation percentage"],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "Minjastofnun needed to protect 11th-century Viking ruins while improving access. Decided to preserve 1957 shelter rather than build new.",
+    "approach": "Design competition winner treats 1957 shelter as 'artifact worth conserving'. Structure retained with untreated larch cladding and translucent polycarbonate roof.",
+    "significance": "First heritage site in Iceland with sustainability focus. Protects both ancient ruins AND 1957 protective structure.",
+    "legacy": "Model for heritage-circular integration. Dezeen longlist and Mies nomination validate approach."
+  }
+}

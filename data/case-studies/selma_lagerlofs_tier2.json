@@ -1,0 +1,243 @@
+{
+  "case_study_id": "SELMA_LAGERLOFS_TIER2",
+  "case_study_tier": "TIER2",
+  "project_id": "SE_selma_lagerlofs",
+  "name": "Selma Lagerlöfs Center",
+  "name_en": "Selma Lagerlöf Community Center",
+  "subtitle": "92% interior reuse with 70% cost savings - Sweden's largest interior reuse project",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "CCBuild/Circular Hub + White Års- och hållbarhetsrapport 2019",
+  "executive_summary": {
+    "headline": "92% interior furnishings from reused sources - demonstrating commercial viability of large-scale interior reuse",
+    "key_achievements": [
+      "92% of interior furnishings from reused sources",
+      "70% cost savings (9 MSEK) vs new furniture procurement",
+      "Sweden's largest interior reuse project at opening (2019)",
+      "Furniture from 6 municipal operations combined",
+      "Design S Award 2020 for Interior Architecture",
+      "Innovative 'Selma stamp' branding for all reused items",
+      "Patchwork table from reclaimed tabletops and laminate boards",
+      "Trade fair flooring repurposed as library shelving"
+    ],
+    "why_tier2": "High reuse limited to interior fit-out, not building structure. Excellent cost savings data and process documentation. Structure is new build."
+  },
+  "project_basics": {
+    "location": {
+      "address": "Selma Lagerlöfs Torg",
+      "district": "Backa",
+      "city": "Gothenburg",
+      "country": "Sweden",
+      "coordinates": {
+        "lat": 57.7645,
+        "lng": 12.0194
+      }
+    },
+    "timeline": {
+      "construction_start": 2017,
+      "completion": 2019
+    },
+    "size": {
+      "total_sqm": 6300,
+      "interior_sqm": 6200,
+      "building_type": "community_center",
+      "functions": ["library", "cultural_school", "senior_center", "offices"]
+    }
+  },
+  "stakeholders": {
+    "client_organization": {
+      "byggherre": {
+        "name": "GöteborgsLokaler",
+        "type": "municipality"
+      }
+    },
+    "design_team": {
+      "arkitekt": {
+        "name": "White Arkitekter",
+        "key_person": "Mattias Lind (Lead architect)"
+      },
+      "interior_architect": {
+        "name": "Annie Leonsson",
+        "organization": "White Arkitekter",
+        "role": "Lead interior architect for reuse project"
+      }
+    },
+    "contractors": {
+      "main": {
+        "name": "Vestia Construction Group"
+      },
+      "furniture_partner": {
+        "name": "C&D Snickeri",
+        "role": "Furniture ownership, storage and refurbishment",
+        "business_model": "Owned, stored and refurbished furniture based on White's designs"
+      }
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "primary_strategy": "interior_reuse",
+      "circularity_rate_percent": 92,
+      "measurement_basis": "by_cost",
+      "scope": "interior_fitout_only"
+    },
+    "materials": [
+      {
+        "id": "M1_MUNICIPAL_FURNITURE",
+        "category": "interior",
+        "material_type": "furniture",
+        "description": "92% of interior furnishings from reused sources - largest at opening",
+        "quantity": {
+          "reuse_percent": 92,
+          "measurement": "by_cost"
+        },
+        "donor_source": {
+          "name": "Six municipal operations in district",
+          "type": "internal_transfer"
+        }
+      },
+      {
+        "id": "M2_SECONDHAND_FURNITURE",
+        "category": "interior",
+        "material_type": "furniture",
+        "description": "Purchased second-hand furniture from reuse market to supplement internal stock",
+        "donor_source": {
+          "type": "office_relocations"
+        }
+      },
+      {
+        "id": "M3_PATCHWORK_TABLE",
+        "category": "interior",
+        "material_type": "timber",
+        "description": "Large entry hall table assembled from reclaimed tabletops and laminate boards",
+        "donor_source": {
+          "suppliers": ["Vedum", "Lundbergsmöbler", "Noas", "Lammhults", "Fredricssons Trä"],
+          "type": "manufacturing_waste"
+        },
+        "design_approach": "'Patchwork' design accepting diverse materials"
+      },
+      {
+        "id": "M4_LIBRARY_SHELVING",
+        "category": "interior",
+        "material_type": "other",
+        "description": "Trade fair booth flooring repurposed as library shelving material",
+        "donor_source": {
+          "type": "surplus"
+        }
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "circularity_rate": {
+      "value": 92,
+      "unit": "percent",
+      "measurement": "by_cost",
+      "scope": "interior_fitout_only"
+    },
+    "co2_reduction": {
+      "note": "Lower climate impact documented but not quantified in kg CO2e"
+    },
+    "cost_savings": {
+      "amount_sek": 9000000,
+      "savings_percent": 70,
+      "comparison": "vs new furniture procurement"
+    }
+  },
+  "certifications_and_awards": {
+    "awards": [
+      {
+        "name": "Design S",
+        "year": 2020,
+        "category": "Interior Architecture"
+      }
+    ]
+  },
+  "economics": {
+    "cost_savings": {
+      "amount": 9000000,
+      "currency": "SEK",
+      "percent": 70,
+      "comparison": "vs new furniture"
+    },
+    "business_model": {
+      "innovation": "C&D Snickeri owned, stored and refurbished furniture based on designs",
+      "benefit": "Removed complexity from municipality procurement"
+    }
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "92% interior reuse achievable at 70% cost savings",
+      "New business models enable scaling (furniture ownership by contractor)",
+      "Visual branding ('Selma stamp') unifies diverse reused items",
+      "'Confetti' approach accepts diverse styles rather than matching sets",
+      "Interior reuse is lower barrier entry point for circular construction"
+    ],
+    "success_factors": [
+      "Innovative business model with C&D Snickeri",
+      "Accept diversity in materials and styles",
+      "Strong visual branding creates coherence",
+      "Municipality commitment to reuse goal"
+    ],
+    "challenges": [
+      "Coordinating furniture from six different operations",
+      "Quality control for varied reused items",
+      "Creating visual coherence with diverse sources"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "CCBuild/Circular Hub - Selma Lagerlöfs Center",
+      "url": "https://circularhub.se/aterbruk-i-selma-lagerlofs-center-goteborg/"
+    },
+    {
+      "type": "primary",
+      "name": "White Års- och hållbarhetsrapport 2019",
+      "url": "https://whitearkitekter.com/se/wp-content/uploads/sites/3/2020/05/Arsapport_2019_low_res_desktop_view.pdf"
+    },
+    {
+      "type": "primary",
+      "name": "ArkDes - Gestaltad livsmiljö rapport 2021",
+      "url": "https://arkdes.se/wp-content/uploads/2024/01/arkdes-Gestaltad-livsmiljo-rapport-2021.pdf"
+    },
+    {
+      "type": "secondary",
+      "name": "White Arkitekter - Selma stadsdelshus",
+      "url": "https://whitearkitekter.com/se/projekt/selma-stadsdelshus/"
+    },
+    {
+      "type": "secondary",
+      "name": "ArchDaily - Selma Lagerlöfs Cultural Center",
+      "url": "https://www.archdaily.com/931981/selma-lagerlofs-cultural-center-white-arkitekter"
+    },
+    {
+      "type": "secondary",
+      "name": "C&D Snickeri Project",
+      "url": "https://cdsnickeri.se/projekt/selma-lagerlof-center-goteborg/"
+    },
+    {
+      "type": "secondary",
+      "name": "Fastighetstidningen - Återbrukad Selma",
+      "url": "https://fastighetstidningen.se/aterbrukad-selma/"
+    }
+  ],
+  "data_completeness": {
+    "score": 72,
+    "grade": "B",
+    "has": [
+      "Location", "Year", "Size", "Client", "Architect", "Contractor",
+      "Circularity rate (92%)", "Cost savings (9 MSEK/70%)",
+      "Award (Design S 2020)", "Primary sources", "Business model documentation"
+    ],
+    "missing": [
+      "CO2 reduction quantified", "LCA report", "Material weights"
+    ],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "GöteborgsLokaler wanted to demonstrate large-scale interior reuse is commercially viable.",
+    "approach": "Innovative business model where C&D Snickeri owned, stored and refurbished furniture. 'Selma stamp' branded all reused items. 'Confetti' approach accepted diverse styles.",
+    "significance": "Proved 92% interior reuse achievable with 70% cost savings. Established replicable business model.",
+    "legacy": "Model for interior reuse in public buildings across Sweden."
+  }
+}

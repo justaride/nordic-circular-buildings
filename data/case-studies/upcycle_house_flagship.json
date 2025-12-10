@@ -1,0 +1,342 @@
+{
+  "case_study_id": "UPCYCLE_HOUSE_FLAGSHIP",
+  "case_study_tier": "FLAGSHIP",
+  "project_id": "DK_upcycle_house",
+  "name": "Upcycle House",
+  "subtitle": "Denmark's pioneering 86% upcycled demonstration house - proving circular construction viable at market price",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "Realdania By & Byg - MiniCO2 Husene program documentation",
+  "executive_summary": {
+    "headline": "86% CO2 reduction using 86% recycled/upcycled materials - built at standard market price",
+    "key_achievements": [
+      "86% recycled/upcycled materials by weight",
+      "86% CO2 reduction vs 2013 Danish reference house",
+      "Built at market price (~13,000 DKK/m² = 1,700,000 DKK total)",
+      "Two 40-foot shipping containers as primary structure",
+      "Recycled steel screw pile foundation (fully relocatable)",
+      "Paper insulation from recycled newspapers",
+      "Facade: flattened aluminum cans + Richlite paper composite",
+      "Cork floor tiles from champagne cork offcuts",
+      "Recycled glass terrazzo in bathroom",
+      "10+ years of proven durability (privately occupied since 2013)"
+    ],
+    "why_flagship": "Upcycle House was Denmark's first full-scale demonstration that circular construction could achieve radical CO2 reduction (86%) while matching conventional costs. Ten years of occupancy has validated material durability and livability. The project established Lendager Group's upcycling methodology that scaled to Resource Rows, UN17 Village, and beyond.",
+    "why_tier": "Completeness score 85/100 (Grade A). Comprehensive Realdania documentation with verified metrics, cost comparison, 10-year track record, and detailed material breakdown."
+  },
+  "project_basics": {
+    "location": {
+      "address": "MiniCO2 Husene, Nyborg",
+      "city": "Nyborg",
+      "municipality": "Nyborg",
+      "region": "Fyn",
+      "country": "Denmark",
+      "coordinates": {
+        "lat": 55.3127,
+        "lng": 10.7897
+      }
+    },
+    "timeline": {
+      "construction_start": 2012,
+      "completion": 2013,
+      "duration_months": 12
+    },
+    "size": {
+      "total_sqm": 129,
+      "floors": 1,
+      "building_type": "single_family_house"
+    },
+    "budget": {
+      "amount": 1700000,
+      "currency": "DKK",
+      "per_sqm": 13178,
+      "excludes_vat": true,
+      "comparison": "Standard market price for typehus"
+    }
+  },
+  "stakeholders": {
+    "client": {
+      "name": "Realdania By & Byg",
+      "type": "public_foundation",
+      "role": "Developer, building owner"
+    },
+    "program": {
+      "name": "MiniCO2 Husene",
+      "organization": "Realdania",
+      "description": "Demonstration program proving low-carbon housing achievable at market price"
+    },
+    "architect": {
+      "name": "Lendager Group",
+      "formerly": "Lendager Arkitekter",
+      "role": "Architect and circular economy specialist"
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "total_reuse_rate_percent": 86,
+      "measurement_basis": "by_weight",
+      "material_categories": 10,
+      "sourcing": "industrial_waste_and_surplus"
+    },
+    "materials": [
+      {
+        "id": "M1_SHIPPING_CONTAINERS",
+        "category": "structural",
+        "material_type": "steel",
+        "description": "Two 40-foot ISO shipping containers form primary structural frame",
+        "quantity": {
+          "count": 2,
+          "unit": "units",
+          "contribution_percent": 35
+        },
+        "donor_source": {
+          "name": "Shipping industry surplus",
+          "type": "industrial_waste"
+        },
+        "processing": "Containers externally insulated with paper insulation and vapor barrier to avoid thermal bridges"
+      },
+      {
+        "id": "M2_FOUNDATION",
+        "category": "structural",
+        "material_type": "steel",
+        "description": "Recycled steel screw piles instead of concrete slab",
+        "donor_source": {
+          "type": "recycled_steel"
+        },
+        "design_feature": "Fully relocatable - building can be moved without foundation demolition"
+      },
+      {
+        "id": "M3_INSULATION",
+        "category": "envelope",
+        "material_type": "insulation",
+        "description": "Paper insulation from recycled newspapers blown into wall and roof",
+        "quantity": {
+          "contribution_percent": 20
+        },
+        "donor_source": {
+          "type": "newspaper_recycling"
+        }
+      },
+      {
+        "id": "M4_FACADE_ALUMINUM",
+        "category": "facade",
+        "material_type": "aluminum",
+        "description": "Flattened aluminum beverage cans as facade cladding element",
+        "donor_source": {
+          "type": "beverage_can_recycling"
+        },
+        "processing": "Cans flattened and arranged as decorative/protective cladding"
+      },
+      {
+        "id": "M5_FACADE_RICHLITE",
+        "category": "facade",
+        "material_type": "composite",
+        "description": "Richlite panels - paper waste + bio-resin composite",
+        "donor_source": {
+          "type": "paper_waste"
+        },
+        "processing": "Compressed paper waste with bio-based resin binder"
+      },
+      {
+        "id": "M6_FLOOR_CORK",
+        "category": "interior",
+        "material_type": "cork",
+        "description": "Kitchen floor tiles from compressed champagne cork offcuts",
+        "donor_source": {
+          "type": "manufacturing_waste",
+          "source": "Cork production"
+        },
+        "processing": "Cork offcuts pressed into durable floor tiles"
+      },
+      {
+        "id": "M7_FLOOR_TERRAZZO",
+        "category": "interior",
+        "material_type": "glass",
+        "description": "Bathroom floor from recycled glass terrazzo",
+        "donor_source": {
+          "type": "glass_recycling"
+        }
+      },
+      {
+        "id": "M8_INTERIOR_OSB",
+        "category": "interior",
+        "material_type": "timber",
+        "description": "Interior walls and ceiling from formaldehyde-free OSB panels",
+        "donor_source": {
+          "type": "wood_industry_waste"
+        }
+      },
+      {
+        "id": "M9_WINDOWS",
+        "category": "facade",
+        "material_type": "glass",
+        "description": "Windows from production overruns and faulty batches - double/triple glazed",
+        "donor_source": {
+          "type": "manufacturing_surplus"
+        }
+      },
+      {
+        "id": "M10_THERMAL_MASS",
+        "category": "interior",
+        "material_type": "other",
+        "description": "Thermal mass wall from water-filled jerry cans for passive temperature regulation",
+        "donor_source": {
+          "type": "plastic_containers"
+        },
+        "design_feature": "Water mass creates thermal buffer for passive heating/cooling"
+      },
+      {
+        "id": "M11_FOUNDATION_INSULATION",
+        "category": "structural",
+        "material_type": "insulation",
+        "description": "Technopor/granulated foam waste from packaging and ice rinks",
+        "donor_source": {
+          "type": "EPS_waste"
+        }
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "overall": {
+      "co2_reduction_percent": 86,
+      "comparison_basis": "2013 Danish reference house (same size typehus)",
+      "scope": "Embodied carbon"
+    },
+    "circularity": {
+      "rate_percent": 86,
+      "measurement": "by_weight",
+      "breakdown": [
+        {"material": "shipping_containers", "percent": 35},
+        {"material": "insulation", "percent": 20},
+        {"material": "facade_cladding", "percent": 15},
+        {"material": "interior_finishes", "percent": 16}
+      ]
+    },
+    "validation": {
+      "track_record_years": 10,
+      "current_status": "Privately owned and occupied",
+      "durability_proof": "All experimental materials have proven durable after 10+ years"
+    }
+  },
+  "certifications_and_awards": {
+    "certifications": [
+      {
+        "name": "Lavenergiklasse 2015/2020",
+        "level": "BR10",
+        "year": 2013
+      }
+    ],
+    "programs": [
+      {
+        "name": "MiniCO2 Husene",
+        "designation": "Demonstration project",
+        "organization": "Realdania"
+      }
+    ]
+  },
+  "economics": {
+    "total_cost": {
+      "amount": 1700000,
+      "currency": "DKK"
+    },
+    "cost_per_sqm": {
+      "value": 13178,
+      "currency": "DKK/m²"
+    },
+    "cost_comparison": {
+      "result": "Market price achieved",
+      "benchmark": "Standard typehus (~13,000 DKK/m²)",
+      "premium": 0
+    },
+    "cost_insight": "Higher design/engineering costs offset by lower material costs"
+  },
+  "lessons_learned": {
+    "key_insights": [
+      "86% recycled materials achievable at market price",
+      "Prefabricated containers minimize on-site waste",
+      "User behavior impacts energy performance more than technical specifications",
+      "10 years of occupancy validates durability of experimental materials"
+    ],
+    "success_factors": [
+      "Realdania program provided research framework",
+      "Lendager's creative material sourcing",
+      "Container prefabrication simplified construction",
+      "Screw pile foundation enables future relocation"
+    ],
+    "challenges_encountered": [
+      "Thermal bridge management with metal container structure",
+      "Sourcing consistent quality recycled materials at scale",
+      "Design/engineering complexity for novel material combinations"
+    ],
+    "recommendations": [
+      "External insulation critical for container buildings",
+      "Manufacturing waste streams offer consistent quality",
+      "Relocatable foundations add long-term value"
+    ]
+  },
+  "documentation": {
+    "primary_reports": [
+      {
+        "title": "Mini CO2 Houses in Nyborg",
+        "organization": "Realdania By & Byg",
+        "url": "https://realdaniabyogbygklubben.dk/media/st4lin3s/mini-co2-houses-in-nyborg.pdf",
+        "year": 2013
+      },
+      {
+        "title": "MiniCO2 Husene - Upcycle House Report",
+        "organization": "Realdania By & Byg",
+        "url": "https://realdaniabyogbygklubben.dk/media/1803/minico2-husene-upcycle-house.pdf",
+        "year": 2013
+      }
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "Mini CO2 Houses in Nyborg",
+      "organization": "Realdania By & Byg",
+      "url": "https://realdaniabyogbygklubben.dk/media/st4lin3s/mini-co2-houses-in-nyborg.pdf"
+    },
+    {
+      "type": "primary",
+      "name": "Upcycle House Project Page",
+      "organization": "Lendager Group",
+      "url": "https://lendager.com/project/upcycle-house/"
+    },
+    {
+      "type": "primary",
+      "name": "MiniCO2 Husene - Upcycle House Report",
+      "organization": "Realdania By & Byg",
+      "url": "https://realdaniabyogbygklubben.dk/media/1803/minico2-husene-upcycle-house.pdf"
+    },
+    {
+      "type": "secondary",
+      "name": "ArchDaily Feature",
+      "url": "https://www.archdaily.com/458245/upcycle-house-lendager-arkitekter"
+    }
+  ],
+  "data_completeness": {
+    "score": 85,
+    "grade": "A",
+    "has": [
+      "Location", "Year", "Size", "Budget", "Cost per m²",
+      "Client", "Architect", "Program",
+      "CO2 reduction (86%)", "Circularity rate (86%)",
+      "10 material types documented",
+      "Cost comparison", "10-year track record",
+      "Primary sources from Realdania"
+    ],
+    "missing": [
+      "Exact material tonnages",
+      "Detailed contractor information"
+    ],
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  },
+  "narrative": {
+    "driver": "Realdania sought to prove that drastic CO2 reduction in housing could be achieved at standard market prices - challenging the assumption that sustainable building must cost more.",
+    "approach": "Creative material sourcing from industrial waste streams. Shipping containers as structure, recycled steel foundation, newspaper insulation, flattened beverage cans on facade. All components selected for proven durability.",
+    "significance": "First Danish full-scale demonstration that 86% recycled materials could match conventional costs. Established methodology scaled to Resource Rows, UN17 Village, and Lendager's subsequent projects.",
+    "legacy": "Ten years of successful occupancy has validated all experimental materials. Model for circular housing globally."
+  }
+}

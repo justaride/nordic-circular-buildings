@@ -21,8 +21,9 @@
       "design_for_disassembly": 1
     },
     "aggregate_metrics": {
-      "reuse_rate_range": "DfD focus",
-      "co2_reduction_range": "14-90% (material-level)"
+      "reuse_rate_range": "100% structural DfD",
+      "co2_reduction_range": "15.7 kg CO2e/m²/a (30yr scenario)",
+      "lca_methodology": "EN 15978 standard"
     },
     "key_programs": [
       "CIRCuIT (EU)",
@@ -212,15 +213,51 @@
           "category": "design_for_disassembly",
           "material_type": "other",
           "description": "Modules up to 18 tonnes designed for crane lifting during relocation to Medialukio (Feb-May 2026)"
+        },
+        {
+          "category": "design_for_disassembly",
+          "material_type": "methodology",
+          "description": "Reversible Building Design (RBD) principles: visible solutions (non-hidden connections), separate systems (layered building systems), dismountability (reversible fasteners). Proposed term: 'Rewindable Building Design'",
+          "source": "Torvinen 2021 - Aalto University thesis Part IIb"
         }
       ],
       "metrics": {
         "co2_reduction": {
-          "percent": null,
-          "note": "Full building LCA exists in Aalto master thesis but not publicly accessible. Event-level operational footprint: 55.5-67.5 kgCO2e per seminar (520 attendees)"
+          "relative_footprint": {
+            "value_30yr": 15.7,
+            "value_5yr": 60.3,
+            "unit": "kg CO2e/m²/a",
+            "reference_value": 10.0,
+            "reference_source": "Bionova 2021 school building benchmark"
+          },
+          "total_co2": {
+            "value": 1558,
+            "unit": "tonnes CO2e",
+            "scenario": "60-year lifecycle with relocations"
+          },
+          "lifecycle_breakdown": {
+            "production_A1_A3": 37.9,
+            "transport_A4": 5.3,
+            "construction_A5": 0.5,
+            "component_replacement_B4": 6.0,
+            "energy_use_B6": 12.0,
+            "relocation_phases": 17.4,
+            "end_of_life_C1_C4": 10.3,
+            "other": 9.8,
+            "unit": "percent"
+          },
+          "relocation_impact": {
+            "single_transport": 2.5,
+            "cumulative_60yr": 27.3,
+            "unit": "percent of lifecycle emissions",
+            "note": "Transport impact remains secondary to production savings even with multiple relocations"
+          },
+          "methodology": "LCA per EN 15978 standard"
         },
         "circularity_rate": {
-          "value": null,
+          "value": 100,
+          "unit": "percent",
+          "scope": "structural elements",
           "note": "DfD approach - 100% of structural elements designed for reuse/relocation"
         },
         "energy_performance": {
@@ -234,20 +271,35 @@
       "sources": {
         "primary": [
           {
+            "title": "Aalto Master Thesis: Carbon footprint of transportable building (Part IIa)",
+            "author": "Elli Hirvonen",
+            "institution": "Aalto University, Department of Architecture",
+            "year": 2021,
+            "url": "https://aaltodoc.aalto.fi/items/e5f44329-3a64-4c57-920b-5938e0c56ed1",
+            "type": "academic",
+            "note": "Full LCA data with scenario analysis for relocations. Thesis title: Elinkaaren hiilijalanjälki siirrettävässä puurakennuksessa",
+            "metrics_source": true
+          },
+          {
+            "title": "Aalto Master Thesis: Reversible Building Design principles (Part IIb)",
+            "author": "Jaakko Torvinen",
+            "institution": "Aalto University, Department of Architecture",
+            "year": 2021,
+            "url": "https://aaltodoc.aalto.fi/items/e5f44329-3a64-4c57-920b-5938e0c56ed1",
+            "type": "academic",
+            "note": "DfD analysis with axonometric disassembly diagrams. Thesis title: Käänteisen rakennussuunnittelun periaatteet siirrettävässä puurakennuksessa"
+          },
+          {
             "title": "Puuinfo - Pikku-Finlandia",
             "url": "https://puuinfo.fi/arkkitehtuuri/public-buildings/pikku-finlandia/?lang=en",
             "type": "database"
           },
           {
-            "title": "Aalto Master Thesis - Lifecycle carbon footprint",
-            "url": "https://aaltodoc.aalto.fi/items/e5f44329-3a64-4c57-920b-5938e0c56ed1",
-            "type": "academic",
-            "note": "Full LCA data, requires direct access"
-          },
-          {
             "title": "Metropolia Thesis - Event carbon footprint",
+            "author": "Heikki Olli",
             "url": "https://www.theseus.fi/bitstream/handle/10024/801791/Olli_Heikki.pdf",
-            "type": "academic"
+            "type": "academic",
+            "note": "Operational energy study: 55.5-67.5 kgCO2e per seminar"
           }
         ],
         "secondary": [
@@ -259,11 +311,11 @@
         ]
       },
       "data_completeness": {
-        "score": 58,
-        "grade": "C",
-        "has": ["location", "architect", "client", "year", "size", "budget", "dfd_documentation", "energy_performance", "primary_sources"],
-        "missing": ["co2_reduction_percent", "circularity_rate", "public_lca_report"],
-        "upgrade_path": "Obtain Aalto thesis PDF for full LCA data"
+        "score": 85,
+        "grade": "A",
+        "has": ["location", "architect", "client", "year", "size", "budget", "dfd_documentation", "energy_performance", "primary_sources", "lca_data", "lifecycle_breakdown", "relocation_impact_analysis"],
+        "missing": [],
+        "upgrade_path": "Complete - academic LCA data integrated from Aalto thesis"
       },
       "narrative": {
         "driver": "Helsinki City needed temporary event venue while Finlandia Hall was under renovation. Pioneering approach: design building to be relocated rather than demolished after temporary use.",

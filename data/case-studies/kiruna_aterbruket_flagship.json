@@ -1,0 +1,686 @@
+{
+  "case_study_id": "KIRUNA_ATERBRUKET_FLAGSHIP",
+  "case_study_tier": "FLAGSHIP",
+  "project_id": "SE_kiruna_aterbruket",
+  "name": "Återbruket Kiruna",
+  "name_en": "Kiruna Urban Reuse",
+  "subtitle": "World's largest urban-scale material reuse - 98% recovery rate in city relocation",
+  "case_study_version": "1.0",
+  "last_updated": "2025-12-10",
+  "data_source": "ARQ/White Arkitekter 'To Re-use a Town' (2020) + Lund University LCA Study (2023)",
+  "executive_summary": {
+    "headline": "98% material recovery in world's most ambitious urban circular economy - entire city relocated with systematic material reuse",
+    "key_achievements": [
+      "98% material reuse/recycling rate per demolition project",
+      "45% CO2 reduction for building relocation vs demolish+rebuild (Lund LCA 2023)",
+      "31+ historic buildings designated for complete relocation",
+      "16,000 tonnes/year material flows managed by LKAB",
+      "Successful building relocations proved economically viable (Sheriff's House 2017)",
+      "Kiruna Portal concept: physical recycling yard + digital material marketplace",
+      "Railway Station bricks (lime mortar) achieving 80-95% reuse rate",
+      "Town Hall architectural elements integrated into new bathhouse and hotel",
+      "World's first city-scale material passport and reuse strategy"
+    ],
+    "why_flagship": "Kiruna represents the world's most ambitious urban-scale circular economy initiative. No other project has attempted systematic material recovery at this scale - relocating an entire city due to mining subsidence while achieving 98% material recovery. The project established methodologies for city-wide material reuse that can inform urban transformation globally.",
+    "why_tier": "Completeness score 78/100 (Grade B). Comprehensive documentation from ARQ research project, White Arkitekter masterplan, and independent LCA study from Lund University."
+  },
+  "project_basics": {
+    "location": {
+      "address": "New City Center, Kiruna",
+      "city": "Kiruna",
+      "municipality": "Kiruna kommun",
+      "region": "Norrbotten",
+      "country": "Sweden",
+      "coordinates": {
+        "lat": 67.8558,
+        "lng": 20.2253
+      },
+      "note": "Arctic location - world's northernmost city of significant size"
+    },
+    "timeline": {
+      "masterplan_competition": 2012,
+      "masterplan_win": 2013,
+      "first_building_relocation": 2017,
+      "ongoing_since": 2013,
+      "projected_completion": "2030s",
+      "duration_years": "20+ years (ongoing)"
+    },
+    "size": {
+      "scope": "City-wide transformation",
+      "area_affected_hectares": "Unknown - entire city center",
+      "buildings_designated_relocation": 31,
+      "material_flow_tonnes_per_year": 16000,
+      "note": "Not a single building but urban-scale transformation"
+    },
+    "budget": {
+      "funding_source": "LKAB (mining company)",
+      "note": "Budget not publicly disclosed - funded as part of mining operations impact mitigation"
+    }
+  },
+  "stakeholders": {
+    "primary_organizations": {
+      "municipality": {
+        "name": "Kiruna kommun",
+        "role": "Municipal coordination, planning authority",
+        "key_person": "Clara Nyström (Architectural Curator)"
+      },
+      "funder": {
+        "name": "LKAB",
+        "role": "Mining company, relocation funder, material flow manager",
+        "key_person": "Mari Koukkanen (Demolition/Dismantling coordination)",
+        "contribution": "Manages 16,000 tonnes/year material flows from demolition/relocation"
+      }
+    },
+    "design_team": {
+      "masterplan_architect": {
+        "name": "White Arkitekter",
+        "competition_entry": "Kiruna 4-Ever",
+        "year": 2013,
+        "key_people": ["Peter Eklund (Landscape reuse)", "Krister Lindstedt"],
+        "partner": "Ghilardi+Hellsten"
+      }
+    },
+    "material_partners": {
+      "salvage_processing": {
+        "name": "Tekniska Verken (TVAB)",
+        "role": "Material salvage and processing",
+        "key_person": "Karl Venäläinen",
+        "contribution": "Railway Station brick storage in Block 95"
+      }
+    },
+    "research_partners": [
+      {
+        "name": "RISE Institute",
+        "role": "Research on timber reuse and Design for Disassembly",
+        "program": "Kiruna Sustainability Centre partnership"
+      },
+      {
+        "name": "LTU (Luleå Technical University)",
+        "role": "Timber buildings research",
+        "program": "Kiruna Bostäder project"
+      },
+      {
+        "name": "ARQ (Arkitekturforskning)",
+        "role": "Research documentation",
+        "output": "'To Re-use a Town' final report (2020)"
+      },
+      {
+        "name": "Lund University",
+        "role": "LCA study",
+        "researchers": "Söderström & Lidström",
+        "output": "Building relocation vs demolition CO2 comparison (2023)"
+      }
+    ],
+    "construction_partners": {
+      "recycling_center": {
+        "name": "NCC",
+        "role": "New recycling center construction",
+        "note": "LKAB commissioned recycling center for material processing"
+      }
+    }
+  },
+  "material_inventory": {
+    "overview": {
+      "total_reuse_rate_percent": 98,
+      "measurement_basis": "by_weight",
+      "annual_material_flow_tonnes": 16000,
+      "material_categories": 6,
+      "methodology": "Selective demolition with systematic salvage"
+    },
+    "materials": [
+      {
+        "id": "M1_CONCRETE_MINERAL",
+        "category": "structural",
+        "material_type": "concrete",
+        "local_name": "Betong och mineralavfall",
+        "english_name": "Concrete and mineral waste",
+        "description": "Crushed and used as road fill and foundation ballast",
+        "quantity": {
+          "contribution_percent": 50,
+          "note": "Largest volume category"
+        },
+        "reuse_rate_percent": "98%+",
+        "processing": {
+          "method": "Crushing on-site or at nearby facility",
+          "output": "Road base, foundation material, ballast",
+          "transport_distance": "Minimal - on-site or local reuse"
+        },
+        "environmental_impact": {
+          "note": "Avoids virgin aggregate extraction and long-distance transport"
+        }
+      },
+      {
+        "id": "M2_METAL_STEEL",
+        "category": "structural",
+        "material_type": "steel",
+        "local_name": "Metallskrot och stål",
+        "english_name": "Metal scrap and steel",
+        "description": "Iron and steel components - approximately 50% of LKAB's 16,000 tonnes annual waste",
+        "quantity": {
+          "contribution_percent": 30,
+          "tonnes_per_year": 8000,
+          "note": "~50% of total material flow"
+        },
+        "reuse_rate_percent": "95%+",
+        "processing": {
+          "method": "Direct recycling via steel industry",
+          "output": "Recycled steel products"
+        },
+        "environmental_impact": {
+          "note": "Steel recycling well-established; high value recovery"
+        },
+        "citations": [
+          {
+            "source": "NCC Press Release",
+            "url": "https://www.ncc.com/media/pressrelease/c48f402482ec2560/ncc-to-build-new-recycling-center-in-kiruna/",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "id": "M3_BRICK_LIME_MORTAR",
+        "category": "facade",
+        "material_type": "brick",
+        "local_name": "Tegel med kalkbruk",
+        "english_name": "Brick with lime mortar",
+        "description": "Bricks joined with lime mortar - successfully salvaged from Railway Station",
+        "quantity": {
+          "contribution_percent": 8,
+          "note": "Variable based on building age and mortar type"
+        },
+        "reuse_rate_percent": "80-95%",
+        "donor_sources": [
+          {
+            "name": "Kiruna Railway Station",
+            "status": "Successfully salvaged",
+            "storage": "Block 95 by Tekniska Verken",
+            "reuse_location": "New electrical substation in city center"
+          },
+          {
+            "name": "Gamla Stadshuset (Old Town Hall)",
+            "status": "Interior bricks salvaged",
+            "note": "Exterior facade had cement mortar sections - lower recovery rate"
+          }
+        ],
+        "processing": {
+          "method": "Selective deconstruction - non-destructive removal",
+          "success_factor": "Lime mortar allows clean separation; cement mortar reduces recovery",
+          "storage": "Temporary storage until reuse project identified"
+        },
+        "lessons_learned": [
+          "Lime mortar enables 80-95% brick reuse",
+          "Cement mortar limits recovery to 60-75%",
+          "Historical buildings (pre-1950) typically have lime mortar"
+        ]
+      },
+      {
+        "id": "M4_BRICK_CEMENT_MORTAR",
+        "category": "facade",
+        "material_type": "brick",
+        "local_name": "Tegel med cementbruk",
+        "english_name": "Brick with cement mortar",
+        "description": "Bricks joined with cement mortar - more difficult to salvage intact",
+        "reuse_rate_percent": "60-75%",
+        "processing": {
+          "challenge": "Cement mortar damages bricks during separation",
+          "method": "Partial recovery possible with careful technique"
+        },
+        "lessons_learned": [
+          "Post-1950 buildings often have cement mortar",
+          "Lower recovery rate but still viable for non-facade applications"
+        ]
+      },
+      {
+        "id": "M5_WINDOWS_DOORS",
+        "category": "facade",
+        "material_type": "windows",
+        "local_name": "Fönster och dörrar",
+        "english_name": "Windows and doors",
+        "description": "Systematically harvested from demolition sites and sold to residents/projects",
+        "quantity": {
+          "contribution_percent": 5
+        },
+        "reuse_rate_percent": "85%+",
+        "processing": {
+          "method": "Careful removal, storage, direct reuse or sale",
+          "market": "Sold to private residents and other construction projects"
+        },
+        "environmental_impact": {
+          "note": "Direct reuse avoids high embodied carbon of new windows"
+        }
+      },
+      {
+        "id": "M6_FIXTURES_ARCHITECTURAL",
+        "category": "interior",
+        "material_type": "fixtures",
+        "local_name": "Inredning och arkitektoniska element",
+        "english_name": "Fixtures and architectural elements",
+        "description": "Town Hall artwork, mosaics, granite portal integrated into new buildings",
+        "quantity": {
+          "contribution_percent": 5
+        },
+        "reuse_rate_percent": "70-90%",
+        "donor_sources": [
+          {
+            "name": "Gamla Stadshuset (Old Town Hall)",
+            "demolished": "October 2019",
+            "items_salvaged": [
+              "Interior bricks with lime mortar",
+              "Exterior facade bricks (partial)",
+              "Granite portal",
+              "'Moln över Mesopotamien' artwork by Erling Johansson",
+              "'Djungelinterior' mosaic by John Wipp (11×5 m)",
+              "Neo-sign from 1958 bath house",
+              "Railings and interior fixtures"
+            ],
+            "reuse_locations": [
+              "New bathhouse (badhuset) - portal, mosaics, artwork",
+              "New city hotel - lighting fixtures, architectural components",
+              "4 commercial galleries awaiting allocation"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "M7_COMPLETE_BUILDINGS",
+        "category": "building_relocation",
+        "material_type": "complete_structure",
+        "local_name": "Hela byggnader för flytt",
+        "english_name": "Complete building relocations",
+        "description": "Historic buildings physically moved to new locations",
+        "quantity": {
+          "designated_count": 31,
+          "completed_examples": [
+            "Länsmansbostaden (Sheriff's House) - October 2017",
+            "Ingenjörsvillan (Engineer's Villa) - August 2017",
+            "Hjalmar Lundbohmsgården - September 2017",
+            "Arbetarbostaden B5 (worker housing 1899) - May 2017",
+            "Bläckhornsområdet (first 3 of 14 houses) - May-June 2017",
+            "Klocktornet (Town Hall clock tower) - 2019",
+            "Gula Raden (Yellow Row worker housing 1900) - October 2019"
+          ]
+        },
+        "reuse_rate_percent": 100,
+        "economic_validation": {
+          "project": "Länsmansbostaden (Sheriff's House)",
+          "year": 2017,
+          "outcome": "Proved economic viability of building relocation",
+          "impact": "Changed market perception - many more buildings relocated than initially planned"
+        },
+        "environmental_impact": {
+          "co2_reduction_percent": 45,
+          "methodology": "Relocation 115 kg CO2e/m² vs New construction 208 kg CO2e/m²",
+          "source": "Lund University LCA study (Söderström & Lidström 2023)"
+        }
+      }
+    ]
+  },
+  "environmental_metrics": {
+    "overall": {
+      "material_recovery_rate_percent": 98,
+      "scope": "Per demolition project average",
+      "verification": "LKAB operational data"
+    },
+    "building_relocation_lca": {
+      "case_a_relocation": {
+        "value": 115,
+        "unit": "kg CO2e/m² BTA",
+        "scope": "Excluding operational energy"
+      },
+      "case_b_new_construction": {
+        "value": 208,
+        "unit": "kg CO2e/m² BTA",
+        "scope": "Demolish and rebuild"
+      },
+      "co2_savings": {
+        "absolute": 93,
+        "unit": "kg CO2e/m² BTA",
+        "percent": 45
+      },
+      "transport_distances_modeled": "600-1100 km (Kiruna → Stockholm/Malmö)",
+      "transport_impact_percent": 14,
+      "note": "Transport accounts for only ~14% of relocation carbon - secondary to material production savings",
+      "source": {
+        "title": "LCA Study: Building Relocation vs Demolition",
+        "authors": "Söderström & Lidström",
+        "institution": "Lund University",
+        "year": 2023,
+        "url": "https://lup.lub.lu.se/student-papers/record/9142073/file/9142074.pdf"
+      }
+    },
+    "lca_breakdown": {
+      "main_savings_source": "Avoided production emissions from new materials (A1-A3 stages ~70% of benefit)",
+      "phases_analyzed": ["A1-A3", "A4", "A5", "C1-C4"],
+      "methodology": "Comparative LCA per EN 15978"
+    },
+    "by_material": [
+      {
+        "material": "Concrete/mineral",
+        "recovery_percent": "98%+",
+        "method": "Crushed for road base"
+      },
+      {
+        "material": "Metal/steel",
+        "recovery_percent": "95%+",
+        "method": "Recycling"
+      },
+      {
+        "material": "Brick (lime mortar)",
+        "recovery_percent": "80-95%",
+        "method": "Careful deconstruction"
+      },
+      {
+        "material": "Brick (cement mortar)",
+        "recovery_percent": "60-75%",
+        "method": "Partial recovery"
+      },
+      {
+        "material": "Windows/doors",
+        "recovery_percent": "85%+",
+        "method": "Direct reuse/sale"
+      },
+      {
+        "material": "Fixtures/architectural",
+        "recovery_percent": "70-90%",
+        "method": "Integration into new buildings"
+      }
+    ]
+  },
+  "certifications_and_awards": {
+    "certifications": [],
+    "awards": [],
+    "recognition": [
+      {
+        "name": "White Arkitekter International Competition Win",
+        "year": 2013,
+        "entry": "Kiruna 4-Ever",
+        "note": "Masterplan competition win establishing circular economy as core strategy"
+      }
+    ],
+    "programs": [
+      {
+        "name": "Kiruna 4-Ever Masterplan",
+        "organization": "White Arkitekter + Ghilardi+Hellsten",
+        "year": 2013,
+        "significance": "Conceptualized Kiruna Portal and material reuse as urban strategy"
+      }
+    ]
+  },
+  "logistics_and_process": {
+    "kiruna_portal_concept": {
+      "description": "Proposed central logistics facility combining physical and digital infrastructure",
+      "components": [
+        "Physical recycling and dismantling yard",
+        "Temporary material storage and processing areas",
+        "Virtual digital material marketplace for cross-project matching",
+        "Display facilities for architects to identify available salvaged materials",
+        "Educational and demonstration spaces"
+      ],
+      "status": "Not yet fully realized as physical facility - concept informs municipal strategy"
+    },
+    "current_operations": {
+      "material_flow_management": "LKAB manages 16,000 tonnes/year",
+      "storage": "Tekniska Verken manages brick storage in Block 95",
+      "processing": "On-site crushing for concrete; centralized storage for reusable elements"
+    },
+    "challenges": {
+      "labor": {
+        "issue": "Labor shortage in Kiruna makes material processing labor-intensive",
+        "context": "Arctic location with limited workforce"
+      },
+      "logistics": {
+        "issue": "On-site storage limitations during demolition",
+        "constraint": "Long-distance transport economics unfavorable beyond 30 km for mineral aggregates"
+      },
+      "temporal_mismatch": {
+        "issue": "Supply (demolition sites) and demand (new projects) are temporally misaligned",
+        "need": "Intermediate storage facilities and coordinated logistics network"
+      }
+    }
+  },
+  "regulatory_context": {
+    "building_regulations": {
+      "issue": "PBR/PBL (Building and Planning Regulations) can be obstacles to reuse",
+      "note": "Some salvaged materials require additional documentation"
+    },
+    "economic_barriers": {
+      "issue": "Cost of reuse often exceeds new material costs",
+      "need": "Subsidies or policy incentives to bridge cost gap"
+    }
+  },
+  "economics": {
+    "cost_data_available": false,
+    "funding_model": "LKAB funds relocation as mining impact mitigation",
+    "economic_validation": {
+      "project": "Länsmansbostaden (Sheriff's House) relocation",
+      "year": 2017,
+      "outcome": "Proved building relocation economically viable",
+      "impact": "Market perception changed - more buildings relocated than initially planned"
+    },
+    "cost_barriers": {
+      "note": "Selective salvage more expensive than demolition",
+      "need": "Policy incentives (VAT relief, subsidies, tax deductions) to offset premium"
+    }
+  },
+  "lessons_learned": {
+    "building_relocation": {
+      "key_finding": "45% CO2 reduction vs demolish+rebuild",
+      "economic_viability": "Sheriff's House success changed market perception",
+      "transport_impact": "Even 600-1100 km transport only adds ~14% to lifecycle carbon"
+    },
+    "material_recovery": {
+      "lime_vs_cement_mortar": "Lime mortar bricks achieve 80-95% reuse; cement mortar limits to 60-75%",
+      "historical_buildings": "Pre-1950 buildings typically have lime mortar - better reuse candidates",
+      "metal_recovery": "Steel and metal recovery well-established - 95%+ rates achievable"
+    },
+    "success_factors": [
+      "LKAB funding provides stable financial foundation",
+      "Municipal commitment to circular economy as core strategy",
+      "White Arkitekter masterplan embedded reuse from competition stage",
+      "Research partnerships (ARQ, RISE, LTU) provide documentation and methodology",
+      "Early relocation successes proved viability"
+    ],
+    "challenges_encountered": [
+      "Arctic labor shortage constrains material processing capacity",
+      "Temporal mismatch between demolition and construction timelines",
+      "Storage and logistics infrastructure still developing",
+      "Cost premium for selective salvage vs disposal",
+      "Regulatory uncertainty for salvaged materials"
+    ],
+    "recommendations": [
+      "Establish permanent Kiruna Portal facility with warehouse capacity",
+      "Develop digital material marketplace for supply-demand matching",
+      "Municipal leadership essential - requires budget allocation",
+      "Design for Deconstruction standards in planning regulations",
+      "Economic incentives needed to offset selective salvage costs",
+      "Standardized material assessment methodology and passports"
+    ],
+    "future_implications": [
+      "Kiruna methodology applicable to other mining communities",
+      "Urban transformation projects globally can learn from 98% recovery approach",
+      "Material passport systems inform future building design",
+      "Building relocation viable strategy for historic preservation"
+    ]
+  },
+  "documentation": {
+    "primary_report": {
+      "title": "To Re-use a Town - Final Report",
+      "organization": "ARQ/White Arkitekter",
+      "year": 2020,
+      "url": "https://arqforsk.se/wp-content/uploads/2020/12/Final-report-To-re-use-a-town-200706-.pdf",
+      "contents": [
+        "Comprehensive mapping of Kiruna relocation projects",
+        "Material reuse initiatives documentation",
+        "Stakeholder interviews",
+        "Implementation challenges and recommendations"
+      ]
+    },
+    "lca_study": {
+      "title": "LCA Study: Building Relocation vs Demolition",
+      "authors": "Söderström & Lidström",
+      "institution": "Lund University",
+      "year": 2023,
+      "url": "https://lup.lub.lu.se/student-papers/record/9142073/file/9142074.pdf",
+      "significance": "Independent academic verification of CO2 benefits"
+    },
+    "masterplan": {
+      "title": "Kiruna 4-Ever Masterplan",
+      "organization": "White Arkitekter",
+      "year": 2013,
+      "url": "https://whitearkitekter.com/project/kiruna-masterplan/",
+      "significance": "Competition-winning entry establishing circular economy strategy"
+    }
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "name": "To Re-use a Town - Final Report",
+      "organization": "ARQ/White Arkitekter",
+      "url": "https://arqforsk.se/wp-content/uploads/2020/12/Final-report-To-re-use-a-town-200706-.pdf",
+      "year": 2020
+    },
+    {
+      "type": "primary",
+      "name": "LCA Study: Building Relocation vs Demolition",
+      "organization": "Lund University",
+      "authors": "Söderström & Lidström",
+      "url": "https://lup.lub.lu.se/student-papers/record/9142073/file/9142074.pdf",
+      "year": 2023
+    },
+    {
+      "type": "primary",
+      "name": "Kiruna Masterplan",
+      "organization": "White Arkitekter",
+      "url": "https://whitearkitekter.com/project/kiruna-masterplan/",
+      "year": 2013
+    },
+    {
+      "type": "secondary",
+      "name": "White Sustainability Report 2021",
+      "organization": "White Arkitekter",
+      "url": "https://whitearkitekter.com/wp-content/uploads/2022/05/White-hallbarhetsrapport-2021-ENG-webb-low-spreads.pdf",
+      "year": 2021
+    },
+    {
+      "type": "secondary",
+      "name": "NCC Recycling Center Kiruna",
+      "organization": "NCC",
+      "url": "https://www.ncc.com/media/pressrelease/c48f402482ec2560/ncc-to-build-new-recycling-center-in-kiruna/",
+      "year": 2020
+    },
+    {
+      "type": "secondary",
+      "name": "VINNOVA - Design for Future Timber Reuse",
+      "organization": "VINNOVA",
+      "url": "https://www.vinnova.se/en/p/design-of-the-future---reuse-of-wooden-buildings-in-a-circular-economy/",
+      "note": "Includes Kiruna timber housing research"
+    }
+  ],
+  "data_gaps": {
+    "documented": [
+      "98% material recovery rate",
+      "45% CO2 reduction for building relocation",
+      "16,000 tonnes/year material flow",
+      "31+ buildings designated for relocation",
+      "Material recovery rates by type",
+      "Stakeholder roles and responsibilities",
+      "LCA methodology and results"
+    ],
+    "remaining_gaps": [
+      "Total project budget",
+      "Individual building relocation costs",
+      "Detailed material tonnages by year",
+      "Kiruna Portal implementation timeline",
+      "Long-term monitoring data"
+    ],
+    "potential_sources": [
+      "LKAB annual reports",
+      "Kiruna kommun planning documents",
+      "Ongoing research publications"
+    ]
+  },
+  "replicability_assessment": {
+    "transferable_elements": [
+      "98% recovery methodology for urban demolition",
+      "Building relocation as preservation strategy",
+      "Material recovery rates by mortar type",
+      "Kiruna Portal concept for material marketplace",
+      "Research partnership model for documentation"
+    ],
+    "context_dependent": [
+      "LKAB funding model specific to mining impact",
+      "Arctic location labor constraints",
+      "Single-industry town dynamics",
+      "Long transformation timeline (20+ years)"
+    ],
+    "scalability": "Methodology applicable to any urban transformation project; requires adapted funding model and governance structure"
+  },
+  "narrative": {
+    "driver": "LKAB iron ore mining caused ground subsidence requiring relocation of entire city center. Rather than demolish and rebuild, masterplan 'Kiruna 4-Ever' conceptualized material reuse and building relocation as core strategy.",
+    "approach": "Systematic material recovery: concrete crushed for road base, metals recycled, bricks salvaged (lime mortar), fixtures harvested. Complete building relocations proved economically viable after Sheriff's House success (2017). Kiruna Portal concept for digital material marketplace.",
+    "significance": "World's most ambitious urban-scale circular economy. Demonstrates 98% material recovery is achievable at city scale. Provides methodology for mining communities and urban transformation globally.",
+    "legacy": "Kiruna methodology being studied by urban planners worldwide. Building relocation validated as viable alternative to demolition. Material passport and marketplace concepts informing national policy."
+  },
+  "cbc_assessment": {
+    "pathways": {
+      "build_nothing_new": {
+        "score": 90,
+        "max": 100,
+        "note": "Entire buildings relocated rather than demolished - exemplary preservation"
+      },
+      "build_for_longterm": {
+        "score": 70,
+        "max": 100,
+        "note": "New Kiruna buildings designed for future adaptability; material passport system in development"
+      },
+      "build_efficiently": {
+        "score": 75,
+        "max": 100,
+        "note": "Exceptional material efficiency through systematic recovery"
+      },
+      "build_with_right_materials": {
+        "score": 95,
+        "max": 100,
+        "note": "98% material recovery - world-leading urban-scale circular economy"
+      }
+    },
+    "total_score": 88,
+    "grade": "A",
+    "quality_multiplier": 1.3,
+    "note": "Quality multiplier applied for verified third-party LCA data and decade of documented implementation"
+  },
+  "data_completeness": {
+    "score": 78,
+    "grade": "B",
+    "category_scores": {
+      "basic_info": 75,
+      "stakeholders": 85,
+      "metrics_co2": 90,
+      "metrics_circularity": 95,
+      "material_inventory": 80,
+      "cost_data": 20,
+      "sources_primary": 90,
+      "lessons_learned": 85
+    },
+    "has": [
+      "Location and context",
+      "Timeline (ongoing since 2013)",
+      "Material recovery rate (98%)",
+      "CO2 reduction (45% for relocation)",
+      "Material breakdown by type",
+      "Stakeholder roles",
+      "Research documentation",
+      "Independent LCA study",
+      "Lessons learned"
+    ],
+    "missing": [
+      "Total budget",
+      "Individual building costs",
+      "Detailed annual material flows",
+      "Size in m²"
+    ],
+    "upgrade_path": "Obtain LKAB/municipality budget data; access ongoing monitoring reports",
+    "synced_from_project": true,
+    "sync_date": "2025-12-10"
+  }
+}
