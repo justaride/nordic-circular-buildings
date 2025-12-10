@@ -1,63 +1,79 @@
 # Nordic Circular Buildings - Project Roadmap
 
-## Current Phase: Continuing Research & Documentation
+## Current Phase: Data Consolidation & Queue Promotion
+
+### Phase 11 Complete: Nordic Case Studies ✅ (2025-12-10)
+
+**All 5 Nordic countries now have comprehensive case study coverage.** Created 15 new case studies:
+- 🇸🇪 Sweden: 5 case studies (Förskolan Hoppet, Kiruna, Lumi, Sara, Selma)
+- 🇩🇰 Denmark: 5 case studies (Upcycle House, Circle House, Resource Rows, UN17, FBAB)
+- 🇮🇸 Iceland: 4 case studies (Háteigsvegur, Smiðja, Umhverfisstofnun, Stöng)
+- 🇫🇮 Finland: 1 case study (Pikku-Finlandia with full Aalto thesis LCA)
+
+**Total: 40 verified projects, 22 case studies across 5 countries**
+
+### Phase 10 Complete: Nordic Expansion ✅ (2025-12-10)
+
+- Added Kiruna Återbruket to Sweden (98% material recovery, 45% CO2↓)
+- Added FBAB Seest to Denmark verified (FSC timber, DGNB Gold)
+- Enhanced Pikku-Finlandia with Aalto thesis LCA data (score 58→85)
 
 ### Phase 9 Complete: Research Deep-Dive ✅ (2025-12-10)
 
-**All 5 Nordic countries now have verified projects.** Added 3 new verified projects:
-- 🇸🇪 Sweden: +1 (Selma Lagerlöfs Center - 92% interior reuse)
-- 🇫🇮 Finland: +1 (Pikku-Finlandia - first verified, world-leading DfD)
-- 🇮🇸 Iceland: +1 (Stöng Viking Ruins - first heritage sustainability project)
-- 🇳🇴 Norway: Enhanced Oksenøya with CO2 breakdown (School 51.9%, Kindergarten 60.8%)
-
-**Total: 38 verified projects across 5 countries (NO: 25, DK: 4, SE: 4, IS: 4, FI: 1)**
+- Processed 33 new research files from "Videre Dykk" research session
+- Added Selma Lagerlöfs Center, Stöng Viking Ruins
+- Enhanced Norwegian projects with detailed CO2 data
 
 ### Phase 8 Complete: Nordic Verification ✅ (2025-12-09)
 
-Verified 10 projects across 4 countries:
-- 🇩🇰 Denmark: 4 verified (Upcycle House, Circle House, UN17 Village, Resource Rows)
-- 🇮🇸 Iceland: 3 verified (Smiðja Parliament, Umhverfisstofnun, Háteigsvegur 59)
-- 🇸🇪 Sweden: 3 verified (Förskolan Hoppet, Sara Kulturhus, Lumi)
+Verified 10 projects across 4 countries (DK: 4, IS: 3, SE: 3)
 
-### Research Notes Extraction: Complete ✅
+### Current Database Status
 
-| Country | Research Files | Verified | Queue | Status |
-|---------|---------------|----------|-------|--------|
-| Sweden | 20 | 4 | 5 | ✅ +Selma Lagerlöfs Center |
-| Denmark | 13 | 4 | 6 | ✅ +FBAB Seest (queue) |
-| Finland | 17 | 1 | 6 | ✅ +Pikku-Finlandia verified |
-| Iceland | 8 | 4 | - | ✅ +Stöng Viking Ruins |
+| Country | Verified | Case Studies | Queue | Status |
+|---------|----------|--------------|-------|--------|
+| 🇳🇴 Norway | 25 | 7 | - | ✅ Complete |
+| 🇸🇪 Sweden | 5 | 5 | 5 | ✅ Full coverage |
+| 🇩🇰 Denmark | 5 | 5 | 5 | ✅ Full coverage |
+| 🇮🇸 Iceland | 4 | 4 | - | ✅ Full coverage |
+| 🇫🇮 Finland | 1 | 1 | 6 | ✅ Flagship documented |
 
 ---
 
-## Active Phase: Monitoring for New Data
+## Next Phase: Data Quality & Expansion
 
-**Objective**: Wait for quantified metrics to be published for remaining queue projects.
+**Objective**: Improve data consistency, add Norway case studies, promote queue projects.
 
-### Priority Targets
+### Priority 1: Norway Case Study Expansion
 
-**Norway (External Documents Needed):**
-| Project | Circularity | Status | Document Needed |
-|---------|-------------|--------|-----------------|
-| Grensen 9B | 97.3% | ⏳ Need report | Erfaringsrapport from DOGA |
-| Treklang/Oksenøya | TBD | ⏳ Need report | FutureBuilt rapport from Bærum |
-| Nøstebukten | 70% | ⏳ Need report | Ombruksrapport from developer |
+| Project | Circularity | Status | Action |
+|---------|-------------|--------|--------|
+| Grensen 9B | 97.3% | ⏳ Need report | Highest circularity - priority |
+| Treklang/Oksenøya | TBD | ⏳ Need report | FutureBuilt rapport needed |
+| Nøstebukten | 70% | ⏳ Need report | Ombruksrapport needed |
 | Høyblokken | TBD | ⏳ Need report | Statsbygg dokumentasjon |
 
-**Finland (Queue - 6 remaining):**
-| Project | Score | Gap | Action |
-|---------|-------|-----|--------|
-| Mustikkamaa Depot | 9/13 | No CO2/circularity % | Wait for post-completion LCA |
-| Tikkurilan varasto | 7/13 | >90% CO2 for brick material | Tier B candidate |
-| Koivukylä Sortti | 7/13 | 14% CO2 reduction | Tier B candidate |
-| Dance House | 7/13 | Only 25% reuse | Deprioritize (limited circularity) |
+### Priority 2: Queue Promotion
 
-**Other Nordic (Queue Projects):**
-| Country | Queue | Status |
-|---------|-------|--------|
-| Sweden | 5 | Kiruna reuse, Borås, Cirkeln Uppsala need metrics |
-| Denmark | 6 | FBAB Seest ready for promotion, Venligbolig+ needs data |
-| Iceland | 0 | ✅ All verified |
+**Sweden Queue (5):**
+| Project | Highlight | Gap |
+|---------|-----------|-----|
+| Litteraturgatan | >50% reuse target | 2023-2026, verify completion |
+| Svenska kraftnät HQ | 52,000 m², 600 windows | 2025+, need metrics |
+| Borås Tingsrätt | 100% reused brick | 2025, need verification |
+
+**Finland Queue (6):**
+| Project | Score | Gap |
+|---------|-------|-----|
+| Mustikkamaa Depot | 9/13 | No CO2/circularity % - await LCA |
+| Tikkurilan varasto | 7/13 | >90% CO2 for brick - Tier B candidate |
+| Koivukylä Sortti | 7/13 | 14% CO2 reduction - Tier B candidate |
+
+### Priority 3: Data Consistency
+
+- Sync case study metrics → project files
+- Standardize circularity calculation methods
+- Create Swedish/Danish enablers files
 
 ### Completed Enablers (Phase 3)
 - [x] Material Banking Infrastructure (Sirkulær Ressurssentral, Resirqel, Ombygg)
@@ -421,9 +437,11 @@ site/public/
 | **Phase 9a** | Research deep-dive (33 files processed) | ✅ Complete |
 | **Phase 9b** | 3 new verified projects (SE, FI, IS) | ✅ Complete |
 | **Phase 9c** | All 5 Nordic countries with verified projects | ✅ Complete |
-| **Phase 10** | Material flow visualization (Sankey) | Planned |
-| **Phase 11** | Additional Norway case studies | Planned |
-| **Phase 12** | Remaining queue promotions | Planned |
+| **Phase 10** | Nordic expansion (Kiruna, FBAB, Pikku-Finlandia LCA) | ✅ Complete |
+| **Phase 11** | Nordic case studies (15 new across SE/DK/IS/FI) | ✅ Complete |
+| **Phase 12** | Material flow visualization (Sankey) | Planned |
+| **Phase 13** | Additional Norway case studies | Planned |
+| **Phase 14** | Queue promotions & data consistency | Planned |
 
 ---
 

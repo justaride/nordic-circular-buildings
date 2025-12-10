@@ -6,14 +6,28 @@
 
 ## Executive Summary
 
-The Nordic Circular Buildings database has completed **Phase 9** - all 5 Nordic countries now have verified projects:
+The Nordic Circular Buildings database has completed **Phase 11** - comprehensive case studies now exist for all Nordic countries:
 
-- **38 verified projects** across 5 countries (NO: 25, DK: 4, SE: 4, IS: 4, FI: 1)
+- **40 verified projects** across 5 countries (NO: 25, DK: 5, SE: 5, IS: 4, FI: 1)
+- **22 deep-dive case studies** (NO: 7, SE: 5, DK: 5, IS: 4, FI: 1)
 - **17 research queue projects** across Sweden, Denmark, Finland
-- **7 deep-dive case studies** with verified citations
 - **11 self-hosted PDFs** (36MB total)
 - **50+ primary sources** documented in sources library
 - **Operational website** at justaride.github.io/nordic-circular-buildings
+
+### Phase 11 Achievements (2025-12-10)
+- Created 15 new Nordic case studies matching Norway's detailed structure
+- Sweden: 5 case studies (Förskolan Hoppet, Kiruna, Lumi, Sara, Selma)
+- Denmark: 5 case studies (Upcycle House, Circle House, Resource Rows, UN17, FBAB)
+- Iceland: 4 case studies (Háteigsvegur, Smiðja, Umhverfisstofnun, Stöng)
+- Finland: 1 case study (Pikku-Finlandia with full Aalto thesis LCA data)
+- **All 5 Nordic countries now have comprehensive case study coverage**
+
+### Phase 10 Achievements (2025-12-10)
+- Added Kiruna Återbruket to Sweden (98% material recovery, 45% CO2↓)
+- Added FBAB Seest to Denmark verified (FSC timber, DGNB Gold)
+- Enhanced Pikku-Finlandia with Aalto thesis LCA data (score 58→85)
+- Hosted 5 new PDFs for Nordic projects
 
 ### Phase 9 Achievements (2025-12-10)
 - Processed 33 new research files from "Videre Dykk" research session
@@ -21,35 +35,72 @@ The Nordic Circular Buildings database has completed **Phase 9** - all 5 Nordic 
 - Added Selma Lagerlöfs Center to Sweden verified (92% interior reuse)
 - Added Pikku-Finlandia to Finland verified (first verified project!)
 - Added Stöng Viking Ruins to Iceland verified
-- Added FBAB Seest to Denmark research queue
-- Fixed all schema issues and rebuilt site successfully
 - **All 5 Nordic countries now have verified projects**
 
-### Research Notes Extraction Status: COMPLETE ✅
+### Verified Projects by Country
 
-| Country | Research Files | Verified | Queue | Status |
-|---------|---------------|----------|-------|--------|
-| 🇸🇪 Sweden | 20 | 4 | 5 | ✅ +Selma Lagerlöfs Center |
-| 🇩🇰 Denmark | 13 | 4 | 6 | ✅ +FBAB Seest (queue) |
-| 🇫🇮 Finland | 17 | 1 | 6 | ✅ +Pikku-Finlandia verified |
-| 🇮🇸 Iceland | 8 | 4 | - | ✅ +Stöng Viking Ruins |
+| Country | Verified | Case Studies | Queue | Status |
+|---------|----------|--------------|-------|--------|
+| 🇳🇴 Norway | 25 | 7 | - | ✅ Complete |
+| 🇸🇪 Sweden | 5 | 5 | 5 | ✅ Full coverage |
+| 🇩🇰 Denmark | 5 | 5 | 5 | ✅ Full coverage |
+| 🇮🇸 Iceland | 4 | 4 | - | ✅ Full coverage |
+| 🇫🇮 Finland | 1 | 1 | 6 | ✅ Flagship documented |
 
 ---
 
 ## What Has Been Completed
 
-### Phase 1-2: Case Study Development ✅
+### Case Studies by Country (22 Total)
 
-| Project | Tier | Report Type | Pages | Key Metrics | PDF Hosted |
-|---------|------|-------------|-------|-------------|------------|
-| **KA13** | Flagship | Erfaringsrapport | 116 | 80% circ, 45t steel, 96t hulldekker | ✅ 15MB |
-| **KA23** | Flagship | Erfaringsrapport | 19+15 | 83% reuse, 55% CO2, 53% ombrukbarhet | ✅ 1.4MB |
-| **Nedre Sem** | Strong | Sirk+Klima+Betong+Plast | 19+16+29+8 | 48% SI, 100% recycled agg | ✅ 6.3MB |
-| **Løren** | Tier 2 | Klimasats slutt+del | 8+6 | 4,620kg CO2 saved | ✅ 207KB |
-| **Føniks** | Tier 2 | Presentation | 17 | 89% SI, 2600 items | ✅ 9.5MB |
-| **Skur 38** | Tier 2 | FutureBuilt rapport | 34+2 | 167t CO2, 112t reused | ✅ 2.7MB |
+#### 🇳🇴 Norway (7 case studies)
 
-**Total: 11 PDFs, 36MB hosted on GitHub Pages**
+| Project | Tier | Key Metrics | PDF Hosted |
+|---------|------|-------------|------------|
+| **KA13** | Flagship | 80% circ, 45t steel, 96t hulldekker | ✅ 15MB |
+| **KA23** | Flagship | 83% reuse, 55% CO2↓ | ✅ 1.4MB |
+| **Nedre Sem** | Strong | 48% SI, 100% recycled aggregate | ✅ 6.3MB |
+| **Løren** | Tier 2 | 4,620kg CO2 saved | ✅ 207KB |
+| **Føniks** | Tier 2 | 89% SI, 2600 items | ✅ 9.5MB |
+| **Skur 38** | Tier 2 | 167t CO2, 112t reused | ✅ 2.7MB |
+| **Oksenøya** | Tier 2 | 51.9-60.8% CO2↓ | - |
+
+#### 🇸🇪 Sweden (5 case studies)
+
+| Project | Tier | Key Metrics |
+|---------|------|-------------|
+| **Förskolan Hoppet** | Flagship | 62% CO2↓, Koljern foundation, NollCO2 |
+| **Kiruna Återbruket** | Flagship | 98% material recovery, 45% CO2↓ |
+| **Lumi Uppsala** | Strong | 80% structure, 43% CO2↓, LEED Plat |
+| **Sara Kulturhus** | Tier 2 | Carbon-negative, 9,095t CO2 stored |
+| **Selma Lagerlöfs** | Tier 2 | 92% interior reuse, 70% cost savings |
+
+#### 🇩🇰 Denmark (5 case studies)
+
+| Project | Tier | Key Metrics |
+|---------|------|-------------|
+| **Upcycle House** | Flagship | 86% CO2↓, 86% recycled materials |
+| **Circle House** | Flagship | 90% DfD target, RFID passports |
+| **Resource Rows** | Strong | 463t diverted, UP Mur methodology |
+| **UN17 Village** | Tier 2 | 1,600+ windows, DGNB Platinum |
+| **FBAB Seest** | Tier 2 | FSC timber, DGNB Gold |
+
+#### 🇮🇸 Iceland (4 case studies)
+
+| Project | Tier | Key Metrics |
+|---------|------|-------------|
+| **Háteigsvegur 59** | Flagship | 53% CO2↓, Mies nom. 2026 |
+| **Smiðja Parliament** | Strong | 80% circularity, local stone |
+| **Umhverfisstofnun** | Tier 2 | First Nordic Swan renovation, 94.4% waste |
+| **Stöng Ruins** | Tier 2 | Heritage sustainability, 1957 shelter |
+
+#### 🇫🇮 Finland (1 case study)
+
+| Project | Tier | Key Metrics |
+|---------|------|-------------|
+| **Pikku-Finlandia** | Flagship | World-leading DfD, EN 15978 LCA, relocating 2026 |
+
+**Total: 11 PDFs hosted (36MB) + 22 comprehensive case study files**
 
 ### Phase 3: Enablers & Value Chain ✅
 
@@ -180,18 +231,18 @@ Basic info only, no detailed circularity data:
    - Need: Statsbygg ombruksdokumentasjon
    - Contact: Statsbygg
 
-### Phase 8: Nordic Verification ✅ COMPLETE
+### Phase 8-11: Nordic Expansion ✅ COMPLETE
 
-**Verified Projects Added:**
-- 🇸🇪 Sweden: 3 (Förskolan Hoppet, Sara Kulturhus, Lumi)
-- 🇩🇰 Denmark: 4 (Upcycle House, Circle House, UN17 Village, Resource Rows)
-- 🇮🇸 Iceland: 3 (Smiðja Parliament, Umhverfisstofnun, Háteigsvegur 59)
+**Final Verified Projects:**
+- 🇸🇪 Sweden: 5 (Förskolan Hoppet, Sara Kulturhus, Lumi, Selma Lagerlöfs, Kiruna Återbruket)
+- 🇩🇰 Denmark: 5 (Upcycle House, Circle House, UN17 Village, Resource Rows, FBAB Seest)
+- 🇮🇸 Iceland: 4 (Smiðja Parliament, Umhverfisstofnun, Háteigsvegur 59, Stöng Ruins)
+- 🇫🇮 Finland: 1 (Pikku-Finlandia)
 
-**Remaining in Queue (19 total):**
-- 🇫🇮 Finland: 7 (Mustikkamaa, Pikku-Finlandia, Dance House, etc.) - metrics pending
-- 🇸🇪 Sweden: 6 (Tier B/C projects)
+**Remaining in Queue (16 total):**
+- 🇫🇮 Finland: 6 (Mustikkamaa, Tikkurila, Koivukylä, Dance House, etc.)
+- 🇸🇪 Sweden: 5 (Litteraturgatan, Svenska kraftnät, Borås Tingsrätt, etc.)
 - 🇩🇰 Denmark: 5 (Tier B/C projects)
-- 🇮🇸 Iceland: 1 (Stöng Viking Ruins)
 
 ---
 
@@ -268,31 +319,42 @@ Basic info only, no detailed circularity data:
 nordic-circular-buildings/
 ├── data/
 │   ├── projects/
-│   │   └── norway.json           # 25 projects
-│   ├── case-studies/
-│   │   ├── ka13_flagship.json    # 962 lines
-│   │   ├── ka23_flagship.json    # 720 lines
-│   │   ├── nedre_sem_strong.json # 711 lines
-│   │   ├── loren_tier2.json      # 232 lines
-│   │   ├── foniks_tier2.json     # 226 lines
-│   │   └── skur38_tier2.json     # 706 lines
+│   │   ├── norway.json           # 25 verified projects
+│   │   ├── sweden.json           # 5 verified projects
+│   │   ├── denmark.json          # 5 verified projects
+│   │   ├── iceland.json          # 4 verified projects
+│   │   └── finland.json          # 1 verified project
+│   ├── case-studies/             # 22 case studies total
+│   │   ├── ka13_flagship.json    # Norway
+│   │   ├── ka23_flagship.json
+│   │   ├── nedre_sem_strong.json
+│   │   ├── forskolan_hoppet_flagship.json  # Sweden
+│   │   ├── kiruna_aterbruket_flagship.json
+│   │   ├── upcycle_house_flagship.json     # Denmark
+│   │   ├── circle_house_flagship.json
+│   │   ├── hateigsvegur59_flagship.json    # Iceland
+│   │   ├── smidja_parliament_strong.json
+│   │   ├── pikku_finlandia_flagship.json   # Finland
+│   │   └── ... (22 files total)
 │   ├── enablers/
 │   │   └── norway.json           # 30+ enablers
 │   └── research/
 │       └── swedish_reuse_barriers_2024.json
 ├── site/
 │   ├── public/
-│   │   ├── data/norway.json      # Site data
+│   │   ├── data/                 # Synced country data
 │   │   └── docs/                 # 11 PDFs (36MB)
 │   └── src/pages/
-│       ├── index.astro           # Dashboard
-│       ├── enablers/index.astro  # NEW
+│       ├── index.astro           # Dashboard with map
+│       ├── [country]/index.astro # Country pages (/no/, /se/, etc.)
+│       ├── case-studies/[id].astro
+│       ├── enablers/index.astro
 │       ├── stakeholders.astro
-│       ├── data-gaps.astro
 │       └── project/[id].astro
 └── docs/
     ├── ROADMAP.md
-    └── STATUS.md                 # This file
+    ├── STATUS.md                 # This file
+    └── NORDIC_SOURCES_LIBRARY.md # 50+ primary sources
 ```
 
 ---
@@ -314,25 +376,28 @@ nordic-circular-buildings/
 
 ## Success Metrics
 
-### Current Achievement
-- **38 verified projects** across 5 countries ✅
-- **13 Nordic projects** verified (Phase 8 + 9) ✅
+### Current Achievement (Phase 11 Complete)
+- **40 verified projects** across 5 countries ✅
+- **22 comprehensive case studies** across all 5 countries ✅
+- **15 Nordic projects** verified (SE: 5, DK: 5, IS: 4, FI: 1) ✅
 - **All 5 Nordic countries** have verified projects ✅
+- **All 5 Nordic countries** have case study coverage ✅
 - 7/25 Norway projects (28%) have deep documentation
-- 11 source PDFs hosted
+- 11 source PDFs hosted (36MB)
 - 30+ enablers documented
 - **50+ primary sources** in sources library ✅
 - Website operational with 5-country support ✅
 
 ### Target (Next Phase)
-- 45+ verified projects (add remaining Tier B projects)
-- Add 3 more case studies (Grensen, Treklang, Nøstebukten)
-- Material flow visualization live
-- 50+ enablers with cross-references
+- 45+ verified projects (promote research queue)
+- Add 3+ more Norway case studies (Grensen 97.3%, Treklang, Nøstebukten)
+- Material flow visualization (Sankey diagram)
+- Swedish/Danish enablers documentation
+- Data consistency sync (case studies ↔ project files)
 
 ### Long-term
-- 50+ verified projects total ✅ (currently 55 documented)
-- Standardized Nordic comparison
+- 50+ verified projects total
+- Standardized Nordic comparison framework
 - Research publication potential
 - REST API for external access
 
