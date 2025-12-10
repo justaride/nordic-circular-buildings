@@ -4,7 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Nordic Circular Buildings Database - a research platform documenting public building projects demonstrating material circularity across Nordic countries. Currently: 25 verified Norwegian projects + 27 research queue projects (SE/DK/FI/IS). Data is stored as JSON and rendered via an Astro static site deployed to GitHub Pages.
+Nordic Circular Buildings Database - a research platform documenting public building projects demonstrating material circularity across Nordic countries.
+
+**Current State (Phase 11 Complete):**
+- **40 verified projects** across 5 countries (NO: 25, SE: 5, DK: 5, IS: 4, FI: 1)
+- **22 comprehensive case studies** (NO: 7, SE: 5, DK: 5, IS: 4, FI: 1)
+- **16 research queue projects** (SE: 5, DK: 5, FI: 6)
+- Data stored as JSON, rendered via Astro static site on GitHub Pages
+
+**Next Priorities:**
+1. Norway case study expansion (18 projects without case studies, including Grensen 9B at 97.3%)
+2. Research queue promotion (verify and add projects from queue)
+3. Data consistency sync (case study metrics → project files)
+4. Swedish/Danish enablers documentation
 
 ## Commands
 
@@ -35,11 +47,20 @@ node scripts/verify-integrity.js  # Full integrity check (data + case studies + 
 ```
 data/
 ├── schema.json              # JSON Schema for projects
-├── projects/                # Country data files
-│   ├── norway.json          # 22 verified projects
-│   └── {sweden,denmark,finland,iceland}.json  # Research queue
-├── case-studies/            # Deep-dive case studies (ka13_flagship.json, etc.)
-├── enablers/                # Policy enablers per country
+├── projects/                # Country data files (40 verified total)
+│   ├── norway.json          # 25 verified projects
+│   ├── sweden.json          # 5 verified + 5 queue
+│   ├── denmark.json         # 5 verified + 5 queue
+│   ├── iceland.json         # 4 verified
+│   └── finland.json         # 1 verified + 6 queue
+├── case-studies/            # 22 comprehensive case studies
+│   ├── ka13_flagship.json   # Norway flagships
+│   ├── forskolan_hoppet_flagship.json  # Sweden
+│   ├── upcycle_house_flagship.json     # Denmark
+│   ├── hateigsvegur59_flagship.json    # Iceland
+│   ├── pikku_finlandia_flagship.json   # Finland
+│   └── ... (22 files total)
+├── enablers/                # Policy enablers (currently norway.json only)
 └── flows/                   # Material flow mappings
 
 site/                        # Astro 5.16 + Tailwind 4.1
@@ -56,7 +77,8 @@ site/                        # Astro 5.16 + Tailwind 4.1
 
 scripts/
 ├── validate-schema.js       # Schema validation with errors/warnings
-└── sync-data.js             # Data sync to site/public/data/
+├── sync-data.js             # Data sync to site/public/data/
+└── verify-integrity.js      # Full integrity check (data + case studies + sync)
 ```
 
 ## Data Schema

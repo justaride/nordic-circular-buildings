@@ -6,31 +6,32 @@ A comprehensive research platform documenting public building projects in Nordic
 
 This database catalogs circular building projects across the Nordic region (Norway, Sweden, Denmark, Finland, Iceland) since 2020, serving as a resource for researchers, industry professionals, and policymakers working on circular economic design in construction.
 
-## Current Status
+## Current Status (Phase 11 Complete)
 
-| Country | Status | Verified Projects | Research Queue |
-|---------|--------|-------------------|----------------|
-| 🇳🇴 Norway | **Complete** | 25 | - |
-| 🇸🇪 Sweden | **Verified** | 4 | 5 |
-| 🇩🇰 Denmark | **Verified** | 4 | 6 |
-| 🇫🇮 Finland | **Verified** | 1 | 6 |
-| 🇮🇸 Iceland | **Verified** | 4 | - |
+| Country | Status | Verified Projects | Case Studies | Research Queue |
+|---------|--------|-------------------|--------------|----------------|
+| 🇳🇴 Norway | **Complete** | 25 | 7 | - |
+| 🇸🇪 Sweden | **Full Coverage** | 5 | 5 | 5 |
+| 🇩🇰 Denmark | **Full Coverage** | 5 | 5 | 5 |
+| 🇫🇮 Finland | **Flagship Done** | 1 | 1 | 6 |
+| 🇮🇸 Iceland | **Full Coverage** | 4 | 4 | - |
 
-**Total: 38 verified + 17 in research queue = 55 documented projects**
+**Total: 40 verified projects + 22 case studies + 16 in research queue**
 
 ## Live Site
 
 **https://justaride.github.io/nordic-circular-buildings/**
 
 ### Features
-- Interactive map with all projects
+- Interactive map with all 40 verified projects
 - Country-specific pages (`/no/`, `/se/`, `/dk/`, `/fi/`, `/is/`)
 - Dynamic routing with research queue support
 - Project detail pages with material flow visualization
-- 7 detailed case study pages
+- **22 detailed case study pages** across all 5 countries
 - Cost comparison data (reused vs new materials)
 - CO2 savings bar charts per material
 - Clickable source citations with PDF page links
+- 11 self-hosted PDFs (36MB) for reliable citations
 
 ## Norway Highlights
 
@@ -53,21 +54,23 @@ This database catalogs circular building projects across the Nordic region (Norw
 
 ## Nordic Verified Projects
 
-### Sweden (4 verified)
+### Sweden (5 verified)
 | Project | Year | Key Achievement |
 |---------|------|-----------------|
 | Förskolan Hoppet | 2021 | First fossil-free preschool, 62% CO2 reduction, NollCO2 pilot |
+| **Kiruna Återbruket** | 2013+ | **98% material recovery, 45% CO2 reduction, city relocation** |
 | Sara Kulturhus | 2021 | Carbon-negative, 9,095t CO2 stored in 12,200m³ timber |
 | Lumi (Kv. Hugin) | 2024 | 80% concrete frame reuse, LEED Platinum, 43% CO2 reduction |
-| **Selma Lagerlöfs Center** | 2019 | **92% interior reuse, 70% cost savings (9 MSEK), Design S Award** |
+| Selma Lagerlöfs Center | 2019 | 92% interior reuse, 70% cost savings (9 MSEK), Design S Award |
 
-### Denmark (4 verified)
+### Denmark (5 verified)
 | Project | Year | Key Achievement |
 |---------|------|-----------------|
 | Upcycle House | 2013 | Pioneer demo, 86% CO2 reduction, 86% recycled materials |
 | Circle House | 2023 | Europe's first DfD social housing, 90% disassembly target |
 | UN17 Village | 2024 | 535 units, DGNB Platinum, 1,600+ reused windows |
 | Resource Rows | 2019 | 500+ reused windows, industrial upcycling methodology |
+| **FBAB Seest** | 2019 | **FSC timber social housing, DGNB Gold, competition winner** |
 
 ### Iceland (4 verified)
 | Project | Year | Key Achievement |
@@ -91,13 +94,18 @@ data/
 ├── schema.json              # JSON schema definition
 ├── projects/
 │   ├── norway.json          # 25 verified projects
-│   ├── sweden.json          # 4 verified + 5 research queue
-│   ├── denmark.json         # 4 verified + 6 research queue
+│   ├── sweden.json          # 5 verified + 5 research queue
+│   ├── denmark.json         # 5 verified + 5 research queue
 │   ├── finland.json         # 1 verified + 6 research queue
 │   └── iceland.json         # 4 verified
 ├── enablers/                # Policy enablers per country
 ├── flows/                   # Material flow mappings
-└── case-studies/            # Deep-dive case studies
+└── case-studies/            # 22 comprehensive case studies
+    ├── ka13_flagship.json   # Norway (7)
+    ├── forskolan_hoppet_flagship.json  # Sweden (5)
+    ├── upcycle_house_flagship.json     # Denmark (5)
+    ├── hateigsvegur59_flagship.json    # Iceland (4)
+    └── pikku_finlandia_flagship.json   # Finland (1)
 ```
 
 ## Project Schema
@@ -143,25 +151,29 @@ npm run sync      # Sync data files
 
 ## Roadmap
 
-### Completed
+### Completed (Phase 11)
 - ✅ Norway: 25 verified projects with full documentation
 - ✅ Nordic expansion: Data templates for SE/DK/FI/IS
 - ✅ Dynamic country routing (`/no/`, `/se/`, `/dk/`, `/fi/`, `/is/`)
 - ✅ Research queue display for countries in research phase
-- ✅ 7 case studies with deep material traceability
+- ✅ **22 case studies** with deep material traceability (all 5 countries)
 - ✅ Nordic research plan and prompts for SE/DK/FI/IS
 - ✅ **Phase 8: 10 Nordic projects verified** (DK: 4, IS: 3, SE: 3)
 - ✅ **Phase 9: 3 more projects verified** (SE: +1, FI: +1, IS: +1)
+- ✅ **Phase 10: Nordic expansion** (Kiruna, FBAB Seest, Pikku-Finlandia LCA)
+- ✅ **Phase 11: 15 Nordic case studies** (SE: 5, DK: 5, IS: 4, FI: 1)
 - ✅ **Sources library created** with 50+ primary documents
-- ✅ **All 5 Nordic countries now have verified projects**
+- ✅ **All 5 Nordic countries have verified projects AND case studies**
 
-### In Progress
-- 🔄 Finland expansion (Mustikkamaa Depot pending CO2 data)
-- 🔄 Remaining Tier B projects
+### Next Priorities
+- 🔄 Norway case study expansion (18 projects without, incl. Grensen 9B at 97.3%)
+- 🔄 Research queue promotion (16 projects pending verification)
+- 🔄 Data consistency sync (case study metrics → project files)
+- 🔄 Swedish/Danish enablers documentation
 
 ### Planned
+- [ ] Material flow visualization (Sankey diagram)
 - [ ] REST API for external access
-- [ ] Integration with Nordic Circle Construction stakeholder map
 - [ ] Community contribution system
 
 ## Research Documentation
@@ -188,22 +200,24 @@ Research data. See individual source citations for original content attribution.
 
 ## Research Notes Status
 
-All primary research notes have been processed including new "Videre Dykk" research session:
+All primary research notes have been processed. Phase 11 complete with comprehensive case studies for all countries.
 
-| Country | Research Files | Verified | Queue | Extraction Status |
-|---------|---------------|----------|-------|-------------------|
-| 🇸🇪 Sweden | 14 + 6 new | 4 | 5 | ✅ Complete |
-| 🇩🇰 Denmark | 9 + 4 new | 4 | 6 | ✅ Complete |
-| 🇫🇮 Finland | 10 + 7 new | 1 | 6 | ✅ Pikku-Finlandia verified |
-| 🇮🇸 Iceland | 7 + 1 new | 4 | - | ✅ Complete |
-| **Total** | **58** | **38** | **17** | |
+| Country | Verified | Case Studies | Queue | Status |
+|---------|----------|--------------|-------|--------|
+| 🇳🇴 Norway | 25 | 7 | - | ✅ Complete |
+| 🇸🇪 Sweden | 5 | 5 | 5 | ✅ Full coverage |
+| 🇩🇰 Denmark | 5 | 5 | 5 | ✅ Full coverage |
+| 🇫🇮 Finland | 1 | 1 | 6 | ✅ Flagship done |
+| 🇮🇸 Iceland | 4 | 4 | - | ✅ Full coverage |
+| **Total** | **40** | **22** | **16** | |
 
-**Phase 9 Additions (2025-12-10):**
-- 🇸🇪 **Selma Lagerlöfs Center** - 92% interior reuse, 70% cost savings
-- 🇫🇮 **Pikku-Finlandia** - First Finland verified, world-leading DfD
-- 🇮🇸 **Stöng Viking Ruins** - First heritage sustainability project
+**Phase 10-11 Additions (2025-12-10):**
+- 🇸🇪 **Kiruna Återbruket** - 98% material recovery, 45% CO2 reduction
+- 🇩🇰 **FBAB Seest** - FSC timber, DGNB Gold
+- 🇫🇮 **Pikku-Finlandia LCA** - Full Aalto thesis data integrated
+- **15 new case studies** across SE/DK/IS/FI
 
-See `docs/NORDIC_RESEARCH_PROCESSING.md` for detailed extraction status.
+See `docs/STATUS.md` and `docs/ROADMAP.md` for detailed project status.
 
 ---
 
